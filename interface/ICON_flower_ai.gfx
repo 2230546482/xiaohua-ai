@@ -13,15 +13,19 @@ spriteTypes = {
 	#头像
 	#民族精神
 	spriteType = {
-		name = "GFX_event_flower_ai_1"
+		name = "GFX_idea_flower_ai_emeng"
 		texturefile = "gfx/interface/ideas/flower_ai_emeng.png"
 	}
 	spriteType = {
-		name = "GFX_event_flower_ai_1"
+		name = "GFX_idea_flower_ai_kunnan"
 		texturefile = "gfx/interface/ideas/flower_ai_kunnan.png"
 	}
 	spriteType = {
-		name = "GFX_event_flower_ai_1"
+		name = "GFX_idea_flower_ai_putong"
 		texturefile = "gfx/interface/ideas/flower_ai_putong.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ai_neizhan"
+		texturefile = "gfx/interface/ideas/flower_ai_neizhan.png"
 	}
 }
