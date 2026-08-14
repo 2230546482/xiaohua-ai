@@ -1,0 +1,36 @@
+﻿add_namespace = FLW_AI
+country_event = {
+    id = FLW_AI.1
+    title = FLW_AI.1.t
+    desc = FLW_AI.1.d
+    picture = GFX_event_flower_ai_1
+    is_triggered_only = yes
+    option = {
+        name = FLW_AI.1.a
+        ai_chance = {
+            factor = 0
+        }
+    }
+    option = {
+        name = FLW_AI.1.b
+        
+        ai_chance = {
+            factor = 0
+        }
+    }
+    option = {
+        name = FLW_AI.1.c
+        
+        ai_chance = {
+            factor = 0
+        }
+    }
+    option = {
+        name = FLW_AI.1.d
+        
+        ai_chance = {
+            factor = 0
+        }
+    }
+}
+
