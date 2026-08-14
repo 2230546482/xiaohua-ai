@@ -27,7 +27,7 @@ country_event = {
     }
     option = {
         name = FLWAI.1.f
-        
+        custom_effect_tooltip = FLWAI.1.f_tt
         ai_chance = {
             factor = 0
         }
