@@ -448,7 +448,7 @@ youhavethemusethem2 = {
 
     ai_strategy = {
         type = build_army
-        id = moren_armor
+        id = armor
         value = 30
     }
 
@@ -485,7 +485,7 @@ morenPushForMoreTANK = {
     abort_when_not_enabled = yes
     ai_strategy = {
         type = role_ratio
-        id = moren_armor
+        id = armor
         value = 30
     }
     ai_strategy = {
@@ -495,7 +495,31 @@ morenPushForMoreTANK = {
     }
 
 }
+LHSIfyouhavethemusethem2 = {
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_equipment = { medium_tank_chassis > 1 }
+        has_tech = improved_medium_tank_chassis
+    }
+    abort_when_not_enabled = yes
 
+    ai_strategy = {
+        type = build_army
+        id = armor
+        value = 500
+    }
+}
 MajorsBuildTanksWithManpowermoren = {
     allowed = {
        NOT = {
@@ -517,7 +541,7 @@ MajorsBuildTanksWithManpowermoren = {
     abort_when_not_enabled = yes
     ai_strategy = {
         type = role_ratio
-        id = moren_armor
+        id = armor
         value = 50
     }
     ai_strategy = {
@@ -538,22 +562,13 @@ moren_avoid_thin_lines = {
         }
         } }
     enable = {
-       NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-        }
-        }
+        has_war = yes
     }
     abort_when_not_enabled = yes
     ai_strategy = {
         type = front_unit_request
         state_trigger = {
-            is_controlled_by = LHS
+            is_controlled_by = ROOT
             check_variable = {
                 num_enemy_neighbor_states > 2
             }
