@@ -1,7 +1,6 @@
 version="1.0.0"
 tags={
-	"Historical"
-	"Gameplay"
+	"Fixes"
 }
 dependencies={
 	"Adorable heart"
