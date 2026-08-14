@@ -1,4 +1,93 @@
+AI_start1 = {
+    enable = {
+         NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_controlled_by = ROOT
+            any_neighbor_state = { controller = { has_war_with = ROOT } }
+            NOT = { is_coastal = yes }
+        }
+        priority = 200
+        ordertype = front
+        execution_type = balanced
+        manual_attack = yes
+    }
 
+    ai_strategy = { #注重船坞
+        type = front_control
+        state_trigger = {
+            is_coastal = yes
+            FROM = { has_war_with = FROM.FROM }
+        }
+        priority = 120
+        ordertype = front
+        execution_type = rush
+        manual_attack = yes
+
+    }
+    ai_strategy = {
+        type = building_target
+        id = supply_node
+        value = 200
+    }
+    ai_strategy = { #36年步兵装备
+        type = research_tech
+        id = infantry_equipment_1
+        value = 2000
+    }
+    ai_strategy = {
+        type = research_tech	#工业
+        id = concentrated_industry
+        value = 200
+    }
+    ai_strategy = {
+        type = research_tech	#电子学
+        id = electronic_mechanical_engineering
+        value = 200
+    }
+    #间谍
+    ai_strategy = {
+        type = become_spymaster
+        value = 30
+    }
+    ai_strategy = {
+        type = intelligence_agency_branch_desire_factor
+        id = branch_crypto  #密码学
+        value = 2000
+    }
+    ai_strategy = {
+        type = intelligence_agency_branch_desire_factor
+        id = branch_defense  #反间谍
+        value = 1500
+    }
+    ai_strategy = {
+        type = garrison
+        value = -200  #减少无意义驻军
+    }
+    #经验值使用
+    ai_strategy = {
+        type = land_xp_spend_priority
+        id = division_template  #优先升级编制
+        value = 200
+    }
+    ai_strategy = {
+        type = land_xp_spend_priority
+        id = upgrade_xp_cutoff  #然后升学说
+        value = 100
+    }
+}
 the_more_powerful_jiandie = {
     allowed = {
         NOT = {
