@@ -1,0 +1,3456 @@
+
+the_more_powerful_jiandie = {
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        always = yes
+    }
+
+    abort = {
+        always = no
+    }
+
+    ai_strategy = {
+        type = intelligence_agency_usable_factories
+        value = 1000
+    }
+
+    ai_strategy = {
+        type = intelligence_agency_branch_desire_factor
+        id = branch_defense
+        value = 1500
+    }
+    ai_strategy = {
+        type = intelligence_agency_branch_desire_factor
+        id = branch_crypto
+        value = 2000
+    }
+
+    ai_strategy = {
+        type = operation_equipment_priority
+        value = 100
+    }
+
+}
+
+moren_More_Infantry_focus = {#多产枪（40~70工厂）
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 39
+        arms_factory < 71
+        has_equipment = { infantry_equipment < 1000 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 50
+    }
+}
+
+moren_More_Infantry_focus_2 = {#多产枪（71~100工厂）
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 70
+        arms_factory < 101
+        has_equipment = { infantry_equipment < 1000 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 75
+    }
+}
+
+moren_More_Infantry_focus_3 = {#多产枪（101+工厂）
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 100
+        has_equipment = { infantry_equipment < 1000 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 125
+    }
+}
+
+moren_More_Support_focus = {#多产支援（40~70工厂）
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 39
+        arms_factory < 71
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 25
+    }
+}
+
+moren_More_Support_focus_2 = {#多产支援（71~100工厂）
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 70
+        arms_factory < 101
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 50
+    }
+}
+
+moren_More_Support_focus_3 = {#多产支援（101+工厂）
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 100
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 100
+    }
+}
+
+
+moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        num_divisions < 700
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = 800
+    }
+}
+
+moren_army_soft_cap = {#ai部署陆军倾向（稳定期）
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        num_divisions > 699
+        num_divisions < 901
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = -200
+    }
+}
+moren_stop_disbanding_your_army2 = {#ai部署陆军倾向（裁军期）
+    allowed = {
+      NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        num_divisions > 900
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = -1500
+    }
+}
+
+
+moren_More_Infantry_focus_2 = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 70
+        arms_factory < 99
+        has_equipment = { infantry_equipment < 1000 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 75
+    }
+    abort_when_not_enabled = yes
+}
+
+
+
+moren_More_Infantry_focus_3 = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 100
+        has_equipment = { infantry_equipment < 1000 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 125
+    }
+}
+
+
+
+
+moren_More_Support_focus = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 40
+        arms_factory < 69
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 25
+    }
+}
+
+
+moren_More_Support_focus_2 = {
+    allowed = {
+      NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 70
+        arms_factory < 99
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 50
+    }
+}
+moren_More_Support_focus_3 = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        arms_factory > 100
+        has_equipment = { support_equipment < 100 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 100
+    }
+}
+LessAirForMass = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_doctrine = mass_assault
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type  = air_factory_balance
+        value = -25
+    }
+}
+
+
+youhavethemusethem2 = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_equipment = { medium_tank_chassis > 1 }
+        has_tech = improved_medium_tank_chassis
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = build_army
+        id = moren_armor
+        value = 30
+    }
+
+}
+
+
+
+
+
+
+
+
+
+morenPushForMoreTANK = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+
+        has_manpower < 1500000
+        arms_factory > 45
+        has_equipment = {infantry_equipment > 25000}
+        has_tech = improved_medium_tank_chassis
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = moren_armor
+        value = 30
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = armor
+        value = 20
+    }
+
+}
+
+MajorsBuildTanksWithManpowermoren = {
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        is_major = yes
+        has_equipment = {infantry_equipment > 50000}
+        has_tech = improved_medium_tank_chassis
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = moren_armor
+        value = 50
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = armor
+        value = 50
+    }
+}
+moren_avoid_thin_lines = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = LHS
+            check_variable = {
+                num_enemy_neighbor_states > 2
+            }
+        }
+        value = 100
+    }
+
+
+}
+
+#1938年研究机动
+moren_ai_research_jidong = { #机动
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        date > 1938.1.1
+    }
+    abort = {
+        always = no
+    }
+    ai_strategy = { #40年步兵装备
+        type = research_tech
+        id = improved_infantry_weapons
+        value = 2000
+    }
+    ai_strategy = { #40年步兵装备2
+        type = research_tech
+        id = improved_infantry_weapons_2
+        value = 2000
+    }
+    ai_strategy = { #42年步兵装备
+        type = research_tech
+        id = advanced_infantry_weapons
+        value = 2000
+    }
+    ai_strategy = { #42年步兵装备
+        type = research_tech
+        id = advanced_infantry_weapons2
+        value = 2000
+    }
+    ai_strategy = { #火炮基础
+        type = research_tech
+        id = gw_artillery
+        value = 200
+    }
+    ai_strategy = { #火炮2
+        type = research_tech
+        id = interwar_artillery
+        value = 200
+    }
+    ai_strategy = { #工兵连 II
+        type = research_tech
+        id = tech_engineers2
+        value = 200
+    }
+    ai_strategy = { #维修连 II
+        type = research_tech
+        id = tech_maintenance_company2
+        value = 400
+    }
+    ai_strategy = { #后勤连 II
+        type = research_tech
+        id = tech_logistics_company2
+        value = 300
+    }
+}
+
+#1938年研究中坦
+moren_ai_research_tank = { #研究坦克
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        date > 1938.1.1
+    }
+    abort = {
+        always = no
+    }
+    ai_strategy = { #中坦
+        type = research_tech
+        id = basic_medium_tank_chassis
+        value = 0
+    }
+    ai_strategy = { #邪恶的坦克
+        type = research_tech
+        id = basic_heavy_tank_chassis
+        value = 0
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = artillery1
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = artillery2
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = artillery3
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = artillery4
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = antitank1
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = antitank2
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = antitank3
+        value = 200
+    }
+    ai_strategy = { #QF 25磅野战炮
+        type = research_tech
+        id = antitank4
+        value = 200
+    }
+    ai_strategy = { #38年弹药
+        type = research_tech
+        id = infantry_weapons2
+        value = 400
+    }
+    ai_strategy = { #高速公路
+        type = research_tech
+        id = r56_combat_service
+        value = 400
+    }
+    ai_strategy = { #基础计算机
+        type = research_tech
+        id = computing_machine
+        value = 400
+    }
+}
+
+moren_motorized_production = { #缺卡车
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_equipment = {
+            motorized_equipment < 1000
+        }
+        num_of_military_factories > 50
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = motorized
+        value = 10
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = motorized_equipment
+        value = 50
+    }
+}
+moren_artillery_production = { #缺炮
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+
+    }
+    enable = {
+        has_equipment = {
+            artillery_equipment < 200
+        }
+        num_of_military_factories > 50
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = artillery
+        value = 5
+    }
+}
+moren_anti_tank_production = { #缺at
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+
+    }
+    enable = {
+        has_equipment = {
+            anti_tank_equipment < 100
+        }
+        num_of_military_factories > 50
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = anti_tank
+        value = 5
+    }
+}
+moren_anti_air_production = { #缺对空
+    allowed = {
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+
+    }
+    enable = {
+        has_equipment = {
+            anti_air_equipment < 200
+        }
+        num_of_military_factories > 50
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = anti_air
+        value = 5
+    }
+}
+moren_train_production = { #缺火车
+    allowed = {
+      NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+
+    }
+    enable = {
+        has_equipment = {
+            train_equipment  < 50
+        }
+        num_of_military_factories > 50
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = train
+        value = 8
+    }
+}
+moren_convoy_production = { #缺运输船
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+
+    }
+    enable = {
+        has_equipment = {
+            convoy  < 500
+        }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = convoy
+        value = 10
+    }
+}
+
+#步兵装备
+moren_production_tier1_infantry = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_equipment = { infantry_equipment < 10000 }
+        num_of_military_factories > 20
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 200
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = infantry
+        value = 15  #至少15个厂
+    }
+}
+
+#支援装备、火炮
+moren_production_tier2_support = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_equipment = { infantry_equipment > 5000 }#枪够了
+        has_equipment = { support_equipment < 500 }
+        num_of_military_factories > 30
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = support
+        value = 150
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = support
+        value = 5
+    }
+}
+
+
+moren_counter_enemy_armor = { #应对敌军装甲
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        OR = {
+            any_enemy_country = {
+                or = {
+                    has_equipment = {
+                        light_tank_chassis > 2000
+                    }
+                    has_equipment = {
+                        heavy_tank_chassis > 2000
+                    }
+                    has_equipment = {
+                        medium_tank_chassis > 2000
+                    }
+                }
+            }
+            any_enemy_country = {
+                has_tech = improved_medium_tank_chassis
+                num_of_military_factories > 40
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    #爆反坦炮
+    ai_strategy = {
+        type = equipment_production_factor
+        id = anti_tank
+        value = 200
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = anti_tank
+        value = 15
+    }
+    #前线反坦炮优先权
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            controller = { has_war_with = LHS }
+            any_neighbor_state = {
+                is_controlled_by = LHS
+            }
+        }
+        value = 30
+    }
+    #研究反坦科技
+    ai_strategy = {
+        type = research_tech
+        id = antitank2
+        value = 500
+    }
+    ai_strategy = {
+        type = research_tech
+        id = antitank3
+        value = 500
+    }
+}
+
+
+moren_victory_acceleration = {#冲刺！！！
+    allowed = {NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        any_enemy_country = {
+            surrender_progress > 0.2
+        }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = {
+                has_war_with = ROOT
+                surrender_progress > 0.2
+            }
+        }
+        priority = 15000
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = spare_unit_factor
+        value = -30
+    }
+    ai_strategy = {
+        type = garrison
+        value = -200
+    }
+}
+
+moren_target_enemy_supply_hubs = {#断补给
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        num_of_military_factories > 60
+    }
+    abort_when_not_enabled = yes
+
+    #优先进攻有补给站的州
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+        }
+        priority = 6000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    #专门集合大部队去打这些点
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+            any_neighbor_state = { is_controlled_by = ROOT }
+        }
+        value = 60
+    }
+}
+
+moren_push_enemy_capital = {#冲首都
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        any_enemy_country = { surrender_progress > 0.1 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            owner = { has_war_with = ROOT }
+            is_capital = yes
+            any_neighbor_state = { is_controlled_by = ROOT }
+        }
+        priority = 50000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            owner = { has_war_with = ROOT }
+            is_capital = yes
+        }
+        value = 300
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            is_coastal = yes
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+        }
+        value = 50
+    }
+}
+
+moren_postwar_consolidation = {#战后恢复
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = no
+        OR = {
+            num_divisions < 300
+            has_manpower < 1000000
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 200
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = infantry
+        value = 20
+    }
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = 1500
+    }
+    ai_strategy = {
+        type = building_target
+        id = infrastructure
+        value = 300
+    }
+    ai_strategy = {
+        type = building_target
+        id = supply_node
+        value = 400
+    }
+    ai_strategy = {
+        type = garrison
+        value = 50
+    }
+}
+moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
+    allowed={
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        or = {
+            any_enemy_country = {
+                strength_ratio = {
+                    tag = ROOT
+                    ratio < 1.4
+                }
+            }
+        }
+    }
+    abort = {
+        and = {
+            or = {
+                any_enemy_country = {
+                    strength_ratio = {
+                        tag = ROOT
+                        ratio > 1.4
+                    }
+                }
+            }
+        }
+
+    }
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_coastal = yes
+            controller = { has_war_with = ROOT }
+        }
+        ratio = 0.2
+        priority = 20000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_control
+
+        state_trigger = {
+            FROM = { has_war_with = FROM.FROM }
+            FROM = {
+                divisions_in_state = { state = ROOT size = 0 }
+            }
+        }
+        priority = 90000
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_control
+
+        state_trigger = {
+            FROM = { has_war_with = FROM.FROM }
+            FROM = {
+                divisions_in_state = { state = ROOT size < 3 }
+            }
+        }
+
+        ratio = 0.8
+
+        priority = 5000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            OR = {
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+                is_coastal = yes
+            }
+        }
+        priority = 8000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+
+}
+
+moren_wartime_air_superiority = {#全力争夺制空权
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        num_of_military_factories > 50
+        OR = {
+            has_tech = basic_small_airframe
+        }
+    }
+    abort_when_not_enabled = yes
+
+    #大幅提升战斗机产能
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 150
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 12
+    }
+    #CAS配合地面攻势
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = 100
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cas
+        value = 8
+    }
+    #提升空军工厂分配
+    ai_strategy = {
+        type = air_factory_balance
+        value = 15
+    }
+
+}
+
+
+
+
+moren_crisis_iron_wall = {#身后就是白城
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        surrender_progress > 0.20
+        has_war = yes
+        not = {
+            has_war_with = PAU
+        }
+        not = {
+            has_war_with = PAM
+        }
+    }
+    abort = {
+        OR = {
+            surrender_progress < 0.13
+            has_capitulated = yes
+        }
+    }
+
+    #全面转为防守
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_controlled_by = ROOT
+        }
+        priority = 20000
+        ordertype = front
+        execution_type = careful
+        manual_attack = yes
+    }
+    #大量补充部队到核心州防线
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_core_of = LHS
+            is_controlled_by = ROOT
+            any_neighbor_state = {
+                controller = { has_war_with = ROOT }
+            }
+        }
+        value = 200
+    }
+    #抽回非核心区的兵力
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            NOT = { is_core_of = ROOT }
+            NOT = {
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+            }
+        }
+        value = -100
+    }
+    #大幅提升步枪和炮兵补充
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 300
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = artillery
+        value = 200
+    }
+    #停止装甲生产先活下去
+    ai_strategy = {
+        type = equipment_production_factor
+        id = armor
+        value = -200
+    }
+    #增加驻军保住占领地
+    ai_strategy = {
+        type = garrison
+        value = 100
+    }
+    #爆兵
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = 2000
+    }
+}
+
+moren_capital_shield = {#身后就是莉兰迪亚
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        NOT = {
+            any_enemy_country = { surrender_progress > 0.3 }
+        }
+    }
+    abort_when_not_enabled = yes
+    #首都及其周边州请求额外部队
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            OR = {
+                is_capital = yes
+                AND = {
+                    any_neighbor_state = { is_capital = yes }
+                    is_controlled_by = ROOT
+                }
+            }
+        }
+        value = 80
+    }
+    #首都周边执行谨慎模式
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            any_neighbor_state = { is_capital = yes }
+            is_controlled_by = ROOT
+            any_neighbor_state = {
+                controller = { has_war_with = ROOT }
+            }
+        }
+        priority = 25000
+        ordertype = front
+        execution_type = careful
+        manual_attack = yes
+    }
+}
+#识别可被包围的敌军并优先切断
+moren_encirclement_hunter = {
+    allowed = { original_tag = ROOT }
+    enable = {
+        has_war = yes
+        num_of_military_factories > 60
+        num_divisions > 200
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            NOT = { is_coastal = yes }
+            any_neighbor_state = { is_controlled_by = ROOT }
+            check_variable = { num_enemy_neighbor_states < 2 }
+        }
+        priority = 25000
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            NOT = { is_coastal = yes }
+            check_variable = { num_enemy_neighbor_states < 2 }
+        }
+        value = 60
+    }
+}
+moren_end_pocket = {#包围快速歼灭
+    allowed={
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        always = yes
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = {
+                        is_fully_controlled_by = FROM.FROM
+                    }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                controller = {
+                    NOT = {
+                        has_war_with = FROM.FROM
+                    }
+                }
+            }
+        }
+        ratio = 0.0
+        priority = 9999999
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+
+    }
+
+    ai_strategy = {
+
+        type = front_unit_request
+
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = {
+                        is_fully_controlled_by = FROM.FROM
+                    }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                controller = {
+                    NOT = {
+                        has_war_with = FROM.FROM
+                    }
+                }
+            }
+        }
+        value = 40
+    }
+}
+moren_concentrate_troops = {#集中突破
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        always = yes
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = force_concentration_factor
+        value = 15  # base + 15 = 30 %
+    }
+
+}
+moren_victory_phase1_crack = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        any_enemy_country = {
+            surrender_progress > 0.05
+            surrender_progress < 0.20
+        }
+        NOT = { surrender_progress > 0.15 }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = { has_war_with = ROOT }
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+            any_neighbor_state = { is_controlled_by = ROOT }
+        }
+        priority = 12000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = garrison
+        value = -150
+    }
+    ai_strategy = {
+        type = spare_unit_factor
+        value = -20
+    }
+}
+
+moren_victory_phase2_exploit = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        any_enemy_country = {
+            surrender_progress > 0.20
+            surrender_progress < 0.45
+        }
+        NOT = { surrender_progress > 0.15 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            owner = {
+                has_war_with = ROOT
+                surrender_progress > 0.20
+            }
+            is_capital = yes
+            any_neighbor_state = { is_controlled_by = ROOT }
+        }
+        priority = 40000
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = {
+                has_war_with = ROOT
+                surrender_progress > 0.20
+            }
+        }
+        priority = 15000
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = spare_unit_factor
+        value = -40
+    }
+    ai_strategy = {
+        type = garrison
+        value = -200
+    }
+}
+
+moren_victory_phase3_annihilate = {
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        any_enemy_country = { surrender_progress > 0.45 }
+        NOT = { surrender_progress > 0.15 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = {
+                has_war_with = ROOT
+                surrender_progress > 0.45
+            }
+        }
+        priority = 60000
+        ratio = 0.95
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+
+    # 全军压上
+    ai_strategy = {
+        type = spare_unit_factor
+        value = -100
+    }
+    ai_strategy = {
+        type = garrison
+        value = -300
+    }
+    # 爆更多师团填线
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = 300
+    }
+}
+moren_strategic_withdrawal = {#主动收缩
+    allowed = { NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        } }
+    enable = {
+        has_war = yes
+        surrender_progress > 0.05
+        surrender_progress < 0.20
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = ROOT
+            NOT = { is_core_of = ROOT }
+            NOT = {
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+            }
+            NOT = { is_capital = yes }
+            any_neighbor_state = { controller = { has_war_with = ROOT } }
+        }
+        value = -150
+    }
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_core_of = ROOT
+            is_controlled_by = ROOT
+            any_neighbor_state = { controller = { has_war_with = ROOT } }
+        }
+        value = 150
+    }
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_core_of = ROOT
+            is_controlled_by = ROOT
+            any_neighbor_state = { controller = { has_war_with = ROOT } }
+        }
+        priority = 10000
+        ordertype = front
+        execution_type = careful
+        manual_attack = yes
+    }
+}
+
+moren_protect_supply_lines = { #死守补给点
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_controlled_by = ROOT
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+
+            any_neighbor_state = {
+                controller = { has_war_with = ROOT }
+            }
+        }
+        priority = 5000
+        ordertype = front
+        execution_type = careful
+        manual_attack = yes
+    }
+
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = ROOT
+            any_province_building_level = {
+                province = { all_provinces = yes }
+                building = supply_node
+                level > 0
+            }
+            any_neighbor_state = {
+                controller = { has_war_with = ROOT }
+            }
+        }
+        value = 50
+    }
+}
+
+moren_check_omega_lul = { #部队逻辑
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        always = yes
+    }
+    abort = {
+        always = no
+    }
+    ai_strategy = {#不待烂地
+        type = front_control
+        state_trigger = {
+            is_controlled_by = ROOT
+            NOT = {
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+            }
+            NOT = { is_capital = yes }
+        }
+        priority = 10
+        ordertype = front
+        execution_type = careful
+    }
+
+    #告诉AI从这些垃圾地块把兵抽走
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = ROOT
+            NOT = { #没有补给站
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+            }
+            NOT = { is_capital = yes }
+        }
+        value = -50
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_capital = yes
+            owner = { tag = FROM.FROM }
+        }
+        value = 50
+    }
+
+
+    ai_strategy = { #登陆更有价值的地块
+        type = invasion_unit_request
+        state_trigger = {
+            NOT = { has_state_flag = recent_naval_invasion_flag }
+            check_variable = { state_strategic_value < 3 }
+        }
+        value = -5
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        state_trigger = {
+            NOT = { has_state_flag = recent_naval_invasion_flag }
+            NOT = { is_core_of = FROM.FROM }
+            check_variable = { state_strategic_value < 8 }
+        }
+        value = -3
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        state_trigger = {
+            NOT = { has_state_flag = recent_naval_invasion_flag }
+            NOT = { is_core_of = FROM.FROM }
+        }
+        value = -3
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        state_trigger = {
+            NOT = { has_state_flag = recent_naval_invasion_flag }
+            NOT = { is_core_of = FROM.FROM }
+            NOT = {
+                any_province_building_level = {
+                    province = {
+                        all_provinces = yes
+                    }
+                    building = supply_node
+                    level > 0
+                }
+            }
+        }
+        value = -15
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        state_trigger = {
+            NOT = { has_state_flag = recent_naval_invasion_flag }
+
+            any_province_building_level = {
+                province = {
+                    all_provinces = yes
+                }
+                building = supply_node
+                level > 0
+            }
+
+        }
+        value = 15
+    }
+
+}
+moren_build_an_air_facility_faster = {#建造空军研究设施
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+
+        is_major = yes # Minors don't bother until strong enough to be considered major
+        num_of_military_factories > 40 # We should first build up our military concentrated_industry
+
+        OR = { # Don't start until we can build decent aircraft
+            has_tech = basic_small_airframe
+            has_tech = basic_medium_airframe
+            has_tech = basic_large_airframe
+        }
+        air_facility < 1 # one is enough
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = build_building
+        id = air_facility
+        value = 1000
+    }
+}
+
+moren_build_a_lw_facility_faster = {#建造陆军研究设施
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        is_major = yes
+        num_of_civilian_factories > 40
+        num_of_military_factories > 40
+        OR = { # Don't start until we can build decent tanks of some kind
+            has_tech = improved_light_tank_chassis
+            has_tech = basic_medium_tank_chassis
+            has_tech = improved_heavy_tank_chassis
+        }
+        land_facility < 1 # one is enough
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = build_building
+        id = land_facility
+        value = 1000
+    }
+}
+
+
+
+
+
+moren_build_a_nav_facility_faster = {#建造海军研究设施
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        num_of_naval_factories > 25 # Only Naval Powers should bother with these unless specifically told to do otherwise
+        naval_facility < 1 # one is enough
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = build_building
+        id = naval_facility
+        value = 1000
+    }
+}
+
+
+moren_build_a_nl_facility_faster = {#建造核研究设施
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        has_tech = atomic_research
+        num_of_civilian_factories > 25
+        num_of_military_factories > 25 # Even if we have the base tech, let's wait until we have some kind of capacity
+        nuclear_facility < 1  # one is enough
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = build_building
+        id = nuclear_facility
+        value = 1000
+    }
+}
+
+LHS_recruit_land_scientist_faster = { #招募陆战科学家
+    allowed = {
+        original_tag = LHS
+    }
+    enable = {
+        land_facility > 0
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = recruit_scientist
+        id = specialization_land
+        value = 1000
+    }
+}
+
+moren_recruit_nuclear_scientist_faster = {#招募核研究科学家
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        nuclear_facility > 0
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = recruit_scientist
+        id = specialization_nuclear
+        value = 1000
+    }
+}
+
+moren_recruit_naval_scientist_faster = {#招募海战科学家
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        naval_facility > 0
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = recruit_scientist
+        id = specialization_naval
+        value = 1000
+    }
+}
+
+moren_recruit_air_scientist_faster = {#招募空战科学家
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = LHS
+        }
+        }
+    }
+    enable = {
+        air_facility > 0
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = recruit_scientist
+        id = specialization_air
+        value = 1000
+    }
+}
+#生产制造
+default_unit_production = {
+    enable = {
+        always = yes
+        is_major = no
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = ROM
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        is_regional_powerhouse_tag = no
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = armor
+        value = 5
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = garrison
+        value = 0
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = infantry
+        value = 65
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = marines
+        value = 0
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = mountaineers
+        value = 0
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = suppression
+        value = 0
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = infantry
+        value = 40
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = artillery
+        value = 25
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 15
+    }
+}
+
+default_specialised_production = {
+    enable = {
+        is_major = no
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        num_of_military_factories > 49
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = artillery
+        value = 4
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = artillery
+        value = 55
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = anti_air
+        value = 2
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = anti_air
+        value = 25
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = motorized
+        value = 2
+    }
+}
+
+default_mountaineers_production = {
+    enable = {
+        is_major = no
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        ai_wants_divisions > 24
+        has_terrain = mountain
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = mountaineers
+        value = 3
+    }
+}
+
+default_armour_production = {
+    enable = {
+        is_major = no
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        ai_wants_divisions > 49
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = armor
+        value = 5
+    }
+}
+
+default_AUTO_META_production = {
+    enable = {
+        has_tech = auto_meta_0
+        OR = {
+            tag = DEN
+            tag = ROM
+            tag = FRG
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = role_ratio
+        id = auto_meta_tech
+        value = 40
+    }
+}
+
+higher_armour_production = {
+    enable = {
+        is_major = no
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        num_of_military_factories > 69
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = armor
+        value = 5
+    }
+}
+
+highest_armour_production = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        num_of_military_factories > 109
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = role_ratio
+        id = armor
+        value = 10
+    }
+}
+
+stockpile_less_early_game = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date < 1939.1.1
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_stockpile_surplus_ratio
+        value = -20
+    }
+}
+
+DEFAULT_template_design_low_factories = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date < 1940.1.1
+        num_of_military_factories < 75
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = template_prio
+        id = motorized
+        value = 20
+    }
+    ai_strategy = {
+        type = template_prio
+        id = infantry
+        value = 70
+    }
+}
+
+DEFAULT_template_design_industrial_country = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date < 1940.1.1
+        num_of_military_factories > 74
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = template_prio
+        id = motorized
+        value = 20
+    }
+    # ai_strategy = {
+        # type = template_prio
+        # id = light_armor
+        # value = 50
+    # }
+    ai_strategy = {
+        type = template_prio
+        id = medium_armor
+        value = 10
+    }
+    ai_strategy = {
+        type = template_prio
+        id = infantry
+        value = 70
+    }
+}
+
+LATE_template_design_low_factories = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date > 1940.1.1
+        num_of_military_factories < 75
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = template_prio
+        id = motorized
+        value = 10
+    }
+    ai_strategy = {
+        type = template_prio
+        id = mechanized
+        value = 20
+    }
+    ai_strategy = {
+        type = template_prio
+        id = infantry
+        value = 70
+    }
+}
+
+LATE_template_design_industrial_country = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date > 1940.1.1
+        num_of_military_factories > 74
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = template_prio
+        id = motorized
+        value = 10
+    }
+    ai_strategy = {
+        type = template_prio
+        id = mechanized
+        value = 20
+    }
+    ai_strategy = {
+        type = template_prio
+        id = light_armor
+        value = 10
+    }
+    ai_strategy = {
+        type = template_prio
+        id = medium_armor
+        value = 50
+    }
+    ai_strategy = {
+        type = template_prio
+        id = modern_armor
+        value = 50
+    }
+    ai_strategy = {
+        type = template_prio
+        id = infantry
+        value = 30
+    }
+}
+
+more_cavalry_focused_nation = {
+    allowed = {
+        OR = {
+            tag = MON
+            tag = TAM
+            tag = SIK
+        }
+    }
+
+    enable = {
+         always = yes
+    }
+    abort = {
+        date > 1940.1.1
+        has_tech = motorised_infantry
+    }
+
+    ai_strategy = {
+        type = role_ratio
+        id = infantry
+        value = -20
+    }
+    ai_strategy = {
+        type = role_ratio
+        id = cavalry
+        value = 20
+    }
+    ai_strategy = {
+        type = template_prio
+        id = cavalry
+        value = 50
+    }
+}
+
+we_need_synth_oil = {
+    allowed = {
+        OR = {
+            tag = DVL
+            tag = FRA
+            tag = SOV
+            tag = GER
+        }
+    }
+    enable = {
+        has_tech = synth_oil_experiments
+        synthetic_refinery < 3
+        has_war = no
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = building_target
+        id = synthetic_refinery
+        value = 3
+    }
+}
+
+default_stockpile_management = {
+
+    allowed = {
+        NOT = {
+            original_tag = SOV
+            original_tag = DVL
+            original_tag = ROC
+            original_tag = CHI
+            original_tag = MAN
+            original_tag = LHS
+        }
+    }
+
+    enable = {
+        num_divisions > 150
+    }
+
+    abort = {
+        num_divisions < 130
+    }
+
+    ai_strategy = {
+        type = equipment_stockpile_surplus_ratio
+        value = 35
+    }
+}
+
+
+#空军生产
+early_air_production_basic = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        num_of_military_factories > 24
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = fighter
+        value = 200
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 15
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 1
+    }
+}
+
+early_air_production_specialised = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date < 1940.1.1
+        num_of_military_factories > 24
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cas
+        value = 20
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = naval_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = tactical_bomber
+        value = 15
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = tactical_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = strategic_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = heavy_fighter
+        value = 1
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = heavy_fighter
+        value = 1
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = scout_plane
+        value = 1
+    }
+}
+
+early_air_production_full = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date < 1940.1.1
+        num_of_military_factories > 34
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cas
+        value = 5
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = 10
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cas
+        value = 3
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = strategic_bomber
+        value = 20
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strategic_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = large_plane_airframe
+        value = 1
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = heavy_fighter
+        value = 1
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = heavy_fighter
+        value = 1
+    }
+}
+
+late_air_production = {
+    enable = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = FRA
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                original_tag = PAQ
+                original_tag = NFA
+                original_tag = NGD
+                original_tag = FRG
+                original_tag = GER
+                original_tag = SOV
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+        date > 1940.1.1
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = fighter
+        value = 300
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 25
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 8
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = cas
+        value = 25
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = 15
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = cas
+        value = 3
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = naval_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = tactical_bomber
+        value = 15
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = tactical_bomber
+        value = 5
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = strategic_bomber
+        value = 15
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strategic_bomber
+        value = 10
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = large_plane_airframe
+        value = 5
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = heavy_fighter
+        value = 4
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = heavy_fighter
+        value = 4
+    }
+    ai_strategy = {
+        type = unit_ratio
+        id = scout_plane
+        value = 1
+    }
+}
+
+
+default_spyplanes_production = {
+    allowed = {
+        has_dlc = "La Resistance"
+    }
+    enable = {
+        has_design_based_on = medium_plane_scout_plane_airframe
+        is_major = yes
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = scout_plane
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = scout_plane
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = scout_plane
+        value = 1
+    }
+}
+
+minors_dont_spy = {
+    allowed = {
+        has_dlc = "La Resistance"
+    }
+    enable = {
+        has_design_based_on = medium_plane_scout_plane_airframe
+        is_major = no
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = scout_plane
+        value = -10
+    }
+}
+
+build_patrol_bombers = {
+    allowed = {
+        has_dlc = "By Blood Alone"
+    }
+    enable = {
+        has_navy_size = {
+            size > 1
+        }
+    }
+     abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = maritime_patrol_plane
+        value = 1
+    }
+}
+
+build_more_patrol_bombers = {
+    allowed = {
+        has_dlc = "By Blood Alone"
+    }
+    enable = {
+        has_navy_size = {
+            size > 50
+        }
+        is_major = yes
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = unit_ratio
+        id = maritime_patrol_plane
+        value = 8
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = maritime_patrol_plane
+        value = 10
+    }
+}
+
+#海军生产
+naval_unit_role_ratios = {
+    allowed = {
+        NOT = {
+            OR = {
+                has_country_flag = The_country_with_customized_AI
+                original_tag = DVL
+                original_tag = JAP
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = PAO
+                original_tag = LHS
+                original_tag = MGU
+                original_tag = USA
+                original_tag = CHI
+                original_tag = KMK
+                Kivotos_is_kivotos_country = yes
+            }
+        }
+    }
+    enable = { num_of_naval_factories > 0 }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = role_ratio
+        id = naval_screen
+        value = 10
+    }
+
+    ai_strategy = {
+        type = role_ratio
+        id = naval_submarine
+        value = 50
+    }
+}
+
+
+we_need_convoys = {
+    enable = { stockpile_ratio = { archetype = convoy ratio < 75 } }
+    abort = { stockpile_ratio = { archetype = convoy ratio > 125 } }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = convoy
+        value = 5
+    }
+}
+
+we_need_convoys2 = {
+    enable = { stockpile_ratio = { archetype = convoy ratio < 150 } }
+    abort = { stockpile_ratio = { archetype = convoy ratio > 200 } }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = convoy
+        value = 5
+    }
+}
+
+we_need_convoys3 = {
+    enable = { stockpile_ratio = { archetype = convoy ratio < 250 } }
+    abort = { stockpile_ratio = { archetype = convoy ratio > 300 } }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = convoy
+        value = 3
+    }
+}
+
+we_need_convoys4 = {
+    enable = { stockpile_ratio = { archetype = convoy ratio < 400 } }
+    abort = { stockpile_ratio = { archetype = convoy ratio > 450 } }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = convoy
+        value = 2
+    }
+}
+
+we_dont_need_convoys_1 = {
+    enable = { stockpile_ratio = { archetype = convoy ratio > 200 } }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = convoy
+        value = -500
+    }
+}
+
+we_dont_need_convoys_2 = {
+    enable = { stockpile_ratio = { archetype = convoy ratio > 500 } }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = convoy
+        value = -500
+    }
+}
+
+default_produce_floating_harbors = {
+    enable = {
+        has_war = yes
+        num_of_naval_factories > 25
+        num_of_military_factories > 40 # floating harbors are used for invasions. Why do large invasions if you don't have the industrial capacity?
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = unit_ratio
+        id = floating_harbor # for floating harbors, 'unit_ratio' is actually not a ratio but an absolute desired number
+        value = 10
+    }
+}
+
+#ai行为
+default_pp_spend_amount = {
+    enable = {
+        always = yes
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = pp_spend_amount
+        id = idea
+        value = 100
+    }
+    ai_strategy = {
+        type = pp_spend_amount
+        id = decision
+        value = 100
+    }
+
+    ai_strategy = {
+        type = pp_spend_priority
+        id = relation
+        value = -9999
+    }
+    ai_strategy = {
+        type = pp_spend_priority
+        id = relation
+        value = -9999
+    }
+}
+
+dont_guard_against_overlord_puppets = {
+    enable = {
+        is_subject = yes
+        is_in_faction = no
+        overlord = { num_subjects > 1 }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_unit_request
+        country_trigger = {
+            is_subject = yes
+            overlord = { has_subject = ROOT }
+        }
+        value = -2000
+    }
+}
+
+ask_foreign_manpower_as_major = {
+    enable = {
+        is_major = yes
+        garrison_manpower_need > 200000
+    }
+
+    abort = {
+        garrison_manpower_need < 100000
+    }
+
+    ai_strategy = {
+        type = asking_foreign_garrison
+        value = 100
+        # id = ITA # id is optionnal. If it is filled, the value will just apply for this country. If not, the value will apply for all countries.
+    }
+}
+
+put_garrisons_on_high_prio = {
+    enable = {
+        always = yes
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = garrison_reinforcement_priority
+        value = 100 # positive is high prio, negative is low prio
+    }
+}
+
+division_upgrades_are_very_important = {
+    enable = {
+        has_war = yes
+        NOT = {
+            original_tag = PAO
+            original_tag = LHS
+            original_tag = PAM
+        }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = land_xp_spend_priority
+        id = division_template
+        value = 100
+    }
+}
+
