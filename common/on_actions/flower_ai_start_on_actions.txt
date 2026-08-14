@@ -5,7 +5,7 @@ on_actions = {
                 limit = {
                     is_ai = no
                 }
-                country_event = FLW_AI.1
+                country_event = FLWAI.1
             }
         }
     }
