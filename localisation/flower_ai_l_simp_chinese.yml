@@ -7,3 +7,9 @@ FLWAI.1.b:0 "§8“困难难度”§!"
 FLWAI.1.c:0 "§1“普通难度”§!"
 FLWAI.1.f:0 "§7“正常难度”§!"
 FLWAI.1.f_tt:0 "§7“只修改了战斗逻辑与编制”§!"
+
+
+red_most_hard_ai:0 "§1《暴风雪侵袭之夜》§!"
+red_most_hard_player:0 "§1《暴风雪侵袭之夜》§!"
+FLWAI.:0 "§8《漫天阴云之黄昏》§!"
+red_normal_hard_ai:0 "§t《日光照耀之晨曦》§!"

@@ -14,7 +14,7 @@ ideas = {
                     is_subject = yes
                 }
 			}
-            picture = liangshi
+            picture = GFX_idea_flower_ai_emeng
             modifier = {
                 army_speed_factor = 1
                 army_attack_speed_factor = -1
@@ -70,7 +70,7 @@ ideas = {
                     is_subject = no
                 }
 			}
-            picture = liangshi
+            picture = GFX_idea_flower_ai_emeng
             modifier = {
                 weekly_manpower = 2000
                 army_strength_factor = 0.2
@@ -99,7 +99,7 @@ ideas = {
                     is_subject = yes
                 }
 			}
-            picture = liangshi
+            picture = GFX_idea_flower_ai_putong
             modifier = {
                 weekly_manpower = 2000
                 conscription = 0.01
