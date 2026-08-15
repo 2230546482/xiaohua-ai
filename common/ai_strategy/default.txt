@@ -24,7 +24,6 @@ AI_start1 = {
         execution_type = balanced
         manual_attack = yes
     }
-
     ai_strategy = { #注重船坞
         type = front_control
         state_trigger = {
@@ -538,17 +537,17 @@ youhavethemusethem2 = {
     ai_strategy = {
         type = build_army
         id = armor
-        value = 30
+        value = 100
     }
     ai_strategy = {
         type = template_prio
         id = armor
-        value = 100
+        value = 800
     }
     ai_strategy = {
         type = role_ratio
         id = armor
-        value = 100
+        value = 800
     }
 
 }
@@ -934,7 +933,7 @@ ai_research_mechanised = { #机械化1
     allowed = {
     }
     enable = {
-        has_completed_focus = ENG_112_jdzz
+        date > 1940.1.1
     }
     abort = {
         always = no
@@ -955,12 +954,11 @@ ai_research_mechanised_2 = { #机械化2
     ai_strategy = { #机械化2
         type = research_tech
         id = mechanised_infantry2
-        value = 100
+        value = 800
     }
 }
 ai_research_mechanised_3 = { #机械化3
     allowed = {
-        original_tag = ENG
     }
     enable = {
         date > 1944.6.1
@@ -971,7 +969,7 @@ ai_research_mechanised_3 = { #机械化3
     ai_strategy = { #机械化3
         type = research_tech
         id = mechanised_infantry3
-        value = 100
+        value = 800
     }
 }
 
@@ -2734,7 +2732,36 @@ default_pp_spend_amount = {
         id = decision
         value = 100
     }
-
+    ai_strategy = {
+        type = equipment_production_min_factories_archetype
+        id = super_heavy_artillery_equipment
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = super_heavy_artillery_equipment
+        value = -99
+    }
+    
+    ai_strategy = {
+		type = super_heavy_artillery_equipment
+		value = -999
+	}
+    ai_strategy = {
+        type = equipment_production_min_factories_archetype
+        id = self_propelled_super_heavy_artillery_equipment
+        value = -99
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = self_propelled_super_heavy_artillery_equipment
+        value = -99
+    }
+    
+    ai_strategy = {
+		type = self_propelled_super_heavy_artillery_equipment
+		value = -999
+	}
     ai_strategy = {
         type = pp_spend_priority
         id = relation

@@ -111,7 +111,10 @@ ai_res_industry_3 = {
 #坦克底盘与组件
 ai_res_tank_gw_chassis = {
 	allowed = { always = yes }
-	enable = { date > 1936.1.1 }
+	enable = { 
+		date > 1936.1.1
+		has_tech = infantry_equipment_1
+	 }
 	abort = { has_tech = gwtank_chassis }
 
 	ai_strategy = { type = research_weight_factor id = gwtank_chassis value = 100 }
@@ -340,12 +343,19 @@ ai_res_antitank_5 = {
 ai_res_motorized_trucks = {
 	allowed = { always = yes }
 	enable = { date > 1936.1.1 }
+	abort = { has_tech =  motorized_equipment_0 }
+
+	ai_strategy = { type = research_weight_factor id =  motorized_equipment_0 value = 100 }
+	ai_strategy = { type = research_tech id =  motorized_equipment_0 value = 100 }
+}
+ai_res_motorized_trucks = {
+	allowed = { always = yes }
+	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_trucks }
 
 	ai_strategy = { type = research_weight_factor id = tech_trucks value = 100 }
 	ai_strategy = { type = research_tech id = tech_trucks value = 100 }
 }
-
 ai_res_motorized_infantry = {
 	allowed = { always = yes }
 	enable = { date > 1936.7.1 }
@@ -448,6 +458,9 @@ ai_res_radio_3 = {
 ai_res_air_modules_range = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		date > 1936.5.1
 		num_of_military_factories > 25
 	}

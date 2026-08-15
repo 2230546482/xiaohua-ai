@@ -26,7 +26,7 @@ infantry_LHS = {
                 field_hospital = 1
                 logistics_company = 1 #后勤连
                 anti_air = 1
-                rangers_support = 1 #游骑兵支援连
+                recon = 1 
             }
         }
         replace_at_match = 1.5
@@ -57,7 +57,7 @@ infantry_LHS = {
                 field_hospital = 1
                 logistics_company = 1 #后勤连
                 anti_air = 1
-                rangers_support = 1 #游骑兵支援连
+                recon = 1  
             }
         }
         replace_at_match = 1.5
@@ -91,7 +91,7 @@ infantry_LHS = {
                 anti_tank = 1  # 反坦克
                 logistics_company = 1 #后勤连
                 anti_air = 1
-                rangers_support = 1 #游骑兵支援连
+                recon = 1
             }
         }
     }
@@ -119,11 +119,13 @@ LHS_armor = {
 				field_hospital = 1
             }
             regimental_support = {
-				field_guns = 5
+				heavy_tank_destroyer_support = 3
+				anti_air_battery = 2
 			}
             regiments = {
-                youjibudui = 9
-                medium_armor = 9
+                youjibudui = 8
+                medium_armor = 7
+				heavy_tank_destroyer_brigade = 3
             }
             support = {
 				armored_engineer = 1
