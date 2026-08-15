@@ -5,16 +5,16 @@ ai_res_infantry_equipment_1 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = infantry_equipment_1 }
 
-	ai_strategy = { type = research_weight_factor id = infantry_equipment_1 value = 100 }
-	ai_strategy = { type = research_tech id = infantry_equipment_1 value = 100 }
+	ai_strategy = { type = research_weight_factor id = infantry_equipment_1 value = 50 }
+	ai_strategy = { type = research_tech id = infantry_equipment_1 value = 50 }
 }
 ai_res_support_signal_1 = {
 	allowed = { always = yes }
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_signal_company }
 
-	ai_strategy = { type = research_weight_factor id = tech_signal_company value = 100 }
-	ai_strategy = { type = research_tech id = tech_signal_company value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_signal_company value = 50 }
+	ai_strategy = { type = research_tech id = tech_signal_company value = 50 }
 }
 
 ai_res_support_signal_2 = {
@@ -22,8 +22,8 @@ ai_res_support_signal_2 = {
 	enable = { date > 1938.1.1 }
 	abort = { has_tech = tech_signal_company2 }
 
-	ai_strategy = { type = research_weight_factor id = tech_signal_company2 value = 100 }
-	ai_strategy = { type = research_tech id = tech_signal_company2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_signal_company2 value = 50 }
+	ai_strategy = { type = research_tech id = tech_signal_company2 value = 50 }
 }
 
 ai_res_support_signal_sp = {
@@ -33,8 +33,8 @@ ai_res_support_signal_sp = {
 	enable = { date > 1937.1.1 }
 	abort = { has_tech = sp_armored_signal_tech }
 
-	ai_strategy = { type = research_weight_factor id = sp_armored_signal_tech value = 100 }
-	ai_strategy = { type = research_tech id = sp_armored_signal_tech value = 100 }
+	ai_strategy = { type = research_weight_factor id = sp_armored_signal_tech value = 50 }
+	ai_strategy = { type = research_tech id = sp_armored_signal_tech value = 50 }
 }
 
 #工业与生产
@@ -51,13 +51,13 @@ ai_res_industry_0 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = basic_machine_tools value = 100 }
-	ai_strategy = { type = research_weight_factor id = basic_machine_tools value = 100 }
-	ai_strategy = { type = research_tech id = concentrated_industry value = 100 }
-	ai_strategy = { type = research_weight_factor id = concentrated_industry value = 100 }
-	ai_strategy = { type = research_tech id = construction1 value = 100 }
-	ai_strategy = { type = research_weight_factor id = construction1 value = 100 }
-	ai_strategy = { type = research_tech id = electronic_mechanical_engineering value = 100 }
+	ai_strategy = { type = research_tech id = basic_machine_tools value = 50 }
+	ai_strategy = { type = research_weight_factor id = basic_machine_tools value = 50 }
+	ai_strategy = { type = research_tech id = concentrated_industry value = 50 }
+	ai_strategy = { type = research_weight_factor id = concentrated_industry value = 50 }
+	ai_strategy = { type = research_tech id = construction1 value = 50 }
+	ai_strategy = { type = research_weight_factor id = construction1 value = 50 }
+	ai_strategy = { type = research_tech id = electronic_mechanical_engineering value = 50 }
 }
 
 ai_res_industry_1 = {
@@ -72,12 +72,12 @@ ai_res_industry_1 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = improved_machine_tools value = 100 }
-	ai_strategy = { type = research_weight_factor id = improved_machine_tools value = 100 }
-	ai_strategy = { type = research_tech id = concentrated_industry2 value = 100 }
-	ai_strategy = { type = research_weight_factor id = concentrated_industry2 value = 100 }
-	ai_strategy = { type = research_tech id = construction2 value = 100 }
-	ai_strategy = { type = research_weight_factor id = construction2 value = 100 }
+	ai_strategy = { type = research_tech id = improved_machine_tools value = 50 }
+	ai_strategy = { type = research_weight_factor id = improved_machine_tools value = 50 }
+	ai_strategy = { type = research_tech id = concentrated_industry2 value = 50 }
+	ai_strategy = { type = research_weight_factor id = concentrated_industry2 value = 50 }
+	ai_strategy = { type = research_tech id = construction2 value = 50 }
+	ai_strategy = { type = research_weight_factor id = construction2 value = 50 }
 }
 
 ai_res_industry_2 = {
@@ -92,9 +92,9 @@ ai_res_industry_2 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = advanced_machine_tools value = 100 }
-	ai_strategy = { type = research_tech id = concentrated_industry3 value = 100 }
-	ai_strategy = { type = research_tech id = construction3 value = 100 }
+	ai_strategy = { type = research_tech id = advanced_machine_tools value = 50 }
+	ai_strategy = { type = research_tech id = concentrated_industry3 value = 50 }
+	ai_strategy = { type = research_tech id = construction3 value = 50 }
 }
 
 ai_res_industry_3 = {
@@ -110,10 +110,10 @@ ai_res_industry_3 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = assembly_line_production value = 100 }
-	ai_strategy = { type = research_tech id = concentrated_industry4 value = 100 }
-	ai_strategy = { type = research_tech id = construction4 value = 100 }
-	ai_strategy = { type = research_tech id = improved_computing_machine value = 100 }
+	ai_strategy = { type = research_tech id = assembly_line_production value = 50 }
+	ai_strategy = { type = research_tech id = concentrated_industry4 value = 50 }
+	ai_strategy = { type = research_tech id = construction4 value = 50 }
+	ai_strategy = { type = research_tech id = improved_computing_machine value = 50 }
 }
 
 #坦克底盘与组件
@@ -125,8 +125,8 @@ ai_res_tank_gw_chassis = {
 	 }
 	abort = { has_tech = gwtank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = gwtank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = gwtank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = gwtank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = gwtank_chassis value = 50 }
 }
 
 ai_res_tank_light_1 = {
@@ -135,8 +135,8 @@ ai_res_tank_light_1 = {
 		has_tech = infantry_equipment_1 date > 1936.1.1 }
 	abort = { has_tech = basic_light_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = basic_light_tank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = basic_light_tank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = basic_light_tank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = basic_light_tank_chassis value = 50 }
 }
 
 ai_res_tank_light_2 = {
@@ -144,8 +144,8 @@ ai_res_tank_light_2 = {
 	enable = { has_tech = infantry_equipment_1 date > 1937.1.1 }
 	abort = { has_tech = improved_light_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = improved_light_tank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = improved_light_tank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = improved_light_tank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = improved_light_tank_chassis value = 50 }
 }
 
 ai_res_tank_medium_1 = {
@@ -153,8 +153,8 @@ ai_res_tank_medium_1 = {
 	enable = { has_tech = infantry_equipment_1 date > 1937.5.1 }
 	abort = { has_tech = basic_medium_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = basic_medium_tank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = basic_medium_tank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = basic_medium_tank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = basic_medium_tank_chassis value = 50 }
 }
 
 ai_res_tank_medium_2 = {
@@ -166,8 +166,8 @@ ai_res_tank_medium_2 = {
 	}
 	abort = { has_tech = improved_medium_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = improved_medium_tank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = improved_medium_tank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = improved_medium_tank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = improved_medium_tank_chassis value = 50 }
 }
 
 ai_res_tank_heavy_1 = {
@@ -199,8 +199,8 @@ ai_res_tank_heavy_3 = {
 	}
 	abort = { has_tech = advanced_heavy_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = 100 }
-	ai_strategy = { type = research_tech id = advanced_heavy_tank_chassis value = 100 }
+	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = 50 }
+	ai_strategy = { type = research_tech id = advanced_heavy_tank_chassis value = 50 }
 }
 
 ai_res_tank_armor_1 = {
@@ -208,8 +208,8 @@ ai_res_tank_armor_1 = {
 	enable = { has_tech = infantry_equipment_1date > 1936.1.1 }
 	abort = { has_tech = armor_tech_1 }
 
-	ai_strategy = { type = research_weight_factor id = armor_tech_1 value = 100 }
-	ai_strategy = { type = research_tech id = armor_tech_1 value = 100 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_1 value = 50 }
+	ai_strategy = { type = research_tech id = armor_tech_1 value = 50 }
 }
 
 ai_res_tank_armor_2 = {
@@ -220,8 +220,8 @@ ai_res_tank_armor_2 = {
 	}
 	abort = { has_tech = armor_tech_2 }
 
-	ai_strategy = { type = research_weight_factor id = armor_tech_2 value = 100 }
-	ai_strategy = { type = research_tech id = armor_tech_2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_2 value = 50 }
+	ai_strategy = { type = research_tech id = armor_tech_2 value = 50 }
 }
 
 ai_res_tank_armor_3 = {
@@ -232,8 +232,8 @@ ai_res_tank_armor_3 = {
 	}
 	abort = { has_tech = armor_tech_3 }
 
-	ai_strategy = { type = research_weight_factor id = armor_tech_3 value = 100 }
-	ai_strategy = { type = research_tech id = armor_tech_3 value = 100 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_3 value = 50 }
+	ai_strategy = { type = research_tech id = armor_tech_3 value = 50 }
 }
 
 ai_res_tank_armor_4 = {
@@ -244,8 +244,8 @@ ai_res_tank_armor_4 = {
 	}
 	abort = { has_tech = armor_tech_4 }
 
-	ai_strategy = { type = research_weight_factor id = armor_tech_4 value = 100 }
-	ai_strategy = { type = research_tech id = armor_tech_4 value = 100 }
+	ai_strategy = { type = research_weight_factor id = armor_tech_4 value = 50 }
+	ai_strategy = { type = research_tech id = armor_tech_4 value = 50 }
 }
 
 ai_res_tank_engine_1 = {
@@ -253,8 +253,8 @@ ai_res_tank_engine_1 = {
 	enable = { has_tech = infantry_equipment_1date > 1936.1.1 }
 	abort = {has_tech = engine_tech_1 }
 
-	ai_strategy = { type = research_weight_factor id = engine_tech_1 value = 100 }
-	ai_strategy = { type = research_tech id = engine_tech_1 value = 100 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_1 value = 50 }
+	ai_strategy = { type = research_tech id = engine_tech_1 value = 50 }
 }
 
 ai_res_tank_engine_2 = {
@@ -265,8 +265,8 @@ ai_res_tank_engine_2 = {
 	}
 	abort = { has_tech = engine_tech_2 }
 
-	ai_strategy = { type = research_weight_factor id = engine_tech_2 value = 100 }
-	ai_strategy = { type = research_tech id = engine_tech_2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = engine_tech_2 value = 50 }
+	ai_strategy = { type = research_tech id = engine_tech_2 value = 50 }
 }
 
 
@@ -355,24 +355,24 @@ ai_res_motorized_trucks0 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech =  motorized_equipment_0 }
 
-	ai_strategy = { type = research_weight_factor id =  motorized_equipment_0 value = 100 }
-	ai_strategy = { type = research_tech id =  motorized_equipment_0 value = 100 }
+	ai_strategy = { type = research_weight_factor id =  motorized_equipment_0 value = 50 }
+	ai_strategy = { type = research_tech id =  motorized_equipment_0 value = 50 }
 }
 ai_res_motorized_trucks = {
 	allowed = { always = yes }
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_trucks }
 
-	ai_strategy = { type = research_weight_factor id = tech_trucks value = 100 }
-	ai_strategy = { type = research_tech id = tech_trucks value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_trucks value = 50 }
+	ai_strategy = { type = research_tech id = tech_trucks value = 50 }
 }
 ai_res_motorized_infantry = {
 	allowed = { always = yes }
 	enable = { date > 1936.7.1 }
 	abort = { has_tech = motorised_infantry }
 
-	ai_strategy = { type = research_weight_factor id = motorised_infantry value = 100 }
-	ai_strategy = { type = research_tech id = motorised_infantry value = 100 }
+	ai_strategy = { type = research_weight_factor id = motorised_infantry value = 50 }
+	ai_strategy = { type = research_tech id = motorised_infantry value = 50 }
 }
 
 ai_res_mechanized_1 = {
@@ -380,8 +380,8 @@ ai_res_mechanized_1 = {
 	enable = { date > 1938.7.1 }
 	abort = { has_tech = mechanised_infantry }
 
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry value = 100 }
-	ai_strategy = { type = research_tech id = mechanised_infantry value = 100 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry value = 50 }
+	ai_strategy = { type = research_tech id = mechanised_infantry value = 50 }
 }
 
 ai_res_mechanized_2 = {
@@ -389,8 +389,8 @@ ai_res_mechanized_2 = {
 	enable = { date > 1940.1.1 }
 	abort = { has_tech = mechanised_infantry2 }
 
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry2 value = 100 }
-	ai_strategy = { type = research_tech id = mechanised_infantry2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry2 value = 50 }
+	ai_strategy = { type = research_tech id = mechanised_infantry2 value = 50 }
 }
 
 ai_res_mechanized_3 = {
@@ -398,8 +398,8 @@ ai_res_mechanized_3 = {
 	enable = { date > 1942.1.1 }
 	abort = { has_tech = mechanised_infantry3 }
 
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry3 value = 100 }
-	ai_strategy = { type = research_tech id = mechanised_infantry3 value = 100 }
+	ai_strategy = { type = research_weight_factor id = mechanised_infantry3 value = 50 }
+	ai_strategy = { type = research_tech id = mechanised_infantry3 value = 50 }
 }
 
 #支援连
@@ -408,8 +408,8 @@ ai_res_support_weapons_base = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_support }
 
-	ai_strategy = { type = research_weight_factor id = tech_support value = 100 }
-	ai_strategy = { type = research_tech id = tech_support value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_support value = 50 }
+	ai_strategy = { type = research_tech id = tech_support value = 50 }
 }
 
 ai_res_support_maintenance_1 = {
@@ -417,8 +417,8 @@ ai_res_support_maintenance_1 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_maintenance_company }
 
-	ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 100 }
-	ai_strategy = { type = research_tech id = tech_maintenance_company value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 50 }
+	ai_strategy = { type = research_tech id = tech_maintenance_company value = 50 }
 }
 
 ai_res_support_maintenance_2 = {
@@ -426,8 +426,8 @@ ai_res_support_maintenance_2 = {
 	enable = { date > 1938.1.1 }
 	abort = { has_tech = tech_maintenance_company2 }
 
-	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 100 }
-	ai_strategy = { type = research_tech id = tech_maintenance_company2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 50 }
+	ai_strategy = { type = research_tech id = tech_maintenance_company2 value = 50 }
 }
 
 #无线电
@@ -436,8 +436,8 @@ ai_res_radio_1 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = radio }
 
-	ai_strategy = { type = research_weight_factor id = radio value = 100 }
-	ai_strategy = { type = research_tech id = radio value = 100 }
+	ai_strategy = { type = research_weight_factor id = radio value = 50 }
+	ai_strategy = { type = research_tech id = radio value = 50 }
 }
 
 ai_res_radio_2 = {
@@ -448,8 +448,8 @@ ai_res_radio_2 = {
 	}
 	abort = { has_tech = improved_radio }
 
-	ai_strategy = { type = research_weight_factor id = improved_radio value = 100 }
-	ai_strategy = { type = research_tech id = improved_radio value = 100 }
+	ai_strategy = { type = research_weight_factor id = improved_radio value = 50 }
+	ai_strategy = { type = research_tech id = improved_radio value = 50 }
 }
 
 ai_res_radio_3 = {
@@ -460,8 +460,8 @@ ai_res_radio_3 = {
 	}
 	abort = { has_tech = advanced_radio }
 
-	ai_strategy = { type = research_weight_factor id = advanced_radio value = 100 }
-	ai_strategy = { type = research_tech id = advanced_radio value = 100 }
+	ai_strategy = { type = research_weight_factor id = advanced_radio value = 50 }
+	ai_strategy = { type = research_tech id = advanced_radio value = 50 }
 }
 
 #飞机与航空模块
@@ -480,10 +480,10 @@ ai_res_air_modules_range = {
 		has_tech = aircraft_construction
 	}
 
-	ai_strategy = { type = research_weight_factor id = range_improvements value = 100 }
-	ai_strategy = { type = research_tech id = range_improvements value = 100 }
-	ai_strategy = { type = research_weight_factor id = aircraft_construction value = 100 }
-	ai_strategy = { type = research_tech id = aircraft_construction value = 100 }
+	ai_strategy = { type = research_weight_factor id = range_improvements value = 50 }
+	ai_strategy = { type = research_tech id = range_improvements value = 50 }
+	ai_strategy = { type = research_weight_factor id = aircraft_construction value = 50 }
+	ai_strategy = { type = research_tech id = aircraft_construction value = 50 }
 }
 
 ai_res_air_modules_weapons = {
@@ -507,12 +507,12 @@ ai_res_air_modules_weapons = {
 		has_tech = survivability_studies
 	}
 
-	ai_strategy = { type = research_weight_factor id = aa_hmg value = 100 }
-	ai_strategy = { type = research_tech id = aa_hmg value = 100 }
-	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 100 }
-	ai_strategy = { type = research_tech id = aa_cannon_1 value = 100 }
-	ai_strategy = { type = research_weight_factor id = survivability_studies value = 100 }
-	ai_strategy = { type = research_tech id = survivability_studies value = 100 }
+	ai_strategy = { type = research_weight_factor id = aa_hmg value = 50 }
+	ai_strategy = { type = research_tech id = aa_hmg value = 50 }
+	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 50 }
+	ai_strategy = { type = research_tech id = aa_cannon_1 value = 50 }
+	ai_strategy = { type = research_weight_factor id = survivability_studies value = 50 }
+	ai_strategy = { type = research_tech id = survivability_studies value = 50 }
 }
 
 ai_res_airframe_small_1 = {
@@ -520,8 +520,8 @@ ai_res_airframe_small_1 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = basic_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = basic_small_airframe value = 100 }
-	ai_strategy = { type = research_tech id = basic_small_airframe value = 100 }
+	ai_strategy = { type = research_weight_factor id = basic_small_airframe value = 50 }
+	ai_strategy = { type = research_tech id = basic_small_airframe value = 50 }
 }
 
 ai_res_airframe_small_2 = {
@@ -534,8 +534,8 @@ ai_res_airframe_small_2 = {
 	abort_when_not_enabled = yes
 	abort = { has_tech = improved_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = improved_small_airframe value = 100 }
-	ai_strategy = { type = research_tech id = improved_small_airframe value = 100 }
+	ai_strategy = { type = research_weight_factor id = improved_small_airframe value = 50 }
+	ai_strategy = { type = research_tech id = improved_small_airframe value = 50 }
 }
 
 ai_res_airframe_small_3 = {
@@ -546,8 +546,8 @@ ai_res_airframe_small_3 = {
 	}
 	abort = { has_tech = advanced_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 100 }
-	ai_strategy = { type = research_tech id = advanced_small_airframe value = 100 }
+	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 50 }
+	ai_strategy = { type = research_tech id = advanced_small_airframe value = 50 }
 }
 
 ai_res_air_engine_3 = {
@@ -560,8 +560,8 @@ ai_res_air_engine_3 = {
 	abort_when_not_enabled = yes
 	abort = { has_tech = engines_3 }
 
-	ai_strategy = { type = research_weight_factor id = engines_3 value = 100 }
-	ai_strategy = { type = research_tech id = engines_3 value = 100 }
+	ai_strategy = { type = research_weight_factor id = engines_3 value = 50 }
+	ai_strategy = { type = research_tech id = engines_3 value = 50 }
 }
 
 ai_res_air_engine_4 = {
@@ -572,8 +572,8 @@ ai_res_air_engine_4 = {
 	}
 	abort = { has_tech = engines_4 }
 
-	ai_strategy = { type = research_weight_factor id = engines_4 value = 100 }
-	ai_strategy = { type = research_tech id = engines_4 value = 100 }
+	ai_strategy = { type = research_weight_factor id = engines_4 value = 50 }
+	ai_strategy = { type = research_tech id = engines_4 value = 50 }
 }
 
 ai_res_air_cannon_1 = {
@@ -581,8 +581,8 @@ ai_res_air_cannon_1 = {
 	enable = { date > 1937.1.1 }
 	abort = { has_tech = aa_cannon_1 }
 
-	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 100 }
-	ai_strategy = { type = research_tech id = aa_cannon_1 value = 100 }
+	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 50 }
+	ai_strategy = { type = research_tech id = aa_cannon_1 value = 50 }
 }
 
 ai_res_air_cannon_3 = {
@@ -590,8 +590,8 @@ ai_res_air_cannon_3 = {
 	enable = { date > 1940.1.1 }
 	abort = { has_tech = aa_cannon_3 }
 
-	ai_strategy = { type = research_weight_factor id = aa_cannon_3 value = 100 }
-	ai_strategy = { type = research_tech id = aa_cannon_3 value = 100 }
+	ai_strategy = { type = research_weight_factor id = aa_cannon_3 value = 50 }
+	ai_strategy = { type = research_tech id = aa_cannon_3 value = 50 }
 }
 
 ai_res_air_heavy_bombs = {
@@ -599,8 +599,8 @@ ai_res_air_heavy_bombs = {
 	enable = { date > 1938.9.1 }
 	abort = { has_tech = heavy_bombs }
 
-	ai_strategy = { type = research_weight_factor id = heavy_bombs value = 100 }
-	ai_strategy = { type = research_tech id = heavy_bombs value = 100 }
+	ai_strategy = { type = research_weight_factor id = heavy_bombs value = 50 }
+	ai_strategy = { type = research_tech id = heavy_bombs value = 50 }
 }
 
 #防空炮 (Static & Field Anti-Air)
@@ -616,10 +616,10 @@ ai_res_static_aa_1 = {
 		has_tech = antiair2
 	}
 
-	ai_strategy = { type = research_tech id = antiair1 value = 100 }
-	ai_strategy = { type = research_weight_factor id = antiair1 value = 100 }
-	ai_strategy = { type = research_tech id = antiair2 value = 100 }
-	ai_strategy = { type = research_weight_factor id = antiair2 value = 100 }
+	ai_strategy = { type = research_tech id = antiair1 value = 50 }
+	ai_strategy = { type = research_weight_factor id = antiair1 value = 50 }
+	ai_strategy = { type = research_tech id = antiair2 value = 50 }
+	ai_strategy = { type = research_weight_factor id = antiair2 value = 50 }
 }
 
 ai_res_static_aa_2 = {
@@ -635,12 +635,12 @@ ai_res_static_aa_2 = {
 		has_tech = antiair5
 	}
 
-	ai_strategy = { type = research_tech id = antiair3 value = 100 }
-	ai_strategy = { type = research_weight_factor id = antiair3 value = 100 }
-	ai_strategy = { type = research_tech id = antiair4 value = 100 }
-	ai_strategy = { type = research_weight_factor id = antiair4 value = 100 }
-	ai_strategy = { type = research_tech id = antiair5 value = 100 }
-	ai_strategy = { type = research_weight_factor id = antiair5 value = 100 }
+	ai_strategy = { type = research_tech id = antiair3 value = 50 }
+	ai_strategy = { type = research_weight_factor id = antiair3 value = 50 }
+	ai_strategy = { type = research_tech id = antiair4 value = 50 }
+	ai_strategy = { type = research_weight_factor id = antiair4 value = 50 }
+	ai_strategy = { type = research_tech id = antiair5 value = 50 }
+	ai_strategy = { type = research_weight_factor id = antiair5 value = 50 }
 }
 
 #四槽及以上科研AI专项策略
@@ -652,14 +652,14 @@ ai_res_slot_4_tier_1 = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = research_tech id = support_weapons value = 100 }
-	ai_strategy = { type = research_tech id = armored_train value = 100 }
-	ai_strategy = { type = research_tech id = tech_logistics_company value = 100 }
-	ai_strategy = { type = research_tech id = interwar_antiair value = 100 }
-	ai_strategy = { type = research_tech id = mechanical_computing value = 100 }
-	ai_strategy = { type = research_tech id = radio value = 100 }
-	ai_strategy = { type = research_tech id = tech_field_hospital value = 100 }
-	ai_strategy = { type = research_weight_factor id = tech_field_hospital value = 100 }
+	ai_strategy = { type = research_tech id = support_weapons value = 50 }
+	ai_strategy = { type = research_tech id = armored_train value = 50 }
+	ai_strategy = { type = research_tech id = tech_logistics_company value = 50 }
+	ai_strategy = { type = research_tech id = interwar_antiair value = 50 }
+	ai_strategy = { type = research_tech id = mechanical_computing value = 50 }
+	ai_strategy = { type = research_tech id = radio value = 50 }
+	ai_strategy = { type = research_tech id = tech_field_hospital value = 50 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital value = 50 }
 }
 
 ai_res_slot_4_tier_2 = {
@@ -670,11 +670,11 @@ ai_res_slot_4_tier_2 = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = research_tech id = support_weapons2 value = 100 }
-	ai_strategy = { type = research_tech id = infantry_weapons2 value = 100 }
-	ai_strategy = { type = research_tech id = radio_detection value = 100 }
-	ai_strategy = { type = research_tech id = computing_machine value = 100 }
-	ai_strategy = { type = research_tech id = railway_gun value = 100 }
+	ai_strategy = { type = research_tech id = support_weapons2 value = 50 }
+	ai_strategy = { type = research_tech id = infantry_weapons2 value = 50 }
+	ai_strategy = { type = research_tech id = radio_detection value = 50 }
+	ai_strategy = { type = research_tech id = computing_machine value = 50 }
+	ai_strategy = { type = research_tech id = railway_gun value = 50 }
 }
 
 ai_res_slot_4_tier_3 = {
@@ -686,11 +686,11 @@ ai_res_slot_4_tier_3 = {
 	abort_when_not_enabled = yes
 
 	ai_strategy = { type = research_tech id = aa_hmg value = 600 }
-	ai_strategy = { type = research_tech id = improved_infantry_weapons value = 100 }
-	ai_strategy = { type = research_tech id = tech_engineers2 value = 100 }
-	ai_strategy = { type = research_tech id = tech_field_hospital2 value = 100 }
-	ai_strategy = { type = research_tech id = tech_logistics_company2 value = 100 }
-	ai_strategy = { type = research_tech id = antiair1 value = 100 }
+	ai_strategy = { type = research_tech id = improved_infantry_weapons value = 50 }
+	ai_strategy = { type = research_tech id = tech_engineers2 value = 50 }
+	ai_strategy = { type = research_tech id = tech_field_hospital2 value = 50 }
+	ai_strategy = { type = research_tech id = tech_logistics_company2 value = 50 }
+	ai_strategy = { type = research_tech id = antiair1 value = 50 }
 }
 
 
@@ -703,8 +703,8 @@ ai_res_slot_5_tier_1 = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = research_weight_factor id = support_weapons3 value = 100 }
-	ai_strategy = { type = research_weight_factor id = improved_computing_machine value = 100 }
+	ai_strategy = { type = research_weight_factor id = support_weapons3 value = 50 }
+	ai_strategy = { type = research_weight_factor id = improved_computing_machine value = 50 }
 }     
 
 ai_res_slot_5_tier_2 = {
@@ -714,12 +714,12 @@ ai_res_slot_5_tier_2 = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = research_weight_factor id = tech_engineers3 value = 100 }
-	ai_strategy = { type = research_weight_factor id = tech_field_hospital3 value = 100 }
-	ai_strategy = { type = research_weight_factor id = tech_logistics_company3 value = 100 }
+	ai_strategy = { type = research_weight_factor id = tech_engineers3 value = 50 }
+	ai_strategy = { type = research_weight_factor id = tech_field_hospital3 value = 50 }
+	ai_strategy = { type = research_weight_factor id = tech_logistics_company3 value = 50 }
 	ai_strategy = { type = research_weight_factor id = support_weapons4 value = 99 }
 	ai_strategy = { type = research_weight_factor id = advanced_infantry_weapons value = 99 }
-	ai_strategy = { type = research_weight_factor id = advanced_computing_machine value = 100 }
+	ai_strategy = { type = research_weight_factor id = advanced_computing_machine value = 50 }
 } 
 
 
@@ -728,7 +728,7 @@ ai_res_blacklist_mines = {
 	enable = { always = yes }
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = research_weight_factor id = submarine_mine_laying value = -100 }
-	ai_strategy = { type = research_weight_factor id = improved_naval_mines value = -100 }
-	ai_strategy = { type = research_weight_factor id = basic_naval_mines value = -100 }
+	ai_strategy = { type = research_weight_factor id = submarine_mine_laying value = -50 }
+	ai_strategy = { type = research_weight_factor id = improved_naval_mines value = -50 }
+	ai_strategy = { type = research_weight_factor id = basic_naval_mines value = -50 }
 }
