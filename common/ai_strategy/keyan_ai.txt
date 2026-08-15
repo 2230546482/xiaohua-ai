@@ -51,13 +51,13 @@ ai_res_industry_0 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = basic_machine_tools value = 50 }
-	ai_strategy = { type = research_weight_factor id = basic_machine_tools value = 50 }
-	ai_strategy = { type = research_tech id = concentrated_industry value = 50 }
-	ai_strategy = { type = research_weight_factor id = concentrated_industry value = 50 }
-	ai_strategy = { type = research_tech id = construction1 value = 50 }
-	ai_strategy = { type = research_weight_factor id = construction1 value = 50 }
-	ai_strategy = { type = research_tech id = electronic_mechanical_engineering value = 50 }
+	ai_strategy = { type = research_tech id = basic_machine_tools value = 100 }
+	ai_strategy = { type = research_weight_factor id = basic_machine_tools value = 100 }
+	ai_strategy = { type = research_tech id = concentrated_industry value = 100 }
+	ai_strategy = { type = research_weight_factor id = concentrated_industry value = 100 }
+	ai_strategy = { type = research_tech id = construction1 value = 100 }
+	ai_strategy = { type = research_weight_factor id = construction1 value = 100 }
+	ai_strategy = { type = research_tech id = electronic_mechanical_engineering value = 100 }
 }
 
 ai_res_industry_1 = {
@@ -72,12 +72,12 @@ ai_res_industry_1 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = improved_machine_tools value = 50 }
-	ai_strategy = { type = research_weight_factor id = improved_machine_tools value = 50 }
-	ai_strategy = { type = research_tech id = concentrated_industry2 value = 50 }
-	ai_strategy = { type = research_weight_factor id = concentrated_industry2 value = 50 }
-	ai_strategy = { type = research_tech id = construction2 value = 50 }
-	ai_strategy = { type = research_weight_factor id = construction2 value = 50 }
+	ai_strategy = { type = research_tech id = improved_machine_tools value = 100 }
+	ai_strategy = { type = research_weight_factor id = improved_machine_tools value = 100 }
+	ai_strategy = { type = research_tech id = concentrated_industry2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = concentrated_industry2 value = 100 }
+	ai_strategy = { type = research_tech id = construction2 value = 100 }
+	ai_strategy = { type = research_weight_factor id = construction2 value = 100 }
 }
 
 ai_res_industry_2 = {
@@ -92,9 +92,9 @@ ai_res_industry_2 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = advanced_machine_tools value = 50 }
-	ai_strategy = { type = research_tech id = concentrated_industry3 value = 50 }
-	ai_strategy = { type = research_tech id = construction3 value = 50 }
+	ai_strategy = { type = research_tech id = advanced_machine_tools value = 100 }
+	ai_strategy = { type = research_tech id = concentrated_industry3 value = 100 }
+	ai_strategy = { type = research_tech id = construction3 value = 100 }
 }
 
 ai_res_industry_3 = {
@@ -110,10 +110,10 @@ ai_res_industry_3 = {
 		}
 	}
 
-	ai_strategy = { type = research_tech id = assembly_line_production value = 50 }
-	ai_strategy = { type = research_tech id = concentrated_industry4 value = 50 }
-	ai_strategy = { type = research_tech id = construction4 value = 50 }
-	ai_strategy = { type = research_tech id = improved_computing_machine value = 50 }
+	ai_strategy = { type = research_tech id = assembly_line_production value = 100 }
+	ai_strategy = { type = research_tech id = concentrated_industry4 value = 100 }
+	ai_strategy = { type = research_tech id = construction4 value = 100 }
+	ai_strategy = { type = research_tech id = improved_computing_machine value = 100 }
 }
 
 #坦克底盘与组件
