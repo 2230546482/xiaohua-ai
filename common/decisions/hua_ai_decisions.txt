@@ -1,0 +1,37 @@
+hua_ai_decisions_categories = {
+    hua_ai_decisions = {
+        icon = GFX_KNM_KFL_transfer
+        allowed = { tag = AHM }
+
+        available = {
+			always = yes
+        }
+
+        visible = {
+			date > 1936.1.30
+			has_global_flag = red_normal_hard
+        }
+        target_trigger = {
+            FROM = {
+                and = {
+				    is_ai = yes
+                    is_subject = no
+                }
+				not = {
+					has_idea = red_normal_hard_ai
+				}
+            }
+        }
+        days_remove = 10
+        cost = 0
+        fire_only_once = no
+        ai_will_do = { base = 100 }
+
+        complete_effect = {
+			FROM = {
+				add_ideas = red_normal_hard_ai
+			}
+        }
+    }
+
+}

@@ -10,6 +10,20 @@ country_event = {
         ai_chance = {
             factor = 0
         }
+        set_global_flag = red_most_hard
+        every_country = {
+            limit = {
+                is_ai = yes
+                is_subject = no
+            }
+            add_ideas = red_most_hard_ai
+        }
+        every_country = {
+            limit = {
+                is_ai = no
+            }
+            add_ideas = red_most_hard_player
+        }
     }
     option = {
         name = FLWAI.1.b
@@ -24,9 +38,18 @@ country_event = {
         ai_chance = {
             factor = 0
         }
+        set_global_flag = red_normal_hard
+        every_country = {
+            limit = {
+                is_ai = yes
+                is_subject = no
+            }
+            add_ideas = red_normal_hard_ai
+        }
     }
     option = {
         name = FLWAI.1.f
+        set_global_flag = red_none_hard
         custom_effect_tooltip = FLWAI.1.f_tt
         ai_chance = {
             factor = 0
