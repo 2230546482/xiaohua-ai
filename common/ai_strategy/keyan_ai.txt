@@ -489,6 +489,9 @@ ai_res_air_modules_range = {
 ai_res_air_modules_weapons = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		OR = {
 			AND = {
 				date > 1939.1.1
@@ -517,7 +520,9 @@ ai_res_air_modules_weapons = {
 
 ai_res_airframe_small_1 = {
 	allowed = { always = yes }
-	enable = { date > 1936.1.1 }
+	enable = { has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe date > 1936.1.1 }
 	abort = { has_tech = basic_small_airframe }
 
 	ai_strategy = { type = research_weight_factor id = basic_small_airframe value = 20 }
@@ -527,6 +532,9 @@ ai_res_airframe_small_1 = {
 ai_res_airframe_small_2 = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		date > 1938.6.1
 		num_of_military_factories > 20
 		has_tech = basic_small_airframe
@@ -541,6 +549,9 @@ ai_res_airframe_small_2 = {
 ai_res_airframe_small_3 = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		date > 1940.6.1
 		has_tech = improved_small_airframe
 	}
@@ -553,6 +564,9 @@ ai_res_airframe_small_3 = {
 ai_res_air_engine_3 = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		date > 1938.7.1
 		num_of_military_factories > 20
 		has_tech = engines_2
@@ -567,6 +581,9 @@ ai_res_air_engine_3 = {
 ai_res_air_engine_4 = {
 	allowed = { always = yes }
 	enable = {
+		has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe
 		date > 1940.7.1
 		has_tech = engines_3
 	}
@@ -578,7 +595,9 @@ ai_res_air_engine_4 = {
 
 ai_res_air_cannon_1 = {
 	allowed = { always = yes }
-	enable = { date > 1937.1.1 }
+	enable = {has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe  date > 1937.1.1 }
 	abort = { has_tech = aa_cannon_1 }
 
 	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 20 }
@@ -587,7 +606,9 @@ ai_res_air_cannon_1 = {
 
 ai_res_air_cannon_3 = {
 	allowed = { always = yes }
-	enable = { date > 1940.1.1 }
+	enable = { has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe date > 1940.1.1 }
 	abort = { has_tech = aa_cannon_3 }
 
 	ai_strategy = { type = research_weight_factor id = aa_cannon_3 value = 20 }
@@ -596,7 +617,9 @@ ai_res_air_cannon_3 = {
 
 ai_res_air_heavy_bombs = {
 	allowed = { always = yes }
-	enable = { date > 1938.9.1 }
+	enable = {has_tech = basic_small_airframe
+        has_tech = basic_medium_airframe
+        has_tech = basic_large_airframe  date > 1938.9.1 }
 	abort = { has_tech = heavy_bombs }
 
 	ai_strategy = { type = research_weight_factor id = heavy_bombs value = 20 }
