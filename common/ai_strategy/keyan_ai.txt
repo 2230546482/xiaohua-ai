@@ -1,5 +1,13 @@
 
 #通讯
+ai_res_infantry_equipment_1 = {
+	allowed = { always = yes }
+	enable = { date > 1936.1.1 }
+	abort = { has_tech =  infantry_equipment_1 }
+
+	ai_strategy = { type = research_weight_factor id =  infantry_equipment_1 value = 1000 }
+	ai_strategy = { type = research_tech id =  infantry_equipment_1 value = 1000 }
+}
 ai_res_support_signal_1 = {
 	allowed = { always = yes }
 	enable = { date > 1936.1.1 }
@@ -342,7 +350,7 @@ ai_res_antitank_5 = {
 }
 
 #机械化与卡车
-ai_res_motorized_trucks = {
+ai_res_motorized_trucks0 = {
 	allowed = { always = yes }
 	enable = { date > 1936.1.1 }
 	abort = { has_tech =  motorized_equipment_0 }
