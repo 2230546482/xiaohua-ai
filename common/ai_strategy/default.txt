@@ -529,6 +529,7 @@ youhavethemusethem2 = {
         }
     }
     enable = {
+        date > 1939.1.1
         has_equipment = { medium_tank_chassis > 1 }
         has_tech = improved_medium_tank_chassis
     }
@@ -817,6 +818,7 @@ LHSIfyouhavethemusethem2 = {
         }
     }
     enable = {
+        date > 1939.1.1
         has_equipment = { medium_tank_chassis > 1 }
         has_tech = improved_medium_tank_chassis
     }
@@ -1151,7 +1153,64 @@ moren_convoy_production = { #缺运输船
         value = 10
     }
 }
+AI_late_game_warrior = {
+    allowed = {  NOT = {
+        OR = {
+            original_tag = PAO
+            original_tag = PAM
+            original_tag = ELF
+            original_tag = KNM
+            original_tag = KFL
+            original_tag = LHS
+        }
+    } }
+    enable = {
+        date > 1940.1.1
+    }
+    abort_when_not_enabled = yes
+    # 军工优先
+    ai_strategy = {
+        type = building_target
+        id = arms_factory
+        value = 300
+    }
+    ai_strategy = {
+        type = building_target
+        id = dockyard
+        value = 100
+    }
+    ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 99
+	}
+}
+AI_game_warrior = {
+    allowed = {  NOT = {
+        OR = {
+            original_tag = PAO
+            original_tag = PAM
+            original_tag = ELF
+            original_tag = KNM
+            original_tag = KFL
+            original_tag = LHS
+        }
+    } }
+    enable = {
+        date < 1939.1.1
+    }
+    abort_when_not_enabled = yes
+    #民工优先
+    ai_strategy = {
+        type = building_target
+        id = industrial_complex
+        value = 300
+    }
+    ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = -99
+	}
 
+}
 #步兵装备
 moren_production_tier1_infantry = {
     allowed = { NOT = {
@@ -1266,9 +1325,9 @@ moren_counter_enemy_armor = { #应对敌军装甲
     ai_strategy = {
         type = front_unit_request
         state_trigger = {
-            controller = { has_war_with = LHS }
+            controller = { has_war_with = ROOT }
             any_neighbor_state = {
-                is_controlled_by = LHS
+                is_controlled_by = ROOT
             }
         }
         value = 30

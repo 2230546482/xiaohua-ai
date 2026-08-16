@@ -355,8 +355,8 @@ ai_res_motorized_trucks0 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech =  motorized_equipment_0 }
 
-	ai_strategy = { type = research_weight_factor id =  motorized_equipment_0 value = 20 }
-	ai_strategy = { type = research_tech id =  motorized_equipment_0 value = 20 }
+	ai_strategy = { type = research_weight_factor id =  motorized_equipment_0 value = 100 }
+	ai_strategy = { type = research_tech id =  motorized_equipment_0 value = 100 }
 }
 ai_res_motorized_trucks = {
 	allowed = { always = yes }

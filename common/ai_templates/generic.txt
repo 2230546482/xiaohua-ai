@@ -25,9 +25,9 @@ infantry_default = {
                 infantry = 9
             }
             regimental_support = {
-				fire_support = 2
-			}
-			support = {
+                fire_support = 2
+            }
+            support = {
                 artillery = 1
             }
         }
@@ -53,9 +53,9 @@ infantry_default = {
                 artillery_brigade = 1
             }
             regimental_support = {
-				fire_support = 2
-			}
-			support = {
+                fire_support = 2
+            }
+            support = {
                 engineer = 1
                 artillery = 1
                 anti_air = 1
@@ -84,10 +84,10 @@ infantry_default = {
                 artillery_brigade = 3
             }
             regimental_support = {
-				anti_air_battery = 1
-				fire_support = 2
-			}
-			support = {
+                anti_air_battery = 1
+                fire_support = 2
+            }
+            support = {
                 engineer = 1
                 artillery = 1
                 anti_air = 1
@@ -105,257 +105,264 @@ AI_ap_armour = {
     blocked_for = {
         LHS
     }
-	role = amphibious_mec_armor
+    role = amphibious_mec_armor
 
-	upgrade_prio = {
-		factor = 20
-	}
-	MEDIUM_amphibious_mec_ARMOR_1 = {
-		upgrade_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				num_of_military_factories < 150
-			}
-			modifier = {
-				factor = 0
-				NOT = { has_tech = amphibious_drive }
-			}
-			modifier = {
-				factor = 0
-				NOT = { has_tech = improved_medium_tank_chassis }
-			}
-			modifier = {
-				factor = 0
-				num_divisions < 100
-			}
-			modifier = {
-				factor = 8
-				is_major = yes
-			}
-		}
-		production_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				num_of_military_factories < 150
-			}
-		}
+    upgrade_prio = {
+        factor = 20
+    }
+    MEDIUM_amphibious_mec_ARMOR_1 = {
+        upgrade_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                num_of_military_factories < 150
+            }
+            modifier = {
+                factor = 0
+                NOT = { has_tech = amphibious_drive }
+            }
+            modifier = {
+                factor = 0
+                NOT = { has_tech = improved_medium_tank_chassis }
+            }
+            modifier = {
+                factor = 0
+                num_divisions < 100
+            }
+            modifier = {
+                factor = 8
+                is_major = yes
+            }
+        }
+        production_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                num_of_military_factories < 150
+            }
+        }
 
-		target_width = 36.0
-		width_weight = 1.5
-		column_swap_factor = 0.1
-		reinforce_prio = 2
+        target_width = 36.0
+        width_weight = 1.5
+        column_swap_factor = 0.1
+        reinforce_prio = 2
 
-		target_template = {
-			weight = 1
-			match_value = 9000.0
-			regiments = {
-				amphibious_mechanized = 8
-				amphibious_medium_armor = 7
-				heavy_tank_destroyer_brigade = 3
-			}
-			regimental_support = {
-				heavy_tank_destroyer_support = 3
-				anti_air_battery = 2
-			}
-			support = {
-				armored_engineer = 1
-				light_tank_recon = 1
-				medium_flame_tank = 1
-				armored_signal = 1
-				field_hospital = 1
-			}
-		}
+        target_template = {
+            weight = 1
+            match_value = 9000.0
+            regiments = {
+                amphibious_mechanized = 8
+                amphibious_medium_armor = 8
+                heavy_tank_destroyer_brigade = 3
+            }
+            regimental_support = {
+                heavy_tank_destroyer_support = 3
+                anti_air_battery = 2
+            }
+            support = {
+                armored_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                armored_signal = 1
+                field_hospital = 1
+            }
+        }
 
-		allowed_types = {
-			mechanized
-			medium_armor
-			heavy_tank_destroyer_brigade
-			armored_engineer
-			medium_flame_tank
-			light_tank_recon
-			field_hospital
-			armored_signal
-		}
-	}
+        allowed_types = {
+            mechanized
+            medium_armor
+            heavy_tank_destroyer_brigade
+            armored_engineer
+            medium_flame_tank
+            light_tank_recon
+            field_hospital
+            armored_signal
+        }
+    }
 }
 AI_armour = {
     blocked_for = {
         LHS
     }
-	role = armor
-	upgrade_prio = {
-		factor = 20
-	}
+    role = armor
+    upgrade_prio = {
+        factor = 20
+    }
 
-	infantry_template_small = {
-		upgrade_prio = {
-			factor = 1
-     		modifier = {
-				factor = 0
-       			num_of_military_factories > 90
-			}
-		}
-    	production_prio = {
-			factor = 1 
-    		modifier = {
-				factor = 0
-        		num_of_military_factories > 90 
-			}
-		}
+    infantry_template_small = {
+        upgrade_prio = {
+            factor = 1
+            modifier = {
+                factor = 0
+                num_of_military_factories > 90
+            }
+        }
+        production_prio = {
+            factor = 1
+            modifier = {
+                factor = 0
+                num_of_military_factories > 90
+            }
+        }
 
-		target_width = 20.0
-		width_weight = 1.0
-		column_swap_factor = 0.1
+        target_width = 20.0
+        width_weight = 1.0
+        column_swap_factor = 0.1
 
-		target_template = {
-			weight = 0.9
-			match_value = 1000.0
+        target_template = {
+            weight = 0.9
+            match_value = 1000.0
 
-			regiments = {
-				infantry = 12
-				artillery_brigade = 4
-			}
-			regimental_support = {
-				field_guns = 5
-			}
+            regiments = {
+                infantry = 12
+                artillery_brigade = 4
+            }
+            regimental_support = {
+                field_guns = 5
+            }
 
-			support = {
-				 anti_air = 1
-			}
-		}
+            support = {
+                anti_air = 1
+            }
+        }
 
-		allowed_types = { 
-			infantry
-			anti_air
-		}
-	}
-    MEDIUM_ARMOR_0 = {
-		upgrade_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				or = {
-                    num_of_military_factories < 25
-                has_tech = mechanised_infantry
-                }
-			}
-			modifier = {
-				factor = 8
-				is_major = yes
-			}
-		}
-		production_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				or = {
-                    num_of_military_factories < 60
-                has_tech = mechanised_infantry
-                }
-			}
-		}
-
-		target_width = 36.0
-		width_weight = 1.5
-		column_swap_factor = 0.1
-		reinforce_prio = 2
-
-		target_template = {
-			weight = 1
-			match_value = 9000.0
-			regiments = {
-				motorized = 8
-				medium_armor = 7
-				heavy_tank_destroyer_brigade = 3
-			}
-			regimental_support = {
-				heavy_tank_destroyer_support = 3
-				anti_air_battery = 2
-			}
-			support = {
-				armored_engineer = 1
-				light_tank_recon = 1
-				medium_flame_tank = 1
-				armored_signal = 1
-				field_hospital = 1
-			}
-		}
-
-		allowed_types = {
-			mechanized
+        allowed_types = {
             infantry
-			medium_armor
-			heavy_tank_destroyer_brigade
-			armored_engineer
-			medium_flame_tank
-			light_tank_recon
-			field_hospital
-			armored_signal
-		}
-	}
-	MEDIUM_ARMOR_1 = {
-		upgrade_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				num_of_military_factories < 50
-			}
-			modifier = {
-				factor = 0
-				NOT = { has_tech = mechanised_infantry }
-			}
-			modifier = {
-				factor = 8
-				is_major = yes
-			}
-		}
-		production_prio = {
-			factor = 200
-			modifier = {
-				factor = 0
-				num_of_military_factories < 90
-			}
-		}
+            anti_air
+        }
+    }
+    MEDIUM_ARMOR_0 = {
+        upgrade_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                or = {
+                    not = {
+                        has_tech =  motorized_equipment_0
+                    }
+                    date < 1939.1.1
+                    num_of_military_factories < 25
+                    has_tech = mechanised_infantry
+                }
+            }
+            modifier = {
+                factor = 8
+                is_major = yes
+            }
+        }
+        production_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                or = {
+                    not = {
+                        has_tech =  motorized_equipment_0
+                    }
+                    num_of_military_factories < 60
+                    has_tech = mechanised_infantry
+                }
+            }
+        }
 
-		target_width = 36.0
-		width_weight = 1.5
-		column_swap_factor = 0.1
-		reinforce_prio = 2
+        target_width = 36.0
+        width_weight = 1.5
+        column_swap_factor = 0.1
+        reinforce_prio = 2
 
-		target_template = {
-			weight = 1
-			match_value = 9000.0
-			regiments = {
-				mechanized = 8
-				medium_armor = 7
-				heavy_tank_destroyer_brigade = 3
-			}
-			regimental_support = {
-				heavy_tank_destroyer_support = 3
-				anti_air_battery = 2
-			}
-			support = {
-				armored_engineer = 1
-				light_tank_recon = 1
-				medium_flame_tank = 1
-				armored_signal = 1
-				field_hospital = 1
-			}
-		}
+        target_template = {
+            weight = 1
+            match_value = 9000.0
+            regiments = {
+                motorized = 8
+                medium_armor = 8
+                heavy_tank_destroyer_brigade = 3
+            }
+            regimental_support = {
+                heavy_tank_destroyer_support = 3
+                anti_air_battery = 2
+            }
+            support = {
+                armored_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                armored_signal = 1
+                field_hospital = 1
+            }
+        }
 
-		allowed_types = {
-			mechanized
-			medium_armor
-			heavy_tank_destroyer_brigade
-			armored_engineer
-			medium_flame_tank
-			light_tank_recon
-			field_hospital
-			armored_signal
-		}
-	}
+        allowed_types = {
+            mechanized
+            infantry
+            medium_armor
+            heavy_tank_destroyer_brigade
+            armored_engineer
+            medium_flame_tank
+            light_tank_recon
+            field_hospital
+            armored_signal
+        }
+    }
+    MEDIUM_ARMOR_1 = {
+        upgrade_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                num_of_military_factories < 50
+            }
+            modifier = {
+                factor = 0
+                NOT = { has_tech = mechanised_infantry }
+            }
+            modifier = {
+                factor = 8
+                is_major = yes
+            }
+        }
+        production_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                num_of_military_factories < 90
+            }
+        }
+
+        target_width = 36.0
+        width_weight = 1.5
+        column_swap_factor = 0.1
+        reinforce_prio = 2
+
+        target_template = {
+            weight = 1
+            match_value = 9000.0
+            regiments = {
+                mechanized = 8
+                medium_armor = 8
+                heavy_tank_destroyer_brigade = 3
+            }
+            regimental_support = {
+                heavy_tank_destroyer_support = 3
+                anti_air_battery = 2
+            }
+            support = {
+                armored_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                armored_signal = 1
+                field_hospital = 1
+            }
+        }
+
+        allowed_types = {
+            mechanized
+            medium_armor
+            heavy_tank_destroyer_brigade
+            armored_engineer
+            medium_flame_tank
+            light_tank_recon
+            field_hospital
+            armored_signal
+        }
+    }
 }
 
 # 最后改动：
