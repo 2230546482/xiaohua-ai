@@ -123,7 +123,7 @@ LHS_armor = {
 				anti_air_battery = 2
 			}
             regiments = {
-                youjibudui = 8
+                youjibudui = 15
                 medium_armor = 7
 				heavy_tank_destroyer_brigade = 3
             }

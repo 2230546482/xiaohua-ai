@@ -75,7 +75,7 @@ infantry_PAO = {
         }
         target_template = {
             regiments = {
-                wangling2 = 20
+                wangling2 = 22
             }
             regimental_support = {
 				anti_air_battery = 1
@@ -165,7 +165,7 @@ infantry_PAO2 = {
         }
         target_template = {
             regiments = {
-                wangling3 = 20
+                wangling3 = 22
             }
             regimental_support = {
 				anti_air_battery = 1

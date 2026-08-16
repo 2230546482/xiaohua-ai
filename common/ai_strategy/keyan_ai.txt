@@ -375,32 +375,6 @@ ai_res_motorized_infantry = {
 	ai_strategy = { type = research_tech id = motorised_infantry value = 20 }
 }
 
-ai_res_mechanized_1 = {
-	allowed = { always = yes }
-	enable = { date > 1938.7.1 }
-	abort = { has_tech = mechanised_infantry }
-
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry value = 20 }
-	ai_strategy = { type = research_tech id = mechanised_infantry value = 20 }
-}
-
-ai_res_mechanized_2 = {
-	allowed = { always = yes }
-	enable = { date > 1940.1.1 }
-	abort = { has_tech = mechanised_infantry2 }
-
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry2 value = 20 }
-	ai_strategy = { type = research_tech id = mechanised_infantry2 value = 20 }
-}
-
-ai_res_mechanized_3 = {
-	allowed = { always = yes }
-	enable = { date > 1942.1.1 }
-	abort = { has_tech = mechanised_infantry3 }
-
-	ai_strategy = { type = research_weight_factor id = mechanised_infantry3 value = 20 }
-	ai_strategy = { type = research_tech id = mechanised_infantry3 value = 20 }
-}
 
 #支援连
 ai_res_support_weapons_base = {

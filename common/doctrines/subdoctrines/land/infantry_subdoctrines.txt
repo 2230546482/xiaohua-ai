@@ -455,7 +455,7 @@ commandos = {
     }
 
 
-    ai_will_do = { base = 1000 }
+    ai_will_do = { base = 0 }
     enable_tactic = tactic_infantry_charge
     
     logistics_company = {
@@ -593,7 +593,7 @@ irregulars = {
 
 
     ai_will_do = { 
-        base = 0
+        base = 1000
     }
     irregular_infantry = {
         defense = 0.1
