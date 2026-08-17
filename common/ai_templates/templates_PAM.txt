@@ -94,6 +94,10 @@ PAM_armor = {
     role = PAM_armor
     upgrade_prio = {
         factor = 20
+        modifier = {
+                factor = 0
+                date < 1939.1.1
+            }
     }
     medium_armor_1 = {
         upgrade_prio = {

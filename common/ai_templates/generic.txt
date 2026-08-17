@@ -117,6 +117,10 @@ AI_armour = {
                 factor = 0
                 num_of_military_factories > 90
             }
+            modifier = {
+                factor = 0
+                date < 1939.1.1
+            }
         }
         production_prio = {
             factor = 1
@@ -162,6 +166,10 @@ AI_armour = {
             modifier = {
                 factor = 8
                 is_major = yes
+            }
+            modifier = {
+                factor = 0
+                date < 1939.1.1
             }
         }
         production_prio = {

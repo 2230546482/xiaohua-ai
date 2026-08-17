@@ -1,5 +1,5 @@
 ideas = {
-	country = {
+    country = {
         red_most_hard_ai = {
             #最难的buff
             removal_cost = -1
@@ -8,12 +8,12 @@ ideas = {
             }
             available = {
             }
-			cancel = {
+            cancel = {
                 or = {
-				    is_ai = no
+                    is_ai = no
                     is_subject = yes
                 }
-			}
+            }
             picture = flower_ai_emeng
             modifier = {
                 army_speed_factor = 1
@@ -21,13 +21,13 @@ ideas = {
                 weekly_manpower = 20000
                 conscription = 0.05
                 conscription_factor = 0.2
-				industrial_capacity_factory = 1
-				industrial_capacity_dockyard = 1
-				production_factory_max_efficiency_factor = 1
-				line_change_production_efficiency_factor = 0.5
+                industrial_capacity_factory = 1
+                industrial_capacity_dockyard = 1
+                production_factory_max_efficiency_factor = 1
+                line_change_production_efficiency_factor = 0.5
                 production_factory_start_efficiency_factor = 0.5
-				hcp_Military_maintenance_fee_factor = -1
-				hcp_income_factor_monthly = 1
+                hcp_Military_maintenance_fee_factor = -1
+                hcp_income_factor_monthly = 1
                 land_night_attack = 0.25
                 army_attack_factor = 0.5
                 army_defence_factor = 0.5
@@ -40,9 +40,9 @@ ideas = {
                 land_reinforce_rate = 0.1
                 production_speed_buildings_factor = 0.5
                 factory_energy_consumption = -1.5
-				land_mastery_gain_factor = 1
-				naval_mastery_gain_factor = 1
-				air_mastery_gain_factor = 1
+                land_mastery_gain_factor = 1
+                naval_mastery_gain_factor = 1
+                air_mastery_gain_factor = 1
                 research_speed_factor = 1
                 political_power_gain = 5
                 production_lack_of_resource_penalty_factor = -1.1
@@ -64,19 +64,19 @@ ideas = {
             }
             available = {
             }
-			cancel = {
+            cancel = {
                 or = {
-				    is_ai = yes
+                    is_ai = yes
                     is_subject = no
                 }
-			}
+            }
             picture = flower_ai_emeng
             modifier = {
                 weekly_manpower = 2000
                 army_strength_factor = 0.2
-				land_mastery_gain_factor = 0.2
-				naval_mastery_gain_factor = 0.2
-				air_mastery_gain_factor = 0.2
+                land_mastery_gain_factor = 0.2
+                naval_mastery_gain_factor = 0.2
+                air_mastery_gain_factor = 0.2
                 experience_gain_army = 0.3
                 experience_gain_navy = 0.3
                 experience_gain_air = 0.3
@@ -93,21 +93,21 @@ ideas = {
             }
             available = {
             }
-			cancel = {
+            cancel = {
                 or = {
-				    is_ai = no
+                    is_ai = no
                     is_subject = yes
                 }
-			}
+            }
             picture = flower_ai_putong
             modifier = {
                 weekly_manpower = 2000
                 conscription = 0.01
                 conscription_factor = 0.1
-				industrial_capacity_factory = 0.2
-				industrial_capacity_dockyard = 0.2
-				production_factory_max_efficiency_factor = 0.2
-				line_change_production_efficiency_factor = 0.5
+                industrial_capacity_factory = 0.2
+                industrial_capacity_dockyard = 0.2
+                production_factory_max_efficiency_factor = 0.2
+                line_change_production_efficiency_factor = 0.5
                 army_attack_factor = 0.1
                 army_defence_factor = 0.1
                 army_strength_factor = 0.2
@@ -125,5 +125,93 @@ ideas = {
             on_remove = {
             }
         }
-	}
+        red_neizhan_ai = {
+            #内战的buff
+            removal_cost = -1
+            allowed = {
+                always = no
+            }
+            available = {
+                is_ai = no
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = LHS
+                            original_tag = PAM
+                            original_tag = PAU
+                        }
+                    }
+                    not = {has_global_flag = lwnygm}
+                }
+                if = {
+                    limit = {
+                        original_tag = PAO
+                    }
+                    LHS = {
+                        exists = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        is_chinese_country = yes
+                    }
+                    or = {
+                        not = {has_global_flag = CHI_REUNIT}
+                        has_war_with = JAP
+                    }
+                }
+                if = {
+                    limit = {
+                        is_chinese_country = yes
+                    }
+                    or = {
+                        not = {has_global_flag = CHI_REUNIT}
+                        has_war_with = JAP
+                    }
+                }
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = NFA
+                            original_tag = USA
+                            original_tag = FRG
+                            original_tag = NGD
+                        }
+                    }
+                    or = {
+                        not = {has_global_flag = NA_has_been_united}
+                    }
+                }
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = KNM
+                            original_tag = KMK
+                            original_tag = FRA
+                        }
+                    }
+                    KMK = {
+                        exists = yes
+                    }
+                    FRA = {
+                        exists = yes
+                    }
+                }
+                
+
+            }
+            cancel = {
+
+            }
+            picture = flower_ai_neizhan
+            modifier = {
+                army_attack_factor = 0.5
+                army_defence_factor = 0.5
+                army_strength_factor = 0.2
+                army_org_factor = 0.2
+            }
+            on_remove = {
+            }
+        }
+    }
 }

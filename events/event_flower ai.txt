@@ -12,6 +12,26 @@ country_event = {
         }
         set_global_flag = red_most_hard
         every_country = {
+                limit = {
+                    is_ai = no
+                    or = {
+                        TAG = PAO
+                        TAG = PAM
+                        TAG = PAU
+                        TAG = LHS
+                        TAG = KMK
+                        TAG = KNM
+                        TAG = FRA
+                        TAG = USA
+                        TAG = FRG
+                        TAG = NFA
+                        TAG = NGD
+                        is_chinese_country = yes
+                    }
+                }
+                add_ideas = red_neizhan_ai
+             }
+        every_country = {
             limit = {
                 is_ai = yes
                 is_subject = no
@@ -27,7 +47,6 @@ country_event = {
     }
     option = {
         name = FLWAI.1.b
-        
         ai_chance = {
             factor = 0
         }

@@ -382,8 +382,8 @@ ai_res_support_weapons_base = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_support }
 
-	ai_strategy = { type = research_weight_factor id = tech_support value = 20 }
-	ai_strategy = { type = research_tech id = tech_support value = 20 }
+	ai_strategy = { type = research_weight_factor id = tech_support value = 50 }
+	ai_strategy = { type = research_tech id = tech_support value = 50 }
 }
 
 ai_res_support_maintenance_1 = {
@@ -391,8 +391,8 @@ ai_res_support_maintenance_1 = {
 	enable = { date > 1936.1.1 }
 	abort = { has_tech = tech_maintenance_company }
 
-	ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 20 }
-	ai_strategy = { type = research_tech id = tech_maintenance_company value = 20 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company value = 50 }
+	ai_strategy = { type = research_tech id = tech_maintenance_company value = 50 }
 }
 
 ai_res_support_maintenance_2 = {
@@ -400,8 +400,8 @@ ai_res_support_maintenance_2 = {
 	enable = { date > 1938.1.1 }
 	abort = { has_tech = tech_maintenance_company2 }
 
-	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 20 }
-	ai_strategy = { type = research_tech id = tech_maintenance_company2 value = 20 }
+	ai_strategy = { type = research_weight_factor id = tech_maintenance_company2 value = 50 }
+	ai_strategy = { type = research_tech id = tech_maintenance_company2 value = 50 }
 }
 
 #无线电
