@@ -170,6 +170,10 @@ LHS_ap_armour = {
 				factor = 8
 				is_major = yes
 			}
+             modifier = {
+                factor = 0
+                date < 1939.1.1
+            }
 		}
 		production_prio = {
 			factor = 200
@@ -230,6 +234,10 @@ LHS_jibu = {
     medium_armor_2 = {
         upgrade_prio = {
             factor = 20
+             modifier = {
+                factor = 0
+                date < 1939.1.1
+            }
         }
         reinforce_prio = 1
         target_template = {
