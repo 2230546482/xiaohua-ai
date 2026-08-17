@@ -744,6 +744,7 @@ Ifyouhavethemusethem3 = {
                 original_tag = ELF
                 original_tag = KNM
                 original_tag = KFL
+                original_tag = LHS
             }
         }
     }
