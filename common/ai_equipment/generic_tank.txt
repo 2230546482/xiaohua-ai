@@ -379,7 +379,7 @@ generic_medium_tanks = {
 			factor = 300
             modifier = { 
 				is_major = yes
-				factor = 0 #量大管饱！
+				factor = 0
 			}
 			modifier = {
 				factor = 0
