@@ -11,7 +11,7 @@ FLWAI.1.f_tt:0 "§7“只修改了战斗逻辑与编制”§!"
 
 red_most_hard_ai:0 "§1《暴风雪侵袭之夜》§!"
 red_most_hard_player:0 "§1《暴风雪侵袭之夜》§!"
-FLWAI.:0 "§8《漫天阴云之黄昏》§!"
+red_hard_ai:0 "§8《漫天阴云之黄昏》§!"
 red_normal_hard_ai:0 "§t《日光照耀之晨曦》§!"
 red_neizhan_ai:0 "§9握紧彼此的双手§!"
 red_neizhan_ai_desc:0 "我们受到了内战时的保护"

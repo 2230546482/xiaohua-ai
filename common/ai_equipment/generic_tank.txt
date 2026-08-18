@@ -423,11 +423,11 @@ generic_medium_tanks = {
 			factor = 300
             modifier = { 
 				is_major = no
-				factor = 0 #优质的中坦！
+				factor = 0
 			}
             modifier = { 
 				has_tech = antitank4
-				factor = 0 #优质的中坦！
+				factor = 0 
 			}
 			modifier = {
 				factor = 0
@@ -474,7 +474,7 @@ generic_medium_tanks = {
                 	NOT = { has_tech = antitank4 }         
 					is_major = no 
 				}
-				factor = 0 #优质的中坦！
+				factor = 0 
 			}
 		}
 

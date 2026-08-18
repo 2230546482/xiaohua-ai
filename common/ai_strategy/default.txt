@@ -639,42 +639,7 @@ Too_many_armor = {
     }
 }
 
-more_heavy_tank_destroyer_chassis = {
-    enable = {
-        num_of_military_factories > 100
-        has_equipment = { heavy_tank_destroyer_chassis < 5000 }
-    }
-    abort_when_not_enabled = yes
 
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = heavy_tank_destroyer_chassis
-        value = 60
-    }
-    ai_strategy = {
-        type = equipment_production_min_factories_archetype
-        id = heavy_tank_destroyer_chassis
-        value = 80
-    }
-}
-
-Too_many_heavy_tank_destroyer_chassis = {
-    enable = {
-        has_equipment = { heavy_tank_destroyer_chassis > 5000 }
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_production_min_factories_archetype
-        id = heavy_tank_destroyer_chassis
-        value = -100
-    }
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = heavy_tank_destroyer_chassis
-        value = -60
-    }
-}
 more_light_tank = {
     enable = {
         has_equipment = { light_tank_chassis < 50000 }
@@ -714,6 +679,7 @@ AIIfyouhavethemusethem2 = {
                 original_tag = ELF
                 original_tag = KNM
                 original_tag = KFL
+                original_tag = LHS
             }
         }
     }
@@ -732,7 +698,7 @@ AIIfyouhavethemusethem2 = {
     ai_strategy = {
         type = build_army
         id = infantry
-        value = 50
+        value = 100
     }
 }
 Ifyouhavethemusethem3 = {

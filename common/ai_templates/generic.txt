@@ -84,8 +84,7 @@ infantry_default = {
                 artillery_brigade = 3
             }
             regimental_support = {
-                anti_air_battery = 1
-                fire_support = 2
+                fire_support = 5
             }
             support = {
                 engineer = 1
@@ -143,7 +142,7 @@ AI_armour = {
                 artillery_brigade = 4
             }
             regimental_support = {
-                field_guns = 5
+                 fire_support = 5
             }
 
             support = {
@@ -184,26 +183,26 @@ AI_armour = {
             weight = 1
             match_value = 9000.0
             regiments = {
-                irregular_infantry = 15
-                medium_armor = 8
-                heavy_tank_destroyer_brigade = 3
+                irregular_infantry = 12
+                medium_tank_destroyer_brigade = 10
             }
             regimental_support = {
-                heavy_tank_destroyer_support = 3
-                anti_air_battery = 2
+                fire_support = 5
             }
             support = {
                 armored_engineer = 1
                 light_tank_recon = 1
                 medium_flame_tank = 1
                 armored_signal = 1
-                field_hospital = 1
+                logistics_company = 1
             }
         }
 
         allowed_types = {
+            irregular_infantry
             medium_armor
-            heavy_tank_destroyer_brigade
+            logistics_company = 1
+            medium_tank_destroyer_brigade
             armored_engineer
             medium_flame_tank
             light_tank_recon

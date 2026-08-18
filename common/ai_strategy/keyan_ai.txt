@@ -175,8 +175,8 @@ ai_res_tank_heavy_1 = {
 	enable = { has_tech = infantry_weapons1 date > 1936.1.1 }
 	abort = { has_tech = basic_heavy_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = basic_heavy_tank_chassis value = 200 }
-	ai_strategy = { type = research_tech id = basic_heavy_tank_chassis value = 200 }
+	ai_strategy = { type = research_weight_factor id = basic_heavy_tank_chassis value = -200 }
+	ai_strategy = { type = research_tech id = basic_heavy_tank_chassis value = -200 }
 }
 
 ai_res_tank_heavy_2 = {
@@ -187,8 +187,8 @@ ai_res_tank_heavy_2 = {
 	}
 	abort = { has_tech = improved_heavy_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = improved_heavy_tank_chassis value = 200 }
-	ai_strategy = { type = research_tech id = improved_heavy_tank_chassis value = 200 }
+	ai_strategy = { type = research_weight_factor id = improved_heavy_tank_chassis value = -200 }
+	ai_strategy = { type = research_tech id = improved_heavy_tank_chassis value = -200 }
 }
 
 ai_res_tank_heavy_3 = {
@@ -199,8 +199,8 @@ ai_res_tank_heavy_3 = {
 	}
 	abort = { has_tech = advanced_heavy_tank_chassis }
 
-	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = 20 }
-	ai_strategy = { type = research_tech id = advanced_heavy_tank_chassis value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_heavy_tank_chassis value = -20 }
+	ai_strategy = { type = research_tech id = advanced_heavy_tank_chassis value = -20 }
 }
 
 ai_res_tank_armor_1 = {
@@ -250,7 +250,7 @@ ai_res_tank_armor_4 = {
 
 ai_res_tank_engine_1 = {
 	allowed = { always = yes }
-	enable = { has_tech = infantry_weapons1date > 1936.1.1 }
+	enable = { has_tech = infantry_weapons1 date > 1936.1.1 }
 	abort = {has_tech = engine_tech_1 }
 
 	ai_strategy = { type = research_weight_factor id = engine_tech_1 value = 20 }

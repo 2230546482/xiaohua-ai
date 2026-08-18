@@ -50,6 +50,14 @@ country_event = {
         ai_chance = {
             factor = 0
         }
+        set_global_flag = red_hard
+        every_country = {
+            limit = {
+                is_ai = yes
+                is_subject = no
+            }
+            add_ideas = red_hard_ai
+        }
     }
     option = {
         name = FLWAI.1.c
