@@ -168,7 +168,8 @@ infantry_PAO2 = {
                 wangling3 = 22
             }
             regimental_support = {
-				fire_support = 5
+				fire_support = 3
+                medium_sp_anti_air_support = 2
 			}
             support = {
                assault_engineer = 1  # 突击工兵

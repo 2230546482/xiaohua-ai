@@ -111,7 +111,8 @@ LHS_armor = {
         reinforce_prio = 1
         target_template = {
             regimental_support = {
-				fire_support = 5
+				fire_support = 3
+                medium_sp_anti_air_support = 2
 			}
             regiments = {
                 youjibudui = 12
