@@ -454,10 +454,10 @@ ai_res_air_modules_range = {
 		has_tech = aircraft_construction
 	}
 
-	ai_strategy = { type = research_weight_factor id = range_improvements value = 20 }
-	ai_strategy = { type = research_tech id = range_improvements value = 20 }
-	ai_strategy = { type = research_weight_factor id = aircraft_construction value = 20 }
-	ai_strategy = { type = research_tech id = aircraft_construction value = 20 }
+	ai_strategy = { type = research_weight_factor id = range_improvements value = 120 }
+	ai_strategy = { type = research_tech id = range_improvements value = 120 }
+	ai_strategy = { type = research_weight_factor id = aircraft_construction value = 120 }
+	ai_strategy = { type = research_tech id = aircraft_construction value = 120 }
 }
 
 ai_res_air_modules_weapons = {
@@ -488,8 +488,8 @@ ai_res_air_modules_weapons = {
 	ai_strategy = { type = research_tech id = aa_hmg value = 20 }
 	ai_strategy = { type = research_weight_factor id = aa_cannon_1 value = 20 }
 	ai_strategy = { type = research_tech id = aa_cannon_1 value = 20 }
-	ai_strategy = { type = research_weight_factor id = survivability_studies value = 20 }
-	ai_strategy = { type = research_tech id = survivability_studies value = 20 }
+	ai_strategy = { type = research_weight_factor id = survivability_studies value = 120 }
+	ai_strategy = { type = research_tech id = survivability_studies value = 120 }
 }
 
 ai_res_airframe_small_1 = {
@@ -499,8 +499,8 @@ ai_res_airframe_small_1 = {
         has_tech = basic_large_airframe date > 1936.1.1 }
 	abort = { has_tech = basic_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = basic_small_airframe value = 20 }
-	ai_strategy = { type = research_tech id = basic_small_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = basic_small_airframe value = 120 }
+	ai_strategy = { type = research_tech id = basic_small_airframe value = 120 }
 }
 
 ai_res_airframe_small_2 = {
@@ -516,8 +516,8 @@ ai_res_airframe_small_2 = {
 	abort_when_not_enabled = yes
 	abort = { has_tech = improved_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = improved_small_airframe value = 20 }
-	ai_strategy = { type = research_tech id = improved_small_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = improved_small_airframe value = 120 }
+	ai_strategy = { type = research_tech id = improved_small_airframe value = 120 }
 }
 
 ai_res_airframe_small_3 = {
@@ -531,8 +531,8 @@ ai_res_airframe_small_3 = {
 	}
 	abort = { has_tech = advanced_small_airframe }
 
-	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 20 }
-	ai_strategy = { type = research_tech id = advanced_small_airframe value = 20 }
+	ai_strategy = { type = research_weight_factor id = advanced_small_airframe value = 120 }
+	ai_strategy = { type = research_tech id = advanced_small_airframe value = 120 }
 }
 
 ai_res_air_engine_3 = {
@@ -548,8 +548,8 @@ ai_res_air_engine_3 = {
 	abort_when_not_enabled = yes
 	abort = { has_tech = engines_3 }
 
-	ai_strategy = { type = research_weight_factor id = engines_3 value = 20 }
-	ai_strategy = { type = research_tech id = engines_3 value = 20 }
+	ai_strategy = { type = research_weight_factor id = engines_3 value = 120 }
+	ai_strategy = { type = research_tech id = engines_3 value = 120 }
 }
 
 ai_res_air_engine_4 = {

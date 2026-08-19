@@ -223,6 +223,44 @@ generic_medium_tank_destroyers = {
 		}
 	}
 
+	# 基础中型自行防空炮
+	basic_medium_anti_air_default = {
+		priority = {
+			factor = 250
+		}
+
+		target_variant = {
+			match_value = 2500
+			type = medium_tank_aa_chassis_1
+            modules = {
+		        main_armament_slot = tank_anti_air_cannon_2                #改进防空炮
+		        turret_type_slot = tank_medium_three_man_tank_turret #三乘员炮塔
+		        suspension_type_slot = tank_bogie_suspension
+		        armor_type_slot = tank_riveted_armor
+		        engine_type_slot = tank_diesel_engine
+		        special_type_slot_1 = tank_radio_1
+		        special_type_slot_2 = easy_maintenance
+		        special_type_slot_3 = extra_ammo_storage               #额外弹药架
+            }
+            upgrades = {
+                tank_nsb_engine_upgrade = 1
+                tank_nsb_armor_upgrade = 4
+	        }
+		}
+
+		allowed_modules = {
+			tank_anti_air_cannon
+            tank_anti_air_cannon_2
+			tank_medium_three_man_tank_turret
+            tank_bogie_suspension
+            tank_riveted_armor
+			tank_diesel_engine
+            tank_radio_1
+            easy_maintenance
+            extra_ammo_storage
+		}
+	}
+
 	# 基础中型自行反坦克炮
 	basic_medium_td_default = {
 		priority = {
