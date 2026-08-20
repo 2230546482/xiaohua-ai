@@ -54,7 +54,6 @@ ideas = {
                 experience_gain_air = 1
             }
             on_remove = {
-                add_ideas = red_most_hard_player
             }
         }
         red_most_hard_player = {
@@ -68,7 +67,7 @@ ideas = {
             cancel = {
                 or = {
                     is_ai = yes
-                    is_subject = no
+                    is_subject = yes
                 }
             }
             picture = flower_ai_emeng
@@ -83,7 +82,6 @@ ideas = {
                 experience_gain_air = 0.3
             }
             on_remove = {
-                add_ideas = red_most_hard_ai
             }
         }
 
