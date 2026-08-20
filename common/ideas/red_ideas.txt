@@ -1,5 +1,57 @@
 ideas = {
     country = {
+        red_qu_player = {
+            #轮椅
+            removal_cost = -1
+            allowed = {
+                always = no
+            }
+            available = {
+            }
+            cancel = {
+                is_ai = yes
+            }
+            picture = flower_ai_emeng
+            modifier = {
+                weekly_manpower = 100000
+                conscription = 0.05
+                conscription_factor = 0.2
+                industrial_capacity_factory = 5
+                industrial_capacity_dockyard = 5
+                production_factory_max_efficiency_factor = 5
+                line_change_production_efficiency_factor = 1
+                production_factory_start_efficiency_factor = 1
+                hcp_Military_maintenance_fee_factor = -1
+                hcp_income_factor_monthly = 1
+                land_night_attack = 0.25
+                army_attack_factor = 0.5
+                special_project_speed_factor = 1
+                army_defence_factor = 0.5
+                army_strength_factor = 1
+                army_org_factor = 0.5
+                army_morale_factor = 0.5
+                combat_width_factor = -0.2
+                supply_node_range = 1
+                breakthrough_factor = 1
+                land_reinforce_rate = 0.1
+                production_speed_buildings_factor = 0.5
+                factory_energy_consumption = -1.5
+                land_mastery_gain_factor = 1
+                naval_mastery_gain_factor = 1
+                air_mastery_gain_factor = 1
+                research_speed_factor = 1
+                political_power_gain = 5
+                production_lack_of_resource_penalty_factor = -1.1
+                supply_consumption_factor = -0.5
+                fuel_gain_factor = 20
+                local_resources_factor = 5
+                experience_gain_army = 10
+                experience_gain_navy = 10
+                experience_gain_air = 10
+            }
+            on_remove = {
+            }
+        }
         red_most_hard_ai = {
             #最难的buff
             removal_cost = -1

@@ -1,6 +1,5 @@
 
 hua_ai_decisions_categories = {
 	allowed = {
-		original_tag = AHM
 	}
 }

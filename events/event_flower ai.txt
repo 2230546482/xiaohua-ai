@@ -84,3 +84,18 @@ country_event = {
     }
 }
 
+country_event = {
+    id = FLWAI.2
+    title = FLWAI.2.t
+    desc = FLWAI.2.d
+    picture = GFX_event_flower_ai_1
+    is_triggered_only = yes
+    option = {
+        name = FLWAI.2.a
+        ai_chance = {
+            factor = 0
+        }
+        custom_effect_tooltip = FLWAI_who_is_qu
+    }
+}
+

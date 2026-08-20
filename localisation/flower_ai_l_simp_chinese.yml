@@ -15,3 +15,9 @@ red_hard_ai:0 "§8《漫天阴云之黄昏》§!"
 red_normal_hard_ai:0 "§t《日光照耀之晨曦》§!"
 red_neizhan_ai:0 "§9握紧彼此的双手§!"
 red_neizhan_ai_desc:0 "我们受到了内战时的保护"
+
+FLWAI_who_is_qu:0 "[FROM.getname]is区"
+FLWAI_not_qu:0 "不当区"
+FLWAI_qu:0 "渴望力量"
+hua_qu_gczy_decisions:0 "添加资源工厂"
+
