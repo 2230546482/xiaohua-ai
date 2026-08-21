@@ -1,0 +1,37 @@
+leader_traits = {
+    #绽放的红花
+    hua_ai_trait = {
+        random = no
+        political_power_gain = 2
+        casualty_trickleback = 0.2
+        org_damage_multiplier = -0.2
+        army_morale = 0.3
+        casualty_trickleback = 0.3
+        consumer_goods_expected_value = -0.1
+        local_resources_factor = 0.5
+        equipment_bonus = {
+            infantry_equipment = {
+                instant = yes
+                reliability = 0.2
+            }
+            magic_assault_equipment = {
+                instant = yes
+                reliability = 0.2
+            }
+            magic_artillery_equipment = {
+                instant = yes
+                reliability = 0.2
+            }
+            armor = {
+                instant = yes
+                reliability = 0.2
+            }
+            artillery = {
+                instant = yes
+                reliability = 0.2
+            }
+        }
+    }
+    
+
+}

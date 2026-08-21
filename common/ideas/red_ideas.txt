@@ -52,6 +52,24 @@ ideas = {
             on_remove = {
             }
         }
+        hua_ai = {
+
+            picture = xiaohua_small
+
+            allowed = {
+
+            }
+
+            traits = { hua_ai_trait }
+
+            do_effect = {
+
+            }
+
+            ai_will_do = {
+                factor = 0
+            }
+        }
         red_most_hard_ai = {
             #最难的buff
             removal_cost = -1
@@ -195,7 +213,7 @@ ideas = {
                 hcp_income_factor_monthly = 0.5
             }
             on_remove = {
-             
+
             }
         }
         red_normal_hard_ai = {

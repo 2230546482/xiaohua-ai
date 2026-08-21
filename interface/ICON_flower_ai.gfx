@@ -8,10 +8,35 @@ spriteTypes = {
 		name = "GFX_event_flower_ai_1"
 		texturefile = "gfx/event_pictures/flower_ai_1.png"
 	}
+	spriteType = {
+		name = "GFX_event_flower_ai_2"
+		texturefile = "gfx/event_pictures/flower_ai_2.png"
+	}
 	###GUI
 	#装备
 	#头像
+	#特质
+	spriteType = {
+        name = "GFX_trait_swy_trait"
+        texturefile = "gfx/interface/swy_trait.png"
+    }
+	spriteType = {
+        name = "GFX_trait_nl_trait"
+        texturefile = "gfx/interface/nl_trait.png"
+    }
+	spriteType = {
+        name = "GFX_trait_jiahao_trait"
+        texturefile = "gfx/interface/jiahao_trait.png"
+    }
 	#民族精神
+	spriteType = {
+		name = "GFX_flower_ai_jungong"
+		texturefile = "gfx/interface/ideas/flower_ai_jungong.png"
+	}
+	spriteType = {
+		name = "GFX_idea_xiaohua_small"
+		texturefile = "gfx/interface/xiaohua_small.png"
+	}
 	spriteType = {
 		name = "GFX_idea_flower_ai_emeng"
 		texturefile = "gfx/interface/ideas/flower_ai_emeng.png"

@@ -4,22 +4,22 @@ hua_ai_decisions_categories = {
         allowed = { tag = AHM }
 
         available = {
-			always = yes
+            always = yes
         }
 
         visible = {
-			date > 1936.1.30
-			has_global_flag = red_normal_hard
+            date > 1936.1.30
+            has_global_flag = red_normal_hard
         }
         target_trigger = {
             FROM = {
                 and = {
-				    is_ai = yes
+                    is_ai = yes
                     is_subject = no
                 }
-				not = {
-					has_idea = red_normal_hard_ai
-				}
+                not = {
+                    has_idea = red_normal_hard_ai
+                }
             }
         }
         days_remove = 10
@@ -28,13 +28,13 @@ hua_ai_decisions_categories = {
         ai_will_do = { base = 100 }
 
         complete_effect = {
-			FROM = {
-				add_ideas = red_normal_hard_ai
-			}
+            FROM = {
+                add_ideas = red_normal_hard_ai
+            }
         }
     }
 
-    hua_qu_decisions = {
+     hua_qu_decisions = {
         icon = GFX_KNM_KFL_transfer
         allowed = {  }
 
@@ -131,4 +131,72 @@ hua_ai_decisions_categories = {
         }
     }
 
+
+}
+
+
+hua_lunyi_decisions_categories = {
+    lunyi_decisions = {
+        allowed = {
+
+        }
+        visible = {
+            is_ai = no
+        }
+        fire_only_once = yes
+        complete_effect = {
+            set_country_flag = hua_ai_qu
+            add_ideas = hua_ai
+            create_corps_commander = {
+                name = "大红花"
+                portrait_path = "gfx/interface/xiaohua.png"
+                traits = { infantry_officer cavalry_officer armor_officer militias_officer irregulars_officer militias_officer PAO_tonghua MAGIC_MASTER }
+                skill = 1
+                attack_skill = 1
+                defense_skill = 1
+                planning_skill = 1
+                logistics_skill = 1
+            }
+            create_corps_commander = {
+                name = "势魏延"
+                portrait_path = "gfx/interface/swy.png"
+                traits = { swy_trait }
+                skill = 5
+                attack_skill = 8
+                defense_skill = 5
+                planning_skill = 3
+                logistics_skill = 2
+            }
+            create_corps_commander = {
+                name = "奶龙"
+                portrait_path = "gfx/interface/nailong.png"
+                traits = { nl_trait MAGIC_MASTER }
+                skill = 2
+                attack_skill = 2
+                defense_skill = 4
+                planning_skill = 2
+                logistics_skill = 6
+            }
+            create_corps_commander = {
+                name = "嘉豪"
+                portrait_path = "gfx/interface/jiahao.png"
+                traits = { jiahao_trait }
+                skill = 2
+                attack_skill = 2
+                defense_skill = 2
+                planning_skill = 2
+                logistics_skill = 2
+            }
+            custom_effect_tooltip = available_mio_tt
+            custom_effect_tooltip = jiahao_supreme_industrial_group
+            hidden_effect = {
+                every_country = {
+                    limit = {
+                        is_ai = no
+                    }
+                    country_event = FLWAI.2
+                }
+            }
+        }
+    }
 }
