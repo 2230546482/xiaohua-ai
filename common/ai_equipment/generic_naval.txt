@@ -23,10 +23,7 @@ better_destroyers = {
 				has_tech = basic_ship_hull_light  
 				factor = 0.5
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus 
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -66,10 +63,7 @@ better_destroyers = {
 				has_tech = basic_ship_hull_light  
 				factor = 0.5
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -109,10 +103,7 @@ better_destroyers = {
 				has_tech = improved_ship_hull_light   
 				factor = 0.5 
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus 
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -153,10 +144,7 @@ better_destroyers = {
 				has_tech = improved_ship_hull_light   
 				factor = 0.5 
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -197,10 +185,7 @@ better_destroyers = {
 				has_tech = advanced_ship_hull_light    
 				factor = 0.5 
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -242,10 +227,7 @@ better_destroyers = {
 				has_tech = advanced_ship_hull_light    
 				factor = 0.5 
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -283,10 +265,7 @@ better_destroyers = {
 	
 		priority = {
 			factor = 5000
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -324,10 +303,7 @@ better_destroyers = {
 	
 		priority = {
 			factor = 5000
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 		
 		role_icon_index = 2
@@ -388,10 +364,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = basic_ship_hull_cruiser     
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -434,10 +407,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = basic_ship_hull_cruiser     
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -480,10 +450,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = improved_ship_hull_cruiser     
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -528,10 +495,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = improved_ship_hull_cruiser     
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -576,10 +540,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = advanced_ship_hull_cruiser     
 			}
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -624,10 +585,7 @@ better_light_cruiser = {
 				factor = 0.5
 				has_tech = advanced_ship_hull_cruiser     
 			}
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -668,10 +626,7 @@ better_light_cruiser = {
 		
 		priority = {
 			factor = 50000
-			modifier = { 
-				has_country_flag = torpedo_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -712,10 +667,7 @@ better_light_cruiser = {
 		
 		priority = {
 			factor = 50000
-			modifier = { 
-				NOT = { has_country_flag = torpedo_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 2
@@ -1162,10 +1114,7 @@ better_capital_battleship = {
 				has_tech = basic_ship_hull_heavy 
 				factor = 0.5
 			}
-			modifier = { 
-				has_country_flag = battlecruiser_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1214,10 +1163,7 @@ better_capital_battleship = {
 				has_tech = basic_ship_hull_heavy 
 				factor = 0.5
 			}
-			modifier = { 
-				NOT = { has_country_flag = battlecruiser_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1266,10 +1212,7 @@ better_capital_battleship = {
 				has_tech = improved_ship_hull_heavy
 				factor = 0.5
 			}
-			modifier = { 
-				has_country_flag = battlecruiser_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1317,10 +1260,7 @@ better_capital_battleship = {
 				has_tech = improved_ship_hull_heavy
 				factor = 0.5
 			}
-			modifier = { 
-				NOT = { has_country_flag = battlecruiser_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1368,10 +1308,7 @@ better_capital_battleship = {
 				has_tech = advanced_ship_hull_heavy 
 				factor = 0.5
 			}
-			modifier = { 
-				has_country_flag = battlecruiser_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1421,10 +1358,7 @@ better_capital_battleship = {
 				has_tech = advanced_ship_hull_heavy 
 				factor = 0.5
 			}
-			modifier = { 
-				NOT = { has_country_flag = battlecruiser_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1465,10 +1399,7 @@ better_capital_battleship = {
 	
 		priority = {
 			factor = 50000
-			modifier = { 
-				has_country_flag = battlecruiser_focus
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1
@@ -1514,10 +1445,7 @@ better_capital_battleship = {
 	
 		priority = {
 			factor = 50000
-			modifier = { 
-				NOT = { has_country_flag = battlecruiser_focus }
-				factor = -1
-			}
+			
 		}
 
 		role_icon_index = 1

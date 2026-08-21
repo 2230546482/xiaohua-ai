@@ -143,7 +143,7 @@ AI_armour = {
                 artillery_brigade = 4
             }
             regimental_support = {
-                 fire_support = 3
+                fire_support = 3
                 medium_sp_anti_air_support = 2
             }
 
@@ -194,6 +194,7 @@ AI_armour = {
             }
             support = {
                 armored_engineer = 1
+                engineer = 1
                 light_tank_recon = 1
                 medium_flame_tank = 1
                 armored_signal = 1

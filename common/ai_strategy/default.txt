@@ -2520,7 +2520,7 @@ early_air_production_basic = {
     }
 }
 #海军生产
-naval_unit_role_ratios = {
+ai_naval_unit_role_ratios = {
     allowed = {
     }
     enable = { num_of_naval_factories > 0 }
@@ -2600,7 +2600,7 @@ we_need_convoys = {
     }
 }
 
-we_need_convoys2 = {
+need_convoys2 = {
     enable = { stockpile_ratio = { archetype = convoy ratio < 150 } }
     abort = { stockpile_ratio = { archetype = convoy ratio > 200 } }
 
@@ -2611,7 +2611,7 @@ we_need_convoys2 = {
     }
 }
 
-we_need_convoys3 = {
+need_convoys3 = {
     enable = { stockpile_ratio = { archetype = convoy ratio < 250 } }
     abort = { stockpile_ratio = { archetype = convoy ratio > 300 } }
 
@@ -2622,7 +2622,7 @@ we_need_convoys3 = {
     }
 }
 
-we_need_convoys4 = {
+need_convoys4 = {
     enable = { stockpile_ratio = { archetype = convoy ratio < 400 } }
     abort = { stockpile_ratio = { archetype = convoy ratio > 450 } }
 
@@ -2633,7 +2633,7 @@ we_need_convoys4 = {
     }
 }
 
-we_dont_need_convoys_1 = {
+dont_need_convoys_1 = {
     enable = { stockpile_ratio = { archetype = convoy ratio > 200 } }
     abort_when_not_enabled = yes
 
@@ -2644,7 +2644,7 @@ we_dont_need_convoys_1 = {
     }
 }
 
-we_dont_need_convoys_2 = {
+dont_need_convoys_2 = {
     enable = { stockpile_ratio = { archetype = convoy ratio > 500 } }
     abort_when_not_enabled = yes
 
