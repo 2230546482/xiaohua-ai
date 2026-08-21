@@ -8,6 +8,7 @@ hua_lunyi_decisions_categories = {
 	allowed = {
 		
 	}
+	icon = GFX_PAM_amjy
 	priority = 500
 	visible = {
 		is_ai = no

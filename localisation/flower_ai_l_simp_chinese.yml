@@ -29,6 +29,7 @@ red_hard_ai:0 "§8《漫天阴云之黄昏》§!"
 red_normal_hard_ai:0 "§t《日光照耀之晨曦》§!"
 red_neizhan_ai:0 "§9握紧彼此的双手§!"
 red_neizhan_ai_desc:0 "我们受到了内战时的保护"
+red_qu_player:0 "§9区……§!"
 
 #决议
 hua_lunyi_decisions_categories:0 "我去！呱！"
@@ -50,7 +51,7 @@ jiahao_trait_peer_gap_desc:0 "同龄人都在打瓦打洲，而我天天股票�
 
  jiahao_mio_trait_geopolitics_master:0 "最近不怎么打游戏，主要在分析论战圈和第三次世界大战局势。把高阶博弈论套用到全军突破与软攻上，敌人的战线在我眼里跟筛子一样，玩钢四要是没这点国际视野确实挺难理解我的[笑哭]"
 
- jiahao_mio_trait_usd_settlement:0 "股票，基金是什么东西啊？最近都在研究国际外汇。对了，住校的话，学校食堂可以用美金买橡胶和钢铁吗？直接全款美元连续包月买断战略资源，资源消耗直接砍半，美金结算就是硬气，你们还在苦恼对空防守？我早就用高阶微操把制空权全拿下了[笑哭]"
+ jiahao_mio_trait_usd_settlement:0 "股票，基金是什么东西啊？最近都在研究国际外汇。对了，出国留学的话，可以用美金买橡胶和钢铁吗？直接全款美元连续包月买断战略资源，资源消耗直接砍半，美金结算就是硬气，你们还在苦恼对空防守？我早就用高阶微操把制空权全拿下了[笑哭]"
 
  jiahao_mio_trait_continuous_vip:0 "顺便说一句我Apple Music，Netflix也是会员，这都是美国人在用的APP哦，还有网易云我也有黑胶会员(连续包年的哦）。"
 
@@ -67,8 +68,8 @@ jiahao_trait_peer_gap_desc:0 "同龄人都在打瓦打洲，而我天天股票�
  jiahao_mio_trait_shinjuku_sendai:0 "豪到我了又是啥新梗？最近注意力都放在36年闪击法国、校长速推日本、莫斯科大决战上面了。把40宽重坦编制和划线平推逻辑直接移植给陆海空全系装备，敌人根本破不了防，真是越来越跟不上你们的潮流了[笑哭]"
 
  jiahao_mio_trait_black_flash_24:0 "同龄人玩钢四只会编制九步一炮，而我每一发炮弹打出去都是40宽重坦临界破防的绝对碾压……打出来的软攻和穿深直接爆表。一跟我聊战术深度他们就懵了，就很……你们懂吧？[笑哭]"
-FLWAI_who_is_qu:0 "[FROM.getname]is区"
-FLWAI_not_qu:0 "不当区"
-FLWAI_qu:0 "渴望力量"
-hua_qu_gczy_decisions:0 "添加资源工厂"
+FLWAI_not_qu:0 "我再也不当区了"
+FLWAI_qu:0 "变成区，永远地活下去！"
+hua_qu_decisions:0 "变成区，永远地活下去！"
+hua_qu_gczy_decisions:0 "给区添加资源和工厂"
 

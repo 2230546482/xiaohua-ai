@@ -33,105 +33,6 @@ hua_ai_decisions_categories = {
             }
         }
     }
-
-     hua_qu_decisions = {
-        icon = GFX_KNM_KFL_transfer
-        allowed = {  }
-
-        available = {
-			always = yes
-        }
-
-        visible = {
-            is_ai = no
-        }
-        fire_only_once = no
-        ai_will_do = { base = 0 }
-
-        complete_effect = {
-            if = {
-                limit = {
-                    has_idea = red_qu_player
-                }
-                clr_country_flag = red_qu
-                remove_ideas = red_qu_player
-                custom_effect_tooltip = FLWAI_not_qu
-            }
-            else = {
-                every_country = {
-                    limit = {
-                        is_ai = no
-                    }
-                    country_event = FLWAI.2
-                }
-                set_country_flag = red_qu
-                add_ideas = red_qu_player
-                custom_effect_tooltip = FLWAI_qu
-            }
-        }
-    }
-    
-    hua_qu_gczy_decisions = {
-        icon = GFX_KNM_KFL_transfer
-        allowed = {  }
-
-        available = {
-			always = yes
-        }
-
-        visible = {
-            is_ai = no
-            has_idea = red_qu_player
-        }
-        days_remove = 7
-        fire_only_once = no
-        ai_will_do = { base = 0 }
-
-        complete_effect = {
-			random_state = {
-                limit = {
-                    is_controlled_by = ROOT
-                }
-				add_resource = {
-					type = steel
-					amount = 500
-				}
-				add_resource = {
-					type = oil
-					amount = 500
-				}
-				add_resource = {
-					type = tungsten
-					amount = 500
-				}
-				add_resource = {
-					type = chromium
-					amount = 500
-				}
-				add_resource = {
-					type = aluminium
-					amount = 500
-				}
-				add_resource = {
-					type = rubber
-					amount = 500
-				}
-				add_resource = {
-					type = originium
-					amount = 500
-				}
-				add_resource = {
-					type = coal
-					amount = 500
-				}
-			}
-		    add_offsite_building = { type = industrial_complex level = 100 }
-		    add_offsite_building = { type = arms_factory level = 100 }
-		    add_offsite_building = { type = dockyard level = 100 }
-        }
-    }
-
-
 }
 
 
@@ -143,6 +44,7 @@ hua_lunyi_decisions_categories = {
         visible = {
             is_ai = no
         }
+        icon = GFX_exchange_bad_luck
         fire_only_once = yes
         complete_effect = {
             set_country_flag = hua_ai_qu
@@ -207,6 +109,99 @@ hua_lunyi_decisions_categories = {
                     country_event = FLWAI.2
                 }
             }
+        }
+    }
+
+    hua_qu_decisions = {
+        icon = GFX_die_tec
+        allowed = {  }
+
+        available = {
+			always = yes
+        }
+
+        visible = {
+            is_ai = no
+            has_country_flag = hua_ai_qu
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+
+        complete_effect = {
+            if = {
+                limit = {
+                    has_idea = red_qu_player
+                }
+                clr_country_flag = red_qu
+                remove_ideas = red_qu_player
+                custom_effect_tooltip = FLWAI_not_qu
+            }
+            else = {
+                set_country_flag = red_qu
+                add_ideas = red_qu_player
+                custom_effect_tooltip = FLWAI_qu
+            }
+        }
+    }
+    
+    hua_qu_gczy_decisions = {
+        icon = GFX_KNM_KFL_transfer
+        allowed = {  }
+
+        available = {
+			always = yes
+        }
+
+        visible = {
+            is_ai = no
+            has_idea = red_qu_player
+        }
+        days_remove = 30
+        fire_only_once = no
+        cost = 200
+        ai_will_do = { base = 0 }
+
+        complete_effect = {
+			random_state = {
+                limit = {
+                    is_controlled_by = ROOT
+                }
+				add_resource = {
+					type = steel
+					amount = 50
+				}
+				add_resource = {
+					type = oil
+					amount = 50
+				}
+				add_resource = {
+					type = tungsten
+					amount = 50
+				}
+				add_resource = {
+					type = chromium
+					amount = 50
+				}
+				add_resource = {
+					type = aluminium
+					amount = 50
+				}
+				add_resource = {
+					type = rubber
+					amount = 50
+				}
+				add_resource = {
+					type = originium
+					amount = 50
+				}
+				add_resource = {
+					type = coal
+					amount = 50
+				}
+			}
+		    add_offsite_building = { type = industrial_complex level = 10 }
+		    add_offsite_building = { type = arms_factory level = 10 }
+		    add_offsite_building = { type = dockyard level = 10 }
         }
     }
 }
