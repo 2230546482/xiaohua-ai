@@ -8,7 +8,7 @@ better_destroyers = {
 	}
 	
 	roles = {
-		naval_better_screen
+		naval_screen
 	}
 	
 	priority = {
@@ -350,7 +350,7 @@ better_light_cruiser = {
 	}
 	
 	roles = {
-		naval_better_cruiser_light
+		naval_cruiser_light
 	}
 	
 	priority = {
@@ -716,7 +716,7 @@ better_heavy_cruiser = {
 	}
 	
 	roles = {
-		naval_better_cruiser_heavy
+		naval_cruiser_heavy
 	}
 	
 	priority = {
@@ -918,7 +918,7 @@ better_heavy_cruiser_Raiding = {
 	}
 	
 	roles = {
-		naval_better_cruiser_heavy
+		naval_cruiser_heavy
 	}
 	
 	priority = {
@@ -1100,13 +1100,13 @@ better_capital_battleship = {
 	}
 	
 	roles = {
-		naval_better_battleship
+		naval_battleship
 	}
 	
 	priority = {
 		factor = 70000
 	}
-	naval_better_battleship_1 = {
+	naval_battleship_1 = {
 	
 		priority = {
 			factor = 1000
@@ -1155,7 +1155,7 @@ better_capital_battleship = {
 			ship_dp_secondaries
 		}
 	}
-	naval_better_battleship_1_2 = {
+	naval_battleship_1_2 = {
 	
 		priority = {
 			factor = 10000
@@ -1204,7 +1204,7 @@ better_capital_battleship = {
 			ship_dp_secondaries
 		}
 	}
-	naval_better_battleship_2 = {
+	naval_battleship_2 = {
 	
 		priority = {
 			factor = 20000
@@ -1252,7 +1252,7 @@ better_capital_battleship = {
 			ship_dp_secondaries
 		}
 	}
-	naval_better_battleship_2_2 = {
+	naval_battleship_2_2 = {
 	
 		priority = {
 			factor = 20000
@@ -1300,7 +1300,7 @@ better_capital_battleship = {
 			ship_dp_secondaries
 		}
 	}
-	naval_better_battleship_3 = {
+	naval_battleship_3 = {
 	
 		priority = {
 			factor = 30000
@@ -1350,7 +1350,7 @@ better_capital_battleship = {
 		}
 	}
 	
-	naval_better_battleship_3_2 = {
+	naval_battleship_3_2 = {
 	
 		priority = {
 			factor = 30000
@@ -1395,7 +1395,7 @@ better_capital_battleship = {
 		}
 	}
 	
-	naval_better_battleship_4 = {
+	naval_battleship_4 = {
 	
 		priority = {
 			factor = 50000
@@ -1441,7 +1441,7 @@ better_capital_battleship = {
 		}
 	}
 	
-	naval_better_battleship_4_2 = {
+	naval_battleship_4_2 = {
 	
 		priority = {
 			factor = 50000
@@ -1493,13 +1493,13 @@ better_capital_super_heavy_battleship = {
 	}
 	
 	roles = {
-		naval_better_super_heavy_battleship
+		naval_super_heavy_battleship
 	}
 	
 	priority = {
 		factor = 80000
 	}
-	naval_super_heavy_better_battleship_1 = {
+	naval_super_heavy_battleship_1 = {
 	
 		priority = {
 			factor = 20000
@@ -1546,7 +1546,7 @@ better_capital_super_heavy_battleship = {
 		}
 	}
 	
-	naval_super_heavy_better_battleship_2 = {
+	naval_super_heavy_battleship_2 = {
 	
 		priority = {
 			factor = 100
@@ -1604,13 +1604,13 @@ better_carrier = {
 	}
 	
 	roles = {
-		naval_better_carrier
+		naval_carrier
 	}
 	
 	priority = {
 		factor = 90000
 	}
-	naval_better_carrier_1 = {
+	naval_carrier_1 = {
 	
 		priority = {
 			factor = 10000
@@ -1650,7 +1650,7 @@ better_carrier = {
 			ship_carrier_armor
 		}
 	}
-	naval_better_carrier_2 = {
+	naval_carrier_2 = {
 	
 		priority = {
 			factor = 20000
@@ -1691,7 +1691,7 @@ better_carrier = {
 			ship_carrier_armor
 		}
 	}
-	naval_better_carrier_3 = {
+	naval_carrier_3 = {
 	
 		priority = {
 			factor = 30000
@@ -1733,7 +1733,7 @@ better_carrier = {
 			ship_carrier_armor
 		}
 	}
-	naval_better_carrier_4 = {
+	naval_carrier_4 = {
 	
 		priority = {
 			factor = 50000
@@ -1784,13 +1784,13 @@ better_submarine = {
 	}
 	
 	roles = {
-		naval_better_submarine
+		naval_submarine
 	}
 	
 	priority = {
 		factor = 30000
 	}
-	naval_better_submarine_1 = {
+	naval_submarine_1 = {
 	
 		priority = {
 			factor = 1000
@@ -1820,7 +1820,7 @@ better_submarine = {
 			ship_radar
 		}
 	}
-	naval_better_submarine_2 = {
+	naval_submarine_2 = {
 	
 		priority = {
 			factor = 2000
@@ -1850,7 +1850,7 @@ better_submarine = {
 			ship_radar
 		}
 	}
-	naval_better_submarine_3 = {
+	naval_submarine_3 = {
 	
 		priority = {
 			factor = 3000
@@ -1882,7 +1882,7 @@ better_submarine = {
 			ship_radar
 		}
 	}
-	naval_better_submarine_4 = {
+	naval_submarine_4 = {
 	
 		priority = {
 			factor = 5000
