@@ -1,6 +1,6 @@
 AI_start1 = {
     enable = {
-         NOT = {
+        NOT = {
             OR = {
                 original_tag = PAO
                 original_tag = PAM
@@ -1075,9 +1075,9 @@ AI_late_game_warrior = {
         value = 100
     }
     ai_strategy = {
-		type = added_military_to_civilian_factory_ratio
-		value = 99
-	}
+        type = added_military_to_civilian_factory_ratio
+        value = 99
+    }
 }
 AI_game_warrior = {
     allowed = {  NOT = {
@@ -1101,9 +1101,9 @@ AI_game_warrior = {
         value = 300
     }
     ai_strategy = {
-		type = added_military_to_civilian_factory_ratio
-		value = -99
-	}
+        type = added_military_to_civilian_factory_ratio
+        value = -99
+    }
 
 }
 #步兵装备
@@ -1735,7 +1735,16 @@ moren_capital_shield = {
 }
 #识别可被包围的敌军并优先切断
 moren_encirclement_hunter = {
-    allowed = { original_tag = ROOT }
+    allowed = { NOT = {
+        OR = {
+            original_tag = PAO
+            original_tag = PAM
+            original_tag = ELF
+            original_tag = KNM
+            original_tag = KFL
+            original_tag = LHS
+        }
+    } }
     enable = {
         has_war = yes
         num_of_military_factories > 60
@@ -2696,11 +2705,11 @@ default_pp_spend_amount = {
         id = super_heavy_artillery_equipment
         value = -99
     }
-    
+
     ai_strategy = {
-		type = super_heavy_artillery_equipment
-		value = -999
-	}
+        type = super_heavy_artillery_equipment
+        value = -999
+    }
     ai_strategy = {
         type = equipment_production_min_factories_archetype
         id = self_propelled_super_heavy_artillery_equipment
@@ -2711,11 +2720,11 @@ default_pp_spend_amount = {
         id = self_propelled_super_heavy_artillery_equipment
         value = -99
     }
-    
+
     ai_strategy = {
-		type = self_propelled_super_heavy_artillery_equipment
-		value = -999
-	}
+        type = self_propelled_super_heavy_artillery_equipment
+        value = -999
+    }
     ai_strategy = {
         type = pp_spend_priority
         id = relation

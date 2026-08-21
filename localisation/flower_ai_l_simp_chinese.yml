@@ -37,37 +37,54 @@ lunyi_decisions:0 "低调的黑客，有多恐怖"
 lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名低调的黑客。"
 
 #军工机构
-jiahao_supreme_industrial_group:0 "嘉豪集团"
-jiahao_header_python_code:0 "VSC底层源码重构部门"
-jiahao_header_us_dollar:0 "美元结算与纳斯达克资本部"
-jiahao_header_domain_expansion:0 "决战级全领域展开部"
 
-jiahao_trait_peer_gap:0 "同龄人都在打瓦打洲，而我天天钢四写代码当黑客，……就，你们懂吧？"
-jiahao_trait_peer_gap_desc:0 "同龄人都在打瓦打洲，而我天天股票，编程……就，你们懂吧？稍微用一点点黑客高阶思维对全军装备做个微调优化，性能直接拉满，玩钢四要是没有这种跨级别的思维逻辑真的很难跟上我们的节奏[笑哭]"
+ jiahao_supreme_industrial_group:0 "嘉豪集团"
+ jiahao_header_python_code:0 "VS Code 算法重构部门"
+ jiahao_header_us_dollar:0 "美金结算与纳斯达克资本部"
+ jiahao_header_domain_expansion:0 "宏观战略与战术大营部"
+ jiahao_trait_peer_gap:0 "开家长会老师问我以后想考哪个985，我直接掏出手机展示我的钢四德国1939年产线和美股持仓，全班家长都沉默了。只能说玩游戏要是没有这种跨级别的思维，真的挺难跟上我的节奏。"
 
- jiahao_mio_trait_python_hack:0 "其实也没有很难啦，上课无聊用VSC写了个小脚本把生产效率上限和IC成本顺手改了一下，别人还在苦恼造不起40宽重坦，我这边流水线已经全自动倒灌了，就……你们懂吧？"
 
- jiahao_mio_trait_airpods_max:0 "戴上我的AirPods Max（一种蓝牙无线耳机(无线充电版)，很贵就是了(一般人买不起的）），开着Spotify会员（美国人都在用的APP哦）听俄战歌指挥部队推进，就很……你们懂吧？[笑哭]"
+ jiahao_mio_trait_python_hack:0 "数学课上老师在讲二次函数，我在课本底下用手机Python端跑钢四重坦IC性价比回归方程。老师以为我在发呆，其实我早就把全军装备产线给优化透了。"
 
- jiahao_mio_trait_geopolitics_master:0 "最近不怎么打游戏，主要在分析论战圈和第三次世界大战局势。把高阶博弈论套用到全军突破与软攻上，敌人的战线在我眼里跟筛子一样，玩钢四要是没这点国际视野确实挺难理解我的[笑哭]"
+ jiahao_mio_trait_airpods_max:0 "在图书馆自习把AirPods Max降噪开到最大，放着俄战歌打钢四。隔壁学妹问我用啥听课软件效率这么高，我笑而不语，有些东西不是一个阶层的说了也不懂。"
 
- jiahao_mio_trait_usd_settlement:0 "股票，基金是什么东西啊？最近都在研究国际外汇。对了，出国留学的话，可以用美金买橡胶和钢铁吗？直接全款美元连续包月买断战略资源，资源消耗直接砍半，美金结算就是硬气，你们还在苦恼对空防守？我早就用高阶微操把制空权全拿下了[笑哭]"
+ jiahao_mio_trait_spotify_hifi:0 "年度Spotify总结一出，听得最多的是《装甲兵歌》和《喀秋莎》。同龄人都在朋友圈发周杰伦，而我的年度总结散发着战争与工业的味道，这就是底蕴。"
 
- jiahao_mio_trait_continuous_vip:0 "顺便说一句我Apple Music，Netflix也是会员，这都是美国人在用的APP哦，还有网易云我也有黑胶会员(连续包年的哦）。"
+ jiahao_mio_trait_geopolitics_master:0 "历史老师讲二战欧洲战场问谁知道闪击战，我直接站起来讲了40分钟战术大营编制和突破逻辑，老师当场愣住，下课还专门来请教我平时怎么看局势。"
 
- jiahao_mio_trait_ultimate_flex:0 "别人出门兜里就放个手机钥匙，我随身带的是AirPods Max、MacBook Pro、美股黑卡还有Spotify包年会员。顺手把全军编制改成了两栖重坦，火力一不小心直接拉满。别人还在研究怎么守马奇诺，我这边已经划线平推全球了，没啥难度。"
+ jiahao_mio_trait_simulia_geopolitics:0 "坐在星巴克角落戴着墨镜看联合国新闻，顺便分析下欧洲局势。隔壁桌几个大学生还在讨论期末考，我心里只有世界大战的推演格局，这就是沉淀。"
 
- jiahao_mio_trait_domain_expansion:0 "说实话，天天刷短视频打瓦打洲真的挺浪费时间的。我这年纪平时注意力都在P社四霸上面，顺便研究下维多利亚的经济和钢四的宏观推演。只能说游戏与游戏之间的差距确实挺大的，就……你们懂吧？"
+ jiahao_mio_trait_apple_ecosystem:0 "MacBook、iPad Pro、iPhone全家桶生态联动。打钢四时用iPad看情报，用Mac跑游戏，多屏协同操盘。老师以为我在记笔记，其实全军通讯和速度早被我拉满了。"
 
- jiahao_mio_trait_starbucks_coffee:0 "下午好无聊，喝着星巴克（均价4美元/30元人民币的高级美国饮料），用写VS Code脚本的高阶思维重构了下工厂工时。全系装备造价瞬间砍半，只能说懂编程和黑客思维打钢四确实是降维打击[笑哭]"
+ jiahao_mio_trait_ultimate_flex:0 "教导主任突然查寝查违禁品，同龄人藏手机香烟，我包里掏出MacBook Pro、AirPods Max、美股黑卡和钢四全球推演笔记。主任看我的眼神都不对了，直接默默退了出去。"
 
- jiahao_mio_trait_nasdaq_crypto:0 "真不怎么关心地面那些小打小闹，最近一直都在看纳斯达克和虚拟币K线图。直接用全额美元期货把军工原材料给锁死了，工厂生产效率上限当场暴涨。玩游戏要是没点跨境资本眼光，真的很难跟上我的节奏。"
+ jiahao_mio_trait_usd_settlement:0 "学校食堂打饭我问阿姨能刷美金对冲结算吗，阿姨没听懂。只能说国内基础设施和国际跨境金融还是有差距，但不妨碍我在钢四里直接用美金结清战略橡胶。"
 
- jiahao_mio_trait_simulia_geopolitics:0 "抽空研究了一下二战地缘政治与欧洲局势。顺便用P社高阶大佬的宏观思维给部队调了一下侦察与推进速度，别人都说我不像这个年龄的人，就很……你们懂吧？"
+ jiahao_mio_trait_starbucks_coffee:0 "喝一口均价4美元（按汇率约合28.8人民币，美国普通人天天喝）的冷萃，感觉精神大振。给游戏里的工厂来了一套美式高压管理，装备造价直接折上折。"
 
- jiahao_mio_trait_shinjuku_sendai:0 "豪到我了又是啥新梗？最近注意力都放在36年闪击法国、校长速推日本、莫斯科大决战上面了。把40宽重坦编制和划线平推逻辑直接移植给陆海空全系装备，敌人根本破不了防，真是越来越跟不上你们的潮流了[笑哭]"
+ jiahao_mio_trait_casual_coffee_shop:0 "校服外面套个西装外套坐在星巴克，摆出跨国高管洽谈的架势打钢四。服务员过来加水都小心翼翼的，以为我在指挥几个亿的跨境并购案。"
 
- jiahao_mio_trait_black_flash_24:0 "同龄人玩钢四只会编制九步一炮，而我每一发炮弹打出去都是40宽重坦临界破防的绝对碾压……打出来的软攻和穿深直接爆表。一跟我聊战术深度他们就懵了，就很……你们懂吧？[笑哭]"
+ jiahao_mio_trait_crypto_mining:0 "趁微机课把学校机房电脑全部挂上暗中挖矿脚本，提现出来的以太坊直接注入游戏里的军工流水线。工厂产能凭空暴涨，学校网速变慢可跟我没关系。"
+
+ jiahao_mio_trait_nasdaq_crypto:0 "体育课自由活动，同龄人在打篮球打瓦，我坐在看台上看美股大盘和虚拟币合约。用期货对冲的眼光提前在钢四里锁定军工原材料，操盘手的感觉不过如此。"
+
+ jiahao_mio_trait_continuous_vip:0 "网易云黑胶连续包年、Netflix 4K高级会员、Apple Music家庭组……全都是自动扣费。这种不用看账单的生活方式，反映在钢四里就是装备造价直接打折。"
+
+ jiahao_mio_trait_wallstreet_hedge:0 "16岁，高一，手握纳斯达克风险对冲逻辑，在钢四里把军工原材料成本干到了负数。同龄人还在为几块零花钱发愁，我已经在给全军配重坦了。"
+
+ jiahao_mio_trait_domain_expansion:0 "宿舍室友叫我组队打王者三角洲，我冷笑一声开了一局《维多利亚3》和《钢四》。雏鹰怎么能理解雄鹰的眼界？我们要操心的是整个地缘格局。"
+
+ jiahao_mio_trait_paradox_veteran:0 "Steam累计时长3000小时，P社四霸全部通关。我玩钢四从来不看网上教程，因为我就是教程本身。后勤和可靠性被我调教得像瑞士手表一样精密。"
+
+ jiahao_mio_trait_grand_strategy_thesis:0 "历史作业要求写二战感悟，我直接交了一份50页的《钢四补给机制与重装师穿深边际效益分析》。历史老师看完直呼内行，给我打了个满分并让我当课代表。"
+
+ jiahao_mio_trait_shinjuku_sendai:0 "班里同学跟风喊什么“豪到我了”，跑来问我懂不懂，我问他们懂不懂36年闪击法国和校长速推日本。他们全懵了，只能说潮流都是虚的，战术才是永恒的。"
+
+ jiahao_mio_trait_line_push_logic:0 "真正的大佬打钢四是不需要手操的。画一条元帅线直接开三倍速，AI战线自己就平推过去了。我一边喝咖啡一边看着地图变色，这就叫科技改变战争。"
+
+ jiahao_mio_trait_black_flash_24:0 "隔壁班自称钢四高手的人跑来跟我切磋，编制装模作样搞个九步一炮。我直接掏出40宽重坦，穿深和软攻爆表，一炮把他防线炸穿。他问我这是什么黑科技，我摇摇头：这是阶层差距。"
+
 FLWAI_not_qu:0 "我再也不当区了"
 FLWAI_qu:0 "变成区，永远地活下去！"
 hua_qu_decisions:0 "变成区，永远地活下去！"
