@@ -151,6 +151,16 @@ hua_lunyi_decisions_categories = {
                 name = "大红花"
                 portrait_path = "gfx/interface/xiaohua.png"
                 traits = { infantry_officer cavalry_officer armor_officer militias_officer irregulars_officer militias_officer PAO_tonghua MAGIC_MASTER }
+                skill = 4
+                attack_skill = 2
+                defense_skill = 2
+                planning_skill = 6
+                logistics_skill = 6
+            }
+            create_corps_commander = {
+                name = "小红花"
+                portrait_path = "gfx/interface/xiaohua2.png"
+                traits = { PAO_tonghua brave LHS_youjitiancai PAO_zylx PAO_jjdsw PAO_czdyq }
                 skill = 1
                 attack_skill = 1
                 defense_skill = 1
