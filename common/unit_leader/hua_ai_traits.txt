@@ -72,7 +72,7 @@ leader_traits = {
 		type = land
 		trait_type = personality_trait
 		modifier = {
-			army_org_factor = 0.5
+			supply_consumption_factor = 0.5
 
 		}
 	}
