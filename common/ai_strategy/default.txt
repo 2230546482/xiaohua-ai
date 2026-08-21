@@ -529,7 +529,7 @@ youhavethemusethem2 = {
         }
     }
     enable = {
-        date > 1939.1.1
+        date > 1938.1.1
         has_equipment = { medium_tank_chassis > 1 }
         has_tech = improved_medium_tank_chassis
     }
@@ -684,7 +684,7 @@ AIIfyouhavethemusethem2 = {
         }
     }
     enable = {
-        date > 1939.1.1
+        date > 1938.1.1
         has_equipment = { medium_tank_chassis > 1 }
         has_tech = improved_medium_tank_chassis
     }
@@ -715,7 +715,7 @@ Ifyouhavethemusethem3 = {
         }
     }
     enable = {
-        date < 1939.1.1
+        date < 1938.1.1
     }
     abort_when_not_enabled = yes
 
@@ -1091,7 +1091,7 @@ AI_game_warrior = {
         }
     } }
     enable = {
-        date < 1939.1.1
+        date < 1938.1.1
     }
     abort_when_not_enabled = yes
     #民工优先

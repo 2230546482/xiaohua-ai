@@ -49,6 +49,9 @@ hua_lunyi_decisions_categories = {
         complete_effect = {
             set_country_flag = hua_ai_qu
             add_ideas = hua_ai
+            set_technology = {
+	            elephantry = 1
+	        }
             create_corps_commander = {
                 name = "大红花"
                 portrait_path = "gfx/interface/xiaohua.png"

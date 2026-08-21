@@ -162,7 +162,7 @@ ai_res_tank_medium_2 = {
 	enable = {
 		has_tech = infantry_weapons1
 		has_tech = basic_medium_tank_chassis
-		date > 1939.1.1
+		date > 1938.1.1
 	}
 	abort = { has_tech = improved_medium_tank_chassis }
 
@@ -183,7 +183,7 @@ ai_res_tank_heavy_2 = {
 	allowed = { always = yes }
 	enable = {
 		has_tech = infantry_weapons1 has_tech = basic_heavy_tank_chassis
-		date > 1939.1.1
+		date > 1938.1.1
 	}
 	abort = { has_tech = improved_heavy_tank_chassis }
 
@@ -227,7 +227,7 @@ ai_res_tank_armor_2 = {
 ai_res_tank_armor_3 = {
 	allowed = { always = yes }
 	enable = {
-		date > 1939.1.1
+		date > 1938.1.1
 		has_tech = infantry_weapons1 has_tech = armor_tech_2
 	}
 	abort = { has_tech = armor_tech_3 }
@@ -328,7 +328,7 @@ ai_res_antitank_3 = {
 ai_res_antitank_4 = {
 	allowed = { always = yes }
 	enable = {
-		date > 1939.6.1
+		date > 1938.6.1
 		has_tech = antitank3
 	}
 	abort = { has_tech = antitank4 }
@@ -429,7 +429,7 @@ ai_res_radio_2 = {
 ai_res_radio_3 = {
 	allowed = { always = yes }
 	enable = {
-		date > 1939.1.1
+		date > 1938.1.1
 		has_tech = improved_radio
 	}
 	abort = { has_tech = advanced_radio }
@@ -468,7 +468,7 @@ ai_res_air_modules_weapons = {
         has_tech = basic_large_airframe
 		OR = {
 			AND = {
-				date > 1939.1.1
+				date > 1938.1.1
 				num_of_military_factories > 30
 			}
 			AND = {

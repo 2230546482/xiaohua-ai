@@ -144,7 +144,7 @@ LHS_jibu = {
             factor = 20
             modifier = {
                 factor = 0
-                date < 1939.1.1
+                date < 1938.1.1
             }
         }
         reinforce_prio = 1
