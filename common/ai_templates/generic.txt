@@ -112,12 +112,10 @@ AI_armour = {
 
     infantry_template_small = {
         upgrade_prio = {
-            factor = 200
+            factor = 1
             modifier = {
                 factor = 0
-                has_equipment = {
-                    armored_support_vehicle > 0
-                }
+                num_of_military_factories > 90
             }
             modifier = {
                 factor = 0
@@ -125,16 +123,10 @@ AI_armour = {
             }
         }
         production_prio = {
-            factor = 200
+            factor = 1
             modifier = {
                 factor = 0
-                has_equipment = {
-                    armored_support_vehicle > 0
-                }
-            }
-            modifier = {
-                factor = 0
-                date < 1939.1.1
+                num_of_military_factories > 90
             }
         }
 
@@ -148,42 +140,29 @@ AI_armour = {
 
             regiments = {
                 irregular_infantry = 12
-                medium_tank_destroyer_brigade = 10
+                artillery_brigade = 4
             }
             regimental_support = {
                 fire_support = 3
                 medium_sp_anti_air_support = 2
             }
+
             support = {
-                engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
-                armored_signal = 1
-                logistics_company = 1
+                anti_air = 1
             }
         }
 
         allowed_types = {
             irregular_infantry
-            medium_armor
-            logistics_company = 1
-            medium_tank_destroyer_brigade
-            armored_engineer
-            medium_flame_tank
-            light_tank_recon
-            field_hospital
-            armored_signal
+            anti_air
         }
-        replace_with = MEDIUM_ARMOR_1
     }
     MEDIUM_ARMOR_1 = {
         upgrade_prio = {
             factor = 200
             modifier = {
                 factor = 0
-                has_equipment = {
-                    armored_support_vehicle < 0
-                }
+                num_of_military_factories < 50
             }
             modifier = {
                 factor = 8
@@ -198,9 +177,7 @@ AI_armour = {
             factor = 200
             modifier = {
                 factor = 0
-                has_equipment = {
-                    armored_support_vehicle < 0
-                }
+                num_of_military_factories < 90
             }
         }
 
