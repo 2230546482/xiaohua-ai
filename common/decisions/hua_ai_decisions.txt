@@ -156,7 +156,7 @@ hua_lunyi_decisions_categories = {
             is_ai = no
             has_idea = red_qu_player
         }
-        days_remove = 30
+        days_remove = 200
         fire_only_once = no
         cost = 200
         ai_will_do = { base = 0 }
