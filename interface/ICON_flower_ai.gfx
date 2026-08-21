@@ -38,6 +38,10 @@ spriteTypes = {
 		texturefile = "gfx/interface/xiaohua_small.png"
 	}
 	spriteType = {
+		name = "GFX_idea_flower_ai_qu"
+		texturefile = "gfx/interface/ideas/flower_ai_QU.png"
+	}
+	spriteType = {
 		name = "GFX_idea_flower_ai_emeng"
 		texturefile = "gfx/interface/ideas/flower_ai_emeng.png"
 	}
