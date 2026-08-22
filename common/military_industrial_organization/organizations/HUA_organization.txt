@@ -28,8 +28,9 @@ jiahao_supreme_industrial_group = {
         name = jiahao_trait_peer_gap
         limit_to_equipment_type = { 
             armor armored_car_equipment infantry artillery anti_tank anti_air
-            motorized mechanized air_equipment capital_ship screen_ship submarine
-            train_equipment support_equipment magic_assault_equipment magic_artillery_equipment 
+        motorized mechanized mio_cat_eq_all_small_plane
+        mio_cat_eq_all_medium_plane mio_cat_eq_all_large_plane capital_ship screen_ship submarine
+        train_equipment support_equipment magic_assault_equipment magic_artillery_equipment strike_witches_equipment
         }
         equipment_bonus = {
             maximum_speed = 0.05
