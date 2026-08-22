@@ -336,6 +336,20 @@ ideas = {
                         exists = yes
                     }
                 }
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = PA1
+                            original_tag = PAQ
+                        }
+                    }
+                    PA1 = {
+                        exists = yes
+                    }
+                    PAQ = {
+                        exists = yes
+                    }
+                }
 
 
             }

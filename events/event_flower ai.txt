@@ -30,6 +30,8 @@ country_event = {
                     TAG = UKR
                     TAG = DEN
                     TAG = SWE
+                    TAG = PA1
+                    TAG = PAQ
                     is_chinese_country = yes
                 }
             }
