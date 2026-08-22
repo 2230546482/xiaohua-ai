@@ -1,6 +1,6 @@
 jiahao_supreme_industrial_group = {
     icon = GFX_flower_ai_jungong
-    allowed = { }
+    allowed = { always = yes }
     ai_will_do = { base = 10000 }
     available = { always = yes }
 
