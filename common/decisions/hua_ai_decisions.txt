@@ -50,8 +50,8 @@ hua_lunyi_decisions_categories = {
             set_country_flag = hua_ai_qu
             add_ideas = hua_ai
             set_technology = {
-	            elephantry = 1
-	        }
+                elephantry = 1
+            }
             create_corps_commander = {
                 name = "大红花"
                 portrait_path = "gfx/interface/xiaohua.png"
@@ -104,6 +104,14 @@ hua_lunyi_decisions_categories = {
             }
             custom_effect_tooltip = available_mio_tt
             custom_effect_tooltip = jiahao_supreme_industrial_group
+            set_global_flag = hua_ai_qu
+            every_country = {
+                limit = {
+                    is_ai = yes
+                }
+                custom_effect_tooltip = available_mio_tt
+                custom_effect_tooltip = jiahao_supreme_industrial_group
+            }
             hidden_effect = {
                 every_country = {
                     limit = {
@@ -120,7 +128,7 @@ hua_lunyi_decisions_categories = {
         allowed = {  }
 
         available = {
-			always = yes
+            always = yes
         }
 
         visible = {
@@ -146,13 +154,13 @@ hua_lunyi_decisions_categories = {
             }
         }
     }
-    
+
     hua_qu_gczy_decisions = {
         icon = GFX_KNM_KFL_transfer
         allowed = {  }
 
         available = {
-			always = yes
+            always = yes
         }
 
         visible = {
@@ -165,46 +173,46 @@ hua_lunyi_decisions_categories = {
         ai_will_do = { base = 0 }
 
         complete_effect = {
-			random_state = {
+            random_state = {
                 limit = {
                     is_controlled_by = ROOT
                 }
-				add_resource = {
-					type = steel
-					amount = 50
-				}
-				add_resource = {
-					type = oil
-					amount = 50
-				}
-				add_resource = {
-					type = tungsten
-					amount = 50
-				}
-				add_resource = {
-					type = chromium
-					amount = 50
-				}
-				add_resource = {
-					type = aluminium
-					amount = 50
-				}
-				add_resource = {
-					type = rubber
-					amount = 50
-				}
-				add_resource = {
-					type = originium
-					amount = 50
-				}
-				add_resource = {
-					type = coal
-					amount = 50
-				}
-			}
-		    add_offsite_building = { type = industrial_complex level = 10 }
-		    add_offsite_building = { type = arms_factory level = 10 }
-		    add_offsite_building = { type = dockyard level = 10 }
+                add_resource = {
+                    type = steel
+                    amount = 50
+                }
+                add_resource = {
+                    type = oil
+                    amount = 50
+                }
+                add_resource = {
+                    type = tungsten
+                    amount = 50
+                }
+                add_resource = {
+                    type = chromium
+                    amount = 50
+                }
+                add_resource = {
+                    type = aluminium
+                    amount = 50
+                }
+                add_resource = {
+                    type = rubber
+                    amount = 50
+                }
+                add_resource = {
+                    type = originium
+                    amount = 50
+                }
+                add_resource = {
+                    type = coal
+                    amount = 50
+                }
+            }
+            add_offsite_building = { type = industrial_complex level = 10 }
+            add_offsite_building = { type = arms_factory level = 10 }
+            add_offsite_building = { type = dockyard level = 10 }
         }
     }
 }

@@ -1,6 +1,5 @@
 jiahao_supreme_industrial_group = {
     icon = GFX_flower_ai_jungong
-    
     allowed = { }
     ai_will_do = { base = 10000 }
     available = { always = yes }
@@ -8,14 +7,14 @@ jiahao_supreme_industrial_group = {
     visible = {
         or = {
              owner = { has_country_flag = hua_ai_qu }
-             owner = { is_ai = yes }
+             owner = { is_ai = yes has_global_flag = hua_ai_qu }
         }
     }
 
     equipment_type = {
         armor armored_car_equipment infantry artillery anti_tank anti_air
         motorized mechanized mio_cat_eq_all_small_plane
-		mio_cat_eq_all_medium_plane mio_cat_eq_all_large_plane capital_ship screen_ship submarine
+        mio_cat_eq_all_medium_plane mio_cat_eq_all_large_plane capital_ship screen_ship submarine
         train_equipment support_equipment magic_assault_equipment magic_artillery_equipment strike_witches_equipment
     }
 
@@ -27,21 +26,18 @@ jiahao_supreme_industrial_group = {
 
     initial_trait = {
         name = jiahao_trait_peer_gap
-
         limit_to_equipment_type = { 
             armor armored_car_equipment infantry artillery anti_tank anti_air
             motorized mechanized air_equipment capital_ship screen_ship submarine
             train_equipment support_equipment magic_assault_equipment magic_artillery_equipment 
         }
-
         equipment_bonus = {
-            maximum_speed = 0.10
-            soft_attack = 0.10
-            build_cost_ic = -0.10
-            reliability = 0.10
+            maximum_speed = 0.05
+            build_cost_ic = -0.05
+            reliability = 0.05
         }
         production_bonus = {
-            production_efficiency_gain_factor = 0.15
+            production_efficiency_gain_factor = 0.10
         }
     }
 
@@ -57,12 +53,12 @@ jiahao_supreme_industrial_group = {
         position = { x = 1 y = 0 }
         special_trait_background = yes
         production_bonus = {
-            production_conversion_speed_factor = 0.30
-            production_cost_factor = -0.08
-            production_efficiency_cap_factor = 0.10
+            production_conversion_speed_factor = 0.25 
+            production_efficiency_cap_factor = 0.08
+            production_cost_factor = -0.05
         }
         organization_modifier = {
-            military_industrial_organization_research_bonus = 0.10
+            military_industrial_organization_research_bonus = 0.08
         }
     }
 
@@ -73,12 +69,17 @@ jiahao_supreme_industrial_group = {
         position = { x = -1 y = 1 }
         relative_position_id = jiahao_mio_trait_python_hack
         any_parent = { jiahao_mio_trait_python_hack }
+        mutually_exclusive = { trait = jiahao_mio_trait_geopolitics_master }
         special_trait_background = yes
         equipment_bonus = {
             maximum_speed = 0.10
             reliability = 0.10
         }
+        organization_modifier = {
+            attrition = -0.10
+        }
     }
+
 
     trait = {
         token = jiahao_mio_trait_geopolitics_master
@@ -87,10 +88,12 @@ jiahao_supreme_industrial_group = {
         position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_python_hack
         any_parent = { jiahao_mio_trait_python_hack }
+        mutually_exclusive = { trait = jiahao_mio_trait_airpods_max }
         special_trait_background = yes
         equipment_bonus = {
-            breakthrough = 0.12
-            soft_attack = 0.08
+            breakthrough = 0.10                 
+            soft_attack = 0.08                     
+            ap_attack = 0.08                      
         }
     }
 
@@ -102,8 +105,8 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_airpods_max
         any_parent = { jiahao_mio_trait_airpods_max }
         special_trait_background = yes
-        equipment_bonus = { air_agility = 0.12 }
-        production_bonus = { production_efficiency_gain_factor = 0.10 }
+        equipment_bonus = { air_agility = 0.10 }      
+        production_bonus = { production_efficiency_gain_factor = 0.08 }
     }
 
     trait = {
@@ -114,19 +117,19 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_geopolitics_master
         any_parent = { jiahao_mio_trait_geopolitics_master }
         special_trait_background = yes
-        equipment_bonus = { recon = 0.25 }
-        organization_modifier = { military_industrial_organization_research_bonus = 0.12 }
+        equipment_bonus = { recon = 0.15 }          
+        organization_modifier = { military_industrial_organization_research_bonus = 0.10 }
     }
 
     trait = {
         token = jiahao_mio_trait_apple_ecosystem
         name = jiahao_mio_trait_apple_ecosystem
         icon = GFX_generic_mio_department_icon_facilities
-        position = { x = 0 y = 1 }
+        position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_spotify_hifi
-        any_parent = { jiahao_mio_trait_spotify_hifi }
+        any_parent = { jiahao_mio_trait_spotify_hifi jiahao_mio_trait_simulia_geopolitics }
         special_trait_background = yes
-        equipment_bonus = { maximum_speed = 0.08 defense = 0.08 }
+        equipment_bonus = { maximum_speed = 0.05 defense = 0.08 }
     }
 
 
@@ -135,14 +138,15 @@ jiahao_supreme_industrial_group = {
         name = jiahao_mio_trait_ultimate_flex
         icon = GFX_tkcl
         special_trait_background = yes
-        position = { x = 1 y = 1 }
+        position = { x = 0 y = 1 }
         relative_position_id = jiahao_mio_trait_apple_ecosystem
-        all_parents = { jiahao_mio_trait_apple_ecosystem jiahao_mio_trait_simulia_geopolitics }
+        all_parents = { jiahao_mio_trait_apple_ecosystem }
         equipment_bonus = {
-            soft_attack = 0.12 hard_attack = 0.12 maximum_speed = 0.10
-            breakthrough = 0.12 reliability = 0.15 fuel_consumption = -0.20
+            soft_attack = 0.10 
+            hard_attack = 0.10 
+            fuel_consumption = -0.15
         }
-        production_bonus = { production_resource_need_factor = -0.15 production_cost_factor = -0.10 }
+        production_bonus = { production_resource_need_factor = -0.10 }
     }
 
 
@@ -152,8 +156,9 @@ jiahao_supreme_industrial_group = {
         icon = GFX_generic_mio_department_icon_facilities
         position = { x = 4 y = 0 }
         special_trait_background = yes
-        production_bonus = { production_resource_need_factor = -0.15 }
+        production_bonus = { production_resource_need_factor = -0.10 } 
     }
+
 
     trait = {
         token = jiahao_mio_trait_starbucks_coffee
@@ -162,10 +167,12 @@ jiahao_supreme_industrial_group = {
         position = { x = -1 y = 1 }
         relative_position_id = jiahao_mio_trait_usd_settlement
         any_parent = { jiahao_mio_trait_usd_settlement }
+        mutually_exclusive = { trait = jiahao_mio_trait_nasdaq_crypto }
         special_trait_background = yes
-        equipment_bonus = { build_cost_ic = -0.08 }
-        production_bonus = { production_efficiency_gain_factor = 0.12 }
+        equipment_bonus = { build_cost_ic = -0.08 } 
+        production_bonus = { production_efficiency_gain_factor = 0.10 }
     }
+
 
     trait = {
         token = jiahao_mio_trait_nasdaq_crypto
@@ -174,9 +181,14 @@ jiahao_supreme_industrial_group = {
         position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_usd_settlement
         any_parent = { jiahao_mio_trait_usd_settlement }
+        mutually_exclusive = { trait = jiahao_mio_trait_starbucks_coffee }
         special_trait_background = yes
-        production_bonus = { production_resource_need_factor = -0.10 production_capacity_factor = 0.10 }
+        production_bonus = { 
+            production_capacity_factor = 0.10      
+            production_efficiency_cap_factor = 0.08 
+        }
     }
+
     trait = {
         token = jiahao_mio_trait_casual_coffee_shop
         name = jiahao_mio_trait_casual_coffee_shop
@@ -185,9 +197,11 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_starbucks_coffee
         any_parent = { jiahao_mio_trait_starbucks_coffee }
         special_trait_background = yes
-        production_bonus = { production_efficiency_cap_factor = 0.12 }
+        production_bonus = { 
+            production_cost_factor = -0.05 
+            production_conversion_speed_factor = 0.20
+        }
     }
-
 
     trait = {
         token = jiahao_mio_trait_crypto_mining
@@ -197,7 +211,8 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_nasdaq_crypto
         any_parent = { jiahao_mio_trait_nasdaq_crypto }
         special_trait_background = yes
-        production_bonus = { production_capacity_factor = 0.12 }
+        production_bonus = { production_capacity_factor = 0.08  }
+        equipment_bonus = { build_cost_ic = -0.05 }
     }
 
     trait = {
@@ -206,10 +221,11 @@ jiahao_supreme_industrial_group = {
         icon = GFX_generic_mio_trait_icon_build_cost_ic
         position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_casual_coffee_shop
-        all_parents = { jiahao_mio_trait_casual_coffee_shop jiahao_mio_trait_crypto_mining }
+        any_parent = { jiahao_mio_trait_casual_coffee_shop jiahao_mio_trait_crypto_mining }
         special_trait_background = yes
-        equipment_bonus = { build_cost_ic = -0.10 armor_value = 0.08 }
+        equipment_bonus = { build_cost_ic = -0.08 armor_value = 0.08 }
     }
+
 
     add_trait = {
         token = jiahao_mio_trait_wallstreet_hedge
@@ -220,9 +236,8 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_continuous_vip
         all_parents = { jiahao_mio_trait_continuous_vip }
         production_bonus = {
-            production_resource_need_factor = -0.15
-            production_cost_factor = -0.10
-            production_capacity_factor = 0.12
+            production_resource_need_factor = -0.15 
+            production_cost_factor = -0.08
         }
     }
 
@@ -233,7 +248,13 @@ jiahao_supreme_industrial_group = {
         icon = GFX_generic_mio_department_icon_tank_general_armor
         position = { x = 7 y = 0 }
         special_trait_background = yes
-        equipment_bonus = { armor_value = 0.10 air_agility = 0.10 }
+        equipment_bonus = { 
+            armor_value = 0.10                    
+            air_agility = 0.08 
+        }
+        organization_modifier = {
+            repair_speed_factor = 0.15              
+        }
     }
 
     trait = {
@@ -244,7 +265,15 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_domain_expansion
         any_parent = { jiahao_mio_trait_domain_expansion }
         special_trait_background = yes
-        equipment_bonus = { reliability = 0.12 defense = 0.08 }
+        equipment_bonus = { 
+            reliability = 0.10                     
+            defense = 0.08 
+           
+
+        }
+        organization_modifier = {
+              out_of_supply_factor = -0.10          
+        }
     }
 
     trait = {
@@ -255,10 +284,12 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_domain_expansion
         any_parent = { jiahao_mio_trait_domain_expansion }
         special_trait_background = yes
-        equipment_bonus = { breakthrough = 0.12 armor_value = 0.08 }
+        equipment_bonus = { 
+            breakthrough = 0.10                 
+            armor_value = 0.08 
+        }
     }
 
-    
     trait = {
         token = jiahao_mio_trait_grand_strategy_thesis
         name = jiahao_mio_trait_grand_strategy_thesis
@@ -267,7 +298,7 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_paradox_veteran
         any_parent = { jiahao_mio_trait_paradox_veteran }
         special_trait_background = yes
-        organization_modifier = { military_industrial_organization_research_bonus = 0.15 }
+        organization_modifier = { military_industrial_organization_research_bonus = 0.10 }
     }
 
     trait = {
@@ -278,10 +309,9 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_shinjuku_sendai
         any_parent = { jiahao_mio_trait_shinjuku_sendai }
         special_trait_background = yes
-        equipment_bonus = { breakthrough = 0.10 soft_attack = 0.08 }
+        equipment_bonus = { breakthrough = 0.08 soft_attack = 0.08 }
     }
 
-   
     add_trait = {
         token = jiahao_mio_trait_black_flash_24
         name = jiahao_mio_trait_black_flash_24
@@ -291,8 +321,10 @@ jiahao_supreme_industrial_group = {
         relative_position_id = jiahao_mio_trait_grand_strategy_thesis
         all_parents = { jiahao_mio_trait_grand_strategy_thesis jiahao_mio_trait_line_push_logic }
         equipment_bonus = {
-            soft_attack = 0.15 hard_attack = 0.15 air_attack = 0.15 ap_attack = 0.15 reliability = 0.10
+            soft_attack = 0.12                
+            hard_attack = 0.12                 
+            ap_attack = 0.12                      
         }
-        production_bonus = { production_cost_factor = -0.10 }
+        production_bonus = { production_cost_factor = -0.08 }
     }
 }
