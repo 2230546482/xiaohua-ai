@@ -26,6 +26,10 @@ country_event = {
                     TAG = FRG
                     TAG = NFA
                     TAG = NGD
+                    TAG = SOV
+                    TAG = UKR
+                    TAG = DEN
+                    TAG = SWE
                     is_chinese_country = yes
                 }
             }

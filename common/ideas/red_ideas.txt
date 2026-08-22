@@ -308,6 +308,34 @@ ideas = {
                         exists = yes
                     }
                 }
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = SOV
+                            original_tag = UKR
+                        }
+                    }
+                    SOV = {
+                        exists = yes
+                    }
+                    UKR = {
+                        exists = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = SWE
+                            original_tag = DEN
+                        }
+                    }
+                    SWE = {
+                        exists = yes
+                    }
+                    DEN = {
+                        exists = yes
+                    }
+                }
 
 
             }
@@ -316,10 +344,10 @@ ideas = {
             }
             picture = flower_ai_neizhan
             modifier = {
-                army_attack_factor = 0.5
-                army_defence_factor = 0.5
-                army_strength_factor = 0.2
-                army_org_factor = 0.2
+                army_attack_factor = 1
+                army_defence_factor = 1
+                army_strength_factor = 0.5
+                army_org_factor = 0.5
             }
             on_remove = {
             }

@@ -72,10 +72,8 @@ jiahao_supreme_industrial_group = {
         position = { x = -1 y = 1 }
         relative_position_id = jiahao_mio_trait_python_hack
         any_parent = { jiahao_mio_trait_python_hack }
-        mutually_exclusive = { trait = jiahao_mio_trait_geopolitics_master }
         special_trait_background = yes
         equipment_bonus = { maximum_speed = 0.10 reliability = 0.10 }
-        organization_modifier = { attrition = -0.10 }
     }
 
     trait = {
@@ -85,7 +83,6 @@ jiahao_supreme_industrial_group = {
         position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_python_hack
         any_parent = { jiahao_mio_trait_python_hack }
-        mutually_exclusive = { trait = jiahao_mio_trait_airpods_max }
         special_trait_background = yes
         equipment_bonus = { breakthrough = 0.10 soft_attack = 0.08 ap_attack = 0.08 }
     }
@@ -170,7 +167,6 @@ jiahao_supreme_industrial_group = {
         position = { x = -1 y = 1 }
         relative_position_id = jiahao_mio_trait_usd_settlement
         any_parent = { jiahao_mio_trait_usd_settlement }
-        mutually_exclusive = { trait = jiahao_mio_trait_nasdaq_crypto }
         special_trait_background = yes
         equipment_bonus = { build_cost_ic = -0.08 }
         production_bonus = { production_efficiency_gain_factor = 0.10 }
@@ -183,7 +179,6 @@ jiahao_supreme_industrial_group = {
         position = { x = 1 y = 1 }
         relative_position_id = jiahao_mio_trait_usd_settlement
         any_parent = { jiahao_mio_trait_usd_settlement }
-        mutually_exclusive = { trait = jiahao_mio_trait_starbucks_coffee }
         special_trait_background = yes
         production_bonus = { production_capacity_factor = 0.10 production_efficiency_cap_factor = 0.08 }
     }
@@ -255,8 +250,7 @@ jiahao_supreme_industrial_group = {
         icon = GFX_generic_mio_department_icon_tank_general_armor
         position = { x = 7 y = 0 }
         special_trait_background = yes
-        equipment_bonus = { armor_value = 0.10 air_agility = 0.08 }
-        organization_modifier = { repair_speed_factor = 0.15 }
+        equipment_bonus = { armor_value = 0.10 air_agility = 0.01 }
     }
 
 
@@ -269,7 +263,6 @@ jiahao_supreme_industrial_group = {
         any_parent = { jiahao_mio_trait_domain_expansion }
         special_trait_background = yes
         equipment_bonus = { reliability = 0.10 defense = 0.08 }
-        organization_modifier = { out_of_supply_factor = -0.10 }
     }
 
     trait = {
