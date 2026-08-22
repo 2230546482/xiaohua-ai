@@ -37,7 +37,6 @@ lunyi_decisions:0 "房主有神器"
 lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
 
 #军工机构
-
  jiahao_supreme_industrial_group:0 "嘉豪集团"
  jiahao_header_python_code:0 "VSCode算法重构部门"
  jiahao_header_us_dollar:0 "纳斯达克资本部"
@@ -57,6 +56,8 @@ lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
 
  jiahao_mio_trait_apple_ecosystem:0 "上课直接苹果全家桶摆上桌，Mac跑游戏，iPad看局势情报，iPhone盯盘。老师走过来以为我在做笔记，还夸我学习认真。只能说多屏协同这块我早就玩明白了，就……你们懂吧？"
 
+ jiahao_mio_trait_m3_max_chip:0 "上课拿着装了M3 Max芯片的Mac跑神经网络推演，隔壁同学还在用普通电脑死机。老师以为我在修图，其实我早就把游戏里的全军装备算力搞定了，认知不同没办法。"
+
  jiahao_mio_trait_ultimate_flex:0 "昨天教导主任突袭查寝，别人吓得往被窝里藏烟藏手机，我直接当着他的面从包里拿出MacBook、AirPods Max和美股黑卡。主任拿起来看了半天，眼神复杂得不行，最后连话都没说直接给我关门退了。"
 
  jiahao_mio_trait_usd_settlement:0 "中午去食堂打饭，我随口问阿姨能不能用美金结算，阿姨直接整不会了。唉，国内底层基础设施跟国际金融比还是脱节，跟他们这些普通人聊外汇完全是对牛弹琴。"
@@ -69,6 +70,8 @@ lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
 
  jiahao_mio_trait_nasdaq_crypto:0 "体育课自由活动，班里那群人全跑去打篮球打瓦，我一个人坐在看台上看美股K线和虚拟币合约。看他们为了赢个球叫来叫去的，我心里只有对冲和资本交割，根本提不起兴趣。"
 
+ jiahao_mio_trait_cross_border_logistics:0 "我顺手把跨境电商那套供应链和物流对冲逻辑搬到了游戏里，补给运输和后勤损耗瞬间被我理得顺顺当当。同龄人还在手忙脚乱买橡胶，我这边仓储早就爆满了。"
+
  jiahao_mio_trait_continuous_vip:0 "我手机里的网易云黑胶、Netflix高级版、Apple Music全都是自动扣款，从来不用看月结账单。这种无感消费的习惯一旦养成了，做事和看世界的眼界真的完全不一样。"
 
  jiahao_mio_trait_wallstreet_hedge:0 "今年16岁，刚上高一。同龄人还在为了几十块零花钱跟家里吵架的时候，我早就掌握了美股的风险对冲逻辑。跟他们站在一起我都觉得尴尬，压根就不是一路人。"
@@ -79,7 +82,11 @@ lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
 
  jiahao_mio_trait_grand_strategy_thesis:0 "上次历史布置作业写二战感想，我嫌题目太低能，直接交了一份50页的二战补给与重装师收益分析。历史老师看完直接给我打满分还让我当课代表，说我是他教过最特别的学生。"
 
- jiahao_mio_trait_shinjuku_sendai:0 "班里同学最近天天跟风喊什么“豪到我了”，跑来问我知不知道。我直接问他们知不知道36年闪击法国和校长速推，他们一个个全愣住了，笑死，真就跟风狗呗。"
+ jiahao_mio_trait_short_video_disdain:0 "我平时手机里根本不装那些低俗短视频，太掉智商。把注意力100%集中在地图情报和战略推演上，脑子清楚的人打游戏就是不一样，根本不会被低级趣味干扰。"
+
+ jiahao_mio_trait_shinjuku_sendai:0 "班里同学最近天天跟风喊什么‘豪到我了’，跑来问我知不知道。我直接问他们知不知道36年闪击法国和校长速推，他们一个个全愣住了，笑私，真就跟风狗呗。"
+
+ jiahao_mio_trait_40_width_theory:0 "开班会顺便给隔壁班几个半吊子科普了一下40宽重坦突破的金字塔原理，把穿深和装甲边际效应讲得清清楚楚。他们听完当场服气，非要叫我教官，挺好笑的。"
 
  jiahao_mio_trait_line_push_logic:0 "我是真搞不懂那些手操推图的人累不累。画条元帅线开三倍速直接放着不管，AI自己就给对面推平了。我一边喝着冷萃一边看着地图变色，战术碾压就是这么轻松。"
 

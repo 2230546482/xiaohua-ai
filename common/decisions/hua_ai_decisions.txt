@@ -104,7 +104,14 @@ hua_lunyi_decisions_categories = {
             }
             custom_effect_tooltip = available_mio_tt
             custom_effect_tooltip = jiahao_supreme_industrial_group
-            set_global_flag = hua_ai_qu
+            if = {
+                limit = {
+                    not = {
+                        has_global_flag = hua_ai_qu
+                    }
+                }
+                set_global_flag = hua_ai_qu
+            }
             every_country = {
                 limit = {
                     is_ai = yes

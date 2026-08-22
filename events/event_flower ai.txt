@@ -12,25 +12,25 @@ country_event = {
         }
         set_global_flag = red_most_hard
         every_country = {
-                limit = {
-                    is_ai = no
-                    or = {
-                        TAG = PAO
-                        TAG = PAM
-                        TAG = PAU
-                        TAG = LHS
-                        TAG = KMK
-                        TAG = KNM
-                        TAG = FRA
-                        TAG = USA
-                        TAG = FRG
-                        TAG = NFA
-                        TAG = NGD
-                        is_chinese_country = yes
-                    }
+            limit = {
+                is_ai = no
+                or = {
+                    TAG = PAO
+                    TAG = PAM
+                    TAG = PAU
+                    TAG = LHS
+                    TAG = KMK
+                    TAG = KNM
+                    TAG = FRA
+                    TAG = USA
+                    TAG = FRG
+                    TAG = NFA
+                    TAG = NGD
+                    is_chinese_country = yes
                 }
-                add_ideas = red_neizhan_ai
-             }
+            }
+            add_ideas = red_neizhan_ai
+        }
         every_country = {
             limit = {
                 is_ai = yes
@@ -61,7 +61,7 @@ country_event = {
     }
     option = {
         name = FLWAI.1.c
-        
+
         ai_chance = {
             factor = 0
         }
@@ -89,29 +89,60 @@ country_event = {
     desc = FLWAI.2.d
     picture = GFX_event_flower_ai_2
     is_triggered_only = yes
+    immediate = {
+
+    }
     option = {
         name = FLWAI.2.a
         ai_chance = {
             factor = 0
         }
-       trigger = {
-        not = {
-            tag = from
+        trigger = {
+            not = {
+                tag = from
+            }
         }
-       }
-       
+        hidden_effect = {
+            random_list = {
+                50 = {
+                    hidden_effect = {
+                        scoped_sound_effect = "微笑"
+                    }
+                }
+                50 = {
+                    hidden_effect = {
+                        scoped_sound_effect = "大笑"
+                    }
+                }
+            }
+        }
+
     }
-     option = {
+    option = {
         name = FLWAI.2.b
         ai_chance = {
             factor = 0
         }
-       trigger = {
+        trigger = {
             tag = from
-       }
-       
+        }
+        hidden_effect = {
+            random_list = {
+                50 = {
+                    hidden_effect = {
+                        scoped_sound_effect = "微笑"
+                    }
+                }
+                50 = {
+                    hidden_effect = {
+                        scoped_sound_effect = "大笑"
+                    }
+                }
+            }
+        }
+
     }
-    
+
 }
 
 country_event = {
