@@ -513,7 +513,24 @@ LessAirForMass = {
         value = -25
     }
 }
+#多下兵
 
+AI_xiabing = {
+	allowed = { 
+		NOT = {
+                original_tag = LHS
+        }
+	}
+    enable = {
+        always = yes
+    }
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = -50
+	}
+}
 
 youhavethemusethem2 = {
     allowed = {
