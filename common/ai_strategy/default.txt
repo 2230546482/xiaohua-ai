@@ -530,6 +530,10 @@ AI_xiabing = {
 		type = equipment_stockpile_surplus_ratio
 		value = -50
 	}
+    ai_strategy = {
+        type = force_build_armies
+        value = 100
+    }
 }
 
 youhavethemusethem2 = {
