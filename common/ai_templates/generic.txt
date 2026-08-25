@@ -172,7 +172,7 @@ AI_armour = {
                 factor = 0
                 or = {
                     date < 1938.1.1
-                    has_ideas = mofa
+                    has_idea = mofa
                 }
             }
         }
@@ -232,6 +232,7 @@ AI_armour = {
             modifier = {
                 factor = 8
                 has_idea = mofa
+                has_tech = magic_weapons0
             }
             modifier = {
                 factor = 0
