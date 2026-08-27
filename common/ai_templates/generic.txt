@@ -172,7 +172,6 @@ AI_armour = {
                 factor = 0
                 or = {
                     date < 1938.1.1
-                    has_idea = mofa
                 }
             }
         }
@@ -183,7 +182,6 @@ AI_armour = {
                 num_of_military_factories < 90
                 or = {
                     date < 1938.1.1
-                    has_idea = mofa
                 }
             }
         }
@@ -224,13 +222,13 @@ AI_armour = {
 
     MEDIUM_ARMOR_2 = {
         upgrade_prio = {
-            factor = 200
+            factor = 0
             modifier = {
                 factor = 0
                 num_of_military_factories < 50
             }
             modifier = {
-                factor = 8
+                factor = 200
                 has_idea = mofa
                 has_tech = magic_weapons0
             }
@@ -240,7 +238,12 @@ AI_armour = {
             }
         }
         production_prio = {
-            factor = 200
+            factor = 0
+            modifier = {
+                factor = 200
+                has_idea = mofa
+                has_tech = magic_weapons0
+            }
             modifier = {
                 factor = 0
                 num_of_military_factories < 90
