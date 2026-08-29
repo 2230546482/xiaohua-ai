@@ -254,8 +254,8 @@ AI_armour = {
             weight = 1
             match_value = 9000.0
             regiments = {
-                magic_assault = 12
-                medium_tank_destroyer_brigade = 10
+                magic_assault = 18
+                medium_tank_destroyer_brigade = 4
             }
             regimental_support = {
                 fire_support = 3
