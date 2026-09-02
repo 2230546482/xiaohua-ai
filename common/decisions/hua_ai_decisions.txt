@@ -93,6 +93,16 @@ hua_lunyi_decisions_categories = {
                 logistics_skill = 6
             }
             create_corps_commander = {
+                name = "耄耋"
+                portrait_path = "gfx/interface/cat.png"
+                traits = { hjm_trait guerilla_fighter trait_reckless }
+                skill = 1
+                attack_skill = 1
+                defense_skill = 1
+                planning_skill = 1
+                logistics_skill = 1
+            }
+            create_corps_commander = {
                 name = "嘉豪"
                 portrait_path = "gfx/interface/jiahao.png"
                 traits = { jiahao_trait }

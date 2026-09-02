@@ -76,6 +76,14 @@ leader_traits = {
 
 		}
 	}
+	hjm_trait = {
+		type = land
+		trait_type = personality_trait
+		modifier = {
+			army_speed_factor = 0.5
+			army_org_factor = -0.5
+		}
+	}
 
 	jiahao_trait = {
 		type = land

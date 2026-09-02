@@ -25,6 +25,10 @@ spriteTypes = {
         texturefile = "gfx/interface/nl_trait.png"
     }
 	spriteType = {
+        name = "GFX_trait_hjm_trait"
+        texturefile = "gfx/interface/hjm_trait.png"
+    }
+	spriteType = {
         name = "GFX_trait_jiahao_trait"
         texturefile = "gfx/interface/jiahao_trait.png"
     }
