@@ -6,16 +6,20 @@
 
 infantry_default = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL
+        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL 
     }
     role = infantry
     upgrade_prio = {
         factor = 15
     }
-
     infantry_template_small = {
         upgrade_prio = {
             factor = 10
+            modifier = {
+                factor = 0
+				num_of_military_factories > 19
+			}
+            
         }
         enable = {
             num_of_military_factories < 20
@@ -25,24 +29,29 @@ infantry_default = {
                 irregular_infantry = 9
             }
             regimental_support = {
-                fire_support = 2
+                fire_support = 3
             }
             support = {
+                engineer = 1
                 artillery = 1
+                anti_tank = 1
+                anti_air = 1
+                recon = 1
             }
         }
-        replace_at_match = 1.5
-        replace_with = infantry_template_medium
-        target_min_match = 0.9
     }
-
     infantry_template_medium = {
         upgrade_prio = {
             factor = 8
             modifier = {
-                factor = 2
-                num_of_military_factories < 50
+                factor = 3
+                num_of_military_factories > 19
             }
+            modifier = {
+                factor = 0
+                num_of_military_factories > 49
+            }
+            
         }
         enable = {
             num_of_military_factories < 50
@@ -53,27 +62,25 @@ infantry_default = {
                 artillery_brigade = 1
             }
             regimental_support = {
-                fire_support = 2
+                fire_support = 3
             }
             support = {
                 engineer = 1
-                artillery = 1
+                recon = 1
                 anti_air = 1
+                anti_tank = 1
                 logistics_company = 1
             }
         }
-        replace_at_match = 1.5
-        replace_with = infantry_template_large
-        target_min_match = 0.9
     }
-
     infantry_template_large = {
         upgrade_prio = {
             factor = 6
             modifier = {
-                factor = 3
+                factor = 5
                 num_of_military_factories > 49
             }
+            
         }
         enable = {
             num_of_military_factories > 49
@@ -85,12 +92,12 @@ infantry_default = {
             }
             regimental_support = {
                 fire_support = 3
-                medium_sp_anti_air_support = 2
+                anti_air_battery = 1
             }
             support = {
                 engineer = 1
-                artillery = 1
-                anti_air = 1
+                anti_tank = 1
+                recon = 1
                 logistics_company = 1
                 field_hospital = 1
             }
@@ -101,60 +108,46 @@ infantry_default = {
 ######################
 #	机动装甲 ROLE
 ######################
-AI_armour = {
+AI_armor = {
     blocked_for = {
-        LHS
+        LHS  PAM
     }
     role = armor
     upgrade_prio = {
         factor = 20
     }
-
-    infantry_template_small = {
+    MEDIUM_ARMOR_0 = {
         upgrade_prio = {
-            factor = 1
+            factor = 100
             modifier = {
                 factor = 0
-                num_of_military_factories > 90
+                num_of_military_factories > 49
             }
             modifier = {
                 factor = 0
                 date < 1938.1.1
             }
+            
         }
-        production_prio = {
-            factor = 1
-            modifier = {
-                factor = 0
-                num_of_military_factories > 90
-            }
+        enable = {
+            num_of_military_factories < 50
         }
-
-        target_width = 20.0
-        width_weight = 1.0
-        column_swap_factor = 0.1
-        replace_with = MEDIUM_ARMOR_1
         target_template = {
-            weight = 0.9
-            match_value = 1000.0
-
             regiments = {
-                irregular_infantry = 12
-                artillery_brigade = 4
+                irregular_infantry = 8
+                medium_armor = 8
             }
             regimental_support = {
-                fire_support = 3
+                fire_support = 2
                 medium_sp_anti_air_support = 2
             }
-
             support = {
-                anti_air = 1
+                engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                field_hospital = 1
+                logistics_company = 1
             }
-        }
-
-        allowed_types = {
-            irregular_infantry
-            anti_air
         }
     }
     MEDIUM_ARMOR_1 = {
@@ -165,8 +158,8 @@ AI_armour = {
                 num_of_military_factories < 50
             }
             modifier = {
-                factor = 8
-                is_major = yes
+                factor = 0
+                has_tech = mechanised_infantry
             }
             modifier = {
                 factor = 0
@@ -174,53 +167,119 @@ AI_armour = {
                     date < 1938.1.1
                 }
             }
+            
         }
-        production_prio = {
-            factor = 200
-            modifier = {
-                factor = 0
-                num_of_military_factories < 90
-                or = {
-                    date < 1938.1.1
-                }
-            }
+        enable = {
+            num_of_military_factories > 49
         }
-        replace_with = MEDIUM_ARMOR_2
         target_template = {
-            weight = 1
-            match_value = 9000.0
             regiments = {
                 irregular_infantry = 12
-                medium_tank_destroyer_brigade = 10
+                medium_armor = 8
             }
             regimental_support = {
                 fire_support = 3
                 medium_sp_anti_air_support = 2
             }
             support = {
-                armored_engineer = 1
-                engineer = 1
+                assault_engineer = 1
                 light_tank_recon = 1
                 medium_flame_tank = 1
-                armored_signal = 1
+                field_hospital = 1
                 logistics_company = 1
             }
         }
-
-        allowed_types = {
-            irregular_infantry
-            medium_armor
-            logistics_company = 1
-            medium_tank_destroyer_brigade
-            armored_engineer
-            medium_flame_tank
-            light_tank_recon
-            field_hospital
-            armored_signal
+    }
+    MEDIUM_ARMOR_2 = {
+        upgrade_prio = {
+            factor = 300
+            modifier = {
+                factor = 0
+                num_of_military_factories < 50
+            }
+            modifier = {
+                factor = 2
+                has_tech = mechanised_infantry
+            }
+            modifier = {
+                factor = 0
+                or = {
+                    date < 1938.1.1
+                }
+            }
+            
+        }
+        enable = {
+            num_of_military_factories > 49
+        }
+        target_template = {
+            regiments = {
+                mechanized = 12
+                medium_armor = 8
+            }
+            regimental_support = {
+                mot_fire_support = 3
+                medium_sp_anti_air_support = 2
+            }
+            support = {
+                assault_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                field_hospital = 1
+                logistics_company = 1
+            }
         }
     }
+}
 
-    MEDIUM_ARMOR_2 = {
+AI_special_armor = {
+    blocked_for = {
+        LHS  PAM
+    }
+    role = special_armor
+    upgrade_prio = {
+        factor = 30
+    }
+    special_armor_1 = {
+        upgrade_prio = {
+            factor = 0
+            modifier = {
+                factor = 200
+                has_idea = mofa
+                has_tech = magic_weapons0
+            }
+            modifier = {
+                factor = 0
+                num_of_military_factories > 49
+            }
+            modifier = {
+                factor = 0
+                date < 1938.1.1
+            }
+            
+        }
+        enable = {
+            num_of_military_factories < 50
+        }
+        target_template = {
+            regiments = {
+                magic_assault = 8
+                medium_armor = 8
+            }
+            regimental_support = {
+                fire_support = 2
+                medium_sp_anti_air_support = 2
+            }
+            support = {
+                engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                field_hospital = 1
+                logistics_company = 1
+            }
+        }
+    }
+    special_armor_2 = {
         upgrade_prio = {
             factor = 0
             modifier = {
@@ -228,7 +287,7 @@ AI_armour = {
                 num_of_military_factories < 50
             }
             modifier = {
-                factor = 200
+                factor = 400
                 has_idea = mofa
                 has_tech = magic_weapons0
             }
@@ -236,59 +295,27 @@ AI_armour = {
                 factor = 0
                 date < 1938.1.1
             }
+            
         }
-        production_prio = {
-            factor = 0
-            modifier = {
-                factor = 200
-                has_idea = mofa
-                has_tech = magic_weapons0
-            }
-            modifier = {
-                factor = 0
-                num_of_military_factories < 90
-            }
+        enable = {
+            num_of_military_factories > 49
         }
-
         target_template = {
-            weight = 1
-            match_value = 9000.0
             regiments = {
-                magic_assault = 18
-                medium_tank_destroyer_brigade = 4
+                magic_assault = 12
+                medium_armor = 8
             }
             regimental_support = {
                 fire_support = 3
                 medium_sp_anti_air_support = 2
             }
             support = {
-                armored_engineer = 1
-                engineer = 1
+                assault_engineer = 1
                 light_tank_recon = 1
                 medium_flame_tank = 1
-                armored_signal = 1
+                field_hospital = 1
                 logistics_company = 1
             }
         }
-
-        allowed_types = {
-            magic_assault
-            medium_armor
-            logistics_company = 1
-            medium_tank_destroyer_brigade
-            armored_engineer
-            medium_flame_tank
-            light_tank_recon
-            field_hospital
-            armored_signal
-        }
     }
 }
-
-
-# 最后改动：
-# 1.苏联的特种部队移除，采用通用编制，反正本身也不会训练；
-# 2.自动机编制统一放置在这里，只要拥有自动机科技就能通过AUTO_META的role调用通用编制；
-# 3.把通用的魔法部队编制移动到了这里，只要有魔法科技就能通过magic_assault的role调用编制，当然魔炮仍旧是部分国家专属。
-# 4.虽然自动机编制和魔法部队编制面向全部国家，但通用ai策略并未赋给相关的role，不用担心ai训练这些编制。
-# 5.满洲真白花音线加buff，降低跳反战争难度，唐可可后续国策时间减短，军事buff数值增强

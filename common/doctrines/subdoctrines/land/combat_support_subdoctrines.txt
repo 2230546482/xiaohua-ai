@@ -355,7 +355,7 @@ mobile_recon_and_assault = {
     }
     
    ai_will_do = {
-        base = 0 
+        base = 100
     }
     
 
@@ -534,7 +534,7 @@ self_propelled_support = {
     }
 
 
-    ai_will_do = { base = 100 }
+    ai_will_do = { base = 0 }
 
 
     category_self_propelled_artillery = {

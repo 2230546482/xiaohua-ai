@@ -8,6 +8,22 @@ ai_res_infantry_weapons1 = {
     ai_strategy = { type = research_weight_factor id = infantry_weapons1 value = 100 }
     ai_strategy = { type = research_tech id = infantry_weapons1 value = 100 }
 }
+ai_res_infantry_weapons2 = {
+    allowed = { always = yes }
+    enable = { date > 1936.1.1 }
+    abort = { has_tech = infantry_weapons2 }
+
+    ai_strategy = { type = research_weight_factor id = infantry_weapons2 value = 100 }
+    ai_strategy = { type = research_tech id = infantry_weapons2 value = 100 }
+}
+ai_res_infantry_weapons3 = {
+    allowed = { always = yes }
+    enable = { date > 1936.1.1 }
+    abort = { has_tech = infantry_weapons2 }
+
+    ai_strategy = { type = research_weight_factor id = infantry_weapons3 value = 100 }
+    ai_strategy = { type = research_tech id = infantry_weapons3 value = 100 }
+}
 ai_res_support_signal_1 = {
     allowed = { always = yes }
     enable = { date > 1936.1.1 }
@@ -47,7 +63,6 @@ ai_res_industry_0 = {
         has_tech = electronic_mechanical_engineering
         OR = {
             has_tech = concentrated_industry
-            has_tech = dispersed_industry1
         }
     }
 
@@ -205,7 +220,7 @@ ai_res_tank_light_1 = {
 
     ai_res_tank_armor_1 = {
         allowed = { always = yes }
-        enable = { has_tech = infantry_weapons1date > 1936.1.1 }
+        enable = { has_tech = infantry_weapons1 date > 1936.1.1 }
         abort = { has_tech = armor_tech_1 }
 
         ai_strategy = { type = research_weight_factor id = armor_tech_1 value = 20 }
