@@ -40,7 +40,6 @@ country_event = {
         every_country = {
             limit = {
                 is_ai = yes
-                is_subject = no
             }
             add_ideas = red_most_hard_ai
         }
@@ -60,7 +59,6 @@ country_event = {
         every_country = {
             limit = {
                 is_ai = yes
-                is_subject = no
             }
             add_ideas = red_hard_ai
         }
@@ -75,7 +73,6 @@ country_event = {
         every_country = {
             limit = {
                 is_ai = yes
-                is_subject = no
             }
             add_ideas = red_normal_hard_ai
         }

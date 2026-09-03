@@ -6,7 +6,7 @@
 
 infantry_default = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL 
+        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL
     }
     role = infantry
     upgrade_prio = {
@@ -17,9 +17,9 @@ infantry_default = {
             factor = 10
             modifier = {
                 factor = 0
-				num_of_military_factories > 19
-			}
-            
+                num_of_military_factories > 19
+            }
+
         }
         enable = {
             num_of_military_factories < 20
@@ -51,7 +51,7 @@ infantry_default = {
                 factor = 0
                 num_of_military_factories > 49
             }
-            
+
         }
         enable = {
             num_of_military_factories < 50
@@ -80,7 +80,7 @@ infantry_default = {
                 factor = 5
                 num_of_military_factories > 49
             }
-            
+
         }
         enable = {
             num_of_military_factories > 49
@@ -127,7 +127,7 @@ AI_armor = {
                 factor = 0
                 date < 1938.1.1
             }
-            
+
         }
         enable = {
             num_of_military_factories < 50
@@ -167,7 +167,7 @@ AI_armor = {
                     date < 1938.1.1
                 }
             }
-            
+
         }
         enable = {
             num_of_military_factories > 49
@@ -198,19 +198,16 @@ AI_armor = {
                 num_of_military_factories < 50
             }
             modifier = {
-                factor = 2
-                has_tech = mechanised_infantry
-            }
-            modifier = {
                 factor = 0
                 or = {
                     date < 1938.1.1
                 }
             }
-            
+
         }
         enable = {
             num_of_military_factories > 49
+            has_tech = mechanised_infantry
         }
         target_template = {
             regiments = {
@@ -244,11 +241,6 @@ AI_special_armor = {
         upgrade_prio = {
             factor = 0
             modifier = {
-                factor = 200
-                has_idea = mofa
-                has_tech = magic_weapons0
-            }
-            modifier = {
                 factor = 0
                 num_of_military_factories > 49
             }
@@ -256,10 +248,12 @@ AI_special_armor = {
                 factor = 0
                 date < 1938.1.1
             }
-            
+
         }
         enable = {
             num_of_military_factories < 50
+            has_idea = mofa
+            has_tech = magic_weapons0
         }
         target_template = {
             regiments = {
@@ -295,10 +289,12 @@ AI_special_armor = {
                 factor = 0
                 date < 1938.1.1
             }
-            
+
         }
         enable = {
             num_of_military_factories > 49
+            has_idea = mofa
+            has_tech = magic_weapons0
         }
         target_template = {
             regiments = {
