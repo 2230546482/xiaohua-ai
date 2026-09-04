@@ -1,0 +1,2 @@
+NDefines.NCountry.REINFORCEMENT_MANPOWER_CHUNK = 0.2                -- 人力补员运送的每次输送量，以该编制所需总人力的百分比表示
+NDefines.NCountry.REINFORCEMENT_MANPOWER_DELIVERY_SPEED = 20.0                -- 陆军人力补充送达速度（运输时间）的修正系数
