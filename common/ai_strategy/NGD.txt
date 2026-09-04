@@ -1,0 +1,232 @@
+NGD_area_priority = {
+	enable = {
+		original_tag = NGD
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = area_priority
+		id = europe
+		value = -1000 #more focus here
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = scandinavia
+		value = -2000
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = north_america
+		value = 600
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = south_america
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = asia
+		value = -1000
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = -1000
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = -1000
+	}
+	ai_strategy = {
+        type = area_priority
+        id = suez
+        value = -1000
+    }
+	
+	ai_strategy = {
+		type = area_priority
+		id = pacific
+		value = -2000 #less focus here
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = oceania
+		value = -2000
+	}
+}
+NGD_war_with_NFA = {
+	allowed = {
+		original_tag = NGD
+	}
+	enable = {
+		has_war_with = NFA		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "NFA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "NFA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = NFA
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = NFA
+		value = 100 # lets put more units, should be safe
+	}
+	
+}
+
+NGD_war_with_USA= {
+	allowed = {
+		original_tag = NGD
+	}
+	enable = {
+		has_war_with = USA		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "USA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "USA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = USA
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = USA
+		value = 100 # lets put more units, should be safe
+	}
+	
+}
+NGD_war_with_FRG= {
+	allowed = {
+		original_tag = NGD
+	}
+	enable = {
+		has_war_with = FRG		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "FRG"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "FRG"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = FRG
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = FRG
+		value = 100 # lets put more units, should be safe
+	}
+	
+}
+NGD_send_volunteer_army_to_SOV = {
+	allowed = {
+		original_tag = NGD
+	}
+	enable = {
+		SOV = { has_war = yes 
+		has_government = communism}
+		NGD = {
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SOV
+		value = 400
+	}
+}
+NGD_does_not_send_volunteer_army_to_SOV = {
+	reversed = yes
+	allowed = {
+		original_tag = NGD
+	}
+	enable = {
+		tag = SOV
+		SOV = { 
+			has_war = yes 
+			has_government = communism
+		}
+		NGD = {
+			NOT = {
+				has_government = communism
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SOV
+		value = 400
+	}
+}
+NGD_infiltrate_FRG = {
+		
+		allowed = {
+		tag = NGD
+		}
+		
+		enable = {
+			country_exists = FRG
+		}
+		
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = operative_operation
+			operation = operation_collaboration_government
+			value = 2500
+			operation_target = FRG
+		}
+		
+		ai_strategy = {
+			type = operative_mission
+			mission = build_intel_network
+			value = 999
+			mission_target = FRG
+		}
+
+	}

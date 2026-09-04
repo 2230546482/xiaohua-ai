@@ -1,0 +1,475 @@
+SOV_rush_to_Ukraine = { #1h22min速通乌克兰
+		allowed = { 
+			original_tag = SOV 
+		}
+
+		enable = {
+			OR = {
+				has_war_with = UKR
+				AND = {
+					focus_progress = { focus = SOV_ultimatum_to_Kiev progress > 0 }
+					NOT = { has_completed_focus = SOV_ultimatum_to_Kiev }
+				}
+				has_completed_focus = SOV_ultimatum_to_Kiev
+			}
+			UKR = { is_in_faction = no }
+		}
+
+		abort = {
+			NOT = {
+				AND = {
+					OR = {
+						has_war_with = UKR
+						AND = {
+							focus_progress = { focus = SOV_ultimatum_to_Kiev progress > 0 }
+							NOT = { has_completed_focus = SOV_ultimatum_to_Kiev }
+						}
+						has_completed_focus = SOV_ultimatum_to_Kiev
+					}
+					UKR = { is_in_faction = no }
+				}
+			}
+		}
+
+		ai_strategy = {
+			type = front_unit_request
+			tag = UKR
+			value = 999
+		}
+
+		ai_strategy = {
+			type = front_control
+			tag = UKR
+			ratio > 0.10
+			priority = 50
+			ordertype = front
+			execution_type = rush
+			manual_attack = no
+		}
+
+		ai_strategy = {
+			type = front_control
+			state_trigger = {
+				state = 202
+				is_controlled_by = UKR
+			}
+			ratio > 0.10
+			priority = 75
+			ordertype = front
+			execution_type = rush
+			manual_attack = no
+		}
+	}
+
+
+	SOV_prepare_for_war_with_DVL = { #警惕魔导
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			date > 1939.1.1
+		}
+		abort = {
+			or = {
+				not = { country_exists = DVL }
+				DVL = {
+					is_in_faction_with = SOV
+				}
+			}
+		}
+		ai_strategy = {
+			type = prepare_for_war
+			id = "DVL"
+			value = 100
+		}
+	}
+	SOV_the_more_powerful_KGB = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			always = yes
+		}
+
+		abort = {
+			always = no
+		}
+
+		ai_strategy = {
+			type = intelligence_agency_usable_factories
+			value = 1000
+		}
+
+		ai_strategy = {
+			type = intelligence_agency_branch_desire_factor
+			id = branch_defense
+			value = 1500
+		}
+		ai_strategy = {
+			type = intelligence_agency_branch_desire_factor
+			id = branch_crypto
+			value = 2000
+		}
+
+		ai_strategy = {
+			type = intelligence_agency_usable_factories
+			value = 20
+		}
+
+		ai_strategy = {
+			type = operation_equipment_priority
+			value = 100
+		}
+
+	}
+	SOV_infiltrate_DVL = {
+		
+		allowed = {
+			tag = SOV
+		}
+		
+		enable = {
+			country_exists = DVL
+			date > 1941.1.1
+		}
+		
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = operative_operation
+			operation = operation_collaboration_government
+			value = 2500
+			operation_target = DVL
+		}
+		
+		ai_strategy = {
+			type = operative_mission
+			mission = build_intel_network
+			value = 999
+			mission_target = DVL
+		}
+
+	}
+	SOV_dont_mess_with_volunteers_for_no_communism_nations = { # Reverse strategy
+
+		reversed = yes
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		enable = {
+			NOT = {
+				has_government = communism
+				has_war_with = SOV
+			}
+		}
+
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = support
+			id = "SOV"
+			value = -10
+		}
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = "SOV"
+			value = -10
+		}
+
+	}
+	#日苏关系
+	SOV_dip_with_JAP = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_non_aggression_pact_with = JAP
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = JAP
+			value = 100
+		}
+	}
+
+	JAP_diplomacy_with_SOV = {
+		allowed = {
+			original_tag = JAP
+		}
+
+		enable = {
+			has_non_aggression_pact_with = SOV
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = befriend
+			id = SOV
+			value = 100
+		}
+	}
+
+	#苏戴关系
+	SOV_dip_with_DVL = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			always = yes
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = antagonize
+			id = DVL
+			value = 100
+		}				
+	}
+
+	SOV_dip_with_POL = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			OR = {
+				date < 1942.1.1
+				POL = {
+					is_in_faction = yes
+				}
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = ignore_claim
+			id = POL
+			value = 100
+		}
+	}
+	
+	SOV_earth_defense_consensus_support = {
+		enable = {
+			has_idea = SOV_earth_defense_consensus
+			SOV = { has_war_with = DVL }
+			SOV = { surrender_progress > 0.10 }
+			has_opinion = {
+				target = SOV
+				value > -30
+			}
+		}
+
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = SOV
+			value = 100
+		}
+		ai_strategy = {
+			type = send_lend_lease_desire
+			id = SOV
+			value = 100
+		}
+	}
+
+	SOV_dip_with_democracy = {
+
+		enable = {
+			OR = {
+				tag = FRA
+				tag = NPT
+				tag = ENG
+				tag = GER
+				tag = ITA
+			}
+			NOT = { tag = SOV }
+			DVL = {
+				exists = yes
+				is_subject = no
+			}
+		}
+
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = befriend
+			id = SOV
+			value = 25
+		}		
+	}
+
+	#苏土关系
+	SOV_dip_with_TUR = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_idea = SOV_treaty_of_friendship_S_and_T
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = TUR
+			value = 10
+		}
+	}
+
+	TUR_diplomacy_with_SOV = {
+		allowed = {
+			original_tag = TUR
+		}
+		enable = {
+			SOV = { has_idea = SOV_treaty_of_friendship_S_and_T }
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = SOV
+			value = 10
+		}
+	}
+
+	#中苏关系
+	SOV_ignore_china = {
+		reversed = yes
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			NOT = { has_war_with = SOV }
+			OR = {
+				tag = MAN
+				tag = SIK
+				tag = MON
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = "SOV"
+			value = 25
+		}
+	}
+
+	SOV_ignore_china_front_unit_request = {
+
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			any_other_country = {
+				is_chinese_country = yes
+				NOT = { 
+					has_war_with = SOV 
+					has_wargoal_against = SOV
+				}
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = front_unit_request
+			country_trigger = {
+				OR = {
+					tag = MAN
+					tag = SIK
+					tag = MON
+				}
+				OR = {
+					is_subject = no
+					OVERLORD = {
+						NOT = {
+							has_government = fascism
+							has_government = neutrality
+						}
+					}
+				}
+			}
+			value = -50
+		}
+	}
+
+	china_ignore_SOV = {
+
+		allowed = {
+			OR = {
+				original_tag = MAN
+				original_tag = SIK
+				original_tag = MON
+			}
+		}
+		enable = {
+			NOT = { has_war_with = SOV }
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = SOV
+			value = 25
+		}
+	}
+
+	SOV_support_to_MAN = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			MAN = { has_government = communism }
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = send_lend_lease_desire
+			id = MAN
+			value = 25
+		}
+	}
+
+	#苏伊关系
+	SOV_ignore_PER = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			NOT = { has_war_with = PER }
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = conquer
+			id = PER
+			value = 15
+		}
+	}
+
+#军通
+	SOV_ask_for_access_in_war = {
+		reversed = yes
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		enable = {
+			DVL = {
+				exists = yes
+				is_major = yes
+				is_subject = no
+			}
+			is_ai = yes
+			NOT = {
+				OR = {
+					is_in_faction_with = SOV
+					has_military_access_to = SOV
+				}
+			}
+			has_war_together_with = DVL
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = diplo_action_desire
+			id = "SOV"
+			target = military_access
+			value = 1000
+		}
+	}

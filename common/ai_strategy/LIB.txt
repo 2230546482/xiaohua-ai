@@ -1,0 +1,576 @@
+FRA_COL_unit_production  = {
+	enable = {
+		or = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+		}
+	}
+	abort = { always = no }
+	ai_strategy = {
+		type = role_ratio	#模板倾向
+		id = infantry
+		value = 500
+	}
+	ai_strategy = {
+		type = template_prio	#训练模板倾向
+		id = infantry
+		value = 500
+	}
+	ai_strategy = {
+		type = role_ratio	#模板倾向
+		id = armor
+		value = 100
+	}
+	ai_strategy = {
+		type = template_prio	#训练模板倾向
+		id = armor
+		value = 100
+	}
+}
+ROV_unit_production  = {
+	enable = {
+		or = {
+			original_tag = ROV
+		}
+	}
+	abort = { always = no }
+	ai_strategy = {
+		type = role_ratio	#模板倾向
+		id = militia
+		value = 100
+	}
+	ai_strategy = {
+		type = template_prio	#训练模板倾向
+		id = militia
+		value = 100
+	}
+}
+
+FRA_COL_ai_research_38 = { #38年科技
+	allowed = {
+		or = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+		}
+	}
+	enable = {
+		date > 1938.1.1
+	}
+	abort = {
+		always = no
+	}
+	ai_strategy = { #基础型中型坦克底盘
+		type = research_tech	
+		id = basic_medium_tank_chassis
+		value = 800
+	}
+	ai_strategy = { #38年弹药
+		type = research_tech	
+		id = infantry_weapons2
+		value = 400
+	}
+	ai_strategy = { #高速公路
+		type = research_tech	
+		id = r56_convoy_highways
+		value = 400
+	}
+	ai_strategy = { #基础计算机
+		type = research_tech	
+		id = computing_machine
+		value = 400
+	}
+}
+#1938.9
+FRA_COL_ai_research_39 = { #39年科技
+	allowed = {
+		or = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+		}
+	}
+	enable = {
+		date > 1938.9.1
+	}
+	abort = {
+		always = no
+	}
+	ai_strategy = { #重机枪
+		type = research_tech	
+		id = aa_hmg
+		value = 400
+	}
+	ai_strategy = { #工兵连 II
+		type = research_tech	
+		id = tech_engineers2
+		value = 200
+	}
+	ai_strategy = { #侦查连 II
+		type = research_tech	
+		id = tech_recon2
+		value = 200
+	}
+	ai_strategy = { #维修连 II
+		type = research_tech	
+		id = tech_maintenance_company2
+		value = 400
+	}
+	ai_strategy = { #后勤连 II
+		type = research_tech	
+		id = tech_logistics_company2
+		value = 300
+	}
+}
+FRA_COL_xp_upgrade_spending_land = {
+	allowed = {
+		or = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+		}
+	}
+
+	enable = {
+		date < 1942.6.1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = land_xp_spend_priority
+		id = upgrade_xp_cutoff
+		value = 100
+	}
+	ai_strategy = {
+		type = land_xp_spend_priority
+		id = division_template
+		value = 200
+	}
+}
+
+#弄死割据势力
+ROV_spare_no_pains_to_unify_country = {
+	allowed = {
+		original_tag = ROV
+	}
+	enable = {
+		or = {
+            has_war_with = CAM
+            has_war_with = VIN
+        }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		tag = VIN
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = VIN
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = VIN
+		value = 10000
+	}
+    ai_strategy = {
+		type = front_control
+		tag = CAM
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = CAM
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = CAM
+		value = 10000
+	}
+}
+
+ROV_end_pocket = {#包围快速歼灭
+    allowed={
+        tag = ROV
+    }
+    enable = {
+        always = yes
+    }
+
+    abort_when_not_enabled = yes
+	ai_strategy = {
+        type = intelligence_agency_branch_desire_factor
+        id = branch_defense  #反间谍
+        value = 1500
+    }
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            NOT = {
+                is_coastal = yes
+            }
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = {
+                        is_fully_controlled_by = FROM.FROM
+                    }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                controller = {
+                    NOT = {
+                        has_war_with = FROM.FROM
+                    }
+                }
+            }
+        }
+        ratio = 0.0
+        priority = 9999999
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+
+    }
+
+    ai_strategy = {
+
+        type = front_unit_request
+
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = {
+                        is_fully_controlled_by = FROM.FROM
+                    }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                controller = {
+                    NOT = {
+                        has_war_with = FROM.FROM
+                    }
+                }
+            }
+        }
+        value = 40
+    }
+}
+
+ROV_relentless_pursuit = {#别让反贼跑了！
+    allowed = { original_tag = ROV }
+    enable = {
+        has_war = yes
+        any_enemy_country = {
+            OR = {
+                surrender_progress > 0.35
+                AND = {
+                    surrender_progress > 0.15
+                    num_divisions < 50
+                }
+            }
+        }
+        NOT = { surrender_progress > 0.15 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = {
+                has_war_with = ROV
+                OR = {
+                    surrender_progress > 0.35
+                    num_divisions < 50
+                }
+            }
+        }
+        priority = 30000
+        ratio = 0.90
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+
+    ai_strategy = {
+        type = spare_unit_factor
+        value = -100
+    }
+
+    ai_strategy = {
+        type = garrison
+        value = -300
+    }
+}
+ROV_strategic_withdrawal = {#主动收缩
+    allowed = { original_tag = ROV }
+    enable = {
+        has_war = yes
+        surrender_progress > 0.10
+        surrender_progress < 0.20
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = ROV
+            NOT = { is_core_of = ROV }
+            NOT = {
+                any_province_building_level = {
+                    province = { all_provinces = yes }
+                    building = supply_node
+                    level > 0
+                }
+            }
+            NOT = { is_capital = yes }
+            any_neighbor_state = { controller = { has_war_with = ROV } }
+        }
+        value = -150
+    }
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_core_of = ROV
+            is_controlled_by = ROV
+            any_neighbor_state = { controller = { has_war_with = ROV } }
+        }
+        value = 150
+    }
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_core_of = ROV
+            is_controlled_by = ROV
+            any_neighbor_state = { controller = { has_war_with = ROV } }
+        }
+        priority = 10000
+        ordertype = front
+        execution_type = careful
+        manual_attack = no
+    }
+}
+
+#支援假尼姑
+	fra_support_vin = {
+		allowed = {
+			OR = {
+				tag = FRA
+				tag = KMK
+				tag = KNM
+			}
+		}
+		enable = {
+			has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = "ROV"
+			value = 5000
+		}
+		ai_strategy = {
+			type = send_lend_lease_desire
+			id = "ROV"
+			value = 5000
+		}
+	}
+#鬼子支援波波
+	jap_like_cam = {
+		allowed = {
+			OR = {
+				tag = JAP
+			}
+		}
+		enable = {
+			has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = "CAM"
+			value = 5000
+		}
+		ai_strategy = {
+			type = send_lend_lease_desire
+			id = "CAM"
+			value = 5000
+		}
+	}
+#痴肥tv
+	sov_like_lao = {
+		allowed = {
+			OR = {
+				tag = SOV
+				tag = PRC
+			}
+		}
+		enable = {
+			has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = "VIN"
+			value = 5000
+		}
+		ai_strategy = {
+			type = send_lend_lease_desire
+			id = "VIN"
+			value = 5000
+		}
+	}
+    ROV_VINandCAM_is_SB = {
+		enable = {
+			tag = ROV
+            has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = prepare_for_war
+			id = "VIN"
+			value = 1000
+		}
+        ai_strategy = {
+			type = prepare_for_war
+			id = "CAM"
+			value = 1000
+		}
+	}
+    VIN_ROVandCAM_is_SB = {
+		enable = {
+			tag = VIN
+            has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = prepare_for_war
+			id = "ROV"
+			value = 1000
+		}
+        ai_strategy = {
+			type = prepare_for_war
+			id = "CAM"
+			value = 1000
+		}
+        ai_strategy = {
+			type = dont_defend_ally_borders
+			id = "CAM"
+			value = 1000
+		}
+	}
+    CAM_ROVandVIN_is_SB = {
+		enable = {
+			tag = CAM
+            has_global_flag = Indochina_war_flag
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = prepare_for_war
+			id = "ROV"
+			value = 1000
+		}
+        ai_strategy = {
+			type = prepare_for_war
+			id = "VIN"
+			value = 1000
+		}
+        ai_strategy = {
+			type = dont_defend_ally_borders
+			id = "VIN"
+			value = 1000
+		}
+	}
+
+INC_spare_no_pains_to_unify_country = {
+	allowed = {
+		or = {
+			tag = VIN
+			tag = CAM
+		}
+	}
+	enable = {
+		has_global_flag = Indochina_war_flag
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_control
+		tag = ROV
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = ROV
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = ROV
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = VIN
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = VIN
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = VIN
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = CAM
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = CAM
+		value = 10000
+	}
+	ai_strategy = {
+		type = front_armor_score
+		id = CAM
+		value = 10000
+	}
+}

@@ -131,159 +131,7 @@ the_more_powerful_jiandie = {
 
 }
 
-moren_More_Infantry_focus = {#多产枪（40~70工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 39
-        arms_factory < 71
-        has_equipment = { infantry_equipment < 1000 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_production_factor
-        id = infantry
-        value = 50
-    }
-}
 
-moren_More_Infantry_focus_2 = {#多产枪（71~100工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 70
-        arms_factory < 101
-        has_equipment = { infantry_equipment < 1000 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_production_factor
-        id = infantry
-        value = 75
-    }
-}
-
-moren_More_Infantry_focus_3 = {#多产枪（101+工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 100
-        has_equipment = { infantry_equipment < 1000 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_production_factor
-        id = infantry
-        value = 125
-    }
-}
-
-moren_More_Support_focus = {#多产支援（40~70工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 39
-        arms_factory < 71
-        has_equipment = { support_equipment < 100 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = support_equipment
-        value = 25
-    }
-}
-
-moren_More_Support_focus_2 = {#多产支援（71~100工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 70
-        arms_factory < 101
-        has_equipment = { support_equipment < 100 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = support_equipment
-        value = 50
-    }
-}
-
-moren_More_Support_focus_3 = {#多产支援（101+工厂）
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        arms_factory > 100
-        has_equipment = { support_equipment < 100 }
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = support_equipment
-        value = 100
-    }
-}
 
 
 moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
@@ -2510,12 +2358,12 @@ early_air_production_basic = {
     ai_strategy = {
         type  = unit_ratio
         id    = scout_plane
-        value = 5
+        value = 0
     }
     ai_strategy = {
         type  = unit_ratio
         id    = maritime_patrol_plane
-        value = 10
+        value = 0
     }
 }
 #海军生产
