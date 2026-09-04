@@ -467,20 +467,20 @@ LessAirForMass = {
 #多下兵
 
 AI_xiabing = {
-	allowed = { 
-		NOT = {
-                original_tag = LHS
+    allowed = {
+        NOT = {
+            original_tag = LHS
         }
-	}
+    }
     enable = {
         always = yes
     }
-	abort_when_not_enabled = yes
+    abort_when_not_enabled = yes
 
-	ai_strategy = {
-		type = equipment_stockpile_surplus_ratio
-		value = -50
-	}
+    ai_strategy = {
+        type = equipment_stockpile_surplus_ratio
+        value = -50
+    }
     ai_strategy = {
         type = force_build_armies
         value = 100
@@ -570,48 +570,6 @@ youhavethemusethem2 = {
         type = role_ratio
         id = armor
         value = 800
-    }
-
-}
-
-
-
-
-
-
-
-
-
-morenPushForMoreTANK = {
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-
-        has_manpower < 1500000
-        arms_factory > 45
-        has_equipment = {infantry_equipment > 25000}
-        has_tech = improved_medium_tank_chassis
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = role_ratio
-        id = armor
-        value = 30
-    }
-    ai_strategy = {
-        type = equipment_production_factor
-        id = armor
-        value = 20
     }
 
 }
@@ -766,36 +724,6 @@ zao_liechepao = {
         type = equipment_production_min_factories_archetype
         id = railway_gun_equipment
         value = 5
-    }
-}
-MajorsBuildTanksWithManpowermoren = {
-    allowed = {
-        NOT = {
-            OR = {
-                original_tag = PAO
-                original_tag = PAM
-                original_tag = ELF
-                original_tag = KNM
-                original_tag = KFL
-                original_tag = LHS
-            }
-        }
-    }
-    enable = {
-        is_major = yes
-        has_equipment = {infantry_equipment > 50000}
-        has_tech = improved_medium_tank_chassis
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = role_ratio
-        id = armor
-        value = 50
-    }
-    ai_strategy = {
-        type = equipment_production_factor
-        id = armor
-        value = 50
     }
 }
 moren_avoid_thin_lines = {
@@ -1384,7 +1312,176 @@ moren_push_enemy_capital = {#冲首都
         value = 50
     }
 }
+FRA_support_ROC = {
+    reversed = yes
+    allowed = {
+        original_tag = FRA
+    }
+    enable = {
+        tag = ROC
+        or = {
+            has_government = democratic
+            has_government = neutrality
+        }
+        FRA = {
+            or = {
+                has_government = democratic
+                has_government = neutrality
+            }
+        }
+    }
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "FRA"
+        value = 1000
+    }
+    abort_when_not_enabled = yes
+}
+SOV_send_volunteers = { # Reverse strategy
 
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
+
+
+        if = {
+            limit = { NOT = { has_completed_focus = SOV_Support_Viet_Minh } }
+            # NOT = {
+            # 	tag = CAM
+            # 	tag = VIN
+            # }
+        }
+        OR = {
+            has_country_flag = SWE_Communist_Party_Cabinet
+            has_government = communism
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        NOT = {
+            has_country_leader_ideology = anarchist_communism
+        }
+        NOT = {
+            capital_scope = {
+                is_on_continent = africa
+            }
+        }
+        if = {
+            limit = { tag = PAN }
+            always = yes
+        }
+        else_if = {
+            limit = {
+                UKR = {
+                    exists = yes
+                    NOT = { has_government =  communism }
+                }
+            }
+            always = no
+        }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "SOV"
+        value = 100
+    }
+}
+
+SOV_send_lease_desire = { # Reverse strategy
+
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
+        OR = {
+            any_enemy_country = {
+                tag = DVL
+            }
+            AND = {
+                any_enemy_country = {
+                    has_government = fascism
+                }
+                NOT = { tag = DVL }
+            }
+            AND = {
+                NOT = { country_exists = DVL }
+                any_enemy_country = {
+                    tag = ENG
+                }
+            }
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        if = {
+            limit = {
+                tag = GER
+            }
+            has_idea = SOV_aid_to_GER
+        }
+        else = {
+            has_government = communism
+        }
+        NOT = { has_war_with = SOV }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_lend_lease_desire
+        id = "SOV"
+        value = 100
+    }
+}
+ENG_support_ROC = {
+    reversed = yes
+    allowed = {
+        original_tag = ENG
+    }
+    enable = {
+        tag = ROC
+        or = {
+            has_government = democratic
+            has_government = neutrality
+        }
+        ENG = {
+            or = {
+                has_government = democratic
+                has_government = neutrality
+            }
+        }
+    }
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "ENG"
+        value = 1000
+    }
+    abort_when_not_enabled = yes
+}
 moren_postwar_consolidation = {#战后恢复
     allowed = { NOT = {
         OR = {

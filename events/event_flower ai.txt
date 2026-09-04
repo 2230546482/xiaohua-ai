@@ -178,3 +178,54 @@ country_event = {
     }
 }
 
+#给AI补buff
+country_event = {
+	id = FLWAI.114
+	title = FLWAI.114.t
+	desc = FLWAI.114.desc
+	trigger = {
+        NOT = {
+            TAG = ZDW
+        }
+        NOT = {
+            TAG = WL1
+        }
+		is_ai = yes
+		OR = {
+            has_global_flag = red_most_hard
+            has_global_flag = red_hard
+            has_global_flag = red_normal_hard
+        }
+        OR = {
+            NOT = {
+                has_idea = red_most_hard_ai
+                has_idea = red_hard_ai
+                has_idea = red_normal_hard_ai
+            }
+        }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = FLWAI.114.a
+		if = {
+			limit = {
+				has_global_flag = red_most_hard
+			}
+			add_ideas = red_most_hard_ai
+		}
+        if = {
+			limit = {
+				has_global_flag = red_hard
+			}
+			add_ideas = red_hard_ai
+		}
+        if = {
+			limit = {
+				has_global_flag = red_normal_hard
+			}
+			add_ideas = red_normal_hard_ai
+		}
+	}
+}
