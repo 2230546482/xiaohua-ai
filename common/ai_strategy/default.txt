@@ -308,7 +308,7 @@ moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
         type = ai_wanted_divisions_factor
         value = 800
     }
-}
+} 
 moren_More_Infantry_focus_2 = {
     allowed = {
         NOT = {
@@ -568,82 +568,8 @@ youhavethemusethem2 = {
     }
 
 }
-most_tank = {
-    enable = {
-        num_of_military_factories > 200
-        has_tech = mechanised_infantry
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = role_ratio
-        id = armor
-        value = 200
-    }
-
-    ai_strategy = {
-        type = equipment_production_min_factories_archetype
-        id = medium_tank_chassis
-        value = 50
-    }
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = medium_tank_chassis
-        value = 50
-    }
-}
 
 
-
-Too_many_armor = {
-    enable = {
-        has_equipment = { medium_tank_chassis > 5000 }
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_production_min_factories_archetype
-        id = medium_tank_chassis
-        value = -99
-    }
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = medium_tank_chassis
-        value = -99
-    }
-}
-
-
-more_light_tank = {
-    enable = {
-        has_equipment = { light_tank_chassis < 50000 }
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = light_tank_chassis
-        value = 80
-    }
-}
-
-too_many_light_tank = {
-    enable = {
-        has_equipment = { light_tank_chassis > 50000 }
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = light_tank_chassis
-        value = -99
-    }
-    ai_strategy = {
-        type = equipment_production_min_factories_archetype
-        id = light_tank_chassis
-        value = -100
-    }
-}
 
 Ifyouhavethemusethem3 = {
     allowed = {
@@ -678,30 +604,7 @@ Ifyouhavethemusethem3 = {
         value = 100
     }
 }
-moren_kache_buji = {
-    enable = {
-        has_equipment = { motorized_equipment < 4000 }
-    }
-    abort_when_not_enabled = yes
 
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = motorized_equipment
-        value = 80
-    }
-}
-moren_no_kache_buji = {
-    enable = {
-        has_equipment = { motorized_equipment < 4000 }
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_variant_production_factor
-        id = motorized_equipment
-        value = 80
-    }
-}
 #造列车炮
 zao_liechepao = {
     allowed = { always = yes }
@@ -1477,6 +1380,7 @@ ENG_support_ROC = {
     }
     abort_when_not_enabled = yes
 }
+ 
 moren_postwar_consolidation = {#战后恢复
     allowed = { NOT = {
         OR = {
