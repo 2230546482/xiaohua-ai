@@ -476,11 +476,6 @@ AI_xiabing = {
         always = yes
     }
     abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_stockpile_surplus_ratio
-        value = -50
-    }
     ai_strategy = {
         type = force_build_armies
         value = 100
