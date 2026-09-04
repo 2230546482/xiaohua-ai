@@ -2506,7 +2506,7 @@ early_air_production_basic = {
     ai_strategy = {
         type  = unit_ratio
         id    = tactical_bomber
-        value = 10
+        value = 0
     }
     ai_strategy = {
         type  = unit_ratio
