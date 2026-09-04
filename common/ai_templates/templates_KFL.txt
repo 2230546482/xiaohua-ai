@@ -80,8 +80,6 @@ infantry_KFL = {
             regiments = {
                 irregular_infantry = 9
                 artillery_brigade = 1
-                anti_tank_brigade = 1
-                anti_air_brigade = 1
             }
             regimental_support = {
                 fire_support = 4
