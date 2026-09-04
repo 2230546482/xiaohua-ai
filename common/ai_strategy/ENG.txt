@@ -1,0 +1,217 @@
+#军队调动
+	EAI_ENG_last_stand = { #保卫本土
+		allowed = { tag = ENG }
+		enable = {
+			has_war = yes
+			any_owned_state = {
+				OR = {
+					region = 1
+					region = 2
+					region = 3
+					region = 4
+				}
+				NOT = { is_fully_controlled_by = ENG }
+			}
+		}
+		abort_when_not_enabled = yes
+	
+		ai_strategy = { #前线类型
+			type = front_control
+			priority = 10
+			area = UK
+			ratio > 0.5
+			execution_type = rush_weak
+			execute_order = yes
+		}
+	
+		ai_strategy = {
+			type = front_unit_request
+			area = UK
+			value = 999
+		}
+		ai_strategy = {
+			type = area_priority
+			id = UK
+			value = 9999
+		}
+	}
+	ENG_fly_bwbt = { #驻防保卫本土
+		allowed = { 
+			original_tag = ENG 
+		}
+		enable = {
+			always = yes
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = { #驻防倾向
+			type = garrison
+			value = -50
+		}
+
+		ai_strategy = { #神兵天降地区
+			type = put_unit_buffers
+			states = { 
+				127
+			}
+			ratio = 0.3
+			subtract_invasions_from_need = yes #海军入侵不计入比例
+			subtract_fronts_from_need = yes #陆地前线不计入
+		}
+		ai_strategy = { #重点防御
+			type = put_unit_buffers
+			states = { 
+				#122 
+				123
+				125 
+				126 
+				127
+			}
+			ratio = 1.0
+			subtract_invasions_from_need = yes #海军入侵不计入比例
+			subtract_fronts_from_need = yes #陆地前线不计入
+		}
+		ai_strategy = { #防御登陆
+			type = put_unit_buffers
+			states = { 
+				130
+				113
+				132
+				122
+			}
+			ratio = 0.4
+			subtract_invasions_from_need = yes #海军入侵不计入比例
+			subtract_fronts_from_need = yes #陆地前线不计入
+		}
+		ai_strategy = { #次要地区
+			type = put_unit_buffers
+			states = { 
+				338
+				957
+				129
+				135
+				134
+				119
+				131
+				121
+				133
+			}
+			ratio = 0.3
+			subtract_invasions_from_need = yes #海军入侵不计入比例
+			subtract_fronts_from_need = no #陆地前线不计入
+		}
+	}
+
+	#戴比存在时专注欧洲
+	ENG_area_priority = {
+		enable = {
+			original_tag = ENG
+			country_exists = DVL
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = area_priority
+			id = europe
+			value = 300		
+		}
+		ai_strategy = {
+			type = area_priority
+			id = north_america
+			value = -1000
+		}
+		ai_strategy = {
+			type = area_priority
+			id = south_america
+			value = -1000
+		}
+		ai_strategy = {
+			type = area_priority
+			id = asia
+			value = 100
+		}
+		ai_strategy = {
+			type = area_priority
+			id = middle_east
+			value = -1000
+		}
+		ai_strategy = {
+			type = area_priority
+			id = africa
+			value = 100
+		}
+		ai_strategy = {
+			type = area_priority
+			id = suez
+			value = -1000
+		}
+		ai_strategy = {
+			type = area_priority
+			id = pacific
+			value = -2000		#less focus here
+		}
+		ai_strategy = {
+			type = area_priority
+			id = oceania
+			value = -2000
+		}
+	}
+
+	#戴比不存在，均匀分布
+	ENG_area_priority_2 = {
+		enable = {
+			original_tag = ENG
+			not = {
+				country_exists = DVL
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = area_priority
+			id = europe
+			value = 1000		#more focus here
+		}
+		ai_strategy = {
+			type = area_priority
+			id = scandinavia
+			value = 100
+		}
+		ai_strategy = {
+			type = area_priority
+			id = north_america
+			value = 100
+		}
+		ai_strategy = {
+			type = area_priority
+			id = south_america
+			value = 50
+		}
+		ai_strategy = {
+			type = area_priority
+			id = asia
+			value = 500
+		}
+		ai_strategy = {
+			type = area_priority
+			id = middle_east
+			value = 50
+		}
+		ai_strategy = {
+			type = area_priority
+			id = africa
+			value = 200
+		}
+		ai_strategy = {
+			type = area_priority
+			id = suez
+			value = 0
+		}
+		ai_strategy = {
+			type = area_priority
+			id = pacific
+			value = 50		#less focus here
+		}
+		ai_strategy = {
+			type = area_priority
+			id = oceania
+			value = 50
+		}
+	}
