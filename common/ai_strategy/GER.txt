@@ -632,6 +632,15 @@ GER_war_with_HUN = {
 		tag = HUN
 		value = 200		# lets put more units, should be safe
 	}
+    ai_strategy = {
+		type = front_control
+		tag = HUN
+		ratio = 0.8
+		priority = 10000
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
 }
 
 GER_y_game = {

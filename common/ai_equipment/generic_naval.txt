@@ -2,6 +2,7 @@ better_destroyers = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -344,6 +345,7 @@ better_light_cruiser = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -710,6 +712,7 @@ better_heavy_cruiser = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -912,6 +915,7 @@ better_heavy_cruiser_Raiding = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -1094,6 +1098,7 @@ better_capital_battleship = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -1487,6 +1492,7 @@ better_capital_super_heavy_battleship = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -1598,6 +1604,7 @@ better_carrier = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {
@@ -1778,6 +1785,7 @@ better_submarine = {
 	category = naval
 	
 	blocked_for = {
+		FRA
 	}
 	
 	available_for = {

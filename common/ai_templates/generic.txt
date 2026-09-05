@@ -6,7 +6,7 @@
 
 infantry_default = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM
+        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL FRA
     }
     role = infantry
     upgrade_prio = {
@@ -43,7 +43,7 @@ infantry_default = {
 ######################
 AI_armor = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM
+        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM FRA
     }
     role = armor
     upgrade_prio = {
@@ -53,53 +53,9 @@ AI_armor = {
             date > 1938.1.1
         }
     }
-    MEDIUM_ARMOR_0 = {
-        upgrade_prio = {
-            factor = 500
-            modifier = {
-                factor = 0
-                num_of_military_factories > 49
-                not = {has_tech = mechanised_infantry}
-            }
-            modifier = {
-                factor = 0
-                date < 1938.1.1
-            }
-        }
-        enable = {
-            or = {
-                num_of_military_factories < 50
-                not = {has_tech = mechanised_infantry}
-            }
-        }
-        can_upgrade_in_field = {
-            has_equipment = { medium_tank_chassis > 400 }
-        }
-        target_template = {
-            regiments = {
-                irregular_infantry = 8
-                medium_armor = 8
-            }
-            regimental_support = {
-                fire_support = 2
-                medium_sp_anti_air_support = 2
-            }
-            support = {
-                engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
-                field_hospital = 1
-                logistics_company = 1
-            }
-        }
-    }
     MEDIUM_ARMOR_1 = {
         upgrade_prio = {
             factor = 400
-            modifier = {
-                factor = 0
-                num_of_military_factories < 50
-            }
             modifier = {
                 factor = 0
                 has_tech = mechanised_infantry
@@ -112,10 +68,9 @@ AI_armor = {
             }
         }
         enable = {
-            num_of_military_factories > 49
-        }
-        can_upgrade_in_field = {
-            has_equipment = { mechanized_equipment > 500 }
+            NOT = {
+                has_tech = mechanised_infantry
+            }
         }
         target_template = {
             regiments = {
@@ -140,10 +95,6 @@ AI_armor = {
             factor = 300
             modifier = {
                 factor = 0
-                num_of_military_factories < 50
-            }
-            modifier = {
-                factor = 0
                 NOT = {
                     has_tech = mechanised_infantry
                 }
@@ -156,12 +107,11 @@ AI_armor = {
             }
         }
         enable = {
-            num_of_military_factories > 49
             has_tech = mechanised_infantry
         }
         can_upgrade_in_field = {
-            has_equipment = { mechanized_equipment > 500 }
-        }
+			has_equipment = { mechanized_equipment > 500 } 
+		}
         target_template = {
             regiments = {
                 mechanized = 12
@@ -181,9 +131,10 @@ AI_armor = {
         }
     }
 }
+
 AI_special_armor = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM
+        LHS FRA
     }
     role = special_armor
     upgrade_prio = {
@@ -196,56 +147,9 @@ AI_special_armor = {
             }
         }
     }
-    special_armor_1 = {
-        upgrade_prio = {
-            factor = 0
-            modifier = {
-                factor = 200
-                has_idea = mofa
-                has_tech = magic_weapons0
-            }
-            modifier = {
-                factor = 0
-                num_of_military_factories > 49
-            }
-            modifier = {
-                factor = 0
-                date < 1938.1.1
-            }
-        }
-        enable = {
-            num_of_military_factories < 50
-            has_idea = mofa
-            has_tech = magic_weapons0
-        }
-        can_upgrade_in_field = {
-            has_equipment = { medium_tank_chassis > 400 }
-        }
-        target_template = {
-            regiments = {
-                magic_assault = 8
-                medium_armor = 8
-            }
-            regimental_support = {
-                fire_support = 2
-                medium_sp_anti_air_support = 2
-            }
-            support = {
-                engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
-                field_hospital = 1
-                logistics_company = 1
-            }
-        }
-    }
     special_armor_2 = {
         upgrade_prio = {
             factor = 0
-            modifier = {
-                factor = 0
-                num_of_military_factories < 50
-            }
             modifier = {
                 factor = 400
                 has_idea = mofa
@@ -255,14 +159,8 @@ AI_special_armor = {
                 factor = 0
                 date < 1938.1.1
             }
-            modifier = {
-                factor = 0
-                tag = PAW
-                is_in_faction_with = FRA
-            }
         }
         enable = {
-            num_of_military_factories > 49
             has_idea = mofa
             has_tech = magic_weapons0
         }

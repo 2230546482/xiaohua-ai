@@ -1,6 +1,6 @@
 infantry_KFL = {
     available_for = {
-        KFL FRA
+        KFL 
     }
     role = KFL_infantry
     upgrade_prio = {
@@ -32,7 +32,7 @@ infantry_KFL = {
 
 KFL_armor = {
     available_for = {
-        KFL FRA
+        KFL 
     }
     role = KFL_armor
     upgrade_prio = {

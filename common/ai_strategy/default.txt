@@ -87,6 +87,7 @@ AI_start1 = {
         value = 100
     }
 }
+
 the_more_powerful_jiandie = {
     allowed = {
         NOT = {
@@ -131,10 +132,7 @@ the_more_powerful_jiandie = {
 
 }
 
-
-
-
-moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
+moren_More_Support_focus = {#多产支援（40~70工厂）
     allowed = {
         NOT = {
             OR = {
@@ -144,20 +142,24 @@ moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
-        
+        arms_factory > 39
+        arms_factory < 71
+        has_equipment = { support_equipment < 100 }
     }
     abort_when_not_enabled = yes
-
     ai_strategy = {
-        type = ai_wanted_divisions_factor
-        value = 800
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 25
     }
-} 
-moren_More_Infantry_focus_2 = {
+}
+
+moren_More_Support_focus_2 = {#多产支援（71~100工厂）
     allowed = {
         NOT = {
             OR = {
@@ -167,26 +169,24 @@ moren_More_Infantry_focus_2 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
         arms_factory > 70
-        arms_factory < 99
-        has_equipment = { infantry_equipment < 1000 }
+        arms_factory < 101
+        has_equipment = { support_equipment < 100 }
     }
     abort_when_not_enabled = yes
     ai_strategy = {
-        type = equipment_production_factor
-        id = infantry
-        value = 75
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 50
     }
-    abort_when_not_enabled = yes
 }
 
-
-
-moren_More_Infantry_focus_3 = {
+moren_More_Support_focus_3 = {#多产支援（101+工厂）
     allowed = {
         NOT = {
             OR = {
@@ -196,23 +196,36 @@ moren_More_Infantry_focus_3 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
         arms_factory > 100
-        has_equipment = { infantry_equipment < 1000 }
+        has_equipment = { support_equipment < 100 }
     }
     abort_when_not_enabled = yes
     ai_strategy = {
-        type = equipment_production_factor
-        id = infantry
-        value = 125
+        type = equipment_variant_production_factor
+        id = support_equipment
+        value = 100
     }
 }
 
+moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
+    allowed = {
+        always = yes
+    }
+    enable = {
+        always = yes
+    }
+    abort_when_not_enabled = yes
 
-
+    ai_strategy = {
+        type = ai_wanted_divisions_factor
+        value = 10000
+    }
+}
 
 moren_More_Support_focus = {
     allowed = {
@@ -224,6 +237,7 @@ moren_More_Support_focus = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -240,7 +254,6 @@ moren_More_Support_focus = {
     }
 }
 
-
 moren_More_Support_focus_2 = {
     allowed = {
         NOT = {
@@ -251,6 +264,7 @@ moren_More_Support_focus_2 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -276,6 +290,7 @@ moren_More_Support_focus_3 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -300,6 +315,7 @@ LessAirForMass = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -324,9 +340,14 @@ AI_xiabing = {
         always = yes
     }
     abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_stockpile_surplus_ratio
+        value = -50
+    }
     ai_strategy = {
         type = force_build_armies
-        value = 100
+        value = 1000
     }
 }
 
@@ -340,32 +361,32 @@ youhavethemusethemmofa = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
         has_idea = mofa
         date > 1938.1.1
-        
     }
     abort_when_not_enabled = yes
 
     ai_strategy = {
         type = build_army
         id = special_armor
-        value = 100
+        value = 1000
     }
 
     ai_strategy = {
         type = template_prio
         id = special_armor
-        value = 100
+        value = 1000
     }
 
     ai_strategy = {
         type = role_ratio
         id = special_armor
-        value = 800
+        value = 8000
     }
 
 }
@@ -379,40 +400,187 @@ youhavethemusethem2 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
-        not = {
+        NOT = {
             has_idea = mofa
         }
         date > 1938.1.1
-        
     }
     abort_when_not_enabled = yes
 
     ai_strategy = {
         type = build_army
         id = armor
-        value = 100
+        value = 1000
     }
 
     ai_strategy = {
         type = template_prio
         id = armor
-        value = 100
+        value = 1000
     }
 
     ai_strategy = {
         type = role_ratio
         id = armor
-        value = 800
+        value = 8000
     }
 
 }
 
+SOV_send_volunteers = { # Reverse strategy
+
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
 
 
+        if = {
+            limit = { NOT = { has_completed_focus = SOV_Support_Viet_Minh } }
+            # NOT = {
+            # 	tag = CAM
+            # 	tag = VIN
+            # }
+        }
+        OR = {
+            has_country_flag = SWE_Communist_Party_Cabinet
+            has_government = communism
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        NOT = {
+            has_country_leader_ideology = anarchist_communism
+        }
+        NOT = {
+            capital_scope = {
+                is_on_continent = africa
+            }
+        }
+        if = {
+            limit = { tag = VHS }
+            always = yes
+        }
+        if = {
+            limit = { tag = TAM }
+            always = yes
+        }
+        else_if = {
+            limit = {
+                UKR = {
+                    exists = yes
+                    NOT = { has_government =  communism }
+                }
+            }
+            always = no
+        }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "SOV"
+        value = 100
+    }
+}
+
+SOV_send_lease_desire = { # Reverse strategy
+
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
+        OR = {
+            any_enemy_country = {
+                tag = DVL
+            }
+            AND = {
+                any_enemy_country = {
+                    has_government = fascism
+                }
+                NOT = { tag = DVL }
+            }
+            AND = {
+                NOT = { country_exists = DVL }
+                any_enemy_country = {
+                    tag = ENG
+                }
+            }
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        if = {
+            limit = {
+                tag = GER
+            }
+            has_idea = SOV_aid_to_GER
+        }
+        else = {
+            has_government = communism
+        }
+        NOT = { has_war_with = SOV }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_lend_lease_desire
+        id = "SOV"
+        value = 100
+    }
+}
+ENG_support_ROC = {
+    reversed = yes
+    allowed = {
+        original_tag = ENG
+    }
+    enable = {
+        tag = ROC
+        or = {
+            has_government = democratic
+            has_government = neutrality
+        }
+        ENG = {
+            or = {
+                has_government = democratic
+                has_government = neutrality
+            }
+        }
+    }
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "ENG"
+        value = 1000
+    }
+    abort_when_not_enabled = yes
+}
 Ifyouhavethemusethem3 = {
     allowed = {
         NOT = {
@@ -423,30 +591,64 @@ Ifyouhavethemusethem3 = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
     enable = {
-        date < 1938.1.1
+        always = yes
     }
     abort_when_not_enabled = yes
     ai_strategy = {
         type = template_prio
         id = infantry
-        value = 100
+        value = 1000
     }
     ai_strategy = {
         type = role_ratio
         id = infantry
-        value = 50
+        value = 1000
     }
     ai_strategy = {
         type = build_army
         id = infantry
-        value = 100
+        value = 1000
     }
 }
+moren_kache_buji = {
+    allowed = {
+        NOT = {
+            original_tag = FRA
+        }
+    }
+    enable = {
+        has_equipment = { motorized_equipment < 4000 }
+    }
+    abort_when_not_enabled = yes
 
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = motorized_equipment
+        value = 80
+    }
+}
+moren_no_kache_buji = {
+    allowed = {
+        NOT = {
+            original_tag = FRA
+        }
+    }
+    enable = {
+        has_equipment = { motorized_equipment < 4000 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = motorized_equipment
+        value = 80
+    }
+}
 #造列车炮
 zao_liechepao = {
     allowed = { always = yes }
@@ -475,6 +677,7 @@ moren_avoid_thin_lines = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -549,6 +752,7 @@ moren_motorized_production = { #缺卡车
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -582,6 +786,7 @@ moren_artillery_production = { #缺炮
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
 
@@ -611,6 +816,7 @@ moren_anti_tank_production = { #缺at
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
 
@@ -640,6 +846,7 @@ moren_anti_air_production = { #缺对空
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
 
@@ -669,6 +876,7 @@ moren_train_production = { #缺火车
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
 
@@ -698,6 +906,7 @@ moren_convoy_production = { #缺运输船
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
 
@@ -725,6 +934,7 @@ AI_late_game_warrior = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -756,6 +966,7 @@ AI_game_warrior = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -784,6 +995,7 @@ moren_production_tier1_infantry = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -815,6 +1027,7 @@ moren_production_tier2_support = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -847,6 +1060,7 @@ moren_counter_enemy_armor = { #应对敌军装甲
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -1052,177 +1266,7 @@ moren_push_enemy_capital = {#冲首都
         value = 50
     }
 }
-FRA_support_ROC = {
-    reversed = yes
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-        tag = ROC
-        or = {
-            has_government = democratic
-            has_government = neutrality
-        }
-        FRA = {
-            or = {
-                has_government = democratic
-                has_government = neutrality
-            }
-        }
-    }
-    ai_strategy = {
-        type = send_volunteers_desire
-        id = "FRA"
-        value = 1000
-    }
-    abort_when_not_enabled = yes
-}
-SOV_send_volunteers = { # Reverse strategy
 
-    reversed = yes
-
-    allowed = {
-        original_tag = SOV
-    }
-
-    enable = {
-
-
-        if = {
-            limit = { NOT = { has_completed_focus = SOV_Support_Viet_Minh } }
-            # NOT = {
-            # 	tag = CAM
-            # 	tag = VIN
-            # }
-        }
-        OR = {
-            has_country_flag = SWE_Communist_Party_Cabinet
-            has_government = communism
-        }
-        NOT = {
-            any_enemy_country = {
-                has_government = communism
-                is_subject = no
-                OR = {
-                    is_faction_leader = yes
-                    is_in_faction = no
-                }
-            }
-        }
-        NOT = {
-            has_country_leader_ideology = anarchist_communism
-        }
-        NOT = {
-            capital_scope = {
-                is_on_continent = africa
-            }
-        }
-        if = {
-            limit = { tag = PAN }
-            always = yes
-        }
-        else_if = {
-            limit = {
-                UKR = {
-                    exists = yes
-                    NOT = { has_government =  communism }
-                }
-            }
-            always = no
-        }
-    }
-
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = send_volunteers_desire
-        id = "SOV"
-        value = 100
-    }
-}
-
-SOV_send_lease_desire = { # Reverse strategy
-
-    reversed = yes
-
-    allowed = {
-        original_tag = SOV
-    }
-
-    enable = {
-        OR = {
-            any_enemy_country = {
-                tag = DVL
-            }
-            AND = {
-                any_enemy_country = {
-                    has_government = fascism
-                }
-                NOT = { tag = DVL }
-            }
-            AND = {
-                NOT = { country_exists = DVL }
-                any_enemy_country = {
-                    tag = ENG
-                }
-            }
-        }
-        NOT = {
-            any_enemy_country = {
-                has_government = communism
-                is_subject = no
-                OR = {
-                    is_faction_leader = yes
-                    is_in_faction = no
-                }
-            }
-        }
-        if = {
-            limit = {
-                tag = GER
-            }
-            has_idea = SOV_aid_to_GER
-        }
-        else = {
-            has_government = communism
-        }
-        NOT = { has_war_with = SOV }
-    }
-
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = send_lend_lease_desire
-        id = "SOV"
-        value = 100
-    }
-}
-ENG_support_ROC = {
-    reversed = yes
-    allowed = {
-        original_tag = ENG
-    }
-    enable = {
-        tag = ROC
-        or = {
-            has_government = democratic
-            has_government = neutrality
-        }
-        ENG = {
-            or = {
-                has_government = democratic
-                has_government = neutrality
-            }
-        }
-    }
-    ai_strategy = {
-        type = send_volunteers_desire
-        id = "ENG"
-        value = 1000
-    }
-    abort_when_not_enabled = yes
-}
- 
 moren_postwar_consolidation = {#战后恢复
     allowed = { NOT = {
         OR = {
@@ -1232,6 +1276,7 @@ moren_postwar_consolidation = {#战后恢复
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -1385,6 +1430,7 @@ moren_wartime_air_superiority = {#全力争夺制空权
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -1426,9 +1472,6 @@ moren_wartime_air_superiority = {#全力争夺制空权
 
 }
 
-
-
-
 moren_crisis_iron_wall = {
     allowed = { NOT = {
         OR = {
@@ -1438,6 +1481,7 @@ moren_crisis_iron_wall = {
             original_tag = KNM
             original_tag = KFL
             original_tag = LHS
+            original_tag = FRA
         }
     } }
     enable = {
@@ -2122,6 +2166,7 @@ moren_build_an_air_facility_faster = {#建造空军研究设施
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -2155,6 +2200,7 @@ moren_build_a_lw_facility_faster = {#建造陆军研究设施
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -2191,6 +2237,7 @@ moren_build_a_nav_facility_faster = {#建造海军研究设施
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -2217,6 +2264,7 @@ moren_build_a_nl_facility_faster = {#建造核研究设施
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -2331,6 +2379,7 @@ early_air_production_basic = {
                 original_tag = KNM
                 original_tag = KFL
                 original_tag = LHS
+                original_tag = FRA
             }
         }
     }
@@ -2369,6 +2418,9 @@ early_air_production_basic = {
 #海军生产
 ai_naval_unit_role_ratios = {
     allowed = {
+        NOT = {
+            original_tag = FRA
+        }
     }
     enable = { num_of_naval_factories > 0 }
 
@@ -2639,3 +2691,45 @@ division_upgrades_are_very_important = {
     }
 }
 
+more_division = {
+    allowed = {
+		NOT = {
+            original_tag = FRA
+        }
+	}
+	enable = {
+		num_divisions < 114514
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = build_army id = armor				value = 1000 }
+	ai_strategy = { type = build_army id = infantry				value = 1000 }
+}
+
+generic_unit_production_tank = { #有坦克后单位倾向
+	allowed = {
+		NOT = {
+            original_tag = FRA
+        }
+	}
+	enable = {
+		has_tech = basic_medium_tank_chassis
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 5000
+	}
+	ai_strategy = {
+		type = template_prio	#训练模板倾向
+		id = armor
+		value = 5000
+	}
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = 5000
+	}
+}

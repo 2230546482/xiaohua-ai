@@ -1,1 +1,375 @@
 # AI tank design for testing
+
+FRA_medium_tank_destroyers = { #中坦歼
+	category = land
+	
+	available_for = { FRA }
+	roles = {
+		land_medium_tank_destroyer
+	}
+	priority = {
+		factor = 3000
+	}
+	basic_medium_tank_destroyer_1 = { #W15 TCC
+		priority = {
+			factor = 300
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				has_tech = antitank3
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				has_tech = antitank3
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = medium_tank_destroyer_chassis_1
+			modules = {
+				main_armament_slot = { 
+					any_of = { 
+						tank_medium_cannon_2
+						tank_medium_cannon
+					} 
+				}
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { 
+					any_of = { 
+						tank_radio_3
+						tank_radio_2
+						tank_radio_1
+					} 
+				}
+				special_type_slot_2 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_medium_cannon
+			tank_medium_cannon_2
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			easy_maintenance
+			wet_ammo_storage
+			secondary_turret_small_cannon
+			tank_medium_three_man_tank_turret
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+		}
+	}
+	basic_medium_tank_destroyer_1B = { #W15 TCC 2级at
+		priority = {
+			factor = 600
+			modifier = { 
+				has_tech = antitank3
+				factor = 600 #let's not waste XP here
+			}
+			modifier = { 
+				has_tech = improved_medium_tank_chassis
+				has_tech = antitank3
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 2500
+			type = medium_tank_destroyer_chassis_1
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { 
+					any_of = { 
+						tank_radio_3
+						tank_radio_2
+						tank_radio_1
+					} 
+				}
+				special_type_slot_2 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_medium_cannon_2
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			easy_maintenance
+			wet_ammo_storage
+			secondary_turret_small_cannon
+			tank_medium_three_man_tank_turret
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+		}
+	}
+	improved_medium_tank_destroyer_2 = {#SAu 40
+		priority = {
+			factor = 500
+			modifier = { 
+				has_tech = advanced_medium_tank_chassis 
+				has_tech = antitank5
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				has_tech = antitank4 
+				factor = 0 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 3000
+			type = medium_tank_destroyer_chassis_2
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { 
+					any_of = { 
+						tank_radio_3
+						tank_radio_2
+						tank_radio_1
+					} 
+				}
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_medium_cannon_2
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			easy_maintenance
+			secondary_turret_small_cannon
+			tank_medium_three_man_tank_turret
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+		}
+	}
+	improved_medium_tank_destroyer_2B = {#SAu 40 42at
+		priority = {
+			factor = 500
+			modifier = { 
+				has_tech = advanced_medium_tank_chassis 
+				has_tech = antitank5
+				factor = 0 #let's not waste XP here
+			}
+			modifier = { 
+				has_tech = antitank4
+				factor = 500 #let's not waste XP here
+			}
+		}
+		
+		target_variant = {
+			match_value = 3000
+			type = medium_tank_destroyer_chassis_2
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { 
+					any_of = { 
+						tank_radio_3
+						tank_radio_2
+						tank_radio_1
+					} 
+				}
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_high_velocity_cannon_2
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			easy_maintenance
+			secondary_turret_small_cannon
+			tank_medium_three_man_tank_turret
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+		}
+	}
+	advanced_medium_tank_destroyer_3 = { #lorraine 100
+		priority = {
+			factor = 1000
+		}
+		
+		target_variant = {
+			match_value = 4000
+			type = medium_tank_destroyer_chassis_3
+			modules = {
+				main_armament_slot = r56_tank_medium_cannon_3
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = tank_radio_3
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_radio_3
+			r56_tank_medium_cannon_3
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			easy_maintenance
+			wet_ammo_storage
+			additional_machine_guns
+			secondary_turret_small_cannon
+			tank_medium_three_man_tank_turret
+		}
+	}
+}
+
+FRA_modern_tank_destroyers = { #现代坦歼
+	category = land
+
+	available_for = { FRA }
+
+	roles = {
+		land_modern_tank_destroyer
+	}
+
+	priority = {
+		factor = 2000
+	}
+
+	modern_tank_destroyer_default = {
+		priority = {
+			factor = 1200
+			modifier = { 
+				has_tech = advanced_main_battle_tank_chassis
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		target_variant = {
+			match_value = 100
+			type = modern_tank_destroyer_chassis_1
+			modules = {
+				main_armament_slot = tank_modern_cannon
+				turret_type_slot = ah_tank_modern_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = tank_radio_3
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = armor_skirts
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+
+		allowed_modules = {
+		    tank_modern_cannon
+			ah_tank_modern_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			tank_radio_3
+			easy_maintenance
+			armor_skirts
+			sloped_armor
+		}
+	}
+	advanced_modern_tank_destroyer_OL_default = {
+		priority = {
+			factor = 2000
+		}
+
+		target_variant = {
+			match_value = 100
+			type = modern_tank_destroyer_chassis_2
+			modules = {
+				main_armament_slot = tank_modern_cannon
+				turret_type_slot = ah_tank_modern_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+                armor_type_slot = tank_riveted_armor
+                engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = tank_radio_3
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = armor_skirts
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+
+		allowed_modules = {
+		    tank_modern_cannon
+			ah_tank_modern_tank_turret
+			tank_bogie_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			tank_radio_3
+			easy_maintenance
+			armor_skirts
+			sloped_armor
+		}
+	}
+
+}

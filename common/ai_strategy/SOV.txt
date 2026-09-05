@@ -473,3 +473,49 @@ SOV_rush_to_Ukraine = { #1h22min速通乌克兰
 			value = 1000
 		}
 	}
+
+TAM_war_with_PER_AFG = {
+	allowed = {
+		original_tag = TAM
+	}
+	enable = {
+		country_exists = PER
+		country_exists = AFG
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = front_unit_request		#前线部队
+		tag = PER
+		value = 200		# lets put more units, should be safe
+	}
+	ai_strategy = {
+		type = front_unit_request		#前线部队
+		tag = AFG
+		value = 200		# lets put more units, should be safe
+	}
+}
+
+SOV_unit_production_apocalypse = {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_special_project_completed = sp:sp_tank_dual_mounted_cannon
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = role_ratio
+		id = apocalypse
+		value = 2000
+	}
+	ai_strategy = {
+		type = template_prio	#训练模板倾向
+		id = apocalypse
+		value = 2000
+	}
+	ai_strategy = {
+		type = build_army
+		id = apocalypse
+		value = 2000
+	}
+}

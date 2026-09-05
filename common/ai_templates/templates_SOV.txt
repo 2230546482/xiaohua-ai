@@ -1,0 +1,38 @@
+SOV_apocalypse_division = {
+    role = apocalypse
+    upgrade_prio = {
+        base = 0
+        modifier = {
+            add = 5000
+			has_tech = mechanised_infantry
+            is_special_project_completed = sp:sp_tank_dual_mounted_cannon
+        }
+    }
+	apocalypse_division_default = {
+		upgrade_prio = {
+			factor = 500
+		}
+		can_upgrade_in_field = {
+			has_equipment = { heavy_tank_chassis > 200 } 
+			has_equipment = { mechanized_equipment > 200 } 
+		}
+		reinforce_prio = 2.0
+		target_template = {
+			regiments = {
+				heavy_armor = 8
+				mechanized = 12
+			}
+			regimental_support = {
+                mot_fire_support = 3
+                medium_sp_anti_air_support = 2
+            }
+			support = {
+                assault_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                field_hospital = 1
+                logistics_company = 1
+            }
+		}
+	}
+}
