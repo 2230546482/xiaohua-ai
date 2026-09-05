@@ -94,17 +94,7 @@ AI_ask_for_access = {
     reversed = yes
 
     allowed = {
-      NOT = {
-        OR = {
-            original_tag = PAO
-            original_tag = PAM
-            original_tag = ELF
-            original_tag = KNM
-            original_tag = KFL
-            original_tag = LHS
-            original_tag = FRA
-        }
-    }
+      always = yes
     }
 
     enable = {
