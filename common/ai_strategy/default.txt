@@ -1098,6 +1098,26 @@ moren_production_tier2_support = {
     }
 }
 
+#自动机械
+moren_production_tier2_auto_meta = {
+    allowed = {  }
+    enable = {
+         always = yes
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = auto_meta_equipments
+        value = -500
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = auto_meta_equipments
+        value = -500
+    }
+}
 
 moren_counter_enemy_armor = { #应对敌军装甲
     allowed = { NOT = {
