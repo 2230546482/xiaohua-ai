@@ -103,7 +103,7 @@ armored_FRA = {
 			}
 			regimental_support = {
 				modern_tank_destroyer_support = 2
-				mot_fire_support = 2
+				mot_fire_support = 3
 			}
 			support = {
 				assault_engineer = 1
@@ -186,7 +186,7 @@ infantry_FRA = {
 			}
 			regiments = {
 				mechanized = 9
-				mot_artillery_brigade = 1
+				medium_tank_destroyer_brigade = 1
 			}
 		}
 	}
@@ -199,55 +199,65 @@ magic_FRA = {
 	}
 	role = FRA_magic_assault
 	upgrade_prio = {
-		factor = 500
+		base = 0
+		modifier = {
+            add = 500
+            date > 1938.1.1
+        }
 	}
 	magic_default_FRA_a = {
 		division_names_group = FRA_MAA_01
 		custom_icon = 16
 		upgrade_prio = {
-			factor = 100
+			factor = 500
 		}
 		target_template = {
 			support = {
-				armored_engineer = 1
-				field_hospital = 1
-				rangers_support = 1
+				assault_engineer = 1
+				light_tank_recon = 1
 				medium_flame_tank = 1
 				logistics_company = 1
+				armored_signal = 1
 			}
 			regimental_support = {
-				fire_support = 5
+				medium_sp_anti_air_support = 2
+				fire_support = 3
 			}
 			regiments = {
-				magic_assault = 25
+				medium_tank_destroyer_brigade = 8
+				magic_assault = 12
 			}
 		}
 	}
-}
-
-garrison_FRA = {
-	available_for = {
-		FRA
-	}
-	role = FRA_garrison
-	upgrade_prio = {
-		factor = 0
-		modifier = {
-			factor = 0
-			ai_has_role_template = FRA_garrison
-		}
-	}
-	garrison_FRA = {
+	modern_magic_armor_FRA = {
+		division_names_group = FRA_MAA_01
 		upgrade_prio = {
-			factor = 0
-		}
-		reinforce_prio = 0
-		target_template = {
-			support = {
-				military_police = 1
+			base = 250
+			modifier = {
+				factor = 5
+				has_tech = main_battle_tank_chassis
+				has_tech = antitank_b
 			}
+		}
+		reinforce_prio = 2.0
+		can_upgrade_in_field = {
+			has_equipment = { modern_tank_destroyer_chassis > 500 } 
+		}
+		target_template = {
 			regiments = {
-				cavalry = 25
+				modern_tank_destroyer_brigade = 10
+				magic_assault = 15
+			}
+			regimental_support = {
+				modern_tank_destroyer_support = 2
+				mot_fire_support = 3
+			}
+			support = {
+				assault_engineer = 1
+				light_tank_recon = 1
+				medium_flame_tank = 1
+				logistics_company = 1
+				armored_signal = 1
 			}
 		}
 	}

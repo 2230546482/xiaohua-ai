@@ -18,6 +18,13 @@
 				factor = 0
 				has_dynamic_modifier = FRA_Financial_crisis
 			}
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		allow_branch = {
 			or = {
@@ -280,6 +287,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -304,6 +318,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -328,6 +349,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -352,6 +380,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -376,6 +411,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -406,6 +448,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -430,6 +479,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -454,6 +510,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -478,6 +541,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -521,6 +591,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -669,6 +746,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -693,6 +777,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 2
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 			controls_state = 21
@@ -718,6 +809,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -745,6 +843,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -775,6 +880,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -799,6 +911,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -826,6 +945,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -855,7 +981,7 @@
 		allow_branch = {
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
 		}
 		available = {
 		}
@@ -886,6 +1012,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}
@@ -916,7 +1049,7 @@
 		allow_branch = {
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
 		}
 		available = {
 		}
@@ -957,6 +1090,13 @@
 		}
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+				NOT = {
+					has_dynamic_modifier = FRA_Financial_crisis
+				}
+			}
 		}
 		available = {
 		}

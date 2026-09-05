@@ -615,12 +615,12 @@ GER_war_with_HUN = {
 	ai_strategy = {
 		type = invade		#入侵
 		id = "HUN"
-		value = 200
+		value = 2000
 	}
 	ai_strategy = {
 		type = conquer		#征服
 		id = "HUN"
-		value = 200
+		value = 2000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
@@ -630,7 +630,7 @@ GER_war_with_HUN = {
 	ai_strategy = {
 		type = front_unit_request		#前线部队
 		tag = HUN
-		value = 200		# lets put more units, should be safe
+		value = 2000		# lets put more units, should be safe
 	}
     ai_strategy = {
 		type = front_control
@@ -638,7 +638,7 @@ GER_war_with_HUN = {
 		ratio = 0.8
 		priority = 1000
 		ordertype = front
-		execution_type = rush_weak
+		execution_type = rush
 		execute_order = yes
 	}
 }

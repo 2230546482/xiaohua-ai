@@ -27,7 +27,7 @@ generic_light_tanks = {
 				special_type_slot_1 = smoke_launchers
 				special_type_slot_2 = r56_tank_improved_optics
 				special_type_slot_3 = smoke_launchers
-				special_type_slot_4 = extra_ammo_storage
+				special_type_slot_4 = smoke_launchers
 			}
 			upgrades = {
 				tank_nsb_engine_upgrade = 1
@@ -41,7 +41,6 @@ generic_light_tanks = {
 			tank_riveted_armor
 			tank_diesel_engine
 			smoke_launchers
-			extra_ammo_storage
 			r56_tank_improved_optics
 		}
 	}
@@ -65,7 +64,7 @@ generic_light_tanks = {
 		        special_type_slot_1 = r56_tank_improved_optics
 		        special_type_slot_2 = smoke_launchers
 		        special_type_slot_3 = smoke_launchers
-		        special_type_slot_4 = extra_ammo_storage
+		        special_type_slot_4 = smoke_launchers
 		    }
 		    upgrades = {
                 tank_nsb_engine_upgrade = 0
@@ -79,7 +78,6 @@ generic_light_tanks = {
             tank_riveted_armor
 			tank_diesel_engine
 			r56_tank_improved_optics
-			extra_ammo_storage
 		}
 	}
     light_tank_best = {

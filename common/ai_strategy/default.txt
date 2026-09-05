@@ -1117,6 +1117,36 @@ moren_production_tier2_auto_meta = {
         id = auto_meta_equipments
         value = -500
     }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = auto_meta_equipments
+        value = -500
+    }
+}
+#强袭
+moren_production_tier2_sw = {
+    allowed = {  }
+    enable = {
+         always = yes
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strike_witches_equipment
+        value = -500
+    }
+
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = strike_witches_equipment
+        value = -500
+    }
+    ai_strategy = {
+        type = equipment_variant_production_factor
+        id = strike_witches_equipment
+        value = -500
+    }
 }
 
 moren_counter_enemy_armor = { #应对敌军装甲

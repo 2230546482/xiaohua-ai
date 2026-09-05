@@ -519,3 +519,104 @@ SOV_unit_production_apocalypse = {
 		value = 2000
 	}
 }
+
+	SOV_ai_research_34HT = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			date > 1936.1.1
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = basic_heavy_tank_chassis
+			value = 1000
+		}
+	}
+	SOV_ai_research_40HT = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			date > 1939.1.1
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = improved_heavy_tank_chassis
+			value = 1000
+		}
+	}
+	SOV_ai_research_39at = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			OR = {
+				has_tech = antitank1
+			}
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = antitank2
+			value = 1000
+		}
+	}
+	SOV_ai_research_41at = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			OR = {
+				has_tech = antitank2
+			}
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = antitank3
+			value = 1000
+		}
+	}
+	SOV_ai_research_42at = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_tech = antitank3
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = antitank4
+			value = 1000
+		}
+	}
+	SOV_ai_research_43at = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_tech = antitank4
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = antitank5
+			value = 1000
+		}
+	}
