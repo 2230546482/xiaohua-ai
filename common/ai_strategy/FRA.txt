@@ -25,7 +25,7 @@
 		ai_strategy = {
 			type = role_ratio
 			id = FRA_tank_destroyer
-			value = 5
+			value = 0
 		}
 
 		ai_strategy = { 
@@ -64,7 +64,7 @@
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
 			id = FRA_tank_destroyer
-			value = 500
+			value = 0
 		}
 		ai_strategy = {
 			type = template_prio

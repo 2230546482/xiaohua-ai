@@ -110,6 +110,7 @@ ideas = {
                 experience_gain_army = 1
                 experience_gain_navy = 1
                 experience_gain_air = 1
+                country_resource_oil = 500
             }
             on_remove = {
             }
@@ -170,6 +171,7 @@ ideas = {
                 weekly_manpower = 8000
                 conscription = 0.025
                 conscription_factor = 0.15
+                country_resource_oil = 250
 
 
                 industrial_capacity_factory = 0.5
@@ -240,6 +242,7 @@ ideas = {
                 political_power_gain = 1
                 supply_consumption_factor = -0.2
                 fuel_gain_factor = 0.5
+                country_resource_oil = 100
             }
             on_remove = {
             }
