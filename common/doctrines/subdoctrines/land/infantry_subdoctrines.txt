@@ -456,7 +456,7 @@ commandos = {
 
 
     ai_will_do = {
-        base = 0
+        base = 1000
         modifier = {
             has_idea = mofa
             add = 1000
@@ -599,7 +599,7 @@ irregulars = {
 
 
     ai_will_do = {
-        base = 1000
+        base = 0
         modifier = {
             has_idea = mofa
             add = -10000
