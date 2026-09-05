@@ -534,7 +534,13 @@ self_propelled_support = {
     }
 
 
-    ai_will_do = { base = 0 }
+    ai_will_do = {
+        base = 0
+        modifier = {
+            tag = FRA
+            add = 10000
+        }
+    }
 
 
     category_self_propelled_artillery = {
@@ -779,6 +785,10 @@ field_engineering = {
 
     ai_will_do = {
         base = 100
+        modifier = {
+            tag = FRA
+            add = -1000
+        }
     }
 
     engineer = {

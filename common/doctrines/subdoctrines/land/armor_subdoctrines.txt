@@ -322,6 +322,10 @@ mobile_defense = {
 
     ai_will_do = {
         base = 100
+        modifier = {
+            tag = FRA
+            add = -1000
+        }
     }
 
     armored_engineer = {
@@ -628,6 +632,10 @@ tank_destroyer_force = {
 
     ai_will_do = {
         base = 0
+        modifier = {
+            tag = FRA
+            add = 10000
+        }
     }
 
     category_all_armor = {
