@@ -59,6 +59,7 @@ AI_armor = {
             modifier = {
                 factor = 0
                 num_of_military_factories > 49
+                not = {has_tech = mechanised_infantry}
             }
             modifier = {
                 factor = 0
@@ -66,11 +67,14 @@ AI_armor = {
             }
         }
         enable = {
-            num_of_military_factories < 50
+            or = {
+                num_of_military_factories < 50
+                not = {has_tech = mechanised_infantry}
+            }
         }
         can_upgrade_in_field = {
-			has_equipment = { medium_tank_chassis > 400 } 
-		}
+            has_equipment = { medium_tank_chassis > 400 }
+        }
         target_template = {
             regiments = {
                 irregular_infantry = 8
@@ -109,11 +113,10 @@ AI_armor = {
         }
         enable = {
             num_of_military_factories > 49
-            has_tech = mechanised_infantry
         }
         can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
-		}
+            has_equipment = { mechanized_equipment > 500 }
+        }
         target_template = {
             regiments = {
                 irregular_infantry = 12
@@ -157,8 +160,8 @@ AI_armor = {
             has_tech = mechanised_infantry
         }
         can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
-		}
+            has_equipment = { mechanized_equipment > 500 }
+        }
         target_template = {
             regiments = {
                 mechanized = 12
@@ -216,8 +219,8 @@ AI_special_armor = {
             has_tech = magic_weapons0
         }
         can_upgrade_in_field = {
-			has_equipment = { medium_tank_chassis > 400 } 
-		}
+            has_equipment = { medium_tank_chassis > 400 }
+        }
         target_template = {
             regiments = {
                 magic_assault = 8
@@ -253,10 +256,10 @@ AI_special_armor = {
                 date < 1938.1.1
             }
             modifier = {
-				factor = 0
-				tag = PAW
+                factor = 0
+                tag = PAW
                 is_in_faction_with = FRA
-			}
+            }
         }
         enable = {
             num_of_military_factories > 49
