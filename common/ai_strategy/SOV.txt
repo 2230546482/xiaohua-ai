@@ -61,7 +61,173 @@ SOV_rush_to_Ukraine = { #1h22min速通乌克兰
 		}
 	}
 
+	SOV_ai_research_43at = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_tech = antitank4
+			date > 1937.6.1
+		}
+		abort = {
+			always = no
+		}
+		ai_strategy = { #at
+			type = research_tech	
+			id = antitank5
+			value = 1000
+		}
+	}
 
+	SOV_send_volunteers = { # Reverse strategy
+
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
+
+
+        if = {
+            limit = { NOT = { has_completed_focus = SOV_Support_Viet_Minh } }
+            # NOT = {
+            # 	tag = CAM
+            # 	tag = VIN
+            # }
+        }
+        OR = {
+            has_country_flag = SWE_Communist_Party_Cabinet
+            has_government = communism
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        NOT = {
+            has_country_leader_ideology = anarchist_communism
+        }
+        NOT = {
+            capital_scope = {
+                is_on_continent = africa
+            }
+        }
+        if = {
+            limit = { tag = VHS }
+            always = yes
+        }
+        if = {
+            limit = { tag = TAM }
+            always = yes
+        }
+        else_if = {
+            limit = {
+                UKR = {
+                    exists = yes
+                    NOT = { has_government =  communism }
+                }
+            }
+            always = no
+        }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "SOV"
+        value = 100
+    }
+}
+
+SOV_send_lease_desire = { # Reverse strategy
+
+    reversed = yes
+
+    allowed = {
+        original_tag = SOV
+    }
+
+    enable = {
+        OR = {
+            any_enemy_country = {
+                tag = DVL
+            }
+            AND = {
+                any_enemy_country = {
+                    has_government = fascism
+                }
+                NOT = { tag = DVL }
+            }
+            AND = {
+                NOT = { country_exists = DVL }
+                any_enemy_country = {
+                    tag = ENG
+                }
+            }
+        }
+        NOT = {
+            any_enemy_country = {
+                has_government = communism
+                is_subject = no
+                OR = {
+                    is_faction_leader = yes
+                    is_in_faction = no
+                }
+            }
+        }
+        if = {
+            limit = {
+                tag = GER
+            }
+            has_idea = SOV_aid_to_GER
+        }
+        else = {
+            has_government = communism
+        }
+        NOT = { has_war_with = SOV }
+    }
+
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_lend_lease_desire
+        id = "SOV"
+        value = 100
+    }
+}
+ENG_support_ROC = {
+    reversed = yes
+    allowed = {
+        original_tag = ENG
+    }
+    enable = {
+        tag = ROC
+        or = {
+            has_government = democratic
+            has_government = neutrality
+        }
+        ENG = {
+            or = {
+                has_government = democratic
+                has_government = neutrality
+            }
+        }
+    }
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "ENG"
+        value = 1000
+    }
+    abort_when_not_enabled = yes
+}
 	SOV_prepare_for_war_with_DVL = { #警惕魔导
 		allowed = {
 			original_tag = SOV

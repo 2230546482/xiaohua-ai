@@ -638,8 +638,9 @@ GER_war_with_HUN = {
 		ratio = 0.8
 		priority = 1000
 		ordertype = front
-		execution_type = rush
+		execution_type = rush_weak
 		execute_order = yes
+		manual_attack = yes
 	}
 }
 
