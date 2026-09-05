@@ -68,7 +68,6 @@ ideas = {
             cancel = {
                 or = {
                     is_ai = no
-                    is_subject = yes
                 }
             }
             picture = flower_ai_emeng
@@ -126,7 +125,6 @@ ideas = {
             cancel = {
                 or = {
                     is_ai = yes
-                    is_subject = yes
                 }
             }
             picture = flower_ai_emeng
@@ -155,7 +153,6 @@ ideas = {
             cancel = {
                 or = {
                     is_ai = no
-                    is_subject = yes
                 }
             }
             picture = flower_ai_kunnan
@@ -217,7 +214,6 @@ ideas = {
             cancel = {
                 or = {
                     is_ai = no
-                    is_subject = yes
                 }
             }
             picture = flower_ai_putong
