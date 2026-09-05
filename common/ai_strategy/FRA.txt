@@ -69,12 +69,12 @@
 		ai_strategy = {
 			type = role_ratio
 			id = FRA_tank_destroyer
-			value = 800
+			value = 500
 		}
 		ai_strategy = {
 			type = role_ratio
 			id = FRA_magic_assault
-			value = 500
+			value = 200
 		}
 		ai_strategy = {
 			type = role_ratio
@@ -84,15 +84,30 @@
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
 			id = FRA_magic_assault
-			value = 500
+			value = 200
 		}
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
 			id = FRA_tank_destroyer
-			value = 850
+			value = 500
 		}
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
+			id = FRA_infantry
+			value = 50
+		}
+		ai_strategy = {
+			type = build_army	#训练模板倾向
+			id = FRA_magic_assault
+			value = 200
+		}
+		ai_strategy = {
+			type = build_army	#训练模板倾向
+			id = FRA_tank_destroyer
+			value = 500
+		}
+		ai_strategy = {
+			type = build_army	#训练模板倾向
 			id = FRA_infantry
 			value = 50
 		}
@@ -113,10 +128,40 @@
 		ai_strategy = {
 			type = equipment_variant_production_factor
 			id = medium_tank_destroyer_chassis
-			value = 500
+			value = 90
 		}
+		ai_strategy = {
+            type = equipment_production_min_factories
+            id = armor
+            value = 20
+        }
 
 	}
+	FRA_td_production = { #缺td
+			allowed = {
+				original_tag = FRA
+
+			}
+			enable = {
+				has_equipment = {
+					medium_tank_destroyer_chassis < 1000
+				}
+				num_of_military_factories > 50
+			}
+
+			abort_when_not_enabled = yes
+
+			ai_strategy = {
+				type = equipment_production_min_factories
+				id = armor
+				value = 5
+			}
+			ai_strategy = { 
+				type = equipment_variant_production_factor
+				id = medium_tank_destroyer_chassis
+				value = 50
+			}
+		}
 
 FRA_stop_disbanding_your_army = {#ai部署陆军倾向
     allowed = {
@@ -144,11 +189,6 @@ FRA_stop_disbanding_your_army = {#ai部署陆军倾向
 		}
 		abort = { always = no }
 
-		ai_strategy = { #空军工厂数量修正
-			type = air_factory_balance
-			value = 30
-		}
-
 		ai_strategy = {
 			type = unit_ratio
 			id = fighter
@@ -158,7 +198,7 @@ FRA_stop_disbanding_your_army = {#ai部署陆军倾向
 		ai_strategy = {
 			type = unit_ratio
 			id = cas
-			value = 25
+			value = 20
 		}
 
 		ai_strategy = {
@@ -196,13 +236,13 @@ FRA_stop_disbanding_your_army = {#ai部署陆军倾向
 		ai_strategy = {
 			type = equipment_production_factor
 			id = fighter
-			value = 30
+			value = 20
 		}
 
 		ai_strategy = {
 			type = equipment_production_factor
 			id = cas
-			value = 20
+			value = 15
 		}
 
 		ai_strategy = {
@@ -529,75 +569,6 @@ FRA_spare_no_pains_to_unify_country = {
 		value = 10000
 	}
 }
-	FRA_war_with_DVL_1 = { #41年前对魔导防御
-		allowed = {
-			original_tag = FRA
-		}
-		enable = {
-			has_war_with = DVL
-			date < 1941.1.1
-		}
-		abort_when_not_enabled = yes
-		ai_strategy = {
-			type = conquer		#征服
-			id = "DVL"
-			value = -200
-		}
-		ai_strategy = {
-			type = front_unit_request		#前线部队
-			tag = DVL
-			value = 500		# lets put more units, should be safe
-		}
-		ai_strategy = { #坦克比例
-			type = front_armor_score
-			id = "DVL"
-			value = 9999
-		}
-		 ai_strategy = { #防守前线
-		 	type = front_control
-		 	priority = 500
-		 	tag = DVL
-		 	#ratio > 0.1
-		 	execution_type = careful
-		 	execute_order = yes
-		 }
-	}
-
-	FRA_war_with_DVL_2 = { #41年后对魔导反击
-		allowed = {
-			original_tag = FRA
-		}
-		enable = {
-			has_war_with = DVL
-			date > 1941.1.1
-		}
-		abort_when_not_enabled = yes
-		ai_strategy = {
-			type = conquer		#征服
-			id = "DVL"
-			value = 200
-		}
-		ai_strategy = {
-			type = front_unit_request		#前线部队
-			tag = DVL
-			value = 500		# lets put more units, should be safe
-		}
-		ai_strategy = { #坦克比例
-			type = front_armor_score
-			id = "DVL"
-			value = 9999
-		}
-		ai_strategy = { #进攻前线
-			type = front_control
-			priority = 200
-			tag = DVL
-			ratio > 0.4
-			execution_type = rush
-			execute_order = yes
-		}
-	}
-
-
 
 #情报机构
 
@@ -837,97 +808,6 @@ FRA_spare_no_pains_to_unify_country = {
 			value = -5000
 		}
 	}
-#警惕骨头
-	FRA_DVL_is_SB = {
-		enable = {
-			tag = FRA
-			date > 1939.8.1
-			DVL = {
-				NOT = {
-					is_in_faction_with = FRA
-				}
-			}
-		}
-		abort_when_not_enabled = yes
-		ai_strategy = {
-			type = prepare_for_war
-			id = "DVL"
-			value = 1000
-		}
-		ai_strategy = {
-			type = befriend
-			id = "DVL"
-			value = -1000
-		}
-		ai_strategy = {
-			type = alliance
-			id = "DVL"
-			value = -1000
-		}
-		ai_strategy = {
-			type = antagonize
-			id = "DVL"
-			value = 500
-		}
-	}
-#全力干掉圣杯
-FRA_attack_ENG = {
-	allowed = {
-		original_tag = FRA
-	}
-	enable = {
-		has_war_with = ENG
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = front_control
-		tag = ENG
-		ratio = 0.8
-		priority = 10000
-		ordertype = front
-		execution_type = rush_weak
-		execute_order = yes
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = ENG
-		value = 10000
-	}
-	ai_strategy = {
-		type = front_armor_score
-		id = ENG
-		value = 10000
-	}
-}
-#全力干掉苏联
-FRA_attack_SOV = {
-	allowed = {
-		original_tag = FRA
-	}
-	enable = {
-		has_war_with = SOV
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = front_control
-		tag = SOV
-		ratio = 0.8
-		priority = 10000
-		ordertype = front
-		execution_type = rush_weak
-		execute_order = yes
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = SOV
-		value = 10000
-	}
-	ai_strategy = {
-		type = front_armor_score
-		id = SOV
-		value = 10000
-	}
-}
 #科研
 	FRA_ai_research = { #研究方向
 		allowed = {
@@ -1217,164 +1097,3 @@ FRA_attack_SOV = {
 			value = 1000
 		}
 	}
-	
-FRA_build_an_air_facility_faster = {#建造空军研究设施
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-
-        is_major = yes # Minors don't bother until strong enough to be considered major
-        num_of_military_factories > 10 # We should first build up our military industry
-
-        OR = { # Don't start until we can build decent aircraft
-            has_tech = basic_small_airframe
-            has_tech = basic_medium_airframe
-            has_tech = basic_large_airframe
-        }
-        air_facility < 2 # one is enough
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = build_building
-        id = air_facility
-        value = 1000
-    }
-}
-
-FRA_build_an_air_facility_faster = {#建造陆军研究设施
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-
-        is_major = yes # Minors don't bother until strong enough to be considered major
-        num_of_military_factories > 10 # We should first build up our military industry
-        land_facility < 3 # one is enough
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = build_building
-        id = land_facility
-        value = 1000
-    }
-}
-
-FRA_build_a_nav_facility_faster = {#建造海军研究设施
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-        num_of_naval_factories > 5 # Only Naval Powers should bother with these unless specifically told to do otherwise
-        naval_facility < 1 # one is enough
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = build_building
-        id = naval_facility
-        value = 1000
-    }
-}
-
-FRA_build_a_nl_facility_faster = {#建造核研究设施
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-        has_tech = atomic_research
-        num_of_civilian_factories > 25
-        num_of_military_factories > 25 # Even if we have the base tech, let's wait until we have some kind of capacity
-        nuclear_facility < 2  # one is enough
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-        type = build_building
-        id = nuclear_facility
-        value = 1000
-    }
-}
-
-FRA_build_a_nl_facility_faster = {#建造雷达站
-    allowed = {
-        original_tag = FRA
-    }
-    enable = {
-        date > 1939.1.1
-		DVL = {
-			country_exists = yes
-		}
-    }
-    abort_when_not_enabled = yes
-    ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 16
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 925
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 28
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 7
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 20
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 32
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 21
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 19
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 31
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 785
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 18
-		value = 100
-	}
-	ai_strategy = {
-		type = build_building
-		id = radar_station
-		target = 980
-		value = 100
-	}
-}

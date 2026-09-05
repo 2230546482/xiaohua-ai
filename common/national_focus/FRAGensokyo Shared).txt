@@ -2640,6 +2640,10 @@
 		cost = 5
 		ai_will_do = {
 			base = 10
+			modifier = {
+				factor = 5
+				country_exists = DVL
+			}
 		}
 		available = {
 		}

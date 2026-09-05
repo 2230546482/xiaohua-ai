@@ -9749,6 +9749,12 @@ focus_tree = {
                 }
                 factor = 0
             }
+            modifier = {
+				factor = 5
+				NOT = {
+                    has_dynamic_modifier = FRA_Financial_crisis
+                }
+			}
         }
         available = {
             ENG = {
