@@ -1,0 +1,76 @@
+FRA_naval_invasion_support = {
+    objective_type = naval_invasion_support
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 5
+    max_priority = 15
+}
+
+FRA_invasion_defense = {
+    objective_type = naval_invasion_defense
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 15
+    max_priority = 20
+}
+
+FRA_coast_defense = {
+    objective_type = coast_defense
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 1
+    max_priority = 7
+}
+
+FRA_convoy_protection = {
+    objective_type = convoy_protection
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 5
+    max_priority = 15
+}
+
+FRA_convoy_raiding = {
+    objective_type = convoy_raiding
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 3
+    max_priority = 7
+}
+
+FRA_naval_dominance = {
+    objective_type = naval_dominance
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 5
+    max_priority = 15
+}
+
+FRA_training = {
+    objective_type = training
+
+    available_for = {
+        FRA
+    }
+
+    min_priority = 15
+    max_priority = 30
+}

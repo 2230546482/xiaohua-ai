@@ -34,24 +34,24 @@ FRA_destroyers = {
 			
 			type = ship_hull_light_2
 			modules = {
-				fixed_ship_battery_slot = dp_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = ship_radar_1
-				fixed_ship_engine_slot = light_ship_engine_3
-				fixed_ship_torpedo_slot = ship_torpedo_2
-				mid_1_custom_slot = ship_torpedo_2
-				rear_1_custom_slot = ship_depth_charge_2
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
 			}
 		}
 		allowed_modules = {
-			dp_light_battery_2
-			ship_anti_air_2
-			ship_fire_control_system_1
-			ship_radar_1
-			light_ship_engine_3
-			ship_torpedo_2
-			ship_depth_charge_2
+			dp_light_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			light_ship_engine
+			ship_torpedo
+			ship_depth_charge
 		}
 	}
 	improved_destroyer = {
@@ -70,25 +70,25 @@ FRA_destroyers = {
 			match_value = 3500.0
 			type = ship_hull_light_3
 			modules = {
-				fixed_ship_battery_slot = dp_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = ship_radar_1
-				fixed_ship_engine_slot = light_ship_engine_3
-				fixed_ship_torpedo_slot = ship_torpedo_2
-				front_1_custom_slot = ship_depth_charge_2
-				mid_1_custom_slot = ship_torpedo_2
-				rear_1_custom_slot = ship_depth_charge_2
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
 			}
 		}
 		allowed_modules = {
-			dp_light_battery_2
-			ship_anti_air_2
-			ship_fire_control_system_1
-			ship_radar_1
-			light_ship_engine_3
-			ship_torpedo_2
-			ship_depth_charge_2
+			dp_light_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			light_ship_engine
+			ship_torpedo
+			ship_depth_charge
 		}
 	}
 	improved_destroyer_upgrade = {
@@ -107,45 +107,25 @@ FRA_destroyers = {
 			match_value = 3500.0
 			type = ship_hull_light_3
 			modules = {
-				fixed_ship_battery_slot = dp_light_battery_3
-				fixed_ship_anti_air_slot = { 
-					any_of = { 
-						ship_anti_air_3
-						ship_anti_air_2
-					} 
-				}
-				fixed_ship_fire_control_system_slot = { 
-					any_of = { 
-						ship_fire_control_system_3
-						ship_fire_control_system_2
-					} 
-				}
-				fixed_ship_radar_slot = { 
-					any_of = {
-						ship_radar_3
-						ship_radar_2
-						ship_radar_1
-					} 
-				}
-				fixed_ship_engine_slot = light_ship_engine_3
-				fixed_ship_torpedo_slot = ship_torpedo_3
-				front_1_custom_slot = ship_depth_charge_3
-				mid_1_custom_slot = ship_torpedo_3
-				rear_1_custom_slot = ship_depth_charge_3
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
 			}
 		}
 		allowed_modules = {
-			dp_light_battery_3
-			ship_anti_air_3
-			ship_anti_air_2
-			ship_fire_control_system_3
-			ship_fire_control_system_2
-			ship_radar_3
-			ship_radar_2
-			ship_radar_1
-			light_ship_engine_3
-			ship_torpedo_3
-			ship_depth_charge_3
+			dp_light_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			light_ship_engine
+			ship_torpedo
+			ship_depth_charge
 		}
 	}
 	destroyer_4 = { #
@@ -165,35 +145,27 @@ FRA_destroyers = {
 			
 			type = ship_hull_light_4
 			modules = {
-				fixed_ship_battery_slot = dp_light_battery_4
-				fixed_ship_anti_air_slot = ship_anti_air_4
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
-				fixed_ship_radar_slot = { 
-					any_of = {
-						ship_radar_4
-						ship_radar_3
-						ship_radar_2
-					} 
-				}
-				fixed_ship_engine_slot = light_ship_engine_4
-				fixed_ship_torpedo_slot = ship_torpedo_4
-				front_1_custom_slot = ship_depth_charge_4
-				mid_1_custom_slot = ship_torpedo_4
-				mid_2_custom_slot = ship_torpedo_4
-				rear_1_custom_slot = ship_depth_charge_4
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
 			}
 		}
 		
 		allowed_modules = {
-			dp_light_battery_4
-			ship_anti_air_4
-			ship_fire_control_system_3
-			ship_radar_4
-			ship_radar_3
-			ship_radar_2
-			light_ship_engine_4
-			ship_torpedo_4
-			ship_depth_charge_4
+			dp_light_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			light_ship_engine
+			ship_torpedo
+			ship_depth_charge
 		}
 	}
 	destroyer_5 = {
@@ -270,28 +242,28 @@ FRA_naval_light_cruiser = {
 			
 			type = ship_hull_cruiser_2 #De grasse as planned
 			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = ship_radar_1
-				fixed_ship_engine_slot = cruiser_ship_engine_3
-				fixed_ship_armor_slot = ship_armor_cruiser_4
-				fixed_ship_secondaries_slot = dp_ship_secondaries_2
-				front_1_custom_slot = ship_light_medium_battery_3
-				mid_1_custom_slot = ship_light_medium_battery_3
-				mid_2_custom_slot = ship_light_medium_battery_3
-				rear_1_custom_slot = ship_light_medium_battery_3
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+				rear_1_custom_slot = ship_light_medium_battery
 			}
 		}
 		
 		allowed_modules = {
-			ship_light_medium_battery_3
-			ship_anti_air_2
-			ship_fire_control_system_1
-			ship_radar_1
-			cruiser_ship_engine_3
-			ship_armor_cruiser_4
-			dp_ship_secondaries_2
+			ship_light_medium_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			cruiser_ship_engine
+			ship_cruiser_armor
+			ship_dp_secondaries
 		}
 	}
 	
@@ -312,51 +284,29 @@ FRA_naval_light_cruiser = {
 			
 			type = ship_hull_cruiser_3
 			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_3
-				fixed_ship_anti_air_slot = {
-					any_of = { 
-						ship_anti_air_4
-						ship_anti_air_3
-					}
-				}
-				fixed_ship_fire_control_system_slot = {
-					any_of = { 
-						ship_fire_control_system_3
-						ship_fire_control_system_2
-						ship_fire_control_system_1
-					}
-				}
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_3
-						ship_radar_2
-						ship_radar_1
-					}
-				}
-				fixed_ship_engine_slot = cruiser_ship_engine_3
-				fixed_ship_armor_slot = ship_armor_cruiser_4
-				fixed_ship_secondaries_slot = dp_ship_secondaries_3
-				front_1_custom_slot = ship_light_medium_battery_3
-				mid_1_custom_slot = ship_light_medium_battery_3
-				mid_2_custom_slot = ship_light_medium_battery_3
-				rear_1_custom_slot = ship_light_medium_battery_3
-				rear_2_custom_slot = ship_light_medium_battery_3
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+				rear_1_custom_slot = ship_light_medium_battery
+				rear_2_custom_slot = ship_light_medium_battery
 			}
 		}
 		
 		allowed_modules = {
-			ship_light_medium_battery_3
-			ship_anti_air_4
-			ship_anti_air_3
-			ship_fire_control_system_3
-			ship_fire_control_system_2
-			ship_fire_control_system_1
-			ship_radar_3
-			ship_radar_2
-			ship_radar_1
-			cruiser_ship_engine_3
-			ship_armor_cruiser_4
-			dp_ship_secondaries_3
+			ship_light_medium_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			cruiser_ship_engine
+			ship_cruiser_armor
+			ship_dp_secondaries
 		}
 	}
 
@@ -378,18 +328,12 @@ FRA_naval_light_cruiser = {
 			type = ship_hull_cruiser_4
 			modules = {
 				fixed_ship_battery_slot = dp_ship_medium_1
-				fixed_ship_anti_air_slot = ship_anti_air_4
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_4
-						ship_radar_3
-						ship_radar_2
-					}
-				}
-				fixed_ship_engine_slot = cruiser_ship_engine_4
-				fixed_ship_armor_slot = ship_armor_cruiser_4
-				fixed_ship_secondaries_slot = dp_ship_secondaries_4
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				front_1_custom_slot = dp_ship_medium_1
 				mid_1_custom_slot = dp_ship_medium_1
 				mid_2_custom_slot = dp_ship_medium_1
@@ -400,14 +344,12 @@ FRA_naval_light_cruiser = {
 		
 		allowed_modules = {
 			dp_ship_medium_1
-			ship_anti_air_4
-			ship_fire_control_system_3
-			ship_radar_4
-			ship_radar_3
-			ship_radar_2
-			cruiser_ship_engine_4
-			ship_armor_cruiser_4
-			dp_ship_secondaries_4
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			cruiser_ship_engine
+			ship_cruiser_armor
+			ship_dp_secondaries
 		}
 	}
 	modern_light_cruiser = { 
@@ -428,7 +370,7 @@ FRA_naval_light_cruiser = {
 				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
 				fixed_ship_radar_slot = ship_radar_4
 				fixed_ship_engine_slot = cruiser_ship_engine_4
-				fixed_ship_armor_slot = ship_armor_cruiser_4
+				fixed_ship_armor_slot = ship_cruiser_armor
 				fixed_ship_secondaries_slot = dp_ship_secondaries_4
 				front_1_custom_slot = dp_ship_medium_1
 				mid_1_custom_slot = dp_ship_medium_1
@@ -444,7 +386,7 @@ FRA_naval_light_cruiser = {
 			ship_fire_control_system_3
 			ship_radar_4
 			cruiser_ship_engine_4
-			ship_armor_cruiser_4
+			ship_cruiser_armor
 			dp_ship_secondaries_4
 		}
 	}
@@ -486,27 +428,27 @@ FRA_naval_capital_battleship = {
 			
 			type = ship_hull_heavy_2
 			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = ship_radar_1
-				fixed_ship_engine_slot = heavy_ship_engine_3
-				fixed_ship_secondaries_slot = dp_ship_secondaries_2
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_armor_bb_3
-				front_1_custom_slot = ship_heavy_battery_3
-				mid_1_custom_slot = ship_heavy_battery_3
-				mid_2_custom_slot = ship_heavy_battery_3
-				rear_1_custom_slot = ship_heavy_battery_3
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_heavy_battery
+				mid_2_custom_slot = ship_heavy_battery
+				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
 		
 		allowed_modules = {
-			ship_heavy_battery_3
-			ship_anti_air_2
-			ship_fire_control_system_1
-			ship_radar_1
-			heavy_ship_engine_3
-			dp_ship_secondaries_2
+			ship_heavy_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			heavy_ship_engine
+			ship_dp_secondaries
 			ship_armor_bb_3
 		}
 	}
@@ -528,50 +470,30 @@ FRA_naval_capital_battleship = {
 			
 			type = ship_hull_heavy_3
 			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_3
-				fixed_ship_anti_air_slot = {
-					any_of = { 
-						ship_anti_air_4
-						ship_anti_air_3
-					}
-				}
-				fixed_ship_fire_control_system_slot = {
-					any_of = { 
-						ship_fire_control_system_3
-						ship_fire_control_system_2
-						ship_fire_control_system_1
-					}
-				}
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_3
-						ship_radar_2
-						ship_radar_1
-					}
-				}
-				fixed_ship_engine_slot = heavy_ship_engine_3
-				fixed_ship_secondaries_slot = dp_ship_secondaries_3
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_armor_bb_3
-				front_1_custom_slot = ship_heavy_battery_3
-				mid_1_custom_slot = ship_heavy_battery_3
-				mid_2_custom_slot = ship_heavy_battery_3
-				mid_3_custom_slot = ship_heavy_battery_3
-				rear_1_custom_slot = ship_heavy_battery_3
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_heavy_battery
+				mid_2_custom_slot = ship_heavy_battery
+				mid_3_custom_slot = ship_heavy_battery
+				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
 		
 		allowed_modules = {
-			ship_heavy_battery_3
-			ship_anti_air_4
-			ship_anti_air_3
-			ship_fire_control_system_3
-			ship_fire_control_system_2
-			ship_fire_control_system_1
+			ship_heavy_battery
+			ship_anti_air
+			ship_fire_control_system
 			ship_radar_3
 			ship_radar_2
-			ship_radar_1
-			heavy_ship_engine_3
-			dp_ship_secondaries_3
+			ship_radar
+			heavy_ship_engine
+			ship_dp_secondaries
 			ship_armor_bb_3
 		}
 	}
@@ -588,42 +510,28 @@ FRA_naval_capital_battleship = {
 			
 			type = ship_hull_heavy_4
 			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_4
-				fixed_ship_anti_air_slot = ship_anti_air_4
-				fixed_ship_fire_control_system_slot = {
-					any_of = { 
-						ship_fire_control_system_3
-						ship_fire_control_system_2
-					}
-				}
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_4
-						ship_radar_3
-						ship_radar_2
-					}
-				}
-				fixed_ship_engine_slot = heavy_ship_engine_4
-				fixed_ship_secondaries_slot = dp_ship_secondaries_4
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_armor_bb_3
-				front_1_custom_slot = ship_heavy_battery_4
-				mid_1_custom_slot = ship_heavy_battery_4
-				mid_2_custom_slot = ship_heavy_battery_4
-				mid_3_custom_slot = ship_heavy_battery_4
-				rear_1_custom_slot = ship_heavy_battery_4
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_heavy_battery
+				mid_2_custom_slot = ship_heavy_battery
+				mid_3_custom_slot = ship_heavy_battery
+				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
 		
 		allowed_modules = {
-			ship_heavy_battery_4
-			ship_anti_air_4
-			ship_fire_control_system_3
-			ship_fire_control_system_2
-			ship_radar_4
-			ship_radar_3
-			ship_radar_2
-			heavy_ship_engine_4
-			dp_ship_secondaries_4
+			ship_heavy_battery
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			heavy_ship_engine
+			ship_dp_secondaries
 			ship_armor_bb_3
 		}
 	}
@@ -646,57 +554,28 @@ FRA_naval_capital_battleship = {
 			type = ship_hull_super_heavy_1
 			modules = {
 				fixed_ship_battery_slot = ship_super_heavy_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_4
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_4
-						ship_radar_3
-						ship_radar_2
-					}
-				}
-				fixed_ship_engine_slot = heavy_ship_engine_4
-				fixed_ship_secondaries_slot = {
-					any_of = { 
-						dp_ship_secondaries_4
-						dp_ship_secondaries_3
-					}
-				}
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_armor_shbb
 				front_1_custom_slot = ship_super_heavy_battery_1
 				front_2_custom_slot = ship_super_heavy_battery_1
-				mid_1_custom_slot = {
-					any_of = { 
-						dp_ship_secondaries_4
-						dp_ship_secondaries_3
-					}
-				}
-				mid_2_custom_slot = {
-					any_of = { 
-						dp_ship_secondaries_4
-						dp_ship_secondaries_3
-					}
-				}
-				mid_3_custom_slot = {
-					any_of = { 
-						dp_ship_secondaries_4
-						dp_ship_secondaries_3
-					}
-				}
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
 				rear_1_custom_slot = ship_super_heavy_battery_1
 				rear_2_custom_slot = ship_super_heavy_battery_1
 			}
 		}
 		allowed_modules = {
 			ship_super_heavy_battery_1
-			ship_anti_air_4
-			ship_fire_control_system_3
-			ship_radar_4
-			ship_radar_3
-			ship_radar_2
-			heavy_ship_engine_4
-			dp_ship_secondaries_4
-			dp_ship_secondaries_3
+			ship_anti_air
+			ship_fire_control_system
+			ship_radar
+			heavy_ship_engine
+			ship_dp_secondaries
 			ship_armor_shbb
 		}
 	}
@@ -779,23 +658,23 @@ FRA_naval_carrier = {
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
 				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_radar_slot = ship_radar_1
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries_2
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_deck_space
-				fixed_ship_armor_slot = ship_armor_cruiser_4
+				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
 		
 		allowed_modules = {
 			ship_deck_space
-			ship_anti_air_2
-			ship_radar_1
-			carrier_ship_engine_2
-			dp_ship_secondaries_2
-			ship_armor_cruiser_4
+			ship_anti_air
+			ship_radar
+			carrier_ship_engine
+			ship_dp_secondaries
+			ship_cruiser_armor
 		}
 	}
 
@@ -818,32 +697,24 @@ FRA_naval_carrier = {
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
 				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_3
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_3
-						ship_radar_2
-						ship_radar_1
-					}
-				}
-				fixed_ship_engine_slot = carrier_ship_engine_3
-				fixed_ship_secondaries_slot = dp_ship_secondaries_3
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_deck_space
 				mid_2_custom_slot = ship_deck_space
-				fixed_ship_armor_slot = ship_armor_cruiser_4
+				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
 		
 		allowed_modules = {
 			ship_deck_space
-			ship_anti_air_3
-			ship_radar_3
-			ship_radar_2
-			ship_radar_1
-			carrier_ship_engine_3
-			dp_ship_secondaries_3
-			ship_armor_cruiser_4
+			ship_anti_air
+			ship_radar
+			carrier_ship_engine
+			ship_dp_secondaries
+			ship_cruiser_armor
 		}
 	}
 	advanced_carrier = {
@@ -865,33 +736,25 @@ FRA_naval_carrier = {
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
 				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_4
-				fixed_ship_radar_slot = {
-					any_of = { 
-						ship_radar_4
-						ship_radar_3
-						ship_radar_2
-					}
-				}
-				fixed_ship_engine_slot = carrier_ship_engine_4
-				fixed_ship_secondaries_slot = dp_ship_secondaries_4
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_deck_space
 				mid_2_custom_slot = ship_deck_space
 				rear_1_custom_slot = ship_deck_space
-				fixed_ship_armor_slot = ship_armor_cruiser_4
+				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
 		
 		allowed_modules = {
 			ship_deck_space
-			ship_anti_air_4
-			ship_radar_4
-			ship_radar_3
-			ship_radar_2
-			carrier_ship_engine_4
-			dp_ship_secondaries_4
-			ship_armor_cruiser_4
+			ship_anti_air
+			ship_radar
+			carrier_ship_engine
+			ship_dp_secondaries
+			ship_cruiser_armor
 		}
 	}
 	modern_carrier = {
@@ -917,7 +780,7 @@ FRA_naval_carrier = {
 				mid_1_custom_slot = ship_deck_space
 				mid_2_custom_slot = ship_deck_space
 				mid_3_custom_slot = ship_deck_space
-				fixed_ship_armor_slot = ship_armor_cruiser_4
+				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
 		
@@ -927,7 +790,7 @@ FRA_naval_carrier = {
 			ship_radar_4
 			carrier_ship_engine_4
 			dp_ship_secondaries_4
-			ship_armor_cruiser_4
+			ship_cruiser_armor
 		}
 	}
 }
@@ -967,15 +830,15 @@ FRA_naval_submarine = {
 			
 			type = ship_hull_submarine_2
 			modules = {
-				fixed_ship_engine_slot = sub_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				rear_1_custom_slot = ship_torpedo_sub_2
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
 		
 		allowed_modules = {
-			sub_ship_engine_2
-			ship_torpedo_sub_2
+			sub_ship_engine
+			ship_torpedo_sub
 		}
 	}
 	improved_submarine = {
@@ -995,24 +858,24 @@ FRA_naval_submarine = {
 			
 			type = ship_hull_submarine_3
 			modules = {
-				fixed_ship_engine_slot = sub_ship_engine_3
-				fixed_ship_torpedo_slot = ship_torpedo_sub_3
-				front_1_custom_slot = ship_torpedo_sub_3
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
 					any_of = { 
 						ship_anechoic_tile
-						ship_sub_snorkel_1
+						ship_sub_snorkel
 					}
 				}
-				rear_1_custom_slot = ship_torpedo_sub_3
+				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
 		
 		allowed_modules = {
-			sub_ship_engine_3
-			ship_torpedo_sub_3
+			sub_ship_engine
+			ship_torpedo_sub
 			ship_anechoic_tile
-			ship_sub_snorkel_1
+			ship_sub_snorkel
 		}
 	}
 	advanced_submarine = {
@@ -1032,24 +895,24 @@ FRA_naval_submarine = {
 			
 			type = ship_hull_submarine_4
 			modules = {
-				fixed_ship_engine_slot = sub_ship_engine_4
-				fixed_ship_torpedo_slot = ship_torpedo_sub_4
-				front_1_custom_slot = ship_torpedo_sub_4
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
 					any_of = { 
 						ship_anechoic_tile
-						ship_sub_snorkel_2
+						ship_sub_snorkel
 					}
 				}
-				rear_1_custom_slot = ship_torpedo_sub_4
+				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
 		
 		allowed_modules = {
-			sub_ship_engine_4
-			ship_torpedo_sub_4
+			sub_ship_engine
+			ship_torpedo_sub
 			ship_anechoic_tile
-			ship_sub_snorkel_2
+			ship_sub_snorkel
 		}
 	}
 	modern_submarine = {
@@ -1065,24 +928,24 @@ FRA_naval_submarine = {
 			
 			type = ship_hull_submarine_5
 			modules = {
-				fixed_ship_engine_slot = sub_ship_engine_4
-				fixed_ship_torpedo_slot = ship_torpedo_sub_4
-				front_1_custom_slot = ship_torpedo_sub_4
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
 					any_of = { 
 						ship_anechoic_tile
-						ship_sub_snorkel_2
+						ship_sub_snorkel
 					}
 				}
-				rear_1_custom_slot = ship_torpedo_sub_4
+				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
 		
 		allowed_modules = {
-			sub_ship_engine_4
-			ship_torpedo_sub_4
+			sub_ship_engine
+			ship_torpedo_sub
 			ship_anechoic_tile
-			ship_sub_snorkel_2
+			ship_sub_snorkel
 		}
 	}
 	cruiser_submarine = {
@@ -1102,19 +965,19 @@ FRA_naval_submarine = {
 			
 			type = ship_hull_cruiser_submarine
 			modules = {
-				fixed_ship_engine_slot = sub_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
 				front_1_custom_slot = ship_light_battery_sub
-				mid_1_custom_slot = ship_radar_1
-				rear_1_custom_slot = ship_torpedo_sub_2
+				mid_1_custom_slot = ship_radar
+				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
 		
 		allowed_modules = {
-			sub_ship_engine_2
-			ship_torpedo_sub_2
+			sub_ship_engine
+			ship_torpedo_sub
 			ship_light_battery_sub
-			ship_radar_1
+			ship_radar
 		}
 	}
 }
