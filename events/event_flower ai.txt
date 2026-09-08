@@ -5,6 +5,52 @@ country_event = {
     desc = FLWAI.1.d
     picture = GFX_event_flower_ai_1
     is_triggered_only = yes
+
+    option = {
+        name = FLWAI.1.f
+        ai_chance = {
+            factor = 0
+        }
+        set_global_flag = red_apocalypse_ai
+        every_country = {
+            limit = {
+                is_ai = no
+                or = {
+                    TAG = PAO
+                    TAG = PAM
+                    TAG = PAU
+                    TAG = LHS
+                    TAG = KMK
+                    TAG = KNM
+                    TAG = FRA
+                    TAG = USA
+                    TAG = FRG
+                    TAG = NFA
+                    TAG = NGD
+                    TAG = SOV
+                    TAG = UKR
+                    TAG = DEN
+                    TAG = SWE
+                    TAG = PA1
+                    TAG = PAQ
+                    is_chinese_country = yes
+                }
+            }
+            add_ideas = red_neizhan_ai
+        }
+        every_country = {
+            limit = {
+                is_ai = yes
+            }
+            add_ideas = red_apocalypse_ai
+        }
+        every_country = {
+            limit = {
+                is_ai = no
+            }
+            add_ideas = red_apocalypse_player
+        }
+    }
     option = {
         name = FLWAI.1.a
         ai_chance = {
@@ -195,12 +241,14 @@ country_event = {
             has_global_flag = red_most_hard
             has_global_flag = red_hard
             has_global_flag = red_normal_hard
+            has_global_flag = red_apocalypse_ai
         }
         OR = {
             NOT = {
                 has_idea = red_most_hard_ai
                 has_idea = red_hard_ai
                 has_idea = red_normal_hard_ai
+                has_global_flag = red_apocalypse_ai
             }
         }
 	}
@@ -209,6 +257,12 @@ country_event = {
 	}
 	option = {
 		name = FLWAI.114.a
+        if = {
+			limit = {
+				has_global_flag = red_apocalypse_ai
+			}
+			add_ideas = red_apocalypse_ai
+		}
 		if = {
 			limit = {
 				has_global_flag = red_most_hard
