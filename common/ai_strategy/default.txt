@@ -196,7 +196,7 @@ moren_stop_disbanding_your_army = {#ai部署陆军倾向（扩军期）
         }
     }
     enable = {
-
+        always = yes
     }
     abort_when_not_enabled = yes
 
@@ -2817,3 +2817,18 @@ division_upgrades_are_very_important = {
     }
 }
 
+more_division = {
+    allowed = {
+		NOT = {
+            original_tag = FRA
+        }
+	}
+	enable = {
+		num_divisions < 114514
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = build_army id = armor				value = 1000 }
+	ai_strategy = { type = build_army id = infantry				value = 1000 }
+}
