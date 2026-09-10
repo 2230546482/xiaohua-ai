@@ -94,7 +94,7 @@ AI_ask_for_access = {
     reversed = yes
 
     allowed = {
-      always = yes
+        always = yes
     }
 
     enable = {
@@ -2819,16 +2819,40 @@ division_upgrades_are_very_important = {
 
 more_division = {
     allowed = {
-		NOT = {
+        NOT = {
             original_tag = FRA
         }
-	}
-	enable = {
-		num_divisions < 114514
-	}
+    }
+    enable = {
+        num_divisions < 114514
+        not = {
+            has_idea = mofa
+        }
+    }
 
-	abort_when_not_enabled = yes
+    abort_when_not_enabled = yes
 
-	ai_strategy = { type = build_army id = armor				value = 1000 }
-	ai_strategy = { type = build_army id = infantry				value = 1000 }
+    ai_strategy = { type = build_army id = armor				value = 1000 }
+    ai_strategy = { type = build_army id = infantry				value = 1000 }
+}
+
+more_special_armor_division = {
+    allowed = {
+        NOT = {
+            original_tag = FRA
+        }
+    }
+    enable = {
+        num_divisions < 114514
+        has_idea = mofa
+    }
+
+    abort_when_not_enabled = yes
+    ai_strategy = { type = build_army id = armor				value = 1000 }
+    ai_strategy = { type = build_army id = infantry				value = 1000 }
+    ai_strategy = {
+        type = build_army
+        id = special_armor
+        value = 1000
+    }
 }
