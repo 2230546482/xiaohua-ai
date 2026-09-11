@@ -370,7 +370,10 @@ ideas = {
                         original_tag = PAO
                     }
                     LHS = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                 }
                 if = {
@@ -404,10 +407,16 @@ ideas = {
                         }
                     }
                     KMK = {
-                        exists = yes
+                       or = {
+                            is_subject_of = FRA
+                            exists = yes
+                        }
                     }
                     FRA = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                 }
                 if = {
@@ -418,10 +427,16 @@ ideas = {
                         }
                     }
                     SOV = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                     UKR = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                 }
                 if = {
@@ -432,10 +447,16 @@ ideas = {
                         }
                     }
                     SWE = {
-                        exists = yes
+                       or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                     DEN = {
-                        exists = yes
+                       or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                 }
                 if = {
@@ -446,10 +467,16 @@ ideas = {
                         }
                     }
                     PA1 = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                     PAQ = {
-                        exists = yes
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
                     }
                 }
 

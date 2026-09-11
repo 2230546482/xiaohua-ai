@@ -252,7 +252,7 @@ country_event = {
                 has_idea = red_most_hard_ai
                 has_idea = red_hard_ai
                 has_idea = red_normal_hard_ai
-                has_global_flag = red_apocalypse_ai
+                has_idea = red_apocalypse_ai
             }
         }
 	}
