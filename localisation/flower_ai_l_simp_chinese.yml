@@ -43,6 +43,8 @@ red_qu_player:0 "§9区……§!"
 hua_lunyi_decisions_categories:0 "我去！呱！"
 lunyi_decisions:0 "房主有神器"
 lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
+hua_teshujiaqiang_decisions:0 "[FROM.GetFlag]§Y[FROM.Getname]§!的特殊加强"
+hua_jiaqiang_decisions:0 "给[FROM.GetFlag]§Y[FROM.Getname]§!上buff"
 
 #军工机构
  jiahao_supreme_industrial_group:0 "嘉豪集团"

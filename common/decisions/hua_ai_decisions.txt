@@ -187,7 +187,7 @@ hua_lunyi_decisions_categories = {
                     is_ai = yes
                     has_global_flag = hua_ai_qu
                 }
-                 has_idea = red_qu_player
+                has_idea = red_qu_player
             }
         }
         days_remove = 200
@@ -236,6 +236,107 @@ hua_lunyi_decisions_categories = {
             add_offsite_building = { type = industrial_complex level = 10 }
             add_offsite_building = { type = arms_factory level = 10 }
             add_offsite_building = { type = dockyard level = 10 }
+        }
+    }
+     hua_teshujiaqiang_decisions = {
+        icon = GFX_die_tec
+        allowed = {  }
+
+        available = {
+            always = yes
+        }
+
+        visible = {
+            has_country_flag = hua_ai_player
+        }
+        target_trigger = {
+            FROM = {
+                is_ai = yes
+                or = {
+                    tag = SOV
+                    tag = FRA
+                }
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = { base = 0 }
+
+        complete_effect = {
+           
+        }
+    }
+    hua_jiaqiang_decisions = {
+        icon = GFX_die_tec
+        allowed = {  }
+
+        available = {
+            always = yes
+        }
+
+        visible = {
+            has_country_flag = hua_ai_player
+        }
+        target_trigger = {
+            FROM = {
+                is_ai = yes
+                exists = yes
+                OR = {
+                    NOT = {
+                        has_idea = red_most_hard_ai
+                        has_idea = red_hard_ai
+                        has_idea = red_normal_hard_ai
+                        has_idea = red_apocalypse_ai
+                    }
+                }
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = { base = 0 }
+
+        complete_effect = {
+            if = {
+                FROM = {
+                    tag = SOV
+                }
+                set_technology = {
+                    sp_tank_dual_mounted_cannon = 1
+                }
+            }
+            if = {
+                limit = {
+                    has_global_flag = red_apocalypse_ai
+                }
+               FROM = {add_ideas = red_apocalypse_ai}
+            }
+            if = {
+                limit = {
+                    has_global_flag = red_most_hard
+                }
+                FROM = {add_ideas = red_most_hard_ai}
+            }
+            if = {
+                limit = {
+                    has_global_flag = red_hard
+                }
+                FROM = {add_ideas = red_hard_ai}
+            }
+            if = {
+                limit = {
+                    has_global_flag = red_normal_hard
+                }
+                FROM = {add_ideas = red_normal_hard_ai}
+            }
+            if = {
+                not = {
+                    OR = {
+                        has_global_flag = red_most_hard
+                        has_global_flag = red_hard
+                        has_global_flag = red_normal_hard
+                        has_global_flag = red_apocalypse_ai
+                    }
+                }
+                FROM = {add_ideas = red_apocalypse_ai}
+            }
         }
     }
 }
