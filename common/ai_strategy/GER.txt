@@ -635,12 +635,15 @@ GER_war_with_HUN = {
     ai_strategy = {
 		type = front_control
 		tag = HUN
-		ratio = 0.8
 		priority = 1000
 		ordertype = front
 		execution_type = rush_weak
 		execute_order = yes
 		manual_attack = yes
+	}
+	ai_strategy = {
+		type = ignore_army_incompetence
+		value = 100
 	}
 }
 

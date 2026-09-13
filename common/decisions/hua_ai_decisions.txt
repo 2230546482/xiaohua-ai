@@ -238,7 +238,7 @@ hua_lunyi_decisions_categories = {
             add_offsite_building = { type = dockyard level = 10 }
         }
     }
-     hua_teshujiaqiang_decisions = {
+    hua_teshujiaqiang_decisions = {
         icon = GFX_die_tec
         allowed = {  }
 
@@ -262,7 +262,44 @@ hua_lunyi_decisions_categories = {
         ai_will_do = { base = 0 }
 
         complete_effect = {
-           
+            if = {
+                limit = {
+                    FROM = {
+                        TAG = SOV
+                    }
+                }
+                SOV = {
+                    set_technology = {
+                        improved_heavy_tank_chassis = 1
+                    }
+                    set_technology = {
+                        antitank1 = 1
+                    }
+                    set_technology = {
+                        antitank2 = 1
+                    }
+                    set_technology = {
+                        antitank3 = 1
+                    }
+                    set_technology = {
+                        antitank4 = 1
+                    }
+                    set_technology = {
+                        antitank5 = 1
+                    }
+                    570 = {
+                        add_building_construction = {
+                            type = land_facility
+                            level = 1
+                            province = 10652
+                        }
+                    }
+                    add_breakthrough_points = {
+                        specialization = specialization_land
+                        value = 5
+                    }
+                }
+            }
         }
     }
     hua_jiaqiang_decisions = {
@@ -280,13 +317,11 @@ hua_lunyi_decisions_categories = {
             FROM = {
                 is_ai = yes
                 exists = yes
-                OR = {
-                    NOT = {
-                        has_idea = red_most_hard_ai
-                        has_idea = red_hard_ai
-                        has_idea = red_normal_hard_ai
-                        has_idea = red_apocalypse_ai
-                    }
+                NOT = {
+                    has_idea = red_most_hard_ai
+                    has_idea = red_hard_ai
+                    has_idea = red_normal_hard_ai
+                    has_idea = red_apocalypse_ai
                 }
             }
         }
@@ -295,18 +330,10 @@ hua_lunyi_decisions_categories = {
 
         complete_effect = {
             if = {
-                FROM = {
-                    tag = SOV
-                }
-                set_technology = {
-                    sp_tank_dual_mounted_cannon = 1
-                }
-            }
-            if = {
                 limit = {
                     has_global_flag = red_apocalypse_ai
                 }
-               FROM = {add_ideas = red_apocalypse_ai}
+                FROM = {add_ideas = red_apocalypse_ai}
             }
             if = {
                 limit = {
