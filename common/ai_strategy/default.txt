@@ -214,7 +214,6 @@ moren_More_Infantry_focus_2 = {
         id = infantry
         value = 75
     }
-    abort_when_not_enabled = yes
 }
 
 
@@ -882,39 +881,6 @@ moren_land_xp_spend = { #经验先改编制
         value = 30
     }
 }
-#支援装备、火炮
-moren_production_tier2_support = {
-    allowed = { NOT = {
-        OR = {
-            original_tag = PAO
-            original_tag = PAM
-            original_tag = ELF
-            original_tag = KNM
-            original_tag = KFL
-            original_tag = FRA
-            original_tag = LHS
-        }
-    } }
-    enable = {
-        has_equipment = { infantry_equipment > 5000 }#枪够了
-        has_equipment = { support_equipment < 500 }
-        num_of_military_factories > 30
-    }
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = equipment_production_factor
-        id = support
-        value = 150
-    }
-
-    ai_strategy = {
-        type = equipment_production_min_factories
-        id = support
-        value = 5
-    }
-}
-
 
 moren_construct_armored_car_equipment_production = { #别造垃圾
     allowed = {
@@ -951,7 +917,7 @@ moren_construct_magic_equipment_production = { #别造灵装
             has_idea = mofa
         }
     }
-
+    abort_when_not_enabled = yes
 
     ai_strategy = {
         type = equipment_production_min_factories_archetype
@@ -1467,7 +1433,7 @@ moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
         state_trigger = {
             FROM = { has_war_with = FROM.FROM }
             FROM = {
-                divisions_in_state = { state = ROOT size = 0 }
+                divisions_in_state = { state = FROM size = 0 }
             }
         }
         priority = 90000
@@ -1482,7 +1448,7 @@ moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
         state_trigger = {
             FROM = { has_war_with = FROM.FROM }
             FROM = {
-                divisions_in_state = { state = ROOT size < 3 }
+                divisions_in_state = { state = FROM size < 3 }
             }
         }
 
@@ -1799,7 +1765,6 @@ moren_end_pocket = {#包围快速歼灭
                 }
             }
         }
-        ratio = 0.0
         priority = 9999999
         ordertype = front
         execution_type = rush_weak
@@ -2390,10 +2355,19 @@ moren_build_a_nl_facility_faster = {#建造核研究设施
     }
 }
 
-LHS_recruit_land_scientist_faster = { #招募陆战科学家
+AI_recruit_land_scientist_faster = { #招募陆战科学家
     allowed = {
-        original_tag = FRA
-        original_tag = LHS
+       NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = FRA
+                original_tag = LHS
+            }
+        }
     }
     enable = {
         land_facility > 0
