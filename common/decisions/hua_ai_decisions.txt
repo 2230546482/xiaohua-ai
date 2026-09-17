@@ -254,7 +254,6 @@ hua_lunyi_decisions_categories = {
                 is_ai = yes
                 or = {
                     tag = SOV
-                    tag = FRA
                 }
             }
         }
