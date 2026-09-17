@@ -170,7 +170,7 @@ armored_infantry_support = {
     rewards = {
         mobile_reserves = {
             #1
-            medium_armor = {
+            medium_tank_destroyer_brigade =  {
                 breakthrough = 0.05
                 soft_attack = 0.1
             }
@@ -182,7 +182,7 @@ armored_infantry_support = {
 
         armored_cohorts = {
             #2
-            medium_armor = {
+            medium_tank_destroyer_brigade =  {
                 max_organisation = 5
             }
             heavy_armor = {
@@ -321,7 +321,7 @@ mobile_defense = {
     }
 
     ai_will_do = {
-        base = 100
+        base = 0
         modifier = {
             tag = FRA
             add = -1000
@@ -353,7 +353,7 @@ mobile_defense = {
                 breakthrough = 0.1
                 default_morale = 0.2
             }
-            medium_armor = {
+            medium_tank_destroyer_brigade =  {
                 breakthrough = 0.1
                 default_morale = 0.1
             }
@@ -631,7 +631,7 @@ tank_destroyer_force = {
     }
 
     ai_will_do = {
-        base = 0
+        base = 10000
         modifier = {
             tag = FRA
             add = 10000

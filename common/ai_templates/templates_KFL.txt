@@ -59,7 +59,7 @@ KFL_armor = {
         target_template = {
             regiments = {
                 irregular_infantry = 8
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 fire_support = 2
@@ -102,7 +102,7 @@ KFL_armor = {
         target_template = {
             regiments = {
                 irregular_infantry = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 fire_support = 3
@@ -147,7 +147,7 @@ KFL_armor = {
         target_template = {
             regiments = {
                 mechanized = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 mot_fire_support = 3

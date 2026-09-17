@@ -535,7 +535,7 @@ self_propelled_support = {
 
 
     ai_will_do = {
-        base = 0
+        base = 10000
         modifier = {
             tag = FRA
             add = 10000
@@ -784,7 +784,7 @@ field_engineering = {
     xp_type = army
 
     ai_will_do = {
-        base = 100
+        base = 0
         modifier = {
             tag = FRA
             add = -1000

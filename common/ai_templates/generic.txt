@@ -75,7 +75,7 @@ AI_armor = {
         target_template = {
             regiments = {
                 irregular_infantry = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 fire_support = 3
@@ -115,7 +115,7 @@ AI_armor = {
         target_template = {
             regiments = {
                 mechanized = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 mot_fire_support = 3
@@ -168,7 +168,7 @@ AI_special_armor = {
         target_template = {
             regiments = {
                 magic_assault = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             regimental_support = {
                 fire_support = 3

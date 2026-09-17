@@ -117,7 +117,7 @@ LHS_armor = {
             }
             regiments = {
                 youjibudui = 12
-                medium_armor = 8
+                medium_tank_destroyer_brigade =  8
             }
             support = {
                 armored_engineer = 1
