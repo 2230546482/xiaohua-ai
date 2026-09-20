@@ -353,12 +353,14 @@ hua_lunyi_decisions_categories = {
                 FROM = {add_ideas = red_normal_hard_ai}
             }
             if = {
-                not = {
-                    OR = {
-                        has_global_flag = red_most_hard
-                        has_global_flag = red_hard
-                        has_global_flag = red_normal_hard
-                        has_global_flag = red_apocalypse_ai
+                limit = {
+                    not = {
+                        OR = {
+                            has_global_flag = red_most_hard
+                            has_global_flag = red_hard
+                            has_global_flag = red_normal_hard
+                            has_global_flag = red_apocalypse_ai
+                        }
                     }
                 }
                 FROM = {add_ideas = red_apocalypse_ai}
