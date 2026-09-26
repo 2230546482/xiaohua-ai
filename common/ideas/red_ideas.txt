@@ -484,6 +484,34 @@ ideas = {
                     }
                 }
 
+                if = {
+                    limit = {
+                        or = {
+                            original_tag = PER
+                            original_tag = AFG
+                            original_tag = TAM
+                        }
+                    }
+                    PER = {
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
+                    }
+                    AFG = {
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
+                    }
+                    TAM = {
+                        or = {
+                            is_subject = yes
+                            exists = yes
+                        }
+                    }
+                }
+
 
             }
             cancel = {
