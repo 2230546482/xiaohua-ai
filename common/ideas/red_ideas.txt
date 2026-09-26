@@ -411,7 +411,7 @@ ideas = {
                         }
                     }
                     KMK = {
-                       or = {
+                        or = {
                             is_subject_of = FRA
                             exists = yes
                         }
@@ -451,13 +451,13 @@ ideas = {
                         }
                     }
                     SWE = {
-                       or = {
+                        or = {
                             is_subject = yes
                             exists = yes
                         }
                     }
                     DEN = {
-                       or = {
+                        or = {
                             is_subject = yes
                             exists = yes
                         }
@@ -492,16 +492,18 @@ ideas = {
                             original_tag = TAM
                         }
                     }
-                    PER = {
-                        or = {
-                            is_subject = yes
-                            exists = yes
+                    or = {
+                        PER = {
+                            or = {
+                                is_subject = yes
+                                exists = yes
+                            }
                         }
-                    }
-                    AFG = {
-                        or = {
-                            is_subject = yes
-                            exists = yes
+                        AFG = {
+                            or = {
+                                is_subject = yes
+                                exists = yes
+                            }
                         }
                     }
                     TAM = {
