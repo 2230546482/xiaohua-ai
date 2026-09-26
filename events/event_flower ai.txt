@@ -34,6 +34,9 @@ country_event = {
                     TAG = SWE
                     TAG = PA1
                     TAG = PAQ
+                    TAG = AFG
+                    TAG = TAM
+                    TAG = PER
                     is_chinese_country = yes
                 }
             }
@@ -82,6 +85,9 @@ country_event = {
                     TAG = SWE
                     TAG = PA1
                     TAG = PAQ
+                    TAG = AFG
+                    TAG = TAM
+                    TAG = PER
                     is_chinese_country = yes
                 }
             }
