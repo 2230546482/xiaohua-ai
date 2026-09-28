@@ -902,10 +902,6 @@ moren_construct_armored_car_equipment_production = { #别造垃圾
         value = -999
     }
 
-    ai_strategy = {
-        type = gw_armored_car_equipment
-        value = -999
-    }
 }
 
 moren_construct_magic_equipment_production = { #别造灵装
@@ -930,10 +926,6 @@ moren_construct_magic_equipment_production = { #别造灵装
         value = -99
     }
 
-    ai_strategy = {
-        type = magic_assault_equipment
-        value = -999
-    }
 }
 moren_construct_strike_witches_equipment_production = { #别造强袭
     allowed = {
@@ -955,10 +947,6 @@ moren_construct_strike_witches_equipment_production = { #别造强袭
         value = -999
     }
 
-    ai_strategy = {
-        type = strike_witches_equipment
-        value = -999
-    }
 }
 moren_construct_siege_helicoptery_equipment_production = { #别造直升机
     allowed = {
@@ -980,10 +968,6 @@ moren_construct_siege_helicoptery_equipment_production = { #别造直升机
         value = -99
     }
 
-    ai_strategy = {
-        type = siege_helicoptery_equipment
-        value = -999
-    }
 }
 moren_construct_auto_equipment_production = { #别造自动机
     allowed = {
@@ -1005,10 +989,6 @@ moren_construct_auto_equipment_production = { #别造自动机
         value = -99
     }
 
-    ai_strategy = {
-        type = auto_meta_equipments
-        value = -999
-    }
 }
 moren_victory_acceleration = {#冲刺！！！
     allowed = {NOT = {
@@ -1037,7 +1017,7 @@ moren_victory_acceleration = {#冲刺！！！
                 surrender_progress > 0.2
             }
         }
-        priority = 15000
+        priority = 26000
         ordertype = front
         execution_type = rush_weak
         execute_order = yes
@@ -1081,8 +1061,9 @@ moren_target_enemy_supply_hubs = {#断补给
                 building = supply_node
                 level > 0
             }
+            any_neighbor_state = { is_controlled_by = ROOT }
         }
-        priority = 6000
+        priority = 30000
         ordertype = front
         execution_type = rush
         execute_order = yes
@@ -1128,7 +1109,7 @@ moren_push_enemy_capital = {#冲首都
             is_capital = yes
             any_neighbor_state = { is_controlled_by = ROOT }
         }
-        priority = 50000
+        priority = 55000
         ordertype = front
         execution_type = rush
         execute_order = yes
@@ -1436,7 +1417,7 @@ moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
                 divisions_in_state = { state = FROM size = 0 }
             }
         }
-        priority = 90000
+        priority = 45000
         ordertype = front
         execution_type = rush_weak
         execute_order = yes
@@ -1454,7 +1435,7 @@ moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
 
         ratio = 0.8
 
-        priority = 5000
+        priority = 16000
         ordertype = front
         execution_type = rush
         execute_order = yes
@@ -1473,7 +1454,7 @@ moren_state_is_zhanlue = {#老爷爷，我给你踩地来咯
                 is_coastal = yes
             }
         }
-        priority = 8000
+        priority = 28000
         ordertype = front
         execution_type = rush
         execute_order = yes
@@ -1571,7 +1552,7 @@ moren_crisis_iron_wall = {
         state_trigger = {
             is_controlled_by = ROOT
         }
-        priority = 20000
+        priority = 100000
         ordertype = front
         execution_type = careful
         manual_attack = yes
@@ -1645,8 +1626,10 @@ moren_capital_shield = {
         }
     } }
     enable = {
+        has_war = yes
+        surrender_progress < 0.20
         NOT = {
-            any_enemy_country = { surrender_progress > 0.3 }
+            any_enemy_country = { surrender_progress > 0.30 }
         }
     }
     abort_when_not_enabled = yes
@@ -1674,7 +1657,7 @@ moren_capital_shield = {
                 controller = { has_war_with = ROOT }
             }
         }
-        priority = 25000
+        priority = 36000
         ordertype = front
         execution_type = careful
         manual_attack = yes
@@ -1708,7 +1691,7 @@ moren_encirclement_hunter = {
             any_neighbor_state = { is_controlled_by = ROOT }
             check_variable = { num_enemy_neighbor_states < 2 }
         }
-        priority = 25000
+        priority = 40000
         ordertype = front
         execution_type = rush_weak
         execute_order = yes
@@ -1858,7 +1841,7 @@ moren_victory_phase1_crack = {
             }
             any_neighbor_state = { is_controlled_by = ROOT }
         }
-        priority = 12000
+        priority = 22000
         ordertype = front
         execution_type = rush
         execute_order = yes
@@ -1964,7 +1947,7 @@ moren_victory_phase3_annihilate = {
             }
         }
         priority = 60000
-        ratio = 0.95
+        ratio = 0.75
         ordertype = front
         execution_type = rush_weak
         execute_order = yes
@@ -2040,7 +2023,7 @@ moren_strategic_withdrawal = {#主动收缩
             is_controlled_by = ROOT
             any_neighbor_state = { controller = { has_war_with = ROOT } }
         }
-        priority = 10000
+        priority = 18000
         ordertype = front
         execution_type = careful
         manual_attack = yes
@@ -2680,10 +2663,6 @@ default_pp_spend_amount = {
     }
 
     ai_strategy = {
-        type = super_heavy_artillery_equipment
-        value = -999
-    }
-    ai_strategy = {
         type = equipment_production_min_factories_archetype
         id = self_propelled_super_heavy_artillery_equipment
         value = -99
@@ -2694,15 +2673,6 @@ default_pp_spend_amount = {
         value = -99
     }
 
-    ai_strategy = {
-        type = self_propelled_super_heavy_artillery_equipment
-        value = -999
-    }
-    ai_strategy = {
-        type = pp_spend_priority
-        id = relation
-        value = -9999
-    }
     ai_strategy = {
         type = pp_spend_priority
         id = relation
