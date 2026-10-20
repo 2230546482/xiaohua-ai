@@ -37,6 +37,8 @@ red_hard_ai:0 "§8《漫天阴云之黄昏》§!"
 red_normal_hard_ai:0 "§t《日光照耀之晨曦》§!"
 red_neizhan_ai:0 "§9握紧彼此的双手§!"
 red_neizhan_ai_desc:0 "我们受到了内战时的保护"
+red_neizhan_ai_shoudong:0 "§9握紧彼此的双手§!"
+red_neizhan_ai_shoudong_desc:0 "我们受到了内战时的保护"
 red_qu_player:0 "§9区……§!"
 
 #决议
@@ -45,7 +47,10 @@ lunyi_decisions:0 "房主有神器"
 lunyi_decisions_desc:0 "点击此决议，意味着你将成为一名挂比。"
 hua_teshujiaqiang_decisions:0 "[FROM.GetFlag]§Y[FROM.Getname]§!的特殊加强"
 hua_jiaqiang_decisions:0 "给[FROM.GetFlag]§Y[FROM.Getname]§!上buff"
-
+hua_teshujiaqiang_decisions:0 "手动增加内战buff"
+hua_teshujiaqiang_decision_descs:0 "考虑到更新或者submod中有可能导致部分国家无法正常在内战阶段有内战buff"
+red_super_gutou:0 "超级骨头"
+red_super_gutou_desc:0 "[DVL.GetFlag]§Y[DVL.Getname]§!在与苏联或玩家交战前将获得对欧洲绝大部分国家的特攻"
 #军工机构
  jiahao_supreme_industrial_group:0 "嘉豪集团"
  jiahao_header_python_code:0 "VSCode算法重构部门"

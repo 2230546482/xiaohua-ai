@@ -540,5 +540,244 @@ ideas = {
             on_remove = {
             }
         }
+        red_neizhan_ai_shoudong = {
+            #内战的buff
+            removal_cost = -1
+            allowed = {
+                always = no
+            }
+            picture = flower_ai_neizhan
+            modifier = {
+                army_attack_factor = 0.5
+                army_defence_factor = 0.8
+                breakthrough_factor = 0.8
+                army_org_factor = 0.25
+                army_morale_factor = 0.25
+                land_reinforce_rate = 0.1
+                planning_speed = 0.30
+                supply_consumption_factor = -0.25
+                attrition_factor = -0.20
+            }
+            on_remove = {
+            }
+        }
+        red_super_gutou = {
+            #超级骨头人
+            removal_cost = -1
+            allowed = {
+                always = no
+            }
+            picture = flower_ai_emeng
+            modifier = {
+            }
+            available = {
+                not = {
+                    any_country = {
+                        has_war_with = PREV
+                        or = {
+                            is_ai = no
+                            tag = SOV
+                        }
+                    }
+                }
+            }
+            cancel = {
+                any_country = {
+                    has_war_with = PREV
+                    or = {
+                        is_ai = no
+                        tag = SOV
+                    }
+                }
+            }
+            targeted_modifier = {
+                tag = ENG
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = NPT
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ARF
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = BLA
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = RHI
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = BAY
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = TRB
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ITA
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ALS
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = FOT
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = RCE
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = MOR
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = LIB
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = SHL
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = DEN
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = SWE
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = NOR
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = GER
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = HUN
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = KVO
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = SLO
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = POL
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = PRE
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = BAL
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = KMS
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ELT
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ROM
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = BUL
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = ALB
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = MAC
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            targeted_modifier = {
+                tag = GRE
+                attack_bonus_against = 2
+                defense_bonus_against = 2
+                breakthrough_bonus_against = 2
+            }
+            on_remove = {
+            }
+        }
     }
 }
