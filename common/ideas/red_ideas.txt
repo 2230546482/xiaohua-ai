@@ -84,6 +84,7 @@ ideas = {
                 coordination_bonus = 0.25
                 initiative_factor = 0.50
                 recon_factor = 0.50
+                army_strength_factor = 0.50
                 org_loss_when_moving = -0.50
                 max_dig_in = 8
                 dig_in_speed_factor = 0.75
