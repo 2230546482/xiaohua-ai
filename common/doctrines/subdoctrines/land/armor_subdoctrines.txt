@@ -15,8 +15,7 @@ armored_spearhead = {
     }
 
     ai_will_do = {
-
-        base = 0
+        base = 1000
     }
 
     # EFFECTS
@@ -91,7 +90,7 @@ armored_spearhead_no_lar = {
     }
 
     ai_will_do = {
-        base = 0
+        base = 1000
     }
 
     # EFFECTS
@@ -629,9 +628,7 @@ tank_destroyer_force = {
     }
 
     ai_will_do = {
-
-        base = 1000
-
+        base = 0
     }
 
     category_all_armor = {

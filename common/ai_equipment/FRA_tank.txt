@@ -1,16 +1,16 @@
 # AI tank design for testing
 
-FRA_medium_tank_destroyers = { #中坦歼
+FRA_medium_tanks = { #中坦
 	category = land
 	
 	available_for = { FRA }
 	roles = {
-		land_medium_tank_destroyer
+		land_medium_tank
 	}
 	priority = {
 		factor = 3000
 	}
-	basic_medium_tank_destroyer_1 = { #W15 TCC
+	basic_medium_tank_1 = { #基础中型坦克
 		priority = {
 			factor = 300
 			modifier = { 
@@ -26,7 +26,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 		
 		target_variant = {
 			match_value = 2500
-			type = medium_tank_destroyer_chassis_1
+			type = medium_tank_chassis_1
 			modules = {
 				main_armament_slot = { 
 					any_of = { 
@@ -75,7 +75,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 			tank_radio_1
 		}
 	}
-	basic_medium_tank_destroyer_1B = { #W15 TCC 2级at
+	basic_medium_tank_1B = { #基础中型坦克 强化炮
 		priority = {
 			factor = 600
 			modifier = { 
@@ -91,7 +91,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 		
 		target_variant = {
 			match_value = 2500
-			type = medium_tank_destroyer_chassis_1
+			type = medium_tank_chassis_1
 			modules = {
 				main_armament_slot = tank_medium_cannon_2
 				turret_type_slot = tank_medium_three_man_tank_turret
@@ -134,7 +134,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 			tank_radio_1
 		}
 	}
-	improved_medium_tank_destroyer_2 = {#SAu 40
+	improved_medium_tank_2 = {#改进型中型坦克
 		priority = {
 			factor = 500
 			modifier = { 
@@ -150,7 +150,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 		
 		target_variant = {
 			match_value = 3000
-			type = medium_tank_destroyer_chassis_2
+			type = medium_tank_chassis_2
 			modules = {
 				main_armament_slot = tank_medium_cannon_2
 				turret_type_slot = tank_medium_three_man_tank_turret
@@ -187,7 +187,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 			tank_radio_1
 		}
 	}
-	improved_medium_tank_destroyer_2B = {#SAu 40 42at
+	improved_medium_tank_2B = {#改进型中型坦克 强化炮
 		priority = {
 			factor = 500
 			modifier = { 
@@ -203,7 +203,7 @@ FRA_medium_tank_destroyers = { #中坦歼
 		
 		target_variant = {
 			match_value = 3000
-			type = medium_tank_destroyer_chassis_2
+			type = medium_tank_chassis_2
 			modules = {
 				main_armament_slot = tank_high_velocity_cannon_2
 				turret_type_slot = tank_medium_three_man_tank_turret
@@ -240,14 +240,14 @@ FRA_medium_tank_destroyers = { #中坦歼
 			tank_radio_1
 		}
 	}
-	advanced_medium_tank_destroyer_3 = { #lorraine 100
+	advanced_medium_tank_3 = { #先进型中型坦克
 		priority = {
 			factor = 1000
 		}
 		
 		target_variant = {
 			match_value = 4000
-			type = medium_tank_destroyer_chassis_3
+			type = medium_tank_chassis_3
 			modules = {
 				main_armament_slot = r56_tank_medium_cannon_3
 				turret_type_slot = tank_medium_three_man_tank_turret
@@ -280,20 +280,20 @@ FRA_medium_tank_destroyers = { #中坦歼
 	}
 }
 
-FRA_modern_tank_destroyers = { #现代坦歼
+FRA_modern_tanks = { #现代坦克
 	category = land
 
 	available_for = { FRA }
 
 	roles = {
-		land_modern_tank_destroyer
+		land_modern_tank
 	}
 
 	priority = {
 		factor = 2000
 	}
 
-	modern_tank_destroyer_default = {
+	modern_tank_default = {
 		priority = {
 			factor = 1200
 			modifier = { 
@@ -304,7 +304,7 @@ FRA_modern_tank_destroyers = { #现代坦歼
 
 		target_variant = {
 			match_value = 100
-			type = modern_tank_destroyer_chassis_1
+			type = modern_tank_chassis_1
 			modules = {
 				main_armament_slot = tank_modern_cannon
 				turret_type_slot = ah_tank_modern_tank_turret
@@ -334,14 +334,14 @@ FRA_modern_tank_destroyers = { #现代坦歼
 			sloped_armor
 		}
 	}
-	advanced_modern_tank_destroyer_OL_default = {
+	advanced_modern_tank_OL_default = {
 		priority = {
 			factor = 2000
 		}
 
 		target_variant = {
 			match_value = 100
-			type = modern_tank_destroyer_chassis_2
+			type = modern_tank_chassis_2
 			modules = {
 				main_armament_slot = tank_modern_cannon
 				turret_type_slot = ah_tank_modern_tank_turret

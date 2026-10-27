@@ -24,7 +24,7 @@
 		
 		ai_strategy = {
 			type = role_ratio
-			id = FRA_tank_destroyer
+			id = FRA_armor
 			value = 0
 		}
 
@@ -57,7 +57,7 @@
 		}
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
-			id = FRA_tank_destroyer
+			id = FRA_armor
 			value = 0
 		}
 		
@@ -73,7 +73,7 @@
 		abort_when_not_enabled = yes
 		ai_strategy = {
 			type = role_ratio
-			id = FRA_tank_destroyer
+			id = FRA_armor
 			value = 500
 		}
 		ai_strategy = {
@@ -98,12 +98,12 @@
 		}
 		ai_strategy = {
 			type = build_army	#训练模板倾向
-			id =  FRA_tank_destroyer
+			id =  FRA_armor
 			value = 850
 		}
 		ai_strategy = {
 			type = template_prio	#训练模板倾向
-			id = FRA_tank_destroyer
+			id = FRA_armor
 			value = 500
 		}
 		ai_strategy = {
@@ -118,7 +118,7 @@
 		}
 		ai_strategy = {
 			type = build_army	#训练模板倾向
-			id = FRA_tank_destroyer
+			id = FRA_armor
 			value = 500
 		}
 		ai_strategy = {

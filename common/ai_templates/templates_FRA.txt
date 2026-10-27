@@ -1,6 +1,6 @@
 armored_FRA = {
 	available_for = { FRA }
-	role = FRA_tank_destroyer
+	role = FRA_armor
 	upgrade_prio = {
         base = 0
         modifier = {
@@ -22,11 +22,11 @@ armored_FRA = {
 		division_names_group = FRA_ARM_01
 		reinforce_prio = 1.0
 		can_upgrade_in_field = {
-			has_equipment = { medium_tank_destroyer_chassis > 100 } 
+			has_equipment = { medium_tank_chassis > 100 }
 		}
 		target_template = {
 			regiments = {
-				medium_tank_destroyer_brigade = 8
+				medium_armor = 8
 				irregular_infantry = 12
 			}
 			regimental_support = {
@@ -65,7 +65,7 @@ armored_FRA = {
 		reinforce_prio = 2.0
 		target_template = {
 			regiments = {
-				medium_tank_destroyer_brigade = 8
+				medium_armor = 8
 				mechanized = 12
 			}
 			regimental_support = {
@@ -94,15 +94,14 @@ armored_FRA = {
 		}
 		reinforce_prio = 2.0
 		can_upgrade_in_field = {
-			has_equipment = { modern_tank_destroyer_chassis > 500 } 
+			has_equipment = { modern_tank_chassis > 500 }
 		}
 		target_template = {
 			regiments = {
-				modern_tank_destroyer_brigade = 10
+				modern_armor = 10
 				mechanized = 15
 			}
 			regimental_support = {
-				modern_tank_destroyer_support = 2
 				mot_fire_support = 3
 			}
 			support = {
@@ -171,7 +170,7 @@ infantry_FRA = {
 			}
 		}
 		can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
+			has_equipment = { mechanized_equipment > 500 }
 		}
 		target_template = {
 			support = {
@@ -186,7 +185,7 @@ infantry_FRA = {
 			}
 			regiments = {
 				mechanized = 9
-				medium_tank_destroyer_brigade = 1
+				medium_armor = 1
 			}
 		}
 	}
@@ -224,7 +223,7 @@ magic_FRA = {
 				fire_support = 3
 			}
 			regiments = {
-				medium_tank_destroyer_brigade = 8
+				medium_armor = 8
 				magic_assault = 12
 			}
 		}
@@ -241,15 +240,14 @@ magic_FRA = {
 		}
 		reinforce_prio = 2.0
 		can_upgrade_in_field = {
-			has_equipment = { modern_tank_destroyer_chassis > 500 } 
+			has_equipment = { modern_tank_chassis > 500 }
 		}
 		target_template = {
 			regiments = {
-				modern_tank_destroyer_brigade = 10
+				modern_armor = 10
 				magic_assault = 15
 			}
 			regimental_support = {
-				modern_tank_destroyer_support = 2
 				mot_fire_support = 3
 			}
 			support = {
