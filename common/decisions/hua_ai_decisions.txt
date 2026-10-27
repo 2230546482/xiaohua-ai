@@ -301,6 +301,54 @@ hua_lunyi_decisions_categories = {
             }
         }
     }
+
+    hua_jiaqiang_dec = {
+        icon = GFX_die_tec
+        allowed = {  }
+
+        available = {
+            always = yes
+        }
+
+        visible = {
+            or = {
+                has_global_flag = red_apocalypse_ai
+                has_global_flag = red_most_hard
+            }
+        }
+        target_trigger = {
+            FROM = {
+                is_ai = no
+                OR = {
+                    AND = {
+                        has_global_flag = red_apocalypse_ai
+                        NOT = { has_idea = red_apocalypse_player }
+                    }
+                    AND = {
+                        has_global_flag = red_most_hard
+                        NOT = { has_idea = red_most_hard_player }
+                    }
+                }
+            }
+        }
+        fire_only_once = yes
+        ai_will_do = { base = 0 }
+
+        complete_effect = {
+            if = {
+                limit = {
+                    has_global_flag = red_apocalypse_ai
+                }
+                add_ideas= red_apocalypse_player
+            }
+            if = {
+                limit = {
+                    has_global_flag = red_most_hard
+                }
+                add_ideas= red_most_hard_player
+            }
+        }
+    }
     hua_super_gutou_decisions = {
         icon = GFX_die_tec
         allowed = {  }
