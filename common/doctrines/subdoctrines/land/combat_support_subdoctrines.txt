@@ -12,7 +12,9 @@ fire_concentration = {
     }
 
     ai_will_do = {
-        base = 0
+
+        base = 1000
+         
     }
 
      # EFFECTS
@@ -20,7 +22,7 @@ fire_concentration = {
 
     category_line_artillery = {
         breakthrough = 0.1
-        max_organisation = 5
+        max_organisation = 10
     }
 
 
@@ -162,6 +164,7 @@ flying_batteries = {
     
     ai_will_do = {
         base = 0
+
     }
 
      # EFFECTS
@@ -360,7 +363,9 @@ mobile_recon_and_assault = {
     }
     
     ai_will_do = {
+
         base = 0
+
     }
     
 
@@ -382,6 +387,9 @@ mobile_recon_and_assault = {
                 max_organisation = 10		
                 soft_attack = 0.1		
 			}
+            logistics_company = {
+                supply_consumption_factor = -0.05
+            }
         }
         long_range_reconnaissance = {
             category_recon = {
@@ -455,7 +463,9 @@ mobile_recon_and_assault_no_lar = {
 
     
     ai_will_do = {
+
         base = 0
+
     }
     
 
@@ -539,7 +549,7 @@ self_propelled_support = {
     }
 
 
-    ai_will_do = { base = 1000 }
+    ai_will_do = { base = 0 }
 
 
     category_self_propelled_artillery = {
@@ -780,6 +790,7 @@ field_engineering = {
 
     ai_will_do = { 
         base = 0
+
     }
 
     engineer = {
