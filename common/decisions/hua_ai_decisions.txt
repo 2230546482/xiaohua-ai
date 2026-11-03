@@ -331,7 +331,7 @@ hua_lunyi_decisions_categories = {
                 }
             }
         }
-        fire_only_once = yes
+        fire_only_once = no
         ai_will_do = { base = 0 }
 
         complete_effect = {
