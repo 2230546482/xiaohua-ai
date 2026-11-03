@@ -311,23 +311,15 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
+            is_ai = no
             or = {
-                has_global_flag = red_apocalypse_ai
-                has_global_flag = red_most_hard
-            }
-        }
-        target_trigger = {
-            FROM = {
-                is_ai = no
-                OR = {
-                    AND = {
-                        has_global_flag = red_apocalypse_ai
-                        NOT = { has_idea = red_apocalypse_player }
-                    }
-                    AND = {
-                        has_global_flag = red_most_hard
-                        NOT = { has_idea = red_most_hard_player }
-                    }
+                and = {
+                    has_global_flag = red_apocalypse_ai
+                    not = { has_idea = red_apocalypse_player }
+                }
+                and = {
+                    has_global_flag = red_most_hard
+                    not = { has_idea = red_most_hard_player }
                 }
             }
         }
