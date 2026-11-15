@@ -133,7 +133,7 @@ ideas = {
                 factory_energy_consumption = -0.80
                 hcp_Military_maintenance_fee_factor = -0.70
                 hcp_income_factor_monthly = 0.75
-                enemy_operative_intel_extraction_rate = -0.75
+                enemy_operative_intel_extraction_rate = 0.75
             }
             on_remove = {
             }
@@ -220,7 +220,7 @@ ideas = {
                 factory_energy_consumption = -0.60
                 hcp_Military_maintenance_fee_factor = -0.50
                 hcp_income_factor_monthly = 0.50
-                enemy_operative_intel_extraction_rate = -0.5
+                enemy_operative_intel_extraction_rate = 0.5
             }
             on_remove = {
             }
@@ -308,7 +308,7 @@ ideas = {
                 factory_energy_consumption = -0.40
                 hcp_Military_maintenance_fee_factor = -0.40
                 hcp_income_factor_monthly = 0.40
-                enemy_operative_intel_extraction_rate = -0.3
+                enemy_operative_intel_extraction_rate = 0.3
             }
             on_remove = {
 
@@ -353,7 +353,7 @@ ideas = {
                 supply_consumption_factor = -0.2
                 fuel_gain_factor = 0.5
                 country_resource_oil = 100
-                enemy_operative_intel_extraction_rate = -0.15
+                enemy_operative_intel_extraction_rate = 0.15
             }
             on_remove = {
             }
