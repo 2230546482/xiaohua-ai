@@ -378,6 +378,12 @@ ideas = {
                 }
                 if = {
                     limit = {
+                        original_tag = PAU
+                    }
+                    has_completed_focus = PAU_zhyk
+                }
+                if = {
+                    limit = {
                         original_tag = PAO
                     }
                     LHS = {

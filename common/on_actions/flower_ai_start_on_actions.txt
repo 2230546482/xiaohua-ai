@@ -9,4 +9,85 @@ on_actions = {
             }
         }
     }
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    ROOT = {
+                        #has_completed_focus = DVL_Thorn_to_the_West
+                        tag = DVL
+                        has_idea = red_super_gutou
+                    }
+                    FROM = {
+                        or = {
+                            tag = FRA
+                            tag = KMK
+                        }
+                    }
+                    not = {
+                        has_global_flag = DVL_use_nuke
+                    }
+                }
+                set_global_flag = DVL_use_nuke
+                every_country= {
+                    limit = {
+                        is_ai = no
+                        #has_war = no
+                    }
+                    goto_state = 28
+                }
+                DVL = {
+                    launch_nuke = {
+                        province = 9559
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 11502
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 3629
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 1346
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 549
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 9503
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 6529
+                        use_nuke = no
+                    }
+                    launch_nuke = {
+                        province = 678
+                        use_nuke = no
+                    }
+                    if = {
+                        limit = {
+                            ATA = {
+                                exists = yes
+                            }
+                        }
+                        launch_nuke = {
+                            province = 15850
+                            use_nuke = no
+                        }
+                    }
+                    else = {
+                        launch_nuke = {
+                            province = 10779
+                            use_nuke = no
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

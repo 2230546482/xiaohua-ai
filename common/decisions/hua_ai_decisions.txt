@@ -401,9 +401,6 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
-            not = {
-                has_idea = red_neizhan_ai
-            }
             is_ai = no
         }
         fire_only_once = no
@@ -411,6 +408,12 @@ hua_lunyi_decisions_categories = {
 
         complete_effect = {
             if = {
+                limit = {
+                    has_idea = red_neizhan_ai
+                }
+                remove_ideas = red_neizhan_ai
+            }
+            else_if = {
                 limit = {
                     not = {
                         has_idea = red_neizhan_ai_shoudong
