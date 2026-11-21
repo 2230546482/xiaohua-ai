@@ -1,0 +1,807 @@
+guiTypes = {
+	containerWindowType = {
+		name = "flower_roguelike_draft_window"
+		position = { x = -250 y = -240 }
+		size = { width = 500 height = 446 }
+		Orientation = center
+		moveable = yes
+		click_to_front = yes
+		clipping = no
+		fade_time = 200
+		fade_type = linear
+
+		background = {
+			name = "flower_draft_bg"
+			spriteType = "GFX_PAU_baiye_gui_bg"
+		}
+
+		iconType = {
+			name = "flower_draft_cat_portrait"
+			spriteType = "GFX_PAU_baiye_portrait_card"
+			position = { x = 30 y = 28 }
+			pdx_tooltip = "FLOWER_DRAFT_CAT_TT"
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_cat_mood"
+			position = { x = 38 y = 133 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftCatMood]"
+			maxWidth = 96
+			maxHeight = 16
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_draft_title_ribbon"
+			spriteType = "GFX_PAU_baiye_ribbon"
+			position = { x = 148 y = 28 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_title_text"
+			position = { x = 158 y = 32 }
+			font = "hoi_18mbs"
+			text = "[GetFlowerDraftGuiTitle]"
+			maxWidth = 298
+			maxHeight = 24
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_lead_text"
+			position = { x = 158 y = 65 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftGuiLead]"
+			maxWidth = 266
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_sub_text"
+			position = { x = 158 y = 82 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftGuiSub]"
+			maxWidth = 266
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_hint_text"
+			position = { x = 158 y = 99 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftGuiHint]"
+			maxWidth = 266
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#模式1按钮：翻页 / 随机抽一条
+		buttonType = {
+			name = "flower_draft_page_btn"
+			position = { x = 148 y = 126 }
+			quadTextureSprite = "GFX_PAU_baiye_btn_amber"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_PAGE_BTN_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_page_btn_lbl"
+			position = { x = 174 y = 131 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStarterPageBtnText]"
+			maxWidth = 122
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_random_btn"
+			position = { x = 311 y = 126 }
+			quadTextureSprite = "GFX_PAU_baiye_btn_rose"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_RANDOM_BTN_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_random_btn_lbl"
+			position = { x = 337 y = 131 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_RANDOM_BTN_TEXT"
+			maxWidth = 122
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#模式2按钮：常规递增换牌 / 押军火切牌
+		buttonType = {
+			name = "flower_draft_reroll_btn"
+			position = { x = 148 y = 126 }
+			quadTextureSprite = "GFX_PAU_baiye_btn_amber"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerDraftRerollTT]"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_reroll_btn_lbl"
+			position = { x = 174 y = 131 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftRerollBtnShort]"
+			maxWidth = 122
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_gamble_btn"
+			position = { x = 311 y = 126 }
+			quadTextureSprite = "GFX_PAU_baiye_btn_rose"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_GAMBLE_REROLL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_gamble_btn_lbl"
+			position = { x = 337 y = 131 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_GAMBLE_BTN_TEXT"
+			maxWidth = 122
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#模式3按钮：暂时收起看地图
+		buttonType = {
+			name = "flower_draft_peek_map_btn"
+			position = { x = 148 y = 126 }
+			quadTextureSprite = "GFX_PAU_baiye_btn_amber"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_PEEK_MAP_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_peek_map_lbl"
+			position = { x = 174 y = 131 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
+			maxWidth = 122
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_draft_section_title"
+			position = { x = 42 y = 168 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSectionTitle]"
+			maxWidth = 160
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_1_btn"
+			position = { x = 32 y = 194 }
+			quadTextureSprite = "GFX_flower_arch_card_1"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ARCH_CARD_1_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_1_status"
+			position = { x = 92 y = 226 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch1Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_2_btn"
+			position = { x = 254 y = 194 }
+			quadTextureSprite = "GFX_flower_arch_card_2"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch2TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_2_status"
+			position = { x = 314 y = 226 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch2Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_3_btn"
+			position = { x = 32 y = 260 }
+			quadTextureSprite = "GFX_flower_arch_card_3"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch3TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_3_status"
+			position = { x = 92 y = 292 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch3Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_4_btn"
+			position = { x = 254 y = 260 }
+			quadTextureSprite = "GFX_flower_arch_card_4"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch4TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_4_status"
+			position = { x = 314 y = 292 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch4Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_5_btn"
+			position = { x = 32 y = 325 }
+			quadTextureSprite = "GFX_flower_arch_card_5"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch5TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_5_status"
+			position = { x = 92 y = 357 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch5Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_6_btn"
+			position = { x = 254 y = 325 }
+			quadTextureSprite = "GFX_flower_arch_card_6"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch6TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_6_status"
+			position = { x = 314 y = 357 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch6Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_7_btn"
+			position = { x = 32 y = 194 }
+			quadTextureSprite = "GFX_flower_arch_card_7"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch7TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_7_status"
+			position = { x = 92 y = 226 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch7Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_8_btn"
+			position = { x = 254 y = 194 }
+			quadTextureSprite = "GFX_flower_arch_card_8"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch8TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_8_status"
+			position = { x = 314 y = 226 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch8Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_9_btn"
+			position = { x = 32 y = 260 }
+			quadTextureSprite = "GFX_flower_arch_card_9"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch9TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_9_status"
+			position = { x = 92 y = 292 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch9Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_10_btn"
+			position = { x = 254 y = 260 }
+			quadTextureSprite = "GFX_flower_arch_card_10"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch10TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_10_status"
+			position = { x = 314 y = 292 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch10Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_11_btn"
+			position = { x = 32 y = 325 }
+			quadTextureSprite = "GFX_flower_arch_card_11"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerArch11TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_11_status"
+			position = { x = 92 y = 357 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch11Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_arch_card_12_btn"
+			position = { x = 254 y = 325 }
+			quadTextureSprite = "GFX_flower_arch_card_12"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ARCH_CARD_12_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_arch_card_12_status"
+			position = { x = 314 y = 357 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerArch12Status]"
+			maxWidth = 148
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_hex_slot_1_btn"
+			position = { x = 32 y = 196 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerDraftSlot1TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_hex_slot_1_icon_relic"
+			spriteType = "GFX_flower_cat_icon_relic"
+			position = { x = 38 y = 200 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_1_icon_curse"
+			spriteType = "GFX_flower_cat_icon_curse"
+			position = { x = 38 y = 200 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_1_icon_evo"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 200 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_1_icon_cross"
+			spriteType = "GFX_flower_cat_icon_cross"
+			position = { x = 38 y = 200 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_1_title"
+			position = { x = 94 y = 202 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot1Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_1_brief"
+			position = { x = 94 y = 222 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot1Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_hex_slot_2_btn"
+			position = { x = 32 y = 260 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerDraftSlot2TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_hex_slot_2_icon_relic"
+			spriteType = "GFX_flower_cat_icon_relic"
+			position = { x = 38 y = 264 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_2_icon_curse"
+			spriteType = "GFX_flower_cat_icon_curse"
+			position = { x = 38 y = 264 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_2_icon_evo"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 264 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_2_icon_cross"
+			spriteType = "GFX_flower_cat_icon_cross"
+			position = { x = 38 y = 264 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_2_title"
+			position = { x = 94 y = 266 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot2Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_2_brief"
+			position = { x = 94 y = 286 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot2Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_hex_slot_3_btn"
+			position = { x = 32 y = 324 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerDraftSlot3TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_hex_slot_3_icon_relic"
+			spriteType = "GFX_flower_cat_icon_relic"
+			position = { x = 38 y = 328 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_3_icon_curse"
+			spriteType = "GFX_flower_cat_icon_curse"
+			position = { x = 38 y = 328 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_3_icon_evo"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 328 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_hex_slot_3_icon_cross"
+			spriteType = "GFX_flower_cat_icon_cross"
+			position = { x = 38 y = 328 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_3_title"
+			position = { x = 94 y = 330 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot3Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_3_brief"
+			position = { x = 94 y = 350 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDraftSlot3Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_branch_opt_1_btn"
+			position = { x = 32 y = 196 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerBranchOpt1TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch_opt_1_icon"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 200 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_1_title"
+			position = { x = 94 y = 202 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt1Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_1_brief"
+			position = { x = 94 y = 222 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt1Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_branch_opt_2_btn"
+			position = { x = 32 y = 260 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerBranchOpt2TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch_opt_2_icon"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 264 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_2_title"
+			position = { x = 94 y = 266 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt2Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_2_brief"
+			position = { x = 94 y = 286 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt2Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_branch_opt_3_btn"
+			position = { x = 32 y = 324 }
+			quadTextureSprite = "GFX_flower_wide_card_btn"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "[GetFlowerBranchOpt3TT]"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch_opt_3_icon"
+			spriteType = "GFX_flower_cat_icon_evo"
+			position = { x = 38 y = 328 }
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_3_title"
+			position = { x = 94 y = 330 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt3Name]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_branch_opt_3_brief"
+			position = { x = 94 y = 350 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerBranchOpt3Brief]"
+			maxWidth = 364
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_draft_footer_text"
+			position = { x = 62 y = 393 }
+			font = "hoi_16mbs"
+			text = "FLOWER_ANOMALY_FOOTER_SETTLED"
+			maxWidth = 400
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_draft_close_btn"
+			position = { x = 468 y = 8 }
+			quadTextureSprite = "GFX_PAU_baiye_notebook_close"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+			oversound = PAU_hover_bunny
+			pdx_tooltip = "FLOWER_DRAFT_CLOSE_TT"
+		}
+
+		iconType = {
+			name = "flower_draft_plum_branch"
+			position = { x = 418 y = 256 }
+			spriteType = "GFX_PAU_baiye_plum_branch"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_draft_plum_petals"
+			position = { x = 310 y = 220 }
+			spriteType = "GFX_PAU_plum_petal_drift"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_draft_peek_paw_btn"
+			position = { x = 424 y = 58 }
+			quadTextureSprite = "GFX_PAU_baiye_peek_paw"
+			clicksound = PAU_cat_mew
+			oversound = PAU_hover_paw
+			pdx_tooltip = "FLOWER_DRAFT_PEEK_PAW_TT"
+		}
+
+		iconType = {
+			name = "flower_draft_bow_deco"
+			position = { x = 0 y = 382 }
+			spriteType = "GFX_PAU_baiye_bow_charm"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_draft_bookmark_deco"
+			position = { x = 428 y = 418 }
+			spriteType = "GFX_PAU_baiye_bookmark_ribbon"
+			alwaystransparent = yes
+		}
+	}
+}

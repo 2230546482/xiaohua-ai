@@ -1,0 +1,2207 @@
+#随机三选一肉鸽牌库、分支觉醒与隐藏共鸣（玩家走手账GUI，AI走事件）
+
+#开启流派进阶分支（玩家打开手账GUI模式3，AI弹出事件）
+flower_ai_open_branch_evolution_event = {
+	if = {
+		limit = {
+			OR = {
+				has_idea = flower_nightingale_stage_1_idea
+				has_idea = flower_nightingale_stage_2_idea
+				has_idea = flower_nightingale_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_nightingale_done }
+		}
+		set_country_flag = flower_evo_nightingale_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 1 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.11 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_guerrilla_stage_1_idea
+				has_idea = flower_guerrilla_stage_2_idea
+				has_idea = flower_guerrilla_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_guerrilla_done }
+		}
+		set_country_flag = flower_evo_guerrilla_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 2 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.12 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_undead_stage_1_idea
+				has_idea = flower_undead_stage_2_idea
+				has_idea = flower_undead_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_undead_done }
+		}
+		set_country_flag = flower_evo_undead_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 3 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.13 }
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
+			NOT = { has_country_flag = flower_evo_slayer_done }
+		}
+		set_country_flag = flower_evo_slayer_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 4 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.14 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
+				has_idea = flower_corp_stage_1_idea
+				has_idea = flower_corp_stage_2_idea
+				has_idea = flower_corp_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_corp_done }
+		}
+		set_country_flag = flower_evo_corp_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 5 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.15 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_arty_stage_1_idea
+				has_idea = flower_arty_stage_2_idea
+				has_idea = flower_arty_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_arty_done }
+		}
+		set_country_flag = flower_evo_arty_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 6 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.16 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_tank_stage_1_idea
+				has_idea = flower_tank_stage_2_idea
+				has_idea = flower_tank_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_tank_done }
+		}
+		set_country_flag = flower_evo_tank_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 7 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.17 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_air_stage_1_idea
+				has_idea = flower_air_stage_2_idea
+				has_idea = flower_air_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_air_done }
+		}
+		set_country_flag = flower_evo_air_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 8 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.18 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_wave_stage_1_idea
+				has_idea = flower_wave_stage_2_idea
+				has_idea = flower_wave_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_wave_done }
+		}
+		set_country_flag = flower_evo_wave_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 9 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.19 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_magic_stage_1_idea
+				has_idea = flower_magic_stage_2_idea
+				has_idea = flower_magic_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_magic_done }
+		}
+		set_country_flag = flower_evo_magic_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 10 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.20 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_steampunk_stage_1_idea
+				has_idea = flower_steampunk_stage_2_idea
+				has_idea = flower_steampunk_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_punk_done }
+		}
+		set_country_flag = flower_evo_punk_done
+		if = {
+			limit = { is_ai = no }
+			clr_country_flag = flower_anomaly_panel_open
+			set_variable = { flower_branch_id = 11 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			country_event = { id = FLWRG.21 }
+		}
+	}
+	else = {
+		flower_ai_open_starter_selection = yes
+	}
+}
+
+#从36张词条牌库随机抽出一张不重复卡牌
+flower_ai_pick_one_draft_card = {
+	random_list = {
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 1 }
+					check_variable = { flower_draft_slot_2 = 1 }
+					has_country_flag = flower_card_owned_1
+				}
+			}
+			set_variable = { flower_draft_temp = 1 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 2 }
+					check_variable = { flower_draft_slot_2 = 2 }
+					has_country_flag = flower_card_owned_2
+				}
+			}
+			set_variable = { flower_draft_temp = 2 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 3 }
+					check_variable = { flower_draft_slot_2 = 3 }
+					has_country_flag = flower_card_owned_3
+				}
+			}
+			set_variable = { flower_draft_temp = 3 }
+		}
+		12 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 4 }
+					check_variable = { flower_draft_slot_2 = 4 }
+					has_country_flag = flower_card_owned_4
+				}
+			}
+			set_variable = { flower_draft_temp = 4 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 5 }
+					check_variable = { flower_draft_slot_2 = 5 }
+					has_country_flag = flower_card_owned_5
+				}
+			}
+			set_variable = { flower_draft_temp = 5 }
+		}
+		11 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 6 }
+					check_variable = { flower_draft_slot_2 = 6 }
+					has_country_flag = flower_card_owned_6
+				}
+			}
+			set_variable = { flower_draft_temp = 6 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 7 }
+					check_variable = { flower_draft_slot_2 = 7 }
+					has_country_flag = flower_card_owned_7
+				}
+			}
+			set_variable = { flower_draft_temp = 7 }
+		}
+		11 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 8 }
+					check_variable = { flower_draft_slot_2 = 8 }
+					has_country_flag = flower_card_owned_8
+				}
+			}
+			set_variable = { flower_draft_temp = 8 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 9 }
+					check_variable = { flower_draft_slot_2 = 9 }
+					has_country_flag = flower_card_owned_9
+				}
+			}
+			set_variable = { flower_draft_temp = 9 }
+		}
+		11 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 10 }
+					check_variable = { flower_draft_slot_2 = 10 }
+					has_country_flag = flower_card_owned_10
+				}
+			}
+			set_variable = { flower_draft_temp = 10 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 11 }
+					check_variable = { flower_draft_slot_2 = 11 }
+					has_country_flag = flower_card_owned_11
+				}
+			}
+			set_variable = { flower_draft_temp = 11 }
+		}
+		11 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 12 }
+					check_variable = { flower_draft_slot_2 = 12 }
+					has_country_flag = flower_card_owned_12
+				}
+			}
+			set_variable = { flower_draft_temp = 12 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 13 }
+					check_variable = { flower_draft_slot_2 = 13 }
+					has_country_flag = flower_card_owned_13
+				}
+			}
+			set_variable = { flower_draft_temp = 13 }
+		}
+		12 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 14 }
+					check_variable = { flower_draft_slot_2 = 14 }
+					has_country_flag = flower_card_owned_14
+				}
+			}
+			set_variable = { flower_draft_temp = 14 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 15 }
+					check_variable = { flower_draft_slot_2 = 15 }
+					has_country_flag = flower_card_owned_15
+				}
+			}
+			set_variable = { flower_draft_temp = 15 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 16 }
+					check_variable = { flower_draft_slot_2 = 16 }
+					has_country_flag = flower_card_owned_16
+				}
+			}
+			set_variable = { flower_draft_temp = 16 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 17 }
+					check_variable = { flower_draft_slot_2 = 17 }
+					has_country_flag = flower_card_owned_17
+				}
+			}
+			set_variable = { flower_draft_temp = 17 }
+		}
+		10 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 18 }
+					check_variable = { flower_draft_slot_2 = 18 }
+					has_country_flag = flower_card_owned_18
+				}
+			}
+			set_variable = { flower_draft_temp = 18 }
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 19 }
+					check_variable = { flower_draft_slot_2 = 19 }
+					has_country_flag = flower_card_owned_19
+				}
+			}
+			set_variable = { flower_draft_temp = 19 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 20 }
+					check_variable = { flower_draft_slot_2 = 20 }
+					has_country_flag = flower_card_owned_20
+				}
+			}
+			set_variable = { flower_draft_temp = 20 }
+		}
+		0 = {
+			modifier = {
+							add = 85
+							flower_ai_has_unbranched_archetype = yes
+						}
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 21 }
+					check_variable = { flower_draft_slot_2 = 21 }
+				}
+			}
+			set_variable = { flower_draft_temp = 21 }
+		}
+		20 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 22 }
+					check_variable = { flower_draft_slot_2 = 22 }
+				}
+			}
+			set_variable = { flower_draft_temp = 22 }
+		}
+		11 = {
+			modifier = {
+				factor = 0.15
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 23 }
+					check_variable = { flower_draft_slot_2 = 23 }
+				}
+			}
+			set_variable = { flower_draft_temp = 23 }
+		}
+		12 = {
+			modifier = {
+				factor = 0.15
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 24 }
+					check_variable = { flower_draft_slot_2 = 24 }
+				}
+			}
+			set_variable = { flower_draft_temp = 24 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 25 }
+					check_variable = { flower_draft_slot_2 = 25 }
+					has_country_flag = flower_card_owned_25
+				}
+			}
+			set_variable = { flower_draft_temp = 25 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 26 }
+					check_variable = { flower_draft_slot_2 = 26 }
+					has_country_flag = flower_card_owned_26
+				}
+			}
+			set_variable = { flower_draft_temp = 26 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 27 }
+					check_variable = { flower_draft_slot_2 = 27 }
+					has_country_flag = flower_card_owned_27
+				}
+			}
+			set_variable = { flower_draft_temp = 27 }
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 28 }
+					check_variable = { flower_draft_slot_2 = 28 }
+					has_country_flag = flower_card_owned_28
+				}
+			}
+			set_variable = { flower_draft_temp = 28 }
+		}
+		10 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 29 }
+					check_variable = { flower_draft_slot_2 = 29 }
+					has_country_flag = flower_card_owned_29
+				}
+			}
+			set_variable = { flower_draft_temp = 29 }
+		}
+		10 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 30 }
+					check_variable = { flower_draft_slot_2 = 30 }
+					has_country_flag = flower_card_owned_30
+				}
+			}
+			set_variable = { flower_draft_temp = 30 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 31 }
+					check_variable = { flower_draft_slot_2 = 31 }
+					has_country_flag = flower_card_owned_31
+				}
+			}
+			set_variable = { flower_draft_temp = 31 }
+		}
+		11 = {
+			modifier = {
+				factor = 2.5
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 32 }
+					check_variable = { flower_draft_slot_2 = 32 }
+					has_country_flag = flower_card_owned_32
+				}
+			}
+			set_variable = { flower_draft_temp = 32 }
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 33 }
+					check_variable = { flower_draft_slot_2 = 33 }
+					has_country_flag = flower_card_owned_33
+				}
+			}
+			set_variable = { flower_draft_temp = 33 }
+		}
+		10 = {
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 34 }
+					check_variable = { flower_draft_slot_2 = 34 }
+					has_country_flag = flower_card_owned_34
+				}
+			}
+			set_variable = { flower_draft_temp = 34 }
+		}
+		11 = {
+			modifier = {
+				factor = 0.15
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 35 }
+					check_variable = { flower_draft_slot_2 = 35 }
+				}
+			}
+			set_variable = { flower_draft_temp = 35 }
+		}
+		11 = {
+			modifier = {
+				factor = 0.15
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 36 }
+					check_variable = { flower_draft_slot_2 = 36 }
+				}
+			}
+			set_variable = { flower_draft_temp = 36 }
+		}
+	}
+}
+
+#洗牌并抽出3张互不相同的肉鸽词条
+flower_ai_roll_roguelike_draft = {
+	set_variable = { flower_draft_slot_1 = 0 }
+	set_variable = { flower_draft_slot_2 = 0 }
+	set_variable = { flower_draft_slot_3 = 0 }
+	flower_ai_pick_one_draft_card = yes
+	set_variable = { flower_draft_slot_1 = flower_draft_temp }
+	flower_ai_pick_one_draft_card = yes
+	set_variable = { flower_draft_slot_2 = flower_draft_temp }
+	flower_ai_pick_one_draft_card = yes
+	set_variable = { flower_draft_slot_3 = flower_draft_temp }
+	clr_country_flag = flower_draft_high_roller
+}
+
+#开启一轮随机三选一（玩家弹出手账GUI模式2，AI走FLWRG.1）
+flower_ai_open_roguelike_draft = {
+	set_country_flag = flower_draft_free_reroll
+	clr_country_flag = flower_draft_blood_reroll_used
+	clr_country_flag = flower_draft_high_roller
+	set_variable = { flower_draft_rerolls_used = 0 }
+	flower_ai_roll_roguelike_draft = yes
+	if = {
+		limit = { is_ai = no }
+		clr_country_flag = flower_anomaly_panel_open
+		set_variable = { flower_draft_gui_mode = 2 }
+		set_country_flag = flower_roguelike_gui_open
+	}
+	else = {
+		country_event = { id = FLWRG.1 }
+	}
+}
+
+#执行槽位1卡牌效果
+flower_ai_apply_draft_slot_1 = {
+	add_to_variable = { flower_roguelike_cards_count = 1 }
+	if = {
+		limit = { check_variable = { flower_draft_slot_1 = 1 } }
+		set_country_flag = flower_card_owned_1
+		add_ideas = flower_relic_night_hunter_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 2 } }
+		set_country_flag = flower_card_owned_2
+		add_ideas = flower_relic_supply_wizard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 3 } }
+		set_country_flag = flower_card_owned_3
+		add_ideas = flower_relic_iron_assembly_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 4 } }
+		set_country_flag = flower_card_owned_4
+		add_ideas = flower_relic_war_homework_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 5 } }
+		set_country_flag = flower_card_owned_5
+		add_ideas = flower_relic_black_market_dealer_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 6 } }
+		set_country_flag = flower_card_owned_6
+		add_ideas = flower_relic_specops_bootcamp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 7 } }
+		set_country_flag = flower_card_owned_7
+		add_ideas = flower_relic_marshal_cram_school_idea
+		random_army_leader = {
+			add_unit_leader_trait = flower_space_magician_trait
+		}
+		random_army_leader = {
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 8 } }
+		set_country_flag = flower_card_owned_8
+		add_ideas = flower_relic_bunker_crew_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 9 } }
+		set_country_flag = flower_card_owned_9
+		add_ideas = flower_relic_blitz_staff_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 10 } }
+		set_country_flag = flower_card_owned_10
+		add_ideas = flower_relic_sky_backyard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 11 } }
+		set_country_flag = flower_card_owned_11
+		add_ideas = flower_relic_field_surgery_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 12 } }
+		set_country_flag = flower_card_owned_12
+		add_ideas = flower_relic_fuel_stash_idea
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 13 } }
+		set_country_flag = flower_card_owned_13
+		add_ideas = flower_curse_burn_boats_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 14 } }
+		set_country_flag = flower_card_owned_14
+		add_ideas = flower_curse_flesh_alchemy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 15 } }
+		set_country_flag = flower_card_owned_15
+		add_ideas = flower_curse_espresso_march_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 16 } }
+		set_country_flag = flower_card_owned_16
+		add_ideas = flower_curse_berserk_trade_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 17 } }
+		set_country_flag = flower_card_owned_17
+		add_ideas = flower_curse_wallstreet_loan_idea
+		add_to_variable = { another_country_currency_reserve = 1000 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = arms_factory
+				level = 5
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = industrial_complex
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 18 } }
+		set_country_flag = flower_card_owned_18
+		add_ideas = flower_curse_mad_reactor_idea
+		add_research_slot = 1
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 19 } }
+		set_country_flag = flower_card_owned_19
+		add_ideas = flower_curse_no_step_back_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 20 } }
+		set_country_flag = flower_card_owned_20
+		add_ideas = flower_curse_overclock_magic_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 21 } }
+		flower_ai_open_branch_evolution_event = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 22 } }
+		flower_ai_open_starter_selection = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 23 } }
+		random_list = {
+			25 = {
+				add_research_slot = 1
+				add_to_variable = { another_country_currency_reserve = 500 }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			50 = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 20000
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 2000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 1000
+				}
+				add_to_variable = { another_country_currency_reserve = 250 }
+			}
+			25 = {
+				add_ideas = flower_roulette_anti_scam_idea
+				add_political_power = 150
+				army_experience = 50
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 24 } }
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_undead_stage_1_idea
+					has_idea = flower_undead_stage_2_idea
+					has_idea = flower_undead_stage_3_idea
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
+			flower_ai_summon_undead_wave = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_nightingale_stage_1_idea
+					has_idea = flower_nightingale_stage_2_idea
+					has_idea = flower_nightingale_stage_3_idea
+					has_country_flag = flower_roguelike_nightingale_ai
+				}
+			}
+			flower_ai_summon_nightingale_knights = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_guerrilla_stage_1_idea
+					has_idea = flower_guerrilla_stage_2_idea
+					has_idea = flower_guerrilla_stage_3_idea
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 20000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 1000
+		}
+		add_to_variable = { another_country_currency_reserve = 250 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 25 } }
+		set_country_flag = flower_card_owned_25
+		set_country_flag = flower_roguelike_nightingale_ai
+		set_technology = {
+			wangling2_tech = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			popup = no
+		}
+		add_ideas = flower_micro_nightingale_cloak_idea
+		flower_ai_summon_nightingale_knights = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 26 } }
+		set_country_flag = flower_card_owned_26
+		set_country_flag = flower_roguelike_guerrilla_ai
+		set_technology = {
+			youjidui_tech = 1
+			youji_on_me = 1
+			popup = no
+		}
+		add_ideas = flower_micro_guerrilla_manual_idea
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 27 } }
+		set_country_flag = flower_card_owned_27
+		set_country_flag = flower_roguelike_undead_ai
+		flower_ai_summon_undead_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 28 } }
+		set_country_flag = flower_card_owned_28
+		add_ideas = flower_micro_sanae_charm_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment
+			amount = 1
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 29 } }
+		set_country_flag = flower_card_owned_29
+		set_country_flag = flower_roguelike_tank_ai
+		set_technology = {
+			the_world_0 = 1
+			the_maid_0 = 1
+			popup = no
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 30 } }
+		set_country_flag = flower_card_owned_30
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 31 } }
+		set_country_flag = flower_card_owned_31
+		set_country_flag = flower_roguelike_corp_ai
+		flower_ai_add_builder_stack = yes
+		flower_ai_add_builder_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 32 } }
+		set_country_flag = flower_card_owned_32
+		flower_ai_add_slayer_stack = yes
+		flower_ai_add_slayer_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 33 } }
+		set_country_flag = flower_card_owned_33
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			yaojing_tech = 1
+			popup = no
+		}
+		add_ideas = flower_micro_elf_blessing_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 34 } }
+		set_country_flag = flower_card_owned_34
+		set_country_flag = flower_roguelike_magic_ai
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			popup = no
+		}
+		add_ideas = flower_micro_uma_dispatch_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 35 } }
+		random_army_leader = {
+			add_attack = 2
+			add_defense = 2
+			add_planning = 1
+			add_logistics = 1
+			add_unit_leader_trait = flower_wanrendi_trait
+		}
+		random_army_leader = {
+			add_attack = 1
+			add_defense = 1
+			add_planning = 2
+			add_logistics = 2
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 36 } }
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+		add_to_variable = { another_country_currency_reserve = 500 }
+		army_experience = 50
+		air_experience = 50
+	}
+	flower_ai_check_chemical_combos = yes
+}
+#执行槽位2卡牌效果
+flower_ai_apply_draft_slot_2 = {
+	add_to_variable = { flower_roguelike_cards_count = 1 }
+	if = {
+		limit = { check_variable = { flower_draft_slot_2 = 1 } }
+		set_country_flag = flower_card_owned_1
+		add_ideas = flower_relic_night_hunter_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 2 } }
+		set_country_flag = flower_card_owned_2
+		add_ideas = flower_relic_supply_wizard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 3 } }
+		set_country_flag = flower_card_owned_3
+		add_ideas = flower_relic_iron_assembly_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 4 } }
+		set_country_flag = flower_card_owned_4
+		add_ideas = flower_relic_war_homework_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 5 } }
+		set_country_flag = flower_card_owned_5
+		add_ideas = flower_relic_black_market_dealer_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 6 } }
+		set_country_flag = flower_card_owned_6
+		add_ideas = flower_relic_specops_bootcamp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 7 } }
+		set_country_flag = flower_card_owned_7
+		add_ideas = flower_relic_marshal_cram_school_idea
+		random_army_leader = {
+			add_unit_leader_trait = flower_space_magician_trait
+		}
+		random_army_leader = {
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 8 } }
+		set_country_flag = flower_card_owned_8
+		add_ideas = flower_relic_bunker_crew_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 9 } }
+		set_country_flag = flower_card_owned_9
+		add_ideas = flower_relic_blitz_staff_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 10 } }
+		set_country_flag = flower_card_owned_10
+		add_ideas = flower_relic_sky_backyard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 11 } }
+		set_country_flag = flower_card_owned_11
+		add_ideas = flower_relic_field_surgery_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 12 } }
+		set_country_flag = flower_card_owned_12
+		add_ideas = flower_relic_fuel_stash_idea
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 13 } }
+		set_country_flag = flower_card_owned_13
+		add_ideas = flower_curse_burn_boats_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 14 } }
+		set_country_flag = flower_card_owned_14
+		add_ideas = flower_curse_flesh_alchemy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 15 } }
+		set_country_flag = flower_card_owned_15
+		add_ideas = flower_curse_espresso_march_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 16 } }
+		set_country_flag = flower_card_owned_16
+		add_ideas = flower_curse_berserk_trade_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 17 } }
+		set_country_flag = flower_card_owned_17
+		add_ideas = flower_curse_wallstreet_loan_idea
+		add_to_variable = { another_country_currency_reserve = 1000 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = arms_factory
+				level = 5
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = industrial_complex
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 18 } }
+		set_country_flag = flower_card_owned_18
+		add_ideas = flower_curse_mad_reactor_idea
+		add_research_slot = 1
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 19 } }
+		set_country_flag = flower_card_owned_19
+		add_ideas = flower_curse_no_step_back_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 20 } }
+		set_country_flag = flower_card_owned_20
+		add_ideas = flower_curse_overclock_magic_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 21 } }
+		flower_ai_open_branch_evolution_event = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 22 } }
+		flower_ai_open_starter_selection = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 23 } }
+		random_list = {
+			25 = {
+				add_research_slot = 1
+				add_to_variable = { another_country_currency_reserve = 500 }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			50 = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 20000
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 2000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 1000
+				}
+				add_to_variable = { another_country_currency_reserve = 250 }
+			}
+			25 = {
+				add_ideas = flower_roulette_anti_scam_idea
+				add_political_power = 150
+				army_experience = 50
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 24 } }
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_undead_stage_1_idea
+					has_idea = flower_undead_stage_2_idea
+					has_idea = flower_undead_stage_3_idea
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
+			flower_ai_summon_undead_wave = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_nightingale_stage_1_idea
+					has_idea = flower_nightingale_stage_2_idea
+					has_idea = flower_nightingale_stage_3_idea
+					has_country_flag = flower_roguelike_nightingale_ai
+				}
+			}
+			flower_ai_summon_nightingale_knights = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_guerrilla_stage_1_idea
+					has_idea = flower_guerrilla_stage_2_idea
+					has_idea = flower_guerrilla_stage_3_idea
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 20000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 1000
+		}
+		add_to_variable = { another_country_currency_reserve = 250 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 25 } }
+		set_country_flag = flower_card_owned_25
+		set_country_flag = flower_roguelike_nightingale_ai
+		set_technology = {
+			wangling2_tech = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			popup = no
+		}
+		add_ideas = flower_micro_nightingale_cloak_idea
+		flower_ai_summon_nightingale_knights = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 26 } }
+		set_country_flag = flower_card_owned_26
+		set_country_flag = flower_roguelike_guerrilla_ai
+		set_technology = {
+			youjidui_tech = 1
+			youji_on_me = 1
+			popup = no
+		}
+		add_ideas = flower_micro_guerrilla_manual_idea
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 27 } }
+		set_country_flag = flower_card_owned_27
+		set_country_flag = flower_roguelike_undead_ai
+		flower_ai_summon_undead_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 28 } }
+		set_country_flag = flower_card_owned_28
+		add_ideas = flower_micro_sanae_charm_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment
+			amount = 1
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 29 } }
+		set_country_flag = flower_card_owned_29
+		set_country_flag = flower_roguelike_tank_ai
+		set_technology = {
+			the_world_0 = 1
+			the_maid_0 = 1
+			popup = no
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 30 } }
+		set_country_flag = flower_card_owned_30
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 31 } }
+		set_country_flag = flower_card_owned_31
+		set_country_flag = flower_roguelike_corp_ai
+		flower_ai_add_builder_stack = yes
+		flower_ai_add_builder_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 32 } }
+		set_country_flag = flower_card_owned_32
+		flower_ai_add_slayer_stack = yes
+		flower_ai_add_slayer_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 33 } }
+		set_country_flag = flower_card_owned_33
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			yaojing_tech = 1
+			popup = no
+		}
+		add_ideas = flower_micro_elf_blessing_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 34 } }
+		set_country_flag = flower_card_owned_34
+		set_country_flag = flower_roguelike_magic_ai
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			popup = no
+		}
+		add_ideas = flower_micro_uma_dispatch_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 35 } }
+		random_army_leader = {
+			add_attack = 2
+			add_defense = 2
+			add_planning = 1
+			add_logistics = 1
+			add_unit_leader_trait = flower_wanrendi_trait
+		}
+		random_army_leader = {
+			add_attack = 1
+			add_defense = 1
+			add_planning = 2
+			add_logistics = 2
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 36 } }
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+		add_to_variable = { another_country_currency_reserve = 500 }
+		army_experience = 50
+		air_experience = 50
+	}
+	flower_ai_check_chemical_combos = yes
+}
+#执行槽位3卡牌效果
+flower_ai_apply_draft_slot_3 = {
+	add_to_variable = { flower_roguelike_cards_count = 1 }
+	if = {
+		limit = { check_variable = { flower_draft_slot_3 = 1 } }
+		set_country_flag = flower_card_owned_1
+		add_ideas = flower_relic_night_hunter_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 2 } }
+		set_country_flag = flower_card_owned_2
+		add_ideas = flower_relic_supply_wizard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 3 } }
+		set_country_flag = flower_card_owned_3
+		add_ideas = flower_relic_iron_assembly_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 4 } }
+		set_country_flag = flower_card_owned_4
+		add_ideas = flower_relic_war_homework_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 5 } }
+		set_country_flag = flower_card_owned_5
+		add_ideas = flower_relic_black_market_dealer_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 6 } }
+		set_country_flag = flower_card_owned_6
+		add_ideas = flower_relic_specops_bootcamp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 7 } }
+		set_country_flag = flower_card_owned_7
+		add_ideas = flower_relic_marshal_cram_school_idea
+		random_army_leader = {
+			add_unit_leader_trait = flower_space_magician_trait
+		}
+		random_army_leader = {
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 8 } }
+		set_country_flag = flower_card_owned_8
+		add_ideas = flower_relic_bunker_crew_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 9 } }
+		set_country_flag = flower_card_owned_9
+		add_ideas = flower_relic_blitz_staff_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 10 } }
+		set_country_flag = flower_card_owned_10
+		add_ideas = flower_relic_sky_backyard_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 11 } }
+		set_country_flag = flower_card_owned_11
+		add_ideas = flower_relic_field_surgery_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 12 } }
+		set_country_flag = flower_card_owned_12
+		add_ideas = flower_relic_fuel_stash_idea
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 13 } }
+		set_country_flag = flower_card_owned_13
+		add_ideas = flower_curse_burn_boats_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 14 } }
+		set_country_flag = flower_card_owned_14
+		add_ideas = flower_curse_flesh_alchemy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 15 } }
+		set_country_flag = flower_card_owned_15
+		add_ideas = flower_curse_espresso_march_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 16 } }
+		set_country_flag = flower_card_owned_16
+		add_ideas = flower_curse_berserk_trade_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 17 } }
+		set_country_flag = flower_card_owned_17
+		add_ideas = flower_curse_wallstreet_loan_idea
+		add_to_variable = { another_country_currency_reserve = 1000 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = arms_factory
+				level = 5
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = industrial_complex
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 18 } }
+		set_country_flag = flower_card_owned_18
+		add_ideas = flower_curse_mad_reactor_idea
+		add_research_slot = 1
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 19 } }
+		set_country_flag = flower_card_owned_19
+		add_ideas = flower_curse_no_step_back_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 20 } }
+		set_country_flag = flower_card_owned_20
+		add_ideas = flower_curse_overclock_magic_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 21 } }
+		flower_ai_open_branch_evolution_event = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 22 } }
+		flower_ai_open_starter_selection = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 23 } }
+		random_list = {
+			25 = {
+				add_research_slot = 1
+				add_to_variable = { another_country_currency_reserve = 500 }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			50 = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 20000
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 2000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 1000
+				}
+				add_to_variable = { another_country_currency_reserve = 250 }
+			}
+			25 = {
+				add_ideas = flower_roulette_anti_scam_idea
+				add_political_power = 150
+				army_experience = 50
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 24 } }
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_undead_stage_1_idea
+					has_idea = flower_undead_stage_2_idea
+					has_idea = flower_undead_stage_3_idea
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
+			flower_ai_summon_undead_wave = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_nightingale_stage_1_idea
+					has_idea = flower_nightingale_stage_2_idea
+					has_idea = flower_nightingale_stage_3_idea
+					has_country_flag = flower_roguelike_nightingale_ai
+				}
+			}
+			flower_ai_summon_nightingale_knights = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_guerrilla_stage_1_idea
+					has_idea = flower_guerrilla_stage_2_idea
+					has_idea = flower_guerrilla_stage_3_idea
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 20000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 1000
+		}
+		add_to_variable = { another_country_currency_reserve = 250 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 25 } }
+		set_country_flag = flower_card_owned_25
+		set_country_flag = flower_roguelike_nightingale_ai
+		set_technology = {
+			wangling2_tech = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			popup = no
+		}
+		add_ideas = flower_micro_nightingale_cloak_idea
+		flower_ai_summon_nightingale_knights = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 26 } }
+		set_country_flag = flower_card_owned_26
+		set_country_flag = flower_roguelike_guerrilla_ai
+		set_technology = {
+			youjidui_tech = 1
+			youji_on_me = 1
+			popup = no
+		}
+		add_ideas = flower_micro_guerrilla_manual_idea
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 27 } }
+		set_country_flag = flower_card_owned_27
+		set_country_flag = flower_roguelike_undead_ai
+		flower_ai_summon_undead_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 28 } }
+		set_country_flag = flower_card_owned_28
+		add_ideas = flower_micro_sanae_charm_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment
+			amount = 1
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 29 } }
+		set_country_flag = flower_card_owned_29
+		set_country_flag = flower_roguelike_tank_ai
+		set_technology = {
+			the_world_0 = 1
+			the_maid_0 = 1
+			popup = no
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 30 } }
+		set_country_flag = flower_card_owned_30
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 31 } }
+		set_country_flag = flower_card_owned_31
+		set_country_flag = flower_roguelike_corp_ai
+		flower_ai_add_builder_stack = yes
+		flower_ai_add_builder_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 32 } }
+		set_country_flag = flower_card_owned_32
+		flower_ai_add_slayer_stack = yes
+		flower_ai_add_slayer_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 33 } }
+		set_country_flag = flower_card_owned_33
+		set_country_flag = flower_roguelike_steampunk_ai
+		set_technology = {
+			yaojing_tech = 1
+			popup = no
+		}
+		add_ideas = flower_micro_elf_blessing_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 34 } }
+		set_country_flag = flower_card_owned_34
+		set_country_flag = flower_roguelike_magic_ai
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			popup = no
+		}
+		add_ideas = flower_micro_uma_dispatch_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 35 } }
+		random_army_leader = {
+			add_attack = 2
+			add_defense = 2
+			add_planning = 1
+			add_logistics = 1
+			add_unit_leader_trait = flower_wanrendi_trait
+		}
+		random_army_leader = {
+			add_attack = 1
+			add_defense = 1
+			add_planning = 2
+			add_logistics = 2
+		}
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 36 } }
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_naval
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+		add_to_variable = { another_country_currency_reserve = 500 }
+		army_experience = 50
+		air_experience = 50
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#检测六大隐藏跨流派共鸣
+flower_ai_check_chemical_combos = {
+	set_variable = { flower_new_combo_popup = 0 }
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_1_done }
+			OR = {
+				has_idea = flower_undead_stage_1_idea
+				has_idea = flower_undead_stage_2_idea
+				has_idea = flower_undead_stage_3_idea
+				has_country_flag = flower_card_owned_27
+			}
+			OR = {
+				has_idea = flower_curse_flesh_alchemy_idea
+				has_idea = flower_evo_undead_sweatshop_idea
+				has_idea = flower_corp_stage_1_idea
+				has_idea = flower_corp_stage_2_idea
+				has_idea = flower_corp_stage_3_idea
+				has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
+			}
+		}
+		set_country_flag = flower_combo_1_done
+		add_ideas = flower_combo_undead_sweatshop_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 1 }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_2_done }
+			OR = {
+				has_idea = flower_guerrilla_stage_1_idea
+				has_idea = flower_guerrilla_stage_2_idea
+				has_idea = flower_guerrilla_stage_3_idea
+				has_idea = flower_micro_guerrilla_manual_idea
+			}
+			OR = {
+				has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
+				has_idea = flower_relic_black_market_dealer_idea
+				has_idea = flower_evo_guerrilla_scorch_idea
+			}
+		}
+		set_country_flag = flower_combo_2_done
+		add_ideas = flower_combo_enemy_makes_our_guns_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 2 }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_3_done }
+			OR = {
+				has_idea = flower_nightingale_stage_1_idea
+				has_idea = flower_nightingale_stage_2_idea
+				has_idea = flower_nightingale_stage_3_idea
+				has_idea = flower_micro_nightingale_cloak_idea
+			}
+			OR = {
+				has_idea = flower_curse_overclock_magic_idea
+				has_idea = flower_arty_stage_1_idea
+				has_idea = flower_arty_stage_2_idea
+				has_idea = flower_arty_stage_3_idea
+				has_idea = flower_tank_stage_1_idea
+				has_idea = flower_tank_stage_2_idea
+				has_idea = flower_tank_stage_3_idea
+				has_idea = flower_micro_sanae_charm_idea
+			}
+		}
+		set_country_flag = flower_combo_3_done
+		add_ideas = flower_combo_eternal_night_barrage_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 3 }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_4_done }
+			OR = {
+				has_idea = flower_undead_stage_1_idea
+				has_idea = flower_undead_stage_2_idea
+				has_idea = flower_undead_stage_3_idea
+				has_idea = flower_wave_stage_1_idea
+				has_idea = flower_wave_stage_2_idea
+				has_idea = flower_wave_stage_3_idea
+				has_country_flag = flower_card_owned_27
+			}
+			OR = {
+				has_idea = flower_curse_berserk_trade_idea
+				has_idea = flower_curse_burn_boats_idea
+			}
+		}
+		set_country_flag = flower_combo_4_done
+		add_ideas = flower_combo_die_harder_engine_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 4 }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_5_done }
+			OR = {
+				has_idea = flower_air_stage_1_idea
+				has_idea = flower_air_stage_2_idea
+				has_idea = flower_air_stage_3_idea
+				has_idea = flower_steampunk_stage_1_idea
+				has_idea = flower_steampunk_stage_2_idea
+				has_idea = flower_steampunk_stage_3_idea
+				has_country_flag = flower_card_owned_30
+			}
+			OR = {
+				has_idea = flower_curse_wallstreet_loan_idea
+				has_idea = flower_corp_stage_1_idea
+				has_idea = flower_corp_stage_2_idea
+				has_idea = flower_corp_stage_3_idea
+				has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
+			}
+		}
+		set_country_flag = flower_combo_5_done
+		add_ideas = flower_combo_star_mic_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 5 }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_combo_6_done }
+			OR = {
+				has_idea = flower_magic_stage_1_idea
+				has_idea = flower_magic_stage_2_idea
+				has_idea = flower_magic_stage_3_idea
+				has_idea = flower_micro_uma_dispatch_idea
+			}
+			OR = {
+				has_idea = flower_nightingale_stage_1_idea
+				has_idea = flower_nightingale_stage_2_idea
+				has_idea = flower_nightingale_stage_3_idea
+				has_idea = flower_steampunk_stage_1_idea
+				has_idea = flower_steampunk_stage_2_idea
+				has_idea = flower_steampunk_stage_3_idea
+				has_idea = flower_micro_elf_blessing_idea
+				has_idea = flower_micro_nightingale_cloak_idea
+			}
+		}
+		set_country_flag = flower_combo_6_done
+		add_ideas = flower_combo_gensokyo_mobilize_idea
+		add_to_variable = { flower_roguelike_combos_count = 1 }
+		set_variable = { flower_new_combo_popup = 6 }
+	}
+	if = {
+		limit = {
+			is_ai = no
+			check_variable = { flower_new_combo_popup > 0 }
+		}
+		country_event = { id = FLWRG.50 days = 1 }
+	}
+}

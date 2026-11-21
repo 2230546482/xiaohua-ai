@@ -1,0 +1,426 @@
+#外交与战线策略
+PAJ_ally_NFA = {
+    allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		country_exists = NFA
+	}
+	abort = {
+		
+			NOT = { country_exists = PAN }
+			
+		
+	}
+	
+
+	ai_strategy = {
+		type = alliance
+		id = "PAN"			
+		value = 20
+	}	
+}
+
+PAJ_baohu_PAN = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		is_in_faction_with = PAN
+		OR={has_war_with = NFA
+		has_war_with = USA
+		has_war_with = ENG
+	}
+		
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = "PAN"
+		value = 5000
+	}
+	ai_strategy = {
+		type = force_defend_ally_borders
+		value = 2000
+		target = mainland_europe
+	}
+}
+
+PAJ_war_with_NFA = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		has_war_with = NFA		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "NFA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "NFA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = NFA
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = NFA
+		value = 100 #lets put more units, should be safe
+	}
+	
+}
+
+PAJ_war_with_USA= {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		has_war_with = USA		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "USA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "USA"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = USA
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = USA
+		value = 100 #lets put more units, should be safe
+	}
+	
+}
+
+PAJ_war_with_FRG= {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		has_war_with = FRG		
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade		#入侵
+		id = "FRG"			
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "FRG"			
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = FRG
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = FRG
+		value = 100 #lets put more units, should be safe
+	}
+	
+}
+
+PAJ_send_volunteer_army_to_SOV = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+	
+		SOV = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SOV
+		value = 400
+	}
+}
+
+PAJ_send_volunteer_army_to_ROM = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		ROM  = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ROM 
+		value = 400
+	}
+}
+
+PAJ_send_volunteer_army_to_MAL = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		MAL  = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = MAL 
+		value = 200
+	}
+}
+
+PAJ_send_volunteer_army_to_ROC = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		ROC  = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ROC
+		value = 200
+	}
+}
+
+PAJ_send_volunteer_army_to_CHI = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		CHI  = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = 200
+	}
+}
+
+PAJ_send_volunteer_army_to_NPT = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+	
+		NPT  = { has_war = yes 
+		has_government = communism}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = NPT
+		value = 100
+	}
+}
+
+PAJ_send_volunteer_army_to_LAN = {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		LAN = { 
+			has_war = yes 
+			has_government = communism
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = LAN
+		value = 20
+	}
+}
+
+PAJ_send_volunteer_army_to_NGD= {
+	allowed = {
+		original_tag = PAJ
+	}
+	enable = {
+		
+		NGD = { 
+			has_war = yes 
+		has_government = communism
+		
+	}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = NGD
+		value = 200
+	}
+}
+
+PAJ_send_volunteer_army_to_KMK= {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			
+			
+			KMK = { 
+				not = { has_war_with = FRA }
+				has_war = yes 
+				has_government = communism
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id =KMK
+			value = 300
+		}
+	}
+
+PAJ_send_volunteer_army_to_TUR= {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			
+			TUR= { 
+				has_war = yes 
+				
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = TUR
+			value = 20
+		}
+	}
+
+PAJ_send_volunteer_army_to_PER= {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			
+			PER= { 
+				has_war = yes 
+				has_government = communism
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = PER
+			value = 20
+		}
+	}
+
+PAJ_send_volunteer_army_to_TRY= {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			
+			TRY= { 
+				has_war = yes 
+			
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = TRY
+			value = 20
+		}
+	}
+
+PAJ_send_volunteer_army_to_FRA= {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			
+			FRA= { 
+				has_war = yes 
+				has_government = communism
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = FRA
+			value = 20
+		}
+	}
+
+	PAJ_germany_ally1KJHK = {
+		allowed = {
+			original_tag = PAJ
+		}
+		enable = {
+			country_exists = PAN
+		}
+		abort = {
+			NOT = {
+				country_exists = PAN
+			}
+		}
+		ai_strategy = {
+			type = befriend
+			id = "PAN"
+			value = 200
+		}
+		ai_strategy = {
+			type = alliance
+			id = "PAN"
+			value = 100
+		}
+		ai_strategy = {
+			type = protect
+			id = "PAN"
+			value = 100
+		}
+	}

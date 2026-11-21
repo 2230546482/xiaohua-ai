@@ -1,4 +1,7 @@
 southern_expansion = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_government = fascism
@@ -30,7 +33,12 @@ southern_expansion = {
 	}
 }
 
+
+
 northern_expansion = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_government = fascism
@@ -48,7 +56,12 @@ northern_expansion = {
 	}
 }
 
+
+
 chinese_war = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		country_exists = CHI
@@ -64,6 +77,8 @@ chinese_war = {
 		value = 200
 	}
 }
+
+
 
 jap_early_invasions_are_risky_and_best_wait_for_later = {
 	allowed = {
@@ -93,6 +108,8 @@ jap_early_invasions_are_risky_and_best_wait_for_later = {
 	}
 }
 
+
+
 germany_ally = {
 	allowed = {
 		tag = JAP
@@ -119,6 +136,8 @@ germany_ally = {
 	}
 }
 
+
+
 jap_china_is_weak = {
 	allowed = {
 		tag = JAP
@@ -128,12 +147,12 @@ jap_china_is_weak = {
 		date < 1939.10.1
 		NOT = {
 			has_war_with = CHI
-		}		# only underestimate the japanese before the war
+		}		#only underestimate the japanese before the war
 	}
 	abort = {
 		OR = {
 			date > 1939.10.1
-			has_war_with = CHI			# only underestimate the japanese before the war
+			has_war_with = CHI			#only underestimate the japanese before the war
 		}
 	}
 	ai_strategy = {
@@ -142,9 +161,15 @@ jap_china_is_weak = {
 		value = 50
 	}
 }
+
+
+
 JAP_dont_mess_with_volunteers = {
-	# Reverse strategy
+	#Reverse strategy
 	reversed = yes
+	allowed = {
+		NOT = { original_tag = JAP }
+	}
 	enable = {
 		NOT = {
 			tag = JAP
@@ -157,7 +182,7 @@ JAP_dont_mess_with_volunteers = {
 			}
 		}
 		capital_scope = {
-			is_on_continent = europe			# lets not mess with europe
+			is_on_continent = europe			#lets not mess with europe
 		}
 	}
 	abort = {
@@ -179,7 +204,13 @@ JAP_dont_mess_with_volunteers = {
 		value = -1000
 	}
 }
+
+
+
 jap_invasions_of_gxc_are_super_tough_and_waste_manpower = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		date < 1942.1.1		#if we still stuck we might need a trick
@@ -200,7 +231,12 @@ jap_invasions_of_gxc_are_super_tough_and_waste_manpower = {
 	}
 }
 
-jap_early_invasions_are_risky_and_best_wait_for_later = {
+
+
+jap_china_front_reinforcement = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_war_with = CHI
@@ -209,22 +245,22 @@ jap_early_invasions_are_risky_and_best_wait_for_later = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = CHI
-		value = 60 # lets put more units, should be safe
+		value = 60 #lets put more units, should be safe
 	}
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = ROC
-		value = 40 # lets put more units, should be safe
+		value = 40 #lets put more units, should be safe
 	}
 	#ai_strategy = {
-	#	type = invasion_unit_request
-	#	tag = CHI
-	#	value = -999
+	#type = invasion_unit_request
+	#tag = CHI
+	#value = -999
 	#}
 	#ai_strategy = {
-	#	type = invasion_unit_request
-	#	tag = ROC
-	#	value = -999
+	#type = invasion_unit_request
+	#tag = ROC
+	#value = -999
 	#}
 	ai_strategy = {
 		type = invasion_unit_request
@@ -232,7 +268,13 @@ jap_early_invasions_are_risky_and_best_wait_for_later = {
 		value = -999
 	}
 }
+
+
+
 jap_early_part_beware_allies = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		focus_progress = {
@@ -262,7 +304,13 @@ jap_early_part_beware_allies = {
 		value = 100
 	}
 }
+
+
+
 JAP_attack_MAL = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_war_with = MAL
@@ -328,14 +376,19 @@ JAP_attack_MAL = {
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
 	}	
 }
 
+
+
 JAP_attack_MAL_ex = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_war_with = MAL
@@ -382,7 +435,13 @@ JAP_attack_MAL_ex = {
 		id = 846
 	}
 }
+
+
+
 JAP_attack_RAJ = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_war_with = RAJ
@@ -414,7 +473,7 @@ JAP_attack_RAJ = {
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = careful
 		execute_order = yes
@@ -422,7 +481,11 @@ JAP_attack_RAJ = {
 }
 
 
+
 JAP_attack_AST = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_war_with = AST
@@ -448,7 +511,13 @@ JAP_attack_AST = {
 		value = 10
 	}
 }
+
+
+
 JAP_attack_VIN = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_government = fascism
@@ -475,7 +544,13 @@ JAP_attack_VIN = {
 		value = 10
 	}
 }
+
+
+
 JAP_attack_HAW = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_government = fascism
@@ -502,7 +577,13 @@ JAP_attack_HAW = {
 		value = 5
 	}
 }
+
+
+
 JAP_attack_ENG = {
+	allowed = {
+		original_tag = JAP
+	}
 	enable = {
 		tag = JAP
 		has_government = fascism
@@ -530,12 +611,15 @@ JAP_attack_ENG = {
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
 	}
 }
+
+
+
 JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry about for a while
 	allowed = {
 		original_tag = JAP
@@ -556,7 +640,7 @@ JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry 
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = careful
 	}
@@ -568,7 +652,7 @@ JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry 
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = careful
 	}
@@ -580,12 +664,14 @@ JAP_hold_up_in_china = { #We got this far but there are bigger targets to worry 
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = careful
 	}
 
 }
+
+
 
 JAP_will_war_to_CHI = {
     allowed = {
@@ -625,6 +711,8 @@ JAP_will_war_to_CHI = {
 
 }
 
+
+
 JAP_help_SHH = {
 	allowed = {
 		original_tag = JAP
@@ -640,6 +728,8 @@ JAP_help_SHH = {
 		value = 500
 	}
 }
+
+
 
 JAP_help_PAW = {
 	allowed = {
@@ -658,6 +748,8 @@ JAP_help_PAW = {
 	}
 }
 
+
+
 JAP_help_INS = {
 	allowed = {
 		original_tag = JAP
@@ -675,20 +767,25 @@ JAP_help_INS = {
 	}
 }
 
+
+
 JAP_you_should_be_prepared_for_war = {
-	allowed = { 
-		tag = JAP
+	allowed = {
+		original_tag = JAP
 	}
 	enable = {
-		always = yes
+		num_divisions < 300
+		check_variable = { Debt_ratio < 0.85 }
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
-        type = force_build_armies
-        value = 100
-    }
+		type = force_build_armies
+		value = 100
+	}
 }
+
+
+
 JAP_attack_in_china = { 
 	allowed = {
 		original_tag = JAP
@@ -712,7 +809,7 @@ JAP_attack_in_china = {
 
 		ratio = 0.3
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -726,7 +823,7 @@ JAP_attack_in_china = {
 
 		ratio = 0.2
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -739,13 +836,15 @@ JAP_attack_in_china = {
 
 		ratio = 0.2
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
 	}
 
 }
+
+
 
 JAP_attack_in_china_please = { 
 	allowed = {
@@ -767,7 +866,7 @@ JAP_attack_in_china_please = {
 
 		ratio = 0.3
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -781,7 +880,7 @@ JAP_attack_in_china_please = {
 
 		ratio = 0.2
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -794,13 +893,16 @@ JAP_attack_in_china_please = {
 
 		ratio = 0.2
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
 	}
 
 }
+
+
+
 JAP_y_game = {
 	allowed = { 
 		tag = JAP
@@ -813,5 +915,216 @@ JAP_y_game = {
 	ai_strategy = {
 		type = equipment_stockpile_surplus_ratio
 		value = -80
+	}
+}
+
+#外交与战线策略
+strike_usa = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		not = { has_government = democratic }
+		country_exists = USA
+	}
+	abort = {
+		NOT = {
+			country_exists = USA
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "USA"
+		value = 200
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ONM"
+		value = 200
+	}
+}
+
+JAP_attack_INS = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_war_with = INS
+	}
+	abort = {
+		NOT = {
+			country_exists = INS
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "INS"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "INS"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = INS
+		value = 10
+	}
+}
+
+JAP_attack_NZL = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = NZL
+	}
+	abort = {
+		NOT = {
+			country_exists = NZL
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "NZL"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "NZL"
+		value = 100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = NZL
+		value = 5
+	}
+}
+
+JAP_attack_ONM = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = ONM
+	}
+	abort = {
+		NOT = {
+			country_exists = ONM
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ONM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "ONM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = ONM
+		value = 10
+	}
+}
+
+JAP_attack_SIA = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = SIA 
+	}
+	abort = {
+		NOT = {
+			country_exists = SIA 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "SIA"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "SIA"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = SIA 
+		value = 10
+	}
+}
+
+JAP_attack_CAM = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = CAM 
+	}
+	abort = {
+		NOT = {
+			country_exists = CAM 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = CAM 
+		value = 10
+	}
+}
+
+JAP_SOV_dont__volunteers = {
+	allowed = {
+		tag = SOV
+	}
+	#Reverse strategy
+	enable = {
+		tag = SOV
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "VIN"
+		value = -1000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CAM"
+		value = -1000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ONM"
+		value = -1000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "LAO"
+		value = -1000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "BRM"
+		value = -1000
 	}
 }

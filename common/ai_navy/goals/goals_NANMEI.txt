@@ -1,0 +1,48 @@
+NANMEI_naval_invasion_support = {
+	objective_type = naval_invasion_support
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 8
+	max_priority = 20
+}
+
+NANMEI_invasion_defense = {
+	objective_type = naval_invasion_defense
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 12
+	max_priority = 22
+}
+
+NANMEI_coast_defense = {
+	objective_type = coast_defense
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 3
+	max_priority = 10
+}
+
+NANMEI_convoy_protection = {
+	objective_type = convoy_protection
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 8
+	max_priority = 18
+}
+
+NANMEI_convoy_raiding = {
+	objective_type = convoy_raiding
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 5
+	max_priority = 12
+}
+
+NANMEI_naval_dominance = {
+	objective_type = naval_dominance
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 8
+	max_priority = 18
+}
+
+NANMEI_training = {
+	objective_type = training
+	available_for = { PAU LHS PAO PAM PAQ KNM KFL }
+	min_priority = 10
+	max_priority = 22
+}

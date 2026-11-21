@@ -1,285 +1,1542 @@
-﻿add_namespace = FLWAI
+add_namespace = FLWAI
 country_event = {
-    id = FLWAI.1
-    title = FLWAI.1.t
-    desc = FLWAI.1.d
-    picture = GFX_event_flower_ai_1
-    is_triggered_only = yes
+	id = FLWAI.1
+	title = FLWAI.1.t
+	desc = FLWAI.1.d
+	picture = GFX_event_flower_ai_1
+	is_triggered_only = yes
 
-    option = {
-        name = FLWAI.1.e
-        ai_chance = {
-            factor = 0
-        }
-        set_country_flag = hua_ai_player
-        set_global_flag = red_apocalypse_ai
-        every_country = {
-            limit = {
-                is_ai = no
-                or = {
-                    TAG = PAO
-                    TAG = PAM
-                    TAG = PAU
-                    TAG = LHS
-                    TAG = KMK
-                    TAG = KNM
-                    TAG = FRA
-                    TAG = USA
-                    TAG = FRG
-                    TAG = NFA
-                    TAG = NGD
-                    TAG = SOV
-                    TAG = UKR
-                    TAG = DEN
-                    TAG = SWE
-                    TAG = PA1
-                    TAG = PAQ
-                    TAG = AFG
-                    TAG = TAM
-                    TAG = PER
-                    is_chinese_country = yes
-                }
-            }
-            add_ideas = red_neizhan_ai
-        }
-        every_country = {
-            limit = {
-                is_ai = yes
-            }
-            add_ideas = red_apocalypse_ai
-        }
-        hidden_effect = {
-            every_country = {
-            limit = {
-                is_ai = no
-            }
-            add_ideas = red_apocalypse_player
-        }
-        }
-    }
-    option = {
-        name = FLWAI.1.a
-        ai_chance = {
-            factor = 0
-        }
-        set_country_flag = hua_ai_player
-        set_global_flag = red_most_hard
-        every_country = {
-            limit = {
-                is_ai = no
-                or = {
-                    TAG = PAO
-                    TAG = PAM
-                    TAG = PAU
-                    TAG = LHS
-                    TAG = KMK
-                    TAG = KNM
-                    TAG = FRA
-                    TAG = USA
-                    TAG = FRG
-                    TAG = NFA
-                    TAG = NGD
-                    TAG = SOV
-                    TAG = UKR
-                    TAG = DEN
-                    TAG = SWE
-                    TAG = PA1
-                    TAG = PAQ
-                    TAG = AFG
-                    TAG = TAM
-                    TAG = PER
-                    is_chinese_country = yes
-                }
-            }
-            add_ideas = red_neizhan_ai
-        }
-        every_country = {
-            limit = {
-                is_ai = yes
-            }
-            add_ideas = red_most_hard_ai
-        }
-         hidden_effect = {
-            every_country = {
-            limit = {
-                is_ai = no
-            }
-            add_ideas = red_most_hard_player
-        }
-        }
-    }
-    option = {
-        name = FLWAI.1.b
-        ai_chance = {
-            factor = 0
-        }
-        set_country_flag = hua_ai_player
-        set_global_flag = red_hard
-        every_country = {
-            limit = {
-                is_ai = yes
-            }
-            add_ideas = red_hard_ai
-        }
-    }
-    option = {
-        name = FLWAI.1.c
-
-        ai_chance = {
-            factor = 0
-        }
-        set_country_flag = hua_ai_player
-        set_global_flag = red_normal_hard
-        every_country = {
-            limit = {
-                is_ai = yes
-            }
-            add_ideas = red_normal_hard_ai
-        }
-    }
-    option = {
-        name = FLWAI.1.f
-        set_country_flag = hua_ai_player
-        set_global_flag = red_none_hard
-        custom_effect_tooltip = FLWAI.1.f_tt
-        ai_chance = {
-            factor = 0
-        }
-    }
-}
-country_event = {
-    id = FLWAI.2
-    title = FLWAI.2.t
-    desc = FLWAI.2.d
-    picture = GFX_event_flower_ai_2
-    is_triggered_only = yes
-    immediate = {
-
-    }
-    option = {
-        name = FLWAI.2.a
-        ai_chance = {
-            factor = 0
-        }
-        trigger = {
-            not = {
-                tag = from
-            }
-        }
-        hidden_effect = {
-            random_list = {
-                50 = {
-                    hidden_effect = {
-                        scoped_sound_effect = "微笑"
-                    }
-                }
-                50 = {
-                    hidden_effect = {
-                        scoped_sound_effect = "大笑"
-                    }
-                }
-            }
-        }
-
-    }
-    option = {
-        name = FLWAI.2.b
-        ai_chance = {
-            factor = 0
-        }
-        trigger = {
-            tag = from
-        }
-        hidden_effect = {
-            random_list = {
-                50 = {
-                    hidden_effect = {
-                        scoped_sound_effect = "微笑"
-                    }
-                }
-                50 = {
-                    hidden_effect = {
-                        scoped_sound_effect = "大笑"
-                    }
-                }
-            }
-        }
-
-    }
-
-}
-
-country_event = {
-    id = FLWAI.2
-    title = FLWAI.2.t
-    desc = FLWAI.2.d
-    picture = GFX_event_flower_ai_1
-    is_triggered_only = yes
-    option = {
-        name = FLWAI.2.a
-        ai_chance = {
-            factor = 0
-        }
-        custom_effect_tooltip = FLWAI_who_is_qu
-    }
-}
-
-#给AI补buff
-country_event = {
-	id = FLWAI.114
-	title = FLWAI.114.t
-	desc = FLWAI.114.desc
-	trigger = {
-        NOT = {
-            TAG = ZDW
-        }
-        NOT = {
-            TAG = WL1
-        }
-		is_ai = yes
-		OR = {
-            has_global_flag = red_most_hard
-            has_global_flag = red_hard
-            has_global_flag = red_normal_hard
-            has_global_flag = red_apocalypse_ai
-        }
-        OR = {
-            NOT = {
-                has_idea = red_most_hard_ai
-                has_idea = red_hard_ai
-                has_idea = red_normal_hard_ai
-                has_idea = red_apocalypse_ai
-            }
-        }
-	}
-	mean_time_to_happen = {
-		days = 1
-	}
 	option = {
-		name = FLWAI.114.a
-        if = {
+		name = FLWAI.1.e
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = red_apocalypse_ai
+		set_global_flag = flower_anomaly_voting_open
+		every_country = {
+			limit = { is_ai = no }
+			set_country_flag = hua_ai_player
+		}
+		every_country = {
 			limit = {
-				has_global_flag = red_apocalypse_ai
+				is_ai = no
+				or = {
+					TAG = PAO
+					TAG = PAM
+					TAG = PAU
+					TAG = LHS
+					TAG = KMK
+					TAG = KNM
+					TAG = FRA
+					TAG = USA
+					TAG = FRG
+					TAG = NFA
+					TAG = NGD
+					TAG = SOV
+					TAG = UKR
+					TAG = DEN
+					TAG = SWE
+					TAG = PA1
+					TAG = PAQ
+					TAG = AFG
+					TAG = TAM
+					TAG = PER
+					is_chinese_country = yes
+				}
+			}
+			add_ideas = red_neizhan_ai
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
 			}
 			add_ideas = red_apocalypse_ai
 		}
-		if = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				add_ideas = red_apocalypse_player
+			}
+		}
+	}
+	option = {
+		name = FLWAI.1.a
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = red_most_hard
+		set_global_flag = flower_anomaly_voting_open
+		every_country = {
+			limit = { is_ai = no }
+			set_country_flag = hua_ai_player
+		}
+		every_country = {
 			limit = {
-				has_global_flag = red_most_hard
+				is_ai = no
+				or = {
+					TAG = PAO
+					TAG = PAM
+					TAG = PAU
+					TAG = LHS
+					TAG = KMK
+					TAG = KNM
+					TAG = FRA
+					TAG = USA
+					TAG = FRG
+					TAG = NFA
+					TAG = NGD
+					TAG = SOV
+					TAG = UKR
+					TAG = DEN
+					TAG = SWE
+					TAG = PA1
+					TAG = PAQ
+					TAG = AFG
+					TAG = TAM
+					TAG = PER
+					is_chinese_country = yes
+				}
+			}
+			add_ideas = red_neizhan_ai
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
 			}
 			add_ideas = red_most_hard_ai
 		}
-        if = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				add_ideas = red_most_hard_player
+			}
+		}
+	}
+	option = {
+		name = FLWAI.1.b
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = red_hard
+		set_global_flag = flower_anomaly_voting_open
+		every_country = {
+			limit = { is_ai = no }
+			set_country_flag = hua_ai_player
+		}
+		every_country = {
 			limit = {
-				has_global_flag = red_hard
+				is_ai = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
 			}
 			add_ideas = red_hard_ai
 		}
-        if = {
+	}
+	option = {
+		name = FLWAI.1.c
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = red_normal_hard
+		set_global_flag = flower_anomaly_voting_open
+		every_country = {
+			limit = { is_ai = no }
+			set_country_flag = hua_ai_player
+		}
+		every_country = {
 			limit = {
-				has_global_flag = red_normal_hard
+				is_ai = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
 			}
 			add_ideas = red_normal_hard_ai
 		}
+	}
+	option = {
+		name = FLWAI.1.f
+		set_global_flag = red_none_hard
+		set_global_flag = flower_anomaly_voting_open
+		every_country = {
+			limit = { is_ai = no }
+			set_country_flag = hua_ai_player
+		}
+		custom_effect_tooltip = FLWAI.1.f_tt
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = FLWAI.2
+	title = FLWAI.2.t
+	desc = FLWAI.2.d
+	picture = GFX_event_flower_ai_2
+	is_triggered_only = yes
+	option = {
+		name = FLWAI.2.a
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			not = {
+				tag = from
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					scoped_sound_effect = "微笑"
+				}
+				50 = {
+					scoped_sound_effect = "大笑"
+				}
+			}
+		}
+	}
+	option = {
+		name = FLWAI.2.b
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			tag = from
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					scoped_sound_effect = "微笑"
+				}
+				50 = {
+					scoped_sound_effect = "大笑"
+				}
+			}
+		}
+	}
+}
+
+#肉鸽奇遇抽卡·第1页（战地拾荒扒衣流、黑灯工厂滚雪球流、0宽神风火炮流）
+country_event = {
+	id = FLWAI.10
+	title = FLWAI.10.t
+	desc = FLWAI.10.d
+	picture = GFX_cirno_s_event
+	is_triggered_only = yes
+
+	#选项A：【流派一：战地拾荒与掠夺流】《战利品记仇账本》
+	option = {
+		name = FLWAI.10.a
+		ai_chance = {
+			factor = 30
+		}
+		custom_effect_tooltip = FLWAI.10.a_tt
+		flower_ai_check_chemical_combos = yes
+		if = {
+			limit = {
+				check_variable = { flower_slayer_stacks > 1 }
+				NOT = { has_country_flag = flower_evo_slayer_done }
+			}
+			set_country_flag = flower_evo_slayer_done
+			country_event = { id = FLWRG.14 days = 2 }
+		}
+		flower_ai_add_slayer_stack = yes
+		flower_ai_add_slayer_stack = yes
+	}
+
+	#选项B：【流派二：基建狂魔与黑灯巨企流】《五年计划流水账》（叠层返厂+三阶黑灯巨企，不与轮椅冲突）
+	option = {
+		name = FLWAI.10.b
+		ai_chance = {
+			factor = 30
+		}
+		custom_effect_tooltip = FLWAI.10.b_tt
+		flower_ai_check_chemical_combos = yes
+		if = {
+			limit = {
+				check_variable = { flower_builder_stacks > 1 }
+				NOT = { has_country_flag = flower_evo_corp_done }
+			}
+			set_country_flag = flower_evo_corp_done
+			country_event = { id = FLWRG.15 days = 2 }
+		}
+		if = {
+			limit = { check_variable = { flower_builder_next_goal < 1 } }
+			set_variable = { flower_builder_next_goal = num_of_factories }
+			add_to_variable = { flower_builder_next_goal = 15 }
+		}
+		flower_ai_add_builder_stack = yes
+		flower_ai_add_builder_stack = yes
+		if = {
+			limit = { has_idea = flower_corp_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_corp_stage_2_idea
+				add_idea = flower_corp_stage_3_idea
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_corp_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_corp_stage_1_idea
+				add_idea = flower_corp_stage_2_idea
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_idea = flower_corp_stage_3_idea } }
+			add_ideas = flower_corp_stage_1_idea
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+	}
+
+	#选项C：【流派三：大舰巨炮与火力洗地流】《炸平山头俱乐部》
+	option = {
+		name = FLWAI.10.c
+		ai_chance = {
+			factor = 25
+		}
+		set_country_flag = flower_roguelike_arty_ai
+		if = {
+			limit = { has_idea = flower_arty_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_arty_stage_2_idea
+				add_idea = flower_arty_stage_3_idea
+			}
+			set_technology = {
+				tech_Sanae_Artillery = 1
+				popup = no
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 2500
+			}
+			custom_effect_tooltip = FLWAI.10.c_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_arty_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_arty_stage_1_idea
+				add_idea = flower_arty_stage_2_idea
+			}
+			set_technology = {
+				gw_artillery = 1
+				interwar_artillery = 1
+				artillery1 = 1
+				artillery2 = 1
+				rocket_artillery = 1
+				PA1_tank_Bratino_warm_pressure_rocket = 1
+				popup = no
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 1500
+			}
+			custom_effect_tooltip = FLWAI.10.c_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_arty_done } }
+				set_country_flag = flower_evo_arty_done
+				country_event = { id = FLWRG.16 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_arty_stage_3_idea }
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 5000
+			}
+			army_experience = 100
+		}
+		else = {
+			add_ideas = flower_arty_stage_1_idea
+			set_technology = {
+				gw_artillery = 1
+				interwar_artillery = 1
+				railway_gun = 1
+				popup = no
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 1000
+			}
+			add_equipment_to_stockpile = {
+				type = railway_gun_equipment
+				amount = 2
+			}
+			custom_effect_tooltip = FLWAI.10.c_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项D：翻到第2页（废土高达流、遮天斯图卡空天流、不死督战队人海流）
+	option = {
+		name = FLWAI.10.e
+		ai_chance = {
+			factor = 15
+		}
+		country_event = { id = FLWAI.11 }
+	}
+}
+
+#肉鸽奇遇抽卡·第2页（废土改装高达流、遮天斯图卡空天流、不死督战队人海流）
+country_event = {
+	id = FLWAI.11
+	title = FLWAI.11.t
+	desc = FLWAI.11.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	#选项A：【流派四：废土改装与装甲怪兽流】《机械师的疯人院》
+	option = {
+		name = FLWAI.11.a
+		ai_chance = {
+			factor = 35
+		}
+		set_country_flag = flower_roguelike_tank_ai
+		if = {
+			limit = { has_idea = flower_tank_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_tank_stage_2_idea
+				add_idea = flower_tank_stage_3_idea
+			}
+			enable_equipment_modules = {
+				Armor_Computing_Network
+				Artificial_Intelligence_Assisted_Module
+				air_Artificial_Intelligence_Assisted_Module
+			}
+			set_technology = {
+				the_world_0 = 1
+				the_world_1 = 1
+				the_maid_0 = 1
+				tech_modern_theworld_tank = 1
+				popup = no
+			}
+			custom_effect_tooltip = FLWAI.11.a_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_tank_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_tank_stage_1_idea
+				add_idea = flower_tank_stage_2_idea
+			}
+			enable_equipment_modules = {
+				tank_dual_mounted_cannon
+				tank_Bratino_warm_pressure_rocket
+				tank_magnetic_energy_amplification_projectile
+			}
+			set_technology = {
+				SOV_tank_dual_mounted_cannon = 1
+				PAU_airborne_light_armor_tech = 1
+				PAU_airborne_armor_glider_tech = 1
+				PAU_airborne_armor_drop_pod_tech = 1
+				popup = no
+			}
+			custom_effect_tooltip = FLWAI.11.a_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_tank_done } }
+				set_country_flag = flower_evo_tank_done
+				country_event = { id = FLWRG.17 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_tank_stage_3_idea }
+			army_experience = 100
+			add_to_variable = { another_country_currency_reserve = 250 }
+		}
+		else = {
+			add_ideas = flower_tank_stage_1_idea
+			set_technology = {
+				gwtank_chassis = 1
+				basic_light_tank_chassis = 1
+				basic_medium_tank_chassis = 1
+				popup = no
+			}
+			army_experience = 50
+			custom_effect_tooltip = FLWAI.11.a_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项B：【流派五：制空遮天与王牌空天流】《把天空染成黑压压一片》
+	option = {
+		name = FLWAI.11.b
+		ai_chance = {
+			factor = 30
+		}
+		set_country_flag = flower_roguelike_air_ai
+		if = {
+			limit = { has_idea = flower_air_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_air_stage_2_idea
+				add_idea = flower_air_stage_3_idea
+			}
+			set_technology = {
+				flying_saucer_tech = 1
+				popup = no
+			}
+			add_equipment_to_stockpile = {
+				type = flying_saucer_equipment_0
+				amount = 250
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 5
+			}
+			air_experience = 150
+			custom_effect_tooltip = FLWAI.11.b_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_air_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_air_stage_1_idea
+				add_idea = flower_air_stage_2_idea
+			}
+			enable_equipment_modules = {
+				air_Artificial_Intelligence_Assisted_Module
+			}
+			set_technology = {
+				Siege_helicopter_available = 1
+				Siege_helicopter_0 = 1
+				Siege_helicopter_1 = 1
+				strike_unit1 = 1
+				paratroopers = 1
+				paratroopers2 = 1
+				popup = no
+			}
+			air_experience = 100
+			custom_effect_tooltip = FLWAI.11.b_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_air_done } }
+				set_country_flag = flower_evo_air_done
+				country_event = { id = FLWRG.18 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_air_stage_3_idea }
+			air_experience = 150
+			add_to_variable = { another_country_currency_reserve = 250 }
+		}
+		else = {
+			add_ideas = flower_air_stage_1_idea
+			air_experience = 100
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 2
+			}
+			custom_effect_tooltip = FLWAI.11.b_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项C：【流派六：人海狂潮与不死督战队流】《只要人够多，子弹就不够用》
+	option = {
+		name = FLWAI.11.c
+		ai_chance = {
+			factor = 25
+		}
+		set_country_flag = flower_roguelike_wave_ai
+		if = {
+			limit = { has_idea = flower_wave_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_wave_stage_2_idea
+				add_idea = flower_wave_stage_3_idea
+			}
+			set_technology = {
+				Ghost_King = 1
+				steel_ronin = 1
+				Laser_Warrior = 1
+				popup = no
+			}
+			add_manpower = 100000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 25000
+			}
+			custom_effect_tooltip = FLWAI.11.c_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_wave_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_wave_stage_1_idea
+				add_idea = flower_wave_stage_2_idea
+			}
+			set_technology = {
+				tech_field_hospital = 1
+				tech_field_hospital2 = 1
+				tech_military_police = 1
+				popup = no
+			}
+			add_manpower = 75000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 20000
+			}
+			custom_effect_tooltip = FLWAI.11.c_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_wave_done } }
+				set_country_flag = flower_evo_wave_done
+				country_event = { id = FLWRG.19 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_wave_stage_3_idea }
+			add_manpower = 150000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 25000
+			}
+		}
+		else = {
+			add_ideas = flower_wave_stage_1_idea
+			add_manpower = 50000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 15000
+			}
+			custom_effect_tooltip = FLWAI.11.c_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项D：翻到第3页（异界禁书召唤流、后院孵怪蛋、军令状与黑市俄罗斯轮盘）
+	option = {
+		name = FLWAI.11.e
+		ai_chance = {
+			factor = 10
+		}
+		country_event = { id = FLWAI.12 }
+	}
+}
+
+#肉鸽奇遇抽卡·第3页（夜莺骑士团流、野火游击队流、躁动的亡灵流）
+country_event = {
+	id = FLWAI.12
+	title = FLWAI.12.t
+	desc = FLWAI.12.d
+	picture = GFX_event_PAO_yeying
+	is_triggered_only = yes
+
+	#选项A：【流派七：夜莺骑士团流】《星月下的不眠铁骑》（夜莺魂灵 -> 夜莺骑士团 -> 童话终章）
+	option = {
+		name = FLWAI.12.a
+		ai_chance = {
+			factor = 35
+		}
+		set_country_flag = flower_roguelike_nightingale_ai
+		if = {
+			limit = { has_idea = flower_nightingale_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_nightingale_stage_2_idea
+				add_idea = flower_nightingale_stage_3_idea
+			}
+			set_technology = {
+				PAO_wangling3tupo2 = 1
+				PAO_gongbing = 1
+				PAO_yjwl = 1
+				PAO_yjwl2 = 1
+				DVL_Coordinated_operations_tech = 1
+				popup = no
+			}
+			random_army_leader = {
+				add_unit_leader_trait = PAO_tonghua
+			}
+			flower_ai_summon_nightingale_knights = yes
+			custom_effect_tooltip = FLWAI.12.a_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_nightingale_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_nightingale_stage_1_idea
+				add_idea = flower_nightingale_stage_2_idea
+			}
+			set_technology = {
+				wangling3_tech = 1
+				magic_artillery1 = 1
+				wangling2_on_me = 1
+				PAO_wangling3tupo = 1
+				popup = no
+			}
+			flower_ai_summon_nightingale_knights = yes
+			custom_effect_tooltip = FLWAI.12.a_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_nightingale_done } }
+				set_country_flag = flower_evo_nightingale_done
+				country_event = { id = FLWRG.11 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_nightingale_stage_3_idea }
+			flower_ai_summon_nightingale_knights = yes
+			army_experience = 100
+		}
+		else = {
+			add_ideas = flower_nightingale_stage_1_idea
+			set_technology = {
+				wangling2_tech = 1
+				magic_weapons0 = 1
+				magic_weapons1 = 1
+				popup = no
+			}
+			flower_ai_summon_nightingale_knights = yes
+			custom_effect_tooltip = FLWAI.12.a_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项B：【流派八：野火游击队流】《星星之火，敌后开花》（1.6宽游击 -> 1.3宽地道地雷 -> 游击海自动刷师）
+	option = {
+		name = FLWAI.12.b
+		ai_chance = {
+			factor = 30
+		}
+		set_country_flag = flower_roguelike_guerrilla_ai
+		if = {
+			limit = { has_idea = flower_guerrilla_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_guerrilla_stage_2_idea
+				add_idea = flower_guerrilla_stage_3_idea
+			}
+			set_technology = {
+				youji_on_me6 = 1
+				youji_on_me7 = 1
+				youji_on_me8 = 1
+				youji_on_me13 = 1
+				popup = no
+			}
+			random_army_leader = {
+				add_unit_leader_trait = LHS_youjitiancai
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+			custom_effect_tooltip = FLWAI.12.b_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_guerrilla_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_guerrilla_stage_1_idea
+				add_idea = flower_guerrilla_stage_2_idea
+			}
+			set_technology = {
+				youji_on_me2 = 1
+				youji_on_me3 = 1
+				youji_on_me4 = 1
+				youji_on_me5 = 1
+				popup = no
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			custom_effect_tooltip = FLWAI.12.b_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_guerrilla_done } }
+				set_country_flag = flower_evo_guerrilla_done
+				country_event = { id = FLWRG.12 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_guerrilla_stage_3_idea }
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+		}
+		else = {
+			add_ideas = flower_guerrilla_stage_1_idea
+			set_technology = {
+				youjidui_tech = 1
+				youji_on_me = 1
+				popup = no
+			}
+			flower_ai_summon_guerrilla_wave = yes
+			flower_ai_summon_guerrilla_wave = yes
+			custom_effect_tooltip = FLWAI.12.b_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项C：【流派九：躁动的亡灵流】《倒下的全给我站起来！》（0.2宽亡灵群 -> 战损自动起尸 -> 16营亡灵天灾亲卫军）
+	option = {
+		name = FLWAI.12.c
+		ai_chance = {
+			factor = 25
+		}
+		set_country_flag = flower_roguelike_undead_ai
+		if = {
+			limit = { has_idea = flower_undead_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_undead_stage_2_idea
+				add_idea = flower_undead_stage_3_idea
+			}
+			flower_ai_summon_undead_wave = yes
+			flower_ai_summon_undead_wave = yes
+			custom_effect_tooltip = FLWAI.12.c_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_undead_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_undead_stage_1_idea
+				add_idea = flower_undead_stage_2_idea
+			}
+			flower_ai_summon_undead_wave = yes
+			custom_effect_tooltip = FLWAI.12.c_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_undead_done } }
+				set_country_flag = flower_evo_undead_done
+				country_event = { id = FLWRG.13 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_undead_stage_3_idea }
+			flower_ai_summon_undead_wave = yes
+		}
+		else = {
+			add_ideas = flower_undead_stage_1_idea
+			flower_ai_summon_undead_wave = yes
+			custom_effect_tooltip = FLWAI.12.c_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项D：翻到第4页（异界禁书召唤流、森林妖精与蒸汽飞碟流、怪蛋与黑市俄罗斯轮盘）
+	option = {
+		name = FLWAI.12.e
+		ai_chance = {
+			factor = 10
+		}
+		country_event = { id = FLWAI.13 }
+	}
+}
+
+#肉鸽奇遇抽卡·第4页（异界禁书召唤流、森林妖精与蒸汽飞碟流、怪蛋孵化与黑市俄罗斯轮盘赌狗流）
+country_event = {
+	id = FLWAI.13
+	title = FLWAI.13.t
+	desc = FLWAI.13.d
+	picture = GFX_KMK.0098
+	is_triggered_only = yes
+
+	#选项A：【流派十：异界禁书召唤流】《魔法部禁止公开的禁书目录》
+	option = {
+		name = FLWAI.13.a
+		ai_chance = {
+			factor = 35
+		}
+		set_country_flag = flower_roguelike_magic_ai
+		if = {
+			limit = { has_idea = flower_magic_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_magic_stage_2_idea
+				add_idea = flower_magic_stage_3_idea
+			}
+			set_technology = {
+				Chaos_Warrior = 1
+				Chaos_Beast = 1
+				Chaos_Demon = 1
+				Chaos_Chose = 1
+				Artifact_research_available = 1
+				Artifact_0 = 1
+				Artifact_1 = 1
+				dragon_rider_tech = 1
+				SWE_Legendary_Dragon_Knight_tech = 1
+				popup = no
+			}
+			random_army_leader = {
+				add_unit_leader_trait = flower_dimension_ripper_trait
+			}
+			custom_effect_tooltip = FLWAI.13.a_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_magic_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_magic_stage_1_idea
+				add_idea = flower_magic_stage_2_idea
+			}
+			set_technology = {
+				AUTO_META_research_available = 1
+				auto_meta_0 = 1
+				auto_meta_1 = 1
+				Construct_knight_research_available = 1
+				construct_knight_1 = 1
+				xrkl_tech = 1
+				popup = no
+			}
+			custom_effect_tooltip = FLWAI.13.a_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_magic_done } }
+				set_country_flag = flower_evo_magic_done
+				country_event = { id = FLWRG.20 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_magic_stage_3_idea }
+			random_army_leader = {
+				add_unit_leader_trait = flower_dimension_ripper_trait
+			}
+			add_command_power = 100
+		}
+		else = {
+			add_ideas = flower_magic_stage_1_idea
+			set_technology = {
+				TAM_umamusume_tech_0 = 1
+				TAM_umamusume_technology = 1
+				tech_magic_silverspear_pegasus = 1
+				elephantry = 1
+				popup = no
+			}
+			custom_effect_tooltip = FLWAI.13.a_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项B：【流派十一：森林妖精与蒸汽飞碟流】《奇幻朋克实验室》
+	option = {
+		name = FLWAI.13.b
+		ai_chance = {
+			factor = 30
+		}
+		set_country_flag = flower_roguelike_steampunk_ai
+		if = {
+			limit = { has_idea = flower_steampunk_stage_2_idea }
+			swap_ideas = {
+				remove_idea = flower_steampunk_stage_2_idea
+				add_idea = flower_steampunk_stage_3_idea
+			}
+			set_technology = {
+				flying_saucer_tech = 1
+				popup = no
+			}
+			add_equipment_to_stockpile = {
+				type = flying_saucer_equipment_0
+				amount = 500
+			}
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 2
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 2
+			}
+			add_breakthrough_points = {
+				specialization = specialization_nuclear
+				value = 2
+			}
+			custom_effect_tooltip = FLWAI.13.b_stage3_tt
+			flower_ai_check_chemical_combos = yes
+			flower_ai_check_dual_mastery_synergy = yes
+		}
+		else_if = {
+			limit = { has_idea = flower_steampunk_stage_1_idea }
+			swap_ideas = {
+				remove_idea = flower_steampunk_stage_1_idea
+				add_idea = flower_steampunk_stage_2_idea
+			}
+			set_technology = {
+				steamtank1 = 1
+				Sky_Thunder_tech = 1
+				popup = no
+			}
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 2
+			}
+			custom_effect_tooltip = FLWAI.13.b_stage2_tt
+			flower_ai_check_chemical_combos = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_punk_done } }
+				set_country_flag = flower_evo_punk_done
+				country_event = { id = FLWRG.21 days = 2 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_steampunk_stage_3_idea }
+			add_equipment_to_stockpile = {
+				type = flying_saucer_equipment_0
+				amount = 500
+			}
+			add_to_variable = { another_country_currency_reserve = 250 }
+		}
+		else = {
+			add_ideas = flower_steampunk_stage_1_idea
+			set_technology = {
+				yaojing_tech = 1
+				onm_unlock_unit_snake = 1
+				bamboo_grove_squad_tech = 1
+				popup = no
+			}
+			custom_effect_tooltip = FLWAI.13.b_stage1_tt
+			flower_ai_check_chemical_combos = yes
+		}
+	}
+
+	#选项C：【流派十二：破茧孵蛋 & 黑市俄罗斯轮盘大转盘】
+	option = {
+		name = FLWAI.13.c
+		ai_chance = {
+			factor = 25
+		}
+		custom_effect_tooltip = FLWAI.13.c_tt
+		if = {
+			limit = {
+				NOT = { has_idea = flower_mystery_egg_incubating_idea }
+				NOT = { has_idea = flower_mystery_egg_hatched_idea }
+			}
+			add_ideas = flower_mystery_egg_incubating_idea
+			country_event = { id = FLWAI.23 days = 270 }
+		}
+		if = {
+			limit = {
+				NOT = { has_idea = flower_blood_wager_active_idea }
+				NOT = { has_idea = flower_blood_wager_victory_idea }
+			}
+			add_ideas = flower_blood_wager_active_idea
+			set_variable = { flower_wager_goal_states = num_controlled_states }
+			add_to_variable = { flower_wager_goal_states = 2 }
+			set_variable = { flower_wager_goal_factories = num_of_factories }
+			add_to_variable = { flower_wager_goal_factories = 10 }
+			country_event = { id = FLWAI.24 days = 180 }
+		}
+		#同时当场转动一次黑市俄罗斯轮盘！
+		if = {
+			limit = { has_country_flag = flower_roulette_pity_ready }
+			clr_country_flag = flower_roulette_pity_ready
+			add_research_slot = 1
+			add_to_variable = { another_country_currency_reserve = 1000 }
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_list = {
+				25 = {
+					add_research_slot = 1
+					add_to_variable = { another_country_currency_reserve = 1000 }
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 2
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 5
+						add_building_construction = {
+							type = arms_factory
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				50 = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 20000
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 2000
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 1000
+					}
+					army_experience = 100
+					add_to_variable = { another_country_currency_reserve = 250 }
+				}
+				25 = {
+					add_political_power = -75
+					add_ideas = flower_roulette_anti_scam_idea
+					set_country_flag = flower_roulette_pity_ready
+				}
+			}
+		}
+	}
+
+	#选项D：翻回第1页（战地拾荒扒衣流、黑灯工厂巨企流、0宽神风火炮流）
+	option = {
+		name = FLWAI.13.e
+		ai_chance = {
+			factor = 10
+		}
+		country_event = { id = FLWAI.10 }
+	}
+}
+
+#《战利品记仇账本》叠满5层/10层突破觉醒事件
+country_event = {
+	id = FLWAI.21
+	title = FLWAI.21.t
+	desc = FLWAI.21.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	option = {
+		name = FLWAI.21.a
+		ai_chance = { factor = 50 }
+		set_technology = {
+			tech_germany_spuerman = 1
+			JAP_namizuozhan = 1
+			JAP_zhongjiwushi = 1
+			popup = no
+		}
+		army_experience = 100
+	}
+	option = {
+		name = FLWAI.21.b
+		ai_chance = { factor = 50 }
+		set_technology = {
+			MGU_Bulletproof_stockings_tech = 1
+			MGU_Bulletproof_latex_tech = 1
+			tech_Purified_Fairy = 1
+			popup = no
+		}
+		army_experience = 100
+	}
+}
+
+#《基建狂魔的流水账》叠满5层突破事件
+country_event = {
+	id = FLWAI.22
+	title = FLWAI.22.t
+	desc = FLWAI.22.d
+	picture = GFX_KMK.0098
+	is_triggered_only = yes
+
+	option = {
+		name = FLWAI.22.a
+		add_research_slot = 1
+		set_country_flag = flower_roguelike_jiahao_unlocked
+		add_to_variable = { another_country_currency_reserve = 500 }
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+#《后院挖出来的怪蛋》270天破壳孵化事件
+country_event = {
+	id = FLWAI.23
+	title = FLWAI.23.t
+	desc = FLWAI.23.d
+	picture = GFX_cirno_s_event
+	is_triggered_only = yes
+
+	#选项A：发条自律人偶兵团
+	option = {
+		name = FLWAI.23.a
+		ai_chance = { factor = 40 }
+		remove_ideas = flower_mystery_egg_incubating_idea
+		add_ideas = flower_mystery_egg_hatched_idea
+		set_technology = {
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			auto_meta_1 = 1
+			auto_meta_2 = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 10000
+		}
+		add_manpower = 50000
+		flower_ai_open_roguelike_draft = yes
+	}
+	#选项B：卡美洛圣杯构装机甲骑士团
+	option = {
+		name = FLWAI.23.b
+		ai_chance = { factor = 35 }
+		remove_ideas = flower_mystery_egg_incubating_idea
+		add_ideas = flower_mystery_egg_hatched_idea
+		set_technology = {
+			Construct_knight_research_available = 1
+			construct_knight_1 = 1
+			construct_knight_2 = 1
+			Siege_helicopter_available = 1
+			Siege_helicopter_0 = 1
+			popup = no
+		}
+		army_experience = 100
+		add_manpower = 50000
+		flower_ai_open_roguelike_draft = yes
+	}
+	#选项C：特雷森赛马娘与银枪天马极速突击旅
+	option = {
+		name = FLWAI.23.c
+		ai_chance = { factor = 25 }
+		remove_ideas = flower_mystery_egg_incubating_idea
+		add_ideas = flower_mystery_egg_hatched_idea
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			tech_magic_silverspear_pegasus = 1
+			elephantry = 1
+			popup = no
+		}
+		army_experience = 100
+		add_manpower = 50000
+		flower_ai_open_roguelike_draft = yes
+	}
+}
+
+#《带血的半年军令状》180天到期验收事件
+country_event = {
+	id = FLWAI.24
+	title = FLWAI.24.t
+	desc = FLWAI.24.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	#达标兑现大奖
+	option = {
+		name = FLWAI.24.a
+		trigger = {
+			OR = {
+				check_variable = { num_controlled_states > flower_wager_goal_states }
+				check_variable = { num_of_factories > flower_wager_goal_factories }
+			}
+		}
+		remove_ideas = flower_blood_wager_active_idea
+		add_ideas = flower_blood_wager_victory_idea
+		add_research_slot = 1
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		random_owned_controlled_state = {
+			limit = {
+				can_construct_building = land_facility
+			}
+			construct_building_in_random_province = {
+				land_facility = 1
+			}
+		}
+	}
+
+	#未达标罚酒三杯
+	option = {
+		name = FLWAI.24.b
+		trigger = {
+			NOT = {
+				check_variable = { num_controlled_states > flower_wager_goal_states }
+				check_variable = { num_of_factories > flower_wager_goal_factories }
+			}
+		}
+		remove_ideas = flower_blood_wager_active_idea
+		add_ideas = flower_blood_wager_consolation_idea
+		add_political_power = -50
+	}
+}
+
+#畸变3专属：《全球金融风暴与华尔街恶魔交易所》（做多、恶意做空宿敌、收购兵工厂、分红）
+country_event = {
+	id = FLWAI.25
+	title = FLWAI.25.t
+	desc = FLWAI.25.d
+	picture = GFX_KMK.0098
+	is_triggered_only = yes
+
+	#选项A：满仓杠杆做多本国军工大盘！
+	option = {
+		name = FLWAI.25.a
+		ai_chance = { factor = 35 }
+		subtract_from_variable = { another_country_currency_reserve = 200 }
+		add_timed_idea = {
+			idea = flower_tycoon_bull_market_idea
+			days = 180
+		}
+	}
+
+	#选项B：联合华尔街大鳄，恶意做空头号交战对手/宿敌大国！
+	option = {
+		name = FLWAI.25.b
+		ai_chance = { factor = 25 }
+		subtract_from_variable = { another_country_currency_reserve = 250 }
+		if = {
+			limit = { any_enemy_country = { exists = yes } }
+			random_enemy_country = {
+				add_timed_idea = {
+					idea = flower_tycoon_short_squeezed_idea
+					days = 180
+				}
+			}
+		}
+		else = {
+			random_other_country = {
+				limit = {
+					is_major = yes
+					NOT = { is_in_faction_with = ROOT }
+				}
+				add_timed_idea = {
+					idea = flower_tycoon_short_squeezed_idea
+					days = 180
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 10000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1000
+		}
+	}
+
+	#选项C：用支票簿跨国收购整条海外兵工厂与科学家团队！
+	option = {
+		name = FLWAI.25.c
+		ai_chance = { factor = 25 }
+		subtract_from_variable = { another_country_currency_reserve = 250 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 2
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = arms_factory
+				level = 5
+				instant_build = yes
+			}
+		}
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+	}
+
+	#选项D：稳健吃分红，落袋为安
+	option = {
+		name = FLWAI.25.e
+		ai_chance = { factor = 15 }
+		add_to_variable = { another_country_currency_reserve = 250 }
+		add_political_power = 75
+	}
+}
+
+#《流派大成：双修神功护体！》（任意两条流派满级或叠层大成时自动弹出）
+country_event = {
+	id = FLWAI.26
+	title = FLWAI.26.t
+	desc = FLWAI.26.d
+	picture = GFX_event_FRA_Sanae
+	is_triggered_only = yes
+
+	#选项A：【炮坦空一体·移动火药库】
+	option = {
+		name = FLWAI.26.a
+		ai_chance = { factor = 40 }
+		add_ideas = flower_synergy_iron_rain_idea
+		army_experience = 100
+		air_experience = 100
+	}
+
+	#选项B：【钞能力人海·无限复活甲】
+	option = {
+		name = FLWAI.26.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_synergy_immortal_tycoon_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		add_manpower = 100000
+	}
+
+	#选项C：【次元霸主·万物皆可吞】
+	option = {
+		name = FLWAI.26.c
+		ai_chance = { factor = 25 }
+		add_ideas = flower_synergy_void_overlord_idea
+		add_research_slot = 1
+	}
+
+	#选项D：【冥界游击风暴】（夜莺骑士、游击队与躁动亡灵终极联携！）
+	option = {
+		name = FLWAI.26.e
+		ai_chance = { factor = 25 }
+		add_ideas = flower_synergy_nightmare_guerrilla_idea
+		flower_ai_summon_undead_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+	}
+}
+
+#畸变5专属：《将星武道会：本命主帅悟道飞升！》（完全独立于轮椅，可重复把主帅养到15攻怪兽）
+country_event = {
+	id = FLWAI.27
+	title = FLWAI.27.t
+	desc = FLWAI.27.d
+	picture = GFX_KMK.0098
+	is_triggered_only = yes
+
+	#选项A：修习【万人敌·武神躯】（攻击+4、攻破+25%、免伤防暴毙）
+	option = {
+		name = FLWAI.27.a
+		ai_chance = { factor = 40 }
+		if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_wanrendi_trait } }
+				add_unit_leader_trait = flower_wanrendi_trait
+				add_attack = 2
+			}
+		}
+		else = {
+			create_corps_commander = {
+				name = "势魏延"
+				portrait_path = "gfx/interface/swy.png"
+				traits = { swy_trait flower_wanrendi_trait armor_officer }
+				skill = 6
+				attack_skill = 10
+				defense_skill = 5
+				planning_skill = 4
+				logistics_skill = 3
+			}
+		}
+		add_command_power = 50
+	}
+
+	#选项B：修习【空间魔术师】（后勤+4、补给消耗-45%、移速+25%、无视地形）
+	option = {
+		name = FLWAI.27.b
+		ai_chance = { factor = 30 }
+		if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_space_magician_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_space_magician_trait } }
+				add_unit_leader_trait = flower_space_magician_trait
+				add_logistics = 2
+			}
+		}
+		else = {
+			create_corps_commander = {
+				name = "奶龙"
+				portrait_path = "gfx/interface/nailong.png"
+				traits = { nl_trait flower_space_magician_trait MAGIC_MASTER }
+				skill = 5
+				attack_skill = 4
+				defense_skill = 5
+				planning_skill = 5
+				logistics_skill = 9
+			}
+		}
+		add_command_power = 50
+	}
+
+	#选项C：修习【大兵团棋手】（规划+4、防御+3、带兵上限+24个师、计划上限+30%）
+	option = {
+		name = FLWAI.27.c
+		ai_chance = { factor = 30 }
+		if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_grand_chessmaster_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_grand_chessmaster_trait } }
+				add_unit_leader_trait = flower_grand_chessmaster_trait
+				add_planning = 2
+			}
+		}
+		else = {
+			create_corps_commander = {
+				name = "耄耋"
+				portrait_path = "gfx/interface/cat.png"
+				traits = { hjm_trait flower_grand_chessmaster_trait guerilla_fighter }
+				skill = 5
+				attack_skill = 6
+				defense_skill = 5
+				planning_skill = 7
+				logistics_skill = 5
+			}
+		}
+		add_command_power = 50
+	}
+}
+
+#畸变2专属：《漂亮！这波叫闪电五连鞭！》（极速打垮敌国连杀赏金）
+country_event = {
+	id = FLWAI.28
+	title = FLWAI.28.t
+	desc = FLWAI.28.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	option = {
+		name = FLWAI.28.a
+		if = {
+			limit = { NOT = { has_idea = flower_blitz_speed_king_idea } }
+			add_ideas = flower_blitz_speed_king_idea
+		}
+		add_to_variable = { another_country_currency_reserve = 250 }
+		add_manpower = 50000
+		army_experience = 100
 	}
 }

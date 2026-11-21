@@ -1,0 +1,38 @@
+#外交与战线策略
+	MA_rush_in_MAL= {
+	
+		allowed = {
+			original_tag =MA1
+			original_tag =MA2
+			original_tag =MA3
+			original_tag =MA4
+			original_tag =MA5
+			original_tag =MA6
+			original_tag =MA7
+			original_tag =MA8
+		}
+
+		enable = {
+			has_war_with = MAL
+			has_equipment = { infantry_equipment > 10000 }
+		}
+		abort = {
+			has_equipment = { infantry_equipment < 5000 }
+		}
+		
+		ai_strategy = {
+			type = front_control
+			tag = MAL
+			ratio = 0.8
+			priority = 200
+			ordertype = front
+			execution_type = rush_weak
+			execute_order = yes
+		}
+
+		ai_strategy = {
+			type = front_unit_request
+			tag = MAL
+			value = 300
+		}
+	}

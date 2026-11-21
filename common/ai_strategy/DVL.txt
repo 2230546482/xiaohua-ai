@@ -1,40 +1,33 @@
 DVL_attack_to_FRA = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			has_offensive_war_with = FRA
 			FRA = {
 				has_capitulated = no
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = front_control
 			tag = FRA
 			ratio = 0.5
-			priority = 75
+			priority = 150
 			ordertype = front
 			execution_type = rush
 			execute_order = yes
 		}
-
 		ai_strategy = {
 			type = front_armor_score
 			id = FRA
 			value = 100
 		}
-
 		ai_strategy = {
 			type = front_unit_request
 			tag = FRA
-			value = 100 
+			value = 100
 		}
-
 		ai_strategy = {
 			type = front_control
 			state_trigger = {
@@ -45,52 +38,45 @@ DVL_attack_to_FRA = {
 				}
 			}
 			ratio = 0.9
-			priority = 120
+			priority = 200
 			ordertype = front
 			execution_type = rush
 			manual_attack = no
 			execute_order  = yes
 		}
-	}	
+	}
 
 	DVL_attack_to_NPT = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			has_offensive_war_with = NPT
 			NPT = {
 				has_capitulated = no
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = front_armor_score
 			id = NPT
 			value = 100
 		}
-
 		ai_strategy = {
 			type = front_control
 			tag = NPT
 			ratio = 0.5
-			priority = 75
+			priority = 150
 			ordertype = front
 			execution_type = rush
 			execute_order = yes
 		}
-	}	
+	}
 
 	DVL_attack_to_axis_powers = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			has_offensive_war_with = GER
 			if = {
@@ -110,9 +96,7 @@ DVL_attack_to_FRA = {
 				}
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = front_control
 			country_trigger = {
@@ -122,25 +106,22 @@ DVL_attack_to_FRA = {
 				}
 			}
 			ratio = 0.5
-			priority = 75
+			priority = 150
 			ordertype = front
 			execution_type = rush
 			execute_order = yes
 		}
-
 		ai_strategy = {
 			type = front_armor_score
 			id = GER
 			value = 100
 		}
-	}	
+	}
 
 	DVL_invasion_ENG = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			if = {
 				limit = {
@@ -156,22 +137,18 @@ DVL_attack_to_FRA = {
 				ratio > 0.6
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = invasion_unit_request
 			tag = ENG
 			value = 100
 		}
-	}	
+	}
 
 	DVL_prepare_for_axis_powers = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			date > 1940.6.1
 			country_exists = GER
@@ -181,52 +158,42 @@ DVL_attack_to_FRA = {
 				not = { country_exists = FRA }
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = prepare_for_war
 			id = GER
 			value = 100
 		}
-	}	
+	}
 
 	DVL_attack_to_SOV = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			has_war_with = SOV
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = front_armor_score
 			id = SOV
 			value = 500
 		}
-
 		ai_strategy = {
 			type = invasion_unit_request
 			tag = SOV
 			value = -999
 		}
-
 		ai_strategy = {
 			type = invasion_unit_request
 			tag = FIN
 			value = -999
 		}
-
 		ai_strategy = {
 			type = front_unit_request
 			tag = SOV
-			value = 100 
+			value = 100
 		}
-
 		ai_strategy = {
 			type = front_control
 			tag = SOV
@@ -236,14 +203,15 @@ DVL_attack_to_FRA = {
 			execution_type = balanced
 			execute_order = yes
 		}
-	}	
+	}
 
 #外交
+
 	DVL_support_CHI = {
 		reversed = yes
 		allowed = {
-			original_tag = DVL
-		}
+		original_tag = CHI
+	}
 		enable = {
 			tag = CHI
 			has_war = yes
@@ -260,8 +228,8 @@ DVL_attack_to_FRA = {
 	DVL_support_ROC = {
 		reversed = yes
 		allowed = {
-			original_tag = DVL
-		}
+		original_tag = ROC
+	}
 		enable = {
 			tag = ROC
 			has_war = yes
@@ -276,23 +244,18 @@ DVL_attack_to_FRA = {
 	}
 
 	DVL_diplomacy_with_SOV = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			NOT = { has_government = communism }
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = antagonize
 			id = SOV
 			value = 100
 		}
-
 		ai_strategy = {
 			type = conquer
 			id = SOV
@@ -301,11 +264,9 @@ DVL_attack_to_FRA = {
 	}
 
 	DVL_diplomacy_with_GER = {
-
 		allowed = {
 			original_tag = DVL
 		}
-
 		enable = {
 			always = yes
 		}
@@ -315,7 +276,6 @@ DVL_attack_to_FRA = {
 			id = GER
 			value = 100
 		}
-
 		ai_strategy = {
 			type = conquer
 			id = GER
@@ -323,9 +283,10 @@ DVL_attack_to_FRA = {
 		}
 	}
 
-	DVL_support_Ainzism = {#魔导派志愿军给相同子意识形态的国家
-		
-		allowed = { original_tag = DVL }
+	DVL_support_Ainzism = {#向同子意识形态派志愿军
+		allowed = {
+		NOT = { original_tag = DVL }
+	}
 		enable_reverse = { always = yes }
 		enable = { has_country_leader_ideology =  Ainzism_subideology }
 		reversed = yes
@@ -336,85 +297,69 @@ DVL_attack_to_FRA = {
 			value = 10000
 		}
 	}
-	
+
 #防止军通杀
 
 	DVL_no_military_access = {
-
 		reversed = yes
-
 		allowed = {
-			original_tag = DVL
-		}
-
+		NOT = { original_tag = DVL }
+	}
 		enable = {
 			is_ai = no
 			NOT = {
 				has_non_aggression_pact_with = DVL
 			}
 		}
-
 		abort_when_not_enabled = yes
-
 		ai_strategy = {
 			type = diplo_action_acceptance
 			id = "DVL"
 			target = military_access
 			value = -1000
 		}
-
 	}
-	
+
 #专注欧洲
 
 DVL_area_priority = {
-
 	allowed = {
 		original_tag = DVL
 	}
-
 	enable = {
 		original_tag = DVL
 	}
-
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = area_priority
 		id = europe
 		value = 2000 #more focus here
 	}
-
 	ai_strategy = {
 		type = area_priority
 		id = scandinavia
 		value = 0
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = north_america
 		value = -2000
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = south_america
 		value = -2000
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = asia
 		value = -2000
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = middle_east
 		value = -1000
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = africa
@@ -425,13 +370,11 @@ DVL_area_priority = {
         id = suez
         value = -100
     }
-	
 	ai_strategy = {
 		type = area_priority
 		id = pacific
 		value = -2000 #less focus here
 	}
-	
 	ai_strategy = {
 		type = area_priority
 		id = oceania
@@ -442,18 +385,18 @@ DVL_area_priority = {
 #多下部队
 
 DVL_you_should_be_prepared_for_war = {
-	allowed = { 
-		tag = DVL
+	allowed = {
+		original_tag = DVL
 	}
 	enable = {
-		always = yes
+		num_divisions < 350
+		check_variable = { Debt_ratio < 0.85 }
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
-        type = force_build_armies
-        value = 100
-    }
+		type = force_build_armies
+		value = 100
+	}
 }
 
 #优先升级编制
@@ -462,73 +405,67 @@ DVL_xp_upgrade_spending_land = {
 	allowed = {
 		original_tag = DVL
 	}
-
 	enable = {
 		date < 1942.6.1
 	}
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = land_xp_spend_priority
 		id = upgrade_xp_cutoff
 		value = 150
 	}
-}	
+}
 
 #别管队友死活
+
 DVL_donthelpother = {
     allowed = {
 		original_tag = DVL
 	}
 	enable = {
 		any_country = {
-		    is_major = yes 
+		    is_major = yes
 			has_war_with = DVL
 		}
 		country_exists = SOV
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
 		type = dont_defend_ally_borders
 		id = "MOR"
 		value = 1000
 	}
-	
 	ai_strategy = {
 		type = dont_defend_ally_borders
 		id = "LBA"
 		value = 1000
 	}
-	
 	ai_strategy = {
 		type = dont_defend_ally_borders
 		id = "SWE"
 		value = 1000
 	}
-	
 	ai_strategy = {
 		type = ignore
 		id = "MOR"
 		value = 1000
 	}
-	
 	ai_strategy = {
 		type = ignore
 		id = "LBA"
 		value = 1000
 	}
-
 }
 
 #超次元是盟友就别管他死活
+
 DVL_donthelp_NPT_a = {
 	allowed = {
 		original_tag = DVL
 	}
 	enable = {
 		any_country = {
-		    is_major = yes 
+		    is_major = yes
 			has_war_with = DVL
 		}
 		country_exists = SOV
@@ -546,13 +483,14 @@ DVL_donthelp_NPT_a = {
 }
 
 #意大利快死了再去救他
+
 DVL_donthelp_ALS_a = {
 	allowed = {
 		original_tag = DVL
 	}
 	enable = {
 		any_country = {
-		    is_major = yes 
+		    is_major = yes
 			has_war_with = DVL
 		}
 		country_exists = SOV
@@ -569,10 +507,11 @@ DVL_donthelp_ALS_a = {
 		value = 1000
 	}
 }
+
 #清空库存
 
 DVL_y_game = {
-	allowed = { 
+	allowed = {
 		tag = DVL
 	}
 	enable = {
@@ -580,7 +519,6 @@ DVL_y_game = {
 		date < 1941.2.1
 	}
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = equipment_stockpile_surplus_ratio
 		value = -80
@@ -588,16 +526,16 @@ DVL_y_game = {
 }
 
 #绕开大结界
+
 DVL_force_concentration_through_maginot_hurts_too_much = {
 	allowed = {
 		original_tag = DVL
 	}
 	enable = {
-		date < 1941.1.1  # Deactivate after some time
-		28 = { # Alsace-Lorraine
+		date < 1941.1.1  #Deactivate after some time
+		28 = { #Alsace-Lorraine
 			NOT = { is_controlled_by = DVL }
-
-			any_province_building_level = {  # Only if Maginot is actually fortified
+			any_province_building_level = {  #Only if Maginot is actually fortified
 				province = {
 					all_provinces = yes
 					limit_to_border = yes
@@ -608,37 +546,35 @@ DVL_force_concentration_through_maginot_hurts_too_much = {
 		}
 	}
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = force_concentration_front_factor
-		state = 28  # Alsace-Lorraine
-		ratio = 0.50     # Only if > 50 % of the front consists of Alsace-Lorraine. This should make it deactivate if the frontline extends around the maginot
+		state = 28  #Alsace-Lorraine
+		ratio = 0.50     #Only if > 50 % of the front consists of Alsace-Lorraine. This should make it deactivate if the frontline extends around the maginot
 		value = -100
 	}
 	ai_strategy = {
 		type = force_concentration_target_weight
-		state = 28 # Alsace-Lorraine
-		value = -100 # -100 % / Don't even consider targets here. Infantry and Artillery are better at dealing with the Maginot than tank formations are
+		state = 28 #Alsace-Lorraine
+		value = -100 #-100 % / Don't even consider targets here. Infantry and Artillery are better at dealing with the Maginot than tank formations are
 	}
 	ai_strategy = {
 		type = force_concentration_target_weight
-		state = 18 # Champagne
-		value = -50 # -50 % / Let's try to avoid the areas behind the Maginot. It is risky, as we might end up trying to go through it anyways then
+		state = 18 #Champagne
+		value = -50 #-50 % / Let's try to avoid the areas behind the Maginot. It is risky, as we might end up trying to go through it anyways then
 	}
 	ai_strategy = {
 		type = force_concentration_target_weight
-		state = 785 # Franche Comte
-		value = -75 # -75 % / Let's try to avoid the areas behind the Maginot. It is risky, as we might end up trying to go through it anyways then
+		state = 785 #Franche Comte
+		value = -75 #-75 % / Let's try to avoid the areas behind the Maginot. It is risky, as we might end up trying to go through it anyways then
 	}
 }
 
 #对幻想乡的进攻方向
-DVL_blitz_france = {
 
+DVL_blitz_france = {
 	allowed = {
 		original_tag = DVL
 	}
-
 	enable = {
 		date < 1940.9.1
 		OR = {
@@ -646,38 +582,31 @@ DVL_blitz_france = {
 			not = { country_exists = RHI }
 		}
 	}
-
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = consider_weak
 		id = FRA
 		value = 25
 	}
-
 	ai_strategy = {
 		type = front_control
-
 		tag = FRA
-
 		ratio = 0.5
-
 		priority = 100
 		ordertype = front
 		execution_type = rush_weak
 		execute_order = yes
 	}
-
 	ai_strategy = {
 		type = force_concentration_target_weight
-		state = 29 # Nord-Pas_de_Calais
-		state = 980 # Picardy
-		state = 16 # Ile de France
-		state = 15 # Normandy
-		# include Belgium as well even though we hopefully have already taken it
-		state = 6 # Vlaanderen
-		state = 34 # Wallonie
-		state = 925 # Antwerpen
+		state = 29 #Nord-Pas_de_Calais
+		state = 980 #Picardy
+		state = 16 #Ile de France
+		state = 15 #Normandy
+		#include Belgium as well even though we hopefully have already taken it
+		state = 6 #Vlaanderen
+		state = 34 #Wallonie
+		state = 925 #Antwerpen
 		state = 17
 		state = 8
 		state = 948
@@ -688,18 +617,15 @@ DVL_blitz_france = {
 		state = 866
 		state = 7
 		state = 36
-
-		value = 80 # +80%
+		value = 80 #+80%
 	}
-
 	ai_strategy = {
-		# Avoid the areas behind the Maginot line
+		#Avoid the areas behind the Maginot line
 		type = force_concentration_target_weight
-		state = 18 # Champagne
-		state = 785 # Franche-Comte
-		state = 28 # Alsace-Lorraine
-		state = 27 # Bourgogne
-
-		value = -60 # -60%
+		state = 18 #Champagne
+		state = 785 #Franche-Comte
+		state = 28 #Alsace-Lorraine
+		state = 27 #Bourgogne
+		value = -60 #-60%
 	}
 }

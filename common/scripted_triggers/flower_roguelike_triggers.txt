@@ -1,0 +1,90 @@
+#判断是否拥有尚未完成分叉进化的主/副肉鸽流派
+flower_ai_has_unbranched_archetype = {
+	OR = {
+		AND = {
+			OR = {
+				has_idea = flower_nightingale_stage_1_idea
+				has_idea = flower_nightingale_stage_2_idea
+				has_idea = flower_nightingale_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_nightingale_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_guerrilla_stage_1_idea
+				has_idea = flower_guerrilla_stage_2_idea
+				has_idea = flower_guerrilla_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_guerrilla_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_undead_stage_1_idea
+				has_idea = flower_undead_stage_2_idea
+				has_idea = flower_undead_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_undead_done }
+		}
+		AND = {
+			has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
+			NOT = { has_country_flag = flower_evo_slayer_done }
+		}
+		AND = {
+			OR = {
+				has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
+				has_idea = flower_corp_stage_1_idea
+				has_idea = flower_corp_stage_2_idea
+				has_idea = flower_corp_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_corp_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_arty_stage_1_idea
+				has_idea = flower_arty_stage_2_idea
+				has_idea = flower_arty_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_arty_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_tank_stage_1_idea
+				has_idea = flower_tank_stage_2_idea
+				has_idea = flower_tank_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_tank_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_air_stage_1_idea
+				has_idea = flower_air_stage_2_idea
+				has_idea = flower_air_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_air_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_wave_stage_1_idea
+				has_idea = flower_wave_stage_2_idea
+				has_idea = flower_wave_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_wave_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_magic_stage_1_idea
+				has_idea = flower_magic_stage_2_idea
+				has_idea = flower_magic_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_magic_done }
+		}
+		AND = {
+			OR = {
+				has_idea = flower_steampunk_stage_1_idea
+				has_idea = flower_steampunk_stage_2_idea
+				has_idea = flower_steampunk_stage_3_idea
+			}
+			NOT = { has_country_flag = flower_evo_punk_done }
+		}
+	}
+}

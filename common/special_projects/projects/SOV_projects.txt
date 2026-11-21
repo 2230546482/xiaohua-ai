@@ -136,7 +136,7 @@
  	project_tags = sp_tag_tank
 
  	ai_will_do = {
- 		base = 1
+ 		base = 1000
  	}
 
  	allowed = {
@@ -219,7 +219,7 @@
  	project_tags = sp_tag_tank
 
  	ai_will_do = {
- 		base = 1
+ 		base = 1000
  	}
 
  	allowed = {
@@ -298,6 +298,9 @@
 }
 
 sp_tank_Bratino_warm_pressure_rocket = {
+	ai_will_do = {
+		base = 1000
+	}
 	icon = GFX_tank_Bratino_warm_pressure_rocket
 	specialization = specialization_land
 	breakthrough_cost = {

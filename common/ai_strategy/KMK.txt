@@ -1,0 +1,117 @@
+#外交与战线策略
+KMK_war_with_DVL = {
+	allowed = {
+		original_tag = KMK
+	}
+	enable = {
+		has_war_with = DVL
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = conquer		#征服
+		id = "DVL"			
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = front_unit_request #前线部队
+		tag = DVL
+		value = 200 #lets put more units, should be safe
+	}
+	
+	
+}
+
+KMK_war_with_SOV = {
+	allowed = {
+		original_tag = KMK
+	}
+	enable = {
+		has_war_with = SOV
+		not = {
+			has_war_with = GER
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade		#入侵
+		id = "SOV"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "SOV"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = SOV
+		value = 10
+	}
+	ai_strategy = {
+		type = front_unit_request		#前线部队
+		tag = SOV
+		value = 200		#lets put more units, should be safe
+	}
+}
+
+KMK_war_with_GER = {
+	allowed = {
+		original_tag = KMK
+	}
+	enable = {
+		has_war_with = GER
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade		#入侵
+		id = "GER"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "GER"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = GER
+		value = 10
+	}
+	ai_strategy = {
+		type = front_unit_request		#前线部队
+		tag = GER
+		value = 120		#lets put more units, should be safe
+	}
+}
+
+KMK_war_with_ENG = {
+	allowed = {
+		original_tag = KMK
+	}
+	enable = {
+		has_war_with = ENG
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade		#入侵
+		id = "ENG"
+		value = 200
+	}
+	ai_strategy = {
+		type = conquer		#征服
+		id = "ENG"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = ENG
+		value = 100
+	}
+	ai_strategy = {
+		type = front_unit_request		#前线部队
+		tag = ENG
+		value = 120		#lets put more units, should be safe
+	}
+}

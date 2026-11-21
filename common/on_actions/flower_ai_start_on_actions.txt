@@ -1,11 +1,609 @@
 on_actions = {
     on_startup = {
         effect = {
-            random_country = {
+            if = {
                 limit = {
-                    is_ai = no
+                    has_game_rule = {
+                        rule = FLOWER_AI_SUPER_BOSS_RULE
+                        option = SUPER_DVL
+                    }
                 }
-                country_event = FLWAI.1
+                DVL = {
+                    if = {
+                        limit = { is_ai = yes }
+                        add_ideas = red_super_gutou
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_SUPER_BOSS_RULE
+                        option = SUPER_SOV_DVL
+                    }
+                }
+                DVL = {
+                    if = {
+                        limit = { is_ai = yes }
+                        add_ideas = red_super_gutou
+                    }
+                }
+                SOV = {
+                    if = {
+                        limit = { is_ai = yes }
+                        set_technology = {
+                            improved_heavy_tank_chassis = 1
+                            antitank1 = 1
+                            antitank2 = 1
+                            antitank3 = 1
+                        }
+                    }
+                }
+            }
+
+            if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_DIFFICULTY_RULE
+                        option = APOCALYPSE
+                    }
+                }
+                set_global_flag = red_apocalypse_ai
+                every_country = {
+                    limit = { is_ai = no }
+                    set_country_flag = hua_ai_player
+                    add_ideas = red_apocalypse_player
+                }
+                every_country = {
+                    limit = {
+                        is_ai = yes
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                    add_ideas = red_apocalypse_ai
+                }
+            }
+            else_if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_DIFFICULTY_RULE
+                        option = MOST_HARD
+                    }
+                }
+                set_global_flag = red_most_hard
+                every_country = {
+                    limit = { is_ai = no }
+                    set_country_flag = hua_ai_player
+                    add_ideas = red_most_hard_player
+                }
+                every_country = {
+                    limit = {
+                        is_ai = yes
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                    add_ideas = red_most_hard_ai
+                }
+            }
+            else_if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_DIFFICULTY_RULE
+                        option = HARD
+                    }
+                }
+                set_global_flag = red_hard
+                every_country = {
+                    limit = { is_ai = no }
+                    set_country_flag = hua_ai_player
+                }
+                every_country = {
+                    limit = {
+                        is_ai = yes
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                    add_ideas = red_hard_ai
+                }
+            }
+            else_if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_DIFFICULTY_RULE
+                        option = NORMAL_HARD
+                    }
+                }
+                set_global_flag = red_normal_hard
+                every_country = {
+                    limit = { is_ai = no }
+                    set_country_flag = hua_ai_player
+                }
+                every_country = {
+                    limit = {
+                        is_ai = yes
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+            else_if = {
+                limit = {
+                    has_game_rule = {
+                        rule = FLOWER_AI_DIFFICULTY_RULE
+                        option = LOGIC_ONLY
+                    }
+                }
+                set_global_flag = red_none_hard
+                set_global_flag = flower_anomaly_voting_open
+                every_country = {
+                    limit = { is_ai = no }
+                    set_country_flag = hua_ai_player
+                }
+            }
+            else = {
+                random_country = {
+                    limit = {
+                        is_ai = no
+                    }
+                    country_event = FLWAI.1
+                }
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_game_rule = {
+                            rule = FLOWER_AI_DIFFICULTY_RULE
+                            option = DEFAULT_EVENT
+                        }
+                    }
+                }
+                set_global_flag = flower_anomaly_voting_open
+            }
+        }
+    }
+    #月度补挂难度精神与肉鸽成长推进
+    on_monthly = {
+        effect = {
+            #《基建狂魔的流水账》造厂达标自动叠层返利
+            if = {
+                limit = {
+                    check_variable = { flower_builder_stacks > 0 }
+                    check_variable = { num_of_factories > flower_builder_next_goal }
+                }
+                add_to_variable = { flower_builder_next_goal = 15 }
+                flower_ai_add_builder_stack = yes
+            }
+            #《记仇小本本》战时激战满4个月自动叠层
+            if = {
+                limit = {
+                    check_variable = { flower_slayer_stacks > 0 }
+                    has_war = yes
+                }
+                add_to_variable = { flower_slayer_war_months = 1 }
+                if = {
+                    limit = { check_variable = { flower_slayer_war_months > 3 } }
+                    set_variable = { flower_slayer_war_months = 0 }
+                    flower_ai_add_slayer_stack = yes
+                }
+            }
+            #流派九《躁动的亡灵》月度补发死者的利箭与战时自动起尸召唤（玩家与AI通用，瘟疫分叉双倍速）
+            if = {
+                limit = {
+                    OR = {
+                        has_idea = flower_undead_stage_1_idea
+                        has_idea = flower_undead_stage_2_idea
+                        has_idea = flower_undead_stage_3_idea
+                        has_country_flag = flower_card_owned_27
+                    }
+                }
+                add_equipment_to_stockpile = {
+                    type = wangling_equipment_0
+                    amount = 1500
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_idea = flower_evo_undead_plague_idea
+                            has_idea = flower_combo_undead_sweatshop_idea
+                        }
+                    }
+                    add_equipment_to_stockpile = {
+                        type = wangling_equipment_0
+                        amount = 1500
+                    }
+                }
+                if = {
+                    limit = {
+                        has_war = yes
+                        OR = {
+                            has_idea = flower_undead_stage_2_idea
+                            has_idea = flower_undead_stage_3_idea
+                            has_idea = flower_evo_undead_plague_idea
+                        }
+                    }
+                    add_to_variable = { flower_undead_war_months = 1 }
+                    if = {
+                        limit = {
+                            OR = {
+                                AND = {
+                                    has_idea = flower_evo_undead_plague_idea
+                                    check_variable = { flower_undead_war_months > 1 }
+                                }
+                                check_variable = { flower_undead_war_months > 2 }
+                            }
+                        }
+                        set_variable = { flower_undead_war_months = 0 }
+                        flower_ai_summon_undead_wave = yes
+                    }
+                }
+            }
+            #流派八《野火游击队》战时自动拉起野火游击纵队（人海分叉缩至每2个月）
+            if = {
+                limit = {
+                    has_war = yes
+                    OR = {
+                        has_idea = flower_guerrilla_stage_3_idea
+                        has_idea = flower_evo_guerrilla_sea_idea
+                    }
+                }
+                add_to_variable = { flower_guerrilla_war_months = 1 }
+                if = {
+                    limit = {
+                        OR = {
+                            AND = {
+                                has_idea = flower_evo_guerrilla_sea_idea
+                                check_variable = { flower_guerrilla_war_months > 1 }
+                            }
+                            check_variable = { flower_guerrilla_war_months > 2 }
+                        }
+                    }
+                    set_variable = { flower_guerrilla_war_months = 0 }
+                    flower_ai_summon_guerrilla_wave = yes
+                }
+            }
+            #流派七分叉《猩红炼金工坊》每3个月自动征召夜莺骑士团
+            if = {
+                limit = { has_idea = flower_evo_nightingale_alchemy_idea }
+                add_to_variable = { flower_nightingale_alchemy_months = 1 }
+                if = {
+                    limit = { check_variable = { flower_nightingale_alchemy_months > 2 } }
+                    set_variable = { flower_nightingale_alchemy_months = 0 }
+                    flower_ai_summon_nightingale_knights = yes
+                }
+            }
+            #流派二分叉《全球军火托拉斯》月度自动分红HCP
+            if = {
+                limit = { has_idea = flower_evo_corp_trust_idea }
+                add_to_variable = { another_country_currency_reserve = 100 }
+            }
+            #主要AI流派分叉保底觉醒（1938年初自动为未分叉AI触发流派分叉进化）
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1938.2.1
+                    is_ai = yes
+                    is_major = yes
+                    flower_ai_has_unbranched_archetype = yes
+                    NOT = { has_country_flag = flower_ai_auto_branch_1938_done }
+                }
+                set_country_flag = flower_ai_auto_branch_1938_done
+                flower_ai_open_branch_evolution_event = yes
+            }
+            #定时肉鸽海克斯抽卡波次（仅开启【大家一起开肉鸽】或【压力怪的狂欢夜】时生效）
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1936.10.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1936_fall_done }
+                }
+                set_global_flag = flower_roguelike_wave_1936_fall_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1937.3.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1937_done }
+                }
+                set_global_flag = flower_roguelike_wave_1937_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1938.6.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1938_done }
+                }
+                set_global_flag = flower_roguelike_wave_1938_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1939.9.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1939_done }
+                }
+                set_global_flag = flower_roguelike_wave_1939_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1941.1.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1941_done }
+                }
+                set_global_flag = flower_roguelike_wave_1941_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    date > 1942.6.1
+                    NOT = { has_global_flag = flower_roguelike_wave_1942_done }
+                }
+                set_global_flag = flower_roguelike_wave_1942_done
+                flower_ai_trigger_roguelike_wave = yes
+            }
+            #【华尔街军火大亨】年度金融风暴事件
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_3_active
+                    OR = {
+                        is_ai = no
+                        is_major = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        date > 1937.1.1
+                        NOT = { has_country_flag = flower_tycoon_1937_done }
+                    }
+                    set_country_flag = flower_tycoon_1937_done
+                    country_event = { id = FLWAI.25 }
+                }
+                if = {
+                    limit = {
+                        date > 1938.1.1
+                        NOT = { has_country_flag = flower_tycoon_1938_done }
+                    }
+                    set_country_flag = flower_tycoon_1938_done
+                    country_event = { id = FLWAI.25 }
+                }
+                if = {
+                    limit = {
+                        date > 1939.1.1
+                        NOT = { has_country_flag = flower_tycoon_1939_done }
+                    }
+                    set_country_flag = flower_tycoon_1939_done
+                    country_event = { id = FLWAI.25 }
+                }
+                if = {
+                    limit = {
+                        date > 1940.1.1
+                        NOT = { has_country_flag = flower_tycoon_1940_done }
+                    }
+                    set_country_flag = flower_tycoon_1940_done
+                    country_event = { id = FLWAI.25 }
+                }
+            }
+            #【神仙将领下凡间】年度将星武道会持续悟道飞升
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_5_active
+                    OR = {
+                        is_ai = no
+                        is_major = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        date > 1937.6.1
+                        NOT = { has_country_flag = flower_hero_brawl_1937_done }
+                    }
+                    set_country_flag = flower_hero_brawl_1937_done
+                    country_event = { id = FLWAI.27 }
+                }
+                if = {
+                    limit = {
+                        date > 1939.1.1
+                        NOT = { has_country_flag = flower_hero_brawl_1939_done }
+                    }
+                    set_country_flag = flower_hero_brawl_1939_done
+                    country_event = { id = FLWAI.27 }
+                }
+                if = {
+                    limit = {
+                        date > 1940.6.1
+                        NOT = { has_country_flag = flower_hero_brawl_1940_done }
+                    }
+                    set_country_flag = flower_hero_brawl_1940_done
+                    country_event = { id = FLWAI.27 }
+                }
+            }
+            #【压力怪的狂欢夜】1940终局大魔王二阶段集体狂暴觉醒
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_6_active
+                    date > 1940.1.1
+                    is_ai = yes
+                    is_major = yes
+                    num_of_factories > 75
+                    NOT = { has_idea = flower_nightmare_final_boss_idea }
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+                add_ideas = flower_nightmare_final_boss_idea
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = 25000
+                }
+                add_equipment_to_stockpile = {
+                    type = artillery_equipment
+                    amount = 2500
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    set_temp_variable = { temp_alert_id = 912 }
+                    set_temp_variable = { temp_tag = PREV }
+                    set_temp_variable = { temp_tag2 = THIS }
+                    flower_ai_push_bottom_right_alert = yes
+                }
+            }
+            #同步玩家战线净空设置
+            if = {
+                limit = { is_ai = yes }
+                every_country = {
+                    limit = {
+                        is_ai = no
+                        has_country_flag = flower_ai_no_ally_crowd
+                        NOT = { PREV = { has_country_flag = flower_ai_dont_crowd_@THIS } }
+                    }
+                    PREV = {
+                        set_country_flag = flower_ai_dont_crowd_@PREV
+                        add_ai_strategy = {
+                            type = dont_defend_ally_borders
+                            id = PREV
+                            value = 500
+                        }
+                        add_ai_strategy = {
+                            type = force_defend_ally_borders
+                            id = PREV
+                            value = -500
+                        }
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    is_ai = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                    NOT = {
+                        has_idea = red_apocalypse_ai
+                        has_idea = red_most_hard_ai
+                        has_idea = red_hard_ai
+                        has_idea = red_normal_hard_ai
+                    }
+                }
+                if = {
+                    limit = { has_global_flag = red_apocalypse_ai }
+                    add_ideas = red_apocalypse_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_most_hard }
+                    add_ideas = red_most_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_hard }
+                    add_ideas = red_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_normal_hard }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+        }
+    }
+    #释放独立国补挂精神
+    on_release_as_free = {
+        effect = {
+            if = {
+                limit = {
+                    is_ai = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                    NOT = {
+                        has_idea = red_apocalypse_ai
+                        has_idea = red_most_hard_ai
+                        has_idea = red_hard_ai
+                        has_idea = red_normal_hard_ai
+                    }
+                }
+                if = {
+                    limit = { has_global_flag = red_apocalypse_ai }
+                    add_ideas = red_apocalypse_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_most_hard }
+                    add_ideas = red_most_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_hard }
+                    add_ideas = red_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_normal_hard }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+        }
+    }
+    #释放傀儡国补挂精神
+    on_puppet = {
+        effect = {
+            if = {
+                limit = {
+                    is_ai = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                    NOT = {
+                        has_idea = red_apocalypse_ai
+                        has_idea = red_most_hard_ai
+                        has_idea = red_hard_ai
+                        has_idea = red_normal_hard_ai
+                    }
+                }
+                if = {
+                    limit = { has_global_flag = red_apocalypse_ai }
+                    add_ideas = red_apocalypse_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_most_hard }
+                    add_ideas = red_most_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_hard }
+                    add_ideas = red_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_normal_hard }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+        }
+    }
+    #内战爆发补挂精神
+    on_civil_war_start = {
+        effect = {
+            if = {
+                limit = {
+                    is_ai = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                    NOT = {
+                        has_idea = red_apocalypse_ai
+                        has_idea = red_most_hard_ai
+                        has_idea = red_hard_ai
+                        has_idea = red_normal_hard_ai
+                    }
+                }
+                if = {
+                    limit = { has_global_flag = red_apocalypse_ai }
+                    add_ideas = red_apocalypse_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_most_hard }
+                    add_ideas = red_most_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_hard }
+                    add_ideas = red_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_normal_hard }
+                    add_ideas = red_normal_hard_ai
+                }
             }
         }
     }
@@ -13,28 +611,60 @@ on_actions = {
         effect = {
             if = {
                 limit = {
-                    ROOT = {
-                        #has_completed_focus = DVL_Thorn_to_the_West
-                        tag = DVL
-                        has_idea = red_super_gutou
-                    }
-                    FROM = {
-                        or = {
-                            tag = FRA
-                            tag = KMK
+                    NOT = { has_global_flag = DVL_use_nuke }
+                    OR = {
+                        AND = {
+                            ROOT = {
+                                tag = DVL
+                                OR = {
+                                    has_idea = red_super_gutou
+                                    has_idea = red_super_gutou_phase2
+                                }
+                            }
+                            FROM = {
+                                OR = {
+                                    tag = FRA
+                                    tag = KMK
+                                    tag = SOV
+                                    is_ai = no
+                                }
+                            }
                         }
-                    }
-                    not = {
-                        has_global_flag = DVL_use_nuke
+                        AND = {
+                            FROM = {
+                                tag = DVL
+                                OR = {
+                                    has_idea = red_super_gutou
+                                    has_idea = red_super_gutou_phase2
+                                }
+                            }
+                            ROOT = {
+                                OR = {
+                                    tag = FRA
+                                    tag = KMK
+                                    tag = SOV
+                                    is_ai = no
+                                }
+                            }
+                        }
                     }
                 }
                 set_global_flag = DVL_use_nuke
-                every_country= {
+                every_country = {
                     limit = {
                         is_ai = no
-                        #has_war = no
                     }
                     goto_state = 28
+                    set_temp_variable = { temp_alert_id = 901 }
+                    set_temp_variable = { temp_tag = DVL }
+                    if = {
+                        limit = { ROOT = { tag = DVL } }
+                        set_temp_variable = { temp_tag2 = FROM }
+                    }
+                    else = {
+                        set_temp_variable = { temp_tag2 = ROOT }
+                    }
+                    flower_ai_push_bottom_right_alert = yes
                 }
                 DVL = {
                     launch_nuke = {
@@ -86,6 +716,224 @@ on_actions = {
                             use_nuke = no
                         }
                     }
+                }
+            }
+            if = {
+                limit = {
+                    ROOT = { is_ai = no }
+                    FROM = { is_ai = no }
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    set_temp_variable = { temp_alert_id = 905 }
+                    set_temp_variable = { temp_tag = ROOT }
+                    set_temp_variable = { temp_tag2 = FROM }
+                    flower_ai_push_bottom_right_alert = yes
+                }
+            }
+            #首次开战临战海克斯三选一（玩家与主要AI开战立刻补强构筑）
+            if = {
+                limit = { has_global_flag = flower_anomaly_1_active }
+                if = {
+                    limit = {
+                        ROOT = {
+                            NOT = { has_country_flag = flower_first_war_draft_done }
+                            OR = {
+                                is_ai = no
+                                is_major = yes
+                            }
+                            NOT = { tag = ZDW }
+                            NOT = { tag = WL1 }
+                        }
+                    }
+                    ROOT = {
+                        set_country_flag = flower_first_war_draft_done
+                        flower_ai_open_roguelike_draft = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        FROM = {
+                            NOT = { has_country_flag = flower_first_war_draft_done }
+                            OR = {
+                                is_ai = no
+                                is_major = yes
+                            }
+                            NOT = { tag = ZDW }
+                            NOT = { tag = WL1 }
+                        }
+                    }
+                    FROM = {
+                        set_country_flag = flower_first_war_draft_done
+                        flower_ai_open_roguelike_draft = yes
+                    }
+                }
+            }
+        }
+    }
+    on_capitulation = {
+        effect = {
+            if = {
+                limit = {
+                    ROOT = {
+                        is_ai = yes
+                        is_major = yes
+                        OR = {
+                            has_idea = red_apocalypse_ai
+                            has_idea = red_super_gutou
+                            has_idea = red_super_gutou_phase2
+                        }
+                    }
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    set_temp_variable = { temp_alert_id = 906 }
+                    set_temp_variable = { temp_tag = ROOT }
+                    set_temp_variable = { temp_tag2 = FROM }
+                    flower_ai_push_bottom_right_alert = yes
+                }
+            }
+            #《记仇小本本》击败敌国叠层
+            if = {
+                limit = {
+                    FROM = { check_variable = { flower_slayer_stacks > 0 } }
+                }
+                FROM = {
+                    flower_ai_add_slayer_stack = yes
+                    if = {
+                        limit = { ROOT = { is_major = yes } }
+                        flower_ai_add_slayer_stack = yes
+                    }
+                }
+            }
+            #流派九《躁动的亡灵》击败敌国立刻就地起尸唤起亡灵大军（瘟疫分叉起双倍尸潮）
+            if = {
+                limit = {
+                    FROM = {
+                        OR = {
+                            has_idea = flower_undead_stage_1_idea
+                            has_idea = flower_undead_stage_2_idea
+                            has_idea = flower_undead_stage_3_idea
+                            has_country_flag = flower_card_owned_27
+                        }
+                    }
+                }
+                FROM = {
+                    flower_ai_summon_undead_wave = yes
+                    if = {
+                        limit = { has_idea = flower_evo_undead_plague_idea }
+                        flower_ai_summon_undead_wave = yes
+                    }
+                }
+            }
+            #肉鸽模式逼降敌国爆出战利品宝箱三选一（30天内置冷却防同日刷屏）
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_1_active
+                    FROM = {
+                        NOT = { has_country_flag = flower_loot_draft_cd }
+                        OR = {
+                            is_ai = no
+                            is_major = yes
+                        }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                }
+                FROM = {
+                    set_country_flag = { flag = flower_loot_draft_cd days = 30 value = 1 }
+                    flower_ai_open_roguelike_draft = yes
+                }
+            }
+            #畸变2《谁也别想蹲战壕》闪电连杀赏金
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_2_active
+                    FROM = {
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                }
+                FROM = {
+                    country_event = { id = FLWAI.28 days = 1 }
+                }
+            }
+            #畸变4《吃人就能变大只》吞噬进化、屠蛊王吸干功力与额外肉鸽抽卡
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_4_active
+                    FROM = {
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = { check_variable = { flower_devour_stacks > 2 } }
+                    }
+                    FROM = {
+                        add_to_variable = { flower_devour_stacks = ROOT.flower_devour_stacks }
+                        flower_ai_recalc_devour_mod = yes
+                    }
+                    every_country = {
+                        limit = { is_ai = no }
+                        set_temp_variable = { temp_alert_id = 911 }
+                        set_temp_variable = { temp_tag = FROM }
+                        set_temp_variable = { temp_tag2 = ROOT }
+                        flower_ai_push_bottom_right_alert = yes
+                    }
+                }
+                FROM = {
+                    flower_ai_add_devour_stack = yes
+                    if = {
+                        limit = {
+                            NOT = { has_global_flag = flower_anomaly_1_active }
+                            OR = {
+                                ROOT = { is_major = yes }
+                                is_ai = no
+                            }
+                        }
+                        flower_ai_open_roguelike_draft = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            ROOT = { is_major = yes }
+                            FROM = { is_ai = no }
+                        }
+                    }
+                    every_country = {
+                        limit = { is_ai = no }
+                        set_temp_variable = { temp_alert_id = 910 }
+                        set_temp_variable = { temp_tag = FROM }
+                        set_temp_variable = { temp_tag2 = ROOT }
+                        flower_ai_push_bottom_right_alert = yes
+                    }
+                }
+            }
+        }
+    }
+    on_annex = {
+        effect = {
+            if = {
+                limit = {
+                    ROOT = { check_variable = { flower_slayer_stacks > 0 } }
+                }
+                ROOT = {
+                    flower_ai_add_slayer_stack = yes
+                }
+            }
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_4_active
+                    ROOT = {
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                    }
+                }
+                ROOT = {
+                    flower_ai_add_devour_stack = yes
                 }
             }
         }

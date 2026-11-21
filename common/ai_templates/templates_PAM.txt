@@ -9,6 +9,10 @@ infantry_PAM = {
     infantry_template_small_PAM = {
         upgrade_prio = {
             factor = 15
+            modifier = {
+                factor = 0
+                num_of_military_factories > 19
+            }
         }
         enable = {
             num_of_military_factories < 20
@@ -27,11 +31,16 @@ infantry_PAM = {
             factor = 13
             modifier = {
                 factor = 4
-                num_of_military_factories < 50
+                num_of_military_factories > 19
+            }
+            modifier = {
+                factor = 0
+                num_of_military_factories > 49
             }
         }
         enable = {
             has_tech = youjidui_tech
+            num_of_military_factories > 19
             num_of_military_factories < 50
         }
         target_template = {
@@ -64,8 +73,7 @@ infantry_PAM = {
         }
         enable = {
             has_tech = youjidui_tech
-            has_tech = wangling2_tech
-            num_of_military_factories > 49
+                        num_of_military_factories > 49
         }
         target_template = {
             regiments = {
@@ -110,16 +118,16 @@ PAM_armor = {
 				fire_support = 2
 			}
 			support = {
-               # assault_engineer = 1  # 突击工兵
+               #assault_engineer = 1  #突击工兵
                 engineer = 1
-                light_tank_recon = 1  # 侦察坦克
-                logistics_company = 1  # 后勤
-                signal_company = 1  # 通信
-                maintenance_company = 1  # 维修
-               # self_propelled_super_heavy_artillery = 1  # 超重炮
-                #artillery = 1  # 炮兵
-              #  anti_air = 1  # 防空
-               # medium_flame_tank = 1  # 喷火坦克
+                light_tank_recon = 1  #侦察坦克
+                logistics_company = 1  #后勤
+                signal_company = 1  #通信
+                maintenance_company = 1  #维修
+               #self_propelled_super_heavy_artillery = 1  #超重炮
+                #artillery = 1  #炮兵
+              #anti_air = 1  #防空
+               #medium_flame_tank = 1  #喷火坦克
             }
             regiments = {
                 medium_armor = 10
@@ -130,7 +138,7 @@ PAM_armor = {
 
     }
 }
-# REGIMENTS:
+#REGIMENTS:
 #infantry
 #light_armor
 #super_heavy_armor
@@ -149,7 +157,7 @@ PAM_armor = {
 #light_tank_destroyer
 #anti_air
 #artillery
-# SUPPORT:
+#SUPPORT:
 #engineer
 #recon
 #signal_company

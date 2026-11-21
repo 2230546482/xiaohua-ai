@@ -24,10 +24,10 @@ AUTOMATE_SUBDOCTRINE = {
     }
 
     ai_will_do = {
-        base = 0
+        base = 100
     }
 
-    # EFFECTS
+    #EFFECTS
     effect = {
 
     }
@@ -298,7 +298,7 @@ air_cavalry_special_forces = {
 
     ai_will_do = { base = 0 }
 
-    # EFFECTS
+    #EFFECTS
     category_helicoptery = {
 		max_organisation = 5
 		maximum_speed = 0.15

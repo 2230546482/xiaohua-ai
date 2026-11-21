@@ -1,7 +1,6 @@
 infantry_LHS = {
     available_for = {
         LHS
-        PAO
     }
     role = LHS_infantry
     upgrade_prio = {
@@ -47,6 +46,7 @@ infantry_LHS = {
             }
         }
         enable = {
+            num_of_military_factories > 19
             num_of_military_factories < 50
         }
         target_template = {
@@ -134,7 +134,7 @@ LHS_armor = {
 
 
 
-# REGIMENTS:
+#REGIMENTS:
 #infantry
 #light_armor
 #super_heavy_armor
@@ -153,7 +153,7 @@ LHS_armor = {
 #light_tank_destroyer
 #anti_air
 #artillery
-# SUPPORT:
+#SUPPORT:
 #engineer
 #recon
 #signal_company

@@ -58,7 +58,6 @@ armored_FRA = {
 				has_tech = antitank_b
 				OR = {
 					has_tech = main_battle_tank_chassis
-					has_tech = main_battle_tank
 				}
 			}
 		}
@@ -177,8 +176,8 @@ infantry_FRA = {
 				armored_engineer = 1
 				rangers_support = 1
 				anti_air = 1
-				logistics_company = 1	
-				anti_tank = 1			
+				logistics_company = 1
+				anti_tank = 1
 			}
 			regimental_support = {
 				mot_fire_support = 3

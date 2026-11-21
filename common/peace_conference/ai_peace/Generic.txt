@@ -1,0 +1,94 @@
+#通用和谈分地AI
+peace_ai_desires = {
+	Always_take_states = {
+		peace_action_type = take_states
+		enable = {
+			always = yes
+		}
+		ai_desire = 80
+	}
+
+	flower_ai_take_own_cores_and_claims = {
+		peace_action_type = take_states
+		enable = {
+			ROOT = { tag = ROOT.FROM }
+			ROOT.FROM.FROM.FROM = {
+				OR = {
+					is_core_of = ROOT.FROM
+					is_claimed_by = ROOT.FROM
+				}
+			}
+		}
+		ai_desire = 500
+	}
+
+	flower_ai_take_contiguous_states = {
+		peace_action_type = take_states
+		enable = {
+			ROOT = { tag = ROOT.FROM }
+			ROOT.FROM.FROM.FROM = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ROOT.FROM
+						pc_is_state_claimed_by = ROOT.FROM
+					}
+				}
+			}
+		}
+		ai_desire = 150
+	}
+
+	flower_ai_respect_human_ally_cores_and_claims = {
+		peace_action_type = { take_states puppet force_government liberate }
+		enable = {
+			ROOT = { is_ai = yes }
+			ROOT.FROM.FROM.FROM = {
+				NOT = { is_core_of = ROOT.FROM }
+				any_country = {
+					is_ai = no
+					NOT = { has_war_with = ROOT }
+					OR = {
+						is_in_faction_with = ROOT
+						has_war_together_with = ROOT
+					}
+					OR = {
+						PREV = { is_core_of = PREV }
+						PREV = { is_claimed_by = PREV }
+						PREV = { is_controlled_by = PREV }
+						PREV = { pc_is_state_claimed_by = PREV }
+						PREV = {
+							any_neighbor_state = {
+								OR = {
+									is_owned_by = PREV.PREV
+									pc_is_state_claimed_by = PREV.PREV
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_desire = -2000
+	}
+
+	flower_ai_avoid_landlocked_exclaves = {
+		peace_action_type = take_states
+		enable = {
+			ROOT = { is_ai = yes }
+			ROOT.FROM.FROM.FROM = {
+				is_coastal = no
+				NOT = { is_core_of = ROOT.FROM }
+				NOT = { is_claimed_by = ROOT.FROM }
+				NOT = {
+					any_neighbor_state = {
+						OR = {
+							is_owned_by = ROOT.FROM
+							pc_is_state_claimed_by = ROOT.FROM
+						}
+					}
+				}
+			}
+		}
+		ai_desire = -350
+	}
+}

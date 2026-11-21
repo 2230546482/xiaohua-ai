@@ -1,37 +1,37 @@
-# AI Ship Designs for France
+#AI Ship Designs for France
 FRA_destroyers = {
 	category = naval
-	
+
 	blocked_for = {
 	}
-	
+
 	available_for = {
 		FRA
 	}
-	
+
 	roles = {
 		naval_screen
 	}
-	
+
 	priority = {
 		factor = 100
 	}
 
 	basic_destroyer = {
-	
+
 		priority = {
 			factor = 300
 			modifier = {
-				has_tech = advanced_ship_hull_light
+				has_tech = improved_ship_hull_light
 				factor = 0
 			}
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 3500.0
-			
+
 			type = ship_hull_light_2
 			modules = {
 				fixed_ship_battery_slot = dp_light_battery
@@ -55,7 +55,7 @@ FRA_destroyers = {
 		}
 	}
 	improved_destroyer = {
-	
+
 		priority = {
 			factor = 400
 			modifier = {
@@ -64,44 +64,7 @@ FRA_destroyers = {
 			}
 		}
 		role_icon_index = 2
-		
-		history = yes
-		target_variant = {
-			match_value = 3500.0
-			type = ship_hull_light_3
-			modules = {
-				fixed_ship_battery_slot = dp_light_battery
-				fixed_ship_anti_air_slot = ship_anti_air
-				fixed_ship_fire_control_system_slot = ship_fire_control_system
-				fixed_ship_radar_slot = ship_radar
-				fixed_ship_engine_slot = light_ship_engine
-				fixed_ship_torpedo_slot = ship_torpedo
-				front_1_custom_slot = ship_depth_charge
-				mid_1_custom_slot = ship_torpedo
-				rear_1_custom_slot = ship_depth_charge
-			}
-		}
-		allowed_modules = {
-			dp_light_battery
-			ship_anti_air
-			ship_fire_control_system
-			ship_radar
-			light_ship_engine
-			ship_torpedo
-			ship_depth_charge
-		}
-	}
-	improved_destroyer_upgrade = {
-	
-		priority = {
-			factor = 500
-			modifier = {
-				has_tech = advanced_ship_hull_light
-				factor = 0
-			}
-		}
-		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 3500.0
@@ -129,7 +92,7 @@ FRA_destroyers = {
 		}
 	}
 	destroyer_4 = { #
-	
+
 		priority = {
 			factor = 600
 			modifier = {
@@ -138,11 +101,11 @@ FRA_destroyers = {
 			}
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 3500.0
-			
+
 			type = ship_hull_light_4
 			modules = {
 				fixed_ship_battery_slot = dp_light_battery
@@ -157,7 +120,7 @@ FRA_destroyers = {
 				rear_1_custom_slot = ship_depth_charge
 			}
 		}
-		
+
 		allowed_modules = {
 			dp_light_battery
 			ship_anti_air
@@ -169,16 +132,16 @@ FRA_destroyers = {
 		}
 	}
 	destroyer_5 = {
-	
+
 		priority = {
 			factor = 800
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 3500.0
-			
+
 			type = ship_hull_light_5
 			modules = {
 				fixed_ship_battery_slot = dp_light_battery_4
@@ -193,7 +156,7 @@ FRA_destroyers = {
 				rear_1_custom_slot = ship_depth_charge_4
 			}
 		}
-		
+
 		allowed_modules = {
 			dp_light_battery_4
 			ship_anti_air_4
@@ -209,24 +172,24 @@ FRA_destroyers = {
 FRA_naval_light_cruiser = {
 
 	category = naval
-	
+
 	blocked_for = {
 	}
-	
+
 	available_for = {
 		FRA
 	}
-	
+
 	roles = {
 		naval_cruiser_light
 	}
-	
+
 	priority = {
 		factor = 300
 	}
 
 	basic_light_cruiser = {
-		
+
 		priority = {
 			factor = 300
 			modifier = {
@@ -235,11 +198,11 @@ FRA_naval_light_cruiser = {
 			}
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_cruiser_2 #De grasse as planned
 			modules = {
 				fixed_ship_battery_slot = ship_light_medium_battery
@@ -255,7 +218,7 @@ FRA_naval_light_cruiser = {
 				rear_1_custom_slot = ship_light_medium_battery
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_light_medium_battery
 			ship_anti_air
@@ -266,9 +229,9 @@ FRA_naval_light_cruiser = {
 			ship_dp_secondaries
 		}
 	}
-	
-	improved_light_cruiser = { 
-		
+
+	improved_light_cruiser = {
+
 		priority = {
 			factor = 400
 			modifier = {
@@ -277,11 +240,11 @@ FRA_naval_light_cruiser = {
 			}
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_cruiser_3
 			modules = {
 				fixed_ship_battery_slot = ship_light_medium_battery
@@ -298,7 +261,7 @@ FRA_naval_light_cruiser = {
 				rear_2_custom_slot = ship_light_medium_battery
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_light_medium_battery
 			ship_anti_air
@@ -310,8 +273,8 @@ FRA_naval_light_cruiser = {
 		}
 	}
 
-	advanced_light_cruiser = { 
-		
+	advanced_light_cruiser = {
+
 		priority = {
 			factor = 500
 			modifier = {
@@ -320,11 +283,11 @@ FRA_naval_light_cruiser = {
 			}
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_cruiser_4
 			modules = {
 				fixed_ship_battery_slot = dp_ship_medium_1
@@ -341,7 +304,7 @@ FRA_naval_light_cruiser = {
 				rear_2_custom_slot = dp_ship_medium_1
 			}
 		}
-		
+
 		allowed_modules = {
 			dp_ship_medium_1
 			ship_anti_air
@@ -352,17 +315,17 @@ FRA_naval_light_cruiser = {
 			ship_dp_secondaries
 		}
 	}
-	modern_light_cruiser = { 
-		
+	modern_light_cruiser = {
+
 		priority = {
 			factor = 800
 		}
 		role_icon_index = 2
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_cruiser_5
 			modules = {
 				fixed_ship_battery_slot = dp_ship_medium_1
@@ -379,7 +342,7 @@ FRA_naval_light_cruiser = {
 				rear_2_custom_slot = dp_ship_medium_1
 			}
 		}
-		
+
 		allowed_modules = {
 			dp_ship_medium_1
 			ship_anti_air_4
@@ -395,24 +358,24 @@ FRA_naval_light_cruiser = {
 
 FRA_naval_capital_battleship = {
 	category = naval
-	
+
 	blocked_for = {
 	}
-	
+
 	available_for = {
 		FRA
 	}
-	
+
 	roles = {
 		naval_capital_bb
 	}
-	
+
 	priority = {
 		factor = 500
 	}
-	
-	basic_battleship = { 
-	
+
+	basic_battleship = {
+
 		priority = {
 			factor = 300
 			modifier = {
@@ -421,11 +384,11 @@ FRA_naval_capital_battleship = {
 			}
 		}
 		role_icon_index = 1
-		
+
 		history = yes
 		target_variant = {
 			match_value = 2000.0
-			
+
 			type = ship_hull_heavy_2
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery
@@ -441,7 +404,7 @@ FRA_naval_capital_battleship = {
 				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_heavy_battery
 			ship_anti_air
@@ -454,7 +417,7 @@ FRA_naval_capital_battleship = {
 	}
 
 	improved_battleship = {
-	
+
 		priority = {
 			factor = 400
 			modifier = {
@@ -463,11 +426,11 @@ FRA_naval_capital_battleship = {
 			}
 		}
 		role_icon_index = 1
-		
+
 		history = yes
 		target_variant = {
 			match_value = 2000.0
-			
+
 			type = ship_hull_heavy_3
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery
@@ -484,7 +447,7 @@ FRA_naval_capital_battleship = {
 				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_heavy_battery
 			ship_anti_air
@@ -498,16 +461,16 @@ FRA_naval_capital_battleship = {
 		}
 	}
 	advanced_battleship = {
-	
+
 		priority = {
 			factor = 500
 		}
 		role_icon_index = 1
-		
+
 		history = yes
 		target_variant = {
 			match_value = 2000.0
-			
+
 			type = ship_hull_heavy_4
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery
@@ -524,7 +487,7 @@ FRA_naval_capital_battleship = {
 				rear_1_custom_slot = ship_heavy_battery
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_heavy_battery
 			ship_anti_air
@@ -536,7 +499,7 @@ FRA_naval_capital_battleship = {
 		}
 	}
 	super_heavy_battleship_early = {
-	
+
 		priority = {
 			factor = 800
 			modifier = {
@@ -546,11 +509,11 @@ FRA_naval_capital_battleship = {
 			}
 		}
 		role_icon_index = 1
-		
+
 		history = yes
 		target_variant = {
 			match_value = 2000.0
-			
+
 			type = ship_hull_super_heavy_1
 			modules = {
 				fixed_ship_battery_slot = ship_super_heavy_battery_1
@@ -580,16 +543,25 @@ FRA_naval_capital_battleship = {
 		}
 	}
 	super_heavy_battleship = {
-	
+
 		priority = {
 			factor = 1000
+			modifier = {
+				NOT = {
+					AND = {
+						has_tech = monopulse_radar
+						has_tech = advanced_dp_light_battery
+					}
+				}
+				factor = 0
+			}
 		}
 		role_icon_index = 1
-		
+
 		history = yes
 		target_variant = {
 			match_value = 2000.0
-			
+
 			type = ship_hull_super_heavy_1
 			modules = {
 				fixed_ship_battery_slot = ship_super_heavy_battery_1
@@ -623,24 +595,24 @@ FRA_naval_capital_battleship = {
 
 FRA_naval_carrier = {
 	category = naval
-	
+
 	blocked_for = {
 	}
-	
+
 	available_for = {
 		FRA
 	}
-	
+
 	roles = {
 		naval_carrier
 	}
-	
+
 	priority = {
 		factor = 500
 	}
 
 	basic_carrier = {
-	
+
 		priority = {
 			factor = 300
 			modifier = {
@@ -649,11 +621,11 @@ FRA_naval_carrier = {
 			}
 		}
 		role_icon_index = 7
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_carrier_1
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
@@ -667,7 +639,7 @@ FRA_naval_carrier = {
 				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_deck_space
 			ship_anti_air
@@ -679,7 +651,7 @@ FRA_naval_carrier = {
 	}
 
 	improved_carrier = {
-	
+
 		priority = {
 			factor = 400
 			modifier = {
@@ -688,11 +660,11 @@ FRA_naval_carrier = {
 			}
 		}
 		role_icon_index = 7
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_carrier_2
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
@@ -707,7 +679,7 @@ FRA_naval_carrier = {
 				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_deck_space
 			ship_anti_air
@@ -718,7 +690,7 @@ FRA_naval_carrier = {
 		}
 	}
 	advanced_carrier = {
-	
+
 		priority = {
 			factor = 500
 			modifier = {
@@ -727,12 +699,12 @@ FRA_naval_carrier = {
 			}
 		}
 		role_icon_index = 7
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
-			type = ship_hull_carrier_3 
+
+			type = ship_hull_carrier_3
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
 				fixed_ship_deck_slot_2 = ship_deck_space
@@ -747,7 +719,7 @@ FRA_naval_carrier = {
 				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_deck_space
 			ship_anti_air
@@ -758,16 +730,16 @@ FRA_naval_carrier = {
 		}
 	}
 	modern_carrier = {
-	
+
 		priority = {
 			factor = 800
 		}
 		role_icon_index = 7
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_carrier_4
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
@@ -783,7 +755,7 @@ FRA_naval_carrier = {
 				fixed_ship_armor_slot = ship_cruiser_armor
 			}
 		}
-		
+
 		allowed_modules = {
 			ship_deck_space
 			ship_anti_air_4
@@ -797,24 +769,24 @@ FRA_naval_carrier = {
 
 FRA_naval_submarine = {
 	category = naval
-	
+
 	blocked_for = {
 	}
-	
+
 	available_for = {
 		FRA
 	}
-	
+
 	roles = {
 		naval_submarine
 	}
-	
+
 	priority = {
 		factor = 300
 	}
 
 	basic_submarine = {
-	
+
 		priority = {
 			factor = 300
 			modifier = {
@@ -823,11 +795,11 @@ FRA_naval_submarine = {
 			}
 		}
 		role_icon_index = 6
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_submarine_2
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine
@@ -835,14 +807,14 @@ FRA_naval_submarine = {
 				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
-		
+
 		allowed_modules = {
 			sub_ship_engine
 			ship_torpedo_sub
 		}
 	}
 	improved_submarine = {
-	
+
 		priority = {
 			factor = 400
 			modifier = {
@@ -851,18 +823,18 @@ FRA_naval_submarine = {
 			}
 		}
 		role_icon_index = 6
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_submarine_3
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine
 				fixed_ship_torpedo_slot = ship_torpedo_sub
 				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
-					any_of = { 
+					any_of = {
 						ship_anechoic_tile
 						ship_sub_snorkel
 					}
@@ -870,7 +842,7 @@ FRA_naval_submarine = {
 				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
-		
+
 		allowed_modules = {
 			sub_ship_engine
 			ship_torpedo_sub
@@ -879,7 +851,7 @@ FRA_naval_submarine = {
 		}
 	}
 	advanced_submarine = {
-	
+
 		priority = {
 			factor = 500
 			modifier = {
@@ -888,18 +860,18 @@ FRA_naval_submarine = {
 			}
 		}
 		role_icon_index = 6
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_submarine_4
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine
 				fixed_ship_torpedo_slot = ship_torpedo_sub
 				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
-					any_of = { 
+					any_of = {
 						ship_anechoic_tile
 						ship_sub_snorkel
 					}
@@ -907,7 +879,7 @@ FRA_naval_submarine = {
 				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
-		
+
 		allowed_modules = {
 			sub_ship_engine
 			ship_torpedo_sub
@@ -916,23 +888,23 @@ FRA_naval_submarine = {
 		}
 	}
 	modern_submarine = {
-	
+
 		priority = {
 			factor = 800
 		}
 		role_icon_index = 6
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_submarine_5
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine
 				fixed_ship_torpedo_slot = ship_torpedo_sub
 				front_1_custom_slot = ship_torpedo_sub
 				mid_1_custom_slot = {
-					any_of = { 
+					any_of = {
 						ship_anechoic_tile
 						ship_sub_snorkel
 					}
@@ -940,7 +912,7 @@ FRA_naval_submarine = {
 				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
-		
+
 		allowed_modules = {
 			sub_ship_engine
 			ship_torpedo_sub
@@ -949,7 +921,7 @@ FRA_naval_submarine = {
 		}
 	}
 	cruiser_submarine = {
-	
+
 		priority = {
 			factor = 300
 			modifier = {
@@ -958,11 +930,11 @@ FRA_naval_submarine = {
 			}
 		}
 		role_icon_index = 6
-		
+
 		history = yes
 		target_variant = {
 			match_value = 1000.0
-			
+
 			type = ship_hull_cruiser_submarine
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine
@@ -972,7 +944,7 @@ FRA_naval_submarine = {
 				rear_1_custom_slot = ship_torpedo_sub
 			}
 		}
-		
+
 		allowed_modules = {
 			sub_ship_engine
 			ship_torpedo_sub

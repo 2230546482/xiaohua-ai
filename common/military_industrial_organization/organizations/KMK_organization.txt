@@ -1,4 +1,4 @@
-#################### 
+####################
 KMK_arsenal_organization = {
 	name = KMK_arsenal
 	include = generic_tank_organization

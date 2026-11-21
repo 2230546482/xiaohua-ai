@@ -1,0 +1,48 @@
+DVL_naval_invasion_support = {
+	objective_type = naval_invasion_support
+	available_for = { DVL }
+	min_priority = 5
+	max_priority = 15
+}
+
+DVL_invasion_defense = {
+	objective_type = naval_invasion_defense
+	available_for = { DVL }
+	min_priority = 10
+	max_priority = 18
+}
+
+DVL_coast_defense = {
+	objective_type = coast_defense
+	available_for = { DVL }
+	min_priority = 2
+	max_priority = 8
+}
+
+DVL_convoy_protection = {
+	objective_type = convoy_protection
+	available_for = { DVL }
+	min_priority = 4
+	max_priority = 12
+}
+
+DVL_convoy_raiding = {
+	objective_type = convoy_raiding
+	available_for = { DVL }
+	min_priority = 8
+	max_priority = 18
+}
+
+DVL_naval_dominance = {
+	objective_type = naval_dominance
+	available_for = { DVL }
+	min_priority = 6
+	max_priority = 16
+}
+
+DVL_training = {
+	objective_type = training
+	available_for = { DVL }
+	min_priority = 12
+	max_priority = 25
+}

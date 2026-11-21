@@ -15,7 +15,7 @@ mobile_infantry = {
         base = 0
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_overwhelming_fire
     category_all_infantry = {
         breakthrough = 0.1
@@ -152,7 +152,7 @@ large_unit_tactics = {
         base = 0
     }
 
-    # EFFECTS
+    #EFFECTS
     effect = {
 
     }
@@ -227,7 +227,7 @@ assault_infantry = {
         base = 0
     }
 
-    # EFFECTS
+    #EFFECTS
 
     #OTHER BASE REWARDS
     artillery = {   
@@ -371,7 +371,7 @@ mounted_infantry = {
 
     unit_cavalry_design_cost_factor = -1
 
-    # EFFECTS
+    #EFFECTS
 
     rewards = {
         dragoon_traditions = {
@@ -468,7 +468,7 @@ commandos = {
         }
     }
 
-    # EFFECTS
+    #EFFECTS
 
     rewards = {
         isolated_combat_elements = {
@@ -595,7 +595,11 @@ irregulars = {
 
 
     ai_will_do = { 
-        base = 1000
+        base = 50
+        modifier = {
+            factor = 0
+            is_chinese_country_for_welcome_window = yes
+        }
     }
     irregular_infantry = {
         defense = 0.1
@@ -606,7 +610,7 @@ irregulars = {
         supply_consumption = -0.01
     }
 
-    # EFFECTS
+    #EFFECTS
 
     rewards = {
         service_by_lot = { 
@@ -695,7 +699,7 @@ peoples_war = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_guerrilla_tactics
 
     militia = {
@@ -770,7 +774,7 @@ great_war_infantry = {
     ai_will_do = {
         base = 0
     }
-     # EFFECTS
+     #EFFECTS
     #OTHER BASE REWARDS
     category_cavalry = {
         supply_consumption = -0.02

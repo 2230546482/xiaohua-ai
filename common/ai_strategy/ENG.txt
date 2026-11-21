@@ -1,217 +1,1096 @@
 #军队调动
+
 	EAI_ENG_last_stand = { #保卫本土
+
 		allowed = { tag = ENG }
+
 		enable = {
+
 			has_war = yes
+
 			any_owned_state = {
+
 				OR = {
+
 					region = 1
+
 					region = 2
+
 					region = 3
+
 					region = 4
+
 				}
+
 				NOT = { is_fully_controlled_by = ENG }
+
 			}
+
 		}
+
 		abort_when_not_enabled = yes
+
 	
+
 		ai_strategy = { #前线类型
+
 			type = front_control
-			priority = 10
+
+			priority = 200
+
 			area = UK
+
 			ratio > 0.5
+
 			execution_type = rush_weak
+
 			execute_order = yes
+
 		}
+
 	
+
 		ai_strategy = {
+
 			type = front_unit_request
+
 			area = UK
+
 			value = 999
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = UK
+
 			value = 9999
+
 		}
+
 	}
+
 	ENG_fly_bwbt = { #驻防保卫本土
+
 		allowed = { 
+
 			original_tag = ENG 
+
 		}
+
 		enable = {
+
 			always = yes
+
 		}
+
 		abort_when_not_enabled = yes
+
 		ai_strategy = { #驻防倾向
+
 			type = garrison
+
 			value = -50
+
 		}
+
+
 
 		ai_strategy = { #神兵天降地区
+
 			type = put_unit_buffers
+
 			states = { 
+
 				127
+
 			}
-			ratio = 0.3
+
+			ratio = 0.10
+
 			subtract_invasions_from_need = yes #海军入侵不计入比例
+
 			subtract_fronts_from_need = yes #陆地前线不计入
+
 		}
+
 		ai_strategy = { #重点防御
+
 			type = put_unit_buffers
+
 			states = { 
-				#122 
+
+				#122
+
 				123
+
 				125 
+
 				126 
+
 				127
+
 			}
-			ratio = 1.0
+
+			ratio = 0.25
+
 			subtract_invasions_from_need = yes #海军入侵不计入比例
+
 			subtract_fronts_from_need = yes #陆地前线不计入
+
 		}
+
 		ai_strategy = { #防御登陆
+
 			type = put_unit_buffers
+
 			states = { 
+
 				130
+
 				113
+
 				132
+
 				122
+
 			}
-			ratio = 0.4
+
+			ratio = 0.12
+
 			subtract_invasions_from_need = yes #海军入侵不计入比例
+
 			subtract_fronts_from_need = yes #陆地前线不计入
+
 		}
+
 		ai_strategy = { #次要地区
+
 			type = put_unit_buffers
+
 			states = { 
+
 				338
+
 				957
+
 				129
+
 				135
+
 				134
+
 				119
+
 				131
+
 				121
+
 				133
+
 			}
-			ratio = 0.3
+
+			ratio = 0.08
+
 			subtract_invasions_from_need = yes #海军入侵不计入比例
+
 			subtract_fronts_from_need = no #陆地前线不计入
+
 		}
+
 	}
+
+
 
 	#戴比存在时专注欧洲
+
 	ENG_area_priority = {
-		enable = {
+
+		allowed = {
+
 			original_tag = ENG
+
+		}
+
+		enable = {
+
 			country_exists = DVL
+
 		}
+
 		abort_when_not_enabled = yes
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = europe
+
 			value = 300		
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = north_america
+
 			value = -1000
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = south_america
+
 			value = -1000
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = asia
+
 			value = 100
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = middle_east
+
 			value = -1000
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = africa
+
 			value = 100
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = suez
+
 			value = -1000
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = pacific
+
 			value = -2000		#less focus here
+
 		}
+
 		ai_strategy = {
+
 			type = area_priority
+
 			id = oceania
+
 			value = -2000
+
 		}
+
 	}
 
+
+
 	#戴比不存在，均匀分布
+
 	ENG_area_priority_2 = {
-		enable = {
+
+		allowed = {
+
 			original_tag = ENG
+
+		}
+
+		enable = {
+
 			not = {
+
 				country_exists = DVL
+
+			}
+
+		}
+
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = europe
+
+			value = 1000		#more focus here
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = scandinavia
+
+			value = 100
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = north_america
+
+			value = 100
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = south_america
+
+			value = 50
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = asia
+
+			value = 500
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = middle_east
+
+			value = 50
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = africa
+
+			value = 200
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = suez
+
+			value = 0
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = pacific
+
+			value = 50		#less focus here
+
+		}
+
+		ai_strategy = {
+
+			type = area_priority
+
+			id = oceania
+
+			value = 50
+
+		}
+
+	}
+
+#外交与战线策略
+	careful_with_early_invasions = { #不提前海上入侵戴比
+		allowed = {
+			NOT = { original_tag = DVL }
+		}
+		enable = {
+			has_war_with = DVL
+			or = {
+				tag = ENG
+				is_subject_of = ENG
+			}
+			or = {
+				AND = {
+					DVL = {
+						NOT = {
+							has_war_with = SOV
+						}
+						surrender_progress < 0.2
+					}
+					date < 1944.1.1
+				}
+				#AND = {
+				#DVL = {
+				#has_war_with = SOV
+				#surrender_progress < 0.1
+				#}
+				#date < 1943.1.1
+				#}
 			}
 		}
 		abort_when_not_enabled = yes
 		ai_strategy = {
-			type = area_priority
-			id = europe
-			value = 1000		#more focus here
+			type = invade
+			id = "DVL"
+			value = -200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = scandinavia
-			value = 100
+			type = invade
+			id = "POL"
+			value = -200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = north_america
-			value = 100
+			type = invade
+			id = "KMK"
+			value = -200
+		}
+		ai_strategy = { #幻想乡民族国
+			type = invade
+			id = "GOG"
+			value = -200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = south_america
-			value = 50
+			type = invade
+			id = "NPT"
+			value = -200
+		}
+		ai_strategy = { #犯罪神
+			type = invade
+			id = "ARF"
+			value = -200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = asia
-			value = 500
+			type = invade
+			id = "ITA"
+			value = -200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = middle_east
-			value = 50
+			type = invade
+			id = "ALS"
+			value = -200
 		}
+	}
+
+	ENG_war_with_DVL = { #到时间后对戴比战略
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = DVL
+			or = {
+				AND = {
+					DVL = {
+						NOT = {
+							has_war_with = SOV
+						}
+					}
+					date > 1944.1.1
+				}
+				AND = {
+					DVL = {
+						has_war_with = SOV
+					}
+					#date > 1943.1.1
+				}
+				DVL = {
+					surrender_progress > 0.2
+				}
+				
+			}
+		}
+		abort_when_not_enabled = yes
 		ai_strategy = {
-			type = area_priority
-			id = africa
+			type = invade		#入侵
+			id = "DVL"
 			value = 200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = suez
-			value = 0
+			type = conquer		#征服
+			id = "DVL"
+			value = 200
 		}
 		ai_strategy = {
-			type = area_priority
-			id = pacific
-			value = 50		#less focus here
+			type = invasion_unit_request
+			tag = DVL
+			value = 10
 		}
 		ai_strategy = {
-			type = area_priority
-			id = oceania
+			type = front_unit_request		#前线部队
+			tag = DVL
+			value = 120		#lets put more units, should be safe
+		}
+
+		ai_strategy = { #进攻前线
+			type = front_control
+			priority = 10
+			tag = DVL
+			ratio > 0.3
+			execution_type = rush
+			execute_order = yes
+		}
+
+	}
+
+	ENG_war_with_ITA = { #到时间后对意大利战略
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = DVL
+			or = {
+				has_war_with = ITA
+				has_war_with = ALS
+			}
+			or = {
+				ITA = {
+					is_in_faction_with = DVL
+				}
+				ALS = {
+					is_in_faction_with = DVL
+				}
+			}
+			or = {
+				AND = {
+					DVL = {
+						NOT = {
+							has_war_with = SOV
+						}
+					}
+					date > 1944.1.1
+				}
+				AND = {
+					DVL = {
+						has_war_with = SOV
+					}
+					#date > 1943.1.1
+				}
+				DVL = {
+					surrender_progress > 0.2
+				}
+				
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "ITA"
 			value = 50
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "ITA"
+			value = 50
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = ITA
+			value = 30		
+		}
+
+		ai_strategy = {
+			type = invade		#入侵
+			id = "ALS"
+			value = 50
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "ALS"
+			value = 50
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = ALS
+			value = 30		
+		}
+	}
+
+	ENG_war_with_MOR = { #对摩洛哥出重拳
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = MOR	
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "MOR"
+			value = 50
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "MOR"
+			value = 100
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = MOR
+			value = 60		
+		}
+	}
+
+	ENG_trying_to_defend_NPT = { #保卫西班牙
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = DVL
+			is_in_faction_with = NPT
+			NPT = {
+				has_capitulated = no
+				has_war_with = DVL
+				surrender_progress < 0.2
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = { #防御盟友边界
+			type = force_defend_ally_borders
+			id = "NPT"
+			value = 100
+		}
+	}
+
+	ENG_help_FRA_time = {  #幻想乡没死的时候帮一手
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = DVL
+			has_war_together_with = FRA
+			FRA = {
+				exists = yes
+				surrender_progress < 0.20
+				is_ai = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = force_defend_ally_borders
+			id = "FRA"
+			value = 100
+		}
+	}
+
+	ENG_help_FRA_player = {  #如果幻想乡是玩家，狠狠的帮
+		allowed = {
+			original_tag = ENG			
+		}
+		enable = {
+			has_war_with = DVL
+			has_war_together_with = FRA
+			FRA = {
+				is_ai = no
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = force_defend_ally_borders
+			id = "FRA"
+			value = 1000
+		}
+	}
+
+	ENG_war_with_JAP_fs = { #43年前对日放水
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = JAP
+			country_exists = DVL
+			date < 1943.1.1
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "JAP"
+			value = -200
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "JAP"
+			value = -200
+		}
+		#ai_strategy = {
+		#type = invasion_unit_request     #用于登陆的部队比例
+		#tag = JAP
+		#value = -200
+		#}
+		#ai_strategy = {
+		#type = front_unit_request		#前线部队
+		#tag = JAP
+		#value = 20		#lets put more units, should be safe
+		#}
+		#ai_strategy = { #防守前线
+		#type = front_control
+		#priority = 10
+		#tag = JAP
+		#ratio > 0.1
+		#execution_type = careful
+		#execute_order = yes
+		#}
+		#ai_strategy = { #帮印度填线
+		#type = force_defend_ally_borders
+		#id = "RAj"
+		#value = 20
+		#}
+	}
+
+	ENG_war_with_JAP = { #43年后或戴比死后对日正常
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			or = {
+				and = {
+					has_war_with = JAP
+					not = {
+						country_exists = DVL
+					}					
+				}
+				and = {
+					has_war_with = JAP
+					date > 1943.1.1					
+				}			
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "JAP"
+			value = 200
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "JAP"
+			value = 200
+		}
+		ai_strategy = {
+			type = invasion_unit_request     #登陆部队比例
+			tag = JAP
+			value = 20
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = JAP
+			value = 80		#lets put more units, should be safe
+		}
+		ai_strategy = { #进攻前线
+			type = front_control
+			priority = 10
+			tag = JAP
+			ratio > 0.3
+			execution_type = rush
+			execute_order = yes
+		}
+		ai_strategy = { #帮印度填线
+			type = force_defend_ally_borders
+			id = "RAJ"
+			value = 100
+		}
+	}
+
+	ENG_war_with_SOV = {
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = SOV
+			not = {
+				has_war_with = GER
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "SOV"
+			value = 200
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "SOV"
+			value = 200
+		}
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = SOV
+			value = 10
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = SOV
+			value = 200		#lets put more units, should be safe
+		}
+	}
+
+	ENG_war_with_GER = {
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			has_war_with = GER
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = invade		#入侵
+			id = "GER"
+			value = 200
+		}
+		ai_strategy = {
+			type = conquer		#征服
+			id = "GER"
+			value = 200
+		}
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = GER
+			value = 10
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = GER
+			value = 120		#lets put more units, should be safe
+		}
+	}
+
+	ENG_balance_of_power_DVL = { #外交反戴比
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			NOT = {
+				has_government = fascism
+			}
+			DVL = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			DVL = {
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+		}
+		abort = {
+			has_war = yes
+		}
+		ai_strategy = {
+			type = prepare_for_war
+			id = "DVL"
+			value = 100
+		}
+		ai_strategy = {
+			type = befriend
+			id = "DVL"
+			value = -100
+		}
+		ai_strategy = {
+			type = alliance
+			id = "DVL"
+			value = -200
+		}
+		ai_strategy = {
+			type = antagonize
+			id = "DVL"
+			value = 50
+		}
+	}
+
+	ENG_balance_of_power_FRA = { #如果幻想乡fxs，外交反对他
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			NOT = {
+				has_government = fascism
+			}
+			FRA = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			FRA = {
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+		}
+		abort = {
+			has_war = yes
+		}
+		ai_strategy = {
+			type = prepare_for_war
+			id = "FRA"
+			value = 100
+		}
+		ai_strategy = {
+			type = befriend
+			id = "FRA"
+			value = -100
+		}
+		ai_strategy = {
+			type = alliance
+			id = "FRA"
+			value = -200
+		}
+		ai_strategy = {
+			type = antagonize
+			id = "FRA"
+			value = 50
+		}
+	}
+
+	ENG_balance_of_power_ITA = { #如果意大利fxs，外交反对他
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			NOT = {
+				has_government = fascism
+			}
+			ITA = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			ITA = {
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+		}
+		abort = {
+			has_war = yes
+		}
+		ai_strategy = {
+			type = prepare_for_war
+			id = "ITA"
+			value = 50
+		}
+		ai_strategy = {
+			type = befriend
+			id = "ITA"
+			value = -100
+		}
+		ai_strategy = {
+			type = alliance
+			id = "ITA"
+			value = -200
+		}
+		ai_strategy = {
+			type = antagonize
+			id = "ITA"
+			value = 50
+		}
+	}
+
+	ENG_balance_of_power_JAP = { #如果日本fxs，外交反对他
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			NOT = {
+				has_government = fascism
+			}
+			JAP = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			JAP = {
+				NOT = {
+					is_in_faction_with = ENG
+				}
+			}
+		}
+		abort = {
+			has_war = yes
+		}
+		ai_strategy = {
+			type = prepare_for_war
+			id = "JAP"
+			value = 100
+		}
+		ai_strategy = {
+			type = befriend
+			id = "JAP"
+			value = -200
+		}
+		ai_strategy = {
+			type = alliance
+			id = "JAP"
+			value = -200
+		}
+		ai_strategy = {
+			type = antagonize
+			id = "JAP"
+			value = 200
+		}
+	}
+
+	ENG_send_volunteers_desire_PRU = {	#志愿军支援玻璃瓦尔
+		allowed = {
+			original_tag = ENG
+		}
+		enable = {
+			country_exists = PRU
+			PRU = {
+				has_government = democratic
+			}
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = befriend
+			id = "PRU"
+			value = 30
+		}
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = "PRU"
+			value = 100
 		}
 	}

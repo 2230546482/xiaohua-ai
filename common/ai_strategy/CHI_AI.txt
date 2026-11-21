@@ -1,0 +1,272 @@
+#外交与战线策略
+CHI_generic_capital_shield = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+        surrender_progress < 0.25
+        NOT = {
+            any_enemy_country = { surrender_progress > 0.35 }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_capital = yes
+                    is_controlled_by = FROM.FROM
+                }
+                AND = {
+                    any_neighbor_state = {
+                        is_capital = yes
+                        is_controlled_by = FROM.FROM
+                    }
+                    is_controlled_by = FROM.FROM
+                }
+            }
+        }
+        value = 80
+    }
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            OR = {
+                is_capital = yes
+                any_neighbor_state = {
+                    is_capital = yes
+                    is_controlled_by = FROM.FROM
+                }
+            }
+            is_controlled_by = FROM.FROM
+            any_neighbor_state = {
+                controller = { has_war_with = FROM.FROM }
+            }
+        }
+        priority = 185
+        ordertype = front
+        execution_type = careful
+        manual_attack = yes
+    }
+}
+
+CHI_generic_end_pocket = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = { is_fully_controlled_by = FROM.FROM }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                is_controlled_by = FROM.FROM
+            }
+        }
+        priority = 190
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            OR = {
+                AND = {
+                    is_controlled_by = FROM.FROM
+                    NOT = { is_fully_controlled_by = FROM.FROM }
+                }
+                controller = {
+                    has_war_with = FROM.FROM
+                }
+            }
+            all_neighbor_state = {
+                is_controlled_by = FROM.FROM
+            }
+        }
+        value = 35
+    }
+}
+
+CHI_generic_encirclement_hunter = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+        surrender_progress < 0.20
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            controller = {
+                has_war_with = FROM.FROM
+                divisions_in_state = { state = PREV size < 2 }
+            }
+            NOT = { is_coastal = yes }
+            NOT = { is_capital = yes }
+            NOT = { is_fully_controlled_by = FROM }
+            any_neighbor_state = { is_controlled_by = FROM.FROM }
+        }
+        priority = 60
+        ordertype = front
+        execution_type = rush_weak
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            controller = {
+                has_war_with = FROM.FROM
+                divisions_in_state = { state = PREV size < 2 }
+            }
+            NOT = { is_coastal = yes }
+            NOT = { is_capital = yes }
+            NOT = { is_fully_controlled_by = FROM }
+            any_neighbor_state = { is_controlled_by = FROM.FROM }
+        }
+        value = 45
+    }
+}
+
+CHI_generic_avoid_thin_lines = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+    #渗透防线优先增援
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = FROM.FROM
+            NOT = { is_fully_controlled_by = FROM.FROM }
+            any_neighbor_state = {
+                controller = { has_war_with = FROM.FROM }
+            }
+        }
+        value = 80
+    }
+}
+
+CHI_generic_avoid_unsupplied_wasteland = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            is_controlled_by = FROM.FROM
+            NOT = { is_capital = yes }
+            NOT = { is_core_of = FROM.FROM }
+            is_coastal = no
+            infrastructure < 3
+            check_variable = { state_strategic_value < 5 }
+        }
+        priority = 10
+        ordertype = front
+        execution_type = careful
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_controlled_by = FROM.FROM
+            NOT = { is_capital = yes }
+            NOT = { is_core_of = FROM.FROM }
+            is_coastal = no
+            infrastructure < 3
+            check_variable = { state_strategic_value < 5 }
+        }
+        value = -20
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            is_capital = yes
+            owner = { tag = FROM.FROM }
+        }
+        value = 50
+    }
+}
+
+CHI_generic_push_enemy_capital = {
+    allowed = {
+        OR = {
+            is_chinese_country = yes
+        }
+    }
+    enable = {
+        has_war = yes
+        surrender_progress < 0.15
+        any_enemy_country = { surrender_progress > 0.05 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = front_control
+        state_trigger = {
+            owner = { has_war_with = FROM.FROM }
+            is_capital = yes
+            any_neighbor_state = { is_controlled_by = FROM.FROM }
+        }
+        priority = 60
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = yes
+    }
+    ai_strategy = {
+        type = front_unit_request
+        state_trigger = {
+            owner = { has_war_with = FROM.FROM }
+            is_capital = yes
+            any_neighbor_state = { is_controlled_by = FROM.FROM }
+        }
+        value = 150
+    }
+    ai_strategy = {
+        type = force_concentration_target_weight
+        state_trigger = {
+            owner = { has_war_with = FROM.FROM }
+            is_capital = yes
+        }
+        value = 100
+    }
+}

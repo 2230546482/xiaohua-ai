@@ -1,0 +1,748 @@
+#右下角双国旗通知效果
+flower_ai_push_bottom_right_alert = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		hidden_effect = {
+			scoped_sound_effect = "diplomatic_notification"
+			add_to_array = { adorable_heart_prompt_alerts = temp_alert_id }
+			add_to_array = { adorable_heart_prompt_alert_other_var1 = 0 }
+			add_to_array = { adorable_heart_prompt_alert_other_var2 = 0 }
+			add_to_array = { adorable_heart_prompt_alert_other_var3 = 0 }
+			add_to_array = { adorable_heart_prompt_alert_other_var4 = 0 }
+			add_to_array = { adorable_heart_prompt_alert_other_var5 = 0 }
+			if = {
+				limit = {
+					has_variable = temp_var:temp_tag
+				}
+				add_to_array = { adorable_heart_prompt_alert_flags = temp_tag }
+			}
+			else = {
+				add_to_array = { adorable_heart_prompt_alert_flags = THIS }
+			}
+			if = {
+				limit = {
+					has_variable = temp_var:temp_tag2
+				}
+				add_to_array = { adorable_heart_prompt_alert_flags2 = temp_tag2 }
+			}
+			else = {
+				add_to_array = { adorable_heart_prompt_alert_flags2 = THIS }
+			}
+			add_to_array = { adorable_heart_prompt_alerts_progressbars = -317 }
+			set_variable_to_random = global.adorable_heart_alerts_dirty
+			country_event = { id = alerts_mechanism.1 }
+		}
+	}
+}
+
+#检测是否达成【双流派大成/双修共鸣】
+flower_ai_check_dual_mastery_synergy = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_dual_synergy_unlocked }
+		}
+		set_temp_variable = { mastered_cnt = 0 }
+		if = { limit = { has_idea = flower_arty_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_tank_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_corp_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_air_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_wave_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_magic_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_nightingale_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_guerrilla_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_undead_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { has_idea = flower_steampunk_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { check_variable = { flower_slayer_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = { limit = { check_variable = { flower_builder_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = {
+			limit = { check_variable = { mastered_cnt > 1 } }
+			set_country_flag = flower_dual_synergy_unlocked
+			country_event = { id = FLWAI.26 days = 1 }
+		}
+	}
+}
+
+#《战利品记仇账本》（战地拾荒扒衣流）叠层重算与缴获爆装
+flower_ai_recalc_slayer_book = {
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod } }
+		}
+		add_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
+	}
+	set_variable = { flower_slayer_atk_var = flower_slayer_stacks }
+	multiply_variable = { flower_slayer_atk_var = 0.025 }
+	set_variable = { flower_slayer_brk_var = flower_slayer_stacks }
+	multiply_variable = { flower_slayer_brk_var = 0.025 }
+	set_variable = { flower_slayer_morale_var = flower_slayer_stacks }
+	multiply_variable = { flower_slayer_morale_var = 0.025 }
+	set_variable = { flower_slayer_cap_var = flower_slayer_stacks }
+	multiply_variable = { flower_slayer_cap_var = 0.05 }
+	set_variable = { flower_slayer_mp_var = flower_slayer_stacks }
+	multiply_variable = { flower_slayer_mp_var = 1000 }
+	if = {
+		limit = {
+			check_variable = { flower_slayer_stacks > 4 }
+			NOT = { has_country_flag = flower_slayer_milestone_5_done }
+		}
+		set_country_flag = flower_slayer_milestone_5_done
+		country_event = { id = FLWAI.21 days = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { flower_slayer_stacks > 9 }
+			NOT = { has_country_flag = flower_slayer_milestone_10_done }
+		}
+		set_country_flag = flower_slayer_milestone_10_done
+		country_event = { id = FLWAI.21 days = 1 }
+	}
+	flower_ai_check_dual_mastery_synergy = yes
+}
+
+flower_ai_add_slayer_stack = {
+	add_to_variable = { flower_slayer_stacks = 1 }
+	#战地拾荒：每叠1层当场从战场扒回一批军火战利品
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2000
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment
+		amount = 250
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment
+		amount = 100
+	}
+	#分叉《拆家专业户》：每次叠层战利品翻倍再白嫖资金
+	if = {
+		limit = { has_idea = flower_evo_slayer_dismantle_idea }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 250
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 100
+		}
+		add_to_variable = { another_country_currency_reserve = 150 }
+	}
+	#满5层后每次叠层还会连地皮带机器拆回1座免费军工
+	if = {
+		limit = { has_country_flag = flower_slayer_milestone_5_done }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	flower_ai_recalc_slayer_book = yes
+}
+
+#《基建狂魔的流水账》叠层重算与突破检测
+flower_ai_recalc_builder_ledger = {
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod } }
+		}
+		add_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
+	}
+	set_variable = { flower_builder_spd_var = flower_builder_stacks }
+	multiply_variable = { flower_builder_spd_var = 0.025 }
+	set_variable = { flower_builder_out_var = flower_builder_stacks }
+	multiply_variable = { flower_builder_out_var = 0.025 }
+	set_variable = { flower_builder_cap_var = flower_builder_stacks }
+	multiply_variable = { flower_builder_cap_var = 0.025 }
+	set_variable = { flower_builder_slot_var = flower_builder_stacks }
+	multiply_variable = { flower_builder_slot_var = 0.025 }
+	if = {
+		limit = {
+			check_variable = { flower_builder_stacks > 4 }
+			NOT = { has_country_flag = flower_builder_milestone_5_done }
+		}
+		set_country_flag = flower_builder_milestone_5_done
+		country_event = { id = FLWAI.22 days = 1 }
+	}
+	flower_ai_check_dual_mastery_synergy = yes
+}
+
+flower_ai_add_builder_stack = {
+	add_to_variable = { flower_builder_stacks = 1 }
+	flower_ai_recalc_builder_ledger = yes
+	add_to_variable = { another_country_currency_reserve = 50 }
+	random_owned_controlled_state = {
+		limit = {
+			free_building_slots = {
+				building = arms_factory
+				size > 1
+				include_locked = yes
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_factory
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = industrial_complex
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+#畸变4《吃人就能变大只》吞并进化叠层与蛊王检测
+flower_ai_recalc_devour_mod = {
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = flower_devour_anomaly_dynamic_mod } }
+		}
+		add_dynamic_modifier = { modifier = flower_devour_anomaly_dynamic_mod }
+	}
+	set_variable = { flower_devour_atk_var = flower_devour_stacks }
+	multiply_variable = { flower_devour_atk_var = 0.025 }
+	set_variable = { flower_devour_def_var = flower_devour_stacks }
+	multiply_variable = { flower_devour_def_var = 0.025 }
+	set_variable = { flower_devour_ic_var = flower_devour_stacks }
+	multiply_variable = { flower_devour_ic_var = 0.05 }
+	set_variable = { flower_devour_mp_var = flower_devour_stacks }
+	multiply_variable = { flower_devour_mp_var = 1000 }
+}
+
+flower_ai_add_devour_stack = {
+	add_to_variable = { flower_devour_stacks = 1 }
+	flower_ai_recalc_devour_mod = yes
+}
+
+#流派九：躁动的亡灵自动起尸召唤（玩家与AI通用）
+flower_ai_summon_undead_wave = {
+	set_technology = {
+		wangling_tech = 1
+		popup = no
+	}
+	if = {
+		limit = { NOT = { has_country_flag = flower_undead_tpl_small_created } }
+		set_country_flag = flower_undead_tpl_small_created
+		division_template = {
+			name = "躁动的亡灵群"
+			is_locked = yes
+			regiments = {
+				wangling = { x = 0 y = 0 }
+				wangling = { x = 0 y = 1 }
+				wangling = { x = 0 y = 2 }
+				wangling = { x = 0 y = 3 }
+				wangling = { x = 1 y = 0 }
+				wangling = { x = 1 y = 1 }
+				wangling = { x = 1 y = 2 }
+				wangling = { x = 1 y = 3 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_idea = flower_undead_stage_3_idea
+			NOT = { has_country_flag = flower_undead_tpl_guard_created }
+		}
+		set_country_flag = flower_undead_tpl_guard_created
+		division_template = {
+			name = "亡灵天灾亲卫军"
+			is_locked = yes
+			regiments = {
+				wangling = { x = 0 y = 0 }
+				wangling = { x = 0 y = 1 }
+				wangling = { x = 0 y = 2 }
+				wangling = { x = 0 y = 3 }
+				wangling = { x = 1 y = 0 }
+				wangling = { x = 1 y = 1 }
+				wangling = { x = 1 y = 2 }
+				wangling = { x = 1 y = 3 }
+				wangling = { x = 2 y = 0 }
+				wangling = { x = 2 y = 1 }
+				wangling = { x = 2 y = 2 }
+				wangling = { x = 2 y = 3 }
+				wangling = { x = 3 y = 0 }
+				wangling = { x = 3 y = 1 }
+				wangling = { x = 3 y = 2 }
+				wangling = { x = 3 y = 3 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+	}
+	if = {
+		limit = { has_idea = flower_undead_stage_3_idea }
+		add_equipment_to_stockpile = {
+			type = wangling_equipment_0
+			amount = 5000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 200
+		}
+		capital_scope = {
+			create_unit = {
+				division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
+				count = 3
+				owner = PREV
+			}
+		}
+		if = {
+			limit = { has_idea = flower_evo_undead_plague_idea }
+			add_equipment_to_stockpile = {
+				type = wangling_equipment_0
+				amount = 2500
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
+					count = 2
+					owner = PREV
+				}
+			}
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = {
+			type = wangling_equipment_0
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 150
+		}
+		capital_scope = {
+			create_unit = {
+				division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
+				count = 3
+				owner = PREV
+			}
+		}
+		if = {
+			limit = { has_idea = flower_evo_undead_plague_idea }
+			add_equipment_to_stockpile = {
+				type = wangling_equipment_0
+				amount = 2000
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
+					count = 2
+					owner = PREV
+				}
+			}
+		}
+	}
+}
+
+#流派八：野火游击纵队免费拉兵（玩家与AI通用）
+flower_ai_summon_guerrilla_wave = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_guerrilla_tpl_created } }
+		set_country_flag = flower_guerrilla_tpl_created
+		division_template = {
+			name = "野火游击纵队"
+			regiments = {
+				youjibudui = { x = 0 y = 0 }
+				youjibudui = { x = 0 y = 1 }
+				youjibudui = { x = 0 y = 2 }
+				youjibudui = { x = 0 y = 3 }
+				youjibudui = { x = 1 y = 0 }
+				youjibudui = { x = 1 y = 1 }
+				youjibudui = { x = 1 y = 2 }
+				youjibudui = { x = 1 y = 3 }
+				youjibudui = { x = 2 y = 0 }
+				youjibudui = { x = 2 y = 1 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2500
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment
+		amount = 200
+	}
+	if = {
+		limit = { has_idea = flower_combo_enemy_makes_our_guns_idea }
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 500
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 250
+		}
+	}
+	capital_scope = {
+		create_unit = {
+			division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
+			count = 2
+			owner = PREV
+		}
+	}
+	if = {
+		limit = { has_idea = flower_evo_guerrilla_sea_idea }
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1500
+		}
+		capital_scope = {
+			create_unit = {
+				division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
+				count = 1
+				owner = PREV
+			}
+		}
+	}
+}
+
+#流派七：夜莺的魂灵与夜莺骑士团成建制征召（玩家与AI通用）
+flower_ai_summon_nightingale_knights = {
+	if = {
+		limit = {
+			has_tech = wangling3_tech
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_nightingale_knight_tpl_created } }
+			set_country_flag = flower_nightingale_knight_tpl_created
+			division_template = {
+				name = "夜莺骑士团"
+				regiments = {
+					wangling3 = { x = 0 y = 0 }
+					wangling3 = { x = 0 y = 1 }
+					wangling3 = { x = 0 y = 2 }
+					wangling3 = { x = 0 y = 3 }
+					wangling3 = { x = 1 y = 0 }
+					wangling3 = { x = 1 y = 1 }
+					wangling3 = { x = 1 y = 2 }
+					wangling3 = { x = 1 y = 3 }
+					wangling3 = { x = 2 y = 0 }
+					wangling3 = { x = 2 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = magic_artillery_equipment_1
+			amount = 1500
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 500
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 200
+		}
+		capital_scope = {
+			create_unit = {
+				division = "name = \"夜莺骑士团\" division_template = \"夜莺骑士团\" start_experience_factor = 0.6"
+				count = 3
+				owner = PREV
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { NOT = { has_country_flag = flower_nightingale_soul_tpl_created } }
+			set_country_flag = flower_nightingale_soul_tpl_created
+			division_template = {
+				name = "夜莺的魂灵"
+				regiments = {
+					wangling2 = { x = 0 y = 0 }
+					wangling2 = { x = 0 y = 1 }
+					wangling2 = { x = 0 y = 2 }
+					wangling2 = { x = 0 y = 3 }
+					wangling2 = { x = 1 y = 0 }
+					wangling2 = { x = 1 y = 1 }
+					wangling2 = { x = 1 y = 2 }
+					wangling2 = { x = 1 y = 3 }
+					wangling2 = { x = 2 y = 0 }
+					wangling2 = { x = 2 y = 1 }
+				}
+				support = {
+					engineer = { x = 0 y = 0 }
+					recon = { x = 0 y = 1 }
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 200
+		}
+		capital_scope = {
+			create_unit = {
+				division = "name = \"夜莺的魂灵\" division_template = \"夜莺的魂灵\" start_experience_factor = 0.4"
+				count = 3
+				owner = PREV
+			}
+		}
+	}
+}
+
+#触发一轮全球肉鸽波次（第1轮为12大流派开局底座选秀，第2轮起为随机三选一词条牌库+流派进阶分支）
+flower_ai_trigger_roguelike_wave = {
+	add_to_variable = { global.flower_roguelike_round = 1 }
+	if = {
+		limit = { check_variable = { global.flower_roguelike_round < 2 } }
+		every_country = {
+			limit = { is_ai = no }
+			flower_ai_open_starter_selection = yes
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				is_major = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			random_list = {
+				25 = { country_event = { id = FLWAI.10 } }
+				25 = { country_event = { id = FLWAI.11 } }
+				25 = { country_event = { id = FLWAI.12 } }
+				25 = { country_event = { id = FLWAI.13 } }
+			}
+			if = {
+				limit = { has_global_flag = flower_anomaly_6_active }
+				random_list = {
+					25 = { country_event = { id = FLWAI.10 days = 2 } }
+					25 = { country_event = { id = FLWAI.11 days = 2 } }
+					25 = { country_event = { id = FLWAI.12 days = 2 } }
+					25 = { country_event = { id = FLWAI.13 days = 2 } }
+				}
+			}
+		}
+	}
+	else = {
+		every_country = {
+			limit = { is_ai = no }
+			flower_ai_open_roguelike_draft = yes
+		}
+		every_country = {
+			limit = {
+				is_ai = yes
+				is_major = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			flower_ai_open_roguelike_draft = yes
+			if = {
+				limit = { has_global_flag = flower_anomaly_6_active }
+				#噩梦畸变下主要AI每轮还能顺手推进一次流派阶位或开启副流派
+				random_list = {
+					25 = { country_event = { id = FLWAI.10 days = 3 } }
+					25 = { country_event = { id = FLWAI.11 days = 3 } }
+					25 = { country_event = { id = FLWAI.12 days = 3 } }
+					25 = { country_event = { id = FLWAI.13 days = 3 } }
+				}
+			}
+		}
+	}
+}
+
+#结算开局畸变投票并正式启动世界线法则
+flower_ai_lock_in_anomalies_and_start = {
+	clr_global_flag = flower_anomaly_voting_open
+	set_global_flag = flower_anomaly_voting_settled
+	if = {
+		limit = {
+			check_variable = { global.flower_anomaly_vote_1 < 1 }
+			check_variable = { global.flower_anomaly_vote_2 < 1 }
+			check_variable = { global.flower_anomaly_vote_3 < 1 }
+			check_variable = { global.flower_anomaly_vote_4 < 1 }
+			check_variable = { global.flower_anomaly_vote_5 < 1 }
+			check_variable = { global.flower_anomaly_vote_6 < 1 }
+		}
+		set_variable = { global.flower_anomaly_vote_1 = 1 }
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_multi_mode }
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_1 > 0 } }
+			set_global_flag = flower_anomaly_1_active
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_2 > 0 } }
+			set_global_flag = flower_anomaly_2_active
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_3 > 0 } }
+			set_global_flag = flower_anomaly_3_active
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_4 > 0 } }
+			set_global_flag = flower_anomaly_4_active
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_5 > 0 } }
+			set_global_flag = flower_anomaly_5_active
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_6 > 0 } }
+			set_global_flag = flower_anomaly_6_active
+			set_global_flag = flower_anomaly_1_active
+		}
+	}
+	else = {
+		set_temp_variable = { max_v = global.flower_anomaly_vote_1 }
+		set_temp_variable = { win_id = 1 }
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_2 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_2 }
+			set_temp_variable = { win_id = 2 }
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_3 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_3 }
+			set_temp_variable = { win_id = 3 }
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_4 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_4 }
+			set_temp_variable = { win_id = 4 }
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_5 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_5 }
+			set_temp_variable = { win_id = 5 }
+		}
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_6 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_6 }
+			set_temp_variable = { win_id = 6 }
+		}
+		if = {
+			limit = { check_variable = { win_id = 1 } }
+			set_global_flag = flower_anomaly_1_active
+		}
+		else_if = {
+			limit = { check_variable = { win_id = 2 } }
+			set_global_flag = flower_anomaly_2_active
+		}
+		else_if = {
+			limit = { check_variable = { win_id = 3 } }
+			set_global_flag = flower_anomaly_3_active
+		}
+		else_if = {
+			limit = { check_variable = { win_id = 4 } }
+			set_global_flag = flower_anomaly_4_active
+		}
+		else_if = {
+			limit = { check_variable = { win_id = 5 } }
+			set_global_flag = flower_anomaly_5_active
+		}
+		else_if = {
+			limit = { check_variable = { win_id = 6 } }
+			set_global_flag = flower_anomaly_6_active
+			set_global_flag = flower_anomaly_1_active
+		}
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_2_active }
+		every_country = {
+			limit = {
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			add_ideas = flower_anomaly_blitz_idea
+		}
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_3_active }
+		every_country = {
+			limit = {
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			add_ideas = flower_anomaly_tycoon_idea
+			add_to_variable = { another_country_currency_reserve = 500 }
+		}
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_5_active }
+		every_country = {
+			limit = {
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			add_ideas = flower_anomaly_heroes_idea
+		}
+		every_country = {
+			limit = { is_ai = no }
+			country_event = { id = FLWAI.27 days = 1 }
+		}
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_6_active }
+		every_country = {
+			limit = {
+				is_ai = yes
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			add_ideas = flower_anomaly_nightmare_ai_idea
+		}
+	}
+	every_country = {
+		limit = { is_ai = no }
+		clr_country_flag = flower_anomaly_panel_open
+	}
+	if = {
+		limit = { has_global_flag = flower_anomaly_1_active }
+		flower_ai_trigger_roguelike_wave = yes
+	}
+	every_country = {
+		limit = { is_ai = no }
+		set_temp_variable = { temp_alert_id = 909 }
+		set_temp_variable = { temp_tag = ROOT.id }
+		set_temp_variable = { temp_tag2 = THIS.id }
+		flower_ai_push_bottom_right_alert = yes
+	}
+}

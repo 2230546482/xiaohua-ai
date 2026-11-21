@@ -13,11 +13,11 @@ fire_concentration = {
 
     ai_will_do = {
 
-        base = 1000
+        base = 50
          
     }
 
-     # EFFECTS
+     #EFFECTS
      enable_tactic = tactic_overwhelming_fire
 
     category_line_artillery = {
@@ -36,7 +36,7 @@ fire_concentration = {
         }
 
         standing_barrage = {
-        #2            
+        #2
             artillery_brigade = {
                 combat_width = -0.8
             }
@@ -89,7 +89,7 @@ anti_tank_frontline = {
 
     ai_will_do = { base = 0 }
 
-     # EFFECTS
+     #EFFECTS
      
 
     engineer = {
@@ -167,7 +167,7 @@ flying_batteries = {
 
     }
 
-     # EFFECTS
+     #EFFECTS
      effect = {
         add_tech_bonus = {
             bonus = 0.5
@@ -278,7 +278,7 @@ air_cavalry = {
 
     ai_will_do = { base = 0 }
 
-     # EFFECTS
+     #EFFECTS
     effect = {
         add_tech_bonus = {
             bonus = 0.5

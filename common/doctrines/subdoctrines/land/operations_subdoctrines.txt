@@ -16,7 +16,7 @@ mission_type_tactics = {
     available = {
         always = yes
     }
-    # EFFECTS
+    #EFFECTS
     command_power_gain = 0.2
     category_all_infantry = {
         max_organisation = 15
@@ -102,7 +102,7 @@ last_stand = {
             }
         }
     }
-    # EFFECTS
+    #EFFECTS
     conscription = 0.05
 
     ai_will_do = {
@@ -161,15 +161,14 @@ infiltration_tactics = {
 
     ai_will_do = {
 
-        base = 1000
+        base = 50
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_infantry_charge
     max_planning = 0.1
 
-    ai_will_do = { }
 
     rewards = {
         infiltration_assault = {
@@ -266,14 +265,13 @@ grand_assault = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     max_planning = 0.1
     category_army = {
         breakthrough = 0.1
         soft_attack = 0.05
     }
 
-    ai_will_do = { }
 
     rewards = {
         central_planning = {
@@ -360,14 +358,13 @@ deep_battle = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_backhand_blow
     category_tanks = {
         max_organisation = 4
     }
 
 
-    ai_will_do = { }
 
     rewards = {
         bounding_overwatch = {
@@ -491,14 +488,13 @@ deep_battle_no_lar = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_backhand_blow
     category_tanks = {
         max_organisation = 4
     }
 
 
-    ai_will_do = { }
 
     rewards = {
         bounding_overwatch = {
@@ -606,7 +602,7 @@ guerilla_war = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_guerrilla_tactics
     irregular_infantry = {
         soft_attack = 0.1
@@ -705,7 +701,7 @@ rapid_domination = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_breakthrough
     land_reinforce_rate = 0.02
     category_all_infantry = {
@@ -716,7 +712,6 @@ rapid_domination = {
     }
 
 
-    ai_will_do = { }
 
     rewards = {
         forward_observers = {
@@ -805,13 +800,12 @@ expeditionary_warfare = {
 
     }
 
-    # EFFECTS
+    #EFFECTS
 
     send_volunteer_divisions_required = -0.5
     send_volunteer_factor = 0.25
     send_volunteers_tension = -0.1
 
-    ai_will_do = { }
 
     rewards = {
         staging_area_security = {
@@ -870,7 +864,7 @@ dispersed_operations = {
         base = 0
     }
 
-    # EFFECTS
+    #EFFECTS
     enemy_army_bonus_air_superiority_factor = -0.10
     land_reinforce_rate = 0.05
 

@@ -1,0 +1,28 @@
+#小花肉鸽与畸变动态成长修正
+flower_slayer_book_dynamic_mod = {
+	icon = GFX_idea_flower_idea_slayer_book
+	enable = { always = yes }
+	army_attack_factor = flower_slayer_atk_var
+	breakthrough_factor = flower_slayer_brk_var
+	army_morale_factor = flower_slayer_morale_var
+	equipment_capture_factor = flower_slayer_cap_var
+	weekly_manpower = flower_slayer_mp_var
+}
+
+flower_builder_ledger_dynamic_mod = {
+	icon = GFX_idea_flower_idea_builder_ledger
+	enable = { always = yes }
+	production_speed_buildings_factor = flower_builder_spd_var
+	industrial_capacity_factory = flower_builder_out_var
+	production_factory_max_efficiency_factor = flower_builder_cap_var
+	global_building_slots_factor = flower_builder_slot_var
+}
+
+flower_devour_anomaly_dynamic_mod = {
+	icon = GFX_idea_flower_idea_devour
+	enable = { always = yes }
+	army_attack_factor = flower_devour_atk_var
+	army_defence_factor = flower_devour_def_var
+	industrial_capacity_factory = flower_devour_ic_var
+	weekly_manpower = flower_devour_mp_var
+}

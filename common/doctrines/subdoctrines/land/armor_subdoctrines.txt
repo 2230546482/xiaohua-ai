@@ -20,7 +20,7 @@ armored_spearhead = {
        
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_breakthrough
 
     rewards = {
@@ -97,7 +97,7 @@ armored_spearhead_no_lar = {
        
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_breakthrough
 
     rewards = {
@@ -161,7 +161,7 @@ armored_infantry_support = {
         
     }
 
-    # EFFECTS
+    #EFFECTS
     enable_tactic = tactic_blitz
     effect = {
         add_tech_bonus = {
@@ -247,7 +247,7 @@ streamlined_deployment = {
 
         ai_will_do = {
 
-        base = 1000
+        base = 50
        
 
     }
@@ -438,7 +438,7 @@ armored_cavalry = {
         max_organisation = 5
         defense = 0.05
     }
-    # EFFECTS
+    #EFFECTS
     rewards = {
         cruiser_tanks = {
             light_armor = {
@@ -553,7 +553,7 @@ armored_cavalry_no_lar = {
         max_organisation = 5
         defense = 0.05
     }
-    # EFFECTS
+    #EFFECTS
     rewards = {
         cruiser_tanks = {
             light_armor = {

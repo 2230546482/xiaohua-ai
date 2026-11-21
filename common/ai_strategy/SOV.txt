@@ -1,6 +1,6 @@
 SOV_rush_to_Ukraine = { #1h22min速通乌克兰
-		allowed = { 
-			original_tag = SOV 
+		allowed = {
+			original_tag = SOV
 		}
 
 		enable = {
@@ -41,7 +41,7 @@ SOV_rush_to_Ukraine = { #1h22min速通乌克兰
 			type = front_control
 			tag = UKR
 			ratio > 0.10
-			priority = 50
+			priority = 150
 			ordertype = front
 			execution_type = rush
 			manual_attack = no
@@ -54,180 +54,34 @@ SOV_rush_to_Ukraine = { #1h22min速通乌克兰
 				is_controlled_by = UKR
 			}
 			ratio > 0.10
-			priority = 75
+			priority = 180
 			ordertype = front
 			execution_type = rush
 			manual_attack = no
 		}
 	}
 
-	SOV_ai_research_43at = {
-		allowed = {
-			original_tag = SOV
-		}
-		enable = {
-			has_tech = antitank4
-			date > 1937.6.1
-		}
-		abort = {
-			always = no
-		}
-		ai_strategy = { #at
-			type = research_tech	
-			id = antitank5
-			value = 1000
-		}
+
+
+SOV_ai_research_43at = {
+	allowed = {
+		original_tag = SOV
 	}
-
-	SOV_send_volunteers = { # Reverse strategy
-
-    reversed = yes
-
-    allowed = {
-        original_tag = SOV
-    }
-
-    enable = {
-
-
-        if = {
-            limit = { NOT = { has_completed_focus = SOV_Support_Viet_Minh } }
-            # NOT = {
-            # 	tag = CAM
-            # 	tag = VIN
-            # }
-        }
-        OR = {
-            has_country_flag = SWE_Communist_Party_Cabinet
-            has_government = communism
-        }
-        NOT = {
-            any_enemy_country = {
-                has_government = communism
-                is_subject = no
-                OR = {
-                    is_faction_leader = yes
-                    is_in_faction = no
-                }
-            }
-        }
-        NOT = {
-            has_country_leader_ideology = anarchist_communism
-        }
-        NOT = {
-            capital_scope = {
-                is_on_continent = africa
-            }
-        }
-        if = {
-            limit = { tag = VHS }
-            always = yes
-        }
-        if = {
-            limit = { tag = TAM }
-            always = yes
-        }
-        else_if = {
-            limit = {
-                UKR = {
-                    exists = yes
-                    NOT = { has_government =  communism }
-                }
-            }
-            always = no
-        }
-    }
-
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = send_volunteers_desire
-        id = "SOV"
-        value = 100
-    }
+	enable = {
+		has_tech = antitank4
+		date > 1939.6.1
+		NOT = { has_tech = antitank5 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = research_tech
+		id = antitank5
+		value = 1000
+	}
 }
 
-SOV_send_lease_desire = { # Reverse strategy
 
-    reversed = yes
 
-    allowed = {
-        original_tag = SOV
-    }
-
-    enable = {
-        OR = {
-            any_enemy_country = {
-                tag = DVL
-            }
-            AND = {
-                any_enemy_country = {
-                    has_government = fascism
-                }
-                NOT = { tag = DVL }
-            }
-            AND = {
-                NOT = { country_exists = DVL }
-                any_enemy_country = {
-                    tag = ENG
-                }
-            }
-        }
-        NOT = {
-            any_enemy_country = {
-                has_government = communism
-                is_subject = no
-                OR = {
-                    is_faction_leader = yes
-                    is_in_faction = no
-                }
-            }
-        }
-        if = {
-            limit = {
-                tag = GER
-            }
-            has_idea = SOV_aid_to_GER
-        }
-        else = {
-            has_government = communism
-        }
-        NOT = { has_war_with = SOV }
-    }
-
-    abort_when_not_enabled = yes
-
-    ai_strategy = {
-        type = send_lend_lease_desire
-        id = "SOV"
-        value = 100
-    }
-}
-ENG_support_ROC = {
-    reversed = yes
-    allowed = {
-        original_tag = ENG
-    }
-    enable = {
-        tag = ROC
-        or = {
-            has_government = democratic
-            has_government = neutrality
-        }
-        ENG = {
-            or = {
-                has_government = democratic
-                has_government = neutrality
-            }
-        }
-    }
-    ai_strategy = {
-        type = send_volunteers_desire
-        id = "ENG"
-        value = 1000
-    }
-    abort_when_not_enabled = yes
-}
 	SOV_prepare_for_war_with_DVL = { #警惕魔导
 		allowed = {
 			original_tag = SOV
@@ -249,6 +103,9 @@ ENG_support_ROC = {
 			value = 100
 		}
 	}
+
+
+
 	SOV_the_more_powerful_KGB = {
 		allowed = {
 			original_tag = SOV
@@ -257,9 +114,7 @@ ENG_support_ROC = {
 			always = yes
 		}
 
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 
 		ai_strategy = {
 			type = intelligence_agency_usable_factories
@@ -288,17 +143,20 @@ ENG_support_ROC = {
 		}
 
 	}
+
+
+
 	SOV_infiltrate_DVL = {
-		
+
 		allowed = {
 			tag = SOV
 		}
-		
+
 		enable = {
 			country_exists = DVL
 			date > 1941.1.1
 		}
-		
+
 		abort_when_not_enabled = yes
 
 		ai_strategy = {
@@ -307,7 +165,7 @@ ENG_support_ROC = {
 			value = 2500
 			operation_target = DVL
 		}
-		
+
 		ai_strategy = {
 			type = operative_mission
 			mission = build_intel_network
@@ -316,13 +174,16 @@ ENG_support_ROC = {
 		}
 
 	}
-	SOV_dont_mess_with_volunteers_for_no_communism_nations = { # Reverse strategy
+
+
+
+	SOV_dont_mess_with_volunteers_for_no_communism_nations = { #Reverse strategy
 
 		reversed = yes
 
 		allowed = {
-			original_tag = SOV
-		}
+		NOT = { original_tag = SOV }
+	}
 
 		enable = {
 			NOT = {
@@ -346,7 +207,9 @@ ENG_support_ROC = {
 		}
 
 	}
-	#日苏关系
+
+
+
 	SOV_dip_with_JAP = {
 		allowed = {
 			original_tag = SOV
@@ -361,6 +224,8 @@ ENG_support_ROC = {
 			value = 100
 		}
 	}
+
+
 
 	JAP_diplomacy_with_SOV = {
 		allowed = {
@@ -379,7 +244,8 @@ ENG_support_ROC = {
 		}
 	}
 
-	#苏戴关系
+
+
 	SOV_dip_with_DVL = {
 		allowed = {
 			original_tag = SOV
@@ -392,8 +258,10 @@ ENG_support_ROC = {
 			type = antagonize
 			id = DVL
 			value = 100
-		}				
+		}
 	}
+
+
 
 	SOV_dip_with_POL = {
 		allowed = {
@@ -414,9 +282,14 @@ ENG_support_ROC = {
 			value = 100
 		}
 	}
-	
+
+
+
 	SOV_earth_defense_consensus_support = {
-		enable = {
+		allowed = {
+		original_tag = SOV
+	}
+	enable = {
 			has_idea = SOV_earth_defense_consensus
 			SOV = { has_war_with = DVL }
 			SOV = { surrender_progress > 0.10 }
@@ -440,9 +313,14 @@ ENG_support_ROC = {
 		}
 	}
 
+
+
 	SOV_dip_with_democracy = {
 
-		enable = {
+		allowed = {
+		original_tag = SOV
+	}
+	enable = {
 			OR = {
 				tag = FRA
 				tag = NPT
@@ -463,10 +341,11 @@ ENG_support_ROC = {
 			type = befriend
 			id = SOV
 			value = 25
-		}		
+		}
 	}
 
-	#苏土关系
+
+
 	SOV_dip_with_TUR = {
 		allowed = {
 			original_tag = SOV
@@ -481,6 +360,8 @@ ENG_support_ROC = {
 			value = 10
 		}
 	}
+
+
 
 	TUR_diplomacy_with_SOV = {
 		allowed = {
@@ -497,12 +378,13 @@ ENG_support_ROC = {
 		}
 	}
 
-	#中苏关系
+
+
 	SOV_ignore_china = {
 		reversed = yes
 		allowed = {
-			original_tag = SOV
-		}
+		NOT = { original_tag = SOV }
+	}
 		enable = {
 			NOT = { has_war_with = SOV }
 			OR = {
@@ -519,6 +401,8 @@ ENG_support_ROC = {
 		}
 	}
 
+
+
 	SOV_ignore_china_front_unit_request = {
 
 		allowed = {
@@ -527,8 +411,8 @@ ENG_support_ROC = {
 		enable = {
 			any_other_country = {
 				is_chinese_country = yes
-				NOT = { 
-					has_war_with = SOV 
+				NOT = {
+					has_war_with = SOV
 					has_wargoal_against = SOV
 				}
 			}
@@ -557,6 +441,8 @@ ENG_support_ROC = {
 		}
 	}
 
+
+
 	china_ignore_SOV = {
 
 		allowed = {
@@ -577,6 +463,8 @@ ENG_support_ROC = {
 		}
 	}
 
+
+
 	SOV_support_to_MAN = {
 		allowed = {
 			original_tag = SOV
@@ -592,7 +480,8 @@ ENG_support_ROC = {
 		}
 	}
 
-	#苏伊关系
+
+
 	SOV_ignore_PER = {
 		allowed = {
 			original_tag = SOV
@@ -608,13 +497,14 @@ ENG_support_ROC = {
 		}
 	}
 
-#军通
+
+
 	SOV_ask_for_access_in_war = {
 		reversed = yes
 
 		allowed = {
-			original_tag = SOV
-		}
+		NOT = { original_tag = SOV }
+	}
 
 		enable = {
 			DVL = {
@@ -640,6 +530,8 @@ ENG_support_ROC = {
 		}
 	}
 
+
+
 TAM_war_with_PER_AFG = {
 	allowed = {
 		original_tag = TAM
@@ -652,24 +544,26 @@ TAM_war_with_PER_AFG = {
 	ai_strategy = {
 		type = front_unit_request		#前线部队
 		tag = PER
-		value = 200		# lets put more units, should be safe
+		value = 200		#lets put more units, should be safe
 	}
 	ai_strategy = {
 		type = prepare_for_war		#前线部队
 		tag = PER
-		value = 200		# lets put more units, should be safe
+		value = 200		#lets put more units, should be safe
 	}
 	ai_strategy = {
 		type = front_unit_request		#前线部队
 		tag = AFG
-		value = 150		# lets put more units, should be safe
+		value = 150		#lets put more units, should be safe
 	}
 	ai_strategy = {
 		type = prepare_for_war		#前线部队
 		tag = AFG
-		value = 150		# lets put more units, should be safe
+		value = 150		#lets put more units, should be safe
 	}
 }
+
+
 
 SOV_unit_production_apocalypse = {
 	allowed = {
@@ -696,103 +590,265 @@ SOV_unit_production_apocalypse = {
 	}
 }
 
+
+
 	SOV_ai_research_34HT = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
+			NOT = { has_tech = basic_heavy_tank_chassis }
 			date > 1936.1.1
 		}
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 		ai_strategy = { #at
-			type = research_tech	
+			type = research_tech
 			id = basic_heavy_tank_chassis
 			value = 1000
 		}
 	}
+
+
+
 	SOV_ai_research_40HT = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
+			NOT = { has_tech = improved_heavy_tank_chassis }
 			date > 1939.1.1
 		}
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 		ai_strategy = { #at
-			type = research_tech	
+			type = research_tech
 			id = improved_heavy_tank_chassis
 			value = 1000
 		}
 	}
+
+
+
 	SOV_ai_research_39at = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
+			NOT = { has_tech = antitank2 }
 			OR = {
 				has_tech = antitank1
 			}
 		}
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 		ai_strategy = { #at
-			type = research_tech	
+			type = research_tech
 			id = antitank2
 			value = 1000
 		}
 	}
+
+
+
 	SOV_ai_research_41at = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
+			NOT = { has_tech = antitank3 }
 			OR = {
 				has_tech = antitank2
 			}
 		}
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 		ai_strategy = { #at
-			type = research_tech	
+			type = research_tech
 			id = antitank3
 			value = 1000
 		}
 	}
+
+
+
 	SOV_ai_research_42at = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
+			NOT = { has_tech = antitank4 }
 			has_tech = antitank3
 		}
-		abort = {
-			always = no
-		}
+		abort_when_not_enabled = yes
 		ai_strategy = { #at
-			type = research_tech	
+			type = research_tech
 			id = antitank4
 			value = 1000
 		}
 	}
-	SOV_ai_research_43at = {
+
+#外交与战线策略
+	SOV_dont_naval_invading_DVL = {
 		allowed = {
 			original_tag = SOV
 		}
 		enable = {
-			has_tech = antitank4
+			DVL = {
+				is_ai = yes
+			}
 		}
-		abort = {
-			always = no
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = DVL
+			value = -500
 		}
-		ai_strategy = { #at
-			type = research_tech	
-			id = antitank5
-			value = 1000
+	}
+
+	SOV_dont_naval_invading_JAP = {
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			JAP = {
+				is_ai = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = JAP
+			value = -500
+		}
+	}
+
+	SOV_dont_naval_invading_POL = {
+		allowed = {
+			original_tag = POL
+		}
+		enable = {
+			POL = {
+				is_ai = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = POL
+			value = -500
+		}
+	}
+
+	SOV_dont_naval_invading_ROM = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			ROM = {
+				is_ai = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = ROM
+			value = -500
+		}
+	}
+
+	SOV_dont_naval_invading_MAN = {
+		allowed = {
+			original_tag = MAN
+		}
+		enable = {
+			MAN = {
+				is_ai = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = invasion_unit_request
+			tag = MAN
+			value = -500
+		}
+	}
+
+	SOV_war_with_DVL_1 = { #43年前对魔导防御
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_war_with = DVL
+			date < 1943.6.1
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = conquer		#征服
+			id = "DVL"
+			value = -200
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = DVL
+			value = 200		#lets put more units, should be safe
+		}
+		ai_strategy = { #坦克比例
+			type = front_armor_score
+			id = "DVL"
+			value = 9999
+		}
+		#ai_strategy = { #防守前线
+		#type = front_control
+		#priority = 200
+		#tag = DVL
+		##ratio > 0.1
+		#execution_type = careful
+		#execute_order = yes
+		#}
+		ai_strategy = { #帮波罗的填线
+			type = force_defend_ally_borders
+			id = "BAL"
+			value = 50
+		}
+	}
+
+	SOV_war_with_DVL_2 = { #43年后对魔导反击
+		allowed = {
+			original_tag = SOV
+		}
+		enable = {
+			has_war_with = DVL
+			date > 1943.6.1
+		}
+		abort_when_not_enabled = yes
+		ai_strategy = {
+			type = conquer		#征服
+			id = "DVL"
+			value = 200
+		}
+		ai_strategy = {
+			type = front_unit_request		#前线部队
+			tag = DVL
+			value = 200		#lets put more units, should be safe
+		}
+		ai_strategy = { #坦克比例
+			type = front_armor_score
+			id = "DVL"
+			value = 9999
+		}
+		ai_strategy = { #进攻前线
+			type = front_control
+			priority = 200
+			tag = DVL
+			ratio > 0.4
+			execution_type = rush
+			execute_order = yes
+		}
+		ai_strategy = { #帮波罗的填线
+			type = force_defend_ally_borders
+			id = "BAL"
+			value = 50
 		}
 	}

@@ -1,0 +1,362 @@
+#肉鸽流派全图AI产线、兵种配比与前线作战策略深度适配
+
+#流派七：夜莺骑士团AI产线与编制配比（拉满魔导武器与魔导炮产线，全力组建夜莺骑士团）
+flower_roguelike_nightingale_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_nightingale_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_nightingale
+		value = 85
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = magic_assault_equipment
+		value = 8
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = magic_assault_equipment
+		value = 220
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = magic_artillery_equipment
+		value = 6
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = magic_artillery_equipment
+		value = 200
+	}
+}
+
+#流派八：野火游击队AI产线与编制配比（铺满超低宽不吃补给的野火游击海）
+flower_roguelike_guerrilla_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_guerrilla_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_guerrilla
+		value = 90
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 180
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 120
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 150
+	}
+}
+
+#流派九：躁动的亡灵AI产线与狂暴冲锋适配（持续维持死者的利箭库存并强化进攻姿态）
+flower_roguelike_undead_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_undead_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = wangling_equipment
+		value = 6
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = wangling_equipment
+		value = 180
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 180
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 150
+	}
+}
+
+#流派三：0宽度早苗神风火炮AI产线与8炮神风师配比
+flower_roguelike_arty_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_arty_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_zero_arty
+		value = 95
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 300
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = artillery
+		value = 10
+	}
+}
+
+#流派四：废土改装与咲夜时停高达AI产线配比
+flower_roguelike_tank_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_tank_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_sakuya_armor
+		value = 65
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 65
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 250
+	}
+}
+
+#流派五：制空遮天与王牌空天AI产线配比
+flower_roguelike_air_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = air_factory_balance
+		value = 200
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 150
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 180
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 220
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = siege_helicoptery_equipment
+		value = 4
+	}
+}
+
+#流派六：不死督战队人海AI爆兵配比
+flower_roguelike_wave_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_wave_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 250
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 250
+	}
+}
+
+#流派十：异界禁书召唤AI（自律人偶/构装骑士/混沌神选）产线配比
+flower_roguelike_magic_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_magic_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_summon_special
+		value = 70
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = auto_meta_equipments
+		value = 6
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = auto_meta_equipments
+		value = 220
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = construct_knight_equipment
+		value = 5
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = construct_knight_equipment
+		value = 180
+	}
+}
+
+#流派十一：森林妖精与蒸汽飞碟AI产线配比（自动拉满天外飞碟与蒸汽装甲）
+flower_roguelike_steampunk_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_steampunk_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_steampunk_elf
+		value = 65
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = flying_saucer_equipment
+		value = 8
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = flying_saucer_equipment
+		value = 260
+	}
+}
+
+#分叉特化AI：游击队《山沟里造重炮》拉满火炮产线
+flower_evo_guerrilla_heavy_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_evo_guerrilla_heavy_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 220
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = artillery
+		value = 10
+	}
+}
+
+#分叉特化AI：夜莺《猩红炼金工坊》拉满魔导产线
+flower_evo_nightingale_alchemy_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_idea = flower_evo_nightingale_alchemy_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = magic_assault_equipment
+		value = 14
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = magic_artillery_equipment
+		value = 10
+	}
+}
+
+#分叉特化AI：空天《贴地舔地拆迁队》狂暴堆近距支援机
+flower_evo_air_cas_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_idea = flower_evo_air_cas_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 260
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 260
+	}
+}
+
+#分叉特化AI：空天《全天候制空封锁》狂暴堆战斗机
+flower_evo_air_superiority_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_idea = flower_evo_air_superiority_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 260
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 260
+	}
+}
+
+#分叉特化AI：奇幻朋克《天外飞碟母舰群》拉满飞碟产线
+flower_evo_punk_ufo_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_idea = flower_evo_punk_ufo_idea
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = flying_saucer_equipment
+		value = 14
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = flying_saucer_equipment
+		value = 320
+	}
+}

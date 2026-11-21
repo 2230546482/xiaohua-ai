@@ -1,0 +1,681 @@
+ideas = {
+	country = {
+		#==================================================
+		#一、11大流派后续分支进化精神（25条独立路线）
+		#==================================================
+
+		#1.夜莺骑士团·三叉进化
+		flower_evo_nightingale_blood_idea = {
+			picture = flower_idea_evo_blood
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.20
+				breakthrough_factor = 0.25
+				land_night_attack = 0.25
+				army_attack_factor = 0.15
+				army_attack_speed_factor = 0.20
+				supply_consumption_factor = 0.10
+			}
+		}
+		flower_evo_nightingale_iron_idea = {
+			picture = flower_idea_evo_iron
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_defence_factor = 0.25
+				army_org_factor = 0.15
+				max_dig_in_factor = 0.20
+				casualty_trickleback = 0.25
+				experience_loss_factor = -0.25
+				cas_damage_reduction = 0.25
+			}
+		}
+		flower_evo_nightingale_alchemy_idea = {
+			picture = flower_idea_evo_magic_arty
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.20
+				production_factory_max_efficiency_factor = 0.25
+				army_artillery_attack_factor = 0.15
+				supply_consumption_factor = -0.15
+			}
+		}
+
+		#2.野火游击队·三叉进化
+		flower_evo_guerrilla_scorch_idea = {
+			picture = flower_idea_guerrilla
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				resistance_target_on_our_occupied_states = 0.50
+				resistance_growth_on_our_occupied_states = 0.50
+				resistance_damage_to_garrison_on_our_occupied_states = 0.25
+				supply_consumption_factor = -0.25
+				out_of_supply_factor = -0.50
+				attrition = -0.25
+				terrain_penalty_reduction = 0.25
+			}
+		}
+		flower_evo_guerrilla_heavy_idea = {
+			picture = flower_idea_evo_magic_arty
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.25
+				breakthrough_factor = 0.20
+				army_attack_against_major_factor = 0.15
+				coordination_bonus = 0.15
+				army_infantry_attack_factor = 0.15
+			}
+		}
+		flower_evo_guerrilla_sea_idea = {
+			picture = flower_idea_wave_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				training_time_army_factor = -0.25
+				conscription = 0.025
+				army_org_regain = 0.25
+				land_reinforce_rate = 0.05
+				army_core_defence_factor = 0.20
+			}
+		}
+
+		#3.躁动的亡灵·三叉进化
+		flower_evo_undead_plague_idea = {
+			picture = flower_idea_undead
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				land_reinforce_rate = 0.10
+				army_org_regain = 0.25
+				supply_consumption_factor = -0.25
+				no_supply_grace = 100
+				attrition = -0.25
+			}
+		}
+		flower_evo_undead_king_idea = {
+			picture = flower_idea_evo_bone_king
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.20
+				army_defence_factor = 0.20
+				breakthrough_factor = 0.25
+				army_org_factor = 0.20
+				coordination_bonus = 0.15
+			}
+		}
+		flower_evo_undead_sweatshop_idea = {
+			picture = flower_idea_builder_ledger
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.25
+				production_speed_buildings_factor = 0.20
+				consumer_goods_factor = -0.10
+				production_lack_of_resource_penalty_factor = -0.25
+				conscription_factor = 0.20
+			}
+		}
+
+		#4.战地拾荒扒衣·双叉进化
+		flower_evo_slayer_dismantle_idea = {
+			picture = flower_idea_slayer_book
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				equipment_capture_factor = 0.25
+				local_factories = 0.25
+				compliance_gain = 0.05
+				supply_consumption_factor = -0.20
+			}
+		}
+		flower_evo_slayer_retrofit_idea = {
+			picture = flower_idea_evo_steam_gear
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				reliability_factor = 0.25
+				experience_gain_army_unit_factor = 0.50
+				army_attack_factor = 0.15
+				max_planning = 0.20
+				equipment_conversion_speed = 0.50
+			}
+		}
+
+		#5.黑灯工厂巨企·双叉进化
+		flower_evo_corp_trust_idea = {
+			picture = flower_idea_relic_gold
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.25
+				line_change_production_efficiency_factor = 0.25
+				industrial_capacity_factory = 0.20
+				consumer_goods_factor = -0.05
+			}
+		}
+		flower_evo_corp_megaproject_idea = {
+			picture = flower_idea_relic_tech
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				global_building_slots_factor = 0.25
+				production_speed_buildings_factor = 0.25
+				research_speed_factor = 0.15
+				industrial_capacity_dockyard = 0.25
+			}
+		}
+
+		#6.0宽早苗神风火炮·双叉进化
+		flower_evo_arty_carpet_idea = {
+			picture = flower_idea_arty_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.25
+				fortification_damage = 0.25
+				max_planning = 0.20
+				coordination_bonus = 0.15
+			}
+		}
+		flower_evo_arty_mobile_idea = {
+			picture = flower_idea_blitz
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.15
+				army_artillery_attack_factor = 0.15
+				army_artillery_defence_factor = 0.20
+				breakthrough_factor = 0.20
+				supply_consumption_factor = -0.20
+			}
+		}
+
+		#7.废土改装与咲夜时停装甲·双叉进化
+		flower_evo_tank_timestop_idea = {
+			picture = flower_idea_tank_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_armor_speed_factor = 0.25
+				breakthrough_factor = 0.25
+				planning_speed = 0.50
+				army_fuel_consumption_factor = -0.25
+				org_loss_when_moving = -0.25
+			}
+		}
+		flower_evo_tank_fortress_idea = {
+			picture = flower_idea_evo_iron
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_armor_attack_factor = 0.25
+				army_armor_defence_factor = 0.25
+				reliability_factor = 0.25
+				army_attack_against_major_factor = 0.15
+			}
+		}
+
+		#8.遮天斯图卡与飞碟空天·双叉进化
+		flower_evo_air_cas_idea = {
+			picture = flower_idea_air_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				air_cas_present_factor = 0.25
+				air_cas_efficiency = 0.25
+				ground_attack_factor = 0.25
+				air_range_factor = 0.25
+			}
+		}
+		flower_evo_air_superiority_idea = {
+			picture = flower_idea_evo_star_fleet
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_bonus_air_superiority_factor = 0.25
+				air_superiority_efficiency = 0.25
+				air_attack_factor = 0.20
+				air_agility_factor = 0.20
+				air_mission_efficiency = 0.20
+			}
+		}
+
+		#9.不死督战队人海·双叉进化
+		flower_evo_wave_meatgrinder_idea = {
+			picture = flower_idea_wave_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_factor = 0.20
+				land_reinforce_rate = 0.10
+				army_core_attack_factor = 0.20
+				army_core_defence_factor = 0.25
+				casualty_trickleback = 0.25
+			}
+		}
+		flower_evo_wave_banzai_idea = {
+			picture = flower_idea_evo_blood
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.20
+				breakthrough_factor = 0.25
+				training_time_army_factor = -0.25
+				army_org_regain = 0.25
+			}
+		}
+
+		#10.异界禁书召唤·双叉进化
+		flower_evo_magic_chosen_idea = {
+			picture = flower_idea_magic_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				special_forces_cap = 0.25
+				special_forces_attack_factor = 0.25
+				special_forces_defence_factor = 0.25
+				breakthrough_factor = 0.20
+				supply_consumption_factor = -0.20
+			}
+		}
+		flower_evo_magic_grimoire_idea = {
+			picture = flower_idea_relic_tech
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.20
+				political_power_factor = 0.25
+				command_power_gain_mult = 0.50
+				max_command_power = 100
+				experience_gain_army = 0.15
+			}
+		}
+
+		#11.奇幻朋克实验室·双叉进化
+		flower_evo_punk_ufo_idea = {
+			picture = flower_idea_evo_star_fleet
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				air_attack_factor = 0.25
+				air_cas_present_factor = 0.25
+				air_range_factor = 0.25
+				industrial_capacity_factory = 0.15
+			}
+		}
+		flower_evo_punk_elfsteam_idea = {
+			picture = flower_idea_evo_elf
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				terrain_penalty_reduction = 0.25
+				army_attack_factor = 0.15
+				army_defence_factor = 0.20
+				enemy_army_bonus_air_superiority_factor = -0.25
+				cas_damage_reduction = 0.25
+			}
+		}
+
+		#==================================================
+		#二、通用百搭战术遗物（12张）
+		#==================================================
+		flower_relic_night_hunter_idea = {
+			picture = flower_idea_evo_blood
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				land_night_attack = 0.25
+				terrain_penalty_reduction = 0.20
+				breakthrough_factor = 0.10
+				recon_factor = 0.20
+			}
+		}
+		flower_relic_supply_wizard_idea = {
+			picture = flower_idea_relic_supply
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				supply_consumption_factor = -0.25
+				supply_node_range = 0.25
+				production_speed_supply_node_factor = 1.0
+				no_supply_grace = 100
+			}
+		}
+		flower_relic_iron_assembly_idea = {
+			picture = flower_idea_evo_steam_gear
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_factory_max_efficiency_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.20
+				line_change_production_efficiency_factor = 0.25
+			}
+		}
+		flower_relic_war_homework_idea = {
+			picture = flower_idea_relic_tech
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				decryption_factor = 0.50
+				intel_from_combat_factor = 0.25
+				research_speed_factor = 0.10
+				coordination_bonus = 0.10
+			}
+		}
+		flower_relic_black_market_dealer_idea = {
+			picture = flower_idea_relic_gold
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				equipment_capture_factor = 0.25
+				production_lack_of_resource_penalty_factor = -0.25
+				consumer_goods_factor = -0.05
+			}
+		}
+		flower_relic_specops_bootcamp_idea = {
+			picture = flower_idea_relic_army
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				special_forces_cap = 0.25
+				special_forces_attack_factor = 0.15
+				special_forces_defence_factor = 0.15
+				amphibious_invasion = 0.25
+				invasion_preparation = -0.25
+				paradrop_organization_factor = 0.25
+			}
+		}
+		flower_relic_marshal_cram_school_idea = {
+			picture = flower_idea_relic_command
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				experience_gain_army_factor = 0.50
+				max_command_power = 50
+				command_power_gain_mult = 0.25
+				army_leader_start_attack_level = 1
+				army_leader_start_logistics_level = 1
+			}
+		}
+		flower_relic_bunker_crew_idea = {
+			picture = flower_idea_evo_iron
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_bunker_factor = 0.75
+				production_speed_anti_air_building_factor = 0.75
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.20
+				max_dig_in_factor = 0.25
+				dig_in_speed_factor = 0.25
+			}
+		}
+		flower_relic_blitz_staff_idea = {
+			picture = flower_idea_blitz
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				max_planning = 0.20
+				planning_speed = 0.50
+				army_speed_factor = 0.10
+				initiative_factor = 0.15
+			}
+		}
+		flower_relic_sky_backyard_idea = {
+			picture = flower_idea_air_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				experience_gain_air_factor = 0.50
+				air_cas_efficiency = 0.20
+				air_superiority_efficiency = 0.20
+				production_speed_air_base_factor = 0.50
+			}
+		}
+		flower_relic_field_surgery_idea = {
+			picture = flower_idea_relic_supply
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				casualty_trickleback = 0.25
+				experience_loss_factor = -0.25
+				army_org_regain = 0.15
+				monthly_population = 0.20
+			}
+		}
+		flower_relic_fuel_stash_idea = {
+			picture = flower_idea_evo_steam_gear
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				fuel_gain_factor_from_states = 0.50
+				max_fuel_factor = 0.50
+				army_fuel_consumption_factor = -0.25
+			}
+		}
+
+		#==================================================
+		#三、双刃剑契约（8张）
+		#==================================================
+		flower_curse_burn_boats_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.20
+				army_defence_factor = 0.15
+				breakthrough_factor = 0.20
+				army_org_factor = 0.10
+				surrender_limit = -0.20
+				stability_factor = -0.10
+			}
+		}
+		flower_curse_flesh_alchemy_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				conscription_factor = -0.25
+				war_support_factor = -0.10
+			}
+		}
+		flower_curse_espresso_march_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.20
+				army_org_regain = 0.25
+				planning_speed = 0.50
+				attrition = 0.20
+			}
+		}
+		flower_curse_berserk_trade_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = 0.25
+				army_attack_against_major_factor = 0.20
+				breakthrough_factor = 0.25
+				army_defence_factor = -0.10
+				experience_loss_factor = 0.25
+			}
+		}
+		flower_curse_wallstreet_loan_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.20
+				consumer_goods_factor = 0.10
+			}
+		}
+		flower_curse_mad_reactor_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.20
+				production_speed_buildings_factor = -0.10
+				stability_factor = -0.10
+			}
+		}
+		flower_curse_no_step_back_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				land_reinforce_rate = 0.10
+				breakthrough_factor = 0.25
+				army_morale_factor = 0.25
+				supply_consumption_factor = 0.15
+				pocket_penalty = 0.15
+			}
+		}
+		flower_curse_overclock_magic_idea = {
+			picture = flower_idea_curse_pact
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.25
+				army_armor_attack_factor = 0.20
+				army_armor_defence_factor = 0.20
+				reliability_factor = -0.15
+			}
+		}
+
+		#==================================================
+		#四、跨界奇招增益精神
+		#==================================================
+		flower_micro_nightingale_cloak_idea = {
+			picture = flower_idea_nightingale
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				land_night_attack = 0.20
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
+		flower_micro_guerrilla_manual_idea = {
+			picture = flower_idea_guerrilla
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				resistance_target_on_our_occupied_states = 0.25
+				supply_consumption_factor = -0.15
+				attrition = -0.15
+			}
+		}
+		flower_micro_elf_blessing_idea = {
+			picture = flower_idea_evo_elf
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				terrain_penalty_reduction = 0.20
+				acclimatization_cold_climate_gain_factor = 0.50
+				acclimatization_hot_climate_gain_factor = 0.50
+				army_defence_factor = 0.10
+			}
+		}
+		flower_micro_uma_dispatch_idea = {
+			picture = flower_idea_magic_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_speed_factor = 0.15
+				special_forces_cap = 0.15
+				org_loss_when_moving = -0.20
+			}
+		}
+		flower_micro_sanae_charm_idea = {
+			picture = flower_idea_arty_evolve
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.20
+				fortification_damage = 0.20
+			}
+		}
+
+		#==================================================
+		#五、六大跨流派隐藏共鸣精神
+		#==================================================
+		flower_combo_undead_sweatshop_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.20
+				production_speed_buildings_factor = 0.15
+				conscription_factor = 0.25
+				war_support_factor = 0.10
+			}
+		}
+		flower_combo_enemy_makes_our_guns_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				equipment_capture_factor = 0.25
+				supply_consumption_factor = -0.20
+				out_of_supply_factor = -0.25
+				army_infantry_attack_factor = 0.15
+			}
+		}
+		flower_combo_eternal_night_barrage_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				reliability_factor = 0.20
+				army_artillery_attack_factor = 0.20
+				breakthrough_factor = 0.20
+				army_speed_factor = 0.10
+			}
+		}
+		flower_combo_die_harder_engine_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_org_regain = 0.25
+				army_defence_factor = 0.15
+				surrender_limit = 0.20
+				land_reinforce_rate = 0.10
+				experience_loss_factor = -0.25
+			}
+		}
+		flower_combo_star_mic_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.10
+				research_speed_factor = 0.15
+				air_attack_factor = 0.20
+				air_cas_present_factor = 0.20
+			}
+		}
+		flower_combo_gensokyo_mobilize_idea = {
+			picture = flower_idea_combo_spark
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				special_forces_cap = 0.25
+				terrain_penalty_reduction = 0.20
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+				coordination_bonus = 0.10
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
 NFA_yw_FRA = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -48,7 +48,7 @@ NFA_war_with_FRA = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = FRA
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 	
 }
@@ -82,7 +82,7 @@ NFA_war_with_DVL = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = DVL
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 
 	ai_strategy = {
@@ -92,7 +92,7 @@ NFA_war_with_DVL = {
 
 		ratio = 0.6
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -100,6 +100,7 @@ NFA_war_with_DVL = {
 	
 	
 }
+
 NFA_war_with_USA = {
 	allowed = {
 		original_tag = NFA
@@ -128,7 +129,7 @@ NFA_war_with_USA = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = USA
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 
 	ai_strategy = {
@@ -138,7 +139,7 @@ NFA_war_with_USA = {
 
 		ratio = 1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -174,7 +175,7 @@ NFA_war_with_PAN = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = VHS
-		value = 100 # lets put more units, should be safe
+		value = 100 #lets put more units, should be safe
 	}
 	
 }
@@ -202,13 +203,13 @@ NFA_war_with_PAJ = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = PAJ
-		value = 100 # lets put more units, should be safe
+		value = 100 #lets put more units, should be safe
 	}
 	
 }
 
 NFA_fangyuFRG = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -227,8 +228,9 @@ NFA_fangyuFRG = {
 	}	
 	
 }
+
 NFA_fangyuFRG2 = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -248,7 +250,7 @@ NFA_fangyuFRG2 = {
 }
 
 NFA_fangyuPAN = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -268,8 +270,9 @@ NFA_fangyuPAN = {
 	}	
 	
 }
+
 NFA_fangyuPAN2 = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -290,7 +293,7 @@ NFA_fangyuPAN2 = {
 }
 
 NFA_fangyuPAJ = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -310,8 +313,9 @@ NFA_fangyuPAJ = {
 	}	
 	
 }
+
 NFA_fangyuPAJ2 = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = NFA
@@ -332,6 +336,9 @@ NFA_fangyuPAJ2 = {
 }
 
 NFA_area_priority = {
+	allowed = {
+		original_tag = NFA
+	}
 	enable = {
 		original_tag = NFA
 	}
@@ -410,19 +417,20 @@ NFA_help_ally_in_europe = {
 		target = europe
 	}
 }
+
 NFA_you_should_be_prepared_for_war = {
-	allowed = { 
-		tag = NFA
+	allowed = {
+		original_tag = NFA
 	}
 	enable = {
-		always = yes
+		num_divisions < 280
+		check_variable = { Debt_ratio < 0.85 }
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
-        type = force_build_armies
-        value = 100
-    }
+		type = force_build_armies
+		value = 100
+	}
 }
 
 NFA_y_game = {

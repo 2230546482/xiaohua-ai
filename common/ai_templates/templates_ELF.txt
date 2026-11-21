@@ -9,6 +9,10 @@ infantry_ELF = {
     infantry_template_small_PAO = {
         upgrade_prio = {
             factor = 15
+            modifier = {
+                factor = 0
+                num_of_military_factories > 19
+            }
         }
         enable = {
             num_of_military_factories < 20
@@ -35,10 +39,15 @@ infantry_ELF = {
             factor = 13
             modifier = {
                 factor = 4
-                num_of_military_factories < 50
+                num_of_military_factories > 19
+            }
+            modifier = {
+                factor = 0
+                num_of_military_factories > 49
             }
         }
         enable = {
+            num_of_military_factories > 19
             num_of_military_factories < 50
         }
         target_template = {
@@ -83,16 +92,16 @@ infantry_ELF = {
 				fire_support = 2
 			}
 			support = {
-                assault_engineer = 1  # 突击工兵
+                assault_engineer = 1  #突击工兵
                 rangers_support = 1 #游骑兵支援连
-                logistics_company = 1  # 后勤
-                anti_air = 1  # 防空
-                medium_flame_tank = 1  # 喷火坦克
+                logistics_company = 1  #后勤
+                anti_air = 1  #防空
+                medium_flame_tank = 1  #喷火坦克
             }
         }
     }
 }
-# REGIMENTS:
+#REGIMENTS:
 #infantry
 #light_armor
 #super_heavy_armor
@@ -111,7 +120,7 @@ infantry_ELF = {
 #light_tank_destroyer
 #anti_air
 #artillery
-# SUPPORT:
+#SUPPORT:
 #engineer
 #recon
 #signal_company

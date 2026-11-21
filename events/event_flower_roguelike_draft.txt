@@ -1,0 +1,360 @@
+add_namespace = FLWRG
+
+#AI后台随机三选一事件（玩家已全面升级为手账GUI）
+country_event = {
+	id = FLWRG.1
+	title = FLWRG.1.t
+	desc = FLWRG.1.d
+	picture = GFX_cirno_s_event
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.1.a
+		ai_chance = {
+			base = 15
+			modifier = { factor = 6 check_variable = { flower_draft_slot_1 = 21 } }
+			modifier = { factor = 2 check_variable = { flower_draft_slot_1 < 13 } }
+		}
+		flower_ai_apply_draft_slot_1 = yes
+	}
+	option = {
+		name = FLWRG.1.b
+		ai_chance = {
+			base = 15
+			modifier = { factor = 6 check_variable = { flower_draft_slot_2 = 21 } }
+			modifier = { factor = 2 check_variable = { flower_draft_slot_2 < 13 } }
+		}
+		flower_ai_apply_draft_slot_2 = yes
+	}
+	option = {
+		name = FLWRG.1.c
+		ai_chance = {
+			base = 15
+			modifier = { factor = 6 check_variable = { flower_draft_slot_3 = 21 } }
+			modifier = { factor = 2 check_variable = { flower_draft_slot_3 < 13 } }
+		}
+		flower_ai_apply_draft_slot_3 = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.11
+	title = FLWRG.11.t
+	desc = FLWRG.11.d
+	picture = GFX_event_PAO_yeying
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.11.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_nightingale_blood_idea
+		flower_ai_summon_nightingale_knights = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.11.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_nightingale_iron_idea
+		flower_ai_summon_nightingale_knights = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.11.c
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_nightingale_alchemy_idea
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = magic_artillery_equipment_1
+			amount = 1500
+		}
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.12
+	title = FLWRG.12.t
+	desc = FLWRG.12.d
+	picture = GFX_event_juezhan_sov
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.12.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_guerrilla_scorch_idea
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.12.b
+		ai_chance = { factor = 35 }
+		set_country_flag = flower_evo_guerrilla_heavy_ai
+		add_ideas = flower_evo_guerrilla_heavy_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2000
+		}
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.12.c
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_guerrilla_sea_idea
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.13
+	title = FLWRG.13.t
+	desc = FLWRG.13.d
+	picture = GFX_event_PAO_wangling
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.13.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_undead_plague_idea
+		flower_ai_summon_undead_wave = yes
+		flower_ai_summon_undead_wave = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.13.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_undead_king_idea
+		flower_ai_summon_undead_wave = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.13.c
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_undead_sweatshop_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.14
+	title = FLWRG.14.t
+	desc = FLWRG.14.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.14.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_slayer_dismantle_idea
+		flower_ai_add_slayer_stack = yes
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.14.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_slayer_retrofit_idea
+		army_experience = 50
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.15
+	title = FLWRG.15.t
+	desc = FLWRG.15.d
+	picture = GFX_event_discover_ATRI2
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.15.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_corp_trust_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.15.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_corp_megaproject_idea
+		add_research_slot = 1
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.16
+	title = FLWRG.16.t
+	desc = FLWRG.16.d
+	picture = GFX_event_FRA_Sanae
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.16.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_arty_carpet_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.16.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_arty_mobile_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.17
+	title = FLWRG.17.t
+	desc = FLWRG.17.d
+	picture = GFX_KMK.0098
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.17.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_tank_timestop_idea
+		army_experience = 50
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.17.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_tank_fortress_idea
+		army_experience = 50
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.18
+	title = FLWRG.18.t
+	desc = FLWRG.18.d
+	picture = GFX_event_FRA_morisa
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.18.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_air_cas_idea
+		air_experience = 100
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.18.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_air_superiority_idea
+		air_experience = 100
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.19
+	title = FLWRG.19.t
+	desc = FLWRG.19.d
+	picture = GFX_event_juezhan_sov
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.19.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_wave_meatgrinder_idea
+		add_manpower = 150000
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.19.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_wave_banzai_idea
+		add_manpower = 150000
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.20
+	title = FLWRG.20.t
+	desc = FLWRG.20.d
+	picture = GFX_report_event_SOV_magic_party
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.20.a
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_magic_chosen_idea
+		army_experience = 50
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.20.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_magic_grimoire_idea
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.21
+	title = FLWRG.21.t
+	desc = FLWRG.21.d
+	picture = GFX_event_xl
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.21.a
+		ai_chance = { factor = 35 }
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_ideas = flower_evo_punk_ufo_idea
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+		flower_ai_check_chemical_combos = yes
+	}
+	option = {
+		name = FLWRG.21.b
+		ai_chance = { factor = 35 }
+		add_ideas = flower_evo_punk_elfsteam_idea
+		army_experience = 50
+		flower_ai_check_chemical_combos = yes
+	}
+}
+
+country_event = {
+	id = FLWRG.50
+	title = FLWRG.50.t
+	desc = FLWRG.50.d
+	picture = GFX_cat_remi_event
+	is_triggered_only = yes
+
+	option = {
+		name = FLWRG.50.a
+		add_political_power = 50
+		army_experience = 25
+	}
+}

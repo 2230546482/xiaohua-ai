@@ -1,0 +1,111 @@
+#红魔少女外交与作战策略
+MGU_send_volunteer_to_LHS = {#志愿军
+    allowed = {
+        original_tag = MGU
+    }
+    enable = {
+        has_country_flag = MGU_commisium_MTK
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "LHS"
+        value = 1000
+    }
+}
+
+MGU_AI_brain_up_2 = {
+    allowed = {
+        original_tag = MGU
+    }
+    enable = {
+        has_country_flag = MGU_commisium_MTK
+        date > 1939.1.1
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = prepare_for_war
+        id = "PAQ"
+        value = 999
+    }
+    ai_strategy = {
+        type = ignore_army_incompetence
+        value = 100
+    }
+    ai_strategy = {
+        type = force_concentration_target_weight
+        tag = PAQ
+        value = 100
+    }
+    ai_strategy = {
+        type = front_unit_request
+        tag = PAQ
+        value = 999
+    }
+}
+
+MGU_AI_to_PAO = {
+    allowed = {
+        original_tag = MGU
+    }
+    enable = {
+        has_country_flag = MGU_commisium_MTK
+        has_war_with = PAQ
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {#避开雨林
+        type = force_concentration_target_weight
+        value = -1000
+        state = 504
+        state = 505
+        state = 1204
+        state = 1203
+        state = 280
+        state = 1205
+        state = 1206
+        state = 1207
+        state = 1208
+    }
+    ai_strategy = {
+        type = invasion_unit_request
+        tag = PAQ
+        value = -100
+    }
+    ai_strategy = {
+        type = front_unit_request
+        tag = PAQ
+        value = 500
+    }
+}
+
+MGU_dont_mess_with_volunteers_for_no_communism_nations = {
+    reversed = yes
+    allowed = {
+        NOT = { original_tag = MGU }
+    }
+    enable_reverse = {
+        MGU = {
+            has_country_flag = MGU_commisium_MTK
+        }
+    }
+    enable = {
+        NOT = {
+            has_government = communism
+            has_war_with = MGU
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = support
+        id = "MGU"
+        value = -10
+    }
+    ai_strategy = {
+        type = send_volunteers_desire
+        id = "MGU"
+        value = -10
+    }
+}

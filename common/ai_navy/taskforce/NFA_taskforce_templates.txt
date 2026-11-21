@@ -1,0 +1,111 @@
+NFA_StrikeForce_1 = {
+	allowed = {
+		original_tag = NFA
+	}
+	ai_will_do = {
+		factor = 2
+	}
+	keep_updated = yes
+	mission = { naval_strike }
+	min_composition = {
+		carrier = {
+			amount = 1
+		}
+		battleship = {
+			amount = 1
+		}
+		light_cruiser = {
+			amount = 2
+		}
+		destroyer = {
+			amount = 6
+		}
+	}
+	optimal_composition = {
+		carrier = {
+			amount = 4
+		}
+		battleship = {
+			amount = 4
+		}
+		light_cruiser = {
+			amount = 10
+		}
+		destroyer = {
+			amount = 30
+		}
+	}
+}
+
+NFA_PatrolReconForce_1 = {
+	allowed = {
+		original_tag = NFA
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	mission = { naval_patrol }
+	min_composition = {
+		light_cruiser = {
+			amount = 1
+		}
+		destroyer = {
+			amount = 4
+		}
+	}
+	optimal_composition = {
+		light_cruiser = {
+			amount = 2
+		}
+		destroyer = {
+			amount = 8
+		}
+	}
+}
+
+NFA_ConvoyRaiding_1 = {
+	allowed = {
+		original_tag = NFA
+	}
+	ai_will_do = {
+		factor = 2
+	}
+	keep_updated = yes
+	mission = { convoy_raiding }
+	min_composition = {
+		submarine = {
+			amount = 8
+		}
+	}
+	optimal_composition = {
+		submarine = {
+			amount = 12
+		}
+	}
+}
+
+NFA_ConvoyEscort_1 = {
+	allowed = {
+		original_tag = NFA
+	}
+	ai_will_do = {
+		factor = 5
+	}
+	mission = { convoy_escort }
+	min_composition = {
+		light_cruiser = {
+			amount = 1
+		}
+		destroyer = {
+			amount = 4
+		}
+	}
+	optimal_composition = {
+		light_cruiser = {
+			amount = 3
+		}
+		destroyer = {
+			amount = 16
+		}
+	}
+}

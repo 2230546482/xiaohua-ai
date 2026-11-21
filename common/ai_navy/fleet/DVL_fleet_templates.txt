@@ -1,0 +1,28 @@
+DVL_dominance_fleet_1 = {
+	required_taskforces = {
+		DVL_StrikeForce_1 = 1
+		DVL_PatrolReconForce_1 = 2
+	}
+	optional_taskforces = {
+		DVL_StrikeForce_1 = 1
+		DVL_PatrolReconForce_1 = 2
+	}
+}
+
+DVL_raiding_fleet_2 = {
+	required_taskforces = {
+		DVL_ConvoyRaiding_1 = 4
+	}
+	optional_taskforces = {
+		DVL_ConvoyRaiding_1 = 3
+	}
+}
+
+DVL_escort_fleet_3 = {
+	required_taskforces = {
+		DVL_ConvoyEscort_1 = 2
+	}
+	optional_taskforces = {
+		DVL_ConvoyEscort_1 = 2
+	}
+}

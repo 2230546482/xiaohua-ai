@@ -1,5 +1,5 @@
 ALS_yw_ITA = {
-	# if SAD is going to war with us, consider TIX as a threat as well
+	#if SAD is going to war with us, consider TIX as a threat as well
 
 	allowed = {
 		original_tag = ALS
@@ -42,7 +42,7 @@ ALS_war_with_GER = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = GER
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 	
 }
@@ -70,7 +70,7 @@ ALS_war_with_DVL = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = DVL
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 	
 }
@@ -175,18 +175,18 @@ ALS_help_ally_in_europe = {
 	}
 }
 ALS_you_should_be_prepared_for_war = {
-	allowed = { 
-		tag = ALS
+	allowed = {
+		original_tag = ALS
 	}
 	enable = {
-		always = yes
+		num_divisions < 180
+		check_variable = { Debt_ratio < 0.85 }
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
-        type = force_build_armies
-        value = 100
-    }
+		type = force_build_armies
+		value = 100
+	}
 }
 ALS_baohu_DVL = {
 	allowed = {
@@ -223,7 +223,7 @@ ALS_war_with_LBA = {
 
 	ai_strategy = {
 		type = front_unit_request
-		id = "LBA"			
+		tag = "LBA"			
 		value = 12
 	}
 	ai_strategy = {
@@ -234,7 +234,7 @@ ALS_war_with_LBA = {
 }
 
 ALS_help_AOI = {
-	# Reverse strategy
+	#Reverse strategy
 	allowed = {
 		original_tag = ALS
 	}
@@ -261,7 +261,7 @@ ALS_help_AOI = {
 }
 
 AOI_siki_ALS = {
-	# Reverse strategy
+	#Reverse strategy
 	allowed = {
 		original_tag = ALS
 	}

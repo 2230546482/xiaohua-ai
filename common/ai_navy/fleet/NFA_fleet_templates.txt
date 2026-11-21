@@ -1,0 +1,28 @@
+NFA_dominance_fleet_1 = {
+	required_taskforces = {
+		NFA_StrikeForce_1 = 1
+		NFA_PatrolReconForce_1 = 3
+	}
+	optional_taskforces = {
+		NFA_StrikeForce_1 = 1
+		NFA_PatrolReconForce_1 = 2
+	}
+}
+
+NFA_raiding_fleet_2 = {
+	required_taskforces = {
+		NFA_ConvoyRaiding_1 = 3
+	}
+	optional_taskforces = {
+		NFA_ConvoyRaiding_1 = 2
+	}
+}
+
+NFA_escort_fleet_3 = {
+	required_taskforces = {
+		NFA_ConvoyEscort_1 = 3
+	}
+	optional_taskforces = {
+		NFA_ConvoyEscort_1 = 2
+	}
+}

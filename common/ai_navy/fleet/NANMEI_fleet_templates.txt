@@ -1,0 +1,28 @@
+NANMEI_dominance_fleet_1 = {
+	required_taskforces = {
+		NANMEI_StrikeForce_1 = 1
+		NANMEI_PatrolReconForce_1 = 2
+	}
+	optional_taskforces = {
+		NANMEI_StrikeForce_1 = 1
+		NANMEI_PatrolReconForce_1 = 2
+	}
+}
+
+NANMEI_raiding_fleet_2 = {
+	required_taskforces = {
+		NANMEI_ConvoyRaiding_1 = 3
+	}
+	optional_taskforces = {
+		NANMEI_ConvoyRaiding_1 = 2
+	}
+}
+
+NANMEI_escort_fleet_3 = {
+	required_taskforces = {
+		NANMEI_ConvoyEscort_1 = 2
+	}
+	optional_taskforces = {
+		NANMEI_ConvoyEscort_1 = 2
+	}
+}

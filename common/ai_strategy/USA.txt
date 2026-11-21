@@ -1,4 +1,3 @@
-#援助圣杯
 	USA_support_to_ENG = {
 		allowed = {
 			original_tag = USA
@@ -17,7 +16,7 @@
 			value = 1000
 		}
 	}
-	#援助幻想乡（仅限玩家）
+
 	USA_support_to_FRA = {
 		allowed = {
 			original_tag = USA
@@ -36,7 +35,7 @@
 			value = 1000
 		}
 	}
-	#援助法国
+
 	USA_support_to_NFA = {
 		allowed = {
 			original_tag = USA
@@ -57,7 +56,7 @@
 			value = 1000
 		}
 	}
-	#索要军事通行
+
 	USA_ask_ENG_FRA_NFA_CHI_for_access_before_war = {
 		allowed = {
 			original_tag = USA
@@ -98,7 +97,7 @@
 			value = 1000
 		}
 	}
-	#帮助欧洲盟友填线
+
 	USA_gang_up_GER_with_ENG = {
 		allowed = {
 			original_tag = USA
@@ -110,7 +109,7 @@
 			not = { has_war_with = ENG }
 		}
 		abort_when_not_enabled = yes
-		# help fronts in europe & africa
+		#help fronts in europe & africa
 		ai_strategy = {
 			type = force_defend_ally_borders
 			value = 500
@@ -119,14 +118,17 @@
 	}
 
 	USA_protect_against_extremism = {
-		# Reverse strategy
+		#Reverse strategy
 		reversed = yes
 		enable_reverse = {
 			USA = {
 				has_government = democratic
 			}
 		}
-		enable = {
+		allowed = {
+		NOT = { original_tag = USA }
+	}
+	enable = {
 			NOT = {
 				original_tag = USA
 			}
@@ -138,7 +140,7 @@
 			}
 			OR = {
 				capital_scope = {
-					is_on_continent = europe				# lets avoid smaller conflicts elsewhere
+					is_on_continent = europe				#lets avoid smaller conflicts elsewhere
 				}
 				AND = {
 					num_of_civilian_factories > 10
@@ -194,7 +196,7 @@
 		}
 		ai_strategy = {
 			type = strike_force_home_base
-			id = 105		# perl harbor
+			id = 105		#perl harbor
 		}
 	}
 
@@ -239,10 +241,10 @@
 			value = 100
 		}
 		
-		# ai_strategy = {
-			# type = naval_invasion_supremacy_weight
-			# value = 30
-		# }
+		#ai_strategy = {
+			#type = naval_invasion_supremacy_weight
+			#value = 30
+		#}
 
 	}
 
@@ -279,13 +281,13 @@
 			value = 75
 		}
 		
-		# ai_strategy = {
-			# type = naval_invasion_supremacy_weight
-			# value = 40
-		# }
+		#ai_strategy = {
+			#type = naval_invasion_supremacy_weight
+			#value = 40
+		#}
 
 	}
-	#对晴空示好
+
 	USA_CAN_is_friend = {
 		allowed = {
 			original_tag = USA
@@ -320,7 +322,7 @@
 			value = -1000
 		}
 	}
-	#对圣杯示好
+
 	USA_ENG_is_friend = {
 		allowed = {
 			original_tag = USA
@@ -350,8 +352,6 @@
 		}
 	}
 
-
-#北美战争
 	USA_time_to_war = {
 		allowed = {
 			original_tag = USA
@@ -412,7 +412,7 @@
 			type = front_control
 			tag = FRG
 			ratio = 0.5
-			priority = 100
+			priority = 150
 			ordertype = front
 			execution_type = rush_weak
 			execute_order = yes
@@ -452,7 +452,7 @@
 			type = front_control
 			tag = NGD
 			ratio = 0.5
-			priority = 100
+			priority = 150
 			ordertype = front
 			execution_type = rush_weak
 			execute_order = yes
@@ -469,16 +469,13 @@
 		}
 	}
 
-#内战
-
-#输出革命
-	USC_output_revolution = { # Reverse strategy
+	USC_output_revolution = { #Reverse strategy
 
 		reversed = yes
 
 		allowed = {
-			original_tag = USA
-		}
+		NOT = { original_tag = USA }
+	}
 
 		enable = {
 			USA = {
@@ -501,7 +498,6 @@
 		}
 	}
 
-#针对DVL
 USA_war_with_DVL = {
 	allowed = {
 		original_tag = USA
@@ -532,13 +528,12 @@ USA_war_with_DVL = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = DVL
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 	
 	
 }
 
-#针对SOV
 USA_war_with_SOV = {
 	allowed = {
 		original_tag = USA
@@ -569,13 +564,11 @@ USA_war_with_SOV = {
 	ai_strategy = {
 		type = front_unit_request #前线部队
 		tag = SOV
-		value = 200 # lets put more units, should be safe
+		value = 200 #lets put more units, should be safe
 	}
 	
 	
 }
-
-#多下兵
 
 USA_y_game = {
 	allowed = { 

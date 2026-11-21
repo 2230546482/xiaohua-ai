@@ -1,7 +1,7 @@
 CHI_support_WUH = {
 	reversed = yes
 	allowed = {
-		original_tag = CHI
+		original_tag = WUH
 	}
 	enable = {
 		tag = WUH
@@ -21,7 +21,7 @@ CHI_support_WUH = {
 CHI_support_FUJ = {
 	reversed = yes
 	allowed = {
-		original_tag = CHI
+		original_tag = FUJ
 	}
 	enable = {
 		tag = FUJ
@@ -41,7 +41,7 @@ CHI_support_FUJ = {
 CHI_support_YUN = {
 	reversed = yes
 	allowed = {
-		original_tag = CHI
+		original_tag = YUN
 	}
 	enable = {
 		tag = YUN
@@ -75,18 +75,18 @@ CHI_y_game = {
 }
 
 CHI_you_should_be_prepared_for_war = {
-	allowed = { 
+	allowed = {
 		is_chinese_country = yes
 	}
 	enable = {
-		always = yes
+		num_divisions < 280
+		check_variable = { Debt_ratio < 0.85 }
 	}
 	abort_when_not_enabled = yes
-	
 	ai_strategy = {
-        type = force_build_armies
-        value = 100
-    }
+		type = force_build_armies
+		value = 100
+	}
 }
 
 CHI_has_war_with_JAP = {
@@ -124,7 +124,7 @@ CHI_has_war_with_JAP = {
 
 		ratio = 0.1
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = careful
 		execute_order = yes
@@ -157,7 +157,7 @@ CHI_has_war_with_PRC = {
 
 		ratio = 0.6
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -210,7 +210,7 @@ CHI_has_war_with_ROC = {
 
 		ratio = 0.6
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -238,7 +238,7 @@ CHI_has_war_with_SHX = {
 
 		ratio = 0.8
 
-		priority = 100
+		priority = 150
 		ordertype = front
 		execution_type = rush
 		execute_order = yes

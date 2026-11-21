@@ -1,0 +1,37 @@
+#外交与战线策略
+LAN_friend_with_TUR = {
+	allowed = {
+		original_tag = LAN
+	}
+	enable = {
+		OR = {
+			AND = {
+				has_global_flag = Middle_East_War_flag
+				date > 1939.6.1
+			}
+			has_global_flag = TUR_GRE_BFTB_war
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	abort = { LAN = { has_war_with = TUR } }
+	
+	ai_strategy = {
+		type = befriend
+		id = TUR
+		value = 200
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = TUR
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = support
+		id = TUR
+		value = 50
+	}
+}

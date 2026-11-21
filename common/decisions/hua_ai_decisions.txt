@@ -1,41 +1,3 @@
-hua_ai_decisions_categories = {
-    hua_ai_decisions = {
-        icon = GFX_KNM_KFL_transfer
-        allowed = { tag = AHM }
-
-        available = {
-            always = yes
-        }
-
-        visible = {
-            date > 1936.1.30
-            has_global_flag = red_normal_hard
-        }
-        target_trigger = {
-            FROM = {
-                and = {
-                    is_ai = yes
-                    is_subject = no
-                }
-                not = {
-                    has_idea = red_normal_hard_ai
-                }
-            }
-        }
-        days_remove = 10
-        cost = 0
-        fire_only_once = no
-        ai_will_do = { base = 100 }
-
-        complete_effect = {
-            FROM = {
-                add_ideas = red_normal_hard_ai
-            }
-        }
-    }
-}
-
-
 hua_lunyi_decisions_categories = {
     lunyi_decisions = {
         allowed = {
@@ -51,16 +13,6 @@ hua_lunyi_decisions_categories = {
             add_ideas = hua_ai
             set_technology = {
                 elephantry = 1
-            }
-            create_corps_commander = {
-                name = "大红花"
-                portrait_path = "gfx/interface/xiaohua.png"
-                traits = { infantry_officer cavalry_officer armor_officer militias_officer irregulars_officer militias_officer PAO_tonghua MAGIC_MASTER brilliant_strategist}
-                skill = 4
-                attack_skill = 2
-                defense_skill = 2
-                planning_skill = 6
-                logistics_skill = 6
             }
             create_corps_commander = {
                 name = "小红花"
@@ -122,14 +74,6 @@ hua_lunyi_decisions_categories = {
                 }
                 set_global_flag = hua_ai_qu
             }
-            every_country = {
-                limit = {
-                    is_ai = yes
-                }
-                unlock_decision_tooltip = lunyi_decisions
-                custom_effect_tooltip = available_mio_tt
-                custom_effect_tooltip = jiahao_supreme_industrial_group
-            }
             hidden_effect = {
                 every_country = {
                     limit = {
@@ -153,7 +97,7 @@ hua_lunyi_decisions_categories = {
             is_ai = no
             has_country_flag = hua_ai_qu
         }
-        fire_only_once = yes
+        fire_only_once = no
         ai_will_do = { base = 0 }
 
         complete_effect = {
@@ -193,13 +137,16 @@ hua_lunyi_decisions_categories = {
         days_remove = 200
         fire_only_once = no
         cost = 200
-        ai_will_do = { base = 1000 }
+        ai_will_do = {
+            base = 100
+            modifier = {
+                factor = 0
+                num_of_factories > 300
+            }
+        }
 
         complete_effect = {
-            random_state = {
-                limit = {
-                    is_controlled_by = ROOT
-                }
+            random_controlled_state = {
                 add_resource = {
                     type = steel
                     amount = 50
@@ -380,7 +327,10 @@ hua_lunyi_decisions_categories = {
         visible = {
             has_country_flag = hua_ai_player
             DVL = {
-                has_idea = red_super_gutou
+                OR = {
+                    has_idea = red_super_gutou
+                    has_idea = red_super_gutou_phase2
+                }
             }
         }
         fire_only_once = yes
@@ -388,7 +338,9 @@ hua_lunyi_decisions_categories = {
 
         complete_effect = {
             DVL = {
-                remove_ideas = red_super_gutou
+                set_country_flag = flower_ai_manual_remove_gutou
+                remove_ideas = { red_super_gutou red_super_gutou_phase2 }
+                clr_country_flag = flower_ai_manual_remove_gutou
             }
         }
     }
@@ -441,6 +393,8 @@ hua_lunyi_decisions_categories = {
             FROM = {
                 is_ai = yes
                 exists = yes
+                NOT = { tag = ZDW }
+                NOT = { tag = WL1 }
                 NOT = {
                     has_idea = red_most_hard_ai
                     has_idea = red_hard_ai
@@ -449,7 +403,7 @@ hua_lunyi_decisions_categories = {
                 }
             }
         }
-        fire_only_once = yes
+        fire_only_once = no
         ai_will_do = { base = 0 }
 
         complete_effect = {
@@ -490,6 +444,426 @@ hua_lunyi_decisions_categories = {
                 }
                 FROM = {add_ideas = red_apocalypse_ai}
             }
+        }
+    }
+
+    #切换盟友战线净空
+    hua_no_ally_crowd_decision = {
+        icon = GFX_exchange_bad_luck
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            is_ai = no
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            if = {
+                limit = {
+                    has_country_flag = flower_ai_no_ally_crowd
+                }
+                clr_country_flag = flower_ai_no_ally_crowd
+                custom_effect_tooltip = hua_no_ally_crowd_off_tt
+                hidden_effect = {
+                    every_country = {
+                        limit = {
+                            has_country_flag = flower_ai_dont_crowd_@ROOT
+                        }
+                        clr_country_flag = flower_ai_dont_crowd_@ROOT
+                        add_ai_strategy = {
+                            type = dont_defend_ally_borders
+                            id = ROOT
+                            value = -500
+                        }
+                        add_ai_strategy = {
+                            type = force_defend_ally_borders
+                            id = ROOT
+                            value = 500
+                        }
+                    }
+                }
+            }
+            else = {
+                set_country_flag = flower_ai_no_ally_crowd
+                custom_effect_tooltip = hua_no_ally_crowd_on_tt
+                hidden_effect = {
+                    every_country = {
+                        limit = {
+                            is_ai = yes
+                            NOT = { tag = ROOT }
+                        }
+                        set_country_flag = flower_ai_dont_crowd_@ROOT
+                        add_ai_strategy = {
+                            type = dont_defend_ally_borders
+                            id = ROOT
+                            value = 500
+                        }
+                        add_ai_strategy = {
+                            type = force_defend_ally_borders
+                            id = ROOT
+                            value = -500
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #全局AI难度升档
+    hua_global_difficulty_up_dec = {
+        icon = GFX_die_tec
+        allowed = { }
+        available = {
+            NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        visible = {
+            has_country_flag = hua_ai_player
+            NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            if = {
+                limit = { has_global_flag = red_most_hard }
+                clr_global_flag = red_most_hard
+                set_global_flag = red_apocalypse_ai
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } }
+                    remove_ideas = { red_most_hard_ai red_hard_ai red_normal_hard_ai }
+                    add_ideas = red_apocalypse_ai
+                }
+            }
+            else_if = {
+                limit = { has_global_flag = red_hard }
+                clr_global_flag = red_hard
+                set_global_flag = red_most_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_hard_ai red_normal_hard_ai }
+                    add_ideas = red_most_hard_ai
+                }
+            }
+            else_if = {
+                limit = { has_global_flag = red_normal_hard }
+                clr_global_flag = red_normal_hard
+                set_global_flag = red_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_normal_hard_ai }
+                    add_ideas = red_hard_ai
+                }
+            }
+            else = {
+                clr_global_flag = red_none_hard
+                set_global_flag = red_normal_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+        }
+    }
+
+    #全局AI难度降档
+    hua_global_difficulty_down_dec = {
+        icon = GFX_exchange_bad_luck
+        allowed = { }
+        available = {
+            OR = {
+                has_global_flag = red_apocalypse_ai
+                has_global_flag = red_most_hard
+                has_global_flag = red_hard
+                has_global_flag = red_normal_hard
+            }
+        }
+        visible = {
+            has_country_flag = hua_ai_player
+            OR = {
+                has_global_flag = red_apocalypse_ai
+                has_global_flag = red_most_hard
+                has_global_flag = red_hard
+                has_global_flag = red_normal_hard
+            }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            if = {
+                limit = { has_global_flag = red_apocalypse_ai }
+                clr_global_flag = red_apocalypse_ai
+                set_global_flag = red_most_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_apocalypse_ai }
+                    add_ideas = red_most_hard_ai
+                }
+            }
+            else_if = {
+                limit = { has_global_flag = red_most_hard }
+                clr_global_flag = red_most_hard
+                set_global_flag = red_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_most_hard_ai }
+                    add_ideas = red_hard_ai
+                }
+            }
+            else_if = {
+                limit = { has_global_flag = red_hard }
+                clr_global_flag = red_hard
+                set_global_flag = red_normal_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_hard_ai }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+            else_if = {
+                limit = { has_global_flag = red_normal_hard }
+                clr_global_flag = red_normal_hard
+                set_global_flag = red_none_hard
+                every_country = {
+                    limit = { is_ai = yes NOT = { has_country_flag = flower_ai_single_apocalypse } }
+                    remove_ideas = { red_normal_hard_ai }
+                }
+            }
+        }
+    }
+
+    #单国升为天灾强化
+    hua_target_apocalypse_on_dec = {
+        icon = GFX_die_tec
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            has_country_flag = hua_ai_player
+            NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        target_trigger = {
+            FROM = {
+                is_ai = yes
+                exists = yes
+                NOT = { tag = ZDW }
+                NOT = { tag = WL1 }
+                NOT = { has_idea = red_apocalypse_ai }
+                OR = {
+                    is_major = yes
+                    any_enemy_country = { is_ai = no }
+                }
+            }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            FROM = {
+                set_country_flag = flower_ai_single_apocalypse
+                remove_ideas = { red_most_hard_ai red_hard_ai red_normal_hard_ai }
+                add_ideas = red_apocalypse_ai
+            }
+            every_country = {
+                limit = { is_ai = no }
+                set_temp_variable = { temp_alert_id = 903 }
+                set_temp_variable = { temp_tag = ROOT }
+                set_temp_variable = { temp_tag2 = FROM }
+                flower_ai_push_bottom_right_alert = yes
+            }
+        }
+    }
+
+    #解除单国天灾强化
+    hua_target_apocalypse_off_dec = {
+        icon = GFX_exchange_bad_luck
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            has_country_flag = hua_ai_player
+            NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        target_trigger = {
+            FROM = {
+                is_ai = yes
+                exists = yes
+                has_country_flag = flower_ai_single_apocalypse
+                has_idea = red_apocalypse_ai
+            }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            FROM = {
+                clr_country_flag = flower_ai_single_apocalypse
+                remove_ideas = { red_apocalypse_ai }
+                if = {
+                    limit = { has_global_flag = red_most_hard }
+                    add_ideas = red_most_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_hard }
+                    add_ideas = red_hard_ai
+                }
+                else_if = {
+                    limit = { has_global_flag = red_normal_hard }
+                    add_ideas = red_normal_hard_ai
+                }
+            }
+            every_country = {
+                limit = { is_ai = no }
+                set_temp_variable = { temp_alert_id = 904 }
+                set_temp_variable = { temp_tag = ROOT }
+                set_temp_variable = { temp_tag2 = FROM }
+                flower_ai_push_bottom_right_alert = yes
+            }
+        }
+    }
+
+    #打开/关闭开局畸变投票箱
+    hua_open_anomaly_vote_gui_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            is_ai = no
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            if = {
+                limit = {
+                    OR = {
+                        has_global_flag = flower_anomaly_voting_open
+                        has_country_flag = flower_anomaly_panel_open
+                    }
+                }
+                clr_global_flag = flower_anomaly_voting_open
+                clr_country_flag = flower_anomaly_panel_open
+            }
+            else = {
+                clr_country_flag = flower_roguelike_gui_open
+                set_country_flag = flower_anomaly_panel_open
+            }
+        }
+    }
+
+    #重新打开暂时收起的肉鸽选牌面板
+    hua_reopen_roguelike_draft_gui_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            is_ai = no
+            NOT = { has_country_flag = flower_roguelike_gui_open }
+            check_variable = { flower_draft_gui_mode > 0 }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            clr_country_flag = flower_anomaly_panel_open
+            set_country_flag = flower_roguelike_gui_open
+        }
+    }
+
+    #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化）
+    hua_trigger_branch_evo_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        visible = {
+            is_ai = no
+            OR = {
+                has_global_flag = flower_anomaly_1_active
+                has_global_flag = flower_anomaly_4_active
+            }
+            flower_ai_has_unbranched_archetype = yes
+        }
+        available = {
+            OR = {
+                date > 1936.9.1
+                has_war = yes
+            }
+        }
+        fire_only_once = no
+        days_re_enable = 15
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            flower_ai_open_branch_evolution_event = yes
+        }
+    }
+
+    #主动花费政治点数加抽一轮海克斯三选一
+    hua_buy_roguelike_draft_pp_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        visible = {
+            is_ai = no
+            OR = {
+                has_global_flag = flower_anomaly_1_active
+                has_global_flag = flower_anomaly_4_active
+            }
+        }
+        available = {
+            has_political_power > 99
+        }
+        cost = 100
+        fire_only_once = no
+        days_re_enable = 180
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            flower_ai_open_roguelike_draft = yes
+        }
+    }
+
+    #主动花费HCP黑市加抽一轮海克斯三选一
+    hua_buy_roguelike_draft_hcp_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        visible = {
+            is_ai = no
+            OR = {
+                has_global_flag = flower_anomaly_1_active
+                has_global_flag = flower_anomaly_4_active
+            }
+        }
+        available = {
+            check_variable = { another_country_currency_reserve > 249 }
+        }
+        fire_only_once = no
+        days_re_enable = 180
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            add_to_variable = { another_country_currency_reserve = -250 }
+            flower_ai_open_roguelike_draft = yes
+        }
+    }
+
+    #主动翻开12大流派手账面板（升阶或另开副流派玩多修）
+    hua_open_extra_archetype_dec = {
+        icon = GFX_exchange_good_luck
+        allowed = { }
+        visible = {
+            is_ai = no
+            OR = {
+                has_global_flag = flower_anomaly_1_active
+                has_global_flag = flower_anomaly_4_active
+            }
+        }
+        available = {
+            has_political_power > 149
+        }
+        cost = 150
+        fire_only_once = no
+        days_re_enable = 365
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            flower_ai_open_starter_selection = yes
         }
     }
 }

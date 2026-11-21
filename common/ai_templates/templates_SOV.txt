@@ -1,4 +1,5 @@
 SOV_apocalypse_division = {
+    available_for = { SOV }
     role = apocalypse
     upgrade_prio = {
         base = 0

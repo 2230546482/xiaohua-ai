@@ -7,6 +7,7 @@ jiahao_supreme_industrial_group = {
     visible = {
         or = {
              owner = { has_country_flag = hua_ai_qu }
+             owner = { has_country_flag = flower_roguelike_jiahao_unlocked }
              owner = { is_ai = yes has_global_flag = hua_ai_qu }
         }
     }

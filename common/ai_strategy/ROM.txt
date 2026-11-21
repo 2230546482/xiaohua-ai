@@ -1,0 +1,184 @@
+#外交与战线策略
+	ROM_war_with_Kivotos = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			any_enemy_country = {
+				Kivotos_is_kivotos_country = yes
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = front_control
+			country_trigger = {
+				Kivotos_is_kivotos_country = yes
+			}
+			ratio = 0.8
+			ordertype = front
+			execution_type = rush_weak
+			manual_attack = no
+		}
+
+		ai_strategy = {
+			type = front_unit_request
+			country_trigger = {
+				Kivotos_is_kivotos_country = yes
+			}
+			value = 100
+		}
+	}
+
+	ROM_war_with_BUL = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_war_with = BUL
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = front_control
+			tag = BUL
+			ratio = 0.8
+			ordertype = front
+			execution_type = rush_weak
+			manual_attack = no
+		}
+
+		ai_strategy = {
+			type = front_unit_request
+			tag = BUL
+			value = 75
+		}
+
+		ai_strategy = {
+			type = front_armor_score
+			id = BUL
+			value = 50
+		}
+	}
+
+	ROM_war_with_GRE = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_war_with = GRE
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = front_control
+			tag = GRE
+			ratio = 0.8
+			ordertype = front
+			execution_type = rush_weak
+			manual_attack = no
+		}
+
+		ai_strategy = {
+			type = front_unit_request
+			tag = GRE
+			value = 75
+		}
+
+		ai_strategy = {
+			type = front_armor_score
+			id = GRE
+			value = 50
+		}
+	}
+
+	ROM_send_volunteer_army_to_SOV = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_government = communism
+			SOV = { has_war = yes }
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = SOV
+			value = 20
+		}
+	}
+
+	ROM_send_volunteer_army_to_UKR = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			NOT = { has_government = communism }
+			SOV = { has_war = yes }
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = UKR
+			value = 20
+		}
+	}
+
+	ROM_send_volunteer_army_to_PAN = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_government = communism
+			PAN = { has_war = yes }
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = PAN
+			value = 20
+		}
+	}
+
+	ROM_send_volunteer_army_to_NPT = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_government = communism
+			NPT = { 
+				has_war = yes 
+				has_government = communism
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = NPT
+			value = 20
+		}
+	}
+
+	ROM_send_volunteer_army_to_LAN = {
+		allowed = {
+			original_tag = ROM
+		}
+		enable = {
+			has_government = communism
+			LAN = { 
+				has_war = yes 
+				has_government = communism
+			}
+		}
+		abort_when_not_enabled = yes
+
+		ai_strategy = {
+			type = send_volunteers_desire
+			id = LAN
+			value = 20
+		}
+	}

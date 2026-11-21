@@ -1,0 +1,398 @@
+#外交与战线策略
+MAL_northern_expansion = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		country_exists = PAN
+	}
+	abort = {
+		NOT = {
+			country_exists = PAN
+		}
+	}
+	ai_strategy = {
+		type = alliance
+		id = "PAN"
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ENG"
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "USA"
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "RAJ"
+		value = 100
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "NFA"
+		value = 100
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "PAW"
+		value = 100
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "RAJ"
+		value = 50
+	}
+	ai_strategy = {
+		type = declare_war
+		id = "ONM"
+		value = 100
+	}
+	ai_strategy = {
+		type = protect
+		id = "PAN"
+		value = 100
+	}
+	ai_strategy = {
+		type = befriend
+		id = "PAN"
+		value = 100
+	}
+	
+
+}
+
+MAL_germany_ally= {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		country_exists = GER
+	}
+	abort = {
+		NOT = {
+			country_exists = GER
+		}
+	}
+	ai_strategy = {
+		type = befriend
+		id = "GER"
+		value = 200
+	}
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = 100
+	}
+}
+
+MAL_germany_ally1 = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = communism
+		country_exists = PAN
+	}
+	abort = {
+		NOT = {
+			country_exists = PAN
+		}
+	}
+	ai_strategy = {
+		type = befriend
+		id = "PAN"
+		value = 200
+	}
+	ai_strategy = {
+		type = alliance
+		id = "PAN"
+		value = 100
+	}
+	ai_strategy = {
+		type = protect
+		id = "PAN"
+		value = 100
+	}
+}
+
+MAL_early_part_beware_allies = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		USA = {
+			is_in_faction = no
+		}
+		NOT = {
+			has_war_together_with = ENG
+		}
+	}
+	abort = {
+		OR = {
+			USA = {
+				is_in_faction = yes
+			}			#they know where to stand so we can go back to regular logic
+			has_war_together_with = ENG
+		}
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "ENG"
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "FRA"
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "ONM"
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "USA"
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "RAJ"
+		value = 100
+	}
+}
+
+MAL_attack_AST = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = ONM
+	}
+	abort = {
+		NOT = {
+			country_exists =  ONM
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ONM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "ONM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag =  ONM
+		value = 10
+	}
+}
+
+MAL_attack_NZL = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = NZL
+	}
+	abort = {
+		NOT = {
+			country_exists = NZL
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "NZL"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "NZL"
+		value = 100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = NZL
+		value = 5
+	}
+}
+
+MAL_attack_RAJ = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = RAJ
+	}
+	abort = {
+		NOT = {
+			country_exists = RAJ
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "RAJ"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "RAJ"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = RAJ
+		value = 10
+	}
+}
+
+MAL_attack_SIA = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = SIA 
+	}
+	abort = {
+		NOT = {
+			country_exists = SIA 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "SIA"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "SIA"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = SIA 
+		value = 10
+	}
+}
+
+MAL_attack_CAM = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = CAM 
+	}
+	abort = {
+		NOT = {
+			country_exists = CAM 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "CAM"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = CAM 
+		value = 10
+	}
+}
+
+MAL_attack_PAW = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = PAW
+	}
+	abort = {
+		NOT = {
+			country_exists = PAW 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "PAW"
+		value = 200
+	}
+	ai_strategy = {
+		type = invade
+		id = "PAW"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = PAW 
+		value = 10
+	}
+}
+
+MAL_attack_ENG = {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = ENG 
+	}
+	abort = {
+		NOT = {
+			country_exists = ENG 
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "ENG"
+		value = 300
+	}
+	ai_strategy = {
+		type = invade
+		id = "ENG"
+		value = 200
+	}
+}
+
+MAL_attack_JAP= {
+	allowed = {
+		original_tag = MAL
+	}
+	enable = {
+		has_government = fascism
+		has_war_with = JAP 
+	}
+	abort = {
+		NOT = {
+			country_exists = JAP
+		}
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 300
+	}
+	ai_strategy = {
+		type = invade
+		id = "JAP"
+		value = 200
+	}
+}

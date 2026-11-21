@@ -54,7 +54,7 @@ KNM_armor = {
             num_of_military_factories < 50
         }
         can_upgrade_in_field = {
-			has_equipment = { medium_tank_chassis > 400 } 
+			has_equipment = { medium_tank_chassis > 400 }
 		}
         target_template = {
             regiments = {
@@ -94,10 +94,10 @@ KNM_armor = {
         }
         enable = {
             num_of_military_factories > 49
-            has_tech = mechanised_infantry
+            NOT = { has_tech = mechanised_infantry }
         }
         can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
+			has_equipment = { medium_tank_chassis > 400 }
 		}
         target_template = {
             regiments = {
@@ -142,7 +142,7 @@ KNM_armor = {
             has_tech = mechanised_infantry
         }
         can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
+			has_equipment = { mechanized_equipment > 500 }
 		}
         target_template = {
             regiments = {
@@ -164,7 +164,7 @@ KNM_armor = {
 
     }
 }
-# REGIMENTS:
+#REGIMENTS:
 #infantry
 #light_armor
 #super_heavy_armor
@@ -183,7 +183,7 @@ KNM_armor = {
 #light_tank_destroyer
 #anti_air
 #artillery
-# SUPPORT:
+#SUPPORT:
 #engineer
 #recon
 #signal_company

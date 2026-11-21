@@ -1,0 +1,1044 @@
+#12大流派核心选择与11大流派进阶分支统一执行脚本（GUI与AI共用）
+
+#打开12大流派选择（玩家弹出手账GUI，AI后台走随机流派事件）
+flower_ai_open_starter_selection = {
+	if = {
+		limit = { is_ai = no }
+		clr_country_flag = flower_anomaly_panel_open
+		set_variable = { flower_draft_gui_mode = 1 }
+		set_variable = { flower_draft_starter_page = 1 }
+		set_country_flag = flower_roguelike_gui_open
+	}
+	else = {
+		random_list = {
+			25 = { country_event = { id = FLWAI.10 } }
+			25 = { country_event = { id = FLWAI.11 } }
+			25 = { country_event = { id = FLWAI.12 } }
+			25 = { country_event = { id = FLWAI.13 } }
+		}
+	}
+}
+
+#玩家从GUI随机摇一个流派
+flower_ai_pick_random_archetype = {
+	random_list = {
+		10 = { flower_ai_pick_archetype_1 = yes }
+		10 = { flower_ai_pick_archetype_2 = yes }
+		10 = { flower_ai_pick_archetype_3 = yes }
+		10 = { flower_ai_pick_archetype_4 = yes }
+		10 = { flower_ai_pick_archetype_5 = yes }
+		10 = { flower_ai_pick_archetype_6 = yes }
+		10 = { flower_ai_pick_archetype_7 = yes }
+		10 = { flower_ai_pick_archetype_8 = yes }
+		10 = { flower_ai_pick_archetype_9 = yes }
+		10 = { flower_ai_pick_archetype_10 = yes }
+		10 = { flower_ai_pick_archetype_11 = yes }
+		10 = { flower_ai_pick_archetype_12 = yes }
+	}
+}
+
+#关闭手账选牌GUI并清空待选状态
+flower_ai_close_draft_gui_done = {
+	clr_country_flag = flower_roguelike_gui_open
+	set_variable = { flower_draft_gui_mode = 0 }
+}
+
+#GUI点击3个海克斯词条槽位（如果选中21/22则无缝切换到分支/流派界面，否则关闭窗口）
+flower_ai_gui_click_hex_slot_1 = {
+	if = {
+		limit = {
+			NOT = { check_variable = { flower_draft_slot_1 = 21 } }
+			NOT = { check_variable = { flower_draft_slot_1 = 22 } }
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_apply_draft_slot_1 = yes
+}
+flower_ai_gui_click_hex_slot_2 = {
+	if = {
+		limit = {
+			NOT = { check_variable = { flower_draft_slot_2 = 21 } }
+			NOT = { check_variable = { flower_draft_slot_2 = 22 } }
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_apply_draft_slot_2 = yes
+}
+flower_ai_gui_click_hex_slot_3 = {
+	if = {
+		limit = {
+			NOT = { check_variable = { flower_draft_slot_3 = 21 } }
+			NOT = { check_variable = { flower_draft_slot_3 = 22 } }
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_apply_draft_slot_3 = yes
+}
+
+#1.战地扒装备
+flower_ai_pick_archetype_1 = {
+	flower_ai_add_slayer_stack = yes
+	flower_ai_add_slayer_stack = yes
+	flower_ai_check_chemical_combos = yes
+	if = {
+		limit = {
+			check_variable = { flower_slayer_stacks > 2 }
+			NOT = { has_country_flag = flower_evo_slayer_done }
+		}
+		set_country_flag = flower_evo_slayer_done
+		set_variable = { flower_branch_id = 4 }
+		set_variable = { flower_draft_gui_mode = 3 }
+		set_country_flag = flower_roguelike_gui_open
+	}
+	else = {
+		flower_ai_close_draft_gui_done = yes
+	}
+}
+
+#2.基建种田流
+flower_ai_pick_archetype_2 = {
+	set_country_flag = flower_roguelike_corp_ai
+	if = {
+		limit = { check_variable = { flower_builder_stacks < 1 } }
+		set_variable = { flower_builder_next_goal = num_of_factories }
+		add_to_variable = { flower_builder_next_goal = 15 }
+	}
+	flower_ai_add_builder_stack = yes
+	flower_ai_add_builder_stack = yes
+	if = {
+		limit = { has_idea = flower_corp_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_corp_stage_2_idea
+			add_idea = flower_corp_stage_3_idea
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_corp_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_corp_stage_1_idea
+			add_idea = flower_corp_stage_2_idea
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = flower_corp_stage_3_idea } }
+		add_ideas = flower_corp_stage_1_idea
+	}
+	flower_ai_check_chemical_combos = yes
+	if = {
+		limit = {
+			has_idea = flower_corp_stage_2_idea
+			NOT = { has_country_flag = flower_evo_corp_done }
+		}
+		set_country_flag = flower_evo_corp_done
+		set_variable = { flower_branch_id = 5 }
+		set_variable = { flower_draft_gui_mode = 3 }
+		set_country_flag = flower_roguelike_gui_open
+	}
+	else = {
+		flower_ai_close_draft_gui_done = yes
+	}
+}
+
+#3.0宽神风火炮
+flower_ai_pick_archetype_3 = {
+	set_country_flag = flower_roguelike_arty_ai
+	if = {
+		limit = { has_idea = flower_arty_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_arty_stage_2_idea
+			add_idea = flower_arty_stage_3_idea
+		}
+		set_technology = {
+			tech_Sanae_Artillery = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_arty_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_arty_stage_1_idea
+			add_idea = flower_arty_stage_2_idea
+		}
+		set_technology = {
+			gw_artillery = 1
+			interwar_artillery = 1
+			artillery1 = 1
+			artillery2 = 1
+			rocket_artillery = 1
+			PA1_tank_Bratino_warm_pressure_rocket = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_arty_done } }
+			set_country_flag = flower_evo_arty_done
+			set_variable = { flower_branch_id = 6 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_arty_stage_3_idea }
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 5000
+		}
+		army_experience = 100
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_arty_stage_1_idea
+		set_technology = {
+			gw_artillery = 1
+			interwar_artillery = 1
+			railway_gun = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1000
+		}
+		add_equipment_to_stockpile = {
+			type = railway_gun_equipment
+			amount = 2
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#4.咲夜时停装甲
+flower_ai_pick_archetype_4 = {
+	set_country_flag = flower_roguelike_tank_ai
+	if = {
+		limit = { has_idea = flower_tank_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_tank_stage_2_idea
+			add_idea = flower_tank_stage_3_idea
+		}
+		enable_equipment_modules = {
+			Armor_Computing_Network
+			Artificial_Intelligence_Assisted_Module
+			air_Artificial_Intelligence_Assisted_Module
+		}
+		set_technology = {
+			the_world_0 = 1
+			the_world_1 = 1
+			the_maid_0 = 1
+			tech_modern_theworld_tank = 1
+			popup = no
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_tank_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_tank_stage_1_idea
+			add_idea = flower_tank_stage_2_idea
+		}
+		enable_equipment_modules = {
+			tank_dual_mounted_cannon
+			tank_Bratino_warm_pressure_rocket
+			tank_magnetic_energy_amplification_projectile
+		}
+		set_technology = {
+			SOV_tank_dual_mounted_cannon = 1
+			PAU_airborne_light_armor_tech = 1
+			PAU_airborne_armor_glider_tech = 1
+			PAU_airborne_armor_drop_pod_tech = 1
+			popup = no
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_tank_done } }
+			set_country_flag = flower_evo_tank_done
+			set_variable = { flower_branch_id = 7 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_tank_stage_3_idea }
+		army_experience = 100
+		add_to_variable = { another_country_currency_reserve = 250 }
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_tank_stage_1_idea
+		set_technology = {
+			gwtank_chassis = 1
+			basic_light_tank_chassis = 1
+			basic_medium_tank_chassis = 1
+			popup = no
+		}
+		army_experience = 50
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#5.空军舔地流
+flower_ai_pick_archetype_5 = {
+	set_country_flag = flower_roguelike_air_ai
+	if = {
+		limit = { has_idea = flower_air_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_air_stage_2_idea
+			add_idea = flower_air_stage_3_idea
+		}
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 5
+		}
+		air_experience = 150
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_air_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_air_stage_1_idea
+			add_idea = flower_air_stage_2_idea
+		}
+		enable_equipment_modules = {
+			air_Artificial_Intelligence_Assisted_Module
+		}
+		set_technology = {
+			Siege_helicopter_available = 1
+			Siege_helicopter_0 = 1
+			Siege_helicopter_1 = 1
+			strike_unit1 = 1
+			paratroopers = 1
+			paratroopers2 = 1
+			popup = no
+		}
+		air_experience = 100
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_air_done } }
+			set_country_flag = flower_evo_air_done
+			set_variable = { flower_branch_id = 8 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_air_stage_3_idea }
+		air_experience = 150
+		add_to_variable = { another_country_currency_reserve = 250 }
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_air_stage_1_idea
+		air_experience = 100
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#6.不死人海流
+flower_ai_pick_archetype_6 = {
+	set_country_flag = flower_roguelike_wave_ai
+	if = {
+		limit = { has_idea = flower_wave_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_wave_stage_2_idea
+			add_idea = flower_wave_stage_3_idea
+		}
+		set_technology = {
+			Ghost_King = 1
+			steel_ronin = 1
+			Laser_Warrior = 1
+			popup = no
+		}
+		add_manpower = 100000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 25000
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_wave_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_wave_stage_1_idea
+			add_idea = flower_wave_stage_2_idea
+		}
+		set_technology = {
+			tech_field_hospital = 1
+			tech_field_hospital2 = 1
+			tech_military_police = 1
+			popup = no
+		}
+		add_manpower = 75000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 20000
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_wave_done } }
+			set_country_flag = flower_evo_wave_done
+			set_variable = { flower_branch_id = 9 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_wave_stage_3_idea }
+		add_manpower = 150000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 25000
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_wave_stage_1_idea
+		add_manpower = 50000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15000
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#7.夜莺骑士团
+flower_ai_pick_archetype_7 = {
+	set_country_flag = flower_roguelike_nightingale_ai
+	if = {
+		limit = { has_idea = flower_nightingale_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_nightingale_stage_2_idea
+			add_idea = flower_nightingale_stage_3_idea
+		}
+		set_technology = {
+			PAO_wangling3tupo2 = 1
+			PAO_gongbing = 1
+			PAO_yjwl = 1
+			PAO_yjwl2 = 1
+			DVL_Coordinated_operations_tech = 1
+			popup = no
+		}
+		random_army_leader = {
+			add_unit_leader_trait = PAO_tonghua
+		}
+		flower_ai_summon_nightingale_knights = yes
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_nightingale_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_nightingale_stage_1_idea
+			add_idea = flower_nightingale_stage_2_idea
+		}
+		set_technology = {
+			wangling3_tech = 1
+			magic_artillery1 = 1
+			wangling2_on_me = 1
+			PAO_wangling3tupo = 1
+			popup = no
+		}
+		flower_ai_summon_nightingale_knights = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_nightingale_done } }
+			set_country_flag = flower_evo_nightingale_done
+			set_variable = { flower_branch_id = 1 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_nightingale_stage_3_idea }
+		flower_ai_summon_nightingale_knights = yes
+		army_experience = 100
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_nightingale_stage_1_idea
+		set_technology = {
+			wangling2_tech = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			popup = no
+		}
+		flower_ai_summon_nightingale_knights = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#8.野火游击队
+flower_ai_pick_archetype_8 = {
+	set_country_flag = flower_roguelike_guerrilla_ai
+	if = {
+		limit = { has_idea = flower_guerrilla_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_guerrilla_stage_2_idea
+			add_idea = flower_guerrilla_stage_3_idea
+		}
+		set_technology = {
+			youji_on_me6 = 1
+			youji_on_me7 = 1
+			youji_on_me8 = 1
+			youji_on_me13 = 1
+			popup = no
+		}
+		random_army_leader = {
+			add_unit_leader_trait = LHS_youjitiancai
+		}
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_guerrilla_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_guerrilla_stage_1_idea
+			add_idea = flower_guerrilla_stage_2_idea
+		}
+		set_technology = {
+			youji_on_me2 = 1
+			youji_on_me3 = 1
+			youji_on_me4 = 1
+			youji_on_me5 = 1
+			popup = no
+		}
+		flower_ai_summon_guerrilla_wave = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_guerrilla_done } }
+			set_country_flag = flower_evo_guerrilla_done
+			set_variable = { flower_branch_id = 2 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_guerrilla_stage_3_idea }
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_guerrilla_stage_1_idea
+		set_technology = {
+			youjidui_tech = 1
+			youji_on_me = 1
+			popup = no
+		}
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#9.躁动的亡灵
+flower_ai_pick_archetype_9 = {
+	set_country_flag = flower_roguelike_undead_ai
+	if = {
+		limit = { has_idea = flower_undead_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_undead_stage_2_idea
+			add_idea = flower_undead_stage_3_idea
+		}
+		flower_ai_summon_undead_wave = yes
+		flower_ai_summon_undead_wave = yes
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_undead_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_undead_stage_1_idea
+			add_idea = flower_undead_stage_2_idea
+		}
+		flower_ai_summon_undead_wave = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_undead_done } }
+			set_country_flag = flower_evo_undead_done
+			set_variable = { flower_branch_id = 3 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_undead_stage_3_idea }
+		flower_ai_summon_undead_wave = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_undead_stage_1_idea
+		flower_ai_summon_undead_wave = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#10.异界特种召唤
+flower_ai_pick_archetype_10 = {
+	set_country_flag = flower_roguelike_magic_ai
+	if = {
+		limit = { has_idea = flower_magic_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_magic_stage_2_idea
+			add_idea = flower_magic_stage_3_idea
+		}
+		set_technology = {
+			Chaos_Warrior = 1
+			Chaos_Beast = 1
+			Chaos_Demon = 1
+			Chaos_Chose = 1
+			Artifact_research_available = 1
+			Artifact_0 = 1
+			Artifact_1 = 1
+			dragon_rider_tech = 1
+			SWE_Legendary_Dragon_Knight_tech = 1
+			popup = no
+		}
+		random_army_leader = {
+			add_unit_leader_trait = flower_dimension_ripper_trait
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_magic_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_magic_stage_1_idea
+			add_idea = flower_magic_stage_2_idea
+		}
+		set_technology = {
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			auto_meta_1 = 1
+			Construct_knight_research_available = 1
+			construct_knight_1 = 1
+			xrkl_tech = 1
+			popup = no
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_magic_done } }
+			set_country_flag = flower_evo_magic_done
+			set_variable = { flower_branch_id = 10 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_magic_stage_3_idea }
+		random_army_leader = {
+			add_unit_leader_trait = flower_dimension_ripper_trait
+		}
+		add_command_power = 100
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_magic_stage_1_idea
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			tech_magic_silverspear_pegasus = 1
+			elephantry = 1
+			popup = no
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#11.妖精与飞碟
+flower_ai_pick_archetype_11 = {
+	set_country_flag = flower_roguelike_steampunk_ai
+	if = {
+		limit = { has_idea = flower_steampunk_stage_2_idea }
+		swap_ideas = {
+			remove_idea = flower_steampunk_stage_2_idea
+			add_idea = flower_steampunk_stage_3_idea
+		}
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 500
+		}
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_nuclear
+			value = 2
+		}
+		flower_ai_check_dual_mastery_synergy = yes
+		flower_ai_close_draft_gui_done = yes
+	}
+	else_if = {
+		limit = { has_idea = flower_steampunk_stage_1_idea }
+		swap_ideas = {
+			remove_idea = flower_steampunk_stage_1_idea
+			add_idea = flower_steampunk_stage_2_idea
+		}
+		set_technology = {
+			steamtank1 = 1
+			Sky_Thunder_tech = 1
+			popup = no
+		}
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		if = {
+			limit = { NOT = { has_country_flag = flower_evo_punk_done } }
+			set_country_flag = flower_evo_punk_done
+			set_variable = { flower_branch_id = 11 }
+			set_variable = { flower_draft_gui_mode = 3 }
+			set_country_flag = flower_roguelike_gui_open
+		}
+		else = {
+			flower_ai_close_draft_gui_done = yes
+		}
+	}
+	else_if = {
+		limit = { has_idea = flower_steampunk_stage_3_idea }
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 500
+		}
+		add_to_variable = { another_country_currency_reserve = 250 }
+		flower_ai_close_draft_gui_done = yes
+	}
+	else = {
+		add_ideas = flower_steampunk_stage_1_idea
+		set_technology = {
+			yaojing_tech = 1
+			onm_unlock_unit_snake = 1
+			bamboo_grove_squad_tech = 1
+			popup = no
+		}
+		flower_ai_close_draft_gui_done = yes
+	}
+	flower_ai_check_chemical_combos = yes
+}
+
+#12.怪蛋与大转盘
+flower_ai_pick_archetype_12 = {
+	if = {
+		limit = {
+			NOT = { has_idea = flower_mystery_egg_incubating_idea }
+			NOT = { has_idea = flower_mystery_egg_hatched_idea }
+		}
+		add_ideas = flower_mystery_egg_incubating_idea
+		country_event = { id = FLWAI.23 days = 270 }
+	}
+	if = {
+		limit = {
+			NOT = { has_idea = flower_blood_wager_active_idea }
+			NOT = { has_idea = flower_blood_wager_victory_idea }
+		}
+		add_ideas = flower_blood_wager_active_idea
+		set_variable = { flower_wager_goal_states = num_controlled_states }
+		add_to_variable = { flower_wager_goal_states = 2 }
+		set_variable = { flower_wager_goal_factories = num_of_factories }
+		add_to_variable = { flower_wager_goal_factories = 10 }
+		country_event = { id = FLWAI.24 days = 180 }
+	}
+	if = {
+		limit = { has_country_flag = flower_roulette_pity_ready }
+		clr_country_flag = flower_roulette_pity_ready
+		add_research_slot = 1
+		add_to_variable = { another_country_currency_reserve = 1000 }
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 2
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+				type = arms_factory
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
+	else = {
+		random_list = {
+			25 = {
+				add_research_slot = 1
+				add_to_variable = { another_country_currency_reserve = 1000 }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 5
+					add_building_construction = {
+						type = arms_factory
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+			50 = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 20000
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 2000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 1000
+				}
+				army_experience = 100
+				add_to_variable = { another_country_currency_reserve = 250 }
+			}
+			25 = {
+				add_political_power = -75
+				add_ideas = flower_roulette_anti_scam_idea
+				set_country_flag = flower_roulette_pity_ready
+			}
+		}
+	}
+	flower_ai_close_draft_gui_done = yes
+}
+
+#执行分支界面第1张卡选择
+flower_ai_apply_branch_choice_1 = {
+	if = {
+		limit = { check_variable = { flower_branch_id = 1 } }
+		add_ideas = flower_evo_nightingale_blood_idea
+		flower_ai_summon_nightingale_knights = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 2 } }
+		add_ideas = flower_evo_guerrilla_scorch_idea
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 3 } }
+		add_ideas = flower_evo_undead_plague_idea
+		flower_ai_summon_undead_wave = yes
+		flower_ai_summon_undead_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 4 } }
+		add_ideas = flower_evo_slayer_dismantle_idea
+		flower_ai_add_slayer_stack = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 5 } }
+		add_ideas = flower_evo_corp_trust_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 6 } }
+		add_ideas = flower_evo_arty_carpet_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 7 } }
+		add_ideas = flower_evo_tank_timestop_idea
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 8 } }
+		add_ideas = flower_evo_air_cas_idea
+		air_experience = 100
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 9 } }
+		add_ideas = flower_evo_wave_meatgrinder_idea
+		add_manpower = 150000
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 10 } }
+		add_ideas = flower_evo_magic_chosen_idea
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 11 } }
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = no
+		}
+		add_ideas = flower_evo_punk_ufo_idea
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 250
+		}
+	}
+	flower_ai_close_draft_gui_done = yes
+	flower_ai_check_chemical_combos = yes
+}
+
+#执行分支界面第2张卡选择
+flower_ai_apply_branch_choice_2 = {
+	if = {
+		limit = { check_variable = { flower_branch_id = 1 } }
+		add_ideas = flower_evo_nightingale_iron_idea
+		flower_ai_summon_nightingale_knights = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 2 } }
+		set_country_flag = flower_evo_guerrilla_heavy_ai
+		add_ideas = flower_evo_guerrilla_heavy_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 2000
+		}
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 3 } }
+		add_ideas = flower_evo_undead_king_idea
+		flower_ai_summon_undead_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 4 } }
+		add_ideas = flower_evo_slayer_retrofit_idea
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 5 } }
+		add_ideas = flower_evo_corp_megaproject_idea
+		add_research_slot = 1
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 6 } }
+		add_ideas = flower_evo_arty_mobile_idea
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 7 } }
+		add_ideas = flower_evo_tank_fortress_idea
+		army_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 8 } }
+		add_ideas = flower_evo_air_superiority_idea
+		air_experience = 100
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 9 } }
+		add_ideas = flower_evo_wave_banzai_idea
+		add_manpower = 150000
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 10 } }
+		add_ideas = flower_evo_magic_grimoire_idea
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 2
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 11 } }
+		add_ideas = flower_evo_punk_elfsteam_idea
+		army_experience = 50
+	}
+	flower_ai_close_draft_gui_done = yes
+	flower_ai_check_chemical_combos = yes
+}
+
+#执行分支界面第3张卡选择
+flower_ai_apply_branch_choice_3 = {
+	if = {
+		limit = { check_variable = { flower_branch_id = 1 } }
+		add_ideas = flower_evo_nightingale_alchemy_idea
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 2500
+		}
+		add_equipment_to_stockpile = {
+			type = magic_artillery_equipment_1
+			amount = 1500
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 2 } }
+		add_ideas = flower_evo_guerrilla_sea_idea
+		flower_ai_summon_guerrilla_wave = yes
+		flower_ai_summon_guerrilla_wave = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 3 } }
+		add_ideas = flower_evo_undead_sweatshop_idea
+		add_to_variable = { another_country_currency_reserve = 500 }
+	}
+	flower_ai_close_draft_gui_done = yes
+	flower_ai_check_chemical_combos = yes
+}

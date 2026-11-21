@@ -1,0 +1,54 @@
+#外交与战线策略
+MGU_rush_all = {
+    allowed = {
+        original_tag = GRE
+    }
+    enable = {
+        has_war = yes
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_unit_request #前线部队
+        tag = DVL
+        value = 20 #lets put more units, should be safe
+    }
+    ai_strategy = {
+        type = front_unit_request #前线部队
+        tag = BUL
+        value = 100 #lets put more units, should be safe
+    }
+    ai_strategy = {
+        type = front_unit_request #前线部队
+        tag = TUR
+        value = 100 #lets put more units, should be safe
+    }
+    #ai_strategy = {
+        #type = front_unit_request #前线部队
+        #tag = ELF
+        #value = 20 #lets put more units, should be safe
+    #}
+    ai_strategy = {
+        type = front_control
+        tag = BUL
+        ratio > 0.6
+        priority = 100
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = no
+    }
+    ai_strategy = {
+        type = ignore_army_incompetence
+        value = 100
+    }    
+    ai_strategy = {
+        type = front_control
+        tag = TUR
+        ratio > 0.8
+        priority = 50
+        ordertype = front
+        execution_type = rush
+        execute_order = yes
+        manual_attack = no
+    }    
+}

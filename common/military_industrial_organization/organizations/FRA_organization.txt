@@ -1,4 +1,4 @@
-#################### 
+####################
 FRA_Kirisame_House = {
 	include = generic_spirit_suit_organization
 	icon = GFX_idea_FRA_Kirisame_House

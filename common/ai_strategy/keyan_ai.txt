@@ -359,8 +359,13 @@ ai_res_industry_2 = {
     abort_when_not_enabled = yes
 
     ai_strategy = { type = research_tech id = advanced_machine_tools value = 100 }
+    ai_strategy = { type = research_weight_factor id = advanced_machine_tools value = 100 }
     ai_strategy = { type = research_tech id = concentrated_industry3 value = 100 }
+    ai_strategy = { type = research_weight_factor id = concentrated_industry3 value = 100 }
+    ai_strategy = { type = research_tech id = dispersed_industry3 value = 100 }
+    ai_strategy = { type = research_weight_factor id = dispersed_industry3 value = 100 }
     ai_strategy = { type = research_tech id = construction3 value = 100 }
+    ai_strategy = { type = research_weight_factor id = construction3 value = 100 }
 }
 
 #1941四级工业、流水线与改良计算机
@@ -383,9 +388,15 @@ ai_res_industry_3 = {
     abort_when_not_enabled = yes
 
     ai_strategy = { type = research_tech id = assembly_line_production value = 100 }
+    ai_strategy = { type = research_weight_factor id = assembly_line_production value = 100 }
     ai_strategy = { type = research_tech id = concentrated_industry4 value = 100 }
+    ai_strategy = { type = research_weight_factor id = concentrated_industry4 value = 100 }
+    ai_strategy = { type = research_tech id = dispersed_industry4 value = 100 }
+    ai_strategy = { type = research_weight_factor id = dispersed_industry4 value = 100 }
     ai_strategy = { type = research_tech id = construction4 value = 100 }
+    ai_strategy = { type = research_weight_factor id = construction4 value = 100 }
     ai_strategy = { type = research_tech id = improved_computing_machine value = 100 }
+    ai_strategy = { type = research_weight_factor id = improved_computing_machine value = 100 }
 }
 
 
@@ -490,24 +501,95 @@ ai_res_motorized_infantry = {
     ai_strategy = { type = research_tech id = motorised_infantry value = 40 }
 }
 
-#灵装科技树（拥有mofa精神的国家研发）
+#灵装分阶科研
 ai_res_mofa_1 = {
     allowed = { always = yes }
     enable = {
         has_idea = mofa
-        NOT = { has_tech = magic_weapons8 }
+        NOT = {
+            AND = {
+                has_tech = magic_weapons0
+                has_tech = magic_weapons1
+            }
+        }
     }
     abort_when_not_enabled = yes
 
     ai_strategy = { type = research_tech id = magic_weapons0 value = 200 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons0 value = 150 }
     ai_strategy = { type = research_tech id = magic_weapons1 value = 200 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons1 value = 150 }
+}
+
+ai_res_mofa_2 = {
+    allowed = { always = yes }
+    enable = {
+        has_idea = mofa
+        date > 1937.6.1
+        has_tech = magic_weapons1
+        NOT = { has_tech = magic_weapons2 }
+    }
+    abort_when_not_enabled = yes
+
     ai_strategy = { type = research_tech id = magic_weapons2 value = 200 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons2 value = 150 }
+}
+
+ai_res_mofa_3 = {
+    allowed = { always = yes }
+    enable = {
+        has_idea = mofa
+        date > 1939.6.1
+        has_tech = magic_weapons2
+        NOT = { has_tech = magic_weapons3 }
+    }
+    abort_when_not_enabled = yes
+
     ai_strategy = { type = research_tech id = magic_weapons3 value = 200 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons3 value = 150 }
+}
+
+ai_res_mofa_4 = {
+    allowed = { always = yes }
+    enable = {
+        has_idea = mofa
+        date > 1941.6.1
+        has_tech = magic_weapons3
+        NOT = { has_tech = magic_weapons4 }
+    }
+    abort_when_not_enabled = yes
+
     ai_strategy = { type = research_tech id = magic_weapons4 value = 200 }
-    ai_strategy = { type = research_tech id = magic_weapons5 value = 200 }
-    ai_strategy = { type = research_tech id = magic_weapons6 value = 200 }
-    ai_strategy = { type = research_tech id = magic_weapons7 value = 200 }
-    ai_strategy = { type = research_tech id = magic_weapons8 value = 200 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons4 value = 150 }
+}
+
+ai_res_mofa_5 = {
+    allowed = { always = yes }
+    enable = {
+        has_idea = mofa
+        date > 1942.9.1
+        has_tech = magic_weapons4
+        NOT = { has_tech = magic_weapons5 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_tech id = magic_weapons5 value = 180 }
+    ai_strategy = { type = research_weight_factor id = magic_weapons5 value = 120 }
+}
+
+ai_res_mofa_late = {
+    allowed = { always = yes }
+    enable = {
+        has_idea = mofa
+        date > 1944.6.1
+        has_tech = magic_weapons5
+        NOT = { has_tech = magic_weapons8 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_tech id = magic_weapons6 value = 150 }
+    ai_strategy = { type = research_tech id = magic_weapons7 value = 120 }
+    ai_strategy = { type = research_tech id = magic_weapons8 value = 100 }
 }
 
 
@@ -724,7 +806,7 @@ ai_res_airframe_small_2 = {
 ai_res_airframe_small_3 = {
     allowed = { always = yes }
     enable = {
-        date > 1940.6.1
+        date > 1942.9.1
         num_of_military_factories > 25
         has_tech = improved_small_airframe
         NOT = { has_tech = advanced_small_airframe }
@@ -810,7 +892,7 @@ ai_res_air_engine_3 = {
 ai_res_air_engine_4 = {
     allowed = { always = yes }
     enable = {
-        date > 1940.7.1
+        date > 1942.9.1
         has_tech = engines_3
         NOT = { has_tech = engines_4 }
     }
@@ -1012,4 +1094,144 @@ ai_res_blacklist_mines = {
     ai_strategy = { type = research_weight_factor id = submarine_mine_laying value = -20 }
     ai_strategy = { type = research_weight_factor id = improved_naval_mines value = -20 }
     ai_strategy = { type = research_weight_factor id = basic_naval_mines value = -20 }
+}
+
+#==============================================================================
+#能源与海军特种科技
+#==============================================================================
+
+#大国煤炭与能源科技
+ai_res_ah_energy_early = {
+    allowed = { always = yes }
+    enable = {
+        date > 1937.6.1
+        num_of_factories > 40
+        NOT = {
+            AND = {
+                has_tech = basic_coal_gasification
+                has_tech = fischer_tropsch_initial_research
+                has_tech = bergius_process_initial_research
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = basic_coal_gasification value = 40 }
+    ai_strategy = { type = research_tech id = basic_coal_gasification value = 40 }
+    ai_strategy = { type = research_weight_factor id = fischer_tropsch_initial_research value = 35 }
+    ai_strategy = { type = research_tech id = fischer_tropsch_initial_research value = 35 }
+    ai_strategy = { type = research_weight_factor id = bergius_process_initial_research value = 30 }
+    ai_strategy = { type = research_tech id = bergius_process_initial_research value = 30 }
+}
+
+ai_res_ah_energy_mid = {
+    allowed = { always = yes }
+    enable = {
+        date > 1940.6.1
+        num_of_factories > 60
+        has_tech = bergius_process_initial_research
+        NOT = {
+            AND = {
+                has_tech = high_pressure_hydrogenation_improvement
+                has_tech = deep_coal_field_mining
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = high_pressure_hydrogenation_improvement value = 35 }
+    ai_strategy = { type = research_tech id = high_pressure_hydrogenation_improvement value = 35 }
+    ai_strategy = { type = research_weight_factor id = deep_coal_field_mining value = 35 }
+    ai_strategy = { type = research_tech id = deep_coal_field_mining value = 35 }
+}
+
+#海军强国船体与两用炮/损管科技
+ai_res_naval_major_early = {
+    allowed = { always = yes }
+    enable = {
+        num_of_naval_factories > 10
+        date > 1936.6.1
+        NOT = {
+            AND = {
+                has_tech = basic_ship_hull_light
+                has_tech = basic_ship_hull_cruiser
+                has_tech = basic_ship_hull_submarine
+                has_tech = basic_dp_light_battery
+                has_tech = damage_control_1
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = basic_ship_hull_light value = 60 }
+    ai_strategy = { type = research_tech id = basic_ship_hull_light value = 60 }
+    ai_strategy = { type = research_weight_factor id = basic_ship_hull_cruiser value = 55 }
+    ai_strategy = { type = research_tech id = basic_ship_hull_cruiser value = 55 }
+    ai_strategy = { type = research_weight_factor id = basic_ship_hull_submarine value = 50 }
+    ai_strategy = { type = research_tech id = basic_ship_hull_submarine value = 50 }
+    ai_strategy = { type = research_weight_factor id = basic_dp_light_battery value = 50 }
+    ai_strategy = { type = research_tech id = basic_dp_light_battery value = 50 }
+    ai_strategy = { type = research_weight_factor id = damage_control_1 value = 45 }
+    ai_strategy = { type = research_tech id = damage_control_1 value = 45 }
+}
+
+ai_res_naval_major_mid = {
+    allowed = { always = yes }
+    enable = {
+        num_of_naval_factories > 15
+        date > 1939.6.1
+        NOT = {
+            AND = {
+                has_tech = improved_ship_hull_light
+                has_tech = improved_ship_hull_cruiser
+                has_tech = improved_ship_hull_submarine
+                has_tech = improved_dp_light_battery
+                has_tech = fire_control_methods_1
+                has_tech = damage_control_2
+            }
+        }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = improved_ship_hull_light value = 65 }
+    ai_strategy = { type = research_tech id = improved_ship_hull_light value = 65 }
+    ai_strategy = { type = research_weight_factor id = improved_ship_hull_cruiser value = 60 }
+    ai_strategy = { type = research_tech id = improved_ship_hull_cruiser value = 60 }
+    ai_strategy = { type = research_weight_factor id = improved_ship_hull_submarine value = 55 }
+    ai_strategy = { type = research_tech id = improved_ship_hull_submarine value = 55 }
+    ai_strategy = { type = research_weight_factor id = improved_dp_light_battery value = 55 }
+    ai_strategy = { type = research_tech id = improved_dp_light_battery value = 55 }
+    ai_strategy = { type = research_weight_factor id = fire_control_methods_1 value = 45 }
+    ai_strategy = { type = research_tech id = fire_control_methods_1 value = 45 }
+    ai_strategy = { type = research_weight_factor id = damage_control_2 value = 45 }
+    ai_strategy = { type = research_tech id = damage_control_2 value = 45 }
+}
+
+#海权国家研发海军陆战队科技
+ai_res_marines_naval = {
+    allowed = { always = yes }
+    enable = {
+        date > 1937.6.1
+        num_of_naval_factories > 10
+        num_of_military_factories > 20
+        NOT = { has_tech = marines }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = marines value = 60 }
+    ai_strategy = { type = research_tech id = marines value = 60 }
+}
+
+#大国研发山地步兵科技
+ai_res_mountaineers_major = {
+    allowed = { always = yes }
+    enable = {
+        date > 1937.6.1
+        num_of_military_factories > 25
+        NOT = { has_tech = tech_mountaineers }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = { type = research_weight_factor id = tech_mountaineers value = 45 }
+    ai_strategy = { type = research_tech id = tech_mountaineers value = 45 }
 }

@@ -1,10 +1,6 @@
 spriteTypes = {
-	####动态头像
-	#### - 左侧图片 - ####
-	##科技树
-	#单位
-    #事件
-    spriteType = {
+	#事件插画
+	spriteType = {
 		name = "GFX_event_flower_ai_1"
 		texturefile = "gfx/event_pictures/flower_ai_1.png"
 	}
@@ -12,27 +8,203 @@ spriteTypes = {
 		name = "GFX_event_flower_ai_2"
 		texturefile = "gfx/event_pictures/flower_ai_2.png"
 	}
-	###GUI
-	#装备
-	#头像
-	#特质
+	#开局畸变与肉鸽手账GUI
 	spriteType = {
-        name = "GFX_trait_swy_trait"
-        texturefile = "gfx/interface/swy_trait.png"
-    }
+		name = "GFX_flower_xiaohua_card_happy"
+		texturefile = "gfx/interface/gui/flower_xiaohua_card_happy.png"
+		legacy_lazy_load = no
+	}
 	spriteType = {
-        name = "GFX_trait_nl_trait"
-        texturefile = "gfx/interface/nl_trait.png"
-    }
+		name = "GFX_flower_xiaohua_card_cry"
+		texturefile = "gfx/interface/gui/flower_xiaohua_card_cry.png"
+		legacy_lazy_load = no
+	}
 	spriteType = {
-        name = "GFX_trait_hjm_trait"
-        texturefile = "gfx/interface/hjm_trait.png"
-    }
+		name = "GFX_flower_wide_card_btn"
+		texturefile = "gfx/interface/gui/PAU/PAU_baiye_card_wide.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
 	spriteType = {
-        name = "GFX_trait_jiahao_trait"
-        texturefile = "gfx/interface/jiahao_trait.png"
-    }
-	#民族精神
+		name = "GFX_flower_cat_icon_relic"
+		texturefile = "gfx/interface/gui/flower_cat_icon_relic.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_cat_icon_curse"
+		texturefile = "gfx/interface/gui/flower_cat_icon_curse.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_cat_icon_evo"
+		texturefile = "gfx/interface/gui/flower_cat_icon_evo.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_cat_icon_cross"
+		texturefile = "gfx/interface/gui/flower_cat_icon_cross.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_1"
+		texturefile = "gfx/interface/gui/flower_arch_card_1.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_2"
+		texturefile = "gfx/interface/gui/flower_arch_card_2.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_3"
+		texturefile = "gfx/interface/gui/flower_arch_card_3.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_4"
+		texturefile = "gfx/interface/gui/flower_arch_card_4.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_5"
+		texturefile = "gfx/interface/gui/flower_arch_card_5.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_6"
+		texturefile = "gfx/interface/gui/flower_arch_card_6.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_7"
+		texturefile = "gfx/interface/gui/flower_arch_card_7.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_8"
+		texturefile = "gfx/interface/gui/flower_arch_card_8.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_9"
+		texturefile = "gfx/interface/gui/flower_arch_card_9.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_10"
+		texturefile = "gfx/interface/gui/flower_arch_card_10.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_11"
+		texturefile = "gfx/interface/gui/flower_arch_card_11.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_arch_card_12"
+		texturefile = "gfx/interface/gui/flower_arch_card_12.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_1"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_1.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_2"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_2.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_3"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_3.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_4"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_4.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_5"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_5.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_anomaly_card_6"
+		texturefile = "gfx/interface/gui/flower_anomaly_card_6.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_card_seal_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_anomaly_start"
+		texturefile = "gfx/interface/gui/flower_btn_anomaly_start.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_anomaly_multi_off"
+		texturefile = "gfx/interface/gui/flower_btn_anomaly_multi_off.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_anomaly_multi_on"
+		texturefile = "gfx/interface/gui/flower_btn_anomaly_multi_on.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	#将领特质
+	spriteType = {
+		name = "GFX_trait_swy_trait"
+		texturefile = "gfx/interface/swy_trait.png"
+	}
+	spriteType = {
+		name = "GFX_trait_nl_trait"
+		texturefile = "gfx/interface/nl_trait.png"
+	}
+	spriteType = {
+		name = "GFX_trait_hjm_trait"
+		texturefile = "gfx/interface/hjm_trait.png"
+	}
+	spriteType = {
+		name = "GFX_trait_jiahao_trait"
+		texturefile = "gfx/interface/jiahao_trait.png"
+	}
+	spriteType = {
+		name = "GFX_trait_flower_dimension_ripper_trait"
+		texturefile = "gfx/interface/ideas/idea_magic_overcharge.dds"
+	}
+	spriteType = {
+		name = "GFX_trait_flower_wanrendi_trait"
+		texturefile = "gfx/interface/ideas/PAO/AUF_zyzs.png"
+	}
+	spriteType = {
+		name = "GFX_trait_flower_space_magician_trait"
+		texturefile = "gfx/interface/ideas/SOV/space_and_time_management_bureau.png"
+	}
+	spriteType = {
+		name = "GFX_trait_flower_grand_chessmaster_trait"
+		texturefile = "gfx/interface/ideas/SOV/SOV_earth_defense_consensus.png"
+	}
+	#民族精神与成长词条图标（复用主模组原汁原味图标，零AI贴纸画风）
 	spriteType = {
 		name = "GFX_flower_ai_jungong"
 		texturefile = "gfx/interface/ideas/flower_ai_jungong.png"
@@ -64,5 +236,142 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_flower_ai_neizhan"
 		texturefile = "gfx/interface/ideas/flower_ai_neizhan.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_roguelike"
+		texturefile = "gfx/interface/goals/rolling_the_dice.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_blitz"
+		texturefile = "gfx/interface/goals/CAN/doctrine_tank_warfare.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_tycoon"
+		texturefile = "gfx/interface/ideas/CAN/KTG_Gold_Trade.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_devour"
+		texturefile = "gfx/interface/ideas/PAM/PAM_yybsdwy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_heroes"
+		texturefile = "gfx/interface/ideas/SOV/SOV_earth_defense_consensus.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_nightmare"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_All_king_land.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_slayer_book"
+		texturefile = "gfx/interface/ideas/SOV/guns_shield.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_builder_ledger"
+		texturefile = "gfx/interface/ideas/SOV/IRE_heavy_industry.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_arty_evolve"
+		texturefile = "gfx/interface/ideas/SOV/rocket_artillery.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_tank_evolve"
+		texturefile = "gfx/interface/goals/KMK/holy_roma_empire_sakuya.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_mystery_egg"
+		texturefile = "gfx/interface/decisions/PAM/cash_in_military_luck.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_blood_wager"
+		texturefile = "gfx/interface/ideas/SOV/space_and_time_management_bureau.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_air_evolve"
+		texturefile = "gfx/interface/goals/CAN/generic_air_CAS_new.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_wave_evolve"
+		texturefile = "gfx/interface/ideas/MGU/Long_live_the_great_unity_of_the_people_of_the_world.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_magic_evolve"
+		texturefile = "gfx/interface/ideas/SOV/magic_book.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_synergy"
+		texturefile = "gfx/interface/ideas/PAM/PAM_xueshuo3.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_nightingale"
+		texturefile = "gfx/interface/technologies/PAO/wangling3_tech.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_guerrilla"
+		texturefile = "gfx/interface/ideas/flower_idea_guerrilla.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_undead"
+		texturefile = "gfx/interface/ideas/LHS/zdwl.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_steampunk"
+		texturefile = "gfx/interface/technologies/flying_saucer_tech.dds"
+	}
+	#肉鸽进阶分叉、战术遗物、诅咒契约与化学反应图标（全部复用萌心主mod原生图标）
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_blood"
+		texturefile = "gfx/interface/ideas/PAO/PAO_psyl.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_iron"
+		texturefile = "gfx/interface/ideas/PAO/PAO_wwth.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_magic_arty"
+		texturefile = "gfx/interface/ideas/PAN/PAN_mofapao.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_bone_king"
+		texturefile = "gfx/interface/ideas/DVL/DVL_Nazarick.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_steam_gear"
+		texturefile = "gfx/interface/ideas/DEN/DEN_Land_of_Magic_Gears_and_Steam.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_star_fleet"
+		texturefile = "gfx/interface/ideas/DEN/ocean_of_star.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_evo_elf"
+		texturefile = "gfx/interface/ideas/ELF/race_elf.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_relic_supply"
+		texturefile = "gfx/interface/ideas/LHS/LHS_Comintern_yuanzhu.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_relic_gold"
+		texturefile = "gfx/interface/ideas/CAN/generic_coins.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_relic_tech"
+		texturefile = "gfx/interface/ideas/CAN/generic_lightbulb.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_relic_command"
+		texturefile = "gfx/interface/ideas/CAN/generic_crown.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_relic_army"
+		texturefile = "gfx/interface/ideas/CAN/generic_army.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_curse_pact"
+		texturefile = "gfx/interface/ideas/CAN/CAN_darkest_hour.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_idea_combo_spark"
+		texturefile = "gfx/interface/ideas/PAM/PAM_living_world_icon.png"
 	}
 }

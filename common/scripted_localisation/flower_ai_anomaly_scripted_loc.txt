@@ -1,0 +1,138 @@
+defined_text = {
+	name = GetFlowerXiaohuaMoodText
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = flower_anomaly_6_active
+				check_variable = { global.flower_anomaly_vote_6 > 0 }
+			}
+		}
+		localization_key = FLOWER_XIAOHUA_MOOD_SCARED
+	}
+	text = {
+		localization_key = FLOWER_XIAOHUA_MOOD_HAPPY
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyLeadText
+	text = {
+		trigger = { has_global_flag = flower_anomaly_voting_settled }
+		localization_key = FLOWER_ANOMALY_LEAD_SETTLED
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_LEAD_VOTING
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyModeSummaryText
+	text = {
+		trigger = { has_global_flag = flower_anomaly_multi_mode }
+		localization_key = FLOWER_ANOMALY_MODE_MULTI_TEXT
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_MODE_SINGLE_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard1Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_1_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_1 }
+		localization_key = FLOWER_ANOMALY_CARD_1_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_1_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard2Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_2_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_2 }
+		localization_key = FLOWER_ANOMALY_CARD_2_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_2_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard3Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_3_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_3 }
+		localization_key = FLOWER_ANOMALY_CARD_3_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_3_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard4Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_4_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_4 }
+		localization_key = FLOWER_ANOMALY_CARD_4_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_4_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard5Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_5_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_5 }
+		localization_key = FLOWER_ANOMALY_CARD_5_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_5_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyCard6Status
+	text = {
+		trigger = { has_global_flag = flower_anomaly_6_active }
+		localization_key = FLOWER_ANOMALY_CARD_ACTIVE_STATUS
+	}
+	text = {
+		trigger = { has_country_flag = flower_voted_card_6 }
+		localization_key = FLOWER_ANOMALY_CARD_6_VOTED_STATUS
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CARD_6_IDLE_STATUS
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyFooterText
+	text = {
+		trigger = { has_global_flag = flower_anomaly_voting_settled }
+		localization_key = FLOWER_ANOMALY_FOOTER_SETTLED
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_FOOTER_VOTING
+	}
+}

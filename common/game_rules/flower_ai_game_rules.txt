@@ -1,0 +1,76 @@
+#小花AI开局规则
+FLOWER_AI_DIFFICULTY_RULE = {
+    name = "RULE_FLOWER_AI_DIFFICULTY"
+    group = "RULE_GROUP_FLOWER_AI"
+    icon = "GFX_wargoals"
+    default = {
+        name = "DEFAULT_EVENT"
+        text = "RULE_OPTION_FLOWER_AI_DEFAULT_EVENT"
+        desc = "RULE_OPTION_FLOWER_AI_DEFAULT_EVENT_DESC"
+        allow_achievements = yes
+    }
+    option = {
+        name = "NORMAL_HARD"
+        text = "RULE_OPTION_FLOWER_AI_NORMAL_HARD"
+        desc = "RULE_OPTION_FLOWER_AI_NORMAL_HARD_DESC"
+    }
+    option = {
+        name = "HARD"
+        text = "RULE_OPTION_FLOWER_AI_HARD"
+        desc = "RULE_OPTION_FLOWER_AI_HARD_DESC"
+    }
+    option = {
+        name = "MOST_HARD"
+        text = "RULE_OPTION_FLOWER_AI_MOST_HARD"
+        desc = "RULE_OPTION_FLOWER_AI_MOST_HARD_DESC"
+    }
+    option = {
+        name = "APOCALYPSE"
+        text = "RULE_OPTION_FLOWER_AI_APOCALYPSE"
+        desc = "RULE_OPTION_FLOWER_AI_APOCALYPSE_DESC"
+    }
+    option = {
+        name = "LOGIC_ONLY"
+        text = "RULE_OPTION_FLOWER_AI_LOGIC_ONLY"
+        desc = "RULE_OPTION_FLOWER_AI_LOGIC_ONLY_DESC"
+    }
+}
+
+FLOWER_AI_MINOR_DIV_CAP_RULE = {
+    name = "RULE_FLOWER_AI_MINOR_DIV_CAP"
+    group = "RULE_GROUP_FLOWER_AI"
+    icon = "GFX_wargoals"
+    default = {
+        name = "ENABLED"
+        text = "RULE_OPTION_FLOWER_AI_MINOR_CAP_ON"
+        desc = "RULE_OPTION_FLOWER_AI_MINOR_CAP_ON_DESC"
+        allow_achievements = yes
+    }
+    option = {
+        name = "DISABLED"
+        text = "RULE_OPTION_FLOWER_AI_MINOR_CAP_OFF"
+        desc = "RULE_OPTION_FLOWER_AI_MINOR_CAP_OFF_DESC"
+    }
+}
+
+FLOWER_AI_SUPER_BOSS_RULE = {
+    name = "RULE_FLOWER_AI_SUPER_BOSS"
+    group = "RULE_GROUP_FLOWER_AI"
+    icon = "GFX_take_over_faction_leadership"
+    default = {
+        name = "MANUAL"
+        text = "RULE_OPTION_FLOWER_AI_BOSS_MANUAL"
+        desc = "RULE_OPTION_FLOWER_AI_BOSS_MANUAL_DESC"
+        allow_achievements = yes
+    }
+    option = {
+        name = "SUPER_DVL"
+        text = "RULE_OPTION_FLOWER_AI_BOSS_DVL"
+        desc = "RULE_OPTION_FLOWER_AI_BOSS_DVL_DESC"
+    }
+    option = {
+        name = "SUPER_SOV_DVL"
+        text = "RULE_OPTION_FLOWER_AI_BOSS_SOV_DVL"
+        desc = "RULE_OPTION_FLOWER_AI_BOSS_SOV_DVL_DESC"
+    }
+}

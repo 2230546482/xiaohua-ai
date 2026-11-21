@@ -1,0 +1,313 @@
+#肉鸽流派全图AI通用编制适配（任何AI国家抽到对应流派都会立刻按专属强力编制暴兵）
+
+#流派七：夜莺骑士团AI编制（夜莺的魂灵 + 夜莺骑士团）
+flower_roguelike_nightingale_templates = {
+	role = flower_nightingale
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 60
+			has_country_flag = flower_roguelike_nightingale_ai
+		}
+	}
+	flower_nightingale_souls_tpl = {
+		upgrade_prio = {
+			factor = 20
+			modifier = {
+				factor = 0
+				has_tech = wangling3_tech
+			}
+		}
+		enable = {
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_tech = wangling2_tech
+		}
+		target_template = {
+			regiments = {
+				wangling2 = 14
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				engineer = 1
+				field_hospital = 1
+				logistics_company = 1
+				anti_air = 1
+				recon = 1
+			}
+		}
+		replace_at_match = 1.2
+		replace_with = flower_nightingale_knights_tpl
+		target_min_match = 0.8
+	}
+	flower_nightingale_knights_tpl = {
+		upgrade_prio = {
+			factor = 50
+		}
+		enable = {
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_tech = wangling3_tech
+		}
+		target_template = {
+			regiments = {
+				wangling3 = 12
+			}
+			regimental_support = {
+				fire_support = 2
+				anti_air_battery = 1
+			}
+			support = {
+				engineer = 1
+				field_hospital = 1
+				logistics_company = 1
+				anti_air = 1
+				recon = 1
+			}
+		}
+	}
+}
+
+#流派八：野火游击队AI编制（1.3宽超低补给游击海 + 游击装甲混编师）
+flower_roguelike_guerrilla_templates = {
+	role = flower_guerrilla
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 60
+			has_country_flag = flower_roguelike_guerrilla_ai
+		}
+	}
+	flower_guerrilla_swarm_tpl = {
+		upgrade_prio = {
+			factor = 40
+			modifier = {
+				factor = 0
+				has_country_flag = flower_evo_guerrilla_heavy_ai
+			}
+		}
+		enable = {
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_tech = youjidui_tech
+		}
+		target_template = {
+			regiments = {
+				youjibudui = 14
+				artillery_brigade = 2
+			}
+			regimental_support = {
+				fire_support = 3
+			}
+			support = {
+				engineer = 1
+				recon = 1
+				anti_air = 1
+				anti_tank = 1
+				logistics_company = 1
+			}
+		}
+		replace_at_match = 1.2
+		replace_with = flower_guerrilla_heavy_tpl
+		target_min_match = 0.8
+	}
+	flower_guerrilla_heavy_tpl = {
+		upgrade_prio = {
+			factor = 60
+		}
+		enable = {
+			has_country_flag = flower_evo_guerrilla_heavy_ai
+			has_tech = youjidui_tech
+		}
+		target_template = {
+			regiments = {
+				youjibudui = 12
+				artillery_brigade = 4
+			}
+			regimental_support = {
+				fire_support = 3
+				anti_air_battery = 1
+			}
+			support = {
+				engineer = 1
+				artillery = 1
+				anti_air = 1
+				anti_tank = 1
+				logistics_company = 1
+			}
+		}
+	}
+}
+
+#流派三：0宽度早苗神风火炮AI编制（满级觉醒后往20宽步兵师里硬塞8营0宽重炮！）
+flower_roguelike_zero_arty_templates = {
+	role = flower_zero_arty
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 70
+			has_country_flag = flower_roguelike_arty_ai
+			has_tech = tech_Sanae_Artillery
+		}
+	}
+	flower_zero_arty_infantry_tpl = {
+		upgrade_prio = {
+			factor = 60
+		}
+		enable = {
+			has_country_flag = flower_roguelike_arty_ai
+			has_tech = tech_Sanae_Artillery
+		}
+		target_template = {
+			regiments = {
+				infantry = 10
+				artillery_brigade = 8
+			}
+			regimental_support = {
+				fire_support = 3
+				anti_air_battery = 1
+			}
+			support = {
+				engineer = 1
+				artillery = 1
+				anti_air = 1
+				logistics_company = 1
+				field_hospital = 1
+			}
+		}
+	}
+}
+
+#流派四：咲夜时停女仆装甲AI编制
+flower_roguelike_sakuya_armor_templates = {
+	role = flower_sakuya_armor
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 70
+			has_country_flag = flower_roguelike_tank_ai
+			has_tech = the_world_0
+		}
+	}
+	flower_sakuya_armor_tpl = {
+		upgrade_prio = {
+			factor = 60
+		}
+		enable = {
+			has_country_flag = flower_roguelike_tank_ai
+			has_tech = the_world_0
+			has_tech = the_maid_0
+		}
+		target_template = {
+			regiments = {
+				medium_armor = 8
+				motorized = 7
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				support_sakuya = 1
+				engineer = 1
+				logistics_company = 1
+				anti_air = 1
+				signal_company = 1
+			}
+		}
+	}
+}
+
+#流派十：异界禁书召唤AI编制（赛马娘 / 自律人偶 / 构装机甲骑士）
+flower_roguelike_magic_summon_templates = {
+	role = flower_summon_special
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 60
+			has_country_flag = flower_roguelike_magic_ai
+		}
+	}
+	flower_umamusume_tpl = {
+		upgrade_prio = {
+			factor = 25
+			modifier = {
+				factor = 0
+				has_tech = auto_meta_0
+			}
+		}
+		enable = {
+			has_country_flag = flower_roguelike_magic_ai
+			has_tech = TAM_umamusume_tech_0
+		}
+		target_template = {
+			regiments = {
+				umamusume = 10
+			}
+			support = {
+				engineer = 1
+				recon = 1
+				anti_air = 1
+				logistics_company = 1
+			}
+		}
+		replace_at_match = 1.2
+		replace_with = flower_auto_meta_tpl
+		target_min_match = 0.8
+	}
+	flower_auto_meta_tpl = {
+		upgrade_prio = {
+			factor = 50
+		}
+		enable = {
+			has_country_flag = flower_roguelike_magic_ai
+			has_tech = auto_meta_0
+		}
+		target_template = {
+			regiments = {
+				auto_meta_units = 10
+			}
+			support = {
+				engineer = 1
+				recon = 1
+				anti_air = 1
+				logistics_company = 1
+				field_hospital = 1
+			}
+		}
+	}
+}
+
+#流派十一：森林妖精与血肉蒸汽AI编制
+flower_roguelike_steampunk_elf_templates = {
+	role = flower_steampunk_elf
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 55
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	flower_elf_yaojing_tpl = {
+		upgrade_prio = {
+			factor = 40
+		}
+		enable = {
+			has_country_flag = flower_roguelike_steampunk_ai
+			has_tech = yaojing_tech
+		}
+		target_template = {
+			regiments = {
+				ELF_yaojing = 10
+				artillery_brigade = 2
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				engineer = 1
+				recon = 1
+				anti_air = 1
+				logistics_company = 1
+			}
+		}
+	}
+}

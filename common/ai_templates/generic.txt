@@ -1,20 +1,47 @@
-
-
-######################
-#	步兵 ROLE
-######################
-
+#分级步兵编制
 infantry_default = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL FRA
+        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM FRA PAU TAM
     }
     role = infantry
     upgrade_prio = {
         factor = 15
     }
+    infantry_template_small = {
+        upgrade_prio = {
+            factor = 20
+            modifier = {
+                factor = 0
+                num_of_military_factories > 14
+            }
+        }
+        enable = {
+            num_of_military_factories < 15
+        }
+        target_template = {
+            regiments = {
+                irregular_infantry = 9
+            }
+            regimental_support = {
+                fire_support = 1
+            }
+            support = {
+                engineer = 1
+                artillery = 1
+                anti_air = 1
+            }
+        }
+    }
     infantry_template_large = {
         upgrade_prio = {
             factor = 30
+            modifier = {
+                factor = 0
+                num_of_military_factories < 15
+            }
+        }
+        enable = {
+            num_of_military_factories > 14
         }
         target_template = {
             regiments = {
@@ -36,14 +63,10 @@ infantry_default = {
     }
 }
 
-
-
-######################
-#	机动装甲 ROLE
-######################
+#机动装甲编制
 AI_armor = {
     blocked_for = {
-        LHS PAO PAM ELF ELW EWW EFC ELG EDW KFL KNM FRA
+        LHS PAM KFL KNM FRA PAU TAM XYK
     }
     role = armor
     upgrade_prio = {
@@ -62,9 +85,7 @@ AI_armor = {
             }
             modifier = {
                 factor = 0
-                or = {
-                    date < 1938.1.1
-                }
+                date < 1938.1.1
             }
         }
         enable = {
@@ -75,7 +96,7 @@ AI_armor = {
         target_template = {
             regiments = {
                 irregular_infantry = 12
-                medium_armor =  8
+                medium_armor = 8
             }
             regimental_support = {
                 fire_support = 3
@@ -101,21 +122,57 @@ AI_armor = {
             }
             modifier = {
                 factor = 0
-                or = {
-                    date < 1938.1.1
-                }
+                date < 1938.1.1
+            }
+            modifier = {
+                factor = 0
+                has_tech = main_battle_tank_chassis
             }
         }
         enable = {
             has_tech = mechanised_infantry
         }
         can_upgrade_in_field = {
-			has_equipment = { mechanized_equipment > 500 } 
-		}
+            has_equipment = { mechanized_equipment > 500 }
+        }
         target_template = {
             regiments = {
                 mechanized = 12
-                medium_armor =  8
+                medium_armor = 8
+            }
+            regimental_support = {
+                mot_fire_support = 3
+                medium_sp_anti_air_support = 2
+            }
+            support = {
+                assault_engineer = 1
+                light_tank_recon = 1
+                medium_flame_tank = 1
+                field_hospital = 1
+                logistics_company = 1
+            }
+        }
+    }
+    MODERN_ARMOR_3 = {
+        upgrade_prio = {
+            base = 0
+            modifier = {
+                add = 500
+                has_tech = main_battle_tank_chassis
+                has_tech = mechanised_infantry
+            }
+        }
+        enable = {
+            has_tech = main_battle_tank_chassis
+            has_tech = mechanised_infantry
+        }
+        can_upgrade_in_field = {
+            has_equipment = { modern_tank_chassis > 400 }
+        }
+        target_template = {
+            regiments = {
+                mechanized = 12
+                modern_armor = 8
             }
             regimental_support = {
                 mot_fire_support = 3
@@ -132,6 +189,7 @@ AI_armor = {
     }
 }
 
+#魔法装甲编制
 AI_special_armor = {
     blocked_for = {
         LHS FRA
@@ -142,23 +200,18 @@ AI_special_armor = {
         modifier = {
             add = 20
             date > 1938.1.1
-            AND = {
-                has_idea = mofa
-                has_tech = magic_weapons0
-            }
+            has_idea = mofa
+            has_tech = magic_weapons0
         }
     }
     special_armor_2 = {
         upgrade_prio = {
-            factor = 0
+            base = 0
             modifier = {
-                factor = 400
+                add = 400
+                date > 1938.1.1
                 has_idea = mofa
                 has_tech = magic_weapons0
-            }
-            modifier = {
-                factor = 0
-                date < 1938.1.1
             }
         }
         enable = {
@@ -168,7 +221,7 @@ AI_special_armor = {
         target_template = {
             regiments = {
                 magic_assault = 12
-                medium_armor =  8
+                medium_armor = 8
             }
             regimental_support = {
                 fire_support = 3
@@ -180,6 +233,122 @@ AI_special_armor = {
                 medium_flame_tank = 1
                 field_hospital = 1
                 logistics_company = 1
+            }
+        }
+    }
+}
+
+#护港与海岸驻防编制
+garrison_default = {
+    role = garrison
+    upgrade_prio = {
+        factor = 10
+    }
+    garrison_template_default = {
+        upgrade_prio = {
+            factor = 10
+        }
+        target_template = {
+            regiments = {
+                irregular_infantry = 6
+            }
+            support = {
+                engineer = 1
+                anti_air = 1
+            }
+        }
+    }
+}
+
+#海军陆战队编制
+marine_default = {
+    role = marine
+    upgrade_prio = {
+        base = 0
+        modifier = {
+            add = 15
+            has_tech = marines
+            num_of_military_factories > 20
+            num_of_naval_factories > 8
+        }
+    }
+    marine_template_default = {
+        upgrade_prio = {
+            factor = 20
+        }
+        enable = {
+            has_tech = marines
+        }
+        target_template = {
+            regiments = {
+                marine = 9
+            }
+            regimental_support = {
+                fire_support = 2
+            }
+            support = {
+                engineer = 1
+                artillery = 1
+                anti_air = 1
+                logistics_company = 1
+                recon = 1
+            }
+        }
+    }
+}
+
+#山地步兵编制
+mountaineer_default = {
+    role = mountaineer
+    upgrade_prio = {
+        base = 0
+        modifier = {
+            add = 12
+            has_tech = tech_mountaineers
+            num_of_military_factories > 25
+        }
+    }
+    mountaineer_template_default = {
+        upgrade_prio = {
+            factor = 15
+        }
+        enable = {
+            has_tech = tech_mountaineers
+        }
+        target_template = {
+            regiments = {
+                mountaineers = 9
+            }
+            regimental_support = {
+                fire_support = 2
+            }
+            support = {
+                rangers_support = 1
+                engineer = 1
+                artillery = 1
+                anti_air = 1
+                logistics_company = 1
+            }
+        }
+    }
+}
+
+#通用民兵编制
+militia_default = {
+    role = militia
+    upgrade_prio = {
+        factor = 5
+    }
+    militia_template_default = {
+        upgrade_prio = {
+            factor = 5
+        }
+        target_template = {
+            regiments = {
+                militia = 6
+            }
+            support = {
+                engineer = 1
             }
         }
     }

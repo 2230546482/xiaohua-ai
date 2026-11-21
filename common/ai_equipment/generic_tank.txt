@@ -1,6 +1,5 @@
-generic_light_tanks = { 
-	category = land 
-
+generic_light_tanks = {
+	category = land
 	roles = {
 		land_light_tank
 	}
@@ -10,12 +9,12 @@ generic_light_tanks = {
 	light_tank_rubbish = {
 		priority = {
 			factor = 100
-			modifier = { 
+			modifier = {
 				has_tech = basic_light_tank_chassis
 				factor = 0 #let's not waste XP here
 			}
 		}
-		target_variant = { 
+		target_variant = {
 			match_value = 1000
 			type = light_tank_chassis_0
 			modules = {
@@ -26,8 +25,8 @@ generic_light_tanks = {
 				engine_type_slot = tank_diesel_engine
 				special_type_slot_1 = smoke_launchers
 				special_type_slot_2 = r56_tank_improved_optics
-				special_type_slot_3 = smoke_launchers
-				special_type_slot_4 = smoke_launchers
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = additional_machine_guns
 			}
 			upgrades = {
 				tank_nsb_engine_upgrade = 1
@@ -42,17 +41,19 @@ generic_light_tanks = {
 			tank_diesel_engine
 			smoke_launchers
 			r56_tank_improved_optics
+			extra_ammo_storage
+			additional_machine_guns
 		}
 	}
     light_tank_normal = {
 		priority = {
 			factor = 200
-            modifier = { 
+            modifier = {
 				has_tech = improved_light_tank_chassis
 				factor = 0 #let's not waste XP here
 			}
 		}
-		target_variant = { 
+		target_variant = {
 			match_value = 1000
 			type = light_tank_chassis_1
 		    modules = {
@@ -63,8 +64,8 @@ generic_light_tanks = {
 		        engine_type_slot = tank_diesel_engine
 		        special_type_slot_1 = r56_tank_improved_optics
 		        special_type_slot_2 = smoke_launchers
-		        special_type_slot_3 = smoke_launchers
-		        special_type_slot_4 = smoke_launchers
+		        special_type_slot_3 = extra_ammo_storage
+		        special_type_slot_4 = additional_machine_guns
 		    }
 		    upgrades = {
                 tank_nsb_engine_upgrade = 0
@@ -74,21 +75,24 @@ generic_light_tanks = {
 		allowed_modules = {
 			tank_close_support_gun
 			tank_light_one_man_tank_turret
-            tank_wheeled_suspension
-            tank_riveted_armor
+			tank_wheeled_suspension
+			tank_riveted_armor
 			tank_diesel_engine
 			r56_tank_improved_optics
+			smoke_launchers
+			extra_ammo_storage
+			additional_machine_guns
 		}
 	}
     light_tank_best = {
 		priority = {
 			factor = 300
-			modifier = { 
+			modifier = {
 				has_tech = advanced_light_tank_chassis
 				factor = 0 #let's not waste XP here
 			}
 		}
-		target_variant = { 
+		target_variant = {
 			match_value = 1000
 			type = light_tank_chassis_2
 		    modules = {
@@ -130,14 +134,14 @@ generic_light_tanks = {
 	light_tank_best_best = {
 		priority = {
 			factor = 400
-			modifier = { 
+			modifier = {
 				has_tech = modern_light_tank_chassis
 				has_tech = oscillating_turret_tech
 				has_tech = antitank5
 				factor = 0 #let's not waste XP here
 			}
 		}
-		target_variant = { 
+		target_variant = {
 			match_value = 1000
 			type = light_tank_chassis_3
 		    modules = {
@@ -180,7 +184,7 @@ generic_light_tanks = {
 		priority = {
 			factor = 500
 		}
-		target_variant = { 
+		target_variant = {
 			match_value = 1000
 			type = light_tank_chassis_4
 		    modules = {
@@ -200,6 +204,7 @@ generic_light_tanks = {
 	        }
 		}
 		allowed_modules = {
+			Armor_Computing_Network
 			r56_tank_medium_cannon_3
 			r56_tank_light_oscillating_turret
             tank_interleaved_suspension
@@ -214,27 +219,24 @@ generic_light_tanks = {
 }
 
 #AI中坦设计
+
 generic_medium_tanks = {
 	category = land
-
 	roles = {
 		land_medium_tank
 	}
-
 	blocked_for = {
 		FRA
 	}
-
 	priority = {
 		factor = 2000
 	}
-
 	medium_tank_rubbish = {
 		priority = {
 			factor = 200
             modifier = {
 				has_tech = basic_medium_tank_chassis
-				factor = 0 #研发出基础底盘后不再造战间期废铁
+				factor = 0 #有基础底盘后停造旧式
 			}
 			modifier = {
 				has_tech = antitank1
@@ -286,9 +288,13 @@ generic_medium_tanks = {
 	medium_tank_rubbish_39 = {
 		priority = {
 			factor = 250
+			modifier = {
+				NOT = { has_tech = antitank1 }
+				factor = 0
+			}
             modifier = {
 				has_tech = basic_medium_tank_chassis
-				factor = 0 #研发出基础底盘后不再造战间期废铁
+				factor = 0 #有基础底盘后停造旧式
 			}
 		}
 		target_variant = {
@@ -374,7 +380,6 @@ generic_medium_tanks = {
                 tank_nsb_armor_upgrade = 4
 	        }
 		}
-
 		allowed_modules = {
 			tank_medium_cannon_2
             tank_medium_cannon
@@ -394,6 +399,10 @@ generic_medium_tanks = {
     basic_medium_tank_41 = {
 		priority = {
 			factor = 400
+			modifier = {
+				NOT = { has_tech = antitank3 }
+				factor = 0
+			}
 			modifier = {
 				has_tech = improved_medium_tank_chassis
 				factor = 0
@@ -433,7 +442,6 @@ generic_medium_tanks = {
                 tank_nsb_armor_upgrade = 4
 	        }
 		}
-
 		allowed_modules = {
 			tank_medium_cannon_2
 			tank_medium_three_man_tank_turret
@@ -510,6 +518,10 @@ generic_medium_tanks = {
 		priority = {
 			factor = 600
 			modifier = {
+				NOT = { has_tech = antitank3 }
+				factor = 0
+			}
+			modifier = {
 				has_tech = advanced_medium_tank_chassis
 				has_tech = antitank5
 				factor = 0 #let's not waste XP here
@@ -570,7 +582,7 @@ generic_medium_tanks = {
 		        suspension_type_slot = tank_bogie_suspension
                 armor_type_slot = tank_riveted_armor
                 engine_type_slot = tank_diesel_engine
-                special_type_slot_1 = tank_radio_3
+                special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
                 special_type_slot_2 = secondary_turret_small_cannon
                 special_type_slot_3 = secondary_turret_small_cannon
                 special_type_slot_4 = easy_maintenance
@@ -581,6 +593,7 @@ generic_medium_tanks = {
 	        }
 		}
 		allowed_modules = {
+			Armor_Computing_Network
 			r56_tank_medium_cannon_3
 			tank_medium_three_man_tank_turret
 			tank_bogie_suspension
@@ -595,24 +608,21 @@ generic_medium_tanks = {
 	}
 }
 
-
 #AI中防空设计
+
 generic_medium_tank_aa = {
 	category = land
-
 	roles = {
 		land_medium_tank_aa
 	}
-
 	priority = {
 		factor = 1000
 	}
-
-	# 基础中型自行防空炮
+	#基础中型自行防空炮
 	basic_medium_anti_air = {
 		priority = {
 			factor = 200
-			modifier = { 
+			modifier = {
 				has_tech = improved_medium_tank_chassis
 				factor = 0
 			}
@@ -634,14 +644,13 @@ generic_medium_tank_aa = {
 				}
 		        special_type_slot_2 = r56_tank_improved_optics
 		        special_type_slot_3 = expanded_fuel_tank
-				special_type_slot_3 = expanded_fuel_tank
+		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
                 tank_nsb_engine_upgrade = 0
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
-
 		allowed_modules = {
 			tank_anti_air_cannon
 			tank_light_one_man_tank_turret
@@ -654,16 +663,16 @@ generic_medium_tank_aa = {
             expanded_fuel_tank
 		}
 	}
-	# 改进型中型自行防空炮
+	#改进型中型自行防空炮
 	improved_medium_anti_air = {
 		priority = {
 			factor = 300
-			modifier = { 
+			modifier = {
 				has_tech = advanced_medium_tank_chassis
 				has_tech = antiair5
 				factor = 0
 			}
-			modifier = { 
+			modifier = {
 				has_tech = antiair2
 				factor = 0 #let's not waste XP here
 			}
@@ -691,7 +700,7 @@ generic_medium_tank_aa = {
 					}
 				}
 		        special_type_slot_3 = dozer_blade
-				special_type_slot_3 = expanded_fuel_tank
+		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
                 tank_nsb_engine_upgrade = 0
@@ -713,18 +722,22 @@ generic_medium_tank_aa = {
 			dozer_blade
 		}
 	}
-	# 改进型中型自行防空炮 2级防空炮
-	improved_medium_anti_air = {
+	#改进型中型自行防空炮2级防空炮
+	improved_medium_anti_air_41 = {
 		priority = {
 			factor = 400
-			modifier = { 
+			modifier = {
+				NOT = { has_tech = antiair2 }
+				factor = 0
+			}
+			modifier = {
 				has_tech = advanced_medium_tank_chassis
 				has_tech = antiair5
 				factor = 0
 			}
-			modifier = { 
+			modifier = {
 				has_tech = antiair2
-				factor = 400 #let's not waste XP here
+				add = 200
 			}
 		}
 		target_variant = {
@@ -745,7 +758,7 @@ generic_medium_tank_aa = {
 					}
 				}
 		        special_type_slot_3 = dozer_blade
-				special_type_slot_3 = expanded_fuel_tank
+		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
                 tank_nsb_engine_upgrade = 0
@@ -766,7 +779,7 @@ generic_medium_tank_aa = {
 			dozer_blade
 		}
 	}
-	# 先进型中型自行防空炮
+	#先进型中型自行防空炮
 	advanced_medium_anti_air = {
 		priority = {
 			factor = 500
@@ -789,7 +802,7 @@ generic_medium_tank_aa = {
 					}
 				}
 		        special_type_slot_3 = dozer_blade
-				special_type_slot_3 = expanded_fuel_tank
+		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
                 tank_nsb_engine_upgrade = 0
@@ -814,19 +827,16 @@ generic_medium_tank_aa = {
 
 generic_flame_tanks = {
 	category = land
-
 	roles = {
 		land_medium_flame_tank
 	}
-
 	priority = {
 		factor = 2000
 	}
-
 	basic_flame_tank = {
 		priority = {
 			factor = 500
-			modifier = { 
+			modifier = {
 				has_tech = sp_armored_advanced_flamethrower_tech
 				factor = 0
 			}
@@ -850,7 +860,6 @@ generic_flame_tanks = {
 				tank_nsb_armor_upgrade = 0
 	        }
 		}
-
 		allowed_modules = {
 			flamethrower
 			tank_light_one_man_tank_turret
@@ -864,6 +873,10 @@ generic_flame_tanks = {
 	basic_flame_tank_2 = {
 		priority = {
 			factor = 700
+			modifier = {
+				NOT = { has_tech = sp_armored_advanced_flamethrower_tech }
+				factor = 0
+			}
 		}
 		target_variant = {
 			match_value = 2000
@@ -884,7 +897,6 @@ generic_flame_tanks = {
 				tank_nsb_armor_upgrade = 0
 	        }
 		}
-
 		allowed_modules = {
 			advanced_flamethrower
 			tank_light_one_man_tank_turret
@@ -893,6 +905,200 @@ generic_flame_tanks = {
 			tank_gasoline_engine
 			expanded_fuel_tank
 			easy_maintenance
+		}
+	}
+}
+
+#通用重坦设计
+
+generic_heavy_tanks = {
+	category = land
+	blocked_for = {
+		SOV
+	}
+	roles = {
+		land_heavy_tank
+	}
+	priority = {
+		factor = 1500
+	}
+	basic_heavy_tank_default = {
+		priority = {
+			factor = 200
+			modifier = {
+				has_tech = improved_heavy_tank_chassis
+				factor = 0
+			}
+		}
+		target_variant = {
+			match_value = 2000
+			type = heavy_tank_chassis_1
+			modules = {
+				main_armament_slot = { any_of = { tank_heavy_cannon tank_medium_cannon_2 tank_medium_cannon } }
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { any_of = { tank_radio_3 tank_radio_2 tank_radio_1 } }
+				special_type_slot_2 = { any_of = { easy_maintenance wet_ammo_storage } }
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 3
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		allowed_modules = {
+			tank_heavy_cannon
+			tank_medium_cannon_2
+			tank_medium_cannon
+			tank_heavy_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+			easy_maintenance
+			wet_ammo_storage
+			secondary_turret_small_cannon
+		}
+	}
+	improved_heavy_tank_default = {
+		priority = {
+			factor = 400
+			modifier = {
+				has_tech = advanced_heavy_tank_chassis
+				factor = 0
+			}
+		}
+		target_variant = {
+			match_value = 3000
+			type = heavy_tank_chassis_2
+			modules = {
+				main_armament_slot = { any_of = { tank_heavy_cannon_2 tank_heavy_cannon tank_high_velocity_cannon_2 } }
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { any_of = { tank_radio_3 tank_radio_2 tank_radio_1 } }
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 4
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+		allowed_modules = {
+			tank_heavy_cannon_2
+			tank_heavy_cannon
+			tank_high_velocity_cannon_2
+			tank_heavy_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_riveted_armor
+			tank_diesel_engine
+			tank_radio_3
+			tank_radio_2
+			tank_radio_1
+			easy_maintenance
+			secondary_turret_small_cannon
+		}
+	}
+	advanced_heavy_tank_default = {
+		priority = {
+			factor = 600
+		}
+		target_variant = {
+			match_value = 4000
+			type = heavy_tank_chassis_3
+			modules = {
+				main_armament_slot = { any_of = { tank_heavy_cannon_3 tank_heavy_cannon_2 tank_high_velocity_cannon_3 } }
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = secondary_turret_small_cannon
+				special_type_slot_4 = secondary_turret_small_cannon
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 4
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+		allowed_modules = {
+			Armor_Computing_Network
+			tank_heavy_cannon_3
+			tank_heavy_cannon_2
+			tank_high_velocity_cannon_3
+			tank_heavy_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_welded_armor
+			tank_diesel_engine
+			tank_radio_3
+			easy_maintenance
+			secondary_turret_small_cannon
+		}
+	}
+}
+
+#通用现代坦克设计
+
+generic_modern_tanks = {
+	category = land
+	blocked_for = {
+		FRA
+	}
+	roles = {
+		land_modern_tank
+	}
+	priority = {
+		factor = 2000
+	}
+	generic_modern_tank_1 = {
+		priority = {
+			factor = 1000
+		}
+		target_variant = {
+			match_value = 4500
+			type = modern_tank_chassis_1
+			modules = {
+				main_armament_slot = { any_of = { tank_high_velocity_cannon_3 tank_heavy_cannon_3 r56_tank_medium_cannon_3 } }
+				turret_type_slot = tank_modern_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_welded_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
+				special_type_slot_2 = easy_maintenance
+				special_type_slot_3 = stabilizer
+				special_type_slot_4 = { any_of = { Artificial_Intelligence_Assisted_Module tank_magnetic_energy_amplification_projectile r56_tank_advanced_rangefinder sloped_armor wet_ammo_storage } }
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 4
+				tank_nsb_armor_upgrade = 6
+			}
+		}
+		allowed_modules = {
+			Armor_Computing_Network
+			Artificial_Intelligence_Assisted_Module
+			tank_magnetic_energy_amplification_projectile
+			tank_high_velocity_cannon_3
+			tank_heavy_cannon_3
+			r56_tank_medium_cannon_3
+			tank_modern_tank_turret
+			tank_torsion_bar_suspension
+			tank_welded_armor
+			tank_diesel_engine
+			tank_radio_3
+			easy_maintenance
+			stabilizer
+			r56_tank_advanced_rangefinder
+			sloped_armor
+			wet_ammo_storage
 		}
 	}
 }
