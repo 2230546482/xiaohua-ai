@@ -289,7 +289,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_magic_evolve"
-		texturefile = "gfx/interface/ideas/SOV/magic_book.dds"
+		texturefile = "gfx/interface/ideas/flower_ai_yijiemaniang.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_synergy"

@@ -122,9 +122,19 @@ defined_text = {
 	text = { localization_key = FLOWER_ARCH_STATUS_NEW }
 }
 defined_text = {
+	name = GetFlowerArch1TT
+	text = { trigger = { check_variable = { flower_slayer_stacks > 0 } } localization_key = FLOWER_ARCH_CARD_1_ACTIVE_TT }
+	text = { localization_key = FLOWER_ARCH_CARD_1_TT }
+}
+defined_text = {
 	name = GetFlowerArch12Status
 	text = { trigger = { has_country_flag = flower_roulette_pity_ready } localization_key = FLOWER_ARCH_STATUS_PITY }
 	text = { localization_key = FLOWER_ARCH_STATUS_GAMBLE }
+}
+defined_text = {
+	name = GetFlowerArch12TT
+	text = { trigger = { has_country_flag = flower_roulette_pity_ready } localization_key = FLOWER_ARCH_CARD_12_PITY_TT }
+	text = { localization_key = FLOWER_ARCH_CARD_12_TT }
 }
 defined_text = {
 	name = GetFlowerArch2Status

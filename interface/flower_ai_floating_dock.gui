@@ -73,7 +73,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_dock_btn_draft"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDockDraftTT]"
+			pdx_tooltip = "FLOWER_DOCK_DRAFT_TT_WRAP"
 			clicksound = 翻书
 			oversound = PAU_hover_paper
 		}

@@ -26,7 +26,8 @@ ideas = {
 				army_defence_factor = 0.25
 				army_org_factor = 0.15
 				max_dig_in_factor = 0.20
-				casualty_trickleback = 0.25
+				army_strength_factor = 0.15
+				army_org_regain = 0.20
 				experience_loss_factor = -0.25
 				cas_damage_reduction = 0.25
 			}
@@ -55,7 +56,8 @@ ideas = {
 				supply_consumption_factor = -0.25
 				out_of_supply_factor = -0.50
 				attrition = -0.25
-				terrain_penalty_reduction = 0.25
+				river_crossing_factor = -0.25
+				winter_attrition_factor = -0.25
 			}
 		}
 		flower_evo_guerrilla_heavy_idea = {
@@ -138,7 +140,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				reliability_factor = 0.25
+				attrition = -0.25
 				experience_gain_army_unit_factor = 0.50
 				army_attack_factor = 0.15
 				max_planning = 0.20
@@ -177,7 +179,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_artillery_attack_factor = 0.25
-				fortification_damage = 0.25
+				breakthrough_factor = 0.25
 				max_planning = 0.20
 				coordination_bonus = 0.15
 			}
@@ -215,7 +217,8 @@ ideas = {
 			modifier = {
 				army_armor_attack_factor = 0.25
 				army_armor_defence_factor = 0.25
-				reliability_factor = 0.25
+				attrition = -0.25
+				org_loss_when_moving = -0.20
 				army_attack_against_major_factor = 0.15
 			}
 		}
@@ -255,7 +258,8 @@ ideas = {
 				land_reinforce_rate = 0.10
 				army_core_attack_factor = 0.20
 				army_core_defence_factor = 0.25
-				casualty_trickleback = 0.25
+				experience_loss_factor = -0.25
+				weekly_manpower = 5000
 			}
 		}
 		flower_evo_wave_banzai_idea = {
@@ -313,7 +317,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				terrain_penalty_reduction = 0.25
+				river_crossing_factor = -0.25
+				attrition = -0.25
 				army_attack_factor = 0.15
 				army_defence_factor = 0.20
 				enemy_army_bonus_air_superiority_factor = -0.25
@@ -330,7 +335,8 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				land_night_attack = 0.25
-				terrain_penalty_reduction = 0.20
+				river_crossing_factor = -0.20
+				attrition = -0.15
 				breakthrough_factor = 0.10
 				recon_factor = 0.20
 			}
@@ -442,7 +448,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				casualty_trickleback = 0.25
+				attrition = -0.20
+				weekly_manpower = 2500
 				experience_loss_factor = -0.25
 				army_org_regain = 0.15
 				monthly_population = 0.20
@@ -548,7 +555,7 @@ ideas = {
 				army_artillery_attack_factor = 0.25
 				army_armor_attack_factor = 0.20
 				army_armor_defence_factor = 0.20
-				reliability_factor = -0.15
+				attrition = 0.20
 			}
 		}
 
@@ -580,7 +587,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				terrain_penalty_reduction = 0.20
+				winter_attrition_factor = -0.25
+				heat_attrition_factor = -0.25
 				acclimatization_cold_climate_gain_factor = 0.50
 				acclimatization_hot_climate_gain_factor = 0.50
 				army_defence_factor = 0.10
@@ -602,7 +610,8 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_artillery_attack_factor = 0.20
-				fortification_damage = 0.20
+				breakthrough_factor = 0.15
+				coordination_bonus = 0.10
 			}
 		}
 
@@ -636,7 +645,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				reliability_factor = 0.20
+				attrition = -0.20
 				army_artillery_attack_factor = 0.20
 				breakthrough_factor = 0.20
 				army_speed_factor = 0.10
@@ -671,7 +680,8 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				special_forces_cap = 0.25
-				terrain_penalty_reduction = 0.20
+				attrition = -0.20
+				org_loss_when_moving = -0.20
 				army_attack_factor = 0.15
 				army_defence_factor = 0.15
 				coordination_bonus = 0.10

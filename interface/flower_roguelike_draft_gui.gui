@@ -120,7 +120,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_btn_amber"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftRerollTT]"
+			pdx_tooltip = "FLOWER_DRAFT_REROLL_TT_WRAP"
 			clicksound = 翻书
 			oversound = PAU_hover_paper
 		}
@@ -221,7 +221,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_1"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "FLOWER_ARCH_CARD_1_TT"
+			pdx_tooltip = "FLOWER_ARCH_CARD_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -242,7 +242,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_2"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch2TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -263,7 +263,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_3"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch3TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -284,7 +284,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_4"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch4TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_4_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -305,7 +305,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_5"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch5TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_5_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -326,7 +326,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_6"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch6TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_6_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -347,7 +347,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_7"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch7TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_7_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -368,7 +368,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_8"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch8TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_8_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -389,7 +389,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_9"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch9TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_9_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -410,7 +410,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_10"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch10TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_10_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -431,7 +431,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_11"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerArch11TT]"
+			pdx_tooltip = "FLOWER_ARCH_CARD_11_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -452,7 +452,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_grand_arch_12"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "FLOWER_ARCH_CARD_12_TT"
+			pdx_tooltip = "FLOWER_ARCH_CARD_12_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -473,7 +473,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_relic"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot1TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -483,7 +483,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_curse"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot1TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -493,7 +493,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_evo"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot1TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -503,7 +503,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_cross"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot1TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -546,7 +546,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_relic"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot2TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -556,7 +556,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_curse"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot2TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -566,7 +566,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_evo"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot2TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -576,7 +576,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_cross"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot2TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -619,7 +619,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_relic"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot3TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -629,7 +629,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_curse"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot3TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -639,7 +639,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_evo"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot3TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -649,7 +649,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_cross"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerDraftSlot3TT]"
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -692,7 +692,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_branch"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerBranchOpt1TT]"
+			pdx_tooltip = "FLOWER_BRANCH_OPT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -735,7 +735,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_branch"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerBranchOpt2TT]"
+			pdx_tooltip = "FLOWER_BRANCH_OPT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -778,7 +778,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_branch"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerBranchOpt3TT]"
+			pdx_tooltip = "FLOWER_BRANCH_OPT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -821,7 +821,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_branch"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerBranchOpt1TT]"
+			pdx_tooltip = "FLOWER_BRANCH_OPT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
@@ -864,7 +864,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_flower_vcard_branch"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
-			pdx_tooltip = "[GetFlowerBranchOpt2TT]"
+			pdx_tooltip = "FLOWER_BRANCH_OPT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
