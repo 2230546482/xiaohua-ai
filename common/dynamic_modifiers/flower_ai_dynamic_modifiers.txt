@@ -4,8 +4,8 @@ flower_slayer_book_dynamic_mod = {
 	enable = { always = yes }
 	army_attack_factor = flower_slayer_atk_var
 	breakthrough_factor = flower_slayer_brk_var
-	army_morale_factor = flower_slayer_morale_var
 	equipment_capture_factor = flower_slayer_cap_var
+	supply_consumption_factor = flower_slayer_sup_var
 	weekly_manpower = flower_slayer_mp_var
 }
 

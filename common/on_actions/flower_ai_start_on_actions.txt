@@ -160,11 +160,43 @@ on_actions = {
                 }
                 set_global_flag = flower_anomaly_voting_open
             }
+            #初始化各国工厂数与主要国家身份缓存（供战时逼降/吞并门槛判定）
+            every_country = {
+                set_variable = { flower_cached_factories = num_of_factories }
+                if = {
+                    limit = { is_major = yes }
+                    set_country_flag = flower_cached_is_major
+                }
+            }
         }
     }
     #月度补挂难度精神与肉鸽成长推进
     on_monthly = {
         effect = {
+            #缓存各国非投降状态下的战前/峰值工厂数与主要国家身份（防止投降或吞并瞬间数值归零导致误判）
+            if = {
+                limit = {
+                    has_capitulated = no
+                    check_variable = { num_owned_states > 0 }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            has_war = no
+                            check_variable = { num_of_factories > flower_cached_factories }
+                        }
+                    }
+                    set_variable = { flower_cached_factories = num_of_factories }
+                }
+                if = {
+                    limit = { is_major = yes }
+                    set_country_flag = flower_cached_is_major
+                }
+                else_if = {
+                    limit = { has_war = no }
+                    clr_country_flag = flower_cached_is_major
+                }
+            }
             #《基建狂魔的流水账》造厂达标自动叠层返利
             if = {
                 limit = {
@@ -277,6 +309,14 @@ on_actions = {
                 limit = { has_idea = flower_evo_corp_trust_idea }
                 add_to_variable = { another_country_currency_reserve = 100 }
             }
+            #流派十二《赌徒命运骰子》每 180 天自动重摇随机 Buff 或 Debuff
+            if = {
+                limit = {
+                    has_country_flag = flower_roguelike_gambler_active
+                    NOT = { has_country_flag = flower_gambler_fate_cd }
+                }
+                flower_ai_roll_gambler_fate = yes
+            }
             #主要AI流派分叉保底觉醒（1938年初自动为未分叉AI触发流派分叉进化）
             if = {
                 limit = {
@@ -290,59 +330,13 @@ on_actions = {
                 set_country_flag = flower_ai_auto_branch_1938_done
                 flower_ai_open_branch_evolution_event = yes
             }
-            #定时肉鸽海克斯抽卡波次（仅开启【大家一起开肉鸽】或【压力怪的狂欢夜】时生效）
+            #定时肉鸽词条抽卡波次（开启【大家一起开肉鸽】或【压力怪的狂欢夜】后，每 6 个月全图同步触发 1 轮，持续循环不断档）
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_1_active
-                    date > 1936.10.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1936_fall_done }
+                    NOT = { has_global_flag = flower_roguelike_wave_cd }
                 }
-                set_global_flag = flower_roguelike_wave_1936_fall_done
-                flower_ai_trigger_roguelike_wave = yes
-            }
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    date > 1937.3.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1937_done }
-                }
-                set_global_flag = flower_roguelike_wave_1937_done
-                flower_ai_trigger_roguelike_wave = yes
-            }
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    date > 1938.6.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1938_done }
-                }
-                set_global_flag = flower_roguelike_wave_1938_done
-                flower_ai_trigger_roguelike_wave = yes
-            }
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    date > 1939.9.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1939_done }
-                }
-                set_global_flag = flower_roguelike_wave_1939_done
-                flower_ai_trigger_roguelike_wave = yes
-            }
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    date > 1941.1.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1941_done }
-                }
-                set_global_flag = flower_roguelike_wave_1941_done
-                flower_ai_trigger_roguelike_wave = yes
-            }
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    date > 1942.6.1
-                    NOT = { has_global_flag = flower_roguelike_wave_1942_done }
-                }
-                set_global_flag = flower_roguelike_wave_1942_done
+                set_global_flag = { flag = flower_roguelike_wave_cd days = 180 value = 1 }
                 flower_ai_trigger_roguelike_wave = yes
             }
             #【华尔街军火大亨】年度金融风暴事件
@@ -505,9 +499,11 @@ on_actions = {
             }
         }
     }
-    #释放独立国补挂精神
+    #释放独立国补挂精神并刷新体量缓存
     on_release_as_free = {
         effect = {
+            clr_country_flag = flower_recently_capitulated
+            set_variable = { flower_cached_factories = num_of_factories }
             if = {
                 limit = {
                     is_ai = yes
@@ -539,9 +535,11 @@ on_actions = {
             }
         }
     }
-    #释放傀儡国补挂精神
+    #释放傀儡国补挂精神并刷新体量缓存
     on_puppet = {
         effect = {
+            clr_country_flag = flower_recently_capitulated
+            set_variable = { flower_cached_factories = num_of_factories }
             if = {
                 limit = {
                     is_ai = yes
@@ -573,9 +571,10 @@ on_actions = {
             }
         }
     }
-    #内战爆发补挂精神
+    #内战爆发补挂精神并刷新体量缓存
     on_civil_war_start = {
         effect = {
+            set_variable = { flower_cached_factories = num_of_factories }
             if = {
                 limit = {
                     is_ai = yes
@@ -605,6 +604,12 @@ on_actions = {
                     add_ideas = red_normal_hard_ai
                 }
             }
+        }
+    }
+    #解放复国后清除已投降防重标记
+    on_uncapitulation = {
+        effect = {
+            clr_country_flag = flower_recently_capitulated
         }
     }
     on_declare_war = {
@@ -793,20 +798,47 @@ on_actions = {
                     flower_ai_push_bottom_right_alert = yes
                 }
             }
-            #《记仇小本本》击败敌国叠层
+            #《记仇小本本》战时逼降达标敌国叠层（主要国家+2层无视冷却；战前工厂>=15座他国+1层，冷却90天；不含内战同源国）
             if = {
                 limit = {
                     FROM = { check_variable = { flower_slayer_stacks > 0 } }
+                    ROOT = {
+                        NOT = { original_tag = FROM }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
+                    }
+                    OR = {
+                        ROOT = {
+                            OR = {
+                                is_major = yes
+                                has_country_flag = flower_cached_is_major
+                            }
+                        }
+                        FROM = { NOT = { has_country_flag = flower_slayer_kill_cd } }
+                    }
                 }
                 FROM = {
+                    set_country_flag = { flag = flower_slayer_kill_cd days = 90 value = 1 }
                     flower_ai_add_slayer_stack = yes
                     if = {
-                        limit = { ROOT = { is_major = yes } }
+                        limit = {
+                            ROOT = {
+                                OR = {
+                                    is_major = yes
+                                    has_country_flag = flower_cached_is_major
+                                }
+                            }
+                        }
                         flower_ai_add_slayer_stack = yes
                     }
                 }
             }
-            #流派九《躁动的亡灵》击败敌国立刻就地起尸唤起亡灵大军（瘟疫分叉起双倍尸潮）
+            #流派九《躁动的亡灵》仅限战时逼降达标敌国召唤亡灵（主要国家或战前工厂>=15座，不含内战同源国；冷却90天，主要国家无视冷却）
             if = {
                 limit = {
                     FROM = {
@@ -817,8 +849,28 @@ on_actions = {
                             has_country_flag = flower_card_owned_27
                         }
                     }
+                    ROOT = {
+                        NOT = { original_tag = FROM }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
+                    }
+                    OR = {
+                        ROOT = {
+                            OR = {
+                                is_major = yes
+                                has_country_flag = flower_cached_is_major
+                            }
+                        }
+                        FROM = { NOT = { has_country_flag = flower_undead_cap_cd } }
+                    }
                 }
                 FROM = {
+                    set_country_flag = { flag = flower_undead_cap_cd days = 90 value = 1 }
                     flower_ai_summon_undead_wave = yes
                     if = {
                         limit = { has_idea = flower_evo_undead_plague_idea }
@@ -826,45 +878,48 @@ on_actions = {
                     }
                 }
             }
-            #肉鸽模式逼降敌国爆出战利品宝箱三选一（30天内置冷却防同日刷屏）
-            if = {
-                limit = {
-                    has_global_flag = flower_anomaly_1_active
-                    FROM = {
-                        NOT = { has_country_flag = flower_loot_draft_cd }
-                        OR = {
-                            is_ai = no
-                            is_major = yes
-                        }
-                        NOT = { tag = ZDW }
-                        NOT = { tag = WL1 }
-                    }
-                }
-                FROM = {
-                    set_country_flag = { flag = flower_loot_draft_cd days = 30 value = 1 }
-                    flower_ai_open_roguelike_draft = yes
-                }
-            }
-            #畸变2《谁也别想蹲战壕》闪电连杀赏金
+            #畸变2《谁也别想蹲战壕》仅限战时逼降达标敌国连杀赏金（主要国家或战前工厂>=15座，不含内战同源国；冷却90天）
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_2_active
                     FROM = {
                         NOT = { tag = ZDW }
                         NOT = { tag = WL1 }
+                        NOT = { has_country_flag = flower_blitz_bounty_cd }
+                    }
+                    ROOT = {
+                        NOT = { original_tag = FROM }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
                     }
                 }
                 FROM = {
+                    set_country_flag = { flag = flower_blitz_bounty_cd days = 90 value = 1 }
                     country_event = { id = FLWAI.28 days = 1 }
                 }
             }
-            #畸变4《吃人就能变大只》吞噬进化、屠蛊王吸干功力与额外肉鸽抽卡
+            #畸变4《这是什么？能吃吗？》战时逼降达标敌国叠层、屠蛊王吸干功力与每180天至多1次额外抽牌
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_4_active
                     FROM = {
                         NOT = { tag = ZDW }
                         NOT = { tag = WL1 }
+                    }
+                    ROOT = {
+                        NOT = { original_tag = FROM }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
                     }
                 }
                 if = {
@@ -875,6 +930,9 @@ on_actions = {
                         add_to_variable = { flower_devour_stacks = ROOT.flower_devour_stacks }
                         flower_ai_recalc_devour_mod = yes
                     }
+                    ROOT = {
+                        set_variable = { flower_devour_stacks = 0 }
+                    }
                     every_country = {
                         limit = { is_ai = no }
                         set_temp_variable = { temp_alert_id = 911 }
@@ -883,45 +941,102 @@ on_actions = {
                         flower_ai_push_bottom_right_alert = yes
                     }
                 }
-                FROM = {
-                    flower_ai_add_devour_stack = yes
-                    if = {
-                        limit = {
-                            NOT = { has_global_flag = flower_anomaly_1_active }
-                            OR = {
-                                ROOT = { is_major = yes }
-                                is_ai = no
-                            }
-                        }
-                        flower_ai_open_roguelike_draft = yes
-                    }
-                }
                 if = {
                     limit = {
                         OR = {
-                            ROOT = { is_major = yes }
-                            FROM = { is_ai = no }
+                            ROOT = {
+                                OR = {
+                                    is_major = yes
+                                    has_country_flag = flower_cached_is_major
+                                }
+                            }
+                            FROM = { NOT = { has_country_flag = flower_devour_kill_cd } }
                         }
                     }
-                    every_country = {
-                        limit = { is_ai = no }
-                        set_temp_variable = { temp_alert_id = 910 }
-                        set_temp_variable = { temp_tag = FROM }
-                        set_temp_variable = { temp_tag2 = ROOT }
-                        flower_ai_push_bottom_right_alert = yes
+                    FROM = {
+                        set_country_flag = { flag = flower_devour_kill_cd days = 90 value = 1 }
+                        flower_ai_add_devour_stack = yes
+                        if = {
+                            limit = {
+                                NOT = { has_country_flag = flower_devour_draft_cd }
+                                OR = {
+                                    is_ai = no
+                                    is_major = yes
+                                }
+                            }
+                            set_country_flag = { flag = flower_devour_draft_cd days = 180 value = 1 }
+                            flower_ai_open_roguelike_draft = yes
+                        }
+                    }
+                    if = {
+                        limit = {
+                            OR = {
+                                ROOT = {
+                                    OR = {
+                                        is_major = yes
+                                        has_country_flag = flower_cached_is_major
+                                    }
+                                }
+                                FROM = { is_ai = no }
+                            }
+                        }
+                        every_country = {
+                            limit = { is_ai = no }
+                            set_temp_variable = { temp_alert_id = 910 }
+                            set_temp_variable = { temp_tag = FROM }
+                            set_temp_variable = { temp_tag2 = ROOT }
+                            flower_ai_push_bottom_right_alert = yes
+                        }
                     }
                 }
+            }
+            #标记战败国已走过战时逼降判定，防止和会吞并同国时重复计次
+            ROOT = {
+                set_country_flag = { flag = flower_recently_capitulated days = 1825 value = 1 }
             }
         }
     }
     on_annex = {
         effect = {
+            #仅对未经逼降直接吞并（如国策/事件和平吞并，或和会吞并尚未投降国）生效，杜绝战时逼降+战后吞并重复计次
             if = {
                 limit = {
                     ROOT = { check_variable = { flower_slayer_stacks > 0 } }
+                    FROM = {
+                        NOT = { original_tag = ROOT }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        NOT = { has_country_flag = flower_recently_capitulated }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
+                    }
+                    OR = {
+                        FROM = {
+                            OR = {
+                                is_major = yes
+                                has_country_flag = flower_cached_is_major
+                            }
+                        }
+                        ROOT = { NOT = { has_country_flag = flower_slayer_kill_cd } }
+                    }
                 }
                 ROOT = {
+                    set_country_flag = { flag = flower_slayer_kill_cd days = 90 value = 1 }
                     flower_ai_add_slayer_stack = yes
+                    if = {
+                        limit = {
+                            FROM = {
+                                OR = {
+                                    is_major = yes
+                                    has_country_flag = flower_cached_is_major
+                                }
+                            }
+                        }
+                        flower_ai_add_slayer_stack = yes
+                    }
                 }
             }
             if = {
@@ -931,9 +1046,84 @@ on_actions = {
                         NOT = { tag = ZDW }
                         NOT = { tag = WL1 }
                     }
+                    FROM = {
+                        NOT = { original_tag = ROOT }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        NOT = { has_country_flag = flower_recently_capitulated }
+                        OR = {
+                            is_major = yes
+                            has_country_flag = flower_cached_is_major
+                            check_variable = { flower_cached_factories > 14 }
+                        }
+                    }
                 }
-                ROOT = {
-                    flower_ai_add_devour_stack = yes
+                if = {
+                    limit = {
+                        FROM = { check_variable = { flower_devour_stacks > 2 } }
+                    }
+                    ROOT = {
+                        add_to_variable = { flower_devour_stacks = FROM.flower_devour_stacks }
+                        flower_ai_recalc_devour_mod = yes
+                    }
+                    FROM = {
+                        set_variable = { flower_devour_stacks = 0 }
+                    }
+                    every_country = {
+                        limit = { is_ai = no }
+                        set_temp_variable = { temp_alert_id = 911 }
+                        set_temp_variable = { temp_tag = ROOT }
+                        set_temp_variable = { temp_tag2 = FROM }
+                        flower_ai_push_bottom_right_alert = yes
+                    }
+                }
+                if = {
+                    limit = {
+                        OR = {
+                            FROM = {
+                                OR = {
+                                    is_major = yes
+                                    has_country_flag = flower_cached_is_major
+                                }
+                            }
+                            ROOT = { NOT = { has_country_flag = flower_devour_kill_cd } }
+                        }
+                    }
+                    ROOT = {
+                        set_country_flag = { flag = flower_devour_kill_cd days = 90 value = 1 }
+                        flower_ai_add_devour_stack = yes
+                        if = {
+                            limit = {
+                                NOT = { has_country_flag = flower_devour_draft_cd }
+                                OR = {
+                                    is_ai = no
+                                    is_major = yes
+                                }
+                            }
+                            set_country_flag = { flag = flower_devour_draft_cd days = 180 value = 1 }
+                            flower_ai_open_roguelike_draft = yes
+                        }
+                    }
+                    if = {
+                        limit = {
+                            OR = {
+                                FROM = {
+                                    OR = {
+                                        is_major = yes
+                                        has_country_flag = flower_cached_is_major
+                                    }
+                                }
+                                ROOT = { is_ai = no }
+                            }
+                        }
+                        every_country = {
+                            limit = { is_ai = no }
+                            set_temp_variable = { temp_alert_id = 910 }
+                            set_temp_variable = { temp_tag = ROOT }
+                            set_temp_variable = { temp_tag2 = FROM }
+                            flower_ai_push_bottom_right_alert = yes
+                        }
+                    }
                 }
             }
         }

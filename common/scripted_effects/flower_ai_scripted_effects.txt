@@ -57,6 +57,13 @@ flower_ai_check_dual_mastery_synergy = {
 		if = { limit = { check_variable = { flower_slayer_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { check_variable = { flower_builder_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = {
+			limit = {
+				has_idea = flower_mystery_egg_hatched_idea
+				has_idea = flower_blood_wager_victory_idea
+			}
+			add_to_temp_variable = { mastered_cnt = 1 }
+		}
+		if = {
 			limit = { check_variable = { mastered_cnt > 1 } }
 			set_country_flag = flower_dual_synergy_unlocked
 			country_event = { id = FLWAI.26 days = 1 }
@@ -64,7 +71,7 @@ flower_ai_check_dual_mastery_synergy = {
 	}
 }
 
-#《战利品记仇账本》（战地拾荒扒衣流）叠层重算与缴获爆装
+#《战利品记仇账本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限10层，强化装备缴获与补给自持）
 flower_ai_recalc_slayer_book = {
 	if = {
 		limit = {
@@ -72,16 +79,21 @@ flower_ai_recalc_slayer_book = {
 		}
 		add_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
 	}
-	set_variable = { flower_slayer_atk_var = flower_slayer_stacks }
+	set_temp_variable = { slayer_eff = flower_slayer_stacks }
+	if = {
+		limit = { check_variable = { slayer_eff > 10 } }
+		set_temp_variable = { slayer_eff = 10 }
+	}
+	set_variable = { flower_slayer_atk_var = slayer_eff }
 	multiply_variable = { flower_slayer_atk_var = 0.025 }
-	set_variable = { flower_slayer_brk_var = flower_slayer_stacks }
+	set_variable = { flower_slayer_brk_var = slayer_eff }
 	multiply_variable = { flower_slayer_brk_var = 0.025 }
-	set_variable = { flower_slayer_morale_var = flower_slayer_stacks }
-	multiply_variable = { flower_slayer_morale_var = 0.025 }
-	set_variable = { flower_slayer_cap_var = flower_slayer_stacks }
-	multiply_variable = { flower_slayer_cap_var = 0.05 }
-	set_variable = { flower_slayer_mp_var = flower_slayer_stacks }
-	multiply_variable = { flower_slayer_mp_var = 1000 }
+	set_variable = { flower_slayer_cap_var = slayer_eff }
+	multiply_variable = { flower_slayer_cap_var = 0.08 }
+	set_variable = { flower_slayer_sup_var = slayer_eff }
+	multiply_variable = { flower_slayer_sup_var = -0.025 }
+	set_variable = { flower_slayer_mp_var = slayer_eff }
+	multiply_variable = { flower_slayer_mp_var = 800 }
 	if = {
 		limit = {
 			check_variable = { flower_slayer_stacks > 4 }
@@ -114,7 +126,7 @@ flower_ai_add_slayer_stack = {
 	}
 	add_equipment_to_stockpile = {
 		type = support_equipment
-		amount = 100
+		amount = 150
 	}
 	#分叉《拆家专业户》：每次叠层战利品翻倍再白嫖资金
 	if = {
@@ -129,7 +141,7 @@ flower_ai_add_slayer_stack = {
 		}
 		add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 100
+			amount = 150
 		}
 		add_to_variable = { another_country_currency_reserve = 150 }
 	}
@@ -155,7 +167,7 @@ flower_ai_add_slayer_stack = {
 	flower_ai_recalc_slayer_book = yes
 }
 
-#《基建狂魔的流水账》叠层重算与突破检测
+#《基建狂魔的流水账》叠层重算与突破检测（属性上限8层，每层+2%）
 flower_ai_recalc_builder_ledger = {
 	if = {
 		limit = {
@@ -163,14 +175,19 @@ flower_ai_recalc_builder_ledger = {
 		}
 		add_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
 	}
-	set_variable = { flower_builder_spd_var = flower_builder_stacks }
-	multiply_variable = { flower_builder_spd_var = 0.025 }
-	set_variable = { flower_builder_out_var = flower_builder_stacks }
-	multiply_variable = { flower_builder_out_var = 0.025 }
-	set_variable = { flower_builder_cap_var = flower_builder_stacks }
-	multiply_variable = { flower_builder_cap_var = 0.025 }
-	set_variable = { flower_builder_slot_var = flower_builder_stacks }
-	multiply_variable = { flower_builder_slot_var = 0.025 }
+	set_temp_variable = { builder_eff = flower_builder_stacks }
+	if = {
+		limit = { check_variable = { builder_eff > 8 } }
+		set_temp_variable = { builder_eff = 8 }
+	}
+	set_variable = { flower_builder_spd_var = builder_eff }
+	multiply_variable = { flower_builder_spd_var = 0.02 }
+	set_variable = { flower_builder_out_var = builder_eff }
+	multiply_variable = { flower_builder_out_var = 0.02 }
+	set_variable = { flower_builder_cap_var = builder_eff }
+	multiply_variable = { flower_builder_cap_var = 0.02 }
+	set_variable = { flower_builder_slot_var = builder_eff }
+	multiply_variable = { flower_builder_slot_var = 0.02 }
 	if = {
 		limit = {
 			check_variable = { flower_builder_stacks > 4 }
@@ -296,16 +313,16 @@ flower_ai_summon_undead_wave = {
 		limit = { has_idea = flower_undead_stage_3_idea }
 		add_equipment_to_stockpile = {
 			type = wangling_equipment_0
-			amount = 5000
+			amount = 3500
 		}
 		add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 200
+			amount = 150
 		}
 		capital_scope = {
 			create_unit = {
 				division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-				count = 3
+				count = 2
 				owner = PREV
 			}
 		}
@@ -313,12 +330,12 @@ flower_ai_summon_undead_wave = {
 			limit = { has_idea = flower_evo_undead_plague_idea }
 			add_equipment_to_stockpile = {
 				type = wangling_equipment_0
-				amount = 2500
+				amount = 1800
 			}
 			capital_scope = {
 				create_unit = {
 					division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-					count = 2
+					count = 1
 					owner = PREV
 				}
 			}
@@ -327,16 +344,16 @@ flower_ai_summon_undead_wave = {
 	else = {
 		add_equipment_to_stockpile = {
 			type = wangling_equipment_0
-			amount = 2500
+			amount = 2000
 		}
 		add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 150
+			amount = 120
 		}
 		capital_scope = {
 			create_unit = {
 				division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-				count = 3
+				count = 2
 				owner = PREV
 			}
 		}
@@ -344,12 +361,12 @@ flower_ai_summon_undead_wave = {
 			limit = { has_idea = flower_evo_undead_plague_idea }
 			add_equipment_to_stockpile = {
 				type = wangling_equipment_0
-				amount = 2000
+				amount = 1200
 			}
 			capital_scope = {
 				create_unit = {
 					division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-					count = 2
+					count = 1
 					owner = PREV
 				}
 			}
@@ -476,7 +493,7 @@ flower_ai_summon_nightingale_knights = {
 		capital_scope = {
 			create_unit = {
 				division = "name = \"夜莺骑士团\" division_template = \"夜莺骑士团\" start_experience_factor = 0.6"
-				count = 3
+				count = 2
 				owner = PREV
 			}
 		}
@@ -507,23 +524,104 @@ flower_ai_summon_nightingale_knights = {
 		}
 		add_equipment_to_stockpile = {
 			type = magic_assault_equipment_0
-			amount = 2500
+			amount = 2000
 		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
-			amount = 2500
+			amount = 2000
 		}
 		add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 200
+			amount = 150
 		}
 		capital_scope = {
 			create_unit = {
 				division = "name = \"夜莺的魂灵\" division_template = \"夜莺的魂灵\" start_experience_factor = 0.4"
-				count = 3
+				count = 2
 				owner = PREV
 			}
 		}
+	}
+}
+
+#赌徒流派专属：命运骰子随机抽取 180 天强力正面 Buff（56%）或刺激负面 Debuff（44%）
+flower_ai_roll_gambler_fate = {
+	remove_ideas = {
+		flower_gambler_buff_godhand_idea
+		flower_gambler_buff_windfall_idea
+		flower_gambler_buff_einstein_idea
+		flower_gambler_buff_ironluck_idea
+		flower_gambler_debuff_bankrupt_idea
+		flower_gambler_debuff_jammed_idea
+		flower_gambler_debuff_chaos_idea
+		flower_gambler_debuff_scandal_idea
+	}
+	set_country_flag = { flag = flower_gambler_fate_cd days = 180 value = 1 }
+	random_list = {
+		14 = {
+			set_variable = { flower_gambler_last_roll = 1 }
+			add_timed_idea = {
+				idea = flower_gambler_buff_godhand_idea
+				days = 180
+			}
+			add_political_power = 50
+		}
+		14 = {
+			set_variable = { flower_gambler_last_roll = 2 }
+			add_timed_idea = {
+				idea = flower_gambler_buff_windfall_idea
+				days = 180
+			}
+			add_to_variable = { another_country_currency_reserve = 300 }
+		}
+		14 = {
+			set_variable = { flower_gambler_last_roll = 3 }
+			add_timed_idea = {
+				idea = flower_gambler_buff_einstein_idea
+				days = 180
+			}
+			army_experience = 50
+			air_experience = 50
+		}
+		14 = {
+			set_variable = { flower_gambler_last_roll = 4 }
+			add_timed_idea = {
+				idea = flower_gambler_buff_ironluck_idea
+				days = 180
+			}
+		}
+		11 = {
+			set_variable = { flower_gambler_last_roll = 5 }
+			add_timed_idea = {
+				idea = flower_gambler_debuff_bankrupt_idea
+				days = 180
+			}
+		}
+		11 = {
+			set_variable = { flower_gambler_last_roll = 6 }
+			add_timed_idea = {
+				idea = flower_gambler_debuff_jammed_idea
+				days = 180
+			}
+		}
+		11 = {
+			set_variable = { flower_gambler_last_roll = 7 }
+			add_timed_idea = {
+				idea = flower_gambler_debuff_chaos_idea
+				days = 180
+			}
+		}
+		11 = {
+			set_variable = { flower_gambler_last_roll = 8 }
+			add_timed_idea = {
+				idea = flower_gambler_debuff_scandal_idea
+				days = 180
+			}
+		}
+	}
+	if = {
+		limit = { is_ai = no }
+		country_event = { id = FLWAI.29 }
 	}
 }
 
@@ -736,6 +834,7 @@ flower_ai_lock_in_anomalies_and_start = {
 	}
 	if = {
 		limit = { has_global_flag = flower_anomaly_1_active }
+		set_global_flag = { flag = flower_roguelike_wave_cd days = 180 value = 1 }
 		flower_ai_trigger_roguelike_wave = yes
 	}
 	every_country = {

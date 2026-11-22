@@ -177,7 +177,7 @@ flower_ai_pick_archetype_3 = {
 		}
 		add_equipment_to_stockpile = {
 			type = artillery_equipment
-			amount = 1500
+			amount = 2000
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_arty_done } }
@@ -209,7 +209,7 @@ flower_ai_pick_archetype_3 = {
 		}
 		add_equipment_to_stockpile = {
 			type = artillery_equipment
-			amount = 1000
+			amount = 1500
 		}
 		add_equipment_to_stockpile = {
 			type = railway_gun_equipment
@@ -287,7 +287,26 @@ flower_ai_pick_archetype_4 = {
 			basic_medium_tank_chassis = 1
 			popup = no
 		}
-		army_experience = 50
+		add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 500
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = synthetic_refinery
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+		army_experience = 75
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes
@@ -361,6 +380,13 @@ flower_ai_pick_archetype_5 = {
 			specialization = specialization_air
 			value = 2
 		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes
@@ -401,7 +427,7 @@ flower_ai_pick_archetype_6 = {
 			tech_military_police = 1
 			popup = no
 		}
-		add_manpower = 75000
+		add_manpower = 80000
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 20000
@@ -428,7 +454,7 @@ flower_ai_pick_archetype_6 = {
 	}
 	else = {
 		add_ideas = flower_wave_stage_1_idea
-		add_manpower = 50000
+		add_manpower = 60000
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 15000
@@ -570,7 +596,6 @@ flower_ai_pick_archetype_8 = {
 			popup = no
 		}
 		flower_ai_summon_guerrilla_wave = yes
-		flower_ai_summon_guerrilla_wave = yes
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes
@@ -663,6 +688,7 @@ flower_ai_pick_archetype_10 = {
 			xrkl_tech = 1
 			popup = no
 		}
+		army_experience = 50
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_magic_done } }
 			set_country_flag = flower_evo_magic_done
@@ -691,6 +717,15 @@ flower_ai_pick_archetype_10 = {
 			elephantry = 1
 			popup = no
 		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 300
+		}
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes
@@ -711,7 +746,7 @@ flower_ai_pick_archetype_11 = {
 		}
 		add_equipment_to_stockpile = {
 			type = flying_saucer_equipment_0
-			amount = 500
+			amount = 350
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
@@ -758,7 +793,7 @@ flower_ai_pick_archetype_11 = {
 		limit = { has_idea = flower_steampunk_stage_3_idea }
 		add_equipment_to_stockpile = {
 			type = flying_saucer_equipment_0
-			amount = 500
+			amount = 350
 		}
 		add_to_variable = { another_country_currency_reserve = 250 }
 		flower_ai_close_draft_gui_done = yes
@@ -771,13 +806,22 @@ flower_ai_pick_archetype_11 = {
 			bamboo_grove_squad_tech = 1
 			popup = no
 		}
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 1
+		}
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes
 }
 
-#12.怪蛋与大转盘
+#12.怪蛋与大转盘（赌徒流派：孵怪蛋 + 血誓军令状 + 黑市转盘 + 命运骰子随机Buff/Debuff）
 flower_ai_pick_archetype_12 = {
+	set_country_flag = flower_roguelike_gambler_active
 	if = {
 		limit = {
 			NOT = { has_idea = flower_mystery_egg_incubating_idea }
@@ -864,6 +908,7 @@ flower_ai_pick_archetype_12 = {
 		}
 	}
 	flower_ai_close_draft_gui_done = yes
+	flower_ai_roll_gambler_fate = yes
 }
 
 #执行分支界面第1张卡选择

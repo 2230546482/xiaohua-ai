@@ -115,6 +115,17 @@ defined_text = {
 	text = { trigger = { check_variable = { flower_new_combo_popup = 5 } } localization_key = flower_combo_popup_5 }
 	text = { localization_key = flower_combo_popup_6 }
 }
+defined_text = {
+	name = GetFlowerGamblerFateDesc
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 1 } } localization_key = flower_gambler_roll_desc_1 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 2 } } localization_key = flower_gambler_roll_desc_2 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 3 } } localization_key = flower_gambler_roll_desc_3 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 4 } } localization_key = flower_gambler_roll_desc_4 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 5 } } localization_key = flower_gambler_roll_desc_5 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 6 } } localization_key = flower_gambler_roll_desc_6 }
+	text = { trigger = { check_variable = { flower_gambler_last_roll = 7 } } localization_key = flower_gambler_roll_desc_7 }
+	text = { localization_key = flower_gambler_roll_desc_8 }
+}
 
 defined_text = {
 	name = GetFlowerArch1Status

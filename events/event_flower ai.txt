@@ -337,7 +337,7 @@ country_event = {
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
-				amount = 1500
+				amount = 2000
 			}
 			custom_effect_tooltip = FLWAI.10.c_stage2_tt
 			flower_ai_check_chemical_combos = yes
@@ -365,7 +365,7 @@ country_event = {
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
-				amount = 1000
+				amount = 1500
 			}
 			add_equipment_to_stockpile = {
 				type = railway_gun_equipment
@@ -462,7 +462,26 @@ country_event = {
 				basic_medium_tank_chassis = 1
 				popup = no
 			}
-			army_experience = 50
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 500
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = synthetic_refinery
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			army_experience = 75
 			custom_effect_tooltip = FLWAI.11.a_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
@@ -537,6 +556,13 @@ country_event = {
 				specialization = specialization_air
 				value = 2
 			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
 			custom_effect_tooltip = FLWAI.11.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
@@ -582,7 +608,7 @@ country_event = {
 				tech_military_police = 1
 				popup = no
 			}
-			add_manpower = 75000
+			add_manpower = 80000
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 20000
@@ -605,7 +631,7 @@ country_event = {
 		}
 		else = {
 			add_ideas = flower_wave_stage_1_idea
-			add_manpower = 50000
+			add_manpower = 60000
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 15000
@@ -767,7 +793,6 @@ country_event = {
 				popup = no
 			}
 			flower_ai_summon_guerrilla_wave = yes
-			flower_ai_summon_guerrilla_wave = yes
 			custom_effect_tooltip = FLWAI.12.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
@@ -884,6 +909,7 @@ country_event = {
 				xrkl_tech = 1
 				popup = no
 			}
+			army_experience = 50
 			custom_effect_tooltip = FLWAI.13.a_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
@@ -908,6 +934,15 @@ country_event = {
 				elephantry = 1
 				popup = no
 			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+			}
+			army_experience = 50
 			custom_effect_tooltip = FLWAI.13.a_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
@@ -932,7 +967,7 @@ country_event = {
 			}
 			add_equipment_to_stockpile = {
 				type = flying_saucer_equipment_0
-				amount = 500
+				amount = 350
 			}
 			add_breakthrough_points = {
 				specialization = specialization_land
@@ -977,7 +1012,7 @@ country_event = {
 			limit = { has_idea = flower_steampunk_stage_3_idea }
 			add_equipment_to_stockpile = {
 				type = flying_saucer_equipment_0
-				amount = 500
+				amount = 350
 			}
 			add_to_variable = { another_country_currency_reserve = 250 }
 		}
@@ -988,6 +1023,14 @@ country_event = {
 				onm_unlock_unit_snake = 1
 				bamboo_grove_squad_tech = 1
 				popup = no
+			}
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 1
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 1
 			}
 			custom_effect_tooltip = FLWAI.13.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
@@ -1001,6 +1044,7 @@ country_event = {
 			factor = 25
 		}
 		custom_effect_tooltip = FLWAI.13.c_tt
+		set_country_flag = flower_roguelike_gambler_active
 		if = {
 			limit = {
 				NOT = { has_idea = flower_mystery_egg_incubating_idea }
@@ -1087,6 +1131,7 @@ country_event = {
 				}
 			}
 		}
+		flower_ai_roll_gambler_fate = yes
 	}
 
 	#选项D：翻回第1页（战地拾荒扒衣流、黑灯工厂巨企流、0宽神风火炮流）
@@ -1201,6 +1246,7 @@ country_event = {
 			amount = 10000
 		}
 		add_manpower = 50000
+		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_open_roguelike_draft = yes
 	}
 	#选项B：卡美洛圣杯构装机甲骑士团
@@ -1219,6 +1265,7 @@ country_event = {
 		}
 		army_experience = 100
 		add_manpower = 50000
+		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_open_roguelike_draft = yes
 	}
 	#选项C：特雷森赛马娘与银枪天马极速突击旅
@@ -1236,6 +1283,7 @@ country_event = {
 		}
 		army_experience = 100
 		add_manpower = 50000
+		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_open_roguelike_draft = yes
 	}
 }
@@ -1276,6 +1324,7 @@ country_event = {
 				land_facility = 1
 			}
 		}
+		flower_ai_check_dual_mastery_synergy = yes
 	}
 
 	#未达标罚酒三杯
@@ -1538,5 +1587,27 @@ country_event = {
 		add_to_variable = { another_country_currency_reserve = 250 }
 		add_manpower = 50000
 		army_experience = 100
+	}
+}
+
+#流派十二赌徒专属：《黑市命运骰子开奖！》（每180天自动重摇随机Buff或Debuff）
+country_event = {
+	id = FLWAI.29
+	title = FLWAI.29.t
+	desc = FLWAI.29.d
+	picture = GFX_cirno_s_event
+	is_triggered_only = yes
+
+	option = {
+		name = FLWAI.29.a
+		trigger = {
+			check_variable = { flower_gambler_last_roll < 5 }
+		}
+	}
+	option = {
+		name = FLWAI.29.b
+		trigger = {
+			check_variable = { flower_gambler_last_roll > 4 }
+		}
 	}
 }
