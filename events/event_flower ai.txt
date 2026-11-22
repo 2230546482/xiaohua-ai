@@ -231,7 +231,7 @@ country_event = {
 	picture = GFX_cirno_s_event
 	is_triggered_only = yes
 
-	#选项A：【流派一：战地拾荒与掠夺流】《战利品记仇账本》
+	#选项A：【流派一：战地拾荒与掠夺流】《记仇小本本》
 	option = {
 		name = FLWAI.10.a
 		ai_chance = {
@@ -1144,7 +1144,7 @@ country_event = {
 	}
 }
 
-#《战利品记仇账本》叠满5层/10层突破觉醒事件
+#《记仇小本本》叠满5层/10层突破觉醒事件
 country_event = {
 	id = FLWAI.21
 	title = FLWAI.21.t

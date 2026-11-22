@@ -71,7 +71,7 @@ flower_ai_check_dual_mastery_synergy = {
 	}
 }
 
-#《战利品记仇账本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限10层，强化装备缴获与补给自持）
+#《记仇小本本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限10层，强化装备缴获与补给自持）
 flower_ai_recalc_slayer_book = {
 	if = {
 		limit = {

@@ -902,7 +902,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#底部实时账本栏
+		#底部实时本子栏
 		instantTextBoxType = {
 			name = "flower_draft_footer_text"
 			position = { x = 32 y = 614 }
