@@ -20,12 +20,6 @@ spriteTypes = {
 		legacy_lazy_load = no
 	}
 	spriteType = {
-		name = "GFX_flower_wide_card_btn"
-		texturefile = "gfx/interface/gui/PAU/PAU_baiye_card_wide.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
 		name = "GFX_flower_cat_icon_relic"
 		texturefile = "gfx/interface/gui/flower_cat_icon_relic.png"
 		legacy_lazy_load = no
@@ -374,4 +368,235 @@ spriteTypes = {
 		name = "GFX_idea_flower_idea_combo_spark"
 		texturefile = "gfx/interface/ideas/PAM/PAM_living_world_icon.png"
 	}
+	#全新大气悬浮窗与920x660主面板GUI素材
+	spriteType = {
+		name = "GFX_flower_dock_bg"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_bg.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_anomaly"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_anomaly.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_draft"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_draft.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_flower_dock_btn_glow"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_glow.png"
+		noOfFrames = 2
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+		alwaystransparent = yes
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_alert_dot"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_alert_dot.png"
+		alwaystransparent = yes
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_grand_panel_bg"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_panel_bg.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_xiaohua_happy"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_xiaohua_happy.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_xiaohua_scared"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_xiaohua_scared.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_cat"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_cat.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_btn_primary"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_primary.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_amber"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_amber.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_rose"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_rose.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_slate"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_slate.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_bow"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_bow.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_close"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_close.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_1"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_1.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_2"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_2.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_3"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_3.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_4"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_4.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_5"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_5.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_6"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_6.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_1"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_1.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_2"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_2.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_3"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_3.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_4"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_4.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_5"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_5.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_6"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_6.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_7"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_7.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_8"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_8.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_9"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_9.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_10"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_10.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_11"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_11.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_arch_12"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_12.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_relic"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_relic.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_curse"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_curse.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_evo"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_evo.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_cross"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_cross.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_branch"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_branch.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	#END_GRAND_FLOWER_UI
 }

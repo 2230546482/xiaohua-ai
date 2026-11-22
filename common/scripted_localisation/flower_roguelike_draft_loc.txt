@@ -1,4 +1,3 @@
-#肉鸽手账GUI与随机牌库动态文本
 defined_text = {
 	name = GetFlowerDraftCatMood
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 1 } } localization_key = FLOWER_DRAFT_CAT_MOOD_1 }
@@ -26,10 +25,7 @@ defined_text = {
 		}
 		localization_key = FLOWER_DRAFT_GUI_SUB_P1
 	}
-	text = {
-		trigger = { check_variable = { flower_draft_gui_mode = 1 } }
-		localization_key = FLOWER_DRAFT_GUI_SUB_P2
-	}
+	text = { trigger = { check_variable = { flower_draft_gui_mode = 1 } } localization_key = FLOWER_DRAFT_GUI_SUB_P2 }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 3 } check_variable = { flower_branch_id = 1 } } localization_key = FLOWER_DRAFT_GUI_SUB_BRANCH_1 }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 3 } check_variable = { flower_branch_id = 2 } } localization_key = FLOWER_DRAFT_GUI_SUB_BRANCH_2 }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 3 } check_variable = { flower_branch_id = 3 } } localization_key = FLOWER_DRAFT_GUI_SUB_BRANCH_3 }
@@ -311,44 +307,84 @@ defined_text = {
 	text = { localization_key = flower_draft_card_24_name }
 }
 defined_text = {
-	name = GetFlowerDraftSlot1Brief
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } } localization_key = flower_draft_card_1_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 2 } } localization_key = flower_draft_card_2_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } } localization_key = flower_draft_card_3_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } } localization_key = flower_draft_card_4_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } } localization_key = flower_draft_card_5_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } } localization_key = flower_draft_card_6_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } } localization_key = flower_draft_card_7_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } } localization_key = flower_draft_card_8_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } } localization_key = flower_draft_card_9_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } } localization_key = flower_draft_card_10_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } } localization_key = flower_draft_card_11_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } } localization_key = flower_draft_card_12_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } } localization_key = flower_draft_card_13_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } } localization_key = flower_draft_card_14_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } } localization_key = flower_draft_card_15_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } } localization_key = flower_draft_card_16_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } } localization_key = flower_draft_card_17_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } } localization_key = flower_draft_card_18_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } } localization_key = flower_draft_card_19_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } } localization_key = flower_draft_card_20_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 21 } } localization_key = flower_draft_card_21_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 22 } } localization_key = flower_draft_card_22_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } } localization_key = flower_draft_card_23_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 24 } } localization_key = flower_draft_card_24_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } } localization_key = flower_draft_card_25_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } } localization_key = flower_draft_card_26_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } } localization_key = flower_draft_card_27_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } } localization_key = flower_draft_card_28_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } } localization_key = flower_draft_card_29_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } } localization_key = flower_draft_card_30_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } } localization_key = flower_draft_card_31_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } } localization_key = flower_draft_card_32_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } } localization_key = flower_draft_card_33_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } } localization_key = flower_draft_card_34_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } } localization_key = flower_draft_card_35_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } } localization_key = flower_draft_card_36_brief }
-	text = { localization_key = flower_draft_card_24_brief }
+	name = GetFlowerDraftSlot1Quote
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } } localization_key = flower_draft_card_1_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 2 } } localization_key = flower_draft_card_2_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } } localization_key = flower_draft_card_3_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } } localization_key = flower_draft_card_4_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } } localization_key = flower_draft_card_5_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } } localization_key = flower_draft_card_6_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } } localization_key = flower_draft_card_7_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } } localization_key = flower_draft_card_8_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } } localization_key = flower_draft_card_9_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } } localization_key = flower_draft_card_10_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } } localization_key = flower_draft_card_11_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } } localization_key = flower_draft_card_12_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } } localization_key = flower_draft_card_13_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } } localization_key = flower_draft_card_14_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } } localization_key = flower_draft_card_15_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } } localization_key = flower_draft_card_16_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } } localization_key = flower_draft_card_17_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } } localization_key = flower_draft_card_18_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } } localization_key = flower_draft_card_19_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } } localization_key = flower_draft_card_20_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 21 } } localization_key = flower_draft_card_21_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 22 } } localization_key = flower_draft_card_22_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } } localization_key = flower_draft_card_23_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 24 } } localization_key = flower_draft_card_24_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } } localization_key = flower_draft_card_25_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } } localization_key = flower_draft_card_26_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } } localization_key = flower_draft_card_27_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } } localization_key = flower_draft_card_28_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } } localization_key = flower_draft_card_29_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } } localization_key = flower_draft_card_30_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } } localization_key = flower_draft_card_31_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } } localization_key = flower_draft_card_32_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } } localization_key = flower_draft_card_33_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } } localization_key = flower_draft_card_34_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } } localization_key = flower_draft_card_35_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } } localization_key = flower_draft_card_36_quote }
+	text = { localization_key = flower_draft_card_24_quote }
+}
+defined_text = {
+	name = GetFlowerDraftSlot1Body
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } } localization_key = flower_draft_card_1_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 2 } } localization_key = flower_draft_card_2_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } } localization_key = flower_draft_card_3_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } } localization_key = flower_draft_card_4_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } } localization_key = flower_draft_card_5_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } } localization_key = flower_draft_card_6_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } } localization_key = flower_draft_card_7_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } } localization_key = flower_draft_card_8_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } } localization_key = flower_draft_card_9_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } } localization_key = flower_draft_card_10_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } } localization_key = flower_draft_card_11_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } } localization_key = flower_draft_card_12_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } } localization_key = flower_draft_card_13_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } } localization_key = flower_draft_card_14_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } } localization_key = flower_draft_card_15_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } } localization_key = flower_draft_card_16_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } } localization_key = flower_draft_card_17_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } } localization_key = flower_draft_card_18_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } } localization_key = flower_draft_card_19_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } } localization_key = flower_draft_card_20_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 21 } } localization_key = flower_draft_card_21_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 22 } } localization_key = flower_draft_card_22_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } } localization_key = flower_draft_card_23_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 24 } } localization_key = flower_draft_card_24_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } } localization_key = flower_draft_card_25_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } } localization_key = flower_draft_card_26_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } } localization_key = flower_draft_card_27_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } } localization_key = flower_draft_card_28_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } } localization_key = flower_draft_card_29_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } } localization_key = flower_draft_card_30_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } } localization_key = flower_draft_card_31_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } } localization_key = flower_draft_card_32_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } } localization_key = flower_draft_card_33_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } } localization_key = flower_draft_card_34_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } } localization_key = flower_draft_card_35_body }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } } localization_key = flower_draft_card_36_body }
+	text = { localization_key = flower_draft_card_24_body }
 }
 defined_text = {
 	name = GetFlowerDraftSlot1TT
@@ -511,44 +547,84 @@ defined_text = {
 	text = { localization_key = flower_draft_card_24_name }
 }
 defined_text = {
-	name = GetFlowerDraftSlot2Brief
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } } localization_key = flower_draft_card_1_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 2 } } localization_key = flower_draft_card_2_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } } localization_key = flower_draft_card_3_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } } localization_key = flower_draft_card_4_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } } localization_key = flower_draft_card_5_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } } localization_key = flower_draft_card_6_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } } localization_key = flower_draft_card_7_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } } localization_key = flower_draft_card_8_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } } localization_key = flower_draft_card_9_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } } localization_key = flower_draft_card_10_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } } localization_key = flower_draft_card_11_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } } localization_key = flower_draft_card_12_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } } localization_key = flower_draft_card_13_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } } localization_key = flower_draft_card_14_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } } localization_key = flower_draft_card_15_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } } localization_key = flower_draft_card_16_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } } localization_key = flower_draft_card_17_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } } localization_key = flower_draft_card_18_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } } localization_key = flower_draft_card_19_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } } localization_key = flower_draft_card_20_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 21 } } localization_key = flower_draft_card_21_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 22 } } localization_key = flower_draft_card_22_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } } localization_key = flower_draft_card_23_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 24 } } localization_key = flower_draft_card_24_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } } localization_key = flower_draft_card_25_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } } localization_key = flower_draft_card_26_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } } localization_key = flower_draft_card_27_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } } localization_key = flower_draft_card_28_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } } localization_key = flower_draft_card_29_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } } localization_key = flower_draft_card_30_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } } localization_key = flower_draft_card_31_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } } localization_key = flower_draft_card_32_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } } localization_key = flower_draft_card_33_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } } localization_key = flower_draft_card_34_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } } localization_key = flower_draft_card_35_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } } localization_key = flower_draft_card_36_brief }
-	text = { localization_key = flower_draft_card_24_brief }
+	name = GetFlowerDraftSlot2Quote
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } } localization_key = flower_draft_card_1_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 2 } } localization_key = flower_draft_card_2_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } } localization_key = flower_draft_card_3_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } } localization_key = flower_draft_card_4_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } } localization_key = flower_draft_card_5_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } } localization_key = flower_draft_card_6_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } } localization_key = flower_draft_card_7_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } } localization_key = flower_draft_card_8_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } } localization_key = flower_draft_card_9_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } } localization_key = flower_draft_card_10_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } } localization_key = flower_draft_card_11_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } } localization_key = flower_draft_card_12_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } } localization_key = flower_draft_card_13_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } } localization_key = flower_draft_card_14_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } } localization_key = flower_draft_card_15_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } } localization_key = flower_draft_card_16_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } } localization_key = flower_draft_card_17_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } } localization_key = flower_draft_card_18_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } } localization_key = flower_draft_card_19_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } } localization_key = flower_draft_card_20_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 21 } } localization_key = flower_draft_card_21_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 22 } } localization_key = flower_draft_card_22_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } } localization_key = flower_draft_card_23_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 24 } } localization_key = flower_draft_card_24_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } } localization_key = flower_draft_card_25_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } } localization_key = flower_draft_card_26_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } } localization_key = flower_draft_card_27_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } } localization_key = flower_draft_card_28_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } } localization_key = flower_draft_card_29_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } } localization_key = flower_draft_card_30_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } } localization_key = flower_draft_card_31_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } } localization_key = flower_draft_card_32_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } } localization_key = flower_draft_card_33_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } } localization_key = flower_draft_card_34_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } } localization_key = flower_draft_card_35_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } } localization_key = flower_draft_card_36_quote }
+	text = { localization_key = flower_draft_card_24_quote }
+}
+defined_text = {
+	name = GetFlowerDraftSlot2Body
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } } localization_key = flower_draft_card_1_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 2 } } localization_key = flower_draft_card_2_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } } localization_key = flower_draft_card_3_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } } localization_key = flower_draft_card_4_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } } localization_key = flower_draft_card_5_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } } localization_key = flower_draft_card_6_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } } localization_key = flower_draft_card_7_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } } localization_key = flower_draft_card_8_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } } localization_key = flower_draft_card_9_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } } localization_key = flower_draft_card_10_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } } localization_key = flower_draft_card_11_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } } localization_key = flower_draft_card_12_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } } localization_key = flower_draft_card_13_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } } localization_key = flower_draft_card_14_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } } localization_key = flower_draft_card_15_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } } localization_key = flower_draft_card_16_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } } localization_key = flower_draft_card_17_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } } localization_key = flower_draft_card_18_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } } localization_key = flower_draft_card_19_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } } localization_key = flower_draft_card_20_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 21 } } localization_key = flower_draft_card_21_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 22 } } localization_key = flower_draft_card_22_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } } localization_key = flower_draft_card_23_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 24 } } localization_key = flower_draft_card_24_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } } localization_key = flower_draft_card_25_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } } localization_key = flower_draft_card_26_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } } localization_key = flower_draft_card_27_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } } localization_key = flower_draft_card_28_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } } localization_key = flower_draft_card_29_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } } localization_key = flower_draft_card_30_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } } localization_key = flower_draft_card_31_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } } localization_key = flower_draft_card_32_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } } localization_key = flower_draft_card_33_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } } localization_key = flower_draft_card_34_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } } localization_key = flower_draft_card_35_body }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } } localization_key = flower_draft_card_36_body }
+	text = { localization_key = flower_draft_card_24_body }
 }
 defined_text = {
 	name = GetFlowerDraftSlot2TT
@@ -711,44 +787,84 @@ defined_text = {
 	text = { localization_key = flower_draft_card_24_name }
 }
 defined_text = {
-	name = GetFlowerDraftSlot3Brief
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } } localization_key = flower_draft_card_1_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 2 } } localization_key = flower_draft_card_2_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } } localization_key = flower_draft_card_3_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } } localization_key = flower_draft_card_4_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } } localization_key = flower_draft_card_5_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } } localization_key = flower_draft_card_6_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } } localization_key = flower_draft_card_7_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } } localization_key = flower_draft_card_8_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } } localization_key = flower_draft_card_9_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } } localization_key = flower_draft_card_10_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } } localization_key = flower_draft_card_11_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } } localization_key = flower_draft_card_12_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } } localization_key = flower_draft_card_13_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } } localization_key = flower_draft_card_14_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } } localization_key = flower_draft_card_15_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } } localization_key = flower_draft_card_16_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } } localization_key = flower_draft_card_17_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } } localization_key = flower_draft_card_18_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } } localization_key = flower_draft_card_19_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } } localization_key = flower_draft_card_20_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 21 } } localization_key = flower_draft_card_21_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 22 } } localization_key = flower_draft_card_22_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } } localization_key = flower_draft_card_23_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 24 } } localization_key = flower_draft_card_24_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } } localization_key = flower_draft_card_25_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } } localization_key = flower_draft_card_26_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } } localization_key = flower_draft_card_27_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } } localization_key = flower_draft_card_28_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } } localization_key = flower_draft_card_29_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } } localization_key = flower_draft_card_30_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } } localization_key = flower_draft_card_31_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } } localization_key = flower_draft_card_32_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } } localization_key = flower_draft_card_33_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } } localization_key = flower_draft_card_34_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } } localization_key = flower_draft_card_35_brief }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } } localization_key = flower_draft_card_36_brief }
-	text = { localization_key = flower_draft_card_24_brief }
+	name = GetFlowerDraftSlot3Quote
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } } localization_key = flower_draft_card_1_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 2 } } localization_key = flower_draft_card_2_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } } localization_key = flower_draft_card_3_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } } localization_key = flower_draft_card_4_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } } localization_key = flower_draft_card_5_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } } localization_key = flower_draft_card_6_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } } localization_key = flower_draft_card_7_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } } localization_key = flower_draft_card_8_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } } localization_key = flower_draft_card_9_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } } localization_key = flower_draft_card_10_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } } localization_key = flower_draft_card_11_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } } localization_key = flower_draft_card_12_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } } localization_key = flower_draft_card_13_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } } localization_key = flower_draft_card_14_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } } localization_key = flower_draft_card_15_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } } localization_key = flower_draft_card_16_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } } localization_key = flower_draft_card_17_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } } localization_key = flower_draft_card_18_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } } localization_key = flower_draft_card_19_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } } localization_key = flower_draft_card_20_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 21 } } localization_key = flower_draft_card_21_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 22 } } localization_key = flower_draft_card_22_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } } localization_key = flower_draft_card_23_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 24 } } localization_key = flower_draft_card_24_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } } localization_key = flower_draft_card_25_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } } localization_key = flower_draft_card_26_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } } localization_key = flower_draft_card_27_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } } localization_key = flower_draft_card_28_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } } localization_key = flower_draft_card_29_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } } localization_key = flower_draft_card_30_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } } localization_key = flower_draft_card_31_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } } localization_key = flower_draft_card_32_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } } localization_key = flower_draft_card_33_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } } localization_key = flower_draft_card_34_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } } localization_key = flower_draft_card_35_quote }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } } localization_key = flower_draft_card_36_quote }
+	text = { localization_key = flower_draft_card_24_quote }
+}
+defined_text = {
+	name = GetFlowerDraftSlot3Body
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } } localization_key = flower_draft_card_1_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 2 } } localization_key = flower_draft_card_2_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } } localization_key = flower_draft_card_3_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } } localization_key = flower_draft_card_4_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } } localization_key = flower_draft_card_5_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } } localization_key = flower_draft_card_6_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } } localization_key = flower_draft_card_7_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } } localization_key = flower_draft_card_8_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } } localization_key = flower_draft_card_9_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } } localization_key = flower_draft_card_10_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } } localization_key = flower_draft_card_11_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } } localization_key = flower_draft_card_12_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } } localization_key = flower_draft_card_13_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } } localization_key = flower_draft_card_14_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } } localization_key = flower_draft_card_15_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } } localization_key = flower_draft_card_16_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } } localization_key = flower_draft_card_17_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } } localization_key = flower_draft_card_18_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } } localization_key = flower_draft_card_19_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } } localization_key = flower_draft_card_20_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 21 } } localization_key = flower_draft_card_21_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 22 } } localization_key = flower_draft_card_22_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } } localization_key = flower_draft_card_23_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 24 } } localization_key = flower_draft_card_24_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } } localization_key = flower_draft_card_25_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } } localization_key = flower_draft_card_26_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } } localization_key = flower_draft_card_27_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } } localization_key = flower_draft_card_28_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } } localization_key = flower_draft_card_29_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } } localization_key = flower_draft_card_30_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } } localization_key = flower_draft_card_31_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } } localization_key = flower_draft_card_32_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } } localization_key = flower_draft_card_33_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } } localization_key = flower_draft_card_34_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } } localization_key = flower_draft_card_35_body }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } } localization_key = flower_draft_card_36_body }
+	text = { localization_key = flower_draft_card_24_body }
 }
 defined_text = {
 	name = GetFlowerDraftSlot3TT
@@ -886,19 +1002,34 @@ defined_text = {
 	text = { localization_key = flower_branch_1_opt_1_name }
 }
 defined_text = {
-	name = GetFlowerBranchOpt1Brief
-	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_1_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_1_brief }
-	text = { localization_key = flower_branch_1_opt_1_brief }
+	name = GetFlowerBranchOpt1Quote
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_1_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_1_quote }
+	text = { localization_key = flower_branch_1_opt_1_quote }
+}
+defined_text = {
+	name = GetFlowerBranchOpt1Body
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_1_body }
+	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_1_body }
+	text = { localization_key = flower_branch_1_opt_1_body }
 }
 defined_text = {
 	name = GetFlowerBranchOpt1TT
@@ -931,19 +1062,34 @@ defined_text = {
 	text = { localization_key = flower_branch_1_opt_1_name }
 }
 defined_text = {
-	name = GetFlowerBranchOpt2Brief
-	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_2_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_2_brief }
-	text = { localization_key = flower_branch_1_opt_1_brief }
+	name = GetFlowerBranchOpt2Quote
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_2_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_2_quote }
+	text = { localization_key = flower_branch_1_opt_1_quote }
+}
+defined_text = {
+	name = GetFlowerBranchOpt2Body
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 4 } } localization_key = flower_branch_4_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 5 } } localization_key = flower_branch_5_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 6 } } localization_key = flower_branch_6_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 7 } } localization_key = flower_branch_7_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 8 } } localization_key = flower_branch_8_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 9 } } localization_key = flower_branch_9_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 10 } } localization_key = flower_branch_10_opt_2_body }
+	text = { trigger = { check_variable = { flower_branch_id = 11 } } localization_key = flower_branch_11_opt_2_body }
+	text = { localization_key = flower_branch_1_opt_1_body }
 }
 defined_text = {
 	name = GetFlowerBranchOpt2TT
@@ -968,11 +1114,18 @@ defined_text = {
 	text = { localization_key = flower_branch_1_opt_1_name }
 }
 defined_text = {
-	name = GetFlowerBranchOpt3Brief
-	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_3_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_3_brief }
-	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_3_brief }
-	text = { localization_key = flower_branch_1_opt_1_brief }
+	name = GetFlowerBranchOpt3Quote
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_3_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_3_quote }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_3_quote }
+	text = { localization_key = flower_branch_1_opt_1_quote }
+}
+defined_text = {
+	name = GetFlowerBranchOpt3Body
+	text = { trigger = { check_variable = { flower_branch_id = 1 } } localization_key = flower_branch_1_opt_3_body }
+	text = { trigger = { check_variable = { flower_branch_id = 2 } } localization_key = flower_branch_2_opt_3_body }
+	text = { trigger = { check_variable = { flower_branch_id = 3 } } localization_key = flower_branch_3_opt_3_body }
+	text = { localization_key = flower_branch_1_opt_1_body }
 }
 defined_text = {
 	name = GetFlowerBranchOpt3TT

@@ -802,7 +802,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_heroes
             modifier = {
-                experience_gain_army_leader_factor = 2.0
+                experience_gain_factor = 2.0
                 command_power_gain_mult = 1.0
                 max_command_power = 100
                 army_leader_cost_factor = -0.75
@@ -888,7 +888,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_heroes
             modifier = {
-                experience_gain_army_leader_factor = 0.50
+                experience_gain_factor = 0.50
                 experience_gain_army = 0.20
                 command_power_gain_mult = 0.25
             }
@@ -898,7 +898,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_tycoon
             modifier = {
-                experience_gain_army_leader_factor = 0.75
+                experience_gain_factor = 0.75
                 military_industrial_organization_funds_gain = 1.0
                 hcp_income_factor_monthly = 0.25
                 production_factory_max_efficiency_factor = 0.10
@@ -909,7 +909,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_heroes
             modifier = {
-                experience_gain_army_leader_factor = 1.50
+                experience_gain_factor = 1.50
                 military_industrial_organization_funds_gain = 1.50
                 hcp_income_factor_monthly = 0.50
                 production_factory_max_efficiency_factor = 0.20

@@ -722,56 +722,6 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #打开/关闭开局畸变投票箱
-    hua_open_anomaly_vote_gui_dec = {
-        icon = GFX_exchange_good_luck
-        allowed = { }
-        available = {
-            always = yes
-        }
-        visible = {
-            is_ai = no
-        }
-        fire_only_once = no
-        ai_will_do = { base = 0 }
-        complete_effect = {
-            if = {
-                limit = {
-                    OR = {
-                        has_global_flag = flower_anomaly_voting_open
-                        has_country_flag = flower_anomaly_panel_open
-                    }
-                }
-                clr_global_flag = flower_anomaly_voting_open
-                clr_country_flag = flower_anomaly_panel_open
-            }
-            else = {
-                clr_country_flag = flower_roguelike_gui_open
-                set_country_flag = flower_anomaly_panel_open
-            }
-        }
-    }
-
-    #重新打开暂时收起的肉鸽选牌面板
-    hua_reopen_roguelike_draft_gui_dec = {
-        icon = GFX_exchange_good_luck
-        allowed = { }
-        available = {
-            always = yes
-        }
-        visible = {
-            is_ai = no
-            NOT = { has_country_flag = flower_roguelike_gui_open }
-            check_variable = { flower_draft_gui_mode > 0 }
-        }
-        fire_only_once = no
-        ai_will_do = { base = 0 }
-        complete_effect = {
-            clr_country_flag = flower_anomaly_panel_open
-            set_country_flag = flower_roguelike_gui_open
-        }
-    }
-
     #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化）
     hua_trigger_branch_evo_dec = {
         icon = GFX_exchange_good_luck

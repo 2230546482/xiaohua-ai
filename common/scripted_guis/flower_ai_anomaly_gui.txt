@@ -1,4 +1,66 @@
 scripted_gui = {
+	#屏幕悬浮窗入口（可拖动，随时一键呼出开局畸变投票箱与肉鸽选牌面板）
+	flower_ai_floating_dock_gui = {
+		context_type = player_context
+		window_name = "flower_ai_floating_dock_window"
+		parent_window_token = top_bar
+
+		visible = {
+			is_ai = no
+		}
+		ai_enabled = { always = no }
+
+		triggers = {
+			flower_dock_anomaly_glow_visible = {
+				NOT = { has_global_flag = flower_anomaly_voting_settled }
+			}
+			flower_dock_anomaly_alert_visible = {
+				NOT = { has_global_flag = flower_anomaly_voting_settled }
+			}
+			flower_dock_draft_glow_visible = {
+				check_variable = { flower_draft_gui_mode > 0 }
+			}
+			flower_dock_draft_alert_visible = {
+				check_variable = { flower_draft_gui_mode > 0 }
+			}
+			flower_dock_draft_btn_click_enabled = {
+				check_variable = { flower_draft_gui_mode > 0 }
+			}
+		}
+
+		effects = {
+			flower_dock_anomaly_btn_click = {
+				if = {
+					limit = {
+						OR = {
+							has_global_flag = flower_anomaly_voting_open
+							has_country_flag = flower_anomaly_panel_open
+						}
+					}
+					clr_global_flag = flower_anomaly_voting_open
+					clr_country_flag = flower_anomaly_panel_open
+				}
+				else = {
+					clr_country_flag = flower_roguelike_gui_open
+					set_country_flag = flower_anomaly_panel_open
+				}
+			}
+			flower_dock_draft_btn_click = {
+				if = {
+					limit = { has_country_flag = flower_roguelike_gui_open }
+					clr_country_flag = flower_roguelike_gui_open
+				}
+				else_if = {
+					limit = { check_variable = { flower_draft_gui_mode > 0 } }
+					clr_global_flag = flower_anomaly_voting_open
+					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_roguelike_gui_open
+				}
+			}
+		}
+	}
+
+	#开局畸变投票箱主面板（920x660大气版）
 	flower_ai_anomaly_vote_gui = {
 		context_type = player_context
 		window_name = "flower_ai_anomaly_vote_window"
@@ -10,6 +72,7 @@ scripted_gui = {
 				has_country_flag = flower_anomaly_panel_open
 			}
 		}
+		ai_enabled = { always = no }
 
 		triggers = {
 			flower_xiaohua_portrait_happy_visible = {
@@ -27,8 +90,22 @@ scripted_gui = {
 			flower_anomaly_multi_off_btn_visible = {
 				NOT = { has_global_flag = flower_anomaly_multi_mode }
 			}
+			flower_anomaly_multi_off_lbl_visible = {
+				NOT = { has_global_flag = flower_anomaly_multi_mode }
+			}
 			flower_anomaly_multi_on_btn_visible = {
 				has_global_flag = flower_anomaly_multi_mode
+			}
+			flower_anomaly_multi_on_lbl_visible = {
+				has_global_flag = flower_anomaly_multi_mode
+			}
+			flower_anomaly_bow_btn_visible = {
+				has_global_flag = flower_anomaly_1_active
+				NOT = { has_country_flag = flower_bow_bonus_draw_used }
+			}
+			flower_anomaly_bow_lbl_visible = {
+				has_global_flag = flower_anomaly_1_active
+				NOT = { has_country_flag = flower_bow_bonus_draw_used }
 			}
 		}
 
@@ -273,6 +350,7 @@ scripted_gui = {
 						NOT = { has_country_flag = flower_bow_bonus_draw_used }
 					}
 					set_country_flag = flower_bow_bonus_draw_used
+					clr_country_flag = flower_anomaly_panel_open
 					flower_ai_open_roguelike_draft = yes
 				}
 			}

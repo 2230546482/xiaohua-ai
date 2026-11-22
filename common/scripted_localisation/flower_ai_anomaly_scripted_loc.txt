@@ -136,3 +136,36 @@ defined_text = {
 		localization_key = FLOWER_ANOMALY_FOOTER_VOTING
 	}
 }
+
+defined_text = {
+	name = GetFlowerDockAnomalyBtnText
+	text = {
+		trigger = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+		localization_key = FLOWER_DOCK_ANOMALY_BTN_PENDING
+	}
+	text = {
+		localization_key = FLOWER_DOCK_ANOMALY_BTN_IDLE
+	}
+}
+
+defined_text = {
+	name = GetFlowerDockDraftBtnText
+	text = {
+		trigger = { check_variable = { flower_draft_gui_mode > 0 } }
+		localization_key = FLOWER_DOCK_DRAFT_BTN_PENDING
+	}
+	text = {
+		localization_key = FLOWER_DOCK_DRAFT_BTN_IDLE
+	}
+}
+
+defined_text = {
+	name = GetFlowerDockDraftTT
+	text = {
+		trigger = { check_variable = { flower_draft_gui_mode > 0 } }
+		localization_key = FLOWER_DOCK_DRAFT_TT_PENDING
+	}
+	text = {
+		localization_key = FLOWER_DOCK_DRAFT_TT_IDLE
+	}
+}
