@@ -386,9 +386,9 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_2_idea
 			add_idea = flower_tank_stage_3_idea
 		}
-		complete_special_project = sp:sp_transistor
-		complete_special_project = sp:sp_artificial_intelligence
 		set_technology = {
+			flower_roguelike_armor_computing_network_tech = 1
+			flower_roguelike_ai_assisted_modules_tech = 1
 			the_world_0 = 1
 			the_world_1 = 1
 			the_maid_0 = 1
@@ -441,8 +441,8 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_1_idea
 			add_idea = flower_tank_stage_2_idea
 		}
-		complete_special_project = sp:sp_tank_Bratino_warm_pressure_rocket
 		set_technology = {
+			flower_roguelike_bratino_rocket_tech = 1
 			SOV_tank_dual_mounted_cannon = 1
 			PAU_airborne_light_armor_tech = 1
 			PAU_airborne_armor_glider_tech = 1
@@ -570,8 +570,8 @@ flower_ai_pick_archetype_5 = {
 			remove_idea = flower_air_stage_1_idea
 			add_idea = flower_air_stage_2_idea
 		}
-		complete_special_project = sp:sp_artificial_intelligence
 		set_technology = {
+			flower_roguelike_ai_assisted_modules_tech = 1
 			Siege_helicopter_available = 1
 			Siege_helicopter_0 = 1
 			Siege_helicopter_1 = 1
