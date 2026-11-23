@@ -56,11 +56,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_anomaly_lbl"
-			position = { x = 22 y = 40 }
-			font = "hoi_16mbs"
+			position = { x = 36 y = 39 }
+			font = "hoi_18mbs"
 			text = "[GetFlowerDockAnomalyBtnText]"
-			maxWidth = 168
-			maxHeight = 18
+			maxWidth = 150
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -91,11 +91,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_draft_lbl"
-			position = { x = 20 y = 78 }
-			font = "hoi_16mbs"
+			position = { x = 36 y = 77 }
+			font = "hoi_18mbs"
 			text = "[GetFlowerDockDraftBtnText]"
-			maxWidth = 172
-			maxHeight = 18
+			maxWidth = 150
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -120,11 +120,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_history_lbl"
-			position = { x = 20 y = 116 }
-			font = "hoi_16mbs"
+			position = { x = 36 y = 115 }
+			font = "hoi_18mbs"
 			text = "FLOWER_DOCK_HISTORY_BTN_TEXT"
-			maxWidth = 172
-			maxHeight = 18
+			maxWidth = 150
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -143,11 +143,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_guard_lbl"
-			position = { x = 20 y = 154 }
-			font = "hoi_16mbs"
+			position = { x = 36 y = 153 }
+			font = "hoi_18mbs"
 			text = "[GetFlowerDockGuardBtnText]"
-			maxWidth = 172
-			maxHeight = 18
+			maxWidth = 150
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -172,11 +172,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_stock_lbl"
-			position = { x = 20 y = 192 }
-			font = "hoi_16mbs"
+			position = { x = 36 y = 191 }
+			font = "hoi_18mbs"
 			text = "[GetFlowerDockStockBtnText]"
-			maxWidth = 172
-			maxHeight = 18
+			maxWidth = 150
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes

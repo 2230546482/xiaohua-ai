@@ -158,7 +158,7 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_arch_1_slayer
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_1_slayer
 	}
@@ -166,7 +166,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_2_corp
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_2_corp
 	}
@@ -174,7 +174,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_3_arty
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_3_arty
 	}
@@ -182,7 +182,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_4_tank
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_4_tank
 	}
@@ -190,7 +190,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_5_air
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_5_air
 	}
@@ -198,7 +198,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_6_wave
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_6_wave
 	}
@@ -206,7 +206,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_7_nightingale
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_7_nightingale
 	}
@@ -214,7 +214,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_8_guerrilla
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_8_guerrilla
 	}
@@ -222,7 +222,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_9_undead
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_9_undead
 	}
@@ -230,7 +230,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_10_magic
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_10_magic
 	}
@@ -238,7 +238,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_11_steampunk
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_11_steampunk
 	}
@@ -246,7 +246,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_12_gambler
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_arch_12_gambler
 	}
@@ -254,7 +254,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_italian_cannon
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_italian_cannon
 	}
@@ -262,7 +262,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_stuka_shampoo
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_stuka_shampoo
 	}
@@ -270,7 +270,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_ufo_watermeter
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_ufo_watermeter
 	}
@@ -278,7 +278,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_timestop_dio
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_timestop_dio
 	}
@@ -286,7 +286,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_ainz_overlord
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_ainz_overlord
 	}
@@ -294,7 +294,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_stonks_money
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_stonks_money
 	}
@@ -302,7 +302,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_rooftop_crash
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_rooftop_crash
 	}
@@ -310,7 +310,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_tiger_look
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_tiger_look
 	}
@@ -318,7 +318,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_ma_baoguo
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_ma_baoguo
 	}
@@ -326,7 +326,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_eat_tuva
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_eat_tuva
 	}
@@ -334,7 +334,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_steiner_heroes
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_steiner_heroes
 	}
@@ -342,7 +342,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_nightmare_boss
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_nightmare_boss
 	}
@@ -350,7 +350,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_qin_scam
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_branch_qin_scam
 	}
@@ -358,7 +358,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_combo_awakening
-	volume = 0.85
+	volume = 0.58
 	sounds = {
 		sound = flower_sfx_combo_awakening
 	}
