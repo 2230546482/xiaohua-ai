@@ -241,7 +241,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_tycoon"
-		texturefile = "gfx/interface/ideas/CAN/KTG_Gold_Trade.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_fx_kurumi.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_devour"
@@ -748,7 +748,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_tycoon_bull"
-		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_stonks_uma.png"
+		texturefile = "gfx/interface/ideas/CAN/KTG_Gold_Trade.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_hero_s2"
