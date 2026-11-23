@@ -1,7 +1,7 @@
 guiTypes = {
 	containerWindowType = {
 		name = "flower_ai_floating_dock_window"
-		position = { x = -288 y = 88 }
+		position = { x = -222 y = 78 }
 		size = { width = 212 height = 230 }
 		Orientation = UPPER_RIGHT
 		moveable = yes

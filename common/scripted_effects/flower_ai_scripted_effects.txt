@@ -1503,21 +1503,10 @@ flower_ai_recalc_anomaly_ready = {
 	}
 }
 
-#结算开局畸变投票并正式启动世界线法则
+#结算开局畸变投票并正式启动世界线法则（绝不强行默认投肉鸽，严格按玩家实际投票结算）
 flower_ai_lock_in_anomalies_and_start = {
 	clr_global_flag = flower_anomaly_voting_open
 	set_global_flag = flower_anomaly_voting_settled
-	if = {
-		limit = {
-			check_variable = { global.flower_anomaly_vote_1 < 1 }
-			check_variable = { global.flower_anomaly_vote_2 < 1 }
-			check_variable = { global.flower_anomaly_vote_3 < 1 }
-			check_variable = { global.flower_anomaly_vote_4 < 1 }
-			check_variable = { global.flower_anomaly_vote_5 < 1 }
-			check_variable = { global.flower_anomaly_vote_6 < 1 }
-		}
-		set_variable = { global.flower_anomaly_vote_1 = 1 }
-	}
 	if = {
 		limit = { has_global_flag = flower_anomaly_multi_mode }
 		if = {
@@ -1547,8 +1536,13 @@ flower_ai_lock_in_anomalies_and_start = {
 		}
 	}
 	else = {
-		set_temp_variable = { max_v = global.flower_anomaly_vote_1 }
-		set_temp_variable = { win_id = 1 }
+		set_temp_variable = { max_v = 0 }
+		set_temp_variable = { win_id = 0 }
+		if = {
+			limit = { check_variable = { global.flower_anomaly_vote_1 > max_v } }
+			set_temp_variable = { max_v = global.flower_anomaly_vote_1 }
+			set_temp_variable = { win_id = 1 }
+		}
 		if = {
 			limit = { check_variable = { global.flower_anomaly_vote_2 > max_v } }
 			set_temp_variable = { max_v = global.flower_anomaly_vote_2 }

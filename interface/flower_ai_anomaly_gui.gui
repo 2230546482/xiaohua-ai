@@ -191,7 +191,6 @@ guiTypes = {
 			name = "flower_anomaly_close_btn"
 			position = { x = 866 y = 20 }
 			quadTextureSprite = "GFX_flower_btn_close"
-			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
 			oversound = PAU_hover_paper

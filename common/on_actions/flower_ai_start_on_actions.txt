@@ -160,7 +160,13 @@ on_actions = {
                 }
                 set_global_flag = flower_anomaly_voting_open
             }
-            #初始化全员就绪计数
+            #初始化开局畸变票数为0（杜绝任何默认预投票）并重算全员就绪计数
+            set_variable = { global.flower_anomaly_vote_1 = 0 }
+            set_variable = { global.flower_anomaly_vote_2 = 0 }
+            set_variable = { global.flower_anomaly_vote_3 = 0 }
+            set_variable = { global.flower_anomaly_vote_4 = 0 }
+            set_variable = { global.flower_anomaly_vote_5 = 0 }
+            set_variable = { global.flower_anomaly_vote_6 = 0 }
             flower_ai_recalc_anomaly_ready = yes
             #初始化各国工厂数与主要国家身份缓存（供停止抵抗/吞并门槛判定）
             every_country = {

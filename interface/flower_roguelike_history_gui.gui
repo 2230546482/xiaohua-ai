@@ -4,7 +4,7 @@ guiTypes = {
 		name = "flower_roguelike_history_window"
 		position = { x = -460 y = -330 }
 		size = { width = 920 height = 660 }
-		Orientation = CENTER
+		Orientation = center
 		moveable = yes
 		click_to_front = yes
 		clipping = no
@@ -67,6 +67,28 @@ guiTypes = {
 			maxWidth = 710
 			maxHeight = 22
 			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_history_peek_map_btn"
+			position = { x = 742 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_slate"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_HISTORY_CLOSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_history_peek_map_lbl"
+			position = { x = 752 y = 113 }
+			font = "hoi_18mbs"
+			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
+			maxWidth = 128
+			maxHeight = 20
+			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}

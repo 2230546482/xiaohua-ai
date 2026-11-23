@@ -201,6 +201,18 @@ scripted_gui = {
 				has_global_flag = flower_anomaly_1_active
 				NOT = { has_country_flag = flower_bow_bonus_draw_used }
 			}
+			flower_anomaly_confirm_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_anomaly_voting_settled
+					has_country_flag = flower_anomaly_player_ready
+					check_variable = { global.flower_anomaly_vote_1 > 0 }
+					check_variable = { global.flower_anomaly_vote_2 > 0 }
+					check_variable = { global.flower_anomaly_vote_3 > 0 }
+					check_variable = { global.flower_anomaly_vote_4 > 0 }
+					check_variable = { global.flower_anomaly_vote_5 > 0 }
+					check_variable = { global.flower_anomaly_vote_6 > 0 }
+				}
+			}
 		}
 
 		effects = {
@@ -214,11 +226,25 @@ scripted_gui = {
 						}
 						clr_country_flag = flower_anomaly_player_ready
 					}
-					else = {
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { global.flower_anomaly_vote_1 > 0 }
+								check_variable = { global.flower_anomaly_vote_2 > 0 }
+								check_variable = { global.flower_anomaly_vote_3 > 0 }
+								check_variable = { global.flower_anomaly_vote_4 > 0 }
+								check_variable = { global.flower_anomaly_vote_5 > 0 }
+								check_variable = { global.flower_anomaly_vote_6 > 0 }
+							}
+						}
 						set_country_flag = flower_anomaly_player_ready
 						clr_country_flag = flower_anomaly_player_skip
 					}
 					flower_ai_recalc_anomaly_ready = yes
+				}
+				else = {
+					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
 				}
 			}
 			flower_anomaly_multi_off_btn_click = {
@@ -525,6 +551,10 @@ scripted_gui = {
 						if = { limit = { has_country_flag = flower_voted_card_6 } clr_country_flag = flower_voted_card_6 subtract_from_variable = { global.flower_anomaly_vote_6 = 1 } }
 					}
 					flower_ai_recalc_anomaly_ready = yes
+				}
+				else = {
+					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
 				}
 			}
 			flower_anomaly_close_btn_click = {

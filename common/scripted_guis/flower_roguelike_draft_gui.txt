@@ -543,6 +543,9 @@ scripted_gui = {
 			flower_history_close_btn_click = {
 				clr_country_flag = flower_history_gui_open
 			}
+			flower_history_peek_map_btn_click = {
+				clr_country_flag = flower_history_gui_open
+			}
 		}
 	}
 }

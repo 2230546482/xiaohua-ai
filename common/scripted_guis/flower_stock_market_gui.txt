@@ -27,6 +27,9 @@ scripted_gui = {
 			flower_stock_close_btn_click = {
 				clr_country_flag = flower_stock_gui_open
 			}
+			flower_stk_peek_map_btn_click = {
+				clr_country_flag = flower_stock_gui_open
+			}
 			flower_stk_liquidate_all_btn_click = {
 				flower_stk_liquidate_everything = yes
 			}
@@ -43,9 +46,6 @@ scripted_gui = {
 			}
 			flower_stk_1_buy_lev_btn_click = {
 				flower_stk_1_lev_2 = yes
-			}
-			flower_stk_1_sell_1_btn_click = {
-				flower_stk_1_sell_1 = yes
 			}
 			flower_stk_1_sell_all_btn_click = {
 				flower_stk_1_sell_all = yes
@@ -67,9 +67,6 @@ scripted_gui = {
 			flower_stk_2_buy_lev_btn_click = {
 				flower_stk_2_lev_2 = yes
 			}
-			flower_stk_2_sell_1_btn_click = {
-				flower_stk_2_sell_1 = yes
-			}
 			flower_stk_2_sell_all_btn_click = {
 				flower_stk_2_sell_all = yes
 			}
@@ -90,9 +87,6 @@ scripted_gui = {
 			flower_stk_3_buy_lev_btn_click = {
 				flower_stk_3_lev_2 = yes
 			}
-			flower_stk_3_sell_1_btn_click = {
-				flower_stk_3_sell_1 = yes
-			}
 			flower_stk_3_sell_all_btn_click = {
 				flower_stk_3_sell_all = yes
 			}
@@ -112,9 +106,6 @@ scripted_gui = {
 			}
 			flower_stk_4_buy_lev_btn_click = {
 				flower_stk_4_lev_2 = yes
-			}
-			flower_stk_4_sell_1_btn_click = {
-				flower_stk_4_sell_1 = yes
 			}
 			flower_stk_4_sell_all_btn_click = {
 				flower_stk_4_sell_all = yes

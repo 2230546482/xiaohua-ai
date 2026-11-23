@@ -4,7 +4,7 @@ guiTypes = {
 		name = "flower_stock_market_window"
 		position = { x = -460 y = -330 }
 		size = { width = 920 height = 660 }
-		Orientation = CENTER
+		Orientation = center
 		moveable = yes
 		click_to_front = yes
 		clipping = no
@@ -112,10 +112,33 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_liquidate_all_lbl"
 			position = { x = 388 y = 113 }
-			font = "hoi_16mbs"
+			font = "hoi_18mbs"
 			text = "FLOWER_STK_LIQUIDATE_ALL_BTN_TEXT"
 			maxWidth = 164
 			maxHeight = 22
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#顶栏右侧显眼大木牌退出按钮：先看地图 / 关闭交易所
+		buttonType = {
+			name = "flower_stk_peek_map_btn"
+			position = { x = 742 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_slate"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_peek_map_lbl"
+			position = { x = 752 y = 113 }
+			font = "hoi_18mbs"
+			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
+			maxWidth = 128
+			maxHeight = 20
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -126,7 +149,6 @@ guiTypes = {
 			name = "flower_stock_close_btn"
 			position = { x = 866 y = 20 }
 			quadTextureSprite = "GFX_flower_btn_close"
-			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
 			oversound = PAU_hover_paper
