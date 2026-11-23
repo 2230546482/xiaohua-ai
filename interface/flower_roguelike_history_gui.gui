@@ -9,11 +9,9 @@ guiTypes = {
 		click_to_front = yes
 		clipping = no
 
-		iconType = {
+		background = {
 			name = "flower_history_bg"
-			position = { x = 0 y = 0 }
 			spriteType = "GFX_flower_grand_panel_bg"
-			alwaystransparent = yes
 		}
 
 		iconType = {
@@ -26,7 +24,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_cat_mood"
 			position = { x = 32 y = 120 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_CAT_MOOD"
 			maxWidth = 108
 			maxHeight = 18
@@ -38,7 +36,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_title"
 			position = { x = 160 y = 22 }
-			font = "hoi_24header"
+			font = "flower_a4_24"
 			text = "FLOWER_HISTORY_GUI_TITLE"
 			maxWidth = 680
 			maxHeight = 32
@@ -50,7 +48,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_lead"
 			position = { x = 160 y = 58 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_HISTORY_GUI_LEAD"
 			maxWidth = 710
 			maxHeight = 26
@@ -62,7 +60,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_sub"
 			position = { x = 160 y = 88 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_GUI_SUB"
 			maxWidth = 710
 			maxHeight = 22
@@ -75,7 +73,7 @@ guiTypes = {
 			name = "flower_history_peek_map_btn"
 			position = { x = 742 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_slate"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_HISTORY_CLOSE_TT"
 			clicksound = click_close
@@ -84,7 +82,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_peek_map_lbl"
 			position = { x = 752 y = 113 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
 			maxHeight = 20
@@ -95,16 +93,18 @@ guiTypes = {
 
 		buttonType = {
 			name = "flower_history_close_btn"
-			position = { x = 868 y = 18 }
+			position = { x = 866 y = 20 }
 			quadTextureSprite = "GFX_flower_btn_close"
+			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_HISTORY_CLOSE_TT"
 			clicksound = click_close
+			oversound = PAU_hover_paper
 		}
 
 		instantTextBoxType = {
 			name = "flower_history_sec_title"
 			position = { x = 38 y = 164 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_HISTORY_SEC_TITLE"
 			maxWidth = 520
 			maxHeight = 22
@@ -116,7 +116,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_sec_hint"
 			position = { x = 540 y = 166 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_SEC_HINT"
 			maxWidth = 344
 			maxHeight = 20
@@ -136,7 +136,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_arch_summary"
 			position = { x = 42 y = 206 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_ARCH_SUMMARY"
 			maxWidth = 836
 			maxHeight = 32
@@ -148,7 +148,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_combo_summary"
 			position = { x = 42 y = 246 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_COMBO_SUMMARY"
 			maxWidth = 836
 			maxHeight = 32
@@ -180,7 +180,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_empty_lbl"
 			position = { x = 110 y = 416 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_HISTORY_EMPTY_TEXT"
 			maxWidth = 700
 			maxHeight = 48
@@ -193,7 +193,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_footer_text"
 			position = { x = 32 y = 614 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_FOOTER_SETTLED"
 			maxWidth = 856
 			maxHeight = 22
@@ -220,7 +220,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_card_name"
 			position = { x = 18 y = 9 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerHistoryCardName]"
 			maxWidth = 228
 			maxHeight = 22
@@ -232,7 +232,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_history_card_cat"
 			position = { x = 18 y = 33 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerHistoryCardCat]"
 			maxWidth = 228
 			maxHeight = 20

@@ -32,7 +32,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_xiaohua_mood"
 			position = { x = 32 y = 122 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStockXiaohuaMood]"
 			maxWidth = 104
 			maxHeight = 18
@@ -45,7 +45,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_title"
 			position = { x = 166 y = 22 }
-			font = "hoi_24header"
+			font = "flower_a4_24"
 			text = "FLOWER_STK_MAIN_TITLE"
 			maxWidth = 680
 			maxHeight = 28
@@ -56,7 +56,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_account_summary"
 			position = { x = 166 y = 54 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStockAccountSummaryText]"
 			maxWidth = 680
 			maxHeight = 20
@@ -67,7 +67,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_macro_hint"
 			position = { x = 166 y = 76 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_MACRO_AND_HINT"
 			maxWidth = 680
 			maxHeight = 20
@@ -81,7 +81,7 @@ guiTypes = {
 			name = "flower_stk_buy_factory_btn"
 			position = { x = 166 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_amber"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_BUY_FACTORY_TT"
 			clicksound = 选择
@@ -90,7 +90,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_buy_factory_lbl"
 			position = { x = 176 y = 113 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStockBuyFactoryBtnText]"
 			maxWidth = 176
 			maxHeight = 20
@@ -103,7 +103,7 @@ guiTypes = {
 			name = "flower_stk_liquidate_all_btn"
 			position = { x = 378 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_primary"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_LIQUIDATE_ALL_TT"
 			clicksound = 盖章
@@ -112,7 +112,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_liquidate_all_lbl"
 			position = { x = 388 y = 113 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_LIQUIDATE_ALL_BTN_TEXT"
 			maxWidth = 164
 			maxHeight = 22
@@ -126,7 +126,7 @@ guiTypes = {
 			name = "flower_stk_peek_map_btn"
 			position = { x = 742 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_slate"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
@@ -135,7 +135,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_peek_map_lbl"
 			position = { x = 752 y = 113 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
 			maxHeight = 20
@@ -149,6 +149,7 @@ guiTypes = {
 			name = "flower_stock_close_btn"
 			position = { x = 866 y = 20 }
 			quadTextureSprite = "GFX_flower_btn_close"
+			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
 			oversound = PAU_hover_paper
@@ -158,7 +159,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_section_title"
 			position = { x = 38 y = 165 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_SECTION_TITLE"
 			maxWidth = 440
 			maxHeight = 22
@@ -169,7 +170,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_section_hint"
 			position = { x = 480 y = 167 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_SECTION_HINT"
 			maxWidth = 408
 			maxHeight = 20
@@ -190,7 +191,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_name"
 			position = { x = 84 y = 216 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_1_NAME"
 			maxWidth = 190
 			maxHeight = 22
@@ -201,7 +202,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_desc"
 			position = { x = 84 y = 239 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_1_DESC"
 			maxWidth = 216
 			maxHeight = 20
@@ -212,7 +213,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_price_val"
 			position = { x = 236 y = 216 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerStock1PriceText]"
 			maxWidth = 182
 			maxHeight = 22
@@ -223,7 +224,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_hist_val"
 			position = { x = 262 y = 239 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock1HistoryText]"
 			maxWidth = 162
 			maxHeight = 20
@@ -234,7 +235,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_hold_val"
 			position = { x = 46 y = 272 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock1HoldingsText]"
 			maxWidth = 388
 			maxHeight = 20
@@ -247,7 +248,7 @@ guiTypes = {
 			name = "flower_stk_1_buy_1_btn"
 			position = { x = 42 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy1"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_1_TT"
 			clicksound = 选择
@@ -256,7 +257,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_1_lbl"
 			position = { x = 48 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -268,7 +269,7 @@ guiTypes = {
 			name = "flower_stk_1_buy_5_btn"
 			position = { x = 177 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy5"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_5_TT"
 			clicksound = 选择
@@ -277,7 +278,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_5_lbl"
 			position = { x = 183 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
 			maxHeight = 18
@@ -289,7 +290,7 @@ guiTypes = {
 			name = "flower_stk_1_buy_lev_btn"
 			position = { x = 312 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_lev"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_LEV_TT"
 			clicksound = 盖章
@@ -298,7 +299,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_lev_lbl"
 			position = { x = 318 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
 			maxHeight = 18
@@ -310,7 +311,7 @@ guiTypes = {
 			name = "flower_stk_1_sell_all_btn"
 			position = { x = 42 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_sell"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_SELL_ALL_TT"
 			clicksound = 盖章
@@ -319,7 +320,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_sell_all_lbl"
 			position = { x = 48 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -331,7 +332,7 @@ guiTypes = {
 			name = "flower_stk_1_short_1_btn"
 			position = { x = 177 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_short"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_SHORT_1_TT"
 			clicksound = 翻书
@@ -340,7 +341,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_short_1_lbl"
 			position = { x = 183 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -352,7 +353,7 @@ guiTypes = {
 			name = "flower_stk_1_cover_all_btn"
 			position = { x = 312 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_cover"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_COVER_ALL_TT"
 			clicksound = 盖章
@@ -361,7 +362,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_1_cover_all_lbl"
 			position = { x = 318 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -382,7 +383,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_name"
 			position = { x = 524 y = 216 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_2_NAME"
 			maxWidth = 190
 			maxHeight = 22
@@ -393,7 +394,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_desc"
 			position = { x = 524 y = 239 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_2_DESC"
 			maxWidth = 216
 			maxHeight = 20
@@ -404,7 +405,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_price_val"
 			position = { x = 676 y = 216 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerStock2PriceText]"
 			maxWidth = 182
 			maxHeight = 22
@@ -415,7 +416,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_hist_val"
 			position = { x = 702 y = 239 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock2HistoryText]"
 			maxWidth = 162
 			maxHeight = 20
@@ -426,7 +427,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_hold_val"
 			position = { x = 486 y = 272 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock2HoldingsText]"
 			maxWidth = 388
 			maxHeight = 20
@@ -439,7 +440,7 @@ guiTypes = {
 			name = "flower_stk_2_buy_1_btn"
 			position = { x = 482 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy1"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_1_TT"
 			clicksound = 选择
@@ -448,7 +449,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_1_lbl"
 			position = { x = 488 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -460,7 +461,7 @@ guiTypes = {
 			name = "flower_stk_2_buy_5_btn"
 			position = { x = 617 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy5"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_5_TT"
 			clicksound = 选择
@@ -469,7 +470,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_5_lbl"
 			position = { x = 623 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
 			maxHeight = 18
@@ -481,7 +482,7 @@ guiTypes = {
 			name = "flower_stk_2_buy_lev_btn"
 			position = { x = 752 y = 310 }
 			quadTextureSprite = "GFX_flower_stock_btn_lev"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_LEV_TT"
 			clicksound = 盖章
@@ -490,7 +491,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_lev_lbl"
 			position = { x = 758 y = 317 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
 			maxHeight = 18
@@ -502,7 +503,7 @@ guiTypes = {
 			name = "flower_stk_2_sell_all_btn"
 			position = { x = 482 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_sell"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_SELL_ALL_TT"
 			clicksound = 盖章
@@ -511,7 +512,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_sell_all_lbl"
 			position = { x = 488 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -523,7 +524,7 @@ guiTypes = {
 			name = "flower_stk_2_short_1_btn"
 			position = { x = 617 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_short"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_SHORT_1_TT"
 			clicksound = 翻书
@@ -532,7 +533,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_short_1_lbl"
 			position = { x = 623 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -544,7 +545,7 @@ guiTypes = {
 			name = "flower_stk_2_cover_all_btn"
 			position = { x = 752 y = 346 }
 			quadTextureSprite = "GFX_flower_stock_btn_cover"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_COVER_ALL_TT"
 			clicksound = 盖章
@@ -553,7 +554,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_2_cover_all_lbl"
 			position = { x = 758 y = 353 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -574,7 +575,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_name"
 			position = { x = 84 y = 418 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_3_NAME"
 			maxWidth = 190
 			maxHeight = 22
@@ -585,7 +586,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_desc"
 			position = { x = 84 y = 441 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_3_DESC"
 			maxWidth = 216
 			maxHeight = 20
@@ -596,7 +597,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_price_val"
 			position = { x = 236 y = 418 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerStock3PriceText]"
 			maxWidth = 182
 			maxHeight = 22
@@ -607,7 +608,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_hist_val"
 			position = { x = 262 y = 441 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock3HistoryText]"
 			maxWidth = 162
 			maxHeight = 20
@@ -618,7 +619,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_hold_val"
 			position = { x = 46 y = 474 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock3HoldingsText]"
 			maxWidth = 388
 			maxHeight = 20
@@ -631,7 +632,7 @@ guiTypes = {
 			name = "flower_stk_3_buy_1_btn"
 			position = { x = 42 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy1"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_1_TT"
 			clicksound = 选择
@@ -640,7 +641,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_1_lbl"
 			position = { x = 48 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -652,7 +653,7 @@ guiTypes = {
 			name = "flower_stk_3_buy_5_btn"
 			position = { x = 177 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy5"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_5_TT"
 			clicksound = 选择
@@ -661,7 +662,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_5_lbl"
 			position = { x = 183 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
 			maxHeight = 18
@@ -673,7 +674,7 @@ guiTypes = {
 			name = "flower_stk_3_buy_lev_btn"
 			position = { x = 312 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_lev"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_LEV_TT"
 			clicksound = 盖章
@@ -682,7 +683,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_lev_lbl"
 			position = { x = 318 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
 			maxHeight = 18
@@ -694,7 +695,7 @@ guiTypes = {
 			name = "flower_stk_3_sell_all_btn"
 			position = { x = 42 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_sell"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_SELL_ALL_TT"
 			clicksound = 盖章
@@ -703,7 +704,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_sell_all_lbl"
 			position = { x = 48 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -715,7 +716,7 @@ guiTypes = {
 			name = "flower_stk_3_short_1_btn"
 			position = { x = 177 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_short"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_SHORT_1_TT"
 			clicksound = 翻书
@@ -724,7 +725,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_short_1_lbl"
 			position = { x = 183 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -736,7 +737,7 @@ guiTypes = {
 			name = "flower_stk_3_cover_all_btn"
 			position = { x = 312 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_cover"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_COVER_ALL_TT"
 			clicksound = 盖章
@@ -745,7 +746,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_3_cover_all_lbl"
 			position = { x = 318 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -766,7 +767,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_name"
 			position = { x = 524 y = 418 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_STK_4_NAME"
 			maxWidth = 190
 			maxHeight = 22
@@ -777,7 +778,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_desc"
 			position = { x = 524 y = 441 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_4_DESC"
 			maxWidth = 216
 			maxHeight = 20
@@ -788,7 +789,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_price_val"
 			position = { x = 676 y = 418 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerStock4PriceText]"
 			maxWidth = 182
 			maxHeight = 22
@@ -799,7 +800,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_hist_val"
 			position = { x = 702 y = 441 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock4HistoryText]"
 			maxWidth = 162
 			maxHeight = 20
@@ -810,7 +811,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_hold_val"
 			position = { x = 486 y = 474 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStock4HoldingsText]"
 			maxWidth = 388
 			maxHeight = 20
@@ -823,7 +824,7 @@ guiTypes = {
 			name = "flower_stk_4_buy_1_btn"
 			position = { x = 482 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy1"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_1_TT"
 			clicksound = 选择
@@ -832,7 +833,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_1_lbl"
 			position = { x = 488 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -844,7 +845,7 @@ guiTypes = {
 			name = "flower_stk_4_buy_5_btn"
 			position = { x = 617 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_buy5"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_5_TT"
 			clicksound = 选择
@@ -853,7 +854,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_5_lbl"
 			position = { x = 623 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
 			maxHeight = 18
@@ -865,7 +866,7 @@ guiTypes = {
 			name = "flower_stk_4_buy_lev_btn"
 			position = { x = 752 y = 512 }
 			quadTextureSprite = "GFX_flower_stock_btn_lev"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_LEV_TT"
 			clicksound = 盖章
@@ -874,7 +875,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_lev_lbl"
 			position = { x = 758 y = 519 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
 			maxHeight = 18
@@ -886,7 +887,7 @@ guiTypes = {
 			name = "flower_stk_4_sell_all_btn"
 			position = { x = 482 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_sell"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_SELL_ALL_TT"
 			clicksound = 盖章
@@ -895,7 +896,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_sell_all_lbl"
 			position = { x = 488 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -907,7 +908,7 @@ guiTypes = {
 			name = "flower_stk_4_short_1_btn"
 			position = { x = 617 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_short"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_SHORT_1_TT"
 			clicksound = 翻书
@@ -916,7 +917,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_short_1_lbl"
 			position = { x = 623 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
 			maxHeight = 18
@@ -928,7 +929,7 @@ guiTypes = {
 			name = "flower_stk_4_cover_all_btn"
 			position = { x = 752 y = 548 }
 			quadTextureSprite = "GFX_flower_stock_btn_cover"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_COVER_ALL_TT"
 			clicksound = 盖章
@@ -937,7 +938,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stk_4_cover_all_lbl"
 			position = { x = 758 y = 555 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
 			maxHeight = 18
@@ -950,7 +951,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_stock_footer_text"
 			position = { x = 32 y = 614 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerStockFooterText]"
 			maxWidth = 856
 			maxHeight = 22

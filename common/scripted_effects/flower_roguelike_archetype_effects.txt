@@ -386,11 +386,8 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_2_idea
 			add_idea = flower_tank_stage_3_idea
 		}
-		enable_equipment_modules = {
-			Armor_Computing_Network
-			Artificial_Intelligence_Assisted_Module
-			air_Artificial_Intelligence_Assisted_Module
-		}
+		complete_special_project = sp:sp_transistor
+		complete_special_project = sp:sp_artificial_intelligence
 		set_technology = {
 			the_world_0 = 1
 			the_world_1 = 1
@@ -444,11 +441,7 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_1_idea
 			add_idea = flower_tank_stage_2_idea
 		}
-		enable_equipment_modules = {
-			tank_dual_mounted_cannon
-			tank_Bratino_warm_pressure_rocket
-			tank_magnetic_energy_amplification_projectile
-		}
+		complete_special_project = sp:sp_tank_Bratino_warm_pressure_rocket
 		set_technology = {
 			SOV_tank_dual_mounted_cannon = 1
 			PAU_airborne_light_armor_tech = 1
@@ -577,9 +570,7 @@ flower_ai_pick_archetype_5 = {
 			remove_idea = flower_air_stage_1_idea
 			add_idea = flower_air_stage_2_idea
 		}
-		enable_equipment_modules = {
-			air_Artificial_Intelligence_Assisted_Module
-		}
+		complete_special_project = sp:sp_artificial_intelligence
 		set_technology = {
 			Siege_helicopter_available = 1
 			Siege_helicopter_0 = 1

@@ -31,7 +31,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_xiaohua_mood_text"
 			position = { x = 32 y = 122 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerXiaohuaMoodText]"
 			maxWidth = 104
 			maxHeight = 18
@@ -44,7 +44,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_title"
 			position = { x = 166 y = 24 }
-			font = "hoi_24header"
+			font = "flower_a4_24"
 			text = "FLOWER_ANOMALY_GUI_TITLE"
 			maxWidth = 620
 			maxHeight = 32
@@ -55,7 +55,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_lead_text"
 			position = { x = 166 y = 60 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyLeadText]"
 			maxWidth = 680
 			maxHeight = 20
@@ -66,7 +66,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_mode_text"
 			position = { x = 166 y = 82 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyModeSummaryText]"
 			maxWidth = 680
 			maxHeight = 20
@@ -80,7 +80,7 @@ guiTypes = {
 			name = "flower_anomaly_confirm_btn"
 			position = { x = 166 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_primary"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CONFIRM_BTN_TT"
 			clicksound = 盖章
@@ -89,7 +89,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_confirm_lbl"
 			position = { x = 176 y = 113 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerAnomalyConfirmBtnText]"
 			maxWidth = 164
 			maxHeight = 22
@@ -102,7 +102,7 @@ guiTypes = {
 			name = "flower_anomaly_multi_off_btn"
 			position = { x = 366 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_amber"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_MULTI_BTN_TT"
 			clicksound = 选择
@@ -111,7 +111,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_multi_off_lbl"
 			position = { x = 376 y = 114 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_MULTI_OFF_TEXT"
 			maxWidth = 176
 			maxHeight = 20
@@ -124,7 +124,7 @@ guiTypes = {
 			name = "flower_anomaly_multi_on_btn"
 			position = { x = 366 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_rose"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_MULTI_BTN_TT"
 			clicksound = 选择
@@ -133,7 +133,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_multi_on_lbl"
 			position = { x = 376 y = 114 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_MULTI_ON_TEXT"
 			maxWidth = 176
 			maxHeight = 20
@@ -146,7 +146,7 @@ guiTypes = {
 			name = "flower_anomaly_peek_paw_btn"
 			position = { x = 578 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_slate"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_PEEK_PAW_TT"
 			clicksound = 翻书
@@ -155,7 +155,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_peek_paw_lbl"
 			position = { x = 588 y = 114 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_RANDOM_BTN_TEXT"
 			maxWidth = 128
 			maxHeight = 20
@@ -168,7 +168,7 @@ guiTypes = {
 			name = "flower_anomaly_bookmark_btn"
 			position = { x = 742 y = 104 }
 			quadTextureSprite = "GFX_flower_btn_neutral"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_BOOKMARK_TT"
 			clicksound = click_close
@@ -177,7 +177,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_bookmark_lbl"
 			position = { x = 752 y = 114 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalySkipBtnText]"
 			maxWidth = 128
 			maxHeight = 20
@@ -191,6 +191,7 @@ guiTypes = {
 			name = "flower_anomaly_close_btn"
 			position = { x = 866 y = 20 }
 			quadTextureSprite = "GFX_flower_btn_close"
+			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
 			oversound = PAU_hover_paper
@@ -200,7 +201,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_section_title"
 			position = { x = 38 y = 165 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_ANOMALY_GUI_SECTION_TITLE"
 			maxWidth = 640
 			maxHeight = 22
@@ -214,7 +215,7 @@ guiTypes = {
 			name = "flower_anomaly_card_1_btn"
 			position = { x = 28 y = 208 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_1"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_1_TT"
 			clicksound = flower_sfx_combo_awakening
@@ -223,7 +224,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_1_status"
 			position = { x = 46 y = 346 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard1Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -235,7 +236,7 @@ guiTypes = {
 			name = "flower_anomaly_card_2_btn"
 			position = { x = 322 y = 208 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_2"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_2_TT"
 			clicksound = flower_sfx_branch_ma_baoguo
@@ -244,7 +245,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_2_status"
 			position = { x = 340 y = 346 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard2Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -256,7 +257,7 @@ guiTypes = {
 			name = "flower_anomaly_card_3_btn"
 			position = { x = 616 y = 208 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_3"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_3_TT"
 			clicksound = flower_sfx_branch_stonks_money
@@ -265,7 +266,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_3_status"
 			position = { x = 634 y = 346 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard3Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -277,7 +278,7 @@ guiTypes = {
 			name = "flower_anomaly_card_4_btn"
 			position = { x = 28 y = 402 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_4"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_4_TT"
 			clicksound = flower_sfx_branch_eat_tuva
@@ -286,7 +287,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_4_status"
 			position = { x = 46 y = 540 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard4Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -298,7 +299,7 @@ guiTypes = {
 			name = "flower_anomaly_card_5_btn"
 			position = { x = 322 y = 402 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_5"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_5_TT"
 			clicksound = flower_sfx_branch_steiner_heroes
@@ -307,7 +308,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_5_status"
 			position = { x = 340 y = 540 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard5Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -319,7 +320,7 @@ guiTypes = {
 			name = "flower_anomaly_card_6_btn"
 			position = { x = 616 y = 402 }
 			quadTextureSprite = "GFX_flower_grand_anomaly_6"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_6_TT"
 			clicksound = flower_sfx_branch_nightmare_boss
@@ -328,7 +329,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_card_6_status"
 			position = { x = 634 y = 540 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard6Status]"
 			maxWidth = 240
 			maxHeight = 20
@@ -341,7 +342,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_footer_text"
 			position = { x = 32 y = 614 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyFooterText]"
 			maxWidth = 650
 			maxHeight = 22
@@ -353,7 +354,7 @@ guiTypes = {
 			name = "flower_anomaly_bow_btn"
 			position = { x = 702 y = 607 }
 			quadTextureSprite = "GFX_flower_btn_bow"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_BOW_CHARM_TT"
 			clicksound = PAU_hover_bell
@@ -362,7 +363,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_anomaly_bow_lbl"
 			position = { x = 724 y = 615 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_BOW_BTN_TEXT"
 			maxWidth = 154
 			maxHeight = 20

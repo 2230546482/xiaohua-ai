@@ -16,7 +16,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_drag_title"
 			position = { x = 24 y = 6 }
-			font = "hoi_16mbs"
+			font = "flower_a4_16"
 			text = "FLOWER_DOCK_DRAG_TITLE"
 			maxWidth = 152
 			maxHeight = 18
@@ -30,7 +30,7 @@ guiTypes = {
 			name = "flower_dock_collapse_btn"
 			position = { x = 181 y = 5 }
 			quadTextureSprite = "GFX_flower_dock_btn_collapse"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_COLLAPSE_TT"
 			clicksound = click_close
@@ -48,7 +48,7 @@ guiTypes = {
 			name = "flower_dock_anomaly_btn"
 			position = { x = 12 y = 32 }
 			quadTextureSprite = "GFX_flower_dock_btn_anomaly"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_ANOMALY_TT"
 			clicksound = open_ui_collection
@@ -57,7 +57,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_anomaly_lbl"
 			position = { x = 36 y = 39 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerDockAnomalyBtnText]"
 			maxWidth = 150
 			maxHeight = 20
@@ -83,7 +83,7 @@ guiTypes = {
 			name = "flower_dock_draft_btn"
 			position = { x = 12 y = 70 }
 			quadTextureSprite = "GFX_flower_dock_btn_draft"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_DRAFT_TT_WRAP"
 			clicksound = 翻书
@@ -92,7 +92,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_draft_lbl"
 			position = { x = 36 y = 77 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerDockDraftBtnText]"
 			maxWidth = 150
 			maxHeight = 20
@@ -112,7 +112,7 @@ guiTypes = {
 			name = "flower_dock_history_btn"
 			position = { x = 12 y = 108 }
 			quadTextureSprite = "GFX_flower_dock_btn_history"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_HISTORY_TT"
 			clicksound = 翻书
@@ -121,7 +121,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_history_lbl"
 			position = { x = 36 y = 115 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "FLOWER_DOCK_HISTORY_BTN_TEXT"
 			maxWidth = 150
 			maxHeight = 20
@@ -135,7 +135,7 @@ guiTypes = {
 			name = "flower_dock_guard_btn"
 			position = { x = 12 y = 146 }
 			quadTextureSprite = "GFX_flower_dock_btn_guard"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_GUARD_TT_WRAP"
 			clicksound = click_checkbox
@@ -144,7 +144,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_guard_lbl"
 			position = { x = 36 y = 153 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerDockGuardBtnText]"
 			maxWidth = 150
 			maxHeight = 20
@@ -164,7 +164,7 @@ guiTypes = {
 			name = "flower_dock_stock_btn"
 			position = { x = 12 y = 184 }
 			quadTextureSprite = "GFX_flower_dock_btn_stock"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_STOCK_TT_WRAP"
 			clicksound = 盖章
@@ -173,7 +173,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "flower_dock_stock_lbl"
 			position = { x = 36 y = 191 }
-			font = "hoi_18mbs"
+			font = "flower_a4_18"
 			text = "[GetFlowerDockStockBtnText]"
 			maxWidth = 150
 			maxHeight = 20
@@ -203,7 +203,7 @@ guiTypes = {
 			name = "flower_dock_expand_btn"
 			position = { x = 2 y = 2 }
 			quadTextureSprite = "GFX_flower_dock_mini_badge"
-			buttonFont = "hoi_16mbs"
+			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DOCK_EXPAND_TT"
 			clicksound = open_ui_collection

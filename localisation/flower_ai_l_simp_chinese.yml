@@ -520,7 +520,10 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
 
  #开局畸变全员就绪与跳过按钮动态文本
  FLOWER_ANOMALY_CONFIRM_BTN_READY:0 "§G已就绪（点击取消）§!"
+ FLOWER_ANOMALY_CONFIRM_BTN_PICK_FIRST:0 "§7请先点卡片投票§!"
+ FLOWER_ANOMALY_CONFIRM_BTN_SETTLED:0 "§G收起面板§!"
  FLOWER_ANOMALY_SKIP_BTN_ACTIVE:0 "§Y已选跳过（取消）§!"
+ FLOWER_ANOMALY_SKIP_BTN_SETTLED:0 "§H返回地图§!"
 
  #老实赚钱很枯燥吧：全球交易所实盘炒股
  flower_stock_god_idea:0 "§G一代股神§!"
@@ -619,8 +622,10 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  FLOWER_STK_FOOTER_DESC:0 "每月初自动跳价并刷新行情。累计已结盈利达 1500 点解锁【一代股神】；爆仓或累计亏损达 1000 点挂上【天台排队中】。"
 
  #悬浮窗交易所按钮
+ FLOWER_DOCK_STOCK_BTN_LOCKED:0 "§7交易所(未解锁)§!"
  FLOWER_DOCK_STOCK_BTN_ALERT:0 "§G交易所(新行情!)§!"
  FLOWER_DOCK_STOCK_BTN_IDLE:0 "§H全球交易所§!"
+ FLOWER_DOCK_STOCK_TT_LOCKED:0 "§7全球交易所（尚未解锁）§!\n需在开局畸变投票中开启【老实赚钱很枯燥吧】后，方可解锁实盘炒股与盈利购厂面板。"
  FLOWER_DOCK_STOCK_TT:0 "§H全球交易所：实盘炒股与实业购厂§!\n随时查看 4 只上市股票行情，进行现货买卖、2x 杠杆与融券做空，并将炒股利润即时兑换为军用工厂与民用工厂。"
  FLOWER_DOCK_STOCK_TT_WRAP:0 "[GetFlowerDockStockTT]"
 

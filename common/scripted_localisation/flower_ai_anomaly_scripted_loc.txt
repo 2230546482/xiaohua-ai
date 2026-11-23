@@ -196,10 +196,27 @@ defined_text = {
 	name = GetFlowerAnomalyConfirmBtnText
 	text = {
 		trigger = {
+			has_global_flag = flower_anomaly_voting_settled
+		}
+		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_SETTLED
+	}
+	text = {
+		trigger = {
 			has_country_flag = flower_anomaly_player_ready
 			NOT = { has_country_flag = flower_anomaly_player_skip }
 		}
 		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_READY
+	}
+	text = {
+		trigger = {
+			NOT = { check_variable = { global.flower_anomaly_vote_1 > 0 } }
+			NOT = { check_variable = { global.flower_anomaly_vote_2 > 0 } }
+			NOT = { check_variable = { global.flower_anomaly_vote_3 > 0 } }
+			NOT = { check_variable = { global.flower_anomaly_vote_4 > 0 } }
+			NOT = { check_variable = { global.flower_anomaly_vote_5 > 0 } }
+			NOT = { check_variable = { global.flower_anomaly_vote_6 > 0 } }
+		}
+		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_PICK_FIRST
 	}
 	text = {
 		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_TEXT
@@ -208,6 +225,12 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerAnomalySkipBtnText
+	text = {
+		trigger = {
+			has_global_flag = flower_anomaly_voting_settled
+		}
+		localization_key = FLOWER_ANOMALY_SKIP_BTN_SETTLED
+	}
 	text = {
 		trigger = {
 			has_country_flag = flower_anomaly_player_skip
@@ -223,6 +246,12 @@ defined_text = {
 	name = GetFlowerDockStockBtnText
 	text = {
 		trigger = {
+			NOT = { has_global_flag = flower_anomaly_3_active }
+		}
+		localization_key = FLOWER_DOCK_STOCK_BTN_LOCKED
+	}
+	text = {
+		trigger = {
 			has_country_flag = flower_stk_new_tick_unread
 		}
 		localization_key = FLOWER_DOCK_STOCK_BTN_ALERT
@@ -234,6 +263,12 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerDockStockTT
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flower_anomaly_3_active }
+		}
+		localization_key = FLOWER_DOCK_STOCK_TT_LOCKED
+	}
 	text = {
 		localization_key = FLOWER_DOCK_STOCK_TT
 	}

@@ -12,14 +12,14 @@ scripted_gui = {
 
 		triggers = {
 			flower_xiaohua_portrait_happy_visible = {
-				check_variable = { flower_stk_unrealized_pnl >= 0 }
+				NOT = { check_variable = { flower_stk_unrealized_pnl < 0 } }
 			}
 			flower_xiaohua_portrait_cry_visible = {
 				check_variable = { flower_stk_unrealized_pnl < 0 }
 			}
 			flower_stk_buy_factory_btn_click_enabled = {
 				NOT = { has_country_flag = flower_stk_buy_factory_cd }
-				check_variable = { ubs_save >= 500 }
+				NOT = { check_variable = { ubs_save < 500 } }
 			}
 		}
 

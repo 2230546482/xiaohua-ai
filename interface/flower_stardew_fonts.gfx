@@ -109,4 +109,114 @@ bitmapfonts = {
 		}
 		languages = { "l_simp_chinese" }
 	}
+
+	#方案A-4高辨识度暖奶油亮色黑边正文字体（16号，挂载原版黑描边全量中文字库+高反差亮色表）
+	bitmapfont = {
+		name = "flower_a4_16"
+		fontfiles = {
+			"gfx/fonts/hoi_16mbs"
+			"gfx/fonts/hoi_16mbs_cryllic"
+		}
+		color = 0xfffff8e2
+		textcolors = {
+			G = { 134 252 120 }
+			R = { 255 124 110 }
+			Y = { 255 236 122 }
+			H = { 255 244 168 }
+			O = { 255 196 102 }
+			C = { 136 240 255 }
+			B = { 150 208 255 }
+			W = { 255 248 226 }
+			T = { 255 248 226 }
+			g = { 216 196 168 }
+			L = { 255 224 146 }
+			M = { 255 166 232 }
+			t = { 132 246 226 }
+			1 = { 226 172 255 }
+			7 = { 212 192 162 }
+		}
+	}
+	bitmapfont_override = {
+		name = "flower_a4_16"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_16mbs_1of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_2of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_3of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_4of4EX"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	#方案A-4高辨识度暖奶油亮色黑边副标题与按钮字体（18号）
+	bitmapfont = {
+		name = "flower_a4_18"
+		fontfiles = {
+			"gfx/fonts/hoi_18mbs"
+			"gfx/fonts/hoi_18mbs_cryllic"
+		}
+		color = 0xfffff8e2
+		textcolors = {
+			G = { 134 252 120 }
+			R = { 255 124 110 }
+			Y = { 255 236 122 }
+			H = { 255 244 168 }
+			O = { 255 196 102 }
+			C = { 136 240 255 }
+			B = { 150 208 255 }
+			W = { 255 248 226 }
+			T = { 255 248 226 }
+			g = { 216 196 168 }
+			L = { 255 224 146 }
+			M = { 255 166 232 }
+			t = { 132 246 226 }
+			1 = { 226 172 255 }
+			7 = { 212 192 162 }
+		}
+	}
+	bitmapfont_override = {
+		name = "flower_a4_18"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_18mbs_1of4EX"
+			"gfx/fonts/chinese/hoi_18mbs_2of4EX"
+			"gfx/fonts/chinese/hoi_18mbs_3of4EX"
+			"gfx/fonts/chinese/hoi_18mbs_4of4EX"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	#方案A-4高辨识度暖奶油亮色大标题字体（24号）
+	bitmapfont = {
+		name = "flower_a4_24"
+		fontfiles = {
+			"gfx/fonts/hoi_24header"
+		}
+		color = 0xfffff8e2
+		textcolors = {
+			G = { 134 252 120 }
+			R = { 255 124 110 }
+			Y = { 255 236 122 }
+			H = { 255 244 168 }
+			O = { 255 196 102 }
+			C = { 136 240 255 }
+			B = { 150 208 255 }
+			W = { 255 248 226 }
+			T = { 255 248 226 }
+			g = { 216 196 168 }
+			L = { 255 224 146 }
+			M = { 255 166 232 }
+			t = { 132 246 226 }
+			1 = { 226 172 255 }
+			7 = { 212 192 162 }
+		}
+	}
+	bitmapfont_override = {
+		name = "flower_a4_24"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_24header_1of4"
+			"gfx/fonts/chinese/hoi_24header_2of4"
+			"gfx/fonts/chinese/hoi_24header_3of4"
+			"gfx/fonts/chinese/hoi_24header_4of4"
+		}
+		languages = { "l_simp_chinese" }
+	}
 }

@@ -152,29 +152,29 @@ NFA_war_with_PAN = {
 		original_tag = NFA
 	}
 	enable = {
-		has_war_with = VHS
+		has_war_with = PAN
 	}
 	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = invade		#入侵
-		id = "VHS"			
+		id = "PAN"			
 		value = 200
 	}
 	ai_strategy = {
 		type = conquer		#征服
-		id = "VHS"			
+		id = "PAN"			
 		value = 200
 	}
 	ai_strategy = {
 		type = invasion_unit_request
-		tag = VHS
+		tag = PAN
 		value = 20
 	}
 	
 	ai_strategy = {
 		type = front_unit_request #前线部队
-		tag = VHS
+		tag = PAN
 		value = 100 #lets put more units, should be safe
 	}
 	
@@ -257,7 +257,7 @@ NFA_fangyuPAN = {
 	}
 
 	enable = {
-		country_exists = VHS
+		country_exists = PAN
 		not = { has_government = communism }
 	}
 	
@@ -265,7 +265,7 @@ NFA_fangyuPAN = {
 	
 	ai_strategy = {
 		type = antagonize
-		id = "VHS"			
+		id = "PAN"			
 		value = 200
 	}	
 	
@@ -279,7 +279,7 @@ NFA_fangyuPAN2 = {
 	}
 
 	enable = {
-		country_exists = VHS
+		country_exists = PAN
 		not = { has_government = communism }
 	}
 	
@@ -287,7 +287,7 @@ NFA_fangyuPAN2 = {
 	
 	ai_strategy = {
 		type = invade
-		id = VHS
+		id = PAN
 		value = 200
 	}
 }

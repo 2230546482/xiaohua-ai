@@ -19,7 +19,7 @@ ideas = {
                 production_speed_supply_node_factor = 0.50
                 production_speed_rail_way_factor = 0.50
                 production_speed_infrastructure_factor = 0.50
-                attrition_factor = -0.30
+                attrition = -0.30
                 out_of_supply_factor = -0.25
                 supply_consumption_factor = -0.15
                 supply_node_range = 0.20
@@ -97,7 +97,7 @@ ideas = {
                 air_intercept_efficiency = 0.30
                 supply_node_range = 0.50
                 supply_consumption_factor = -0.45
-                attrition_factor = -0.35
+                attrition = -0.35
                 out_of_supply_factor = -0.35
                 winter_attrition_factor = -0.50
                 weekly_manpower = 15000
@@ -194,7 +194,7 @@ ideas = {
                 special_forces_cap = 2
                 supply_node_range = 0.35
                 supply_consumption_factor = -0.30
-                attrition_factor = -0.20
+                attrition = -0.20
                 weekly_manpower = 8000
                 conscription = 0.05
                 conscription_factor = 0.15
@@ -282,7 +282,7 @@ ideas = {
                 special_forces_cap = 1.8
                 supply_node_range = 0.25
                 supply_consumption_factor = -0.2
-                attrition_factor = -0.1
+                attrition = -0.1
                 weekly_manpower = 6000
                 conscription = 0.03
                 conscription_factor = 0.1
@@ -529,7 +529,7 @@ ideas = {
                 land_reinforce_rate = 0.1
                 planning_speed = 0.30
                 supply_consumption_factor = -0.25
-                attrition_factor = -0.20
+                attrition = -0.20
             }
             on_remove = {
             }
@@ -550,7 +550,7 @@ ideas = {
                 land_reinforce_rate = 0.1
                 planning_speed = 0.30
                 supply_consumption_factor = -0.25
-                attrition_factor = -0.20
+                attrition = -0.20
             }
             on_remove = {
             }
@@ -769,6 +769,19 @@ ideas = {
                 breakthrough_bonus_against = 2
             }
             on_remove = {
+            }
+        }
+        red_super_gutou_phase2 = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = GFX_idea_DVL_nazarick
+            modifier = {
+                army_attack_factor = 0.25
+                army_defence_factor = 0.25
+                breakthrough_factor = 0.25
+                army_org_factor = 0.15
+                industrial_capacity_factory = 0.30
+                supply_consumption_factor = -0.25
             }
         }
         #开局畸变全局精神

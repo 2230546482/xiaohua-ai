@@ -548,7 +548,7 @@ TAM_war_with_PER_AFG = {
 	}
 	ai_strategy = {
 		type = prepare_for_war		#前线部队
-		tag = PER
+		id = PER
 		value = 200		#lets put more units, should be safe
 	}
 	ai_strategy = {
@@ -558,7 +558,7 @@ TAM_war_with_PER_AFG = {
 	}
 	ai_strategy = {
 		type = prepare_for_war		#前线部队
-		tag = AFG
+		id = AFG
 		value = 150		#lets put more units, should be safe
 	}
 }

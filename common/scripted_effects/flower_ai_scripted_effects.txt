@@ -1480,13 +1480,13 @@ flower_ai_recalc_anomaly_ready = {
 	}
 	if = {
 		limit = {
-			has_global_flag = flower_anomaly_voting_open
+			NOT = { has_global_flag = flower_anomaly_voting_settled }
 			check_variable = { global.flower_human_total > 0 }
-			check_variable = { global.flower_human_ready >= global.flower_human_total }
+			NOT = { check_variable = { global.flower_human_ready < global.flower_human_total } }
 		}
 		if = {
 			limit = {
-				check_variable = { global.flower_human_skip >= global.flower_human_total }
+				NOT = { check_variable = { global.flower_human_skip < global.flower_human_total } }
 			}
 			clr_global_flag = flower_anomaly_voting_open
 			set_global_flag = flower_anomaly_voting_settled

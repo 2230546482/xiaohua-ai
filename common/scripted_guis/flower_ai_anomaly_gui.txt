@@ -28,10 +28,18 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode > 0 }
 			}
 			flower_dock_stock_glow_visible = {
+				has_global_flag = flower_anomaly_3_active
 				has_country_flag = flower_stk_new_tick_unread
 			}
 			flower_dock_stock_alert_visible = {
+				has_global_flag = flower_anomaly_3_active
 				has_country_flag = flower_stk_new_tick_unread
+			}
+			flower_dock_stock_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_anomaly_3_active
+					has_country_flag = flower_stock_gui_open
+				}
 			}
 		}
 
@@ -100,7 +108,8 @@ scripted_gui = {
 					limit = { has_country_flag = flower_stock_gui_open }
 					clr_country_flag = flower_stock_gui_open
 				}
-				else = {
+				else_if = {
+					limit = { has_global_flag = flower_anomaly_3_active }
 					if = {
 						limit = { check_variable = { global.flower_stk_1_price < 1 } }
 						flower_stock_init_market = yes
@@ -138,7 +147,10 @@ scripted_gui = {
 				OR = {
 					NOT = { has_global_flag = flower_anomaly_voting_settled }
 					check_variable = { flower_draft_gui_mode > 0 }
-					has_country_flag = flower_stk_new_tick_unread
+					AND = {
+						has_global_flag = flower_anomaly_3_active
+						has_country_flag = flower_stk_new_tick_unread
+					}
 				}
 			}
 		}
