@@ -7,6 +7,7 @@ scripted_gui = {
 
 		visible = {
 			is_ai = no
+			NOT = { has_country_flag = flower_floating_dock_hidden }
 		}
 		ai_enabled = { always = no }
 
@@ -112,6 +113,40 @@ scripted_gui = {
 					set_country_flag = flower_stock_gui_open
 					flower_stock_recalc_country_pnl = yes
 				}
+			}
+			flower_dock_collapse_btn_click = {
+				set_country_flag = flower_floating_dock_hidden
+			}
+		}
+	}
+
+	#折叠后的迷你小花徽章悬浮钮（42x42，随时点击一键展开完整悬浮窗）
+	flower_ai_floating_dock_mini_gui = {
+		context_type = player_context
+		window_name = "flower_ai_floating_dock_mini_window"
+		parent_window_token = top_bar
+
+		visible = {
+			is_ai = no
+			has_country_flag = flower_floating_dock_hidden
+			NOT = { has_country_flag = flower_floating_dock_fully_off }
+		}
+		ai_enabled = { always = no }
+
+		triggers = {
+			flower_dock_mini_alert_visible = {
+				OR = {
+					NOT = { has_global_flag = flower_anomaly_voting_settled }
+					check_variable = { flower_draft_gui_mode > 0 }
+					has_country_flag = flower_stk_new_tick_unread
+				}
+			}
+		}
+
+		effects = {
+			flower_dock_expand_btn_click = {
+				clr_country_flag = flower_floating_dock_hidden
+				clr_country_flag = flower_floating_dock_fully_off
 			}
 		}
 	}

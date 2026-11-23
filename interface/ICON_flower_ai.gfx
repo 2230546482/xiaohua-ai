@@ -868,6 +868,18 @@ spriteTypes = {
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
 	spriteType = {
+		name = "GFX_flower_dock_btn_collapse"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_collapse.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_mini_badge"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_mini_badge.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
 		name = "GFX_flower_stock_card_1"
 		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_1.png"
 		legacy_lazy_load = no

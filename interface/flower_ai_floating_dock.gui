@@ -15,14 +15,26 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_dock_drag_title"
-			position = { x = 32 y = 6 }
+			position = { x = 24 y = 6 }
 			font = "hoi_16mbs"
 			text = "FLOWER_DOCK_DRAG_TITLE"
-			maxWidth = 148
+			maxWidth = 152
 			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
+		}
+
+		#顶栏右上角：一键收起/隐藏悬浮窗为迷你徽章
+		buttonType = {
+			name = "flower_dock_collapse_btn"
+			position = { x = 181 y = 5 }
+			quadTextureSprite = "GFX_flower_dock_btn_collapse"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_COLLAPSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
 		}
 
 		#按钮1：开局畸变投票箱入口
@@ -172,6 +184,34 @@ guiTypes = {
 		iconType = {
 			name = "flower_dock_stock_alert"
 			position = { x = 186 y = 176 }
+			spriteType = "GFX_flower_dock_alert_dot"
+			alwaystransparent = yes
+		}
+	}
+
+	#折叠后的迷你小花徽章悬浮钮（42x42，随时点击一键展开完整悬浮窗）
+	containerWindowType = {
+		name = "flower_ai_floating_dock_mini_window"
+		position = { x = -118 y = 88 }
+		size = { width = 46 height = 46 }
+		Orientation = UPPER_RIGHT
+		moveable = yes
+		click_to_front = yes
+		clipping = no
+
+		buttonType = {
+			name = "flower_dock_expand_btn"
+			position = { x = 2 y = 2 }
+			quadTextureSprite = "GFX_flower_dock_mini_badge"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_EXPAND_TT"
+			clicksound = open_ui_collection
+			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_dock_mini_alert"
+			position = { x = 30 y = 0 }
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}
