@@ -184,19 +184,19 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_trait_flower_dimension_ripper_trait"
-		texturefile = "gfx/interface/ideas/idea_magic_overcharge.dds"
+		texturefile = "gfx/interface/flower_dimension_ripper_trait.png"
 	}
 	spriteType = {
 		name = "GFX_trait_flower_wanrendi_trait"
-		texturefile = "gfx/interface/ideas/PAO/AUF_zyzs.png"
+		texturefile = "gfx/interface/flower_wanrendi_trait.png"
 	}
 	spriteType = {
 		name = "GFX_trait_flower_space_magician_trait"
-		texturefile = "gfx/interface/ideas/SOV/space_and_time_management_bureau.png"
+		texturefile = "gfx/interface/flower_space_magician_trait.png"
 	}
 	spriteType = {
 		name = "GFX_trait_flower_grand_chessmaster_trait"
-		texturefile = "gfx/interface/ideas/SOV/SOV_earth_defense_consensus.png"
+		texturefile = "gfx/interface/flower_grand_chessmaster_trait.png"
 	}
 	#民族精神与成长词条图标（复用主模组原汁原味图标，零AI贴纸画风）
 	spriteType = {
@@ -233,11 +233,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_roguelike"
-		texturefile = "gfx/interface/goals/rolling_the_dice.dds"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_roguelike_dice.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_blitz"
-		texturefile = "gfx/interface/goals/CAN/doctrine_tank_warfare.png"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_blitz.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_tycoon"
@@ -245,11 +245,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_devour"
-		texturefile = "gfx/interface/ideas/PAM/PAM_yybsdwy.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_eat_tuva.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_heroes"
-		texturefile = "gfx/interface/ideas/SOV/SOV_earth_defense_consensus.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_how_many_divs.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_nightmare"
@@ -269,11 +269,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_tank_evolve"
-		texturefile = "gfx/interface/goals/KMK/holy_roma_empire_sakuya.dds"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_tank_s3_sakuya.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_mystery_egg"
-		texturefile = "gfx/interface/decisions/PAM/cash_in_military_luck.png"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_mystery_egg.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_blood_wager"
@@ -281,7 +281,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_air_evolve"
-		texturefile = "gfx/interface/goals/CAN/generic_air_CAS_new.png"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_air_s2.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_wave_evolve"
@@ -297,7 +297,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_nightingale"
-		texturefile = "gfx/interface/technologies/PAO/wangling3_tech.png"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_ng_s3.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_guerrilla"
@@ -309,7 +309,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_steampunk"
-		texturefile = "gfx/interface/technologies/flying_saucer_tech.dds"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_ufo_s3.png"
 	}
 	#肉鸽进阶分叉、战术遗物、诅咒契约与化学反应图标（全部复用萌心主mod原生图标）
 	spriteType = {
@@ -326,7 +326,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_bone_king"
-		texturefile = "gfx/interface/ideas/DVL/DVL_Nazarick.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ainz_king.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_steam_gear"
@@ -334,7 +334,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_star_fleet"
-		texturefile = "gfx/interface/ideas/DEN/ocean_of_star.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ufo_watermeter.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_elf"
@@ -368,6 +368,469 @@ spriteTypes = {
 		name = "GFX_idea_flower_idea_combo_spark"
 		texturefile = "gfx/interface/ideas/PAM/PAM_living_world_icon.png"
 	}
+	#肉鸽专属细分民族精神图标（一精神一图，彻底消除重复与不搭）
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_night"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ma_baoguo.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_supply"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_trench_hotpot.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_assembly"
+		texturefile = "gfx/interface/ideas/LHS/chanxian.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_intel"
+		texturefile = "gfx/interface/ideas/generic_spy_intel.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_blackmarket"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_liu_huaqiang.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_specops"
+		texturefile = "gfx/interface/ideas/KMK/idea_eng_special_air_service.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_marshal"
+		texturefile = "gfx/interface/ideas/CAN/generic_crown.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_bunker"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_maginot_detour.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_blitz"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_wang_shijian.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_air"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_green_air_cat.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_surgery"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_field_huatuo.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_relic_fuel"
+		texturefile = "gfx/interface/ideas/idea_generic_fuel_reserves.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_boats"
+		texturefile = "gfx/interface/ideas/idea_INS_defend_java_til_death.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_alchemy"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_factory_screw.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_espresso"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_iced_americano.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_berserk"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_kill_chibi.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_loan"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_dollar_loan.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_reactor"
+		texturefile = "gfx/interface/ideas/idea_SOV_atomic_bomb_project.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_nostep"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_tiger_eyes.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_curse_overclock"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_luffa_soup.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_godhand"
+		texturefile = "gfx/interface/ideas/idea_SOV_crowning_jewel_of_russia.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_windfall"
+		texturefile = "gfx/interface/ideas/spr_relocate_the_gold_reserves.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_einstein"
+		texturefile = "gfx/interface/ideas/generic_research_bonus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_ironluck"
+		texturefile = "gfx/interface/ideas/ROM_royal_shield_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_bankrupt"
+		texturefile = "gfx/interface/ideas/idea_gre_debt_to_the_ifc.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_jammed"
+		texturefile = "gfx/interface/ideas/idea_NOR_broken_gun_ns.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_chaos"
+		texturefile = "gfx/interface/ideas/idea_tur_disorganised_armed_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_fate_scandal"
+		texturefile = "gfx/interface/ideas/idea_JAP_press_association_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_sweatshop"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Flesh_gear.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_guerrilla"
+		texturefile = "gfx/interface/ideas/LHS/lwnyyouji.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_barrage"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Marisa.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_diehard"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Huziwara_no_Mokou.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_starmic"
+		texturefile = "gfx/interface/ideas/DEN/KEI_central_aircraft_factory.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_gensokyo"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Reimu.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_timestop"
+		texturefile = "gfx/interface/ideas/MGU/idea_MGU_Azure_Star.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_valkyrie"
+		texturefile = "gfx/interface/ideas/KMK/idea_SWE_land_air_warfare.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_harvest"
+		texturefile = "gfx/interface/ideas/idea_CHI_initiate_gung_ho_movement.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_combo_blacktycoon"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Export_advanced_industrial_products.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_syn_ironrain"
+		texturefile = "gfx/interface/ideas/combined_bomber_offensive.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_syn_tycoon"
+		texturefile = "gfx/interface/ideas/MGU/idea_MGU_sonoko_industrial.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_syn_void"
+		texturefile = "gfx/interface/ideas/SOV/magical_girl.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_syn_nightmare"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Saigyouji_Yuyuko.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_ng_blood"
+		texturefile = "gfx/interface/ideas/DVL/DVL_Shalltear_Bloodfallen_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_gu_scorch"
+		texturefile = "gfx/interface/ideas/LHS/youji.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_gu_sea"
+		texturefile = "gfx/interface/ideas/KMK/idea_chi_war_of_resistance3.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_ud_plague"
+		texturefile = "gfx/interface/ideas/MGU/swarm2.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_ud_factory"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ainz_boss.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_corp_trust"
+		texturefile = "gfx/interface/ideas/idea_NOR_printing_money.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_corp_mega"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_big_house.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_arty_carpet"
+		texturefile = "gfx/interface/ideas/idea_generic_artillery_regiments.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_arty_mobile"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ae86_arty.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_tank_time"
+		texturefile = "gfx/interface/ideas/KMK/idea_KMK_Sakuya.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_tank_fort"
+		texturefile = "gfx/interface/ideas/idea_generic_acquire_tanks.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_air_cas"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_stuka_shampoo.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_air_sup"
+		texturefile = "gfx/interface/ideas/KMK/idea_NORDIC_airforce_monarchist.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_wave_banzai"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_steiner_glasses.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_magic_chosen"
+		texturefile = "gfx/interface/ideas/SOV/magic_book.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_magic_grim"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Ministry_of_Magic.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_ng_cloak"
+		texturefile = "gfx/interface/ideas/PAM/nightingale_slow.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_gu_manual"
+		texturefile = "gfx/interface/ideas/PAM/nightingale_supply.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_sanae"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Sanae.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_antiscam"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_qin_shihuang.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_short_squeeze"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_crying_hamster.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_wager_win"
+		texturefile = "gfx/interface/ideas/FRA_army_of_aggression_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_wager_cons"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_wuhan_suanniao.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_egg_hatched"
+		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Star_Sapphire.dds"
+	}
+	#BEGIN_UNIQUE_IDEA_ICONS
+	spriteType = {
+		name = "GFX_idea_flower_ico_corp_s1"
+		texturefile = "gfx/interface/ideas/CAN/IRE_medium_industry.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_corp_s2"
+		texturefile = "gfx/interface/ideas/KMK/idea_ETH_dire_dawa_industries.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_corp_s3"
+		texturefile = "gfx/interface/ideas/NPT/NPT_fully_integrat_economy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_corp_mil"
+		texturefile = "gfx/interface/ideas/CAN/NOR_planned_economy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_corp_civ"
+		texturefile = "gfx/interface/ideas/NOR/NOR_industrialised_1.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_corp_eff"
+		texturefile = "gfx/interface/ideas/SOV/plan_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_wave_s1"
+		texturefile = "gfx/interface/ideas/LHS/gongshi.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_wave_s2"
+		texturefile = "gfx/interface/ideas/NPT/NPT_all_dimensional_red_army.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_wave_meat"
+		texturefile = "gfx/interface/ideas/PAU/PAU_borderless_army.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_wave_exp"
+		texturefile = "gfx/interface/ideas/ONM/idea_HUN_rapid_army_expansion.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_wave_hold"
+		texturefile = "gfx/interface/ideas/ONM/idea_generic_fortify_the_borders.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_wave_rest"
+		texturefile = "gfx/interface/ideas/SOV/the_red_cross.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_magic_s2"
+		texturefile = "gfx/interface/ideas/MGU_yuki/GFX_idea_MGU_yuki_magic_armor.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_magic_s3"
+		texturefile = "gfx/interface/ideas/idea_race_demon.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_uma"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_teio_uma.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_magic_std"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Allocate_scientific_research_resources.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_magic_ovr"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Magic_leads.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_punk_s1"
+		texturefile = "gfx/interface/ideas/ELF/ygxy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_punk_s2"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_punk_s2.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_punk_for"
+		texturefile = "gfx/interface/ideas/ELF/fzhy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_punk_ufo"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_sp_materials_science.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_undead_s2"
+		texturefile = "gfx/interface/ideas/PAU/PAU_undead_counterattack.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_undead_s3"
+		texturefile = "gfx/interface/ideas/PAU/PAU_defy_death.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_undead_arm"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_op_undead_armor.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_undead_lab"
+		texturefile = "gfx/interface/ideas/DVL/idea_Undead_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_air_s1"
+		texturefile = "gfx/interface/ideas/CAN/generic_airforce.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_air_s3"
+		texturefile = "gfx/interface/ideas/ONM/idea_AST_government_aircraft_factories.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_air_carp"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_op_air_carpet.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_tycoon_bull"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_stonks_uma.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_hero_s2"
+		texturefile = "gfx/interface/ideas/idea_UBS_Bank.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_arty_s1"
+		texturefile = "gfx/interface/ideas/ONM/idea_SWE_let_fly_all_guns.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_arty_s3"
+		texturefile = "gfx/interface/ideas/SWE/SWE_Plan_Sunset_rockets_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_arty_bar"
+		texturefile = "gfx/interface/ideas/DVL/idea_DVL_Ground_bombing.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_ng_s1"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_ng_s1.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_ng_s2"
+		texturefile = "gfx/interface/ideas/PAM/PAO_zzjd1.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_ng_raid"
+		texturefile = "gfx/interface/ideas/ROC/ROC_idea_sword_of_heaven.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_tank_s1"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_tank_s1.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_tank_s2"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_tank_s2.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_tank_ts"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_angry_atri.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_hero_s1"
+		texturefile = "gfx/interface/ideas/RUS/RUS_general_school.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_hero_s3"
+		texturefile = "gfx/interface/ideas/CAN/general_staff.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_gu_s2"
+		texturefile = "gfx/interface/ideas/LHS/gonglu.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_gu_s3"
+		texturefile = "gfx/interface/ideas/ONM/idea_PER_special_units_division_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_blitz_king"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_blitz_king.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_nightmare_boss"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_nightmare_boss.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_gu_heavy"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_li_yunlong.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_elf"
+		texturefile = "gfx/interface/ideas/ELF/bsxy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_evo_slayer_dis"
+		texturefile = "gfx/interface/ideas/PAU/PAU_garage_retrofits.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_ico_op_gu_sabo"
+		texturefile = "gfx/interface/ideas/PAU/PAU_undead_burn_depot.png"
+	}
+	#END_UNIQUE_IDEA_ICONS
 	#全新大气悬浮窗与920x660主面板GUI素材
 	spriteType = {
 		name = "GFX_flower_dock_bg"
@@ -383,6 +846,135 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_flower_dock_btn_draft"
 		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_draft.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_history"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_history.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_guard"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_guard.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_stock"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_stock.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_card_1"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_1.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_stock_card_2"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_2.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_stock_card_3"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_3.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_stock_card_4"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_4.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_buy1"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_buy1.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_buy5"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_buy5.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_sell"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_sell.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_lev"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_lev.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_short"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_short.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_stock_btn_cover"
+		texturefile = "gfx/interface/gui/flower_ui/flower_stock_btn_cover.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_tab_active"
+		texturefile = "gfx/interface/gui/flower_ui/flower_tab_active.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_tab_inactive"
+		texturefile = "gfx/interface/gui/flower_ui/flower_tab_inactive.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_tab_inactive_cta"
+		texturefile = "gfx/interface/gui/flower_ui/flower_tab_inactive_cta.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_page_nav"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_page_nav.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_neutral"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_neutral.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_random_sm"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_random_sm.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_stock_god_idea"
+		texturefile = "gfx/interface/ideas/SOV/staggering_reserves.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_stock_rooftop_idea"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_rooftop_wojak.png"
+	}
+	spriteType = {
+		name = "GFX_flower_history_summary_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_history_summary_bar.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_history_card_tile"
+		texturefile = "gfx/interface/gui/flower_ui/flower_history_card_tile.png"
 		legacy_lazy_load = no
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}

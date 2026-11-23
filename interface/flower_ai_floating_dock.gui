@@ -2,7 +2,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "flower_ai_floating_dock_window"
 		position = { x = -288 y = 88 }
-		size = { width = 212 height = 98 }
+		size = { width = 212 height = 230 }
 		Orientation = UPPER_RIGHT
 		moveable = yes
 		click_to_front = yes
@@ -10,7 +10,7 @@ guiTypes = {
 
 		background = {
 			name = "flower_dock_bg"
-			quadTextureSprite = "GFX_flower_dock_bg"
+			spriteType = "GFX_flower_dock_bg"
 		}
 
 		instantTextBoxType = {
@@ -28,13 +28,13 @@ guiTypes = {
 		#按钮1：开局畸变投票箱入口
 		iconType = {
 			name = "flower_dock_anomaly_glow"
-			position = { x = 8 y = 26 }
+			position = { x = 8 y = 28 }
 			spriteType = "GFX_flower_dock_btn_glow"
 			alwaystransparent = yes
 		}
 		buttonType = {
 			name = "flower_dock_anomaly_btn"
-			position = { x = 12 y = 30 }
+			position = { x = 12 y = 32 }
 			quadTextureSprite = "GFX_flower_dock_btn_anomaly"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
@@ -44,7 +44,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_anomaly_lbl"
-			position = { x = 22 y = 35 }
+			position = { x = 22 y = 40 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerDockAnomalyBtnText]"
 			maxWidth = 168
@@ -55,21 +55,21 @@ guiTypes = {
 		}
 		iconType = {
 			name = "flower_dock_anomaly_alert"
-			position = { x = 186 y = 22 }
+			position = { x = 186 y = 24 }
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}
 
-		#按钮2：肉鸽选牌面板入口
+		#按钮2：肉鸽选牌面板入口（显示待选队列总轮次）
 		iconType = {
 			name = "flower_dock_draft_glow"
-			position = { x = 8 y = 59 }
+			position = { x = 8 y = 66 }
 			spriteType = "GFX_flower_dock_btn_glow"
 			alwaystransparent = yes
 		}
 		buttonType = {
 			name = "flower_dock_draft_btn"
-			position = { x = 12 y = 63 }
+			position = { x = 12 y = 70 }
 			quadTextureSprite = "GFX_flower_dock_btn_draft"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
@@ -79,10 +79,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_draft_lbl"
-			position = { x = 22 y = 68 }
+			position = { x = 20 y = 78 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerDockDraftBtnText]"
-			maxWidth = 168
+			maxWidth = 172
 			maxHeight = 18
 			format = center
 			fixedsize = yes
@@ -90,7 +90,88 @@ guiTypes = {
 		}
 		iconType = {
 			name = "flower_dock_draft_alert"
-			position = { x = 186 y = 55 }
+			position = { x = 186 y = 62 }
+			spriteType = "GFX_flower_dock_alert_dot"
+			alwaystransparent = yes
+		}
+
+		#按钮3：已选卡牌图鉴与构筑总览入口
+		buttonType = {
+			name = "flower_dock_history_btn"
+			position = { x = 12 y = 108 }
+			quadTextureSprite = "GFX_flower_dock_btn_history"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_HISTORY_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_dock_history_lbl"
+			position = { x = 20 y = 116 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DOCK_HISTORY_BTN_TEXT"
+			maxWidth = 172
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#按钮4：抽卡弹窗防误触模式一键开关
+		buttonType = {
+			name = "flower_dock_guard_btn"
+			position = { x = 12 y = 146 }
+			quadTextureSprite = "GFX_flower_dock_btn_guard"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_GUARD_TT_WRAP"
+			clicksound = click_checkbox
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_dock_guard_lbl"
+			position = { x = 20 y = 154 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDockGuardBtnText]"
+			maxWidth = 172
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#按钮5：全球交易所入口
+		iconType = {
+			name = "flower_dock_stock_glow"
+			position = { x = 8 y = 180 }
+			spriteType = "GFX_flower_dock_btn_glow"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_dock_stock_btn"
+			position = { x = 12 y = 184 }
+			quadTextureSprite = "GFX_flower_dock_btn_stock"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_STOCK_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_dock_stock_lbl"
+			position = { x = 20 y = 192 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerDockStockBtnText]"
+			maxWidth = 172
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_dock_stock_alert"
+			position = { x = 186 y = 176 }
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}

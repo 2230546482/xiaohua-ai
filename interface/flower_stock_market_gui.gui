@@ -1,0 +1,940 @@
+guiTypes = {
+	#老实赚钱很枯燥吧：全球交易所实盘炒股主面板（920x660 星露谷木框 + 2x2深胡桃木交易卡片）
+	containerWindowType = {
+		name = "flower_stock_market_window"
+		position = { x = -460 y = -330 }
+		size = { width = 920 height = 660 }
+		Orientation = CENTER
+		moveable = yes
+		click_to_front = yes
+		clipping = no
+		fade_time = 180
+		fade_type = linear
+
+		background = {
+			name = "flower_stock_bg"
+			spriteType = "GFX_flower_grand_panel_bg"
+		}
+
+		#左上角小花立绘心情框（116x128，盈利开朗 / 浮亏委屈）
+		iconType = {
+			name = "flower_xiaohua_portrait_happy"
+			position = { x = 28 y = 22 }
+			spriteType = "GFX_flower_portrait_xiaohua_happy"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_xiaohua_portrait_cry"
+			position = { x = 28 y = 22 }
+			spriteType = "GFX_flower_portrait_xiaohua_scared"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stock_xiaohua_mood"
+			position = { x = 32 y = 122 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStockXiaohuaMood]"
+			maxWidth = 104
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#头部标题栏与账户资产概况
+		instantTextBoxType = {
+			name = "flower_stock_title"
+			position = { x = 166 y = 22 }
+			font = "hoi_24header"
+			text = "FLOWER_STK_MAIN_TITLE"
+			maxWidth = 680
+			maxHeight = 28
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stock_account_summary"
+			position = { x = 166 y = 54 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStockAccountSummaryText]"
+			maxWidth = 680
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stock_macro_hint"
+			position = { x = 166 y = 76 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_MACRO_AND_HINT"
+			maxWidth = 680
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#头部快捷动作栏：盈利购厂（主正反馈动作在左） / 一键全部平仓（风控动作在右）
+		buttonType = {
+			name = "flower_stk_buy_factory_btn"
+			position = { x = 166 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_amber"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_BUY_FACTORY_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_buy_factory_lbl"
+			position = { x = 176 y = 113 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStockBuyFactoryBtnText]"
+			maxWidth = 176
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_stk_liquidate_all_btn"
+			position = { x = 378 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_primary"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_LIQUIDATE_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_liquidate_all_lbl"
+			position = { x = 388 y = 113 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_LIQUIDATE_ALL_BTN_TEXT"
+			maxWidth = 164
+			maxHeight = 22
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#关闭按钮
+		buttonType = {
+			name = "flower_stock_close_btn"
+			position = { x = 866 y = 20 }
+			quadTextureSprite = "GFX_flower_btn_close"
+			shortcut = "ESCAPE"
+			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
+		}
+
+		#分栏副标题与右侧操作提示
+		instantTextBoxType = {
+			name = "flower_stock_section_title"
+			position = { x = 38 y = 165 }
+			font = "hoi_18mbs"
+			text = "FLOWER_STK_SECTION_TITLE"
+			maxWidth = 440
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stock_section_hint"
+			position = { x = 480 y = 167 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_SECTION_HINT"
+			maxWidth = 408
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		# ==============================================================================
+		# 卡片1（左上 28, 198）：【军工防务】
+		# ==============================================================================
+		iconType = {
+			name = "flower_stk_1_bg"
+			position = { x = 28 y = 198 }
+			spriteType = "GFX_flower_stock_card_1"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_name"
+			position = { x = 84 y = 216 }
+			font = "hoi_18mbs"
+			text = "FLOWER_STK_1_NAME"
+			maxWidth = 190
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_desc"
+			position = { x = 84 y = 239 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_1_DESC"
+			maxWidth = 216
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_price_val"
+			position = { x = 236 y = 216 }
+			font = "hoi_18mbs"
+			text = "[GetFlowerStock1PriceText]"
+			maxWidth = 182
+			maxHeight = 22
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_hist_val"
+			position = { x = 262 y = 239 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock1HistoryText]"
+			maxWidth = 162
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_hold_val"
+			position = { x = 46 y = 272 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock1HoldingsText]"
+			maxWidth = 388
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		#股票1操作按钮（2行x3列，126x32）
+		buttonType = {
+			name = "flower_stk_1_buy_1_btn"
+			position = { x = 42 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy1"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_BUY_1_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_buy_1_lbl"
+			position = { x = 48 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_1_buy_5_btn"
+			position = { x = 177 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy5"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_BUY_5_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_buy_5_lbl"
+			position = { x = 183 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_5"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_1_buy_lev_btn"
+			position = { x = 312 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_lev"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_BUY_LEV_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_buy_lev_lbl"
+			position = { x = 318 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_LEV"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_1_sell_all_btn"
+			position = { x = 42 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_sell"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_SELL_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_sell_all_lbl"
+			position = { x = 48 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SELL_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_1_short_1_btn"
+			position = { x = 177 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_short"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_SHORT_1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_short_1_lbl"
+			position = { x = 183 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SHORT_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_1_cover_all_btn"
+			position = { x = 312 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_cover"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_1_COVER_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_1_cover_all_lbl"
+			position = { x = 318 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_COVER_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		# ==============================================================================
+		# 卡片2（右上 468, 198）：【基建重工】
+		# ==============================================================================
+		iconType = {
+			name = "flower_stk_2_bg"
+			position = { x = 468 y = 198 }
+			spriteType = "GFX_flower_stock_card_2"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_name"
+			position = { x = 524 y = 216 }
+			font = "hoi_18mbs"
+			text = "FLOWER_STK_2_NAME"
+			maxWidth = 190
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_desc"
+			position = { x = 524 y = 239 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_2_DESC"
+			maxWidth = 216
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_price_val"
+			position = { x = 676 y = 216 }
+			font = "hoi_18mbs"
+			text = "[GetFlowerStock2PriceText]"
+			maxWidth = 182
+			maxHeight = 22
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_hist_val"
+			position = { x = 702 y = 239 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock2HistoryText]"
+			maxWidth = 162
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_hold_val"
+			position = { x = 486 y = 272 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock2HoldingsText]"
+			maxWidth = 388
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		#股票2操作按钮
+		buttonType = {
+			name = "flower_stk_2_buy_1_btn"
+			position = { x = 482 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy1"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_BUY_1_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_buy_1_lbl"
+			position = { x = 488 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_2_buy_5_btn"
+			position = { x = 617 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy5"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_BUY_5_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_buy_5_lbl"
+			position = { x = 623 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_5"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_2_buy_lev_btn"
+			position = { x = 752 y = 310 }
+			quadTextureSprite = "GFX_flower_stock_btn_lev"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_BUY_LEV_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_buy_lev_lbl"
+			position = { x = 758 y = 317 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_LEV"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_2_sell_all_btn"
+			position = { x = 482 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_sell"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_SELL_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_sell_all_lbl"
+			position = { x = 488 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SELL_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_2_short_1_btn"
+			position = { x = 617 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_short"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_SHORT_1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_short_1_lbl"
+			position = { x = 623 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SHORT_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_2_cover_all_btn"
+			position = { x = 752 y = 346 }
+			quadTextureSprite = "GFX_flower_stock_btn_cover"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_2_COVER_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_2_cover_all_lbl"
+			position = { x = 758 y = 353 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_COVER_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		# ==============================================================================
+		# 卡片3（左下 28, 400）：【科技飞碟】
+		# ==============================================================================
+		iconType = {
+			name = "flower_stk_3_bg"
+			position = { x = 28 y = 400 }
+			spriteType = "GFX_flower_stock_card_3"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_name"
+			position = { x = 84 y = 418 }
+			font = "hoi_18mbs"
+			text = "FLOWER_STK_3_NAME"
+			maxWidth = 190
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_desc"
+			position = { x = 84 y = 441 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_3_DESC"
+			maxWidth = 216
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_price_val"
+			position = { x = 236 y = 418 }
+			font = "hoi_18mbs"
+			text = "[GetFlowerStock3PriceText]"
+			maxWidth = 182
+			maxHeight = 22
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_hist_val"
+			position = { x = 262 y = 441 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock3HistoryText]"
+			maxWidth = 162
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_hold_val"
+			position = { x = 46 y = 474 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock3HoldingsText]"
+			maxWidth = 388
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		#股票3操作按钮
+		buttonType = {
+			name = "flower_stk_3_buy_1_btn"
+			position = { x = 42 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy1"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_BUY_1_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_buy_1_lbl"
+			position = { x = 48 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_3_buy_5_btn"
+			position = { x = 177 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy5"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_BUY_5_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_buy_5_lbl"
+			position = { x = 183 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_5"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_3_buy_lev_btn"
+			position = { x = 312 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_lev"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_BUY_LEV_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_buy_lev_lbl"
+			position = { x = 318 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_LEV"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_3_sell_all_btn"
+			position = { x = 42 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_sell"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_SELL_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_sell_all_lbl"
+			position = { x = 48 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SELL_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_3_short_1_btn"
+			position = { x = 177 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_short"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_SHORT_1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_short_1_lbl"
+			position = { x = 183 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SHORT_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_3_cover_all_btn"
+			position = { x = 312 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_cover"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_3_COVER_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_3_cover_all_lbl"
+			position = { x = 318 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_COVER_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		# ==============================================================================
+		# 卡片4（右下 468, 400）：【黑市期货】
+		# ==============================================================================
+		iconType = {
+			name = "flower_stk_4_bg"
+			position = { x = 468 y = 400 }
+			spriteType = "GFX_flower_stock_card_4"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_name"
+			position = { x = 524 y = 418 }
+			font = "hoi_18mbs"
+			text = "FLOWER_STK_4_NAME"
+			maxWidth = 190
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_desc"
+			position = { x = 524 y = 441 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_4_DESC"
+			maxWidth = 216
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_price_val"
+			position = { x = 676 y = 418 }
+			font = "hoi_18mbs"
+			text = "[GetFlowerStock4PriceText]"
+			maxWidth = 182
+			maxHeight = 22
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_hist_val"
+			position = { x = 702 y = 441 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock4HistoryText]"
+			maxWidth = 162
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_hold_val"
+			position = { x = 486 y = 474 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStock4HoldingsText]"
+			maxWidth = 388
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		#股票4操作按钮
+		buttonType = {
+			name = "flower_stk_4_buy_1_btn"
+			position = { x = 482 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy1"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_BUY_1_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_buy_1_lbl"
+			position = { x = 488 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_4_buy_5_btn"
+			position = { x = 617 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_buy5"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_BUY_5_TT"
+			clicksound = 选择
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_buy_5_lbl"
+			position = { x = 623 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_5"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_4_buy_lev_btn"
+			position = { x = 752 y = 512 }
+			quadTextureSprite = "GFX_flower_stock_btn_lev"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_BUY_LEV_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_buy_lev_lbl"
+			position = { x = 758 y = 519 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_BUY_LEV"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_4_sell_all_btn"
+			position = { x = 482 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_sell"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_SELL_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_sell_all_lbl"
+			position = { x = 488 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SELL_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_4_short_1_btn"
+			position = { x = 617 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_short"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_SHORT_1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_short_1_lbl"
+			position = { x = 623 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_SHORT_1"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_stk_4_cover_all_btn"
+			position = { x = 752 y = 548 }
+			quadTextureSprite = "GFX_flower_stock_btn_cover"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_STK_4_COVER_ALL_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_stk_4_cover_all_lbl"
+			position = { x = 758 y = 555 }
+			font = "hoi_16mbs"
+			text = "FLOWER_STK_BTN_COVER_ALL"
+			maxWidth = 114
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#底部状态栏说明
+		instantTextBoxType = {
+			name = "flower_stock_footer_text"
+			position = { x = 32 y = 614 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStockFooterText]"
+			maxWidth = 856
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+	}
+}

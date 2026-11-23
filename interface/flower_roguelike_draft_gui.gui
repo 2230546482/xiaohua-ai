@@ -24,7 +24,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_cat_mood"
-			position = { x = 34 y = 129 }
+			position = { x = 32 y = 122 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerDraftCatMood]"
 			maxWidth = 104
@@ -69,32 +69,22 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#模式1按钮：翻页 / 随机摇一条 / 先看地图
-		buttonType = {
-			name = "flower_draft_page_btn"
-			position = { x = 166 y = 104 }
-			quadTextureSprite = "GFX_flower_btn_amber"
-			buttonFont = "hoi_16mbs"
-			buttonText = ""
-			pdx_tooltip = "FLOWER_DRAFT_PAGE_BTN_TT"
-			clicksound = 翻书
-			oversound = PAU_hover_paper
-		}
+		#模式1顶栏：左侧纯引导文案 + 右上独立工具区【手气随机开局】（与下方页签彻底隔离，杜绝误触）
 		instantTextBoxType = {
-			name = "flower_draft_page_btn_lbl"
-			position = { x = 176 y = 114 }
+			name = "flower_draft_p1_guide_lbl"
+			position = { x = 166 y = 114 }
 			font = "hoi_16mbs"
-			text = "[GetFlowerStarterPageBtnText]"
-			maxWidth = 176
+			text = "FLOWER_DRAFT_STARTER_GUIDE_TEXT"
+			maxWidth = 368
 			maxHeight = 20
-			format = center
+			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		buttonType = {
 			name = "flower_draft_random_btn"
-			position = { x = 378 y = 104 }
-			quadTextureSprite = "GFX_flower_btn_rose"
+			position = { x = 544 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_random_sm"
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DRAFT_RANDOM_BTN_TT"
@@ -103,10 +93,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_random_btn_lbl"
-			position = { x = 388 y = 114 }
+			position = { x = 554 y = 114 }
 			font = "hoi_16mbs"
 			text = "FLOWER_DRAFT_RANDOM_BTN_TEXT"
-			maxWidth = 176
+			maxWidth = 164
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -191,7 +181,99 @@ guiTypes = {
 			oversound = PAU_hover_paper
 		}
 
-		#分区标题与右侧提示
+		#模式1卡片区顶部直连页签：第1页（经典强军 1~6）/ 第2页（特色异界 7~12）
+		buttonType = {
+			name = "flower_draft_tab_p1_on_btn"
+			position = { x = 28 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_active"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_TAB_P1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_tab_p1_on_lbl"
+			position = { x = 44 y = 164 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_TAB_P1_ON"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_tab_p1_off_btn"
+			position = { x = 28 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_TAB_P1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_tab_p1_off_lbl"
+			position = { x = 44 y = 164 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_TAB_P1_OFF"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_tab_p2_on_btn"
+			position = { x = 284 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_active"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_TAB_P2_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_tab_p2_on_lbl"
+			position = { x = 300 y = 164 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_TAB_P2_ON"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_tab_p2_off_btn"
+			position = { x = 284 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive_cta"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_TAB_P2_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_tab_p2_off_lbl"
+			position = { x = 300 y = 164 }
+			font = "hoi_16mbs"
+			text = "FLOWER_DRAFT_TAB_P2_OFF"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_draft_tab_p2_alert"
+			position = { x = 516 y = 148 }
+			spriteType = "GFX_flower_dock_alert_dot"
+			alwaystransparent = yes
+		}
+
+		#分区标题（模式2/3显示）与右侧提示
 		instantTextBoxType = {
 			name = "flower_draft_section_title"
 			position = { x = 38 y = 165 }
@@ -205,10 +287,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_hint_text"
-			position = { x = 460 y = 167 }
+			position = { x = 548 y = 166 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerDraftGuiHint]"
-			maxWidth = 428
+			maxWidth = 340
 			maxHeight = 20
 			format = right
 			fixedsize = yes
@@ -222,12 +304,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_1_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_1_slayer
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_1_status"
-			position = { x = 46 y = 349 }
+			position = { x = 46 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch1Status]"
 			maxWidth = 240
@@ -243,12 +325,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_2_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_2_corp
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_2_status"
-			position = { x = 340 y = 349 }
+			position = { x = 340 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch2Status]"
 			maxWidth = 240
@@ -264,12 +346,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_3_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_3_arty
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_3_status"
-			position = { x = 634 y = 349 }
+			position = { x = 634 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch3Status]"
 			maxWidth = 240
@@ -285,12 +367,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_4_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_4_tank
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_4_status"
-			position = { x = 46 y = 543 }
+			position = { x = 46 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch4Status]"
 			maxWidth = 240
@@ -306,12 +388,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_5_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_5_air
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_5_status"
-			position = { x = 340 y = 543 }
+			position = { x = 340 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch5Status]"
 			maxWidth = 240
@@ -327,12 +409,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_6_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_6_wave
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_6_status"
-			position = { x = 634 y = 543 }
+			position = { x = 634 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch6Status]"
 			maxWidth = 240
@@ -348,12 +430,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_7_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_7_nightingale
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_7_status"
-			position = { x = 46 y = 349 }
+			position = { x = 46 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch7Status]"
 			maxWidth = 240
@@ -369,12 +451,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_8_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_8_guerrilla
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_8_status"
-			position = { x = 340 y = 349 }
+			position = { x = 340 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch8Status]"
 			maxWidth = 240
@@ -390,12 +472,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_9_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_9_undead
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_9_status"
-			position = { x = 634 y = 349 }
+			position = { x = 634 y = 346 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch9Status]"
 			maxWidth = 240
@@ -411,12 +493,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_10_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_10_magic
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_10_status"
-			position = { x = 46 y = 543 }
+			position = { x = 46 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch10Status]"
 			maxWidth = 240
@@ -432,12 +514,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_11_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_11_steampunk
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_11_status"
-			position = { x = 340 y = 543 }
+			position = { x = 340 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch11Status]"
 			maxWidth = 240
@@ -453,12 +535,12 @@ guiTypes = {
 			buttonFont = "hoi_16mbs"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_12_TT_WRAP"
-			clicksound = 盖章
+			clicksound = flower_sfx_arch_12_gambler
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_12_status"
-			position = { x = 634 y = 543 }
+			position = { x = 634 y = 540 }
 			font = "hoi_16mbs"
 			text = "[GetFlowerArch12Status]"
 			maxWidth = 240
@@ -902,15 +984,36 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#底部实时本子栏
+		#底部实时本子栏与模式1右下角快速翻页按钮（视线扫完第6张卡自然落点）
 		instantTextBoxType = {
 			name = "flower_draft_footer_text"
 			position = { x = 32 y = 614 }
 			font = "hoi_16mbs"
 			text = "FLOWER_ANOMALY_FOOTER_SETTLED"
-			maxWidth = 856
+			maxWidth = 626
 			maxHeight = 22
 			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_draft_page_btn"
+			position = { x = 674 y = 605 }
+			quadTextureSprite = "GFX_flower_btn_page_nav"
+			buttonFont = "hoi_16mbs"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_PAGE_BTN_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_draft_page_btn_lbl"
+			position = { x = 682 y = 614 }
+			font = "hoi_16mbs"
+			text = "[GetFlowerStarterPageBtnText]"
+			maxWidth = 202
+			maxHeight = 20
+			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}

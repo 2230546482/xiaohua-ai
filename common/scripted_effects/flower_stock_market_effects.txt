@@ -1,0 +1,1176 @@
+#老实赚钱很枯燥吧：全球交易所实盘炒股核心引擎
+
+#初始化全球股市价格、历史走势、大盘风向与下月传闻
+flower_stock_init_market = {
+	set_variable = { global.flower_stk_1_price = 100 }
+	set_variable = { global.flower_stk_1_prev = 100 }
+	set_variable = { global.flower_stk_1_prev2 = 100 }
+	set_variable = { global.flower_stk_1_chg = 0 }
+
+	set_variable = { global.flower_stk_2_price = 100 }
+	set_variable = { global.flower_stk_2_prev = 100 }
+	set_variable = { global.flower_stk_2_prev2 = 100 }
+	set_variable = { global.flower_stk_2_chg = 0 }
+
+	set_variable = { global.flower_stk_3_price = 120 }
+	set_variable = { global.flower_stk_3_prev = 120 }
+	set_variable = { global.flower_stk_3_prev2 = 120 }
+	set_variable = { global.flower_stk_3_chg = 0 }
+
+	set_variable = { global.flower_stk_4_price = 80 }
+	set_variable = { global.flower_stk_4_prev = 80 }
+	set_variable = { global.flower_stk_4_prev2 = 80 }
+	set_variable = { global.flower_stk_4_chg = 0 }
+
+	set_variable = { global.flower_stk_regime = 3 }
+	set_variable = { global.flower_stk_hint = 1 }
+	set_variable = { global.flower_stk_month_cnt = 0 }
+	set_global_flag = { flag = flower_stk_monthly_cd days = 25 value = 1 }
+
+	every_country = {
+		limit = { is_ai = no }
+		set_country_flag = flower_stk_new_tick_unread
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+
+#重算本国 4 只股票均价、单股浮盈与账户总浮盈
+flower_stock_recalc_country_pnl = {
+	set_variable = { flower_stk_unrealized_pnl = 0 }
+
+	#股票1：军工防务
+	if = {
+		limit = { check_variable = { flower_stk_1_shares > 0 } }
+		set_variable = { flower_stk_1_avg = flower_stk_1_cost }
+		divide_variable = { flower_stk_1_avg = flower_stk_1_shares }
+		round_variable = flower_stk_1_avg
+	}
+	else = {
+		set_variable = { flower_stk_1_avg = 0 }
+		set_variable = { flower_stk_1_cost = 0 }
+	}
+	set_variable = { flower_stk_1_pnl = flower_stk_1_shares }
+	multiply_variable = { flower_stk_1_pnl = global.flower_stk_1_price }
+	subtract_from_variable = { flower_stk_1_pnl = flower_stk_1_cost }
+	if = {
+		limit = { check_variable = { flower_stk_1_short > 0 } }
+		set_temp_variable = { sp1 = flower_stk_1_short }
+		multiply_temp_variable = { sp1 = global.flower_stk_1_price }
+		set_temp_variable = { spnl1 = flower_stk_1_short_basis }
+		subtract_from_temp_variable = { spnl1 = sp1 }
+		add_to_variable = { flower_stk_1_pnl = spnl1 }
+	}
+	round_variable = flower_stk_1_pnl
+	add_to_variable = { flower_stk_unrealized_pnl = flower_stk_1_pnl }
+
+	#股票2：基建重工
+	if = {
+		limit = { check_variable = { flower_stk_2_shares > 0 } }
+		set_variable = { flower_stk_2_avg = flower_stk_2_cost }
+		divide_variable = { flower_stk_2_avg = flower_stk_2_shares }
+		round_variable = flower_stk_2_avg
+	}
+	else = {
+		set_variable = { flower_stk_2_avg = 0 }
+		set_variable = { flower_stk_2_cost = 0 }
+	}
+	set_variable = { flower_stk_2_pnl = flower_stk_2_shares }
+	multiply_variable = { flower_stk_2_pnl = global.flower_stk_2_price }
+	subtract_from_variable = { flower_stk_2_pnl = flower_stk_2_cost }
+	if = {
+		limit = { check_variable = { flower_stk_2_short > 0 } }
+		set_temp_variable = { sp2 = flower_stk_2_short }
+		multiply_temp_variable = { sp2 = global.flower_stk_2_price }
+		set_temp_variable = { spnl2 = flower_stk_2_short_basis }
+		subtract_from_temp_variable = { spnl2 = sp2 }
+		add_to_variable = { flower_stk_2_pnl = spnl2 }
+	}
+	round_variable = flower_stk_2_pnl
+	add_to_variable = { flower_stk_unrealized_pnl = flower_stk_2_pnl }
+
+	#股票3：科技飞碟
+	if = {
+		limit = { check_variable = { flower_stk_3_shares > 0 } }
+		set_variable = { flower_stk_3_avg = flower_stk_3_cost }
+		divide_variable = { flower_stk_3_avg = flower_stk_3_shares }
+		round_variable = flower_stk_3_avg
+	}
+	else = {
+		set_variable = { flower_stk_3_avg = 0 }
+		set_variable = { flower_stk_3_cost = 0 }
+	}
+	set_variable = { flower_stk_3_pnl = flower_stk_3_shares }
+	multiply_variable = { flower_stk_3_pnl = global.flower_stk_3_price }
+	subtract_from_variable = { flower_stk_3_pnl = flower_stk_3_cost }
+	if = {
+		limit = { check_variable = { flower_stk_3_short > 0 } }
+		set_temp_variable = { sp3 = flower_stk_3_short }
+		multiply_temp_variable = { sp3 = global.flower_stk_3_price }
+		set_temp_variable = { spnl3 = flower_stk_3_short_basis }
+		subtract_from_temp_variable = { spnl3 = sp3 }
+		add_to_variable = { flower_stk_3_pnl = spnl3 }
+	}
+	round_variable = flower_stk_3_pnl
+	add_to_variable = { flower_stk_unrealized_pnl = flower_stk_3_pnl }
+
+	#股票4：黑市期货
+	if = {
+		limit = { check_variable = { flower_stk_4_shares > 0 } }
+		set_variable = { flower_stk_4_avg = flower_stk_4_cost }
+		divide_variable = { flower_stk_4_avg = flower_stk_4_shares }
+		round_variable = flower_stk_4_avg
+	}
+	else = {
+		set_variable = { flower_stk_4_avg = 0 }
+		set_variable = { flower_stk_4_cost = 0 }
+	}
+	set_variable = { flower_stk_4_pnl = flower_stk_4_shares }
+	multiply_variable = { flower_stk_4_pnl = global.flower_stk_4_price }
+	subtract_from_variable = { flower_stk_4_pnl = flower_stk_4_cost }
+	if = {
+		limit = { check_variable = { flower_stk_4_short > 0 } }
+		set_temp_variable = { sp4 = flower_stk_4_short }
+		multiply_temp_variable = { sp4 = global.flower_stk_4_price }
+		set_temp_variable = { spnl4 = flower_stk_4_short_basis }
+		subtract_from_temp_variable = { spnl4 = sp4 }
+		add_to_variable = { flower_stk_4_pnl = spnl4 }
+	}
+	round_variable = flower_stk_4_pnl
+	add_to_variable = { flower_stk_unrealized_pnl = flower_stk_4_pnl }
+	round_variable = flower_stk_unrealized_pnl
+	round_variable = flower_stk_realized_pnl
+}
+
+#检查股神降世 / 天台常客里程碑
+flower_stock_check_milestones = {
+	if = {
+		limit = {
+			check_variable = { flower_stk_realized_pnl > 1499 }
+			NOT = { has_idea = flower_stock_god_idea }
+		}
+		add_ideas = flower_stock_god_idea
+		if = {
+			limit = { is_ai = no }
+			scoped_sound_effect = "flower_sfx_branch_stonks_money"
+			set_temp_variable = { temp_alert_id = 915 }
+			set_temp_variable = { temp_tag = THIS.id }
+			set_temp_variable = { temp_tag2 = THIS.id }
+			flower_ai_push_bottom_right_alert = yes
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_realized_pnl < -999 }
+			NOT = { has_country_flag = flower_stock_rooftop_cd }
+			NOT = { has_idea = flower_stock_rooftop_idea }
+		}
+		set_country_flag = { flag = flower_stock_rooftop_cd days = 365 value = 1 }
+		add_timed_idea = {
+			idea = flower_stock_rooftop_idea
+			days = 180
+		}
+		if = {
+			limit = { is_ai = no }
+			scoped_sound_effect = "flower_sfx_branch_rooftop_crash"
+		}
+	}
+}
+
+#检查并执行本国空头爆仓强平
+flower_stock_check_margin_calls = {
+	set_temp_variable = { did_margin_call = 0 }
+
+	if = {
+		limit = { check_variable = { flower_stk_1_short > 0 } }
+		set_temp_variable = { m_val = flower_stk_1_short }
+		multiply_temp_variable = { m_val = global.flower_stk_1_price }
+		set_temp_variable = { m_pnl = flower_stk_1_short_basis }
+		subtract_from_temp_variable = { m_pnl = m_val }
+		set_temp_variable = { m_eq = flower_stk_1_short_margin }
+		add_to_temp_variable = { m_eq = m_pnl }
+		if = {
+			limit = { check_variable = { m_eq < 0 } }
+			add_to_variable = { ubs_save = m_eq }
+			add_to_variable = { flower_stk_realized_pnl = m_pnl }
+			set_variable = { flower_stk_1_short = 0 }
+			set_variable = { flower_stk_1_short_basis = 0 }
+			set_variable = { flower_stk_1_short_margin = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = { check_variable = { flower_stk_2_short > 0 } }
+		set_temp_variable = { m_val = flower_stk_2_short }
+		multiply_temp_variable = { m_val = global.flower_stk_2_price }
+		set_temp_variable = { m_pnl = flower_stk_2_short_basis }
+		subtract_from_temp_variable = { m_pnl = m_val }
+		set_temp_variable = { m_eq = flower_stk_2_short_margin }
+		add_to_temp_variable = { m_eq = m_pnl }
+		if = {
+			limit = { check_variable = { m_eq < 0 } }
+			add_to_variable = { ubs_save = m_eq }
+			add_to_variable = { flower_stk_realized_pnl = m_pnl }
+			set_variable = { flower_stk_2_short = 0 }
+			set_variable = { flower_stk_2_short_basis = 0 }
+			set_variable = { flower_stk_2_short_margin = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = { check_variable = { flower_stk_3_short > 0 } }
+		set_temp_variable = { m_val = flower_stk_3_short }
+		multiply_temp_variable = { m_val = global.flower_stk_3_price }
+		set_temp_variable = { m_pnl = flower_stk_3_short_basis }
+		subtract_from_temp_variable = { m_pnl = m_val }
+		set_temp_variable = { m_eq = flower_stk_3_short_margin }
+		add_to_temp_variable = { m_eq = m_pnl }
+		if = {
+			limit = { check_variable = { m_eq < 0 } }
+			add_to_variable = { ubs_save = m_eq }
+			add_to_variable = { flower_stk_realized_pnl = m_pnl }
+			set_variable = { flower_stk_3_short = 0 }
+			set_variable = { flower_stk_3_short_basis = 0 }
+			set_variable = { flower_stk_3_short_margin = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = { check_variable = { flower_stk_4_short > 0 } }
+		set_temp_variable = { m_val = flower_stk_4_short }
+		multiply_temp_variable = { m_val = global.flower_stk_4_price }
+		set_temp_variable = { m_pnl = flower_stk_4_short_basis }
+		subtract_from_temp_variable = { m_pnl = m_val }
+		set_temp_variable = { m_eq = flower_stk_4_short_margin }
+		add_to_temp_variable = { m_eq = m_pnl }
+		if = {
+			limit = { check_variable = { m_eq < 0 } }
+			add_to_variable = { ubs_save = m_eq }
+			add_to_variable = { flower_stk_realized_pnl = m_pnl }
+			set_variable = { flower_stk_4_short = 0 }
+			set_variable = { flower_stk_4_short_basis = 0 }
+			set_variable = { flower_stk_4_short_margin = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+
+	if = {
+		limit = { check_variable = { did_margin_call > 0 } }
+		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { NOT = { has_idea = flower_stock_rooftop_idea } }
+			add_timed_idea = {
+				idea = flower_stock_rooftop_idea
+				days = 180
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			scoped_sound_effect = "flower_sfx_branch_rooftop_crash"
+			set_temp_variable = { temp_alert_id = 914 }
+			set_temp_variable = { temp_tag = THIS.id }
+			set_temp_variable = { temp_tag2 = THIS.id }
+			flower_ai_push_bottom_right_alert = yes
+		}
+	}
+}
+
+#每月初全局跳价、周期轮动、半年分红与爆仓结算
+flower_stock_monthly_tick = {
+	#若未初始化则安全补全
+	if = {
+		limit = { check_variable = { global.flower_stk_1_price < 1 } }
+		flower_stock_init_market = yes
+	}
+
+	#记录历史走势（前月 <- 上月 <- 今月）
+	set_variable = { global.flower_stk_1_prev2 = global.flower_stk_1_prev }
+	set_variable = { global.flower_stk_1_prev = global.flower_stk_1_price }
+	set_variable = { global.flower_stk_2_prev2 = global.flower_stk_2_prev }
+	set_variable = { global.flower_stk_2_prev = global.flower_stk_2_price }
+	set_variable = { global.flower_stk_3_prev2 = global.flower_stk_3_prev }
+	set_variable = { global.flower_stk_3_prev = global.flower_stk_3_price }
+	set_variable = { global.flower_stk_4_prev2 = global.flower_stk_4_prev }
+	set_variable = { global.flower_stk_4_prev = global.flower_stk_4_price }
+
+	#1. 依据上月周期与世界紧张度，推演本月大盘风向（牛熊具备惯性，也会反转）
+	set_temp_variable = { prev_hint = global.flower_stk_hint }
+	random_list = {
+		#1 = 超级大牛市
+		14 = {
+			modifier = { factor = 2.0 check_variable = { global.flower_stk_regime = 1 } }
+			modifier = { factor = 1.6 check_variable = { global.flower_stk_regime = 2 } }
+			modifier = { factor = 2.4 check_variable = { prev_hint = 5 } }
+			modifier = { factor = 0.4 check_variable = { prev_hint = 6 } }
+			set_variable = { global.flower_stk_regime = 1 }
+		}
+		#2 = 温和慢牛
+		26 = {
+			modifier = { factor = 1.7 check_variable = { global.flower_stk_regime = 2 } }
+			modifier = { factor = 1.4 check_variable = { global.flower_stk_regime = 1 } }
+			modifier = { factor = 1.6 check_variable = { prev_hint = 5 } }
+			set_variable = { global.flower_stk_regime = 2 }
+		}
+		#3 = 横盘震荡
+		28 = {
+			modifier = { factor = 1.5 check_variable = { global.flower_stk_regime = 3 } }
+			set_variable = { global.flower_stk_regime = 3 }
+		}
+		#4 = 恐慌阴跌
+		20 = {
+			modifier = { factor = 1.7 check_variable = { global.flower_stk_regime = 4 } }
+			modifier = { factor = 1.4 check_variable = { global.flower_stk_regime = 5 } }
+			modifier = { factor = 2.0 check_variable = { prev_hint = 6 } }
+			modifier = { factor = 0.4 check_variable = { prev_hint = 5 } }
+			set_variable = { global.flower_stk_regime = 4 }
+		}
+		#5 = 黑色星期五：熔断股灾
+		12 = {
+			modifier = { factor = 0.6 check_variable = { global.flower_stk_regime = 5 } }
+			modifier = { factor = 1.6 check_variable = { global.flower_stk_regime = 4 } }
+			modifier = { factor = 2.5 check_variable = { prev_hint = 6 } }
+			modifier = { factor = 0.3 check_variable = { prev_hint = 5 } }
+			set_variable = { global.flower_stk_regime = 5 }
+		}
+	}
+
+	#大盘基础乘数偏移（单位：百分点）
+	set_temp_variable = { macro_bias = 0 }
+	if = { limit = { check_variable = { global.flower_stk_regime = 1 } } set_temp_variable = { macro_bias = 9 } }
+	else_if = { limit = { check_variable = { global.flower_stk_regime = 2 } } set_temp_variable = { macro_bias = 4 } }
+	else_if = { limit = { check_variable = { global.flower_stk_regime = 4 } } set_temp_variable = { macro_bias = -6 } }
+	else_if = { limit = { check_variable = { global.flower_stk_regime = 5 } } set_temp_variable = { macro_bias = -15 } }
+
+	#2. 军工防务 (WAR)：紧跟全球紧张度与大战局势
+	set_temp_variable = { d1 = macro_bias }
+	if = { limit = { threat > 0.75 } add_to_temp_variable = { d1 = 7 } }
+	else_if = { limit = { threat > 0.40 } add_to_temp_variable = { d1 = 4 } }
+	else_if = { limit = { threat < 0.20 } add_to_temp_variable = { d1 = -2 } }
+	if = { limit = { check_variable = { global.flower_stk_1_price > 360 } } add_to_temp_variable = { d1 = -5 } }
+	else_if = { limit = { check_variable = { global.flower_stk_1_price < 60 } } add_to_temp_variable = { d1 = 5 } }
+	random_list = {
+		18 = {
+			modifier = { factor = 3.0 check_variable = { prev_hint = 1 } }
+			add_to_temp_variable = { d1 = 12 }
+		}
+		27 = {
+			modifier = { factor = 1.8 check_variable = { prev_hint = 1 } }
+			add_to_temp_variable = { d1 = 5 }
+		}
+		25 = { add_to_temp_variable = { d1 = 0 } }
+		18 = {
+			modifier = { factor = 0.4 check_variable = { prev_hint = 1 } }
+			add_to_temp_variable = { d1 = -6 }
+		}
+		12 = {
+			modifier = { factor = 0.3 check_variable = { prev_hint = 1 } }
+			add_to_temp_variable = { d1 = -12 }
+		}
+	}
+	set_temp_variable = { mul1 = d1 }
+	multiply_temp_variable = { mul1 = 0.01 }
+	add_to_temp_variable = { mul1 = 1 }
+	multiply_variable = { global.flower_stk_1_price = mul1 }
+	round_variable = global.flower_stk_1_price
+	if = { limit = { check_variable = { global.flower_stk_1_price < 30 } } set_variable = { global.flower_stk_1_price = 30 } }
+	if = { limit = { check_variable = { global.flower_stk_1_price > 550 } } set_variable = { global.flower_stk_1_price = 550 } }
+
+	#3. 基建重工 (IND)：稳健蓝筹，抗跌慢涨，半年派息 8 HCP/股
+	set_temp_variable = { d2 = macro_bias }
+	multiply_temp_variable = { d2 = 0.55 }
+	if = { limit = { check_variable = { global.flower_stk_2_price > 260 } } add_to_temp_variable = { d2 = -4 } }
+	else_if = { limit = { check_variable = { global.flower_stk_2_price < 75 } } add_to_temp_variable = { d2 = 4 } }
+	random_list = {
+		16 = {
+			modifier = { factor = 2.8 check_variable = { prev_hint = 2 } }
+			add_to_temp_variable = { d2 = 8 }
+		}
+		30 = {
+			modifier = { factor = 1.6 check_variable = { prev_hint = 2 } }
+			add_to_temp_variable = { d2 = 4 }
+		}
+		28 = { add_to_temp_variable = { d2 = 0 } }
+		18 = {
+			modifier = { factor = 0.5 check_variable = { prev_hint = 2 } }
+			add_to_temp_variable = { d2 = -4 }
+		}
+		8 = {
+			modifier = { factor = 0.4 check_variable = { prev_hint = 2 } }
+			add_to_temp_variable = { d2 = -8 }
+		}
+	}
+	set_temp_variable = { mul2 = d2 }
+	multiply_temp_variable = { mul2 = 0.01 }
+	add_to_temp_variable = { mul2 = 1 }
+	multiply_variable = { global.flower_stk_2_price = mul2 }
+	round_variable = global.flower_stk_2_price
+	if = { limit = { check_variable = { global.flower_stk_2_price < 45 } } set_variable = { global.flower_stk_2_price = 45 } }
+	if = { limit = { check_variable = { global.flower_stk_2_price > 380 } } set_variable = { global.flower_stk_2_price = 380 } }
+
+	#4. 科技飞碟 (UFO)：高弹性成长股，牛市领涨，泡沫破裂大跌
+	set_temp_variable = { d3 = macro_bias }
+	multiply_temp_variable = { d3 = 1.35 }
+	if = { limit = { date > 1938.6.1 } add_to_temp_variable = { d3 = 3 } }
+	if = { limit = { check_variable = { global.flower_stk_3_price > 420 } } add_to_temp_variable = { d3 = -8 } }
+	else_if = { limit = { check_variable = { global.flower_stk_3_price < 60 } } add_to_temp_variable = { d3 = 7 } }
+	random_list = {
+		18 = {
+			modifier = { factor = 0.35 check_variable = { prev_hint = 3 } }
+			add_to_temp_variable = { d3 = 18 }
+		}
+		24 = {
+			modifier = { factor = 0.5 check_variable = { prev_hint = 3 } }
+			add_to_temp_variable = { d3 = 8 }
+		}
+		20 = { add_to_temp_variable = { d3 = 0 } }
+		22 = {
+			modifier = { factor = 2.2 check_variable = { prev_hint = 3 } }
+			add_to_temp_variable = { d3 = -10 }
+		}
+		16 = {
+			modifier = { factor = 2.8 check_variable = { prev_hint = 3 } }
+			add_to_temp_variable = { d3 = -18 }
+		}
+	}
+	set_temp_variable = { mul3 = d3 }
+	multiply_temp_variable = { mul3 = 0.01 }
+	add_to_temp_variable = { mul3 = 1 }
+	multiply_variable = { global.flower_stk_3_price = mul3 }
+	round_variable = global.flower_stk_3_price
+	if = { limit = { check_variable = { global.flower_stk_3_price < 25 } } set_variable = { global.flower_stk_3_price = 25 } }
+	if = { limit = { check_variable = { global.flower_stk_3_price > 680 } } set_variable = { global.flower_stk_3_price = 680 } }
+
+	#5. 黑市期货 (FUT)：超高波动妖股，庄家拉盘与暴力砸盘并存
+	set_temp_variable = { d4 = macro_bias }
+	multiply_temp_variable = { d4 = 1.1 }
+	if = { limit = { check_variable = { global.flower_stk_4_price > 280 } } add_to_temp_variable = { d4 = -12 } }
+	else_if = { limit = { check_variable = { global.flower_stk_4_price < 45 } } add_to_temp_variable = { d4 = 12 } }
+	random_list = {
+		16 = {
+			modifier = { factor = 3.0 check_variable = { prev_hint = 4 } }
+			add_to_temp_variable = { d4 = 32 }
+		}
+		22 = {
+			modifier = { factor = 1.8 check_variable = { prev_hint = 4 } }
+			add_to_temp_variable = { d4 = 15 }
+		}
+		20 = { add_to_temp_variable = { d4 = -2 } }
+		24 = {
+			modifier = { factor = 0.45 check_variable = { prev_hint = 4 } }
+			add_to_temp_variable = { d4 = -16 }
+		}
+		18 = {
+			modifier = { factor = 0.35 check_variable = { prev_hint = 4 } }
+			add_to_temp_variable = { d4 = -30 }
+		}
+	}
+	set_temp_variable = { mul4 = d4 }
+	multiply_temp_variable = { mul4 = 0.01 }
+	add_to_temp_variable = { mul4 = 1 }
+	multiply_variable = { global.flower_stk_4_price = mul4 }
+	round_variable = global.flower_stk_4_price
+	if = { limit = { check_variable = { global.flower_stk_4_price < 15 } } set_variable = { global.flower_stk_4_price = 15 } }
+	if = { limit = { check_variable = { global.flower_stk_4_price > 750 } } set_variable = { global.flower_stk_4_price = 750 } }
+
+	#计算真实涨跌幅百分比（供红涨绿跌/绿涨红跌清晰标注）
+	flower_stock_recalc_global_changes = yes
+
+	#6. 生成下月市场风声/内幕信号（约 75% 命中，保留真实博弈与反转感）
+	random_list = {
+		20 = {
+			modifier = { factor = 1.8 threat > 0.35 }
+			set_variable = { global.flower_stk_hint = 1 }
+		}
+		15 = { set_variable = { global.flower_stk_hint = 2 } }
+		18 = {
+			modifier = { factor = 1.8 check_variable = { global.flower_stk_3_price > 200 } }
+			set_variable = { global.flower_stk_hint = 3 }
+		}
+		17 = {
+			modifier = { factor = 1.8 check_variable = { global.flower_stk_4_price < 90 } }
+			set_variable = { global.flower_stk_hint = 4 }
+		}
+		15 = {
+			modifier = { factor = 1.6 check_variable = { global.flower_stk_regime > 3 } }
+			set_variable = { global.flower_stk_hint = 5 }
+		}
+		15 = {
+			modifier = { factor = 1.8 check_variable = { global.flower_stk_regime < 3 } }
+			set_variable = { global.flower_stk_hint = 6 }
+		}
+	}
+
+	#7. 基建重工每 6 个月派发 8 HCP/股 现金分红（做空者需倒贴派息）
+	add_to_variable = { global.flower_stk_month_cnt = 1 }
+	if = {
+		limit = { check_variable = { global.flower_stk_month_cnt > 5 } }
+		set_variable = { global.flower_stk_month_cnt = 0 }
+		every_country = {
+			limit = {
+				OR = {
+					check_variable = { flower_stk_2_shares > 0 }
+					check_variable = { flower_stk_2_short > 0 }
+				}
+			}
+			set_temp_variable = { net_ind = flower_stk_2_shares }
+			subtract_from_temp_variable = { net_ind = flower_stk_2_short }
+			multiply_temp_variable = { net_ind = 8 }
+			add_to_variable = { ubs_save = net_ind }
+			add_to_variable = { flower_stk_realized_pnl = net_ind }
+			flower_ai_sync_hcp_ui = yes
+		}
+	}
+
+	#8. 结算人类玩家爆仓、浮盈、里程碑与悬浮窗提醒；同步模拟主要AI实盘收益
+	every_country = {
+		limit = { is_ai = no }
+		flower_stock_check_margin_calls = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_stock_gui_open } }
+			set_country_flag = flower_stk_new_tick_unread
+		}
+	}
+	every_country = {
+		limit = {
+			is_ai = yes
+			is_major = yes
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+		}
+		if = {
+			limit = { check_variable = { global.flower_stk_regime < 3 } }
+			add_to_variable = { ubs_save = 60 }
+			flower_ai_sync_hcp_ui = yes
+		}
+		else_if = {
+			limit = { check_variable = { global.flower_stk_regime = 5 } }
+			add_to_variable = { ubs_save = -45 }
+			flower_ai_sync_hcp_ui = yes
+		}
+	}
+}
+
+#重算 4 只股票月度涨跌幅（供跳价或事件拉盘/砸盘后实时刷新）
+flower_stock_recalc_global_changes = {
+	if = {
+		limit = { check_variable = { global.flower_stk_1_prev > 0 } }
+		set_variable = { global.flower_stk_1_chg = global.flower_stk_1_price }
+		subtract_from_variable = { global.flower_stk_1_chg = global.flower_stk_1_prev }
+		multiply_variable = { global.flower_stk_1_chg = 100 }
+		divide_variable = { global.flower_stk_1_chg = global.flower_stk_1_prev }
+		round_variable = global.flower_stk_1_chg
+	}
+	if = {
+		limit = { check_variable = { global.flower_stk_2_prev > 0 } }
+		set_variable = { global.flower_stk_2_chg = global.flower_stk_2_price }
+		subtract_from_variable = { global.flower_stk_2_chg = global.flower_stk_2_prev }
+		multiply_variable = { global.flower_stk_2_chg = 100 }
+		divide_variable = { global.flower_stk_2_chg = global.flower_stk_2_prev }
+		round_variable = global.flower_stk_2_chg
+	}
+	if = {
+		limit = { check_variable = { global.flower_stk_3_prev > 0 } }
+		set_variable = { global.flower_stk_3_chg = global.flower_stk_3_price }
+		subtract_from_variable = { global.flower_stk_3_chg = global.flower_stk_3_prev }
+		multiply_variable = { global.flower_stk_3_chg = 100 }
+		divide_variable = { global.flower_stk_3_chg = global.flower_stk_3_prev }
+		round_variable = global.flower_stk_3_chg
+	}
+	if = {
+		limit = { check_variable = { global.flower_stk_4_prev > 0 } }
+		set_variable = { global.flower_stk_4_chg = global.flower_stk_4_price }
+		subtract_from_variable = { global.flower_stk_4_chg = global.flower_stk_4_prev }
+		multiply_variable = { global.flower_stk_4_chg = 100 }
+		divide_variable = { global.flower_stk_4_chg = global.flower_stk_4_prev }
+		round_variable = global.flower_stk_4_chg
+	}
+}
+
+# ==============================================================================
+# 个股交易指令：买1手 / 买5手 / 2x杠杆买2手 / 卖1手 / 清多仓 / 空1手 / 空5手 / 平空仓
+# ==============================================================================
+
+# --- 股票1：军工防务 ---
+flower_stk_1_buy_1 = {
+	set_temp_variable = { px = global.flower_stk_1_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_1_shares = 1 }
+		add_to_variable = { flower_stk_1_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_1_buy_5 = {
+	set_temp_variable = { px = global.flower_stk_1_price }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_1_shares = 5 }
+		add_to_variable = { flower_stk_1_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_1_lev_2 = {
+	set_temp_variable = { px = global.flower_stk_1_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_1_shares = 2 }
+		add_to_variable = { flower_stk_1_cost = px }
+		add_to_variable = { flower_stk_1_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_1_sell_1 = {
+	if = {
+		limit = { check_variable = { flower_stk_1_shares > 0 } }
+		set_temp_variable = { px = global.flower_stk_1_price }
+		set_temp_variable = { unit_c = flower_stk_1_cost }
+		divide_temp_variable = { unit_c = flower_stk_1_shares }
+		round_temp_variable = unit_c
+		set_temp_variable = { r_pnl = px }
+		subtract_from_temp_variable = { r_pnl = unit_c }
+		add_to_variable = { ubs_save = px }
+		subtract_from_variable = { flower_stk_1_shares = 1 }
+		subtract_from_variable = { flower_stk_1_cost = unit_c }
+		if = { limit = { check_variable = { flower_stk_1_shares < 1 } } set_variable = { flower_stk_1_cost = 0 } }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_1_sell_all = {
+	if = {
+		limit = { check_variable = { flower_stk_1_shares > 0 } }
+		set_temp_variable = { rev = flower_stk_1_shares }
+		multiply_temp_variable = { rev = global.flower_stk_1_price }
+		set_temp_variable = { r_pnl = rev }
+		subtract_from_temp_variable = { r_pnl = flower_stk_1_cost }
+		add_to_variable = { ubs_save = rev }
+		set_variable = { flower_stk_1_shares = 0 }
+		set_variable = { flower_stk_1_cost = 0 }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_1_short_1 = {
+	set_temp_variable = { px = global.flower_stk_1_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_1_short = 1 }
+		add_to_variable = { flower_stk_1_short_basis = px }
+		add_to_variable = { flower_stk_1_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_1_short_5 = {
+	set_temp_variable = { px = global.flower_stk_1_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	multiply_temp_variable = { m = 5 }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_1_short = 5 }
+		add_to_variable = { flower_stk_1_short_basis = px }
+		add_to_variable = { flower_stk_1_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_1_cover_all = {
+	if = {
+		limit = { check_variable = { flower_stk_1_short > 0 } }
+		set_temp_variable = { cur_v = flower_stk_1_short }
+		multiply_temp_variable = { cur_v = global.flower_stk_1_price }
+		set_temp_variable = { r_pnl = flower_stk_1_short_basis }
+		subtract_from_temp_variable = { r_pnl = cur_v }
+		set_temp_variable = { payout = flower_stk_1_short_margin }
+		add_to_temp_variable = { payout = r_pnl }
+		add_to_variable = { ubs_save = payout }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		set_variable = { flower_stk_1_short = 0 }
+		set_variable = { flower_stk_1_short_basis = 0 }
+		set_variable = { flower_stk_1_short_margin = 0 }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+
+# --- 股票2：基建重工 ---
+flower_stk_2_buy_1 = {
+	set_temp_variable = { px = global.flower_stk_2_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_2_shares = 1 }
+		add_to_variable = { flower_stk_2_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_2_buy_5 = {
+	set_temp_variable = { px = global.flower_stk_2_price }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_2_shares = 5 }
+		add_to_variable = { flower_stk_2_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_2_lev_2 = {
+	set_temp_variable = { px = global.flower_stk_2_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_2_shares = 2 }
+		add_to_variable = { flower_stk_2_cost = px }
+		add_to_variable = { flower_stk_2_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_2_sell_1 = {
+	if = {
+		limit = { check_variable = { flower_stk_2_shares > 0 } }
+		set_temp_variable = { px = global.flower_stk_2_price }
+		set_temp_variable = { unit_c = flower_stk_2_cost }
+		divide_temp_variable = { unit_c = flower_stk_2_shares }
+		round_temp_variable = unit_c
+		set_temp_variable = { r_pnl = px }
+		subtract_from_temp_variable = { r_pnl = unit_c }
+		add_to_variable = { ubs_save = px }
+		subtract_from_variable = { flower_stk_2_shares = 1 }
+		subtract_from_variable = { flower_stk_2_cost = unit_c }
+		if = { limit = { check_variable = { flower_stk_2_shares < 1 } } set_variable = { flower_stk_2_cost = 0 } }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_2_sell_all = {
+	if = {
+		limit = { check_variable = { flower_stk_2_shares > 0 } }
+		set_temp_variable = { rev = flower_stk_2_shares }
+		multiply_temp_variable = { rev = global.flower_stk_2_price }
+		set_temp_variable = { r_pnl = rev }
+		subtract_from_temp_variable = { r_pnl = flower_stk_2_cost }
+		add_to_variable = { ubs_save = rev }
+		set_variable = { flower_stk_2_shares = 0 }
+		set_variable = { flower_stk_2_cost = 0 }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_2_short_1 = {
+	set_temp_variable = { px = global.flower_stk_2_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_2_short = 1 }
+		add_to_variable = { flower_stk_2_short_basis = px }
+		add_to_variable = { flower_stk_2_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_2_short_5 = {
+	set_temp_variable = { px = global.flower_stk_2_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	multiply_temp_variable = { m = 5 }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_2_short = 5 }
+		add_to_variable = { flower_stk_2_short_basis = px }
+		add_to_variable = { flower_stk_2_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_2_cover_all = {
+	if = {
+		limit = { check_variable = { flower_stk_2_short > 0 } }
+		set_temp_variable = { cur_v = flower_stk_2_short }
+		multiply_temp_variable = { cur_v = global.flower_stk_2_price }
+		set_temp_variable = { r_pnl = flower_stk_2_short_basis }
+		subtract_from_temp_variable = { r_pnl = cur_v }
+		set_temp_variable = { payout = flower_stk_2_short_margin }
+		add_to_temp_variable = { payout = r_pnl }
+		add_to_variable = { ubs_save = payout }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		set_variable = { flower_stk_2_short = 0 }
+		set_variable = { flower_stk_2_short_basis = 0 }
+		set_variable = { flower_stk_2_short_margin = 0 }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+
+# --- 股票3：科技飞碟 ---
+flower_stk_3_buy_1 = {
+	set_temp_variable = { px = global.flower_stk_3_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_3_shares = 1 }
+		add_to_variable = { flower_stk_3_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_3_buy_5 = {
+	set_temp_variable = { px = global.flower_stk_3_price }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_3_shares = 5 }
+		add_to_variable = { flower_stk_3_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_3_lev_2 = {
+	set_temp_variable = { px = global.flower_stk_3_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_3_shares = 2 }
+		add_to_variable = { flower_stk_3_cost = px }
+		add_to_variable = { flower_stk_3_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_3_sell_1 = {
+	if = {
+		limit = { check_variable = { flower_stk_3_shares > 0 } }
+		set_temp_variable = { px = global.flower_stk_3_price }
+		set_temp_variable = { unit_c = flower_stk_3_cost }
+		divide_temp_variable = { unit_c = flower_stk_3_shares }
+		round_temp_variable = unit_c
+		set_temp_variable = { r_pnl = px }
+		subtract_from_temp_variable = { r_pnl = unit_c }
+		add_to_variable = { ubs_save = px }
+		subtract_from_variable = { flower_stk_3_shares = 1 }
+		subtract_from_variable = { flower_stk_3_cost = unit_c }
+		if = { limit = { check_variable = { flower_stk_3_shares < 1 } } set_variable = { flower_stk_3_cost = 0 } }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_3_sell_all = {
+	if = {
+		limit = { check_variable = { flower_stk_3_shares > 0 } }
+		set_temp_variable = { rev = flower_stk_3_shares }
+		multiply_temp_variable = { rev = global.flower_stk_3_price }
+		set_temp_variable = { r_pnl = rev }
+		subtract_from_temp_variable = { r_pnl = flower_stk_3_cost }
+		add_to_variable = { ubs_save = rev }
+		set_variable = { flower_stk_3_shares = 0 }
+		set_variable = { flower_stk_3_cost = 0 }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_3_short_1 = {
+	set_temp_variable = { px = global.flower_stk_3_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_3_short = 1 }
+		add_to_variable = { flower_stk_3_short_basis = px }
+		add_to_variable = { flower_stk_3_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_3_short_5 = {
+	set_temp_variable = { px = global.flower_stk_3_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	multiply_temp_variable = { m = 5 }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_3_short = 5 }
+		add_to_variable = { flower_stk_3_short_basis = px }
+		add_to_variable = { flower_stk_3_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_3_cover_all = {
+	if = {
+		limit = { check_variable = { flower_stk_3_short > 0 } }
+		set_temp_variable = { cur_v = flower_stk_3_short }
+		multiply_temp_variable = { cur_v = global.flower_stk_3_price }
+		set_temp_variable = { r_pnl = flower_stk_3_short_basis }
+		subtract_from_temp_variable = { r_pnl = cur_v }
+		set_temp_variable = { payout = flower_stk_3_short_margin }
+		add_to_temp_variable = { payout = r_pnl }
+		add_to_variable = { ubs_save = payout }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		set_variable = { flower_stk_3_short = 0 }
+		set_variable = { flower_stk_3_short_basis = 0 }
+		set_variable = { flower_stk_3_short_margin = 0 }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+
+# --- 股票4：黑市期货 ---
+flower_stk_4_buy_1 = {
+	set_temp_variable = { px = global.flower_stk_4_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_4_shares = 1 }
+		add_to_variable = { flower_stk_4_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_4_buy_5 = {
+	set_temp_variable = { px = global.flower_stk_4_price }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { flower_stk_4_shares = 5 }
+		add_to_variable = { flower_stk_4_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_4_lev_2 = {
+	set_temp_variable = { px = global.flower_stk_4_price }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < px } } }
+		subtract_from_variable = { ubs_save = px }
+		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_4_shares = 2 }
+		add_to_variable = { flower_stk_4_cost = px }
+		add_to_variable = { flower_stk_4_cost = px }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_4_sell_1 = {
+	if = {
+		limit = { check_variable = { flower_stk_4_shares > 0 } }
+		set_temp_variable = { px = global.flower_stk_4_price }
+		set_temp_variable = { unit_c = flower_stk_4_cost }
+		divide_temp_variable = { unit_c = flower_stk_4_shares }
+		round_temp_variable = unit_c
+		set_temp_variable = { r_pnl = px }
+		subtract_from_temp_variable = { r_pnl = unit_c }
+		add_to_variable = { ubs_save = px }
+		subtract_from_variable = { flower_stk_4_shares = 1 }
+		subtract_from_variable = { flower_stk_4_cost = unit_c }
+		if = { limit = { check_variable = { flower_stk_4_shares < 1 } } set_variable = { flower_stk_4_cost = 0 } }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_4_sell_all = {
+	if = {
+		limit = { check_variable = { flower_stk_4_shares > 0 } }
+		set_temp_variable = { rev = flower_stk_4_shares }
+		multiply_temp_variable = { rev = global.flower_stk_4_price }
+		set_temp_variable = { r_pnl = rev }
+		subtract_from_temp_variable = { r_pnl = flower_stk_4_cost }
+		add_to_variable = { ubs_save = rev }
+		set_variable = { flower_stk_4_shares = 0 }
+		set_variable = { flower_stk_4_cost = 0 }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+flower_stk_4_short_1 = {
+	set_temp_variable = { px = global.flower_stk_4_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_4_short = 1 }
+		add_to_variable = { flower_stk_4_short_basis = px }
+		add_to_variable = { flower_stk_4_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_4_short_5 = {
+	set_temp_variable = { px = global.flower_stk_4_price }
+	set_temp_variable = { m = px }
+	multiply_temp_variable = { m = 0.5 }
+	round_temp_variable = m
+	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
+	multiply_temp_variable = { m = 5 }
+	multiply_temp_variable = { px = 5 }
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < m } } }
+		subtract_from_variable = { ubs_save = m }
+		add_to_variable = { flower_stk_4_short = 5 }
+		add_to_variable = { flower_stk_4_short_basis = px }
+		add_to_variable = { flower_stk_4_short_margin = m }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+	}
+}
+flower_stk_4_cover_all = {
+	if = {
+		limit = { check_variable = { flower_stk_4_short > 0 } }
+		set_temp_variable = { cur_v = flower_stk_4_short }
+		multiply_temp_variable = { cur_v = global.flower_stk_4_price }
+		set_temp_variable = { r_pnl = flower_stk_4_short_basis }
+		subtract_from_temp_variable = { r_pnl = cur_v }
+		set_temp_variable = { payout = flower_stk_4_short_margin }
+		add_to_temp_variable = { payout = r_pnl }
+		add_to_variable = { ubs_save = payout }
+		add_to_variable = { flower_stk_realized_pnl = r_pnl }
+		set_variable = { flower_stk_4_short = 0 }
+		set_variable = { flower_stk_4_short_basis = 0 }
+		set_variable = { flower_stk_4_short_margin = 0 }
+		flower_ai_sync_hcp_ui = yes
+		flower_stock_recalc_country_pnl = yes
+		flower_stock_check_milestones = yes
+	}
+}
+
+#一键全部平仓（多空全清）
+flower_stk_liquidate_everything = {
+	flower_stk_1_sell_all = yes
+	flower_stk_1_cover_all = yes
+	flower_stk_2_sell_all = yes
+	flower_stk_2_cover_all = yes
+	flower_stk_3_sell_all = yes
+	flower_stk_3_cover_all = yes
+	flower_stk_4_sell_all = yes
+	flower_stk_4_cover_all = yes
+}
+
+#盈利购厂：花 500 HCP 瞬建 1 座军工 + 1 座民工（180天冷却）
+flower_stk_buy_factory_action = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_stk_buy_factory_cd }
+			NOT = { check_variable = { ubs_save < 500 } }
+		}
+		set_country_flag = { flag = flower_stk_buy_factory_cd days = 180 value = 1 }
+		if = {
+			limit = { is_ai = no }
+			scoped_sound_effect = "flower_sfx_branch_stonks_money"
+		}
+		subtract_from_variable = { ubs_save = 500 }
+		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			capital_scope = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}

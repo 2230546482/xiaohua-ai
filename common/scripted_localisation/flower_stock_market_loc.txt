@@ -1,0 +1,215 @@
+#老实赚钱很枯燥吧：全球交易所实盘炒股动态本地化
+
+defined_text = {
+	name = GetFlowerStockRegimeText
+	text = {
+		trigger = { check_variable = { global.flower_stk_regime = 1 } }
+		localization_key = FLOWER_STK_REGIME_1
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_regime = 2 } }
+		localization_key = FLOWER_STK_REGIME_2
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_regime = 3 } }
+		localization_key = FLOWER_STK_REGIME_3
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_regime = 4 } }
+		localization_key = FLOWER_STK_REGIME_4
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_regime = 5 } }
+		localization_key = FLOWER_STK_REGIME_5
+	}
+	text = {
+		localization_key = FLOWER_STK_REGIME_3
+	}
+}
+
+defined_text = {
+	name = GetFlowerStockHintText
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 1 } }
+		localization_key = FLOWER_STK_HINT_1
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 2 } }
+		localization_key = FLOWER_STK_HINT_2
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 3 } }
+		localization_key = FLOWER_STK_HINT_3
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 4 } }
+		localization_key = FLOWER_STK_HINT_4
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 5 } }
+		localization_key = FLOWER_STK_HINT_5
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_hint = 6 } }
+		localization_key = FLOWER_STK_HINT_6
+	}
+	text = {
+		localization_key = FLOWER_STK_HINT_1
+	}
+}
+
+defined_text = {
+	name = GetFlowerStockAccountSummaryText
+	text = {
+		localization_key = FLOWER_STK_ACCOUNT_SUMMARY
+	}
+}
+
+defined_text = {
+	name = GetFlowerStockBuyFactoryBtnText
+	text = {
+		trigger = { has_country_flag = flower_stk_buy_factory_cd }
+		localization_key = FLOWER_STK_BUY_FACTORY_BTN_CD
+	}
+	text = {
+		localization_key = FLOWER_STK_BUY_FACTORY_BTN_READY
+	}
+}
+
+defined_text = {
+	name = GetFlowerStockFooterText
+	text = {
+		localization_key = FLOWER_STK_FOOTER_DESC
+	}
+}
+
+defined_text = {
+	name = GetFlowerStockXiaohuaMood
+	text = {
+		trigger = { check_variable = { flower_stk_unrealized_pnl < 0 } }
+		localization_key = FLOWER_STK_MOOD_LOSS
+	}
+	text = {
+		localization_key = FLOWER_STK_MOOD_PROFIT
+	}
+}
+
+# --- 股票1：军工防务 ---
+defined_text = {
+	name = GetFlowerStock1PriceText
+	text = {
+		trigger = { check_variable = { global.flower_stk_1_chg > 0 } }
+		localization_key = FLOWER_STK_1_PRICE_UP
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_1_chg < 0 } }
+		localization_key = FLOWER_STK_1_PRICE_DOWN
+	}
+	text = {
+		localization_key = FLOWER_STK_1_PRICE_FLAT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock1HistoryText
+	text = {
+		localization_key = FLOWER_STK_1_HIST_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock1HoldingsText
+	text = {
+		localization_key = FLOWER_STK_1_HOLD_TEXT
+	}
+}
+
+# --- 股票2：基建重工 ---
+defined_text = {
+	name = GetFlowerStock2PriceText
+	text = {
+		trigger = { check_variable = { global.flower_stk_2_chg > 0 } }
+		localization_key = FLOWER_STK_2_PRICE_UP
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_2_chg < 0 } }
+		localization_key = FLOWER_STK_2_PRICE_DOWN
+	}
+	text = {
+		localization_key = FLOWER_STK_2_PRICE_FLAT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock2HistoryText
+	text = {
+		localization_key = FLOWER_STK_2_HIST_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock2HoldingsText
+	text = {
+		localization_key = FLOWER_STK_2_HOLD_TEXT
+	}
+}
+
+# --- 股票3：科技飞碟 ---
+defined_text = {
+	name = GetFlowerStock3PriceText
+	text = {
+		trigger = { check_variable = { global.flower_stk_3_chg > 0 } }
+		localization_key = FLOWER_STK_3_PRICE_UP
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_3_chg < 0 } }
+		localization_key = FLOWER_STK_3_PRICE_DOWN
+	}
+	text = {
+		localization_key = FLOWER_STK_3_PRICE_FLAT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock3HistoryText
+	text = {
+		localization_key = FLOWER_STK_3_HIST_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock3HoldingsText
+	text = {
+		localization_key = FLOWER_STK_3_HOLD_TEXT
+	}
+}
+
+# --- 股票4：黑市期货 ---
+defined_text = {
+	name = GetFlowerStock4PriceText
+	text = {
+		trigger = { check_variable = { global.flower_stk_4_chg > 0 } }
+		localization_key = FLOWER_STK_4_PRICE_UP
+	}
+	text = {
+		trigger = { check_variable = { global.flower_stk_4_chg < 0 } }
+		localization_key = FLOWER_STK_4_PRICE_DOWN
+	}
+	text = {
+		localization_key = FLOWER_STK_4_PRICE_FLAT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock4HistoryText
+	text = {
+		localization_key = FLOWER_STK_4_HIST_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerStock4HoldingsText
+	text = {
+		localization_key = FLOWER_STK_4_HOLD_TEXT
+	}
+}

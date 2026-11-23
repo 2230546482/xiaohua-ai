@@ -1,0 +1,365 @@
+#肉鸽流派、核心分支与开局畸变代表性热梗音效资产定义
+
+sound = {
+	name = "flower_sfx_arch_1_slayer"
+	file = "flower_memes/flower_sfx_arch_1_slayer.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_2_corp"
+	file = "flower_memes/flower_sfx_arch_2_corp.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_3_arty"
+	file = "flower_memes/flower_sfx_arch_3_arty.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_4_tank"
+	file = "flower_memes/flower_sfx_arch_4_tank.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_5_air"
+	file = "flower_memes/flower_sfx_arch_5_air.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_6_wave"
+	file = "flower_memes/flower_sfx_arch_6_wave.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_7_nightingale"
+	file = "flower_memes/flower_sfx_arch_7_nightingale.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_8_guerrilla"
+	file = "flower_memes/flower_sfx_arch_8_guerrilla.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_9_undead"
+	file = "flower_memes/flower_sfx_arch_9_undead.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_10_magic"
+	file = "flower_memes/flower_sfx_arch_10_magic.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_11_steampunk"
+	file = "flower_memes/flower_sfx_arch_11_steampunk.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_arch_12_gambler"
+	file = "flower_memes/flower_sfx_arch_12_gambler.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_italian_cannon"
+	file = "flower_memes/flower_sfx_branch_italian_cannon.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_stuka_shampoo"
+	file = "flower_memes/flower_sfx_branch_stuka_shampoo.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_ufo_watermeter"
+	file = "flower_memes/flower_sfx_branch_ufo_watermeter.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_timestop_dio"
+	file = "flower_memes/flower_sfx_branch_timestop_dio.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_ainz_overlord"
+	file = "flower_memes/flower_sfx_branch_ainz_overlord.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_stonks_money"
+	file = "flower_memes/flower_sfx_branch_stonks_money.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_rooftop_crash"
+	file = "flower_memes/flower_sfx_branch_rooftop_crash.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_tiger_look"
+	file = "flower_memes/flower_sfx_branch_tiger_look.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_ma_baoguo"
+	file = "flower_memes/flower_sfx_branch_ma_baoguo.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_eat_tuva"
+	file = "flower_memes/flower_sfx_branch_eat_tuva.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_steiner_heroes"
+	file = "flower_memes/flower_sfx_branch_steiner_heroes.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_nightmare_boss"
+	file = "flower_memes/flower_sfx_branch_nightmare_boss.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_branch_qin_scam"
+	file = "flower_memes/flower_sfx_branch_qin_scam.wav"
+	always_load = yes
+}
+
+sound = {
+	name = "flower_sfx_combo_awakening"
+	file = "flower_memes/flower_sfx_combo_awakening.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_arch_1_slayer
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_1_slayer
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_2_corp
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_2_corp
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_3_arty
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_3_arty
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_4_tank
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_4_tank
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_5_air
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_5_air
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_6_wave
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_6_wave
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_7_nightingale
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_7_nightingale
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_8_guerrilla
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_8_guerrilla
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_9_undead
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_9_undead
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_10_magic
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_10_magic
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_11_steampunk
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_11_steampunk
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_arch_12_gambler
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_arch_12_gambler
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_italian_cannon
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_italian_cannon
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_stuka_shampoo
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_stuka_shampoo
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_ufo_watermeter
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_ufo_watermeter
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_timestop_dio
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_timestop_dio
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_ainz_overlord
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_ainz_overlord
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_stonks_money
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_stonks_money
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_rooftop_crash
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_rooftop_crash
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_tiger_look
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_tiger_look
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_ma_baoguo
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_ma_baoguo
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_eat_tuva
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_eat_tuva
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_steiner_heroes
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_steiner_heroes
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_nightmare_boss
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_nightmare_boss
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_branch_qin_scam
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_branch_qin_scam
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_combo_awakening
+	volume = 0.85
+	sounds = {
+		sound = flower_sfx_combo_awakening
+	}
+}

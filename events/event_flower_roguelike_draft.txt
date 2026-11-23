@@ -12,28 +12,70 @@ country_event = {
 		name = FLWRG.1.a
 		ai_chance = {
 			base = 15
-			modifier = { factor = 6 check_variable = { flower_draft_slot_1 = 21 } }
-			modifier = { factor = 2 check_variable = { flower_draft_slot_1 < 13 } }
+			modifier = { factor = 8 check_variable = { flower_draft_slot_1 = 21 } }
+			modifier = { factor = 5 check_variable = { flower_draft_slot_1 = 22 } }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_1 < 13 } }
+			#按自身构筑精准挑卡：装甲流爱油料/闪电，空军流爱制空，火炮/夜莺爱超频/早苗，人海/亡灵爱狂战/破釜，巨企爱借贷/流水线
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 12 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 9 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 10 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 6 } has_country_flag = flower_roguelike_magic_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 20 } OR = { has_country_flag = flower_roguelike_arty_ai has_country_flag = flower_roguelike_nightingale_ai } }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 14 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_corp_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 16 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_wave_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 17 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 2.5 check_variable = { flower_draft_slot_1 = 24 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_nightingale_ai has_country_flag = flower_roguelike_guerrilla_ai } }
+			modifier = { factor = 0.25 check_variable = { flower_draft_slot_1 = 13 } has_war = no }
 		}
-		flower_ai_apply_draft_slot_1 = yes
+		hidden_effect = {
+			flower_ai_apply_draft_slot_1 = yes
+		}
 	}
 	option = {
 		name = FLWRG.1.b
 		ai_chance = {
 			base = 15
-			modifier = { factor = 6 check_variable = { flower_draft_slot_2 = 21 } }
-			modifier = { factor = 2 check_variable = { flower_draft_slot_2 < 13 } }
+			modifier = { factor = 8 check_variable = { flower_draft_slot_2 = 21 } }
+			modifier = { factor = 5 check_variable = { flower_draft_slot_2 = 22 } }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_2 < 13 } }
+			#按自身构筑精准挑卡：装甲流爱油料/闪电，空军流爱制空，火炮/夜莺爱超频/早苗，人海/亡灵爱狂战/破釜，巨企爱借贷/流水线
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 12 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 9 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 10 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 6 } has_country_flag = flower_roguelike_magic_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 20 } OR = { has_country_flag = flower_roguelike_arty_ai has_country_flag = flower_roguelike_nightingale_ai } }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 14 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_corp_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 16 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_wave_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 17 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 2.5 check_variable = { flower_draft_slot_2 = 24 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_nightingale_ai has_country_flag = flower_roguelike_guerrilla_ai } }
+			modifier = { factor = 0.25 check_variable = { flower_draft_slot_2 = 13 } has_war = no }
 		}
-		flower_ai_apply_draft_slot_2 = yes
+		hidden_effect = {
+			flower_ai_apply_draft_slot_2 = yes
+		}
 	}
 	option = {
 		name = FLWRG.1.c
 		ai_chance = {
 			base = 15
-			modifier = { factor = 6 check_variable = { flower_draft_slot_3 = 21 } }
-			modifier = { factor = 2 check_variable = { flower_draft_slot_3 < 13 } }
+			modifier = { factor = 8 check_variable = { flower_draft_slot_3 = 21 } }
+			modifier = { factor = 5 check_variable = { flower_draft_slot_3 = 22 } }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_3 < 13 } }
+			#按自身构筑精准挑卡：装甲流爱油料/闪电，空军流爱制空，火炮/夜莺爱超频/早苗，人海/亡灵爱狂战/破釜，巨企爱借贷/流水线
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 12 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 9 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 10 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 6 } has_country_flag = flower_roguelike_magic_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 20 } OR = { has_country_flag = flower_roguelike_arty_ai has_country_flag = flower_roguelike_nightingale_ai } }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 14 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_corp_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 16 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_wave_ai } }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 17 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 2.5 check_variable = { flower_draft_slot_3 = 24 } OR = { has_country_flag = flower_roguelike_undead_ai has_country_flag = flower_roguelike_nightingale_ai has_country_flag = flower_roguelike_guerrilla_ai } }
+			modifier = { factor = 0.25 check_variable = { flower_draft_slot_3 = 13 } has_war = no }
 		}
-		flower_ai_apply_draft_slot_3 = yes
+		hidden_effect = {
+			flower_ai_apply_draft_slot_3 = yes
+		}
 	}
 }
 
@@ -136,7 +178,11 @@ country_event = {
 		name = FLWRG.13.c
 		ai_chance = { factor = 35 }
 		add_ideas = flower_evo_undead_sweatshop_idea
-		add_to_variable = { another_country_currency_reserve = 500 }
+		custom_effect_tooltip = flower_hcp_plus_500_tt
+		hidden_effect = {
+			add_to_variable = { ubs_save = 500 }
+			flower_ai_sync_hcp_ui = yes
+		}
 		flower_ai_check_chemical_combos = yes
 	}
 }
@@ -175,7 +221,11 @@ country_event = {
 		name = FLWRG.15.a
 		ai_chance = { factor = 35 }
 		add_ideas = flower_evo_corp_trust_idea
-		add_to_variable = { another_country_currency_reserve = 500 }
+		custom_effect_tooltip = flower_hcp_plus_500_tt
+		hidden_effect = {
+			add_to_variable = { ubs_save = 500 }
+			flower_ai_sync_hcp_ui = yes
+		}
 		flower_ai_check_chemical_combos = yes
 	}
 	option = {
@@ -327,12 +377,12 @@ country_event = {
 		ai_chance = { factor = 35 }
 		set_technology = {
 			flying_saucer_tech = 1
-			popup = no
+			popup = yes
 		}
 		add_ideas = flower_evo_punk_ufo_idea
 		add_equipment_to_stockpile = {
 			type = flying_saucer_equipment_0
-			amount = 250
+			amount = 150
 		}
 		flower_ai_check_chemical_combos = yes
 	}

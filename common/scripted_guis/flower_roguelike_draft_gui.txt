@@ -11,6 +11,45 @@ scripted_gui = {
 		ai_enabled = { always = no }
 
 		triggers = {
+			flower_draft_p1_guide_lbl_visible = { check_variable = { flower_draft_gui_mode = 1 } }
+			flower_draft_section_title_visible = { NOT = { check_variable = { flower_draft_gui_mode = 1 } } }
+			flower_draft_tab_p1_on_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p1_on_lbl_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p1_off_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_draft_tab_p1_off_lbl_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_draft_tab_p2_on_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_draft_tab_p2_on_lbl_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_draft_tab_p2_off_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p2_off_lbl_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p2_alert_visible = {
+				check_variable = { flower_draft_gui_mode = 1 }
+				check_variable = { flower_draft_starter_page = 1 }
+				NOT = { has_country_flag = flower_draft_visited_p2 }
+			}
 			flower_draft_page_btn_visible = { check_variable = { flower_draft_gui_mode = 1 } }
 			flower_draft_page_btn_lbl_visible = { check_variable = { flower_draft_gui_mode = 1 } }
 			flower_draft_random_btn_visible = { check_variable = { flower_draft_gui_mode = 1 } }
@@ -26,7 +65,7 @@ scripted_gui = {
 						check_variable = { flower_draft_rerolls_used = 1 }
 						OR = {
 							AND = {
-								check_variable = { another_country_currency_reserve > 149 }
+								check_variable = { ubs_save > 149 }
 								has_political_power > 49
 								has_army_experience > 24
 							}
@@ -40,7 +79,7 @@ scripted_gui = {
 						check_variable = { flower_draft_rerolls_used = 2 }
 						OR = {
 							AND = {
-								check_variable = { another_country_currency_reserve > 249 }
+								check_variable = { ubs_save > 249 }
 								has_political_power > 74
 							}
 							AND = {
@@ -386,10 +425,25 @@ scripted_gui = {
 			flower_branch2_opt_2_btn_click = {
 				flower_ai_apply_branch_choice_2 = yes
 			}
+			flower_draft_tab_p1_on_btn_click = {
+				set_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p1_off_btn_click = {
+				set_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_draft_tab_p2_on_btn_click = {
+				set_variable = { flower_draft_starter_page = 2 }
+				set_country_flag = flower_draft_visited_p2
+			}
+			flower_draft_tab_p2_off_btn_click = {
+				set_variable = { flower_draft_starter_page = 2 }
+				set_country_flag = flower_draft_visited_p2
+			}
 			flower_draft_page_btn_click = {
 				if = {
 					limit = { check_variable = { flower_draft_starter_page = 1 } }
 					set_variable = { flower_draft_starter_page = 2 }
+					set_country_flag = flower_draft_visited_p2
 				}
 				else = {
 					set_variable = { flower_draft_starter_page = 1 }
@@ -406,8 +460,9 @@ scripted_gui = {
 				else_if = {
 					limit = { check_variable = { flower_draft_rerolls_used = 1 } }
 					if = {
-						limit = { check_variable = { another_country_currency_reserve > 149 } }
-						add_to_variable = { another_country_currency_reserve = -150 }
+						limit = { check_variable = { ubs_save > 149 } }
+						add_to_variable = { ubs_save = -150 }
+						flower_ai_sync_hcp_ui = yes
 						add_political_power = -50
 						army_experience = -25
 					}
@@ -419,8 +474,9 @@ scripted_gui = {
 				}
 				else = {
 					if = {
-						limit = { check_variable = { another_country_currency_reserve > 249 } }
-						add_to_variable = { another_country_currency_reserve = -250 }
+						limit = { check_variable = { ubs_save > 249 } }
+						add_to_variable = { ubs_save = -250 }
+						flower_ai_sync_hcp_ui = yes
 						add_political_power = -75
 						add_stability = -0.05
 					}
@@ -452,6 +508,40 @@ scripted_gui = {
 			}
 			flower_draft_close_btn_click = {
 				clr_country_flag = flower_roguelike_gui_open
+			}
+		}
+	}
+
+	#本局肉鸽已选卡牌图鉴与构筑总览GUI（随时通过悬浮窗查看已选流派、隐藏共鸣与所有词条）
+	flower_roguelike_history_gui = {
+		context_type = player_context
+		window_name = "flower_roguelike_history_window"
+
+		visible = {
+			is_ai = no
+			has_country_flag = flower_history_gui_open
+		}
+		ai_enabled = { always = no }
+
+		dynamic_lists = {
+			flower_history_cards_grid = {
+				array = flower_owned_cards_array
+				index = i
+				value = v
+				change_scope = no
+				entry_container = flower_history_card_entry
+			}
+		}
+
+		triggers = {
+			flower_history_empty_lbl_visible = {
+				check_variable = { flower_owned_cards_array^num < 1 }
+			}
+		}
+
+		effects = {
+			flower_history_close_btn_click = {
+				clr_country_flag = flower_history_gui_open
 			}
 		}
 	}

@@ -169,3 +169,73 @@ defined_text = {
 		localization_key = FLOWER_DOCK_DRAFT_TT_IDLE
 	}
 }
+
+defined_text = {
+	name = GetFlowerDockGuardBtnText
+	text = {
+		trigger = { has_country_flag = flower_draft_silent_popup }
+		localization_key = FLOWER_DOCK_GUARD_BTN_ON
+	}
+	text = {
+		localization_key = FLOWER_DOCK_GUARD_BTN_OFF
+	}
+}
+
+defined_text = {
+	name = GetFlowerDockGuardTT
+	text = {
+		trigger = { has_country_flag = flower_draft_silent_popup }
+		localization_key = FLOWER_DOCK_GUARD_TT_ON
+	}
+	text = {
+		localization_key = FLOWER_DOCK_GUARD_TT_OFF
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalyConfirmBtnText
+	text = {
+		trigger = {
+			has_country_flag = flower_anomaly_player_ready
+			NOT = { has_country_flag = flower_anomaly_player_skip }
+		}
+		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_READY
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_CONFIRM_BTN_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerAnomalySkipBtnText
+	text = {
+		trigger = {
+			has_country_flag = flower_anomaly_player_skip
+		}
+		localization_key = FLOWER_ANOMALY_SKIP_BTN_ACTIVE
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_SKIP_BTN_TEXT
+	}
+}
+
+defined_text = {
+	name = GetFlowerDockStockBtnText
+	text = {
+		trigger = {
+			has_country_flag = flower_stk_new_tick_unread
+		}
+		localization_key = FLOWER_DOCK_STOCK_BTN_ALERT
+	}
+	text = {
+		localization_key = FLOWER_DOCK_STOCK_BTN_IDLE
+	}
+}
+
+defined_text = {
+	name = GetFlowerDockStockTT
+	text = {
+		localization_key = FLOWER_DOCK_STOCK_TT
+	}
+}
+

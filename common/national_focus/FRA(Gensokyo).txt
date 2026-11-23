@@ -9497,7 +9497,7 @@ focus_tree = {
         completion_reward = {
             custom_effect_tooltip = unlock_bamboo_grove_squad
             hidden_effect = {
-                set_technology = { bamboo_grove_squad_tech = 1 popup = no }
+                set_technology = { bamboo_grove_squad_tech = 1 popup = yes }
             }
             add_mastery_bonus = {
                 bonus = 0.15
@@ -12896,7 +12896,7 @@ focus_tree = {
             hidden_effect = {
                 set_technology = {
                     field_hospital_upgrade_2 = 1
-                    popup = no
+                    popup = yes
                 }
             }
             KNM = {
@@ -12904,7 +12904,7 @@ focus_tree = {
                 hidden_effect = {
                     set_technology = {
                         field_hospital_upgrade_0 = 1
-                        popup = no
+                        popup = yes
                     }
                 }
             }

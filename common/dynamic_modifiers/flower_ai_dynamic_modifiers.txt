@@ -4,6 +4,7 @@ flower_slayer_book_dynamic_mod = {
 	enable = { always = yes }
 	army_attack_factor = flower_slayer_atk_var
 	breakthrough_factor = flower_slayer_brk_var
+	army_org_factor = flower_slayer_org_var
 	equipment_capture_factor = flower_slayer_cap_var
 	supply_consumption_factor = flower_slayer_sup_var
 	weekly_manpower = flower_slayer_mp_var
@@ -23,6 +24,8 @@ flower_devour_anomaly_dynamic_mod = {
 	enable = { always = yes }
 	army_attack_factor = flower_devour_atk_var
 	army_defence_factor = flower_devour_def_var
+	breakthrough_factor = flower_devour_brk_var
 	industrial_capacity_factory = flower_devour_ic_var
+	non_core_manpower = flower_devour_ncm_var
 	weekly_manpower = flower_devour_mp_var
 }

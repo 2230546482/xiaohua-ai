@@ -1,0 +1,130 @@
+scripted_gui = {
+	#老实赚钱很枯燥吧：全球交易所实盘炒股交互逻辑
+	flower_stock_market_gui = {
+		context_type = player_context
+		window_name = "flower_stock_market_window"
+
+		visible = {
+			is_ai = no
+			has_country_flag = flower_stock_gui_open
+		}
+		ai_enabled = { always = no }
+
+		triggers = {
+			flower_xiaohua_portrait_happy_visible = {
+				check_variable = { flower_stk_unrealized_pnl >= 0 }
+			}
+			flower_xiaohua_portrait_cry_visible = {
+				check_variable = { flower_stk_unrealized_pnl < 0 }
+			}
+			flower_stk_buy_factory_btn_click_enabled = {
+				NOT = { has_country_flag = flower_stk_buy_factory_cd }
+				check_variable = { ubs_save >= 500 }
+			}
+		}
+
+		effects = {
+			flower_stock_close_btn_click = {
+				clr_country_flag = flower_stock_gui_open
+			}
+			flower_stk_liquidate_all_btn_click = {
+				flower_stk_liquidate_everything = yes
+			}
+			flower_stk_buy_factory_btn_click = {
+				flower_stk_buy_factory_action = yes
+			}
+
+			#---股票1：军工防务---
+			flower_stk_1_buy_1_btn_click = {
+				flower_stk_1_buy_1 = yes
+			}
+			flower_stk_1_buy_5_btn_click = {
+				flower_stk_1_buy_5 = yes
+			}
+			flower_stk_1_buy_lev_btn_click = {
+				flower_stk_1_lev_2 = yes
+			}
+			flower_stk_1_sell_1_btn_click = {
+				flower_stk_1_sell_1 = yes
+			}
+			flower_stk_1_sell_all_btn_click = {
+				flower_stk_1_sell_all = yes
+			}
+			flower_stk_1_short_1_btn_click = {
+				flower_stk_1_short_1 = yes
+			}
+			flower_stk_1_cover_all_btn_click = {
+				flower_stk_1_cover_all = yes
+			}
+
+			#---股票2：基建重工---
+			flower_stk_2_buy_1_btn_click = {
+				flower_stk_2_buy_1 = yes
+			}
+			flower_stk_2_buy_5_btn_click = {
+				flower_stk_2_buy_5 = yes
+			}
+			flower_stk_2_buy_lev_btn_click = {
+				flower_stk_2_lev_2 = yes
+			}
+			flower_stk_2_sell_1_btn_click = {
+				flower_stk_2_sell_1 = yes
+			}
+			flower_stk_2_sell_all_btn_click = {
+				flower_stk_2_sell_all = yes
+			}
+			flower_stk_2_short_1_btn_click = {
+				flower_stk_2_short_1 = yes
+			}
+			flower_stk_2_cover_all_btn_click = {
+				flower_stk_2_cover_all = yes
+			}
+
+			#---股票3：科技飞碟---
+			flower_stk_3_buy_1_btn_click = {
+				flower_stk_3_buy_1 = yes
+			}
+			flower_stk_3_buy_5_btn_click = {
+				flower_stk_3_buy_5 = yes
+			}
+			flower_stk_3_buy_lev_btn_click = {
+				flower_stk_3_lev_2 = yes
+			}
+			flower_stk_3_sell_1_btn_click = {
+				flower_stk_3_sell_1 = yes
+			}
+			flower_stk_3_sell_all_btn_click = {
+				flower_stk_3_sell_all = yes
+			}
+			flower_stk_3_short_1_btn_click = {
+				flower_stk_3_short_1 = yes
+			}
+			flower_stk_3_cover_all_btn_click = {
+				flower_stk_3_cover_all = yes
+			}
+
+			#---股票4：黑市期货---
+			flower_stk_4_buy_1_btn_click = {
+				flower_stk_4_buy_1 = yes
+			}
+			flower_stk_4_buy_5_btn_click = {
+				flower_stk_4_buy_5 = yes
+			}
+			flower_stk_4_buy_lev_btn_click = {
+				flower_stk_4_lev_2 = yes
+			}
+			flower_stk_4_sell_1_btn_click = {
+				flower_stk_4_sell_1 = yes
+			}
+			flower_stk_4_sell_all_btn_click = {
+				flower_stk_4_sell_all = yes
+			}
+			flower_stk_4_short_1_btn_click = {
+				flower_stk_4_short_1 = yes
+			}
+			flower_stk_4_cover_all_btn_click = {
+				flower_stk_4_cover_all = yes
+			}
+		}
+	}
+}

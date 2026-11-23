@@ -1,6 +1,808 @@
-#肉鸽流派全图AI产线、兵种配比与前线作战策略深度适配
+#肉鸽流派全图AI产线、兵种配比、基建目标与精准编制占比适配（覆盖12大流派与全图特化大国基盘对冲）
 
-#流派七：夜莺骑士团AI产线与编制配比（拉满魔导武器与魔导炮产线，全力组建夜莺骑士团）
+#====================================================================
+#零、特化大国原生高额role_ratio基盘归一化（仅在选择带专属陆军编制的肉鸽流派时生效）
+#目的：将FRA/PAO/PAM/ELF/LHS/PAU/KFL/KNM/TAM/LIB/XYK等国虚高到100-800的原生权重压回标准常备盘（约55-65），
+#使全图所有国家选择同一流派时都能获得一致、可控的精准编制占比（主力55-65%/重装30-40%/特种10-15%）。
+#====================================================================
+
+#法兰西(FRA)基盘归一化：无中坦时100压至45，解锁中坦后340(120+140+80)压至60(35+15+10)
+flower_roguelike_norm_fra_early = {
+	allowed = { original_tag = FRA }
+	enable = {
+		NOT = { has_tech = basic_medium_tank_chassis }
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = FRA_infantry
+		value = -55
+	}
+}
+flower_roguelike_norm_fra_mid = {
+	allowed = { original_tag = FRA }
+	enable = {
+		has_tech = basic_medium_tank_chassis
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = FRA_infantry
+		value = -85
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = FRA_armor
+		value = -125
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = FRA_magic_assault
+		value = -70
+	}
+}
+flower_roguelike_norm_fra_air = {
+	allowed = { original_tag = FRA }
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+		has_tech = Siege_helicopter_0
+		has_tech = paratroopers
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_air_heli_assault
+		value = 30
+	}
+}
+
+#超高权重特化国(PAO/ELF/PAM/LIB/XYK)选空军流二阶时的空骑特种比例补偿，确保空骑稳落10%-15%
+flower_roguelike_norm_500_air = {
+	allowed = {
+		OR = {
+			original_tag = PAO
+			original_tag = PAM
+			original_tag = ELF
+			original_tag = ELW
+			original_tag = EWW
+			original_tag = EFC
+			original_tag = ELG
+			original_tag = EDW
+			original_tag = EBS
+		}
+	}
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+		has_tech = Siege_helicopter_0
+		has_tech = paratroopers
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_air_heli_assault
+		value = 55
+	}
+}
+flower_roguelike_norm_700_air = {
+	allowed = {
+		OR = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+			original_tag = MOR
+			original_tag = SHL
+			original_tag = RCE
+			original_tag = XYK
+		}
+	}
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+		has_tech = Siege_helicopter_0
+		has_tech = paratroopers
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_air_heli_assault
+		value = 85
+	}
+}
+
+#PAO基盘归一化（将500压至60）
+flower_roguelike_norm_pao_base = {
+	allowed = { original_tag = PAO }
+	enable = {
+		NOT = { has_completed_focus = PAO_qshj }
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = PAO_infantry
+		value = -440
+	}
+}
+flower_roguelike_norm_pao_qshj = {
+	allowed = { original_tag = PAO }
+	enable = {
+		has_completed_focus = PAO_qshj
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = PAO_infantry
+		value = -580
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = PAO_infantry2
+		value = -445
+	}
+}
+flower_roguelike_norm_pao_rev = {
+	allowed = { original_tag = PAO }
+	enable = {
+		OR = {
+			has_completed_focus = PAO_gymt
+			has_completed_focus = PAO_wrkc
+		}
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = LHS_infantry
+		value = -460
+	}
+}
+
+#ELF系7国基盘归一化（500压至55）
+flower_roguelike_norm_elf = {
+	allowed = {
+		OR = {
+			original_tag = ELF
+			original_tag = ELW
+			original_tag = EWW
+			original_tag = EFC
+			original_tag = ELG
+			original_tag = EDW
+			original_tag = EBS
+		}
+	}
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = ELF_infantry
+		value = -445
+	}
+}
+
+#PAM基盘归一化（500压至55）
+flower_roguelike_norm_pam = {
+	allowed = { original_tag = PAM }
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = PAM_infantry
+		value = -445
+	}
+}
+
+#LHS/PAU/KFL/KNM/TAM中等特化国基盘归一化（将80-130压至55-65）
+flower_roguelike_norm_lhs = {
+	allowed = { original_tag = LHS }
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = LHS_infantry
+		value = -50
+	}
+}
+flower_roguelike_norm_pau = {
+	allowed = { original_tag = PAU }
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = PAU_infantry
+		value = -35
+	}
+}
+flower_roguelike_norm_kfl_knm = {
+	allowed = {
+		OR = {
+			original_tag = KFL
+			original_tag = KNM
+		}
+	}
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = KFL_infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = KNM_infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = KNM_armor
+		value = -15
+	}
+}
+flower_roguelike_norm_tam = {
+	allowed = { original_tag = TAM }
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -35
+	}
+}
+
+#LIB系殖民地与XYK超高原生权重归一化（700/800压至60）
+flower_roguelike_norm_lib = {
+	allowed = {
+		OR = {
+			original_tag = LIB
+			original_tag = COG
+			original_tag = ROV
+			original_tag = MOR
+			original_tag = SHL
+			original_tag = RCE
+		}
+	}
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -455
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -85
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = militia
+		value = -100
+	}
+}
+flower_roguelike_norm_xyk = {
+	allowed = { original_tag = XYK }
+	enable = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -740
+	}
+}
+
+#====================================================================
+#一、12大肉鸽流派专属AI编制占比、产线与战略打法
+#====================================================================
+
+#流派一：战地扒装备AI（主力替代型：目标占比55%-65%，以步炮突击师为主力以战养战）
+flower_roguelike_slayer_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_slayer_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_slayer_assault
+		value = 95
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 160
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 140
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 120
+	}
+}
+
+#流派二：五年计划种田AI（重装转型型：工业成型后精锐装甲机步稳占30%-40%，清空重复通用装甲配额）
+flower_roguelike_corp_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_corp_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 60
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 80
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 140
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = motorized
+		value = 140
+	}
+}
+flower_roguelike_corp_heavy_role_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_corp_ai
+		num_of_factories > 30
+		has_tech = basic_medium_tank_chassis
+		has_tech = motorised_infantry
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_corp_heavy
+		value = 40
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -15
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -35
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -35
+	}
+}
+
+#流派三：0宽度早苗神风火炮AI（主力替代型：目标占比58%-65%，压低常规步装全力列装神风炮师）
+flower_roguelike_arty_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_arty_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_zero_arty
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 340
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = artillery
+		value = 14
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 120
+	}
+}
+
+#流派四：咲夜时停装甲AI（重装主力30%-40% + 独立时停亲卫特种10%-15%，彻底取代通用装甲不互抢产能）
+flower_roguelike_tank_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_tank_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_sakuya_armor
+		value = 46
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -15
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -35
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -35
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = armor
+		value = 280
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = motorized
+		value = 180
+	}
+	ai_strategy = {
+		type = building_target
+		id = synthetic_refinery
+		value = 10
+	}
+}
+
+#流派四三阶独立精锐特种与银怀表产线（仅解锁the_world_0与the_maid_0后启动，稳占10%-15%特种精锐）
+flower_roguelike_tank_s3_huaibiao_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_tank_ai
+		has_tech = the_world_0
+		has_tech = the_world_1
+		has_tech = the_maid_0
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_sakuya_elite
+		value = 18
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = huaibiao_equipment
+		value = 3
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = huaibiao_equipment
+		value = 220
+	}
+}
+
+#流派五：空军舔地洗头AI（全力倾泻空军产能，二阶同步激活10%-15%空骑伞兵特种旅消化攻城直升机）
+flower_roguelike_air_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = air_factory_balance
+		value = 240
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = fighter
+		value = 170
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = cas
+		value = 220
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 240
+	}
+}
+flower_roguelike_air_s2_heli_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+		has_tech = Siege_helicopter_0
+		has_tech = paratroopers
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_air_heli_assault
+		value = 18
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = siege_helicoptery_equipment
+		value = 4
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = siege_helicoptery_equipment
+		value = 220
+	}
+}
+flower_roguelike_air_s3_ufo_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_air_ai
+		has_tech = flying_saucer_tech
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = flying_saucer_equipment
+		value = 8
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = flying_saucer_equipment
+		value = 240
+	}
+}
+
+#流派六：不死督战人海AI（主力替代型：目标占比58%-65%，铺满12步2炮高HP重填线师）
+flower_roguelike_wave_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_wave_ai
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_wave_wall
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 260
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 260
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 120
+	}
+}
+
+#流派七：夜莺骑士团AI（主力替代型：目标占比55%-65%，一二三阶自动匹配灵装步枪与魔导炮产线）
 flower_roguelike_nightingale_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -11,7 +813,22 @@ flower_roguelike_nightingale_ai_strat = {
 	ai_strategy = {
 		type = role_ratio
 		id = flower_nightingale
-		value = 85
+		value = 95
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
 	}
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
@@ -23,6 +840,15 @@ flower_roguelike_nightingale_ai_strat = {
 		id = magic_assault_equipment
 		value = 220
 	}
+}
+flower_roguelike_nightingale_s2_arty_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_nightingale_ai
+		has_tech = magic_artillery1
+	}
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
 		id = magic_artillery_equipment
@@ -35,7 +861,7 @@ flower_roguelike_nightingale_ai_strat = {
 	}
 }
 
-#流派八：野火游击队AI产线与编制配比（铺满超低宽不吃补给的野火游击海）
+#流派八：野火游击队AI（主力替代型：目标占比58%-65%，铺满1.3宽低补给游击海）
 flower_roguelike_guerrilla_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -46,7 +872,22 @@ flower_roguelike_guerrilla_ai_strat = {
 	ai_strategy = {
 		type = role_ratio
 		id = flower_guerrilla
-		value = 90
+		value = 100
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
 	}
 	ai_strategy = {
 		type = equipment_production_factor
@@ -64,7 +905,7 @@ flower_roguelike_guerrilla_ai_strat = {
 	}
 }
 
-#流派九：躁动的亡灵AI产线与狂暴冲锋适配（持续维持死者的利箭库存并强化进攻姿态）
+#流派九：躁动的亡灵AI（持续维持死者的利箭库存供给亡灵召唤师并强化常规填线协同）
 flower_roguelike_undead_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -93,115 +934,7 @@ flower_roguelike_undead_ai_strat = {
 	}
 }
 
-#流派三：0宽度早苗神风火炮AI产线与8炮神风师配比
-flower_roguelike_arty_ai_strat = {
-	allowed = { always = yes }
-	enable = {
-		has_country_flag = flower_roguelike_arty_ai
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = role_ratio
-		id = flower_zero_arty
-		value = 95
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = artillery
-		value = 300
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories
-		id = artillery
-		value = 10
-	}
-}
-
-#流派四：废土改装与咲夜时停高达AI产线配比
-flower_roguelike_tank_ai_strat = {
-	allowed = { always = yes }
-	enable = {
-		has_country_flag = flower_roguelike_tank_ai
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = role_ratio
-		id = flower_sakuya_armor
-		value = 65
-	}
-	ai_strategy = {
-		type = role_ratio
-		id = armor
-		value = 65
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = armor
-		value = 250
-	}
-}
-
-#流派五：制空遮天与王牌空天AI产线配比
-flower_roguelike_air_ai_strat = {
-	allowed = { always = yes }
-	enable = {
-		has_country_flag = flower_roguelike_air_ai
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = air_factory_balance
-		value = 200
-	}
-	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 150
-	}
-	ai_strategy = {
-		type = unit_ratio
-		id = cas
-		value = 200
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = fighter
-		value = 180
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = cas
-		value = 220
-	}
-	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = siege_helicoptery_equipment
-		value = 4
-	}
-}
-
-#流派六：不死督战队人海AI爆兵配比
-flower_roguelike_wave_ai_strat = {
-	allowed = { always = yes }
-	enable = {
-		has_country_flag = flower_roguelike_wave_ai
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = force_build_armies
-		value = 250
-	}
-	ai_strategy = {
-		type = equipment_production_factor
-		id = infantry
-		value = 250
-	}
-}
-
-#流派十：异界禁书召唤AI（自律人偶/构装骑士/混沌神选）产线配比
+#流派十：异界特种召唤AI（主力非特种人偶/马娘30%-40% + 三阶独立圣杯龙骑特种10%-15%，按阶段按需开产线零空转）
 flower_roguelike_magic_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -212,8 +945,32 @@ flower_roguelike_magic_ai_strat = {
 	ai_strategy = {
 		type = role_ratio
 		id = flower_summon_special
-		value = 70
+		value = 48
 	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
+	}
+}
+flower_roguelike_magic_s2_autometa_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_magic_ai
+		has_tech = auto_meta_0
+	}
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
 		id = auto_meta_equipments
@@ -224,6 +981,22 @@ flower_roguelike_magic_ai_strat = {
 		id = auto_meta_equipments
 		value = 220
 	}
+}
+flower_roguelike_magic_s3_elite_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_magic_ai
+		has_tech = auto_meta_0
+		has_tech = construct_knight_1
+		has_tech = dragon_rider_tech
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_summon_elite
+		value = 18
+	}
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
 		id = construct_knight_equipment
@@ -232,11 +1005,21 @@ flower_roguelike_magic_ai_strat = {
 	ai_strategy = {
 		type = equipment_variant_production_factor
 		id = construct_knight_equipment
-		value = 180
+		value = 190
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = dragon_rider_equipment
+		value = 4
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = dragon_rider_equipment
+		value = 240
 	}
 }
 
-#流派十一：森林妖精与蒸汽飞碟AI产线配比（自动拉满天外飞碟与蒸汽装甲）
+#流派十一：森林妖精与蒸汽飞碟AI（一阶妖精主力55%-65%，二阶解锁蒸汽重甲后形成妖精40-45%+蒸汽重甲30-35%黄金双核）
 flower_roguelike_steampunk_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -247,8 +1030,72 @@ flower_roguelike_steampunk_ai_strat = {
 	ai_strategy = {
 		type = role_ratio
 		id = flower_steampunk_elf
-		value = 65
+		value = 95
 	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -45
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -20
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -20
+	}
+}
+flower_roguelike_steampunk_s2_armor_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_steampunk_ai
+		has_tech = yaojing_tech
+		has_tech = steamtank1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = flower_steampunk_elf
+		value = -22
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = flower_steampunk_armor
+		value = 60
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -15
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = special_armor
+		value = -15
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = steampunk_tank_chassis
+		value = 6
+	}
+	ai_strategy = {
+		type = equipment_variant_production_factor
+		id = steampunk_tank_chassis
+		value = 240
+	}
+}
+flower_roguelike_steampunk_s3_ufo_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_steampunk_ai
+		has_tech = flying_saucer_tech
+	}
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 		type = equipment_production_min_factories_archetype
 		id = flying_saucer_equipment
@@ -261,7 +1108,35 @@ flower_roguelike_steampunk_ai_strat = {
 	}
 }
 
-#分叉特化AI：游击队《山沟里造重炮》拉满火炮产线
+#流派十二：赌徒流派AI灵活均衡配比（借转盘与骰子爆发机动扩军并保障主力陆空产线）
+flower_roguelike_gambler_ai_strat = {
+	allowed = { always = yes }
+	enable = {
+		has_country_flag = flower_roguelike_gambler_active
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 130
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 140
+	}
+	ai_strategy = {
+		type = air_factory_balance
+		value = 120
+	}
+}
+
+#====================================================================
+#二、二阶演化分支AI产线特化
+#====================================================================
+
+#分叉特化AI：游击队《二营长的意大利炮》拉满火炮产线
 flower_evo_guerrilla_heavy_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -272,12 +1147,12 @@ flower_evo_guerrilla_heavy_ai_strat = {
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
-		value = 220
+		value = 240
 	}
 	ai_strategy = {
 		type = equipment_production_min_factories
 		id = artillery
-		value = 10
+		value = 12
 	}
 }
 
@@ -301,7 +1176,7 @@ flower_evo_nightingale_alchemy_ai_strat = {
 	}
 }
 
-#分叉特化AI：空天《贴地舔地拆迁队》狂暴堆近距支援机
+#分叉特化AI：空天《斯图卡在线洗头》狂暴堆近距支援机
 flower_evo_air_cas_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -321,7 +1196,7 @@ flower_evo_air_cas_ai_strat = {
 	}
 }
 
-#分叉特化AI：空天《全天候制空封锁》狂暴堆战斗机
+#分叉特化AI：空天《纯制空不解释》狂暴堆战斗机
 flower_evo_air_superiority_ai_strat = {
 	allowed = { always = yes }
 	enable = {
@@ -341,7 +1216,7 @@ flower_evo_air_superiority_ai_strat = {
 	}
 }
 
-#分叉特化AI：奇幻朋克《天外飞碟母舰群》拉满飞碟产线
+#分叉特化AI：奇幻朋克《外星人来查水表》拉满飞碟产线
 flower_evo_punk_ufo_ai_strat = {
 	allowed = { always = yes }
 	enable = {

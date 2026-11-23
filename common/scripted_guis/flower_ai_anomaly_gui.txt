@@ -1,5 +1,5 @@
 scripted_gui = {
-	#屏幕悬浮窗入口（可拖动，随时一键呼出开局畸变投票箱与肉鸽选牌面板）
+	#屏幕悬浮窗入口（可拖动，随时一键呼出开局畸变投票箱、肉鸽选牌与实盘股市）
 	flower_ai_floating_dock_gui = {
 		context_type = player_context
 		window_name = "flower_ai_floating_dock_window"
@@ -26,6 +26,12 @@ scripted_gui = {
 			flower_dock_draft_btn_click_enabled = {
 				check_variable = { flower_draft_gui_mode > 0 }
 			}
+			flower_dock_stock_glow_visible = {
+				has_country_flag = flower_stk_new_tick_unread
+			}
+			flower_dock_stock_alert_visible = {
+				has_country_flag = flower_stk_new_tick_unread
+			}
 		}
 
 		effects = {
@@ -33,16 +39,23 @@ scripted_gui = {
 				if = {
 					limit = {
 						OR = {
-							has_global_flag = flower_anomaly_voting_open
 							has_country_flag = flower_anomaly_panel_open
+							AND = {
+								has_global_flag = flower_anomaly_voting_open
+								NOT = { has_country_flag = flower_anomaly_panel_minimized }
+							}
 						}
 					}
-					clr_global_flag = flower_anomaly_voting_open
 					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
 				}
 				else = {
 					clr_country_flag = flower_roguelike_gui_open
+					clr_country_flag = flower_history_gui_open
+					clr_country_flag = flower_stock_gui_open
+					clr_country_flag = flower_anomaly_panel_minimized
 					set_country_flag = flower_anomaly_panel_open
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_dock_draft_btn_click = {
@@ -52,15 +65,58 @@ scripted_gui = {
 				}
 				else_if = {
 					limit = { check_variable = { flower_draft_gui_mode > 0 } }
-					clr_global_flag = flower_anomaly_voting_open
 					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
+					clr_country_flag = flower_history_gui_open
+					clr_country_flag = flower_stock_gui_open
 					set_country_flag = flower_roguelike_gui_open
+				}
+			}
+			flower_dock_history_btn_click = {
+				if = {
+					limit = { has_country_flag = flower_history_gui_open }
+					clr_country_flag = flower_history_gui_open
+				}
+				else = {
+					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
+					clr_country_flag = flower_roguelike_gui_open
+					clr_country_flag = flower_stock_gui_open
+					set_country_flag = flower_history_gui_open
+				}
+			}
+			flower_dock_guard_btn_click = {
+				if = {
+					limit = { has_country_flag = flower_draft_silent_popup }
+					clr_country_flag = flower_draft_silent_popup
+				}
+				else = {
+					set_country_flag = flower_draft_silent_popup
+				}
+			}
+			flower_dock_stock_btn_click = {
+				if = {
+					limit = { has_country_flag = flower_stock_gui_open }
+					clr_country_flag = flower_stock_gui_open
+				}
+				else = {
+					if = {
+						limit = { check_variable = { global.flower_stk_1_price < 1 } }
+						flower_stock_init_market = yes
+					}
+					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
+					clr_country_flag = flower_roguelike_gui_open
+					clr_country_flag = flower_history_gui_open
+					clr_country_flag = flower_stk_new_tick_unread
+					set_country_flag = flower_stock_gui_open
+					flower_stock_recalc_country_pnl = yes
 				}
 			}
 		}
 	}
 
-	#开局畸变投票箱主面板（920x660大气版）
+	#开局畸变投票箱主面板（920x660大气版，全员就绪后正式生效）
 	flower_ai_anomaly_vote_gui = {
 		context_type = player_context
 		window_name = "flower_ai_anomaly_vote_window"
@@ -68,7 +124,10 @@ scripted_gui = {
 		visible = {
 			is_ai = no
 			OR = {
-				has_global_flag = flower_anomaly_voting_open
+				AND = {
+					has_global_flag = flower_anomaly_voting_open
+					NOT = { has_country_flag = flower_anomaly_panel_minimized }
+				}
 				has_country_flag = flower_anomaly_panel_open
 			}
 		}
@@ -113,19 +172,53 @@ scripted_gui = {
 			flower_anomaly_confirm_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
-					flower_ai_lock_in_anomalies_and_start = yes
+					if = {
+						limit = {
+							has_country_flag = flower_anomaly_player_ready
+							NOT = { has_country_flag = flower_anomaly_player_skip }
+						}
+						clr_country_flag = flower_anomaly_player_ready
+					}
+					else = {
+						set_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
-				clr_country_flag = flower_anomaly_panel_open
 			}
 			flower_anomaly_multi_off_btn_click = {
-				set_global_flag = flower_anomaly_multi_mode
+				if = {
+					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					set_global_flag = flower_anomaly_multi_mode
+				}
 			}
 			flower_anomaly_multi_on_btn_click = {
-				clr_global_flag = flower_anomaly_multi_mode
+				if = {
+					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					clr_global_flag = flower_anomaly_multi_mode
+					#从多选切回单选时清理各国多投残票，保证单选每人至多1票
+					every_country = {
+						limit = { is_ai = no }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+						if = { limit = { has_country_flag = flower_voted_card_1 } clr_country_flag = flower_voted_card_1 subtract_from_variable = { global.flower_anomaly_vote_1 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_2 } clr_country_flag = flower_voted_card_2 subtract_from_variable = { global.flower_anomaly_vote_2 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_3 } clr_country_flag = flower_voted_card_3 subtract_from_variable = { global.flower_anomaly_vote_3 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_4 } clr_country_flag = flower_voted_card_4 subtract_from_variable = { global.flower_anomaly_vote_4 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_5 } clr_country_flag = flower_voted_card_5 subtract_from_variable = { global.flower_anomaly_vote_5 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_6 } clr_country_flag = flower_voted_card_6 subtract_from_variable = { global.flower_anomaly_vote_6 = 1 } }
+					}
+					flower_ai_recalc_anomaly_ready = yes
+				}
 			}
 			flower_anomaly_card_1_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
 					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
@@ -154,12 +247,18 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_1 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_card_2_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
 					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
 							limit = { has_country_flag = flower_voted_card_2 }
@@ -187,12 +286,18 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_2 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_card_3_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
 					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
 							limit = { has_country_flag = flower_voted_card_3 }
@@ -220,12 +325,18 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_3 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_card_4_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
 					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
 							limit = { has_country_flag = flower_voted_card_4 }
@@ -253,12 +364,18 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_4 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_card_5_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
 					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
 							limit = { has_country_flag = flower_voted_card_5 }
@@ -286,11 +403,17 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_5 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_card_6_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
 					if = {
 						limit = { has_global_flag = flower_anomaly_multi_mode }
 						if = {
@@ -319,11 +442,24 @@ scripted_gui = {
 							add_to_variable = { global.flower_anomaly_vote_6 = 1 }
 						}
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_peek_paw_btn_click = {
 				if = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					if = {
+						limit = { has_country_flag = flower_anomaly_player_ready }
+						clr_country_flag = flower_anomaly_player_ready
+						clr_country_flag = flower_anomaly_player_skip
+					}
+					#先退掉当前玩家已投旧票，杜绝连续点击猫爪无限刷票
+					if = { limit = { has_country_flag = flower_voted_card_1 } clr_country_flag = flower_voted_card_1 subtract_from_variable = { global.flower_anomaly_vote_1 = 1 } }
+					if = { limit = { has_country_flag = flower_voted_card_2 } clr_country_flag = flower_voted_card_2 subtract_from_variable = { global.flower_anomaly_vote_2 = 1 } }
+					if = { limit = { has_country_flag = flower_voted_card_3 } clr_country_flag = flower_voted_card_3 subtract_from_variable = { global.flower_anomaly_vote_3 = 1 } }
+					if = { limit = { has_country_flag = flower_voted_card_4 } clr_country_flag = flower_voted_card_4 subtract_from_variable = { global.flower_anomaly_vote_4 = 1 } }
+					if = { limit = { has_country_flag = flower_voted_card_5 } clr_country_flag = flower_voted_card_5 subtract_from_variable = { global.flower_anomaly_vote_5 = 1 } }
+					if = { limit = { has_country_flag = flower_voted_card_6 } clr_country_flag = flower_voted_card_6 subtract_from_variable = { global.flower_anomaly_vote_6 = 1 } }
 					random_list = {
 						20 = { set_country_flag = flower_voted_card_1 add_to_variable = { global.flower_anomaly_vote_1 = 1 } }
 						20 = { set_country_flag = flower_voted_card_2 add_to_variable = { global.flower_anomaly_vote_2 = 1 } }
@@ -332,16 +468,33 @@ scripted_gui = {
 						15 = { set_country_flag = flower_voted_card_5 add_to_variable = { global.flower_anomaly_vote_5 = 1 } }
 						5 = { set_country_flag = flower_voted_card_6 add_to_variable = { global.flower_anomaly_vote_6 = 1 } }
 					}
+					flower_ai_recalc_anomaly_ready = yes
 				}
 			}
 			flower_anomaly_bookmark_btn_click = {
-				clr_global_flag = flower_anomaly_voting_open
-				set_global_flag = flower_anomaly_voting_settled
-				clr_country_flag = flower_anomaly_panel_open
+				if = {
+					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
+					if = {
+						limit = { has_country_flag = flower_anomaly_player_skip }
+						clr_country_flag = flower_anomaly_player_skip
+						clr_country_flag = flower_anomaly_player_ready
+					}
+					else = {
+						set_country_flag = flower_anomaly_player_skip
+						set_country_flag = flower_anomaly_player_ready
+						if = { limit = { has_country_flag = flower_voted_card_1 } clr_country_flag = flower_voted_card_1 subtract_from_variable = { global.flower_anomaly_vote_1 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_2 } clr_country_flag = flower_voted_card_2 subtract_from_variable = { global.flower_anomaly_vote_2 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_3 } clr_country_flag = flower_voted_card_3 subtract_from_variable = { global.flower_anomaly_vote_3 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_4 } clr_country_flag = flower_voted_card_4 subtract_from_variable = { global.flower_anomaly_vote_4 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_5 } clr_country_flag = flower_voted_card_5 subtract_from_variable = { global.flower_anomaly_vote_5 = 1 } }
+						if = { limit = { has_country_flag = flower_voted_card_6 } clr_country_flag = flower_voted_card_6 subtract_from_variable = { global.flower_anomaly_vote_6 = 1 } }
+					}
+					flower_ai_recalc_anomaly_ready = yes
+				}
 			}
 			flower_anomaly_close_btn_click = {
-				clr_global_flag = flower_anomaly_voting_open
 				clr_country_flag = flower_anomaly_panel_open
+				set_country_flag = flower_anomaly_panel_minimized
 			}
 			flower_anomaly_bow_btn_click = {
 				if = {
@@ -351,6 +504,7 @@ scripted_gui = {
 					}
 					set_country_flag = flower_bow_bonus_draw_used
 					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_draft_manual_open
 					flower_ai_open_roguelike_draft = yes
 				}
 			}

@@ -14,3 +14,27 @@ hua_lunyi_decisions_categories = {
 		
 	}
 }
+
+flower_roguelike_ops_cat = {
+	allowed = {
+		always = yes
+	}
+	icon = GFX_PAM_amjy
+	priority = 480
+	visible = {
+		OR = {
+			has_country_flag = flower_roguelike_slayer_ai
+			has_country_flag = flower_roguelike_corp_ai
+			has_country_flag = flower_roguelike_arty_ai
+			has_country_flag = flower_roguelike_tank_ai
+			has_country_flag = flower_roguelike_air_ai
+			has_country_flag = flower_roguelike_wave_ai
+			has_country_flag = flower_roguelike_nightingale_ai
+			has_country_flag = flower_roguelike_guerrilla_ai
+			has_country_flag = flower_roguelike_undead_ai
+			has_country_flag = flower_roguelike_magic_ai
+			has_country_flag = flower_roguelike_steampunk_ai
+			has_country_flag = flower_roguelike_gambler_active
+		}
+	}
+}

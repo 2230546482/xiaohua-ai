@@ -6,16 +6,16 @@ ideas = {
 
 		#1.夜莺骑士团·三叉进化
 		flower_evo_nightingale_blood_idea = {
-			picture = flower_idea_evo_blood
+			picture = flower_ico_evo_ng_blood
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
 				army_speed_factor = 0.20
-				breakthrough_factor = 0.25
+				breakthrough_factor = 0.15
 				land_night_attack = 0.25
-				army_attack_factor = 0.15
+				army_attack_factor = 0.10
 				army_attack_speed_factor = 0.20
-				supply_consumption_factor = 0.10
+				supply_consumption_factor = 0.15
 			}
 		}
 		flower_evo_nightingale_iron_idea = {
@@ -46,7 +46,7 @@ ideas = {
 
 		#2.野火游击队·三叉进化
 		flower_evo_guerrilla_scorch_idea = {
-			picture = flower_idea_guerrilla
+			picture = flower_ico_evo_gu_scorch
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -61,7 +61,7 @@ ideas = {
 			}
 		}
 		flower_evo_guerrilla_heavy_idea = {
-			picture = flower_idea_evo_magic_arty
+			picture = flower_ico_evo_gu_heavy
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -73,7 +73,7 @@ ideas = {
 			}
 		}
 		flower_evo_guerrilla_sea_idea = {
-			picture = flower_idea_wave_evolve
+			picture = flower_ico_evo_gu_sea
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -87,7 +87,7 @@ ideas = {
 
 		#3.躁动的亡灵·三叉进化
 		flower_evo_undead_plague_idea = {
-			picture = flower_idea_undead
+			picture = flower_ico_evo_ud_plague
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -103,15 +103,15 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_attack_factor = 0.20
-				army_defence_factor = 0.20
-				breakthrough_factor = 0.25
-				army_org_factor = 0.20
-				coordination_bonus = 0.15
+				army_attack_factor = 0.12
+				army_defence_factor = 0.12
+				breakthrough_factor = 0.15
+				army_org_factor = 0.12
+				coordination_bonus = 0.12
 			}
 		}
 		flower_evo_undead_sweatshop_idea = {
-			picture = flower_idea_builder_ledger
+			picture = flower_ico_evo_ud_factory
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -125,7 +125,7 @@ ideas = {
 
 		#4.战地拾荒扒衣·双叉进化
 		flower_evo_slayer_dismantle_idea = {
-			picture = flower_idea_slayer_book
+			picture = flower_ico_evo_slayer_dis
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -150,7 +150,7 @@ ideas = {
 
 		#5.黑灯工厂巨企·双叉进化
 		flower_evo_corp_trust_idea = {
-			picture = flower_idea_relic_gold
+			picture = flower_ico_evo_corp_trust
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -161,7 +161,7 @@ ideas = {
 			}
 		}
 		flower_evo_corp_megaproject_idea = {
-			picture = flower_idea_relic_tech
+			picture = flower_ico_evo_corp_mega
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -174,7 +174,7 @@ ideas = {
 
 		#6.0宽早苗神风火炮·双叉进化
 		flower_evo_arty_carpet_idea = {
-			picture = flower_idea_arty_evolve
+			picture = flower_ico_evo_arty_carpet
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -185,7 +185,7 @@ ideas = {
 			}
 		}
 		flower_evo_arty_mobile_idea = {
-			picture = flower_idea_blitz
+			picture = flower_ico_evo_arty_mobile
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -199,7 +199,7 @@ ideas = {
 
 		#7.废土改装与咲夜时停装甲·双叉进化
 		flower_evo_tank_timestop_idea = {
-			picture = flower_idea_tank_evolve
+			picture = flower_ico_evo_tank_time
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -211,7 +211,7 @@ ideas = {
 			}
 		}
 		flower_evo_tank_fortress_idea = {
-			picture = flower_idea_evo_iron
+			picture = flower_ico_evo_tank_fort
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -225,7 +225,7 @@ ideas = {
 
 		#8.遮天斯图卡与飞碟空天·双叉进化
 		flower_evo_air_cas_idea = {
-			picture = flower_idea_air_evolve
+			picture = flower_ico_evo_air_cas
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -236,7 +236,7 @@ ideas = {
 			}
 		}
 		flower_evo_air_superiority_idea = {
-			picture = flower_idea_evo_star_fleet
+			picture = flower_ico_evo_air_sup
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -250,7 +250,7 @@ ideas = {
 
 		#9.不死督战队人海·双叉进化
 		flower_evo_wave_meatgrinder_idea = {
-			picture = flower_idea_wave_evolve
+			picture = flower_ico_evo_wave_meat
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -263,7 +263,7 @@ ideas = {
 			}
 		}
 		flower_evo_wave_banzai_idea = {
-			picture = flower_idea_evo_blood
+			picture = flower_ico_evo_wave_banzai
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -276,7 +276,7 @@ ideas = {
 
 		#10.异界禁书召唤·双叉进化
 		flower_evo_magic_chosen_idea = {
-			picture = flower_idea_magic_evolve
+			picture = flower_ico_evo_magic_chosen
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -288,7 +288,7 @@ ideas = {
 			}
 		}
 		flower_evo_magic_grimoire_idea = {
-			picture = flower_idea_relic_tech
+			picture = flower_ico_evo_magic_grim
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -330,7 +330,7 @@ ideas = {
 		#二、通用百搭战术遗物（12张）
 		#==================================================
 		flower_relic_night_hunter_idea = {
-			picture = flower_idea_evo_blood
+			picture = flower_ico_relic_night
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -342,7 +342,7 @@ ideas = {
 			}
 		}
 		flower_relic_supply_wizard_idea = {
-			picture = flower_idea_relic_supply
+			picture = flower_ico_relic_supply
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -353,7 +353,7 @@ ideas = {
 			}
 		}
 		flower_relic_iron_assembly_idea = {
-			picture = flower_idea_evo_steam_gear
+			picture = flower_ico_relic_assembly
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -363,7 +363,7 @@ ideas = {
 			}
 		}
 		flower_relic_war_homework_idea = {
-			picture = flower_idea_relic_tech
+			picture = flower_ico_relic_intel
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -374,7 +374,7 @@ ideas = {
 			}
 		}
 		flower_relic_black_market_dealer_idea = {
-			picture = flower_idea_relic_gold
+			picture = flower_ico_relic_blackmarket
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -384,7 +384,7 @@ ideas = {
 			}
 		}
 		flower_relic_specops_bootcamp_idea = {
-			picture = flower_idea_relic_army
+			picture = flower_ico_relic_specops
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -397,7 +397,7 @@ ideas = {
 			}
 		}
 		flower_relic_marshal_cram_school_idea = {
-			picture = flower_idea_relic_command
+			picture = flower_ico_relic_marshal
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -409,7 +409,7 @@ ideas = {
 			}
 		}
 		flower_relic_bunker_crew_idea = {
-			picture = flower_idea_evo_iron
+			picture = flower_ico_relic_bunker
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -422,7 +422,7 @@ ideas = {
 			}
 		}
 		flower_relic_blitz_staff_idea = {
-			picture = flower_idea_blitz
+			picture = flower_ico_relic_blitz
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -433,7 +433,7 @@ ideas = {
 			}
 		}
 		flower_relic_sky_backyard_idea = {
-			picture = flower_idea_air_evolve
+			picture = flower_ico_relic_air
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -444,7 +444,7 @@ ideas = {
 			}
 		}
 		flower_relic_field_surgery_idea = {
-			picture = flower_idea_relic_supply
+			picture = flower_ico_relic_surgery
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -456,7 +456,7 @@ ideas = {
 			}
 		}
 		flower_relic_fuel_stash_idea = {
-			picture = flower_idea_evo_steam_gear
+			picture = flower_ico_relic_fuel
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -470,7 +470,7 @@ ideas = {
 		#三、双刃剑契约（8张）
 		#==================================================
 		flower_curse_burn_boats_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_boats
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -483,7 +483,7 @@ ideas = {
 			}
 		}
 		flower_curse_flesh_alchemy_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_alchemy
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -494,7 +494,7 @@ ideas = {
 			}
 		}
 		flower_curse_espresso_march_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_espresso
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -505,7 +505,7 @@ ideas = {
 			}
 		}
 		flower_curse_berserk_trade_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_berserk
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -517,7 +517,7 @@ ideas = {
 			}
 		}
 		flower_curse_wallstreet_loan_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_loan
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -526,7 +526,7 @@ ideas = {
 			}
 		}
 		flower_curse_mad_reactor_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_reactor
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -536,7 +536,7 @@ ideas = {
 			}
 		}
 		flower_curse_no_step_back_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_nostep
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -548,7 +548,7 @@ ideas = {
 			}
 		}
 		flower_curse_overclock_magic_idea = {
-			picture = flower_idea_curse_pact
+			picture = flower_ico_curse_overclock
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -563,7 +563,7 @@ ideas = {
 		#四、跨界奇招增益精神
 		#==================================================
 		flower_micro_nightingale_cloak_idea = {
-			picture = flower_idea_nightingale
+			picture = flower_ico_micro_ng_cloak
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -573,7 +573,7 @@ ideas = {
 			}
 		}
 		flower_micro_guerrilla_manual_idea = {
-			picture = flower_idea_guerrilla
+			picture = flower_ico_micro_gu_manual
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -583,7 +583,7 @@ ideas = {
 			}
 		}
 		flower_micro_elf_blessing_idea = {
-			picture = flower_idea_evo_elf
+			picture = flower_ico_micro_elf
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -595,7 +595,7 @@ ideas = {
 			}
 		}
 		flower_micro_uma_dispatch_idea = {
-			picture = flower_idea_magic_evolve
+			picture = flower_ico_micro_uma
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -605,7 +605,7 @@ ideas = {
 			}
 		}
 		flower_micro_sanae_charm_idea = {
-			picture = flower_idea_arty_evolve
+			picture = flower_ico_micro_sanae
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -619,7 +619,7 @@ ideas = {
 		#五、六大跨流派隐藏共鸣精神
 		#==================================================
 		flower_combo_undead_sweatshop_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_sweatshop
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -630,7 +630,7 @@ ideas = {
 			}
 		}
 		flower_combo_enemy_makes_our_guns_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_guerrilla
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -641,7 +641,7 @@ ideas = {
 			}
 		}
 		flower_combo_eternal_night_barrage_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_barrage
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -652,7 +652,7 @@ ideas = {
 			}
 		}
 		flower_combo_die_harder_engine_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_diehard
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -664,7 +664,7 @@ ideas = {
 			}
 		}
 		flower_combo_star_mic_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_starmic
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -675,7 +675,7 @@ ideas = {
 			}
 		}
 		flower_combo_gensokyo_mobilize_idea = {
-			picture = flower_idea_combo_spark
+			picture = flower_ico_combo_gensokyo
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
@@ -685,6 +685,49 @@ ideas = {
 				army_attack_factor = 0.15
 				army_defence_factor = 0.15
 				coordination_bonus = 0.10
+			}
+		}
+		flower_combo_timestop_salvo_idea = {
+			picture = flower_ico_combo_timestop
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.15
+				army_armor_speed_factor = 0.15
+				planning_speed = 0.25
+				coordination_bonus = 0.15
+			}
+		}
+		flower_combo_sky_valkyrie_idea = {
+			picture = flower_ico_combo_valkyrie
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				special_forces_attack_factor = 0.20
+				air_cas_efficiency = 0.20
+				paradrop_organization_factor = 0.35
+				invasion_preparation = -0.35
+			}
+		}
+		flower_combo_crimson_harvest_idea = {
+			picture = flower_ico_combo_harvest
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				equipment_capture_factor = 0.20
+				experience_loss_factor = -0.30
+				weekly_manpower = 5000
+				supply_consumption_factor = -0.15
+			}
+		}
+		flower_combo_blackmarket_tycoon_idea = {
+			picture = flower_ico_combo_blacktycoon
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				hcp_income_factor_monthly = 0.40
+				industrial_capacity_factory = 0.15
+				consumer_goods_factor = -0.10
 			}
 		}
 	}

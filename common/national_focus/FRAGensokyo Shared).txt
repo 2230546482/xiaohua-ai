@@ -195,7 +195,7 @@
 			hidden_effect = {
 				set_technology = {
 					Airborne_tanks_tech = 1
-					popup = no
+					popup = yes
 				}
 			}
 		}
@@ -231,7 +231,7 @@
 			hidden_effect = {
 				set_technology = {
 					AUTO_META_research_available = 1
-					popup = no
+					popup = yes
 				}
 			}
 		}
@@ -2851,7 +2851,7 @@
 			hidden_effect = {
 				set_technology = {
 					tech_irregulars = 1
-					popup = no
+					popup = yes
 				}
 				division_template = {
 					name = "游击队"

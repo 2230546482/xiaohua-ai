@@ -722,12 +722,19 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化）
+    #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化，玩家与AI主要国家均可用）
     hua_trigger_branch_evo_dec = {
-        icon = GFX_exchange_good_luck
+        icon = generic_military
         allowed = { }
         visible = {
-            is_ai = no
+            OR = {
+                is_ai = no
+                AND = {
+                    is_major = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+            }
             OR = {
                 has_global_flag = flower_anomaly_1_active
                 has_global_flag = flower_anomaly_4_active
@@ -739,21 +746,36 @@ hua_lunyi_decisions_categories = {
                 date > 1936.9.1
                 has_war = yes
             }
+            NOT = { check_variable = { flower_draft_gui_mode = 3 } }
+            check_variable = { flower_queue_branch < 1 }
         }
         fire_only_once = no
         days_re_enable = 15
-        ai_will_do = { base = 0 }
+        ai_will_do = {
+            base = 100
+        }
         complete_effect = {
-            flower_ai_open_branch_evolution_event = yes
+            custom_effect_tooltip = hua_trigger_branch_evo_dec_tt
+            hidden_effect = {
+                set_country_flag = flower_draft_manual_open
+                flower_ai_open_branch_evolution_event = yes
+            }
         }
     }
 
-    #主动花费政治点数加抽一轮海克斯三选一
+    #主动花费政治点数加抽一轮肉鸽三选一（玩家与AI主要国家均可用）
     hua_buy_roguelike_draft_pp_dec = {
-        icon = GFX_exchange_good_luck
+        icon = generic_political_discourse
         allowed = { }
         visible = {
-            is_ai = no
+            OR = {
+                is_ai = no
+                AND = {
+                    is_major = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+            }
             OR = {
                 has_global_flag = flower_anomaly_1_active
                 has_global_flag = flower_anomaly_4_active
@@ -765,41 +787,88 @@ hua_lunyi_decisions_categories = {
         cost = 100
         fire_only_once = no
         days_re_enable = 180
-        ai_will_do = { base = 0 }
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 40
+                has_political_power > 160
+            }
+            modifier = {
+                factor = 2
+                has_war = yes
+            }
+        }
         complete_effect = {
-            flower_ai_open_roguelike_draft = yes
+            custom_effect_tooltip = hua_buy_roguelike_draft_pp_tt
+            hidden_effect = {
+                set_country_flag = flower_draft_manual_open
+                flower_ai_open_roguelike_draft = yes
+            }
         }
     }
 
-    #主动花费HCP黑市加抽一轮海克斯三选一
+    #主动花费HCP黑市加抽一轮肉鸽三选一（使用真实萌心经济变量ubs_save，玩家与AI主要国家均可用）
     hua_buy_roguelike_draft_hcp_dec = {
-        icon = GFX_exchange_good_luck
+        icon = generic_consumer_goods
         allowed = { }
         visible = {
-            is_ai = no
+            OR = {
+                is_ai = no
+                AND = {
+                    is_major = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+            }
             OR = {
                 has_global_flag = flower_anomaly_1_active
                 has_global_flag = flower_anomaly_4_active
             }
         }
         available = {
-            check_variable = { another_country_currency_reserve > 249 }
+            custom_trigger_tooltip = {
+                tooltip = hua_need_hcp_250_tt
+                check_variable = { ubs_save > 249.999 }
+            }
         }
         fire_only_once = no
         days_re_enable = 180
-        ai_will_do = { base = 0 }
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 45
+                check_variable = { ubs_save > 499 }
+                check_variable = { ubs_load < 150 }
+            }
+            modifier = {
+                factor = 2
+                has_war = yes
+            }
+        }
         complete_effect = {
-            add_to_variable = { another_country_currency_reserve = -250 }
-            flower_ai_open_roguelike_draft = yes
+            custom_effect_tooltip = hua_buy_roguelike_draft_hcp_tt
+            hidden_effect = {
+                add_to_variable = { ubs_save = -250 }
+                flower_ai_sync_hcp_ui = yes
+                set_country_flag = flower_draft_manual_open
+                flower_ai_open_roguelike_draft = yes
+            }
         }
     }
 
-    #主动翻开12大流派手账面板（升阶或另开副流派玩多修）
+    #主动翻开12大流派面板（升阶或另开副流派玩多修，玩家与AI主要国家均可用）
     hua_open_extra_archetype_dec = {
         icon = GFX_exchange_good_luck
         allowed = { }
         visible = {
-            is_ai = no
+            OR = {
+                is_ai = no
+                AND = {
+                    is_major = yes
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+            }
             OR = {
                 has_global_flag = flower_anomaly_1_active
                 has_global_flag = flower_anomaly_4_active
@@ -811,9 +880,23 @@ hua_lunyi_decisions_categories = {
         cost = 150
         fire_only_once = no
         days_re_enable = 365
-        ai_will_do = { base = 0 }
+        ai_will_do = {
+            base = 0
+            modifier = {
+                add = 60
+                has_political_power > 210
+            }
+            modifier = {
+                factor = 2
+                has_war = yes
+            }
+        }
         complete_effect = {
-            flower_ai_open_starter_selection = yes
+            custom_effect_tooltip = hua_open_extra_archetype_tt
+            hidden_effect = {
+                set_country_flag = flower_draft_manual_open
+                flower_ai_open_starter_selection = yes
+            }
         }
     }
 }
