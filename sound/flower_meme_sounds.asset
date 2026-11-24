@@ -156,6 +156,12 @@ sound = {
 	always_load = yes
 }
 
+sound = {
+	name = "flower_sfx_cat_hiss"
+	file = "flower_memes/flower_sfx_cat_hiss.wav"
+	always_load = yes
+}
+
 soundeffect = {
 	name = flower_sfx_arch_1_slayer
 	volume = 0.58
@@ -361,5 +367,153 @@ soundeffect = {
 	volume = 0.58
 	sounds = {
 		sound = flower_sfx_combo_awakening
+	}
+}
+
+soundeffect = {
+	name = flower_sfx_cat_hiss
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_cat_hiss
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_fbi_open"
+	file = "flower_memes/flower_sfx_meme_fbi_open.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_fbi_open
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_fbi_open
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_deja_vu"
+	file = "flower_memes/flower_sfx_meme_deja_vu.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_deja_vu
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_deja_vu
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_gas_gas"
+	file = "flower_memes/flower_sfx_meme_gas_gas.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_gas_gas
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_gas_gas
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_wang_shijian"
+	file = "flower_memes/flower_sfx_meme_wang_shijian.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_wang_shijian
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_wang_shijian
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_truck_horn"
+	file = "flower_memes/flower_sfx_meme_truck_horn.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_truck_horn
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_truck_horn
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_nanomachines"
+	file = "flower_memes/flower_sfx_meme_nanomachines.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_nanomachines
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_nanomachines
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_zhenxiang"
+	file = "flower_memes/flower_sfx_meme_zhenxiang.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_zhenxiang
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_zhenxiang
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_katsu_boom"
+	file = "flower_memes/flower_sfx_meme_katsu_boom.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_katsu_boom
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_katsu_boom
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_heroes_revive"
+	file = "flower_memes/flower_sfx_meme_heroes_revive.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_heroes_revive
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_heroes_revive
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_sparta"
+	file = "flower_memes/flower_sfx_meme_sparta.wav"
+	always_load = yes
+}
+
+soundeffect = {
+	name = flower_sfx_meme_sparta
+	volume = 0.60
+	sounds = {
+		sound = flower_sfx_meme_sparta
 	}
 }

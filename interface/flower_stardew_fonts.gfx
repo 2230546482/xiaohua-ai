@@ -1,69 +1,32 @@
 bitmapfonts = {
-	#星露谷暖栗棕羊皮纸正文墨水字体（16号，兼容全量简体中文与高对比暖色代码）
+	#星露谷阳光奶油柔和羊皮纸正文墨水字体（16号：纯白无黑边 hoi_18 紧凑高清全量简体中文）
 	bitmapfont = {
 		name = "flower_stardew_ink_16"
-		fontfiles = {
-			"gfx/fonts/hoi4_typewriter16"
-			"gfx/fonts/hoi_16typewriter"
-		}
-		color = 0xff461e0a
-		textcolors = {
-			G = { 22 114 44 }
-			R = { 174 32 28 }
-			Y = { 148 74 12 }
-			H = { 138 66 10 }
-			O = { 172 74 14 }
-			C = { 20 96 140 }
-			B = { 30 82 152 }
-			W = { 70 30 10 }
-			T = { 70 30 10 }
-			g = { 116 82 54 }
-			L = { 126 68 20 }
-			M = { 134 44 122 }
-			t = { 26 112 108 }
-			1 = { 124 44 152 }
-			7 = { 116 82 54 }
-		}
-	}
-	bitmapfont_override = {
-		name = "flower_stardew_ink_16"
-		fontfiles = {
-			"gfx/fonts/chinese/hoi_16typewriter_1of4EX"
-			"gfx/fonts/chinese/hoi_16typewriter_2of4EX"
-			"gfx/fonts/chinese/hoi_16typewriter_3of4EX"
-			"gfx/fonts/chinese/hoi_16typewriter_4of4EX"
-		}
-		languages = { "l_simp_chinese" }
-	}
-
-	#星露谷暖栗棕羊皮纸副标题墨水字体（18号）
-	bitmapfont = {
-		name = "flower_stardew_ink_18"
 		fontfiles = {
 			"gfx/fonts/hoi_18"
 			"gfx/fonts/hoi_18_cryllic"
 		}
-		color = 0xff421a08
+		color = 0xff3d1c0b
 		textcolors = {
-			G = { 22 114 44 }
-			R = { 174 32 28 }
-			Y = { 148 74 12 }
-			H = { 138 66 10 }
-			O = { 172 74 14 }
-			C = { 20 96 140 }
-			B = { 30 82 152 }
-			W = { 66 26 8 }
-			T = { 66 26 8 }
-			g = { 116 82 54 }
-			L = { 126 68 20 }
-			M = { 134 44 122 }
-			t = { 26 112 108 }
-			1 = { 124 44 152 }
-			7 = { 116 82 54 }
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
 		}
 	}
 	bitmapfont_override = {
-		name = "flower_stardew_ink_18"
+		name = "flower_stardew_ink_16"
 		fontfiles = {
 			"gfx/fonts/chinese/hoi_18_1of4"
 			"gfx/fonts/chinese/hoi_18_2of4"
@@ -73,149 +36,183 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#星露谷暖栗棕大标题墨水字体（22号）
+	#星露谷阳光奶油副标题与粗体按钮墨水字体（18号：纯白无黑边 hoi_18b + cg_18b_EX）
+	bitmapfont = {
+		name = "flower_stardew_ink_18"
+		fontfiles = {
+			"gfx/fonts/hoi_18b"
+		}
+		color = 0xff3d1c0b
+		textcolors = {
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
+		}
+	}
+	bitmapfont_override = {
+		name = "flower_stardew_ink_18"
+		fontfiles = {
+			"gfx/fonts/chinese/cg_18b_1of4EX"
+			"gfx/fonts/chinese/cg_18b_2of4EX"
+			"gfx/fonts/chinese/cg_18b_3of4EX"
+			"gfx/fonts/chinese/cg_18b_4of4EX"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	#星露谷阳光奶油大标题墨水字体（22号：纯白无黑边 tahoma_20_bold）
 	bitmapfont = {
 		name = "flower_stardew_ink_22"
 		fontfiles = {
-			"gfx/fonts/hoi4_typewriter22"
-			"gfx/fonts/hoi_22typewriter"
+			"gfx/fonts/tahoma_20_bold"
 		}
-		color = 0xff3c1606
+		color = 0xff3d1c0b
 		textcolors = {
-			G = { 22 114 44 }
-			R = { 174 32 28 }
-			Y = { 142 68 10 }
-			H = { 134 62 10 }
-			O = { 168 70 14 }
-			C = { 20 92 136 }
-			B = { 28 78 148 }
-			W = { 60 22 6 }
-			T = { 60 22 6 }
-			g = { 112 78 50 }
-			L = { 122 64 18 }
-			M = { 130 42 118 }
-			t = { 24 108 104 }
-			1 = { 120 40 148 }
-			7 = { 112 78 50 }
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
 		}
 	}
 	bitmapfont_override = {
 		name = "flower_stardew_ink_22"
 		fontfiles = {
-			"gfx/fonts/chinese/hoi4_typewriter22_1of4"
-			"gfx/fonts/chinese/hoi4_typewriter22_2of4"
-			"gfx/fonts/chinese/hoi4_typewriter22_3of4"
-			"gfx/fonts/chinese/hoi4_typewriter22_4of4"
+			"gfx/fonts/chinese/tahoma_20_bold_1of4"
+			"gfx/fonts/chinese/tahoma_20_bold_2of4"
+			"gfx/fonts/chinese/tahoma_20_bold_3of4"
+			"gfx/fonts/chinese/tahoma_20_bold_4of4"
 		}
 		languages = { "l_simp_chinese" }
 	}
 
-	#方案A-4高辨识度暖奶油亮色黑边正文字体（16号，挂载原版黑描边全量中文字库+高反差亮色表）
+	#GUI 主用 16 号高清墨水字体（保持 flower_a4_16 名称无缝兼容，底库切换为 100% 纯白无黑边 hoi_18）
 	bitmapfont = {
 		name = "flower_a4_16"
 		fontfiles = {
-			"gfx/fonts/hoi_16mbs"
-			"gfx/fonts/hoi_16mbs_cryllic"
+			"gfx/fonts/hoi_18"
+			"gfx/fonts/hoi_18_cryllic"
 		}
-		color = 0xfffff8e2
+		color = 0xff3d1c0b
 		textcolors = {
-			G = { 134 252 120 }
-			R = { 255 124 110 }
-			Y = { 255 236 122 }
-			H = { 255 244 168 }
-			O = { 255 196 102 }
-			C = { 136 240 255 }
-			B = { 150 208 255 }
-			W = { 255 248 226 }
-			T = { 255 248 226 }
-			g = { 216 196 168 }
-			L = { 255 224 146 }
-			M = { 255 166 232 }
-			t = { 132 246 226 }
-			1 = { 226 172 255 }
-			7 = { 212 192 162 }
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
 		}
 	}
 	bitmapfont_override = {
 		name = "flower_a4_16"
 		fontfiles = {
-			"gfx/fonts/chinese/hoi_16mbs_1of4EX"
-			"gfx/fonts/chinese/hoi_16mbs_2of4EX"
-			"gfx/fonts/chinese/hoi_16mbs_3of4EX"
-			"gfx/fonts/chinese/hoi_16mbs_4of4EX"
+			"gfx/fonts/chinese/hoi_18_1of4"
+			"gfx/fonts/chinese/hoi_18_2of4"
+			"gfx/fonts/chinese/hoi_18_3of4"
+			"gfx/fonts/chinese/hoi_18_4of4"
 		}
 		languages = { "l_simp_chinese" }
 	}
 
-	#方案A-4高辨识度暖奶油亮色黑边副标题与按钮字体（18号）
+	#GUI 主用 18 号粗体副标题与按钮墨水字体（纯白无黑边 hoi_18b + cg_18b_EX）
 	bitmapfont = {
 		name = "flower_a4_18"
 		fontfiles = {
-			"gfx/fonts/hoi_18mbs"
-			"gfx/fonts/hoi_18mbs_cryllic"
+			"gfx/fonts/hoi_18b"
 		}
-		color = 0xfffff8e2
+		color = 0xff3d1c0b
 		textcolors = {
-			G = { 134 252 120 }
-			R = { 255 124 110 }
-			Y = { 255 236 122 }
-			H = { 255 244 168 }
-			O = { 255 196 102 }
-			C = { 136 240 255 }
-			B = { 150 208 255 }
-			W = { 255 248 226 }
-			T = { 255 248 226 }
-			g = { 216 196 168 }
-			L = { 255 224 146 }
-			M = { 255 166 232 }
-			t = { 132 246 226 }
-			1 = { 226 172 255 }
-			7 = { 212 192 162 }
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
 		}
 	}
 	bitmapfont_override = {
 		name = "flower_a4_18"
 		fontfiles = {
-			"gfx/fonts/chinese/hoi_18mbs_1of4EX"
-			"gfx/fonts/chinese/hoi_18mbs_2of4EX"
-			"gfx/fonts/chinese/hoi_18mbs_3of4EX"
-			"gfx/fonts/chinese/hoi_18mbs_4of4EX"
+			"gfx/fonts/chinese/cg_18b_1of4EX"
+			"gfx/fonts/chinese/cg_18b_2of4EX"
+			"gfx/fonts/chinese/cg_18b_3of4EX"
+			"gfx/fonts/chinese/cg_18b_4of4EX"
 		}
 		languages = { "l_simp_chinese" }
 	}
 
-	#方案A-4高辨识度暖奶油亮色大标题字体（24号）
+	#GUI 主用 24 号主标题墨水字体（纯白无黑边 tahoma_20_bold）
 	bitmapfont = {
 		name = "flower_a4_24"
 		fontfiles = {
-			"gfx/fonts/hoi_24header"
+			"gfx/fonts/tahoma_20_bold"
 		}
-		color = 0xfffff8e2
+		color = 0xff3d1c0b
 		textcolors = {
-			G = { 134 252 120 }
-			R = { 255 124 110 }
-			Y = { 255 236 122 }
-			H = { 255 244 168 }
-			O = { 255 196 102 }
-			C = { 136 240 255 }
-			B = { 150 208 255 }
-			W = { 255 248 226 }
-			T = { 255 248 226 }
-			g = { 216 196 168 }
-			L = { 255 224 146 }
-			M = { 255 166 232 }
-			t = { 132 246 226 }
-			1 = { 226 172 255 }
-			7 = { 212 192 162 }
+			G = { 32 112 48 }
+			R = { 168 46 42 }
+			Y = { 142 74 12 }
+			H = { 126 62 12 }
+			O = { 166 72 18 }
+			C = { 26 98 134 }
+			B = { 40 82 146 }
+			W = { 61 28 11 }
+			T = { 61 28 11 }
+			g = { 110 84 64 }
+			L = { 114 70 36 }
+			M = { 146 48 102 }
+			t = { 26 108 98 }
+			1 = { 118 48 134 }
+			7 = { 110 84 64 }
 		}
 	}
 	bitmapfont_override = {
 		name = "flower_a4_24"
 		fontfiles = {
-			"gfx/fonts/chinese/hoi_24header_1of4"
-			"gfx/fonts/chinese/hoi_24header_2of4"
-			"gfx/fonts/chinese/hoi_24header_3of4"
-			"gfx/fonts/chinese/hoi_24header_4of4"
+			"gfx/fonts/chinese/tahoma_20_bold_1of4"
+			"gfx/fonts/chinese/tahoma_20_bold_2of4"
+			"gfx/fonts/chinese/tahoma_20_bold_3of4"
+			"gfx/fonts/chinese/tahoma_20_bold_4of4"
 		}
 		languages = { "l_simp_chinese" }
 	}

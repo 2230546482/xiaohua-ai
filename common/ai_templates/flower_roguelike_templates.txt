@@ -1,6 +1,6 @@
-#肉鸽流派全图AI最优编制适配（覆盖全部核心流派与独立特种分支，高优先级稳压原生模板且无特种上限锁死）
+#肉鸽流派全图AI最优编制适配（全100%原版合法兵种，覆盖全部核心流派与特种分支，高优先级稳压原生模板且无特殊兵种依赖）
 
-#流派一：战地扒装备AI突击步炮师（把缴获来的大量步枪与火炮迅速转化成高突破前线师）
+#流派一：战地扒装备AI突击步炮师
 flower_roguelike_slayer_templates = {
 	role = flower_slayer_assault
 	upgrade_prio = {
@@ -34,7 +34,7 @@ flower_roguelike_slayer_templates = {
 	}
 }
 
-#流派二：五年计划种田AI重装机械化师（工业成型后把溢出产能转化为精锐装甲机步集群）
+#流派二：五年计划种田AI重装机械化师
 flower_roguelike_corp_templates = {
 	role = flower_corp_heavy
 	upgrade_prio = {
@@ -71,7 +71,7 @@ flower_roguelike_corp_templates = {
 	}
 }
 
-#流派三：0宽度早苗神风火炮AI编制（一二阶9步4炮，满级觉醒0宽后自动换装20宽10步8炮重火师）
+#流派三：重炮洗地俱乐部AI编制（一二阶9步4炮，三阶升级9步4炮1火箭炮；分支3B秋名山拉重炮自动升级9摩步4摩炮机动重炮师）
 flower_roguelike_zero_arty_templates = {
 	role = flower_zero_arty
 	upgrade_prio = {
@@ -82,7 +82,11 @@ flower_roguelike_zero_arty_templates = {
 		}
 		modifier = {
 			add = 800
-			has_tech = tech_Sanae_Artillery
+			has_idea = flower_arty_stage_3_idea
+		}
+		modifier = {
+			add = 600
+			has_idea = flower_evo_arty_mobile_idea
 		}
 	}
 	flower_arty_early_tpl = {
@@ -90,7 +94,13 @@ flower_roguelike_zero_arty_templates = {
 			factor = 5800
 			modifier = {
 				factor = 0
-				has_tech = tech_Sanae_Artillery
+				has_idea = flower_arty_stage_3_idea
+				has_tech = rocket_artillery
+			}
+			modifier = {
+				factor = 0
+				has_idea = flower_evo_arty_mobile_idea
+				has_tech = motorised_infantry
 			}
 		}
 		enable = {
@@ -119,15 +129,23 @@ flower_roguelike_zero_arty_templates = {
 	flower_zero_arty_infantry_tpl = {
 		upgrade_prio = {
 			factor = 7200
+			modifier = {
+				factor = 0
+				has_idea = flower_evo_arty_mobile_idea
+				has_tech = motorised_infantry
+			}
 		}
 		enable = {
 			has_country_flag = flower_roguelike_arty_ai
-			has_tech = tech_Sanae_Artillery
+			has_idea = flower_arty_stage_3_idea
+			has_tech = rocket_artillery
+			NOT = { has_idea = flower_evo_arty_mobile_idea }
 		}
 		target_template = {
 			regiments = {
-				infantry = 10
-				artillery_brigade = 8
+				infantry = 9
+				artillery_brigade = 4
+				rocket_artillery_brigade = 1
 			}
 			regimental_support = {
 				fire_support = 3
@@ -136,15 +154,42 @@ flower_roguelike_zero_arty_templates = {
 			support = {
 				engineer = 1
 				artillery = 1
+				rocket_artillery = 1
 				anti_air = 1
 				logistics_company = 1
-				field_hospital = 1
+			}
+		}
+	}
+	flower_arty_mobile_tpl = {
+		upgrade_prio = {
+			factor = 7600
+		}
+		enable = {
+			has_country_flag = flower_roguelike_arty_ai
+			has_idea = flower_evo_arty_mobile_idea
+			has_tech = motorised_infantry
+			has_tech = interwar_artillery
+		}
+		target_template = {
+			regiments = {
+				motorized = 9
+				mot_artillery_brigade = 4
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				engineer = 1
+				artillery = 1
+				anti_air = 1
+				logistics_company = 1
+				signal_company = 1
 			}
 		}
 	}
 }
 
-#流派四A：咲夜主力装甲AI编制（非特种主力，满级挂载完整版support_sakuya_1，不占特种上限）
+#流派四：时停装甲闪电战AI编制（一阶6中坦6摩步，解锁机械化后顺滑换装8中坦7机步高速穿插师）
 flower_roguelike_sakuya_armor_templates = {
 	role = flower_sakuya_armor
 	upgrade_prio = {
@@ -155,7 +200,7 @@ flower_roguelike_sakuya_armor_templates = {
 		}
 		modifier = {
 			add = 800
-			has_tech = the_world_1
+			has_tech = mechanised_infantry
 		}
 	}
 	flower_sakuya_early_armor_tpl = {
@@ -163,7 +208,7 @@ flower_roguelike_sakuya_armor_templates = {
 			factor = 5800
 			modifier = {
 				factor = 0
-				has_tech = the_world_1
+				has_tech = mechanised_infantry
 			}
 		}
 		enable = {
@@ -197,71 +242,28 @@ flower_roguelike_sakuya_armor_templates = {
 		enable = {
 			has_country_flag = flower_roguelike_tank_ai
 			has_tech = basic_medium_tank_chassis
-			has_tech = motorised_infantry
-			has_tech = the_world_1
+			has_tech = mechanised_infantry
 		}
 		target_template = {
 			regiments = {
 				medium_armor = 8
-				motorized = 7
+				mechanized = 7
 			}
 			regimental_support = {
 				fire_support = 2
 			}
 			support = {
-				support_sakuya_1 = 1
 				engineer = 1
 				logistics_company = 1
 				anti_air = 1
 				signal_company = 1
+				maintenance_company = 1
 			}
 		}
 	}
 }
 
-#流派四B：咲夜时停亲卫特种装甲（独立特种角色，低占比稳落10%-15%，高效消耗银怀表且不卡主力扩军）
-flower_roguelike_sakuya_elite_templates = {
-	role = flower_sakuya_elite
-	upgrade_prio = {
-		factor = 0
-		modifier = {
-			add = 7000
-			has_country_flag = flower_roguelike_tank_ai
-			has_tech = the_world_0
-			has_tech = the_maid_0
-		}
-	}
-	flower_sakuya_elite_tpl = {
-		upgrade_prio = {
-			factor = 7400
-		}
-		enable = {
-			has_country_flag = flower_roguelike_tank_ai
-			has_tech = the_world_0
-			has_tech = the_world_1
-			has_tech = the_maid_0
-			has_tech = motorised_infantry
-		}
-		target_template = {
-			regiments = {
-				the_worldtank = 6
-				motorized = 6
-			}
-			regimental_support = {
-				fire_support = 2
-			}
-			support = {
-				support_sakuya_1 = 1
-				engineer = 1
-				logistics_company = 1
-				anti_air = 1
-				signal_company = 1
-			}
-		}
-	}
-}
-
-#流派五：空骑舔地伞兵旅AI编制（独立特种空降角色，挂载攻城直升机支援连彻底消化攻城直升机产能）
+#流派五：斯图卡洗头房王牌空降旅AI编制（纯原版8营精锐伞兵空降斩首）
 flower_roguelike_air_heli_templates = {
 	role = flower_air_heli_assault
 	upgrade_prio = {
@@ -269,7 +271,6 @@ flower_roguelike_air_heli_templates = {
 		modifier = {
 			add = 6500
 			has_country_flag = flower_roguelike_air_ai
-			has_tech = Siege_helicopter_0
 			has_tech = paratroopers
 		}
 	}
@@ -279,7 +280,6 @@ flower_roguelike_air_heli_templates = {
 		}
 		enable = {
 			has_country_flag = flower_roguelike_air_ai
-			has_tech = Siege_helicopter_0
 			has_tech = paratroopers
 		}
 		target_template = {
@@ -287,9 +287,9 @@ flower_roguelike_air_heli_templates = {
 				paratrooper = 8
 			}
 			support = {
-				unit_helicoptery_support = 1
 				engineer = 1
 				recon = 1
+				artillery = 1
 				anti_air = 1
 				logistics_company = 1
 			}
@@ -297,7 +297,7 @@ flower_roguelike_air_heli_templates = {
 	}
 }
 
-#流派六：不死督战人海AI高HP步兵填线重师（12步2炮+战地医院，充分发挥高HP与超高增援率优势）
+#流派六：督战队人海AI高HP步兵填线重师（12步2炮+战地医院）
 flower_roguelike_wave_templates = {
 	role = flower_wave_wall
 	upgrade_prio = {
@@ -331,7 +331,7 @@ flower_roguelike_wave_templates = {
 	}
 }
 
-#流派七：夜莺骑士团AI编制（一阶12营夜莺的魂灵，二三阶顺滑换装9营夜莺骑士团主力师）
+#流派七：午夜奇袭特遣队AI编制（高侦察高主动夜战快反步炮师）
 flower_roguelike_nightingale_templates = {
 	role = flower_nightingale
 	upgrade_prio = {
@@ -340,70 +340,34 @@ flower_roguelike_nightingale_templates = {
 			add = 6600
 			has_country_flag = flower_roguelike_nightingale_ai
 		}
-		modifier = {
-			add = 600
-			has_tech = wangling3_tech
-		}
 	}
-	flower_nightingale_souls_tpl = {
+	flower_nightingale_raid_tpl = {
 		upgrade_prio = {
-			factor = 5800
-			modifier = {
-				factor = 0
-				has_tech = wangling3_tech
-			}
+			factor = 7000
 		}
 		enable = {
 			has_country_flag = flower_roguelike_nightingale_ai
-			has_tech = wangling2_tech
 		}
 		target_template = {
 			regiments = {
-				wangling2 = 12
+				infantry = 9
+				artillery_brigade = 2
 			}
 			regimental_support = {
 				fire_support = 2
 			}
 			support = {
-				engineer = 1
-				field_hospital = 1
-				logistics_company = 1
-				anti_air = 1
 				recon = 1
-			}
-		}
-		replace_at_match = 0.85
-		replace_with = flower_nightingale_knights_tpl
-		target_min_match = 0.75
-	}
-	flower_nightingale_knights_tpl = {
-		upgrade_prio = {
-			factor = 7200
-		}
-		enable = {
-			has_country_flag = flower_roguelike_nightingale_ai
-			has_tech = wangling3_tech
-		}
-		target_template = {
-			regiments = {
-				wangling3 = 9
-			}
-			regimental_support = {
-				fire_support = 2
-				anti_air_battery = 1
-			}
-			support = {
+				signal_company = 1
 				engineer = 1
-				field_hospital = 1
-				logistics_company = 1
 				anti_air = 1
-				recon = 1
+				logistics_company = 1
 			}
 		}
 	}
 }
 
-#流派八：野火游击队AI编制（1.3宽超低补给游击海与二营长重炮游击混编师）
+#流派八：野火游击破交网AI编制（低补给轻步反坦师与二营长重炮混编师）
 flower_roguelike_guerrilla_templates = {
 	role = flower_guerrilla
 	upgrade_prio = {
@@ -423,15 +387,14 @@ flower_roguelike_guerrilla_templates = {
 		}
 		enable = {
 			has_country_flag = flower_roguelike_guerrilla_ai
-			has_tech = youjidui_tech
 		}
 		target_template = {
 			regiments = {
-				youjibudui = 14
+				infantry = 10
 				artillery_brigade = 2
 			}
 			regimental_support = {
-				fire_support = 3
+				fire_support = 2
 			}
 			support = {
 				engineer = 1
@@ -451,11 +414,10 @@ flower_roguelike_guerrilla_templates = {
 		}
 		enable = {
 			has_country_flag = flower_evo_guerrilla_heavy_ai
-			has_tech = youjidui_tech
 		}
 		target_template = {
 			regiments = {
-				youjibudui = 12
+				infantry = 9
 				artillery_brigade = 4
 			}
 			regimental_support = {
@@ -473,7 +435,41 @@ flower_roguelike_guerrilla_templates = {
 	}
 }
 
-#流派十A：异界召唤非特种主力AI编制（一阶10营赛马娘极速突击 -> 二三阶10营自律人偶主力，绝不塞特种支援连防锁上限）
+#流派九：绝境血炉死士团AI编制（战地医院+高HP韧性不死步炮师）
+flower_roguelike_undead_templates = {
+	role = flower_undead_guard
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 6500
+			has_country_flag = flower_roguelike_undead_ai
+		}
+	}
+	flower_undead_guard_tpl = {
+		upgrade_prio = { factor = 7000 }
+		enable = {
+			has_country_flag = flower_roguelike_undead_ai
+		}
+		target_template = {
+			regiments = {
+				infantry = 10
+				artillery_brigade = 2
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				field_hospital = 1
+				engineer = 1
+				logistics_company = 1
+				anti_air = 1
+				artillery = 1
+			}
+		}
+	}
+}
+
+#流派十：皇家王牌特战营AI编制（独立低占比特种山地突击师，充分消化超大特种上限）
 flower_roguelike_magic_summon_templates = {
 	role = flower_summon_special
 	upgrade_prio = {
@@ -481,122 +477,20 @@ flower_roguelike_magic_summon_templates = {
 		modifier = {
 			add = 6600
 			has_country_flag = flower_roguelike_magic_ai
-		}
-		modifier = {
-			add = 600
-			has_tech = auto_meta_0
+			has_tech = tech_mountaineers
 		}
 	}
-	flower_umamusume_tpl = {
-		upgrade_prio = {
-			factor = 5800
-			modifier = {
-				factor = 0
-				has_tech = auto_meta_0
-			}
-		}
-		enable = {
-			has_country_flag = flower_roguelike_magic_ai
-			has_tech = TAM_umamusume_tech_0
-		}
-		target_template = {
-			regiments = {
-				umamusume = 10
-			}
-			support = {
-				engineer = 1
-				recon = 1
-				anti_air = 1
-				logistics_company = 1
-			}
-		}
-		replace_at_match = 0.85
-		replace_with = flower_auto_meta_tpl
-		target_min_match = 0.75
-	}
-	flower_auto_meta_tpl = {
+	flower_royal_mountaineer_tpl = {
 		upgrade_prio = {
 			factor = 7200
 		}
 		enable = {
 			has_country_flag = flower_roguelike_magic_ai
-			has_tech = auto_meta_0
+			has_tech = tech_mountaineers
 		}
 		target_template = {
 			regiments = {
-				auto_meta_units = 10
-			}
-			support = {
-				engineer = 1
-				recon = 1
-				anti_air = 1
-				logistics_company = 1
-				field_hospital = 1
-			}
-		}
-	}
-}
-
-#流派十B：圣杯龙骑精锐特种军团（独立低占比特种角色，同时消化构装骑士与0宽传奇龙骑两条特种产线）
-flower_roguelike_magic_elite_templates = {
-	role = flower_summon_elite
-	upgrade_prio = {
-		factor = 0
-		modifier = {
-			add = 7000
-			has_country_flag = flower_roguelike_magic_ai
-			has_tech = auto_meta_0
-			has_tech = construct_knight_1
-			has_tech = dragon_rider_tech
-		}
-	}
-	flower_summon_elite_tpl = {
-		upgrade_prio = {
-			factor = 7400
-		}
-		enable = {
-			has_country_flag = flower_roguelike_magic_ai
-			has_tech = auto_meta_0
-			has_tech = construct_knight_1
-			has_tech = dragon_rider_tech
-		}
-		target_template = {
-			regiments = {
-				grail_knight_units = 4
-				auto_meta_units = 6
-			}
-			support = {
-				dragon_rider = 1
-				engineer = 1
-				recon = 1
-				anti_air = 1
-				logistics_company = 1
-			}
-		}
-	}
-}
-
-#流派十一A：森林妖精主力步炮旅（全阶段持续保留不停产，一二三阶稳定提供高性价比森林战力）
-flower_roguelike_steampunk_elf_templates = {
-	role = flower_steampunk_elf
-	upgrade_prio = {
-		factor = 0
-		modifier = {
-			add = 6500
-			has_country_flag = flower_roguelike_steampunk_ai
-		}
-	}
-	flower_elf_yaojing_tpl = {
-		upgrade_prio = {
-			factor = 7000
-		}
-		enable = {
-			has_country_flag = flower_roguelike_steampunk_ai
-			has_tech = yaojing_tech
-		}
-		target_template = {
-			regiments = {
-				ELF_yaojing = 10
+				mountaineers = 10
 				artillery_brigade = 2
 			}
 			regimental_support = {
@@ -605,6 +499,7 @@ flower_roguelike_steampunk_elf_templates = {
 			support = {
 				engineer = 1
 				recon = 1
+				artillery = 1
 				anti_air = 1
 				logistics_company = 1
 			}
@@ -612,41 +507,114 @@ flower_roguelike_steampunk_elf_templates = {
 	}
 }
 
-#流派十一B：蒸汽陆地巡洋舰重甲师（独立装甲角色，30宽4蒸汽重甲+9森林妖精高组织度重装突击）
+#流派十一：疯狂科研黑盒局AI编制（依靠超高科研与满级设计局打造精锐中坦机步合成师）
 flower_roguelike_steampunk_armor_templates = {
 	role = flower_steampunk_armor
 	upgrade_prio = {
 		factor = 0
 		modifier = {
-			add = 7000
+			add = 6600
 			has_country_flag = flower_roguelike_steampunk_ai
-			has_tech = yaojing_tech
-			has_tech = steamtank1
+			has_tech = basic_medium_tank_chassis
+			has_tech = motorised_infantry
 		}
 	}
-	flower_steampunk_landship_tpl = {
+	flower_blackbox_early_tpl = {
 		upgrade_prio = {
-			factor = 7400
+			factor = 6200
+			modifier = {
+				factor = 0
+				has_tech = mechanised_infantry
+			}
 		}
 		enable = {
 			has_country_flag = flower_roguelike_steampunk_ai
-			has_tech = yaojing_tech
-			has_tech = steamtank1
+			has_tech = basic_medium_tank_chassis
+			has_tech = motorised_infantry
 		}
 		target_template = {
 			regiments = {
-				steampunk_armor = 4
-				ELF_yaojing = 9
+				medium_armor = 6
+				motorized = 6
 			}
 			regimental_support = {
 				fire_support = 2
 			}
 			support = {
 				engineer = 1
-				recon = 1
-				anti_air = 1
-				logistics_company = 1
 				maintenance_company = 1
+				logistics_company = 1
+				anti_air = 1
+				signal_company = 1
+			}
+		}
+		replace_at_match = 0.85
+		replace_with = flower_blackbox_mech_tpl
+		target_min_match = 0.75
+	}
+	flower_blackbox_mech_tpl = {
+		upgrade_prio = {
+			factor = 7400
+		}
+		enable = {
+			has_country_flag = flower_roguelike_steampunk_ai
+			has_tech = basic_medium_tank_chassis
+			has_tech = mechanised_infantry
+		}
+		target_template = {
+			regiments = {
+				medium_armor = 6
+				mechanized = 6
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				engineer = 1
+				maintenance_company = 1
+				logistics_company = 1
+				anti_air = 1
+				signal_company = 1
+			}
+		}
+	}
+}
+
+#畸变4吸收蒸汽陆行舰后AI编练蒸汽装甲师
+flower_devour_steampunk_templates = {
+	role = flower_devour_steampunk
+	upgrade_prio = {
+		factor = 0
+		modifier = {
+			add = 6500
+			has_global_flag = flower_anomaly_4_active
+			has_tech = steamtank1
+			has_tech = motorised_infantry
+			NOT = { original_tag = DEN }
+		}
+	}
+	flower_devour_steampunk_tpl = {
+		upgrade_prio = { factor = 6800 }
+		enable = {
+			has_global_flag = flower_anomaly_4_active
+			has_tech = steamtank1
+			has_tech = motorised_infantry
+			NOT = { original_tag = DEN }
+		}
+		target_template = {
+			regiments = {
+				steampunk_armor = 6
+				motorized = 6
+			}
+			regimental_support = {
+				fire_support = 2
+			}
+			support = {
+				engineer = 1
+				logistics_company = 1
+				anti_air = 1
+				maintenance_company = 1
+				signal_company = 1
 			}
 		}
 	}

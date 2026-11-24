@@ -1,6 +1,6 @@
 technologies = {
 
-	# 肉鸽专用隐藏解锁科技：装甲算力网络（替代原被 DVL 锁定的 sp_transistor 特殊工程模块产出）
+	#肉鸽专用隐藏解锁科技：装甲算力网络（替代原被 DVL 锁定的 sp_transistor 特殊工程模块产出）
 	flower_roguelike_armor_computing_network_tech = {
 		research_cost = 1
 		start_year = 1936
@@ -14,7 +14,7 @@ technologies = {
 		}
 	}
 
-	# 肉鸽专用隐藏解锁科技：人工智能辅助模块（坦克 + 飞行器，替代原被 DVL 锁定的 sp_artificial_intelligence 特殊工程模块产出）
+	#肉鸽专用隐藏解锁科技：人工智能辅助模块（坦克 + 飞行器，替代原被 DVL 锁定的 sp_artificial_intelligence 特殊工程模块产出）
 	flower_roguelike_ai_assisted_modules_tech = {
 		research_cost = 1
 		start_year = 1936
@@ -29,7 +29,7 @@ technologies = {
 		}
 	}
 
-	# 肉鸽专用隐藏解锁科技：布拉蒂诺温压火箭弹（替代原被 PA1 锁定的 sp_tank_Bratino_warm_pressure_rocket 特殊工程模块产出）
+	#肉鸽专用隐藏解锁科技：布拉蒂诺温压火箭弹
 	flower_roguelike_bratino_rocket_tech = {
 		research_cost = 1
 		start_year = 1936
@@ -40,6 +40,20 @@ technologies = {
 
 		enable_equipment_modules = {
 			tank_Bratino_warm_pressure_rocket
+		}
+	}
+
+	#喷火蒸汽陆行舰支援连通用解锁科技
+	flower_steampunk_flame_tank_unlock_tech = {
+		research_cost = 1
+		start_year = 1936
+		allow = {
+			always = no
+		}
+		show_effect_as_desc = yes
+
+		enable_subunits = {
+			steampunk_flame_tank
 		}
 	}
 }

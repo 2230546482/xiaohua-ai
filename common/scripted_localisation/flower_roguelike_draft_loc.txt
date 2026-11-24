@@ -1,8 +1,14 @@
 defined_text = {
 	name = GetFlowerDraftCatMood
+	text = { trigger = { has_country_flag = flower_cat_hissing } localization_key = FLOWER_DRAFT_CAT_MOOD_HISS }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 1 } } localization_key = FLOWER_DRAFT_CAT_MOOD_1 }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 3 } } localization_key = FLOWER_DRAFT_CAT_MOOD_3 }
 	text = { localization_key = FLOWER_DRAFT_CAT_MOOD_2 }
+}
+defined_text = {
+	name = GetFlowerHistoryCatMood
+	text = { trigger = { has_country_flag = flower_cat_hissing } localization_key = FLOWER_DRAFT_CAT_MOOD_HISS }
+	text = { localization_key = FLOWER_HISTORY_CAT_MOOD }
 }
 defined_text = {
 	name = GetFlowerDraftGuiTitle
@@ -91,6 +97,38 @@ defined_text = {
 	}
 	text = { trigger = { check_variable = { flower_draft_rerolls_used = 2 } } localization_key = FLOWER_DRAFT_REROLL_TT_T3_PP }
 	text = { localization_key = FLOWER_DRAFT_REROLL_TT_DONE }
+}
+defined_text = {
+	name = GetFlowerDraftGambleTT
+	text = {
+		trigger = { has_country_flag = flower_draft_blood_reroll_used }
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_USED
+	}
+	text = {
+		trigger = {
+			num_of_factories < 45
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { artillery_equipment > 199 }
+		}
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_SMALL
+	}
+	text = {
+		trigger = {
+			num_of_factories > 44
+			has_equipment = { infantry_equipment > 4999 }
+			has_equipment = { artillery_equipment > 499 }
+		}
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE
+	}
+	text = {
+		trigger = { check_variable = { ubs_save > 299.999 } }
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_HCP
+	}
+	text = {
+		trigger = { num_of_factories < 45 }
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_SMALL
+	}
+	text = { localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE }
 }
 defined_text = {
 	name = GetFlowerDraftRerollBtn

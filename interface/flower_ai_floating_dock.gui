@@ -15,10 +15,10 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_dock_drag_title"
-			position = { x = 24 y = 6 }
+			position = { x = 26 y = 7 }
 			font = "flower_a4_16"
 			text = "FLOWER_DOCK_DRAG_TITLE"
-			maxWidth = 152
+			maxWidth = 148
 			maxHeight = 18
 			format = center
 			fixedsize = yes
@@ -56,11 +56,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_anomaly_lbl"
-			position = { x = 36 y = 39 }
-			font = "flower_a4_18"
+			position = { x = 32 y = 41 }
+			font = "flower_a4_16"
 			text = "[GetFlowerDockAnomalyBtnText]"
-			maxWidth = 150
-			maxHeight = 20
+			maxWidth = 160
+			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -91,11 +91,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_draft_lbl"
-			position = { x = 36 y = 77 }
-			font = "flower_a4_18"
+			position = { x = 32 y = 79 }
+			font = "flower_a4_16"
 			text = "[GetFlowerDockDraftBtnText]"
-			maxWidth = 150
-			maxHeight = 20
+			maxWidth = 160
+			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -120,11 +120,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_history_lbl"
-			position = { x = 36 y = 115 }
-			font = "flower_a4_18"
+			position = { x = 32 y = 117 }
+			font = "flower_a4_16"
 			text = "FLOWER_DOCK_HISTORY_BTN_TEXT"
-			maxWidth = 150
-			maxHeight = 20
+			maxWidth = 160
+			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -143,11 +143,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_guard_lbl"
-			position = { x = 36 y = 153 }
-			font = "flower_a4_18"
+			position = { x = 32 y = 155 }
+			font = "flower_a4_16"
 			text = "[GetFlowerDockGuardBtnText]"
-			maxWidth = 150
-			maxHeight = 20
+			maxWidth = 160
+			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
@@ -172,11 +172,11 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_dock_stock_lbl"
-			position = { x = 36 y = 191 }
-			font = "flower_a4_18"
+			position = { x = 32 y = 193 }
+			font = "flower_a4_16"
 			text = "[GetFlowerDockStockBtnText]"
-			maxWidth = 150
-			maxHeight = 20
+			maxWidth = 160
+			maxHeight = 18
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes

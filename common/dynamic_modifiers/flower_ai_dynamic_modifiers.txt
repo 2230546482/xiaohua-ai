@@ -29,3 +29,100 @@ flower_devour_anomaly_dynamic_mod = {
 	non_core_manpower = flower_devour_ncm_var
 	weekly_manpower = flower_devour_mp_var
 }
+
+#流派3：炮兵火力密度动态修正
+flower_arty_density_dynamic_mod = {
+	icon = GFX_idea_flower_ico_arty_s1
+	enable = { always = yes }
+	army_artillery_attack_factor = flower_arty_den_atk_var
+	breakthrough_factor = flower_arty_den_brk_var
+	coordination_bonus = flower_arty_den_crd_var
+	army_speed_factor = flower_arty_den_spd_var
+	army_org_factor = flower_arty_den_org_var
+}
+
+#流派4：装甲闪击惯性动态修正
+flower_blitz_momentum_dynamic_mod = {
+	icon = GFX_idea_flower_ico_tank_s1
+	enable = { always = yes }
+	army_armor_speed_factor = flower_blitz_spd_var
+	army_armor_attack_factor = flower_blitz_atk_var
+	army_armor_defence_factor = flower_blitz_def_var
+	breakthrough_factor = flower_blitz_brk_var
+	org_loss_when_moving = flower_blitz_org_var
+	no_supply_grace = flower_blitz_sup_var
+}
+
+#流派5：王牌飞行员威望动态修正
+flower_ace_prestige_dynamic_mod = {
+	icon = GFX_idea_flower_ico_air_s1
+	enable = { always = yes }
+	air_cas_present_factor = flower_ace_cas_var
+	air_superiority_efficiency = flower_ace_sup_var
+	air_attack_factor = flower_ace_atk_var
+	air_agility_factor = flower_ace_agi_var
+	army_bonus_air_superiority_factor = flower_ace_bon_var
+}
+
+#流派6：血战老兵传承动态修正
+flower_veteran_furnace_dynamic_mod = {
+	icon = GFX_idea_flower_ico_wave_s1
+	enable = { always = yes }
+	army_strength_factor = flower_vet_hp_var
+	army_org_regain = flower_vet_rec_var
+	land_reinforce_rate = flower_vet_rei_var
+	army_core_defence_factor = flower_vet_cdef_var
+	army_core_attack_factor = flower_vet_catk_var
+	breakthrough_factor = flower_vet_brk_var
+	dig_in_speed_factor = flower_vet_dig_var
+}
+
+#流派8：游击烂地与敌后适应动态修正
+flower_guerrilla_underdog_dynamic_mod = {
+	icon = GFX_idea_flower_ico_gu_s2
+	enable = { always = yes }
+	terrain_penalty_reduction = flower_gu_ter_var
+	out_of_supply_factor = flower_gu_oos_var
+	army_core_attack_factor = flower_gu_catk_var
+	army_core_defence_factor = flower_gu_cdef_var
+	attrition = flower_gu_att_var
+}
+
+#流派9分支9C：富裕人力折算工业产能动态修正
+flower_blood_labor_dynamic_mod = {
+	icon = GFX_idea_flower_ico_op_undead_lab
+	enable = { always = yes }
+	industrial_capacity_factory = flower_blab_ic_var
+	production_speed_buildings_factor = flower_blab_bld_var
+	industry_repair_factor = flower_blab_rep_var
+}
+
+#流派10：少师精锐编制动态修正
+flower_elite_small_army_dynamic_mod = {
+	icon = GFX_idea_flower_ico_magic_s2
+	enable = { always = yes }
+	army_attack_factor = flower_elite_atk_var
+	army_defence_factor = flower_elite_def_var
+	breakthrough_factor = flower_elite_brk_var
+	experience_gain_army_unit_factor = flower_elite_xp_var
+	terrain_penalty_reduction = flower_elite_ter_var
+}
+
+#流派11：科研领先反哺全军动态修正
+flower_science_compute_dynamic_mod = {
+	icon = GFX_idea_flower_ico_op_punk_ufo
+	enable = { always = yes }
+	coordination_bonus = flower_sci_crd_var
+	decryption_factor = flower_sci_dec_var
+	production_factory_max_efficiency_factor = flower_sci_cap_var
+	attrition = flower_sci_att_var
+}
+
+#流派12分支12A：充裕资金转化战力动态修正
+flower_cash_power_dynamic_mod = {
+	icon = GFX_idea_flower_ico_fate_windfall
+	enable = { always = yes }
+	army_attack_factor = flower_cash_atk_var
+	industrial_capacity_factory = flower_cash_ic_var
+	production_factory_max_efficiency_factor = flower_cash_cap_var
+}

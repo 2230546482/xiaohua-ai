@@ -7,7 +7,7 @@ flower_ai_open_branch_evolution_event = {
 			is_ai = no
 			check_variable = { flower_draft_gui_mode > 0 }
 		}
-		scoped_sound_effect = "alert_pick_new_idea_sound"
+		hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 		add_to_variable = { flower_queue_branch = 1 }
 		flower_ai_recalc_pending_drafts = yes
 		if = {
@@ -30,7 +30,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_nightingale_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 1 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -63,7 +63,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_guerrilla_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 2 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -96,7 +96,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_undead_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 3 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -125,7 +125,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_slayer_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 4 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -159,7 +159,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_corp_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 5 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -192,7 +192,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_arty_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 6 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -225,7 +225,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_tank_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 7 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -258,7 +258,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_air_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 8 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -291,7 +291,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_wave_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 9 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -324,7 +324,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_magic_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 10 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -357,7 +357,7 @@ flower_ai_open_branch_evolution_event = {
 		set_country_flag = flower_evo_punk_done
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "alert_pick_new_idea_sound"
+			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 			set_variable = { flower_branch_id = 11 }
 			set_variable = { flower_draft_gui_mode = 3 }
 			flower_ai_recalc_pending_drafts = yes
@@ -664,12 +664,13 @@ flower_ai_pick_one_draft_card = {
 		}
 		0 = {
 			modifier = {
-							add = 85
-							flower_ai_has_unbranched_archetype = yes
-						}
+				add = 28
+				flower_ai_has_unbranched_archetype = yes
+			}
 			modifier = {
-				factor = 2.5
-				has_country_flag = flower_draft_high_roller
+				factor = 0.35
+				date < 1937.3.1
+				has_war = no
 			}
 			modifier = {
 				factor = 0
@@ -680,9 +681,17 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 21 }
 		}
-		20 = {
+		24 = {
 			modifier = {
-				factor = 2.5
+				factor = 1.45
+				check_variable = { flower_distinct_archetypes_count < 2 }
+			}
+			modifier = {
+				factor = 0.55
+				check_variable = { flower_distinct_archetypes_count > 2 }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -690,6 +699,13 @@ flower_ai_pick_one_draft_card = {
 				OR = {
 					check_variable = { flower_draft_slot_1 = 22 }
 					check_variable = { flower_draft_slot_2 = 22 }
+					check_variable = { flower_card22_picked_count > 3 }
+					has_country_flag = flower_card22_cd
+					AND = {
+						check_variable = { flower_roguelike_cards_count < 1 }
+						NOT = { has_country_flag = flower_draft_high_roller }
+						NOT = { has_country_flag = flower_guarantee_next_card22 }
+					}
 				}
 			}
 			set_variable = { flower_draft_temp = 22 }
@@ -762,7 +778,7 @@ flower_ai_pick_one_draft_card = {
 				OR = {
 					check_variable = { flower_draft_slot_1 = 27 }
 					check_variable = { flower_draft_slot_2 = 27 }
-					has_country_flag = flower_card_owned_27
+					has_idea = flower_micro_defib_kit_idea
 				}
 			}
 			set_variable = { flower_draft_temp = 27 }
@@ -803,7 +819,7 @@ flower_ai_pick_one_draft_card = {
 				OR = {
 					check_variable = { flower_draft_slot_1 = 30 }
 					check_variable = { flower_draft_slot_2 = 30 }
-					has_country_flag = flower_card_owned_30
+					has_idea = flower_micro_sky_radar_idea
 				}
 			}
 			set_variable = { flower_draft_temp = 30 }
@@ -891,7 +907,7 @@ flower_ai_pick_one_draft_card = {
 	}
 }
 
-#洗牌并抽出3张互不相同的肉鸽词条
+#洗牌并抽出3张互不相同的肉鸽词条（内置三大卡22【流派进阶/跨界多修】必定保底技巧）
 flower_ai_roll_roguelike_draft = {
 	set_variable = { flower_draft_slot_1 = 0 }
 	set_variable = { flower_draft_slot_2 = 0 }
@@ -900,8 +916,49 @@ flower_ai_roll_roguelike_draft = {
 	set_variable = { flower_draft_slot_1 = flower_draft_temp }
 	flower_ai_pick_one_draft_card = yes
 	set_variable = { flower_draft_slot_2 = flower_draft_temp }
-	flower_ai_pick_one_draft_card = yes
-	set_variable = { flower_draft_slot_3 = flower_draft_temp }
+	#保底技巧1（押军火切牌必出）、技巧2（迫降敌方主要国家战功必出）、技巧3（连续2轮未见后第3轮保底必出）
+	if = {
+		limit = {
+			check_variable = { flower_card22_picked_count < 4 }
+			NOT = { check_variable = { flower_draft_slot_1 = 22 } }
+			NOT = { check_variable = { flower_draft_slot_2 = 22 } }
+			OR = {
+				has_country_flag = flower_guarantee_next_card22
+				AND = {
+					has_country_flag = flower_draft_high_roller
+					NOT = { has_country_flag = flower_card22_cd }
+				}
+				AND = {
+					check_variable = { flower_drafts_since_card22 > 1 }
+					check_variable = { flower_roguelike_cards_count > 0 }
+					NOT = { has_country_flag = flower_card22_cd }
+				}
+			}
+		}
+		set_variable = { flower_draft_slot_3 = 22 }
+		clr_country_flag = flower_guarantee_next_card22
+	}
+	else = {
+		flower_ai_pick_one_draft_card = yes
+		set_variable = { flower_draft_slot_3 = flower_draft_temp }
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = { flower_draft_slot_1 = 22 }
+				check_variable = { flower_draft_slot_2 = 22 }
+				check_variable = { flower_draft_slot_3 = 22 }
+			}
+		}
+		set_variable = { flower_drafts_since_card22 = 0 }
+	}
+	else_if = {
+		limit = {
+			check_variable = { flower_card22_picked_count < 4 }
+			NOT = { has_country_flag = flower_card22_cd }
+		}
+		add_to_variable = { flower_drafts_since_card22 = 1 }
+	}
 	clr_country_flag = flower_draft_high_roller
 }
 
@@ -909,7 +966,7 @@ flower_ai_roll_roguelike_draft = {
 flower_ai_open_roguelike_draft = {
 	if = {
 		limit = { is_ai = no }
-		scoped_sound_effect = "alert_pick_new_idea_sound"
+		hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
 		if = {
 			limit = { check_variable = { flower_draft_gui_mode > 0 } }
 			add_to_variable = { flower_queue_hex = 1 }
@@ -1111,7 +1168,7 @@ flower_ai_apply_draft_slot_1 = {
 		limit = { check_variable = { flower_draft_slot_1 = 18 } }
 		set_country_flag = flower_card_owned_18
 		add_ideas = flower_curse_mad_reactor_idea
-		add_research_slot = 1
+		flower_ai_add_research_slot_capped = yes
 		add_breakthrough_points = {
 			specialization = specialization_land
 			value = 2
@@ -1141,17 +1198,26 @@ flower_ai_apply_draft_slot_1 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 21 } }
+		add_political_power = 50
+		army_experience = 35
+		air_experience = 35
+		add_to_variable = { ubs_save = 150 }
+		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 22 } }
+		add_to_variable = { flower_card22_picked_count = 1 }
+		set_country_flag = { flag = flower_card22_cd days = 180 value = 1 }
+		set_variable = { flower_drafts_since_card22 = 0 }
+		clr_country_flag = flower_guarantee_next_card22
 		flower_ai_open_starter_selection = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 23 } }
 		random_list = {
 			25 = {
-				add_research_slot = 1
+				flower_ai_add_research_slot_capped = yes
 				add_to_variable = { ubs_save = 500 }
 				flower_ai_sync_hcp_ui = yes
 				random_owned_controlled_state = {
@@ -1188,6 +1254,7 @@ flower_ai_apply_draft_slot_1 = {
 			}
 			25 = {
 				add_ideas = flower_roulette_anti_scam_idea
+				set_country_flag = flower_roulette_pity_ready
 				add_political_power = 150
 				army_experience = 50
 			}
@@ -1195,40 +1262,6 @@ flower_ai_apply_draft_slot_1 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 24 } }
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_undead_stage_1_idea
-					has_idea = flower_undead_stage_2_idea
-					has_idea = flower_undead_stage_3_idea
-					has_country_flag = flower_roguelike_undead_ai
-				}
-			}
-			flower_ai_summon_undead_wave = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_nightingale_stage_1_idea
-					has_idea = flower_nightingale_stage_2_idea
-					has_idea = flower_nightingale_stage_3_idea
-					has_country_flag = flower_roguelike_nightingale_ai
-				}
-			}
-			flower_ai_summon_nightingale_knights = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_guerrilla_stage_1_idea
-					has_idea = flower_guerrilla_stage_2_idea
-					has_idea = flower_guerrilla_stage_3_idea
-					has_country_flag = flower_roguelike_guerrilla_ai
-				}
-			}
-			flower_ai_summon_guerrilla_wave = yes
-			flower_ai_summon_guerrilla_wave = yes
-		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 20000
@@ -1243,37 +1276,80 @@ flower_ai_apply_draft_slot_1 = {
 		}
 		add_to_variable = { ubs_save = 250 }
 		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { has_country_flag = flower_roguelike_tank_ai }
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 600
+			}
+			add_fuel = 100000
+		}
+		if = {
+			limit = { has_country_flag = flower_roguelike_air_ai }
+			air_experience = 100
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 50
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = flower_roguelike_undead_ai
+					has_country_flag = flower_roguelike_nightingale_ai
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			add_manpower = 40000
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 800
+			}
+			army_experience = 50
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 25 } }
 		set_country_flag = flower_card_owned_25
-		set_country_flag = flower_roguelike_nightingale_ai
-		set_technology = {
-			wangling2_tech = 1
-			magic_weapons0 = 1
-			magic_weapons1 = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_nightingale_cloak_idea
-		flower_ai_summon_nightingale_knights = yes
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 400
+		}
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 26 } }
 		set_country_flag = flower_card_owned_26
-		set_country_flag = flower_roguelike_guerrilla_ai
-		set_technology = {
-			youjidui_tech = 1
-			youji_on_me = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_guerrilla_manual_idea
-		flower_ai_summon_guerrilla_wave = yes
+		if = {
+			limit = { any_enemy_country = { is_major = yes } }
+			random_enemy_country = {
+				limit = { is_major = yes }
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 4000
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 27 } }
 		set_country_flag = flower_card_owned_27
-		set_country_flag = flower_roguelike_undead_ai
-		flower_ai_summon_undead_wave = yes
+		add_ideas = flower_micro_defib_kit_idea
+		add_manpower = 40000
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 500
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 28 } }
@@ -1283,39 +1359,34 @@ flower_ai_apply_draft_slot_1 = {
 			type = artillery_equipment
 			amount = 2500
 		}
-		add_equipment_to_stockpile = {
-			type = railway_gun_equipment
-			amount = 1
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 29 } }
 		set_country_flag = flower_card_owned_29
-		set_country_flag = flower_roguelike_tank_ai
-		set_technology = {
-			the_world_0 = 1
-			the_maid_0 = 1
-			popup = yes
-		}
-		army_experience = 50
+		add_ideas = flower_micro_sakuya_watch_idea
+		add_fuel = 100000
+		army_experience = 75
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 30 } }
 		set_country_flag = flower_card_owned_30
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			flying_saucer_tech = 1
-			popup = yes
+		add_ideas = flower_micro_sky_radar_idea
+		air_experience = 100
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
 		}
 		add_equipment_to_stockpile = {
-			type = flying_saucer_equipment_0
-			amount = 250
+			type = transport_plane_equipment_1
+			amount = 60
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 31 } }
 		set_country_flag = flower_card_owned_31
-		set_country_flag = flower_roguelike_corp_ai
 		flower_ai_add_builder_stack = yes
 		flower_ai_add_builder_stack = yes
 	}
@@ -1328,32 +1399,49 @@ flower_ai_apply_draft_slot_1 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 33 } }
 		set_country_flag = flower_card_owned_33
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			yaojing_tech = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_elf_blessing_idea
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 34 } }
 		set_country_flag = flower_card_owned_34
-		set_country_flag = flower_roguelike_magic_ai
-		set_technology = {
-			TAM_umamusume_tech_0 = 1
-			TAM_umamusume_technology = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_uma_dispatch_idea
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 35 } }
-		random_army_leader = {
-			add_attack = 2
-			add_defense = 2
-			add_planning = 1
-			add_logistics = 1
-			add_unit_leader_trait = flower_wanrendi_trait
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else_if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+			}
 		}
 		random_army_leader = {
 			add_attack = 1
@@ -1545,7 +1633,7 @@ flower_ai_apply_draft_slot_2 = {
 		limit = { check_variable = { flower_draft_slot_2 = 18 } }
 		set_country_flag = flower_card_owned_18
 		add_ideas = flower_curse_mad_reactor_idea
-		add_research_slot = 1
+		flower_ai_add_research_slot_capped = yes
 		add_breakthrough_points = {
 			specialization = specialization_land
 			value = 2
@@ -1575,17 +1663,26 @@ flower_ai_apply_draft_slot_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 21 } }
+		add_political_power = 50
+		army_experience = 35
+		air_experience = 35
+		add_to_variable = { ubs_save = 150 }
+		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 22 } }
+		add_to_variable = { flower_card22_picked_count = 1 }
+		set_country_flag = { flag = flower_card22_cd days = 180 value = 1 }
+		set_variable = { flower_drafts_since_card22 = 0 }
+		clr_country_flag = flower_guarantee_next_card22
 		flower_ai_open_starter_selection = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 23 } }
 		random_list = {
 			25 = {
-				add_research_slot = 1
+				flower_ai_add_research_slot_capped = yes
 				add_to_variable = { ubs_save = 500 }
 				flower_ai_sync_hcp_ui = yes
 				random_owned_controlled_state = {
@@ -1622,6 +1719,7 @@ flower_ai_apply_draft_slot_2 = {
 			}
 			25 = {
 				add_ideas = flower_roulette_anti_scam_idea
+				set_country_flag = flower_roulette_pity_ready
 				add_political_power = 150
 				army_experience = 50
 			}
@@ -1629,40 +1727,6 @@ flower_ai_apply_draft_slot_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 24 } }
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_undead_stage_1_idea
-					has_idea = flower_undead_stage_2_idea
-					has_idea = flower_undead_stage_3_idea
-					has_country_flag = flower_roguelike_undead_ai
-				}
-			}
-			flower_ai_summon_undead_wave = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_nightingale_stage_1_idea
-					has_idea = flower_nightingale_stage_2_idea
-					has_idea = flower_nightingale_stage_3_idea
-					has_country_flag = flower_roguelike_nightingale_ai
-				}
-			}
-			flower_ai_summon_nightingale_knights = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_guerrilla_stage_1_idea
-					has_idea = flower_guerrilla_stage_2_idea
-					has_idea = flower_guerrilla_stage_3_idea
-					has_country_flag = flower_roguelike_guerrilla_ai
-				}
-			}
-			flower_ai_summon_guerrilla_wave = yes
-			flower_ai_summon_guerrilla_wave = yes
-		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 20000
@@ -1677,37 +1741,80 @@ flower_ai_apply_draft_slot_2 = {
 		}
 		add_to_variable = { ubs_save = 250 }
 		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { has_country_flag = flower_roguelike_tank_ai }
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 600
+			}
+			add_fuel = 100000
+		}
+		if = {
+			limit = { has_country_flag = flower_roguelike_air_ai }
+			air_experience = 100
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 50
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = flower_roguelike_undead_ai
+					has_country_flag = flower_roguelike_nightingale_ai
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			add_manpower = 40000
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 800
+			}
+			army_experience = 50
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 25 } }
 		set_country_flag = flower_card_owned_25
-		set_country_flag = flower_roguelike_nightingale_ai
-		set_technology = {
-			wangling2_tech = 1
-			magic_weapons0 = 1
-			magic_weapons1 = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_nightingale_cloak_idea
-		flower_ai_summon_nightingale_knights = yes
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 400
+		}
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 26 } }
 		set_country_flag = flower_card_owned_26
-		set_country_flag = flower_roguelike_guerrilla_ai
-		set_technology = {
-			youjidui_tech = 1
-			youji_on_me = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_guerrilla_manual_idea
-		flower_ai_summon_guerrilla_wave = yes
+		if = {
+			limit = { any_enemy_country = { is_major = yes } }
+			random_enemy_country = {
+				limit = { is_major = yes }
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 4000
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 27 } }
 		set_country_flag = flower_card_owned_27
-		set_country_flag = flower_roguelike_undead_ai
-		flower_ai_summon_undead_wave = yes
+		add_ideas = flower_micro_defib_kit_idea
+		add_manpower = 40000
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 500
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 28 } }
@@ -1717,39 +1824,34 @@ flower_ai_apply_draft_slot_2 = {
 			type = artillery_equipment
 			amount = 2500
 		}
-		add_equipment_to_stockpile = {
-			type = railway_gun_equipment
-			amount = 1
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 29 } }
 		set_country_flag = flower_card_owned_29
-		set_country_flag = flower_roguelike_tank_ai
-		set_technology = {
-			the_world_0 = 1
-			the_maid_0 = 1
-			popup = yes
-		}
-		army_experience = 50
+		add_ideas = flower_micro_sakuya_watch_idea
+		add_fuel = 100000
+		army_experience = 75
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 30 } }
 		set_country_flag = flower_card_owned_30
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			flying_saucer_tech = 1
-			popup = yes
+		add_ideas = flower_micro_sky_radar_idea
+		air_experience = 100
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
 		}
 		add_equipment_to_stockpile = {
-			type = flying_saucer_equipment_0
-			amount = 250
+			type = transport_plane_equipment_1
+			amount = 60
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 31 } }
 		set_country_flag = flower_card_owned_31
-		set_country_flag = flower_roguelike_corp_ai
 		flower_ai_add_builder_stack = yes
 		flower_ai_add_builder_stack = yes
 	}
@@ -1762,32 +1864,49 @@ flower_ai_apply_draft_slot_2 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 33 } }
 		set_country_flag = flower_card_owned_33
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			yaojing_tech = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_elf_blessing_idea
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 34 } }
 		set_country_flag = flower_card_owned_34
-		set_country_flag = flower_roguelike_magic_ai
-		set_technology = {
-			TAM_umamusume_tech_0 = 1
-			TAM_umamusume_technology = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_uma_dispatch_idea
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 35 } }
-		random_army_leader = {
-			add_attack = 2
-			add_defense = 2
-			add_planning = 1
-			add_logistics = 1
-			add_unit_leader_trait = flower_wanrendi_trait
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else_if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+			}
 		}
 		random_army_leader = {
 			add_attack = 1
@@ -1979,7 +2098,7 @@ flower_ai_apply_draft_slot_3 = {
 		limit = { check_variable = { flower_draft_slot_3 = 18 } }
 		set_country_flag = flower_card_owned_18
 		add_ideas = flower_curse_mad_reactor_idea
-		add_research_slot = 1
+		flower_ai_add_research_slot_capped = yes
 		add_breakthrough_points = {
 			specialization = specialization_land
 			value = 2
@@ -2009,17 +2128,26 @@ flower_ai_apply_draft_slot_3 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 21 } }
+		add_political_power = 50
+		army_experience = 35
+		air_experience = 35
+		add_to_variable = { ubs_save = 150 }
+		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 22 } }
+		add_to_variable = { flower_card22_picked_count = 1 }
+		set_country_flag = { flag = flower_card22_cd days = 180 value = 1 }
+		set_variable = { flower_drafts_since_card22 = 0 }
+		clr_country_flag = flower_guarantee_next_card22
 		flower_ai_open_starter_selection = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 23 } }
 		random_list = {
 			25 = {
-				add_research_slot = 1
+				flower_ai_add_research_slot_capped = yes
 				add_to_variable = { ubs_save = 500 }
 				flower_ai_sync_hcp_ui = yes
 				random_owned_controlled_state = {
@@ -2056,6 +2184,7 @@ flower_ai_apply_draft_slot_3 = {
 			}
 			25 = {
 				add_ideas = flower_roulette_anti_scam_idea
+				set_country_flag = flower_roulette_pity_ready
 				add_political_power = 150
 				army_experience = 50
 			}
@@ -2063,40 +2192,6 @@ flower_ai_apply_draft_slot_3 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 24 } }
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_undead_stage_1_idea
-					has_idea = flower_undead_stage_2_idea
-					has_idea = flower_undead_stage_3_idea
-					has_country_flag = flower_roguelike_undead_ai
-				}
-			}
-			flower_ai_summon_undead_wave = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_nightingale_stage_1_idea
-					has_idea = flower_nightingale_stage_2_idea
-					has_idea = flower_nightingale_stage_3_idea
-					has_country_flag = flower_roguelike_nightingale_ai
-				}
-			}
-			flower_ai_summon_nightingale_knights = yes
-		}
-		if = {
-			limit = {
-				OR = {
-					has_idea = flower_guerrilla_stage_1_idea
-					has_idea = flower_guerrilla_stage_2_idea
-					has_idea = flower_guerrilla_stage_3_idea
-					has_country_flag = flower_roguelike_guerrilla_ai
-				}
-			}
-			flower_ai_summon_guerrilla_wave = yes
-			flower_ai_summon_guerrilla_wave = yes
-		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 20000
@@ -2111,37 +2206,80 @@ flower_ai_apply_draft_slot_3 = {
 		}
 		add_to_variable = { ubs_save = 250 }
 		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { has_country_flag = flower_roguelike_tank_ai }
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 600
+			}
+			add_fuel = 100000
+		}
+		if = {
+			limit = { has_country_flag = flower_roguelike_air_ai }
+			air_experience = 100
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment_1
+				amount = 50
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = flower_roguelike_undead_ai
+					has_country_flag = flower_roguelike_nightingale_ai
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
+			add_manpower = 40000
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 800
+			}
+			army_experience = 50
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 25 } }
 		set_country_flag = flower_card_owned_25
-		set_country_flag = flower_roguelike_nightingale_ai
-		set_technology = {
-			wangling2_tech = 1
-			magic_weapons0 = 1
-			magic_weapons1 = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_nightingale_cloak_idea
-		flower_ai_summon_nightingale_knights = yes
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 400
+		}
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 26 } }
 		set_country_flag = flower_card_owned_26
-		set_country_flag = flower_roguelike_guerrilla_ai
-		set_technology = {
-			youjidui_tech = 1
-			youji_on_me = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_guerrilla_manual_idea
-		flower_ai_summon_guerrilla_wave = yes
+		if = {
+			limit = { any_enemy_country = { is_major = yes } }
+			random_enemy_country = {
+				limit = { is_major = yes }
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 4000
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 27 } }
 		set_country_flag = flower_card_owned_27
-		set_country_flag = flower_roguelike_undead_ai
-		flower_ai_summon_undead_wave = yes
+		add_ideas = flower_micro_defib_kit_idea
+		add_manpower = 40000
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 500
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 28 } }
@@ -2151,39 +2289,34 @@ flower_ai_apply_draft_slot_3 = {
 			type = artillery_equipment
 			amount = 2500
 		}
-		add_equipment_to_stockpile = {
-			type = railway_gun_equipment
-			amount = 1
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 29 } }
 		set_country_flag = flower_card_owned_29
-		set_country_flag = flower_roguelike_tank_ai
-		set_technology = {
-			the_world_0 = 1
-			the_maid_0 = 1
-			popup = yes
-		}
-		army_experience = 50
+		add_ideas = flower_micro_sakuya_watch_idea
+		add_fuel = 100000
+		army_experience = 75
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 30 } }
 		set_country_flag = flower_card_owned_30
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			flying_saucer_tech = 1
-			popup = yes
+		add_ideas = flower_micro_sky_radar_idea
+		air_experience = 100
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 2
 		}
 		add_equipment_to_stockpile = {
-			type = flying_saucer_equipment_0
-			amount = 250
+			type = transport_plane_equipment_1
+			amount = 60
 		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 31 } }
 		set_country_flag = flower_card_owned_31
-		set_country_flag = flower_roguelike_corp_ai
 		flower_ai_add_builder_stack = yes
 		flower_ai_add_builder_stack = yes
 	}
@@ -2196,32 +2329,49 @@ flower_ai_apply_draft_slot_3 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 33 } }
 		set_country_flag = flower_card_owned_33
-		set_country_flag = flower_roguelike_steampunk_ai
-		set_technology = {
-			yaojing_tech = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_elf_blessing_idea
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 34 } }
 		set_country_flag = flower_card_owned_34
-		set_country_flag = flower_roguelike_magic_ai
-		set_technology = {
-			TAM_umamusume_tech_0 = 1
-			TAM_umamusume_technology = 1
-			popup = yes
-		}
 		add_ideas = flower_micro_uma_dispatch_idea
+		army_experience = 50
 	}
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 35 } }
-		random_army_leader = {
-			add_attack = 2
-			add_defense = 2
-			add_planning = 1
-			add_logistics = 1
-			add_unit_leader_trait = flower_wanrendi_trait
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else_if = {
+			limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } } }
+			random_army_leader = {
+				limit = { NOT = { has_trait = flower_wanrendi_trait } }
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+				add_unit_leader_trait = flower_wanrendi_trait
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 3
+				add_defense = 2
+				add_planning = 1
+				add_logistics = 1
+			}
 		}
 		random_army_leader = {
 			add_attack = 1
@@ -2267,11 +2417,10 @@ flower_ai_check_chemical_combos = {
 				has_idea = flower_undead_stage_1_idea
 				has_idea = flower_undead_stage_2_idea
 				has_idea = flower_undead_stage_3_idea
-				has_country_flag = flower_card_owned_27
+				has_idea = flower_micro_defib_kit_idea
 			}
 			OR = {
 				has_idea = flower_curse_flesh_alchemy_idea
-				has_idea = flower_evo_undead_sweatshop_idea
 				has_idea = flower_corp_stage_1_idea
 				has_idea = flower_corp_stage_2_idea
 				has_idea = flower_corp_stage_3_idea
@@ -2295,7 +2444,6 @@ flower_ai_check_chemical_combos = {
 			OR = {
 				has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
 				has_idea = flower_relic_black_market_dealer_idea
-				has_idea = flower_evo_guerrilla_scorch_idea
 			}
 		}
 		set_country_flag = flower_combo_2_done
@@ -2338,7 +2486,7 @@ flower_ai_check_chemical_combos = {
 				has_idea = flower_wave_stage_1_idea
 				has_idea = flower_wave_stage_2_idea
 				has_idea = flower_wave_stage_3_idea
-				has_country_flag = flower_card_owned_27
+				has_idea = flower_micro_defib_kit_idea
 			}
 			OR = {
 				has_idea = flower_curse_berserk_trade_idea
@@ -2360,7 +2508,7 @@ flower_ai_check_chemical_combos = {
 				has_idea = flower_steampunk_stage_1_idea
 				has_idea = flower_steampunk_stage_2_idea
 				has_idea = flower_steampunk_stage_3_idea
-				has_country_flag = flower_card_owned_30
+				has_idea = flower_micro_sky_radar_idea
 			}
 			OR = {
 				has_idea = flower_curse_wallstreet_loan_idea
@@ -2415,6 +2563,7 @@ flower_ai_check_chemical_combos = {
 				has_idea = flower_tank_stage_2_idea
 				has_idea = flower_tank_stage_3_idea
 				has_idea = flower_relic_blitz_staff_idea
+				has_idea = flower_micro_sakuya_watch_idea
 			}
 		}
 		set_country_flag = flower_combo_7_done
@@ -2470,6 +2619,7 @@ flower_ai_check_chemical_combos = {
 				has_idea = flower_corp_stage_1_idea
 				has_idea = flower_corp_stage_2_idea
 				has_idea = flower_corp_stage_3_idea
+				has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod }
 				has_idea = flower_relic_black_market_dealer_idea
 				has_idea = flower_curse_wallstreet_loan_idea
 			}
@@ -2486,7 +2636,7 @@ flower_ai_check_chemical_combos = {
 			is_ai = no
 			check_variable = { flower_new_combo_popup > 0 }
 		}
-		scoped_sound_effect = "flower_sfx_combo_awakening"
+		hidden_effect = { scoped_sound_effect = "flower_sfx_combo_awakening" }
 		country_event = { id = FLWRG.50 days = 1 }
 	}
 }

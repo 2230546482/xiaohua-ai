@@ -52,67 +52,94 @@ flower_ai_record_chosen_card = {
 	if = {
 		limit = { is_ai = no }
 		if = {
+			limit = { check_variable = { flower_record_card_id = 1 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ma_baoguo" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 4 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_fbi_open" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 9 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_wang_shijian" }
+		}
+		else_if = {
 			limit = {
 				OR = {
-					check_variable = { flower_record_card_id = 13 }
+					check_variable = { flower_record_card_id = 11 }
+					check_variable = { flower_record_card_id = 27 }
+				}
+			}
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_heroes_revive" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 13 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_sparta" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 15 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_gas_gas" }
+		}
+		else_if = {
+			limit = {
+				OR = {
 					check_variable = { flower_record_card_id = 16 }
 					check_variable = { flower_record_card_id = 19 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_branch_tiger_look"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_tiger_look" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 20 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_katsu_boom" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 36 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_zhenxiang" }
 		}
 		else_if = {
 			limit = {
 				OR = {
 					check_variable = { flower_record_card_id = 5 }
 					check_variable = { flower_record_card_id = 17 }
+					check_variable = { flower_record_card_id = 24 }
 					check_variable = { flower_record_card_id = 31 }
-					check_variable = { flower_record_card_id = 36 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_branch_stonks_money"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 		}
 		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 1 }
-					check_variable = { flower_record_card_id = 25 }
-				}
-			}
-			scoped_sound_effect = "flower_sfx_arch_7_nightingale"
+			limit = { check_variable = { flower_record_card_id = 25 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_7_nightingale" }
 		}
 		else_if = {
 			limit = { check_variable = { flower_record_card_id = 26 } }
-			scoped_sound_effect = "flower_sfx_arch_8_guerrilla"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_8_guerrilla" }
 		}
 		else_if = {
-			limit = { check_variable = { flower_record_card_id = 27 } }
-			scoped_sound_effect = "flower_sfx_arch_9_undead"
+			limit = { check_variable = { flower_record_card_id = 28 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_italian_cannon" }
+		}
+		else_if = {
+			limit = { check_variable = { flower_record_card_id = 29 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_timestop_dio" }
 		}
 		else_if = {
 			limit = {
 				OR = {
-					check_variable = { flower_record_card_id = 20 }
-					check_variable = { flower_record_card_id = 28 }
+					check_variable = { flower_record_card_id = 18 }
+					check_variable = { flower_record_card_id = 30 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_branch_italian_cannon"
-		}
-		else_if = {
-			limit = { check_variable = { flower_record_card_id = 29 } }
-			scoped_sound_effect = "flower_sfx_branch_timestop_dio"
-		}
-		else_if = {
-			limit = { check_variable = { flower_record_card_id = 30 } }
-			scoped_sound_effect = "flower_sfx_branch_ufo_watermeter"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ufo_watermeter" }
 		}
 		else_if = {
 			limit = { check_variable = { flower_record_card_id = 32 } }
-			scoped_sound_effect = "flower_sfx_arch_1_slayer"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_1_slayer" }
 		}
 		else_if = {
 			limit = { check_variable = { flower_record_card_id = 33 } }
-			scoped_sound_effect = "flower_sfx_arch_11_steampunk"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_eat_tuva" }
 		}
 		else_if = {
 			limit = {
@@ -121,7 +148,7 @@ flower_ai_record_chosen_card = {
 					check_variable = { flower_record_card_id = 34 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_arch_10_magic"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_10_magic" }
 		}
 		else_if = {
 			limit = {
@@ -130,20 +157,11 @@ flower_ai_record_chosen_card = {
 					check_variable = { flower_record_card_id = 35 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_branch_steiner_heroes"
-		}
-		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 9 }
-					check_variable = { flower_record_card_id = 15 }
-				}
-			}
-			scoped_sound_effect = "flower_sfx_branch_ma_baoguo"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_steiner_heroes" }
 		}
 		else_if = {
 			limit = { check_variable = { flower_record_card_id = 10 } }
-			scoped_sound_effect = "flower_sfx_branch_stuka_shampoo"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" }
 		}
 		else_if = {
 			limit = {
@@ -152,7 +170,7 @@ flower_ai_record_chosen_card = {
 					check_variable = { flower_record_card_id = 14 }
 				}
 			}
-			scoped_sound_effect = "flower_sfx_arch_2_corp"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_2_corp" }
 		}
 	}
 }
@@ -194,7 +212,7 @@ flower_ai_pop_next_queued_draft = {
 	}
 }
 
-#超级骨头专属：对宣战的主要国家执行小规模超位魔法核爆（动态锁定目标3处受控战略地区）
+#超级骨头专属：对宣战的主要国家执行小规模超位魔法核爆（调用统一多维战术智能选点，精准锁定重兵与工业核心）
 flower_ai_gutou_super_tier_magic_nuke = {
 	if = {
 		limit = {
@@ -214,116 +232,60 @@ flower_ai_gutou_super_tier_magic_nuke = {
 		}
 		var:flower_gutou_nuke_target = {
 			set_country_flag = { flag = flower_gutou_super_magic_nuked days = 730 value = 1 }
-			#第一发超位魔法：精准打击敌方首都（若受控）或高价值工业州
+			set_variable = { flower_dvl_desp_mode = 0 }
+			#第一发：战略中枢或前线重兵矛头
+			set_variable = { flower_dvl_slot_mode = 1 }
+			flower_ai_dvl_pick_best_state = yes
 			if = {
-				limit = {
-					capital_scope = {
-						is_controlled_by = PREV
-					}
-				}
-				capital_scope = {
-					set_state_flag = flower_gutou_nuked_tmp
-					set_temp_variable = { flower_gutou_nuke_st = THIS.id }
-					DVL = {
-						launch_nuke = {
-							state = var:flower_gutou_nuke_st
-							use_nuke = no
-						}
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { flower_gutou_nuke_st = flower_dvl_best_st_id }
+				DVL = {
+					launch_nuke = {
+						state = var:flower_gutou_nuke_st
+						use_nuke = no
 					}
 				}
 			}
-			else_if = {
-				limit = {
-					any_controlled_state = {
-						NOT = { has_state_flag = flower_gutou_nuked_tmp }
-					}
-				}
-				random_controlled_state = {
-					limit = { NOT = { has_state_flag = flower_gutou_nuked_tmp } }
-					set_state_flag = flower_gutou_nuked_tmp
-					set_temp_variable = { flower_gutou_nuke_st = THIS.id }
-					DVL = {
-						launch_nuke = {
-							state = var:flower_gutou_nuke_st
-							use_nuke = no
-						}
-					}
-				}
-			}
-			#第二发超位魔法：优先打击拥有军工/民工的核心工业区
+			#第二发：军工心脏、大机场或核设施
+			set_variable = { flower_dvl_slot_mode = 2 }
+			flower_ai_dvl_pick_best_state = yes
 			if = {
-				limit = {
-					any_controlled_state = {
-						NOT = { has_state_flag = flower_gutou_nuked_tmp }
-						OR = {
-							arms_factory > 0
-							industrial_complex > 0
-						}
-					}
-				}
-				random_controlled_state = {
-					limit = {
-						NOT = { has_state_flag = flower_gutou_nuked_tmp }
-						OR = {
-							arms_factory > 0
-							industrial_complex > 0
-						}
-					}
-					set_state_flag = flower_gutou_nuked_tmp
-					set_temp_variable = { flower_gutou_nuke_st = THIS.id }
-					DVL = {
-						launch_nuke = {
-							state = var:flower_gutou_nuke_st
-							use_nuke = no
-						}
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { flower_gutou_nuke_st = flower_dvl_best_st_id }
+				DVL = {
+					launch_nuke = {
+						state = var:flower_gutou_nuke_st
+						use_nuke = no
 					}
 				}
 			}
-			else_if = {
-				limit = {
-					any_controlled_state = {
-						NOT = { has_state_flag = flower_gutou_nuked_tmp }
-					}
-				}
-				random_controlled_state = {
-					limit = { NOT = { has_state_flag = flower_gutou_nuked_tmp } }
-					set_state_flag = flower_gutou_nuked_tmp
-					set_temp_variable = { flower_gutou_nuke_st = THIS.id }
-					DVL = {
-						launch_nuke = {
-							state = var:flower_gutou_nuke_st
-							use_nuke = no
-						}
-					}
-				}
-			}
-			#第三发超位魔法：补刀另一处受控战略地区
+			#第三发：前线补给枢纽或次高价值重兵集群
+			set_variable = { flower_dvl_slot_mode = 3 }
+			flower_ai_dvl_pick_best_state = yes
 			if = {
-				limit = {
-					any_controlled_state = {
-						NOT = { has_state_flag = flower_gutou_nuked_tmp }
-					}
-				}
-				random_controlled_state = {
-					limit = { NOT = { has_state_flag = flower_gutou_nuked_tmp } }
-					set_state_flag = flower_gutou_nuked_tmp
-					set_temp_variable = { flower_gutou_nuke_st = THIS.id }
-					DVL = {
-						launch_nuke = {
-							state = var:flower_gutou_nuke_st
-							use_nuke = no
-						}
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { flower_gutou_nuke_st = flower_dvl_best_st_id }
+				DVL = {
+					launch_nuke = {
+						state = var:flower_gutou_nuke_st
+						use_nuke = no
 					}
 				}
 			}
 			every_controlled_state = {
-				limit = { has_state_flag = flower_gutou_nuked_tmp }
-				clr_state_flag = flower_gutou_nuked_tmp
+				limit = { has_state_flag = flower_dvl_target_tmp }
+				clr_state_flag = flower_dvl_target_tmp
 			}
+			clear_variable = flower_dvl_slot_mode
+			clear_variable = flower_dvl_desp_mode
+			clear_variable = flower_dvl_best_st_id
 		}
 		every_country = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "flower_sfx_branch_ainz_overlord"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ainz_overlord" }
 			set_temp_variable = { temp_alert_id = 913 }
 			set_temp_variable = { temp_tag = DVL }
 			set_temp_variable = { temp_tag2 = var:flower_gutou_nuke_target }
@@ -332,118 +294,151 @@ flower_ai_gutou_super_tier_magic_nuke = {
 	}
 }
 
-#AI智能流派决策引擎（结合兵种实测造价与战宽：优先升满主流派，按工厂/人力精准匹配性价比最优兵种，满级后定向配对双修羁绊）
+#AI智能流派决策引擎（优先把现有主流派冲满，叠加各主要国家鲜明但不绝对的倾向、实时工厂/人力/存款门槛与双修羁绊协同）
 flower_ai_smart_pick_archetype = {
-	#阶段一：如果已有未满级流派，高概率集中资源一路升到满级（不乱摊大饼）
 	random_list = {
-		#流派1：战地扒装备（常规步炮缴获成长，战损高或中低工业扩张国性价比极高）
+		#流派1：战地扒装备（以战养战、占州扒仓库，偏侵略扩张或中低工业强陆权国家）
 		10 = {
-			modifier = { factor = 4 check_variable = { flower_slayer_stacks > 0 } check_variable = { flower_slayer_stacks < 6 } }
-			modifier = { factor = 1.8 has_war = yes }
-			modifier = { factor = 1.5 num_of_factories < 45 }
-			modifier = { factor = 2.6 OR = { has_idea = flower_guerrilla_stage_3_idea has_idea = flower_wave_stage_3_idea } }
-			modifier = { factor = 0.2 check_variable = { flower_slayer_stacks > 9 } }
+			modifier = { factor = 5.5 check_variable = { flower_slayer_stacks > 0 } check_variable = { flower_slayer_stacks < 6 } }
+			modifier = { factor = 1.9 OR = { original_tag = POL original_tag = ROM original_tag = HUN original_tag = BUL original_tag = YUG original_tag = GRE } }
+			modifier = { factor = 1.7 OR = { is_chinese_country = yes original_tag = LHS original_tag = QYJ original_tag = JAP original_tag = RJE original_tag = ITA original_tag = ALS original_tag = TUR original_tag = PAM original_tag = PAU original_tag = BRA original_tag = ARG } }
+			modifier = { factor = 1.7 has_war = yes }
+			modifier = { factor = 1.4 num_of_factories < 48 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_guerrilla_stage_3_idea has_idea = flower_wave_stage_3_idea } NOT = { has_country_flag = flower_roguelike_slayer_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_slayer_ai } }
+			modifier = { factor = 0.12 check_variable = { flower_slayer_stacks > 7 } }
 			flower_ai_pick_archetype_1 = yes
 		}
-		#流派2：五年计划种田（工业强国与持久战巨企，为高IC兵种提供产能底座）
+		#流派2：五年计划种田（工业强国与持久战基建底座，高民工大经济体最吃香）
 		10 = {
-			modifier = { factor = 7 OR = { has_idea = flower_corp_stage_1_idea has_idea = flower_corp_stage_2_idea } }
-			modifier = { factor = 2.0 num_of_factories > 45 }
-			modifier = { factor = 2.6 OR = { has_idea = flower_wave_stage_3_idea has_idea = flower_undead_stage_3_idea has_idea = flower_air_stage_3_idea has_idea = flower_steampunk_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_corp_stage_3_idea }
+			modifier = { factor = 7.5 OR = { has_idea = flower_corp_stage_1_idea has_idea = flower_corp_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = USA original_tag = SOV original_tag = PA1 original_tag = BRA original_tag = ARG } }
+			modifier = { factor = 1.6 OR = { original_tag = FRA original_tag = GER original_tag = DEN original_tag = LAN original_tag = RAJ is_chinese_country = yes } }
+			modifier = { factor = 1.9 num_of_factories > 48 }
+			modifier = { factor = 1.4 has_war = no }
+			modifier = { factor = 2.8 OR = { has_idea = flower_wave_stage_3_idea has_idea = flower_undead_stage_3_idea has_idea = flower_air_stage_3_idea has_idea = flower_steampunk_stage_3_idea has_country_flag = flower_roguelike_gambler_active } NOT = { has_country_flag = flower_roguelike_corp_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_corp_ai } }
+			modifier = { factor = 0.08 has_idea = flower_corp_stage_3_idea }
 			flower_ai_pick_archetype_2 = yes
 		}
-		#流派3：0宽早苗神风炮（满级0宽炮兵火力极高但耗弹耗补给，适配中等以上工业国）
+		#流派3：重炮洗地俱乐部（重炮/火箭炮/列车炮，偏陆权工业大国与攻坚国）
 		11 = {
-			modifier = { factor = 8 OR = { has_idea = flower_arty_stage_1_idea has_idea = flower_arty_stage_2_idea } }
-			modifier = { factor = 2.0 num_of_factories > 38 }
-			modifier = { factor = 0.4 num_of_factories < 22 }
-			modifier = { factor = 2.6 OR = { has_idea = flower_tank_stage_3_idea has_idea = flower_nightingale_stage_3_idea has_idea = flower_air_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_arty_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_arty_stage_1_idea has_idea = flower_arty_stage_2_idea } }
+			modifier = { factor = 2.0 OR = { original_tag = FRA original_tag = SOV original_tag = PA1 original_tag = RUS } }
+			modifier = { factor = 1.6 OR = { original_tag = GER original_tag = BAY original_tag = FRG original_tag = ITA original_tag = ALS original_tag = POL original_tag = ROM } }
+			modifier = { factor = 1.8 num_of_factories > 38 }
+			modifier = { factor = 0.35 num_of_factories < 22 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_tank_stage_3_idea has_idea = flower_nightingale_stage_3_idea } NOT = { has_country_flag = flower_roguelike_arty_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_arty_ai } }
+			modifier = { factor = 0.08 has_idea = flower_arty_stage_3_idea }
 			flower_ai_pick_archetype_3 = yes
 		}
-		#流派4：咲夜时停装甲（单营造价1600~2600IC豪华装甲，严格限高工业陆权强国）
+		#流派4：时停装甲闪电战（中坦机步高速穿插与占州叠惯性，偏高工业陆权强国）
 		11 = {
-			modifier = { factor = 8 OR = { has_idea = flower_tank_stage_1_idea has_idea = flower_tank_stage_2_idea } }
-			modifier = { factor = 2.4 num_of_factories > 55 }
-			modifier = { factor = 2.0 OR = { tag = DVL tag = GER tag = KMK tag = FRA tag = SOV tag = USA } }
-			modifier = { factor = 2.6 has_idea = flower_arty_stage_3_idea }
-			modifier = { factor = 0.1 num_of_factories < 35 }
-			modifier = { factor = 0.15 has_idea = flower_tank_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_tank_stage_1_idea has_idea = flower_tank_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = KMK original_tag = KNM original_tag = GER original_tag = BAY original_tag = FRG } }
+			modifier = { factor = 1.7 OR = { original_tag = DVL original_tag = FRA original_tag = SOV original_tag = USA original_tag = DEN original_tag = PAU } }
+			modifier = { factor = 2.2 num_of_factories > 55 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_arty_stage_3_idea has_idea = flower_nightingale_stage_3_idea } NOT = { has_country_flag = flower_roguelike_tank_ai } }
+			modifier = { factor = 0.1 num_of_factories < 34 }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_tank_ai } }
+			modifier = { factor = 0.08 has_idea = flower_tank_stage_3_idea }
 			flower_ai_pick_archetype_4 = yes
 		}
-		#流派5：空军舔地洗头（飞机与40IC飞碟高吃铝与工业，严格限高工业空海强国）
+		#流派5：斯图卡洗头房（制空+密接+王牌叠层，偏高工业空海强国）
 		11 = {
-			modifier = { factor = 8 OR = { has_idea = flower_air_stage_1_idea has_idea = flower_air_stage_2_idea } }
-			modifier = { factor = 2.3 num_of_factories > 50 }
-			modifier = { factor = 2.2 OR = { tag = ENG tag = USA tag = JAP tag = FRA tag = DVL tag = NFA } }
-			modifier = { factor = 2.6 OR = { has_idea = flower_magic_stage_3_idea has_idea = flower_tank_stage_3_idea has_idea = flower_corp_stage_3_idea } }
-			modifier = { factor = 0.15 num_of_factories < 35 }
-			modifier = { factor = 0.15 has_idea = flower_air_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_air_stage_1_idea has_idea = flower_air_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = ENG original_tag = USA original_tag = JAP original_tag = RJE } }
+			modifier = { factor = 1.7 OR = { original_tag = GER original_tag = FRA original_tag = NFA original_tag = ITA original_tag = ALS original_tag = MGU original_tag = CAN original_tag = AST original_tag = PAU } }
+			modifier = { factor = 2.2 num_of_factories > 50 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_magic_stage_3_idea has_idea = flower_corp_stage_3_idea } NOT = { has_country_flag = flower_roguelike_air_ai } }
+			modifier = { factor = 0.12 num_of_factories < 34 }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_air_ai } }
+			modifier = { factor = 0.08 has_idea = flower_air_stage_3_idea }
 			flower_ai_pick_archetype_5 = yes
 		}
-		#流派6：不死督战人海（超高人力步兵海，低人力国家绝不盲选）
+		#流派6：督战队人海（老兵回炉+大编制步兵海，严格避开低人力小国）
 		9 = {
-			modifier = { factor = 7 OR = { has_idea = flower_wave_stage_1_idea has_idea = flower_wave_stage_2_idea } }
-			modifier = { factor = 2.6 has_manpower > 750000 }
-			modifier = { factor = 2.0 OR = { is_chinese_country = yes tag = SOV tag = RAJ } }
-			modifier = { factor = 0.1 has_manpower < 300000 }
-			modifier = { factor = 0.15 has_idea = flower_wave_stage_3_idea }
+			modifier = { factor = 7.5 OR = { has_idea = flower_wave_stage_1_idea has_idea = flower_wave_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = SOV original_tag = PA1 original_tag = RAJ is_chinese_country = yes } }
+			modifier = { factor = 1.5 OR = { original_tag = UKR original_tag = RUS original_tag = TUR } }
+			modifier = { factor = 2.4 has_manpower > 750000 }
+			modifier = { factor = 2.6 OR = { check_variable = { flower_slayer_stacks > 4 } has_idea = flower_corp_stage_3_idea } NOT = { has_country_flag = flower_roguelike_wave_ai } }
+			modifier = { factor = 0.08 has_manpower < 300000 }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_wave_ai } }
+			modifier = { factor = 0.08 has_idea = flower_wave_stage_3_idea }
 			flower_ai_pick_archetype_6 = yes
 		}
-		#流派7：夜莺骑士团（魔导步炮单营约500IC，适配低人力且具备中等工业的精锐国）
+		#流派7：午夜夜战部队（夜战破译、开战30天先手窗与反制空，偏中上工业精锐国）
 		10 = {
-			modifier = { factor = 8 OR = { has_idea = flower_nightingale_stage_1_idea has_idea = flower_nightingale_stage_2_idea } }
-			modifier = { factor = 2.0 OR = { tag = PAO tag = PAM tag = PAU tag = KMK tag = SWE } }
-			modifier = { factor = 1.7 has_manpower < 550000 num_of_factories > 28 }
-			modifier = { factor = 0.3 num_of_factories < 22 }
-			modifier = { factor = 2.6 OR = { has_idea = flower_arty_stage_3_idea has_idea = flower_magic_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_nightingale_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_nightingale_stage_1_idea has_idea = flower_nightingale_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = PAO original_tag = SWE original_tag = FIN original_tag = KMK original_tag = KNM } }
+			modifier = { factor = 1.7 OR = { original_tag = PAM original_tag = PAU original_tag = NFA original_tag = JAP original_tag = RJE } }
+			modifier = { factor = 1.6 has_manpower < 600000 num_of_factories > 26 }
+			modifier = { factor = 0.25 num_of_factories < 20 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_arty_stage_3_idea has_idea = flower_magic_stage_3_idea has_idea = flower_tank_stage_3_idea } NOT = { has_country_flag = flower_roguelike_nightingale_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } }
+			modifier = { factor = 0.08 has_idea = flower_nightingale_stage_3_idea }
 			flower_ai_pick_archetype_7 = yes
 		}
-		#流派8：野火游击队（极省IC与补给，中低工业/广袤多山陆国最优解）
+		#流派8：敌后游击战（越穷越强、炸毁沦陷区铁路与极低补给，偏广袤多山或中低工业国）
 		10 = {
-			modifier = { factor = 7 OR = { has_idea = flower_guerrilla_stage_1_idea has_idea = flower_guerrilla_stage_2_idea } }
-			modifier = { factor = 2.2 OR = { is_chinese_country = yes tag = LHS tag = SOV tag = PAU tag = TUR } }
-			modifier = { factor = 1.6 num_of_factories < 45 }
-			modifier = { factor = 2.6 OR = { check_variable = { flower_slayer_stacks > 4 } has_idea = flower_undead_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_guerrilla_stage_3_idea }
+			modifier = { factor = 7.5 OR = { has_idea = flower_guerrilla_stage_1_idea has_idea = flower_guerrilla_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { is_chinese_country = yes original_tag = LHS original_tag = QYJ original_tag = TUR original_tag = FIN } }
+			modifier = { factor = 1.6 OR = { original_tag = SOV original_tag = PAU original_tag = PAM original_tag = POL original_tag = YUG original_tag = GRE original_tag = RAJ } }
+			modifier = { factor = 1.7 num_of_factories < 45 }
+			modifier = { factor = 1.6 surrender_progress > 0.08 }
+			modifier = { factor = 2.8 check_variable = { flower_slayer_stacks > 4 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } }
+			modifier = { factor = 0.08 has_idea = flower_guerrilla_stage_3_idea }
 			flower_ai_pick_archetype_8 = yes
 		}
-		#流派9：躁动的亡灵（0.2宽低IC免费起尸但偏脆，适配低人力扩张国与亡灵阵营）
+		#流派9：战地敢死队（战损充能引爆狂潮、伤兵回流与人力炼工业，偏魔导/潘德拉贡/低人力或高消耗国）
 		10 = {
-			modifier = { factor = 8 OR = { has_idea = flower_undead_stage_1_idea has_idea = flower_undead_stage_2_idea } }
-			modifier = { factor = 2.2 OR = { tag = DVL tag = PAO tag = LHS } }
-			modifier = { factor = 1.8 has_manpower < 450000 }
-			modifier = { factor = 2.6 OR = { has_idea = flower_corp_stage_3_idea has_idea = flower_guerrilla_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_undead_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_undead_stage_1_idea has_idea = flower_undead_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = DVL original_tag = PAO original_tag = LHS original_tag = QYJ } }
+			modifier = { factor = 1.6 OR = { original_tag = TUR original_tag = POL original_tag = ROM original_tag = HUN original_tag = PAJ original_tag = PAN original_tag = PAQ original_tag = PAW original_tag = PAY } }
+			modifier = { factor = 1.7 has_manpower < 500000 }
+			modifier = { factor = 1.4 has_war = yes }
+			modifier = { factor = 2.8 has_idea = flower_corp_stage_3_idea NOT = { has_country_flag = flower_roguelike_undead_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_undead_ai } }
+			modifier = { factor = 0.08 has_idea = flower_undead_stage_3_idea }
 			flower_ai_pick_archetype_9 = yes
 		}
-		#流派10：异界特种召唤（精锐低人力高IC特种/0宽龙骑支援，适配中高工业国）
+		#流派10：王牌特种兵团（48师以下少师精锐或10B三栖特种大军，偏精锐强国与山地海空国）
 		10 = {
-			modifier = { factor = 8 OR = { has_idea = flower_magic_stage_1_idea has_idea = flower_magic_stage_2_idea } }
-			modifier = { factor = 1.9 num_of_factories > 40 }
-			modifier = { factor = 0.35 num_of_factories < 25 }
-			modifier = { factor = 2.0 OR = { tag = JAP tag = SWE tag = ELF tag = MGU tag = DVL } }
-			modifier = { factor = 2.6 OR = { has_idea = flower_air_stage_3_idea has_idea = flower_steampunk_stage_3_idea has_idea = flower_nightingale_stage_3_idea } }
-			modifier = { factor = 0.15 has_idea = flower_magic_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_magic_stage_1_idea has_idea = flower_magic_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = MGU original_tag = JAP original_tag = RJE original_tag = SWE original_tag = ELF original_tag = LAN original_tag = PAU } }
+			modifier = { factor = 1.7 OR = { original_tag = DVL original_tag = ENG original_tag = NFA original_tag = KMK original_tag = PAO original_tag = FIN original_tag = NPT } }
+			modifier = { factor = 1.8 num_of_factories > 38 }
+			modifier = { factor = 1.4 num_divisions < 46 }
+			modifier = { factor = 0.3 num_of_factories < 24 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_air_stage_3_idea has_idea = flower_steampunk_stage_3_idea has_idea = flower_nightingale_stage_3_idea } NOT = { has_country_flag = flower_roguelike_magic_ai } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_magic_ai } }
+			modifier = { factor = 0.08 has_idea = flower_magic_stage_3_idea }
 			flower_ai_pick_archetype_10 = yes
 		}
-		#流派11：妖精与天外飞碟（二阶蒸汽重甲与三阶飞碟高吃工业科研，限高工业科研国）
+		#流派11：疯狂科研实验室（科研槽算力反哺+原型机三选一，偏高工业与科研名门）
 		10 = {
-			modifier = { factor = 8 OR = { has_idea = flower_steampunk_stage_1_idea has_idea = flower_steampunk_stage_2_idea } }
-			modifier = { factor = 2.2 num_of_factories > 50 }
-			modifier = { factor = 2.2 OR = { tag = ELF tag = DEN tag = USA tag = ENG tag = GER } }
-			modifier = { factor = 2.6 OR = { has_idea = flower_magic_stage_3_idea has_idea = flower_corp_stage_3_idea } }
-			modifier = { factor = 0.15 num_of_factories < 35 }
-			modifier = { factor = 0.15 has_idea = flower_steampunk_stage_3_idea }
+			modifier = { factor = 8.0 OR = { has_idea = flower_steampunk_stage_1_idea has_idea = flower_steampunk_stage_2_idea } }
+			modifier = { factor = 2.1 OR = { original_tag = ELF original_tag = DEN original_tag = NPT original_tag = USA original_tag = ENG original_tag = MGU } }
+			modifier = { factor = 1.6 OR = { original_tag = GER original_tag = BAY original_tag = FRG original_tag = DVL original_tag = FRA original_tag = HOL original_tag = BEL } }
+			modifier = { factor = 2.1 num_of_factories > 48 }
+			modifier = { factor = 1.5 amount_research_slots > 3 }
+			modifier = { factor = 2.8 OR = { has_idea = flower_magic_stage_3_idea has_idea = flower_corp_stage_3_idea } NOT = { has_country_flag = flower_roguelike_steampunk_ai } }
+			modifier = { factor = 0.12 num_of_factories < 34 }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } }
+			modifier = { factor = 0.08 has_idea = flower_steampunk_stage_3_idea }
 			flower_ai_pick_archetype_11 = yes
 		}
-		#流派12：怪蛋与黑市转盘（娱乐赌徒，种田巨企满级后主动凑【黑市杠杆庄家】羁绊）
-		5 = {
-			modifier = { factor = 2.0 has_country_flag = flower_roulette_pity_ready }
-			modifier = { factor = 2.6 has_idea = flower_corp_stage_3_idea NOT = { has_country_flag = flower_roguelike_gambler_active } }
-			modifier = { factor = 0.3 has_country_flag = flower_roguelike_gambler_active }
+		#流派12：怪蛋与黑市转盘（现金流钞能力+赌桌甩锅，偏高存款/种田大成/商业风格国家）
+		6 = {
+			modifier = { factor = 2.2 has_country_flag = flower_roulette_pity_ready }
+			modifier = { factor = 1.7 OR = { original_tag = USA original_tag = KMK original_tag = ITA original_tag = ALS original_tag = BRA original_tag = ARG original_tag = HOL original_tag = BEL } }
+			modifier = { factor = 1.8 check_variable = { ubs_save > 700 } NOT = { has_country_flag = flower_roguelike_gambler_active } }
+			modifier = { factor = 2.8 has_idea = flower_corp_stage_3_idea NOT = { has_country_flag = flower_roguelike_gambler_active } }
+			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_gambler_active } }
+			modifier = { factor = 0.25 has_country_flag = flower_roguelike_gambler_active NOT = { has_country_flag = flower_roulette_pity_ready } }
 			flower_ai_pick_archetype_12 = yes
 		}
 	}
@@ -556,7 +551,7 @@ flower_ai_check_archetype_milestones = {
 			}
 			flower_ai_open_roguelike_draft = yes
 		}
-		#流派7里程碑：战时夜莺流派达二阶以上
+		#流派7里程碑：战时午夜奇袭流派达二阶以上
 		if = {
 			limit = {
 				has_country_flag = flower_roguelike_nightingale_ai
@@ -568,13 +563,18 @@ flower_ai_check_archetype_milestones = {
 				}
 			}
 			set_country_flag = flower_milestone_arch_7_done
+			add_command_power = 50
 			add_equipment_to_stockpile = {
-				type = magic_assault_equipment_0
-				amount = 1500
+				type = infantry_equipment
+				amount = 4000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
 			}
 			flower_ai_open_roguelike_draft = yes
 		}
-		#流派8里程碑：战时游击流派达二阶以上
+		#流派8里程碑：战时野火游击流派达二阶以上
 		if = {
 			limit = {
 				has_country_flag = flower_roguelike_guerrilla_ai
@@ -586,10 +586,18 @@ flower_ai_check_archetype_milestones = {
 				}
 			}
 			set_country_flag = flower_milestone_arch_8_done
-			flower_ai_summon_guerrilla_wave = yes
+			add_manpower = 40000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 6000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 500
+			}
 			flower_ai_open_roguelike_draft = yes
 		}
-		#流派9里程碑：战时亡灵流派达二阶以上
+		#流派9里程碑：战时绝境血炉流派达二阶以上
 		if = {
 			limit = {
 				has_country_flag = flower_roguelike_undead_ai
@@ -601,7 +609,15 @@ flower_ai_check_archetype_milestones = {
 				}
 			}
 			set_country_flag = flower_milestone_arch_9_done
-			flower_ai_summon_undead_wave = yes
+			add_manpower = 60000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 6000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+			}
 			flower_ai_open_roguelike_draft = yes
 		}
 		#流派10里程碑：科研槽达4个且异界流派达二阶以上
@@ -657,6 +673,7 @@ flower_ai_check_archetype_milestones = {
 				has_country_flag = flower_roguelike_gambler_active
 				NOT = { has_country_flag = flower_milestone_arch_12_done }
 				OR = {
+					has_country_flag = flower_mystery_egg_hatched_flag
 					has_idea = flower_mystery_egg_hatched_idea
 					has_idea = flower_blood_wager_victory_idea
 				}
@@ -675,7 +692,7 @@ flower_ai_push_bottom_right_alert = {
 			is_ai = no
 		}
 		hidden_effect = {
-			scoped_sound_effect = "diplomatic_notification"
+			hidden_effect = { scoped_sound_effect = "diplomatic_notification" }
 			add_to_array = { adorable_heart_prompt_alerts = temp_alert_id }
 			add_to_array = { adorable_heart_prompt_alert_other_var1 = 0 }
 			add_to_array = { adorable_heart_prompt_alert_other_var2 = 0 }
@@ -707,6 +724,26 @@ flower_ai_push_bottom_right_alert = {
 	}
 }
 
+#安全新增科研槽（上限6槽；已满6槽自动折算为陆军与空军突破点各+1与250储备，防止撑爆UI）
+flower_ai_add_research_slot_capped = {
+	if = {
+		limit = { amount_research_slots < 6 }
+		add_research_slot = 1
+	}
+	else = {
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
+		add_breakthrough_points = {
+			specialization = specialization_air
+			value = 1
+		}
+		add_to_variable = { ubs_save = 250 }
+		flower_ai_sync_hcp_ui = yes
+	}
+}
+
 #检测是否达成【双流派大成/双修共鸣】
 flower_ai_check_dual_mastery_synergy = {
 	if = {
@@ -716,7 +753,15 @@ flower_ai_check_dual_mastery_synergy = {
 		set_temp_variable = { mastered_cnt = 0 }
 		if = { limit = { has_idea = flower_arty_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { has_idea = flower_tank_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
-		if = { limit = { has_idea = flower_corp_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
+		if = {
+			limit = {
+				OR = {
+					has_idea = flower_corp_stage_3_idea
+					check_variable = { flower_builder_stacks > 5 }
+				}
+			}
+			add_to_temp_variable = { mastered_cnt = 1 }
+		}
 		if = { limit = { has_idea = flower_air_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { has_idea = flower_wave_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { has_idea = flower_magic_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
@@ -725,10 +770,12 @@ flower_ai_check_dual_mastery_synergy = {
 		if = { limit = { has_idea = flower_undead_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { has_idea = flower_steampunk_stage_3_idea } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = { limit = { check_variable = { flower_slayer_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
-		if = { limit = { check_variable = { flower_builder_stacks > 5 } } add_to_temp_variable = { mastered_cnt = 1 } }
 		if = {
 			limit = {
-				has_idea = flower_mystery_egg_hatched_idea
+				OR = {
+					has_country_flag = flower_mystery_egg_hatched_flag
+					has_idea = flower_mystery_egg_hatched_idea
+				}
 				has_idea = flower_blood_wager_victory_idea
 			}
 			add_to_temp_variable = { mastered_cnt = 1 }
@@ -751,21 +798,21 @@ flower_ai_recalc_slayer_book = {
 	}
 	set_temp_variable = { slayer_eff = flower_slayer_stacks }
 	if = {
-		limit = { check_variable = { slayer_eff > 10 } }
-		set_temp_variable = { slayer_eff = 10 }
+		limit = { check_variable = { slayer_eff > 8 } }
+		set_temp_variable = { slayer_eff = 8 }
 	}
 	set_variable = { flower_slayer_atk_var = slayer_eff }
-	multiply_variable = { flower_slayer_atk_var = 0.025 }
+	multiply_variable = { flower_slayer_atk_var = 0.02 }
 	set_variable = { flower_slayer_brk_var = slayer_eff }
-	multiply_variable = { flower_slayer_brk_var = 0.025 }
+	multiply_variable = { flower_slayer_brk_var = 0.02 }
 	set_variable = { flower_slayer_org_var = slayer_eff }
 	multiply_variable = { flower_slayer_org_var = 0.01 }
 	set_variable = { flower_slayer_cap_var = slayer_eff }
-	multiply_variable = { flower_slayer_cap_var = 0.08 }
+	multiply_variable = { flower_slayer_cap_var = 0.075 }
 	set_variable = { flower_slayer_sup_var = slayer_eff }
-	multiply_variable = { flower_slayer_sup_var = -0.025 }
+	multiply_variable = { flower_slayer_sup_var = -0.02 }
 	set_variable = { flower_slayer_mp_var = slayer_eff }
-	multiply_variable = { flower_slayer_mp_var = 800 }
+	multiply_variable = { flower_slayer_mp_var = 600 }
 	if = {
 		limit = {
 			check_variable = { flower_slayer_stacks > 4 }
@@ -776,11 +823,20 @@ flower_ai_recalc_slayer_book = {
 	}
 	if = {
 		limit = {
-			check_variable = { flower_slayer_stacks > 9 }
+			check_variable = { flower_slayer_stacks > 7 }
 			NOT = { has_country_flag = flower_slayer_milestone_10_done }
 		}
 		set_country_flag = flower_slayer_milestone_10_done
-		country_event = { id = FLWAI.21 days = 1 }
+		army_experience = 80
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 4000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 500
+		}
+		flower_ai_open_roguelike_draft = yes
 	}
 	flower_ai_check_dual_mastery_synergy = yes
 }
@@ -877,6 +933,10 @@ flower_ai_add_builder_stack = {
 	flower_ai_recalc_builder_ledger = yes
 	add_to_variable = { ubs_save = 50 }
 	flower_ai_sync_hcp_ui = yes
+	if = {
+		limit = { has_idea = flower_evo_corp_megaproject_idea }
+		flower_ai_corp_prospect_mineral = yes
+	}
 	random_owned_controlled_state = {
 		limit = {
 			free_building_slots = {
@@ -926,408 +986,7 @@ flower_ai_add_devour_stack = {
 	flower_ai_recalc_devour_mod = yes
 }
 
-#流派九：躁动的亡灵自动起尸召唤（玩家与AI通用，防重复科技弹窗，首都失守自动回退安全受控州）
-flower_ai_summon_undead_wave = {
-	if = {
-		limit = { NOT = { has_tech = wangling_tech } }
-		set_technology = {
-			wangling_tech = 1
-			popup = yes
-		}
-	}
-	if = {
-		limit = { NOT = { has_country_flag = flower_undead_tpl_small_created } }
-		set_country_flag = flower_undead_tpl_small_created
-		division_template = {
-			name = "躁动的亡灵群"
-			is_locked = yes
-			regiments = {
-				wangling = { x = 0 y = 0 }
-				wangling = { x = 0 y = 1 }
-				wangling = { x = 0 y = 2 }
-				wangling = { x = 0 y = 3 }
-				wangling = { x = 1 y = 0 }
-				wangling = { x = 1 y = 1 }
-				wangling = { x = 1 y = 2 }
-				wangling = { x = 1 y = 3 }
-			}
-			support = {
-				engineer = { x = 0 y = 0 }
-				recon = { x = 0 y = 1 }
-			}
-		}
-	}
-	if = {
-		limit = {
-			has_idea = flower_undead_stage_3_idea
-			NOT = { has_country_flag = flower_undead_tpl_guard_created }
-		}
-		set_country_flag = flower_undead_tpl_guard_created
-		division_template = {
-			name = "亡灵天灾亲卫军"
-			is_locked = yes
-			regiments = {
-				wangling = { x = 0 y = 0 }
-				wangling = { x = 0 y = 1 }
-				wangling = { x = 0 y = 2 }
-				wangling = { x = 0 y = 3 }
-				wangling = { x = 1 y = 0 }
-				wangling = { x = 1 y = 1 }
-				wangling = { x = 1 y = 2 }
-				wangling = { x = 1 y = 3 }
-				wangling = { x = 2 y = 0 }
-				wangling = { x = 2 y = 1 }
-				wangling = { x = 2 y = 2 }
-				wangling = { x = 2 y = 3 }
-				wangling = { x = 3 y = 0 }
-				wangling = { x = 3 y = 1 }
-				wangling = { x = 3 y = 2 }
-				wangling = { x = 3 y = 3 }
-			}
-			support = {
-				engineer = { x = 0 y = 0 }
-				recon = { x = 0 y = 1 }
-			}
-		}
-	}
-	if = {
-		limit = { has_idea = flower_undead_stage_3_idea }
-		add_equipment_to_stockpile = {
-			type = wangling_equipment_0
-			amount = 3500
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 150
-		}
-		if = {
-			limit = { capital_scope = { is_controlled_by = PREV } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = { any_controlled_state = { always = yes } }
-			random_controlled_state = {
-				create_unit = {
-					division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		if = {
-			limit = { has_idea = flower_evo_undead_plague_idea }
-			add_equipment_to_stockpile = {
-				type = wangling_equipment_0
-				amount = 1800
-			}
-			if = {
-				limit = { capital_scope = { is_controlled_by = PREV } }
-				capital_scope = {
-					create_unit = {
-						division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-						count = 1
-						owner = PREV
-					}
-				}
-			}
-			else_if = {
-				limit = { any_controlled_state = { always = yes } }
-				random_controlled_state = {
-					create_unit = {
-						division = "name = \"亡灵天灾亲卫军\" division_template = \"亡灵天灾亲卫军\" start_experience_factor = 0.6"
-						count = 1
-						owner = PREV
-					}
-				}
-			}
-		}
-	}
-	else = {
-		add_equipment_to_stockpile = {
-			type = wangling_equipment_0
-			amount = 2000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 120
-		}
-		if = {
-			limit = { capital_scope = { is_controlled_by = PREV } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = { any_controlled_state = { always = yes } }
-			random_controlled_state = {
-				create_unit = {
-					division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		if = {
-			limit = { has_idea = flower_evo_undead_plague_idea }
-			add_equipment_to_stockpile = {
-				type = wangling_equipment_0
-				amount = 1200
-			}
-			if = {
-				limit = { capital_scope = { is_controlled_by = PREV } }
-				capital_scope = {
-					create_unit = {
-						division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-						count = 1
-						owner = PREV
-					}
-				}
-			}
-			else_if = {
-				limit = { any_controlled_state = { always = yes } }
-				random_controlled_state = {
-					create_unit = {
-						division = "name = \"躁动的亡灵群\" division_template = \"躁动的亡灵群\" start_experience_factor = 0.4"
-						count = 1
-						owner = PREV
-					}
-				}
-			}
-		}
-	}
-}
-
-#流派八：野火游击纵队免费拉兵（玩家与AI通用，首都失守自动回退安全受控州）
-flower_ai_summon_guerrilla_wave = {
-	if = {
-		limit = { NOT = { has_country_flag = flower_guerrilla_tpl_created } }
-		set_country_flag = flower_guerrilla_tpl_created
-		division_template = {
-			name = "野火游击纵队"
-			regiments = {
-				youjibudui = { x = 0 y = 0 }
-				youjibudui = { x = 0 y = 1 }
-				youjibudui = { x = 0 y = 2 }
-				youjibudui = { x = 0 y = 3 }
-				youjibudui = { x = 1 y = 0 }
-				youjibudui = { x = 1 y = 1 }
-				youjibudui = { x = 1 y = 2 }
-				youjibudui = { x = 1 y = 3 }
-				youjibudui = { x = 2 y = 0 }
-				youjibudui = { x = 2 y = 1 }
-			}
-			support = {
-				engineer = { x = 0 y = 0 }
-				recon = { x = 0 y = 1 }
-			}
-		}
-	}
-	add_equipment_to_stockpile = {
-		type = infantry_equipment
-		amount = 2500
-	}
-	add_equipment_to_stockpile = {
-		type = support_equipment
-		amount = 200
-	}
-	if = {
-		limit = { has_idea = flower_combo_enemy_makes_our_guns_idea }
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 500
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 250
-		}
-	}
-	if = {
-		limit = { capital_scope = { is_controlled_by = PREV } }
-		capital_scope = {
-			create_unit = {
-				division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
-				count = 2
-				owner = PREV
-			}
-		}
-	}
-	else_if = {
-		limit = { any_controlled_state = { always = yes } }
-		random_controlled_state = {
-			create_unit = {
-				division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
-				count = 2
-				owner = PREV
-			}
-		}
-	}
-	if = {
-		limit = { has_idea = flower_evo_guerrilla_sea_idea }
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 1500
-		}
-		if = {
-			limit = { capital_scope = { is_controlled_by = PREV } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
-					count = 1
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = { any_controlled_state = { always = yes } }
-			random_controlled_state = {
-				create_unit = {
-					division = "name = \"野火游击纵队\" division_template = \"野火游击纵队\" start_experience_factor = 0.4"
-					count = 1
-					owner = PREV
-				}
-			}
-		}
-	}
-}
-
-#流派七：夜莺的魂灵与夜莺骑士团成建制征召（玩家与AI通用，首都失守自动回退安全受控州）
-flower_ai_summon_nightingale_knights = {
-	if = {
-		limit = {
-			has_tech = wangling3_tech
-		}
-		if = {
-			limit = { NOT = { has_country_flag = flower_nightingale_knight_tpl_created } }
-			set_country_flag = flower_nightingale_knight_tpl_created
-			division_template = {
-				name = "夜莺骑士团"
-				regiments = {
-					wangling3 = { x = 0 y = 0 }
-					wangling3 = { x = 0 y = 1 }
-					wangling3 = { x = 0 y = 2 }
-					wangling3 = { x = 0 y = 3 }
-					wangling3 = { x = 1 y = 0 }
-					wangling3 = { x = 1 y = 1 }
-					wangling3 = { x = 1 y = 2 }
-					wangling3 = { x = 1 y = 3 }
-					wangling3 = { x = 2 y = 0 }
-					wangling3 = { x = 2 y = 1 }
-				}
-				support = {
-					engineer = { x = 0 y = 0 }
-					recon = { x = 0 y = 1 }
-				}
-			}
-		}
-		add_equipment_to_stockpile = {
-			type = magic_assault_equipment_0
-			amount = 2500
-		}
-		add_equipment_to_stockpile = {
-			type = magic_artillery_equipment_1
-			amount = 1500
-		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 2500
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 500
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 200
-		}
-		if = {
-			limit = { capital_scope = { is_controlled_by = PREV } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"夜莺骑士团\" division_template = \"夜莺骑士团\" start_experience_factor = 0.6"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = { any_controlled_state = { always = yes } }
-			random_controlled_state = {
-				create_unit = {
-					division = "name = \"夜莺骑士团\" division_template = \"夜莺骑士团\" start_experience_factor = 0.6"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-	}
-	else = {
-		if = {
-			limit = { NOT = { has_country_flag = flower_nightingale_soul_tpl_created } }
-			set_country_flag = flower_nightingale_soul_tpl_created
-			division_template = {
-				name = "夜莺的魂灵"
-				regiments = {
-					wangling2 = { x = 0 y = 0 }
-					wangling2 = { x = 0 y = 1 }
-					wangling2 = { x = 0 y = 2 }
-					wangling2 = { x = 0 y = 3 }
-					wangling2 = { x = 1 y = 0 }
-					wangling2 = { x = 1 y = 1 }
-					wangling2 = { x = 1 y = 2 }
-					wangling2 = { x = 1 y = 3 }
-					wangling2 = { x = 2 y = 0 }
-					wangling2 = { x = 2 y = 1 }
-				}
-				support = {
-					engineer = { x = 0 y = 0 }
-					recon = { x = 0 y = 1 }
-				}
-			}
-		}
-		add_equipment_to_stockpile = {
-			type = magic_assault_equipment_0
-			amount = 2000
-		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 2000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 150
-		}
-		if = {
-			limit = { capital_scope = { is_controlled_by = PREV } }
-			capital_scope = {
-				create_unit = {
-					division = "name = \"夜莺的魂灵\" division_template = \"夜莺的魂灵\" start_experience_factor = 0.4"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-		else_if = {
-			limit = { any_controlled_state = { always = yes } }
-			random_controlled_state = {
-				create_unit = {
-					division = "name = \"夜莺的魂灵\" division_template = \"夜莺的魂灵\" start_experience_factor = 0.4"
-					count = 2
-					owner = PREV
-				}
-			}
-		}
-	}
-}
+#已废止旧特殊兵种刷师函数（全部特殊兵种与科技已集中至畸变4击败敌国吸收机制）
 
 #赌徒流派专属：命运骰子随机抽取 180 天强力正面 Buff（56%）或刺激负面 Debuff（44%）
 flower_ai_roll_gambler_fate = {
@@ -1378,6 +1037,7 @@ flower_ai_roll_gambler_fate = {
 		}
 		11 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
+			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 5 }
 			add_timed_idea = {
 				idea = flower_gambler_debuff_bankrupt_idea
@@ -1386,6 +1046,7 @@ flower_ai_roll_gambler_fate = {
 		}
 		11 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
+			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 6 }
 			add_timed_idea = {
 				idea = flower_gambler_debuff_jammed_idea
@@ -1394,6 +1055,7 @@ flower_ai_roll_gambler_fate = {
 		}
 		11 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
+			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 7 }
 			add_timed_idea = {
 				idea = flower_gambler_debuff_chaos_idea
@@ -1402,6 +1064,7 @@ flower_ai_roll_gambler_fate = {
 		}
 		11 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
+			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 8 }
 			add_timed_idea = {
 				idea = flower_gambler_debuff_scandal_idea
@@ -1464,11 +1127,26 @@ flower_ai_trigger_roguelike_wave = {
 #重算开局畸变投票全员就绪状态（必须全部人类玩家就绪后方可生效，支持单人秒开与多人随时取消投票）
 flower_ai_recalc_anomaly_ready = {
 	set_variable = { global.flower_human_total = 0 }
+	set_variable = { global.flower_human_voted = 0 }
 	set_variable = { global.flower_human_ready = 0 }
 	set_variable = { global.flower_human_skip = 0 }
 	every_country = {
 		limit = { is_ai = no }
 		add_to_variable = { global.flower_human_total = 1 }
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = flower_voted_card_1
+					has_country_flag = flower_voted_card_2
+					has_country_flag = flower_voted_card_3
+					has_country_flag = flower_voted_card_4
+					has_country_flag = flower_voted_card_5
+					has_country_flag = flower_voted_card_6
+					has_country_flag = flower_anomaly_player_skip
+				}
+			}
+			add_to_variable = { global.flower_human_voted = 1 }
+		}
 		if = {
 			limit = { has_country_flag = flower_anomaly_player_ready }
 			add_to_variable = { global.flower_human_ready = 1 }

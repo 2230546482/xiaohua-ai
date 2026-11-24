@@ -2855,7 +2855,7 @@
 				}
 				division_template = {
 					name = "游击队"
-					is_locked = yes
+					is_locked = no
 					regiments = {
 						militia = {
 							x = 0

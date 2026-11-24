@@ -16,17 +16,17 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上角小花立绘心情框（116x128，盈利开朗 / 浮亏委屈）
+		#左上角久留美立绘心情框（116x128，盈利开心 / 浮亏恐慌）
 		iconType = {
 			name = "flower_xiaohua_portrait_happy"
 			position = { x = 28 y = 22 }
-			spriteType = "GFX_flower_portrait_xiaohua_happy"
+			spriteType = "GFX_flower_portrait_kurumi_happy"
 			alwaystransparent = yes
 		}
 		iconType = {
 			name = "flower_xiaohua_portrait_cry"
 			position = { x = 28 y = 22 }
-			spriteType = "GFX_flower_portrait_xiaohua_scared"
+			spriteType = "GFX_flower_portrait_kurumi_cry"
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
@@ -111,8 +111,8 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_liquidate_all_lbl"
-			position = { x = 388 y = 113 }
-			font = "flower_a4_18"
+			position = { x = 388 y = 114 }
+			font = "flower_a4_16"
 			text = "FLOWER_STK_LIQUIDATE_ALL_BTN_TEXT"
 			maxWidth = 164
 			maxHeight = 22
@@ -134,8 +134,8 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_peek_map_lbl"
-			position = { x = 752 y = 113 }
-			font = "flower_a4_18"
+			position = { x = 752 y = 114 }
+			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
 			maxHeight = 20
@@ -190,10 +190,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_name"
-			position = { x = 84 y = 216 }
+			position = { x = 94 y = 214 }
 			font = "flower_a4_18"
 			text = "FLOWER_STK_1_NAME"
-			maxWidth = 190
+			maxWidth = 140
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -201,21 +201,21 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_desc"
-			position = { x = 84 y = 239 }
+			position = { x = 94 y = 238 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_1_DESC"
-			maxWidth = 216
-			maxHeight = 20
+			maxWidth = 156
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_price_val"
-			position = { x = 236 y = 216 }
+			position = { x = 238 y = 214 }
 			font = "flower_a4_18"
 			text = "[GetFlowerStock1PriceText]"
-			maxWidth = 182
+			maxWidth = 194
 			maxHeight = 22
 			format = right
 			fixedsize = yes
@@ -223,18 +223,18 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_hist_val"
-			position = { x = 262 y = 239 }
+			position = { x = 254 y = 238 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock1HistoryText]"
-			maxWidth = 162
-			maxHeight = 20
+			maxWidth = 178
+			maxHeight = 18
 			format = right
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_hold_val"
-			position = { x = 46 y = 272 }
+			position = { x = 46 y = 274 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock1HoldingsText]"
 			maxWidth = 388
@@ -382,10 +382,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_name"
-			position = { x = 524 y = 216 }
+			position = { x = 534 y = 214 }
 			font = "flower_a4_18"
 			text = "FLOWER_STK_2_NAME"
-			maxWidth = 190
+			maxWidth = 140
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -393,21 +393,21 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_desc"
-			position = { x = 524 y = 239 }
+			position = { x = 534 y = 238 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_2_DESC"
-			maxWidth = 216
-			maxHeight = 20
+			maxWidth = 156
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_price_val"
-			position = { x = 676 y = 216 }
+			position = { x = 678 y = 214 }
 			font = "flower_a4_18"
 			text = "[GetFlowerStock2PriceText]"
-			maxWidth = 182
+			maxWidth = 194
 			maxHeight = 22
 			format = right
 			fixedsize = yes
@@ -415,18 +415,18 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_hist_val"
-			position = { x = 702 y = 239 }
+			position = { x = 694 y = 238 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock2HistoryText]"
-			maxWidth = 162
-			maxHeight = 20
+			maxWidth = 178
+			maxHeight = 18
 			format = right
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_hold_val"
-			position = { x = 486 y = 272 }
+			position = { x = 486 y = 274 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock2HoldingsText]"
 			maxWidth = 388
@@ -574,10 +574,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_name"
-			position = { x = 84 y = 418 }
+			position = { x = 94 y = 416 }
 			font = "flower_a4_18"
 			text = "FLOWER_STK_3_NAME"
-			maxWidth = 190
+			maxWidth = 140
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -585,21 +585,21 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_desc"
-			position = { x = 84 y = 441 }
+			position = { x = 94 y = 440 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_3_DESC"
-			maxWidth = 216
-			maxHeight = 20
+			maxWidth = 156
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_price_val"
-			position = { x = 236 y = 418 }
+			position = { x = 238 y = 416 }
 			font = "flower_a4_18"
 			text = "[GetFlowerStock3PriceText]"
-			maxWidth = 182
+			maxWidth = 194
 			maxHeight = 22
 			format = right
 			fixedsize = yes
@@ -607,18 +607,18 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_hist_val"
-			position = { x = 262 y = 441 }
+			position = { x = 254 y = 440 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock3HistoryText]"
-			maxWidth = 162
-			maxHeight = 20
+			maxWidth = 178
+			maxHeight = 18
 			format = right
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_hold_val"
-			position = { x = 46 y = 474 }
+			position = { x = 46 y = 476 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock3HoldingsText]"
 			maxWidth = 388
@@ -766,10 +766,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_name"
-			position = { x = 524 y = 418 }
+			position = { x = 534 y = 416 }
 			font = "flower_a4_18"
 			text = "FLOWER_STK_4_NAME"
-			maxWidth = 190
+			maxWidth = 140
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -777,21 +777,21 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_desc"
-			position = { x = 524 y = 441 }
+			position = { x = 534 y = 440 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_4_DESC"
-			maxWidth = 216
-			maxHeight = 20
+			maxWidth = 156
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_price_val"
-			position = { x = 676 y = 418 }
+			position = { x = 678 y = 416 }
 			font = "flower_a4_18"
 			text = "[GetFlowerStock4PriceText]"
-			maxWidth = 182
+			maxWidth = 194
 			maxHeight = 22
 			format = right
 			fixedsize = yes
@@ -799,18 +799,18 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_hist_val"
-			position = { x = 702 y = 441 }
+			position = { x = 694 y = 440 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock4HistoryText]"
-			maxWidth = 162
-			maxHeight = 20
+			maxWidth = 178
+			maxHeight = 18
 			format = right
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_hold_val"
-			position = { x = 486 y = 474 }
+			position = { x = 486 y = 476 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStock4HoldingsText]"
 			maxWidth = 388
@@ -950,11 +950,11 @@ guiTypes = {
 		#底部状态栏说明
 		instantTextBoxType = {
 			name = "flower_stock_footer_text"
-			position = { x = 32 y = 614 }
+			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStockFooterText]"
-			maxWidth = 856
-			maxHeight = 22
+			maxWidth = 832
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes

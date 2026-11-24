@@ -26,6 +26,17 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetFlowerAnomalyVoteProgressText
+	text = {
+		trigger = { has_global_flag = flower_anomaly_voting_settled }
+		localization_key = FLOWER_ANOMALY_VOTE_PROGRESS_SETTLED
+	}
+	text = {
+		localization_key = FLOWER_ANOMALY_VOTE_PROGRESS_VOTING
+	}
+}
+
+defined_text = {
 	name = GetFlowerAnomalyModeSummaryText
 	text = {
 		trigger = { has_global_flag = flower_anomaly_multi_mode }

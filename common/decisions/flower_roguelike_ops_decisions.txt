@@ -1,7 +1,101 @@
-#12大肉鸽流派专属主动运营决议（每条流派仅显示1项核心运营决议，界面清爽，玩家与AI通用）
+#12大肉鸽流派专属主动运营决议、黑市6个月净收入契约与魔导国超位魔法21天预警反制
 flower_roguelike_ops_cat = {
 
-	#流派1：战地回炉车间（拆解缴获步枪换火炮、支援装备、陆经与本子层数）
+	#魔导国超位魔法21天咏唱倒计时预警（倒计时结束即对锁定州降下超位魔法）
+	flower_dvl_super_magic_warning_mission = {
+		icon = generic_ignite_civil_war
+		allowed = { always = no }
+		available = {
+			OR = {
+				NOT = { has_war_with = DVL }
+				DVL = { exists = no }
+			}
+		}
+		is_good = no
+		days_mission_timeout = 21
+		selectable_mission = no
+		cancel_trigger = {
+			OR = {
+				NOT = { has_war_with = DVL }
+				DVL = { exists = no }
+			}
+		}
+		complete_effect = {
+			clr_country_flag = flower_dvl_warning_active
+			clr_country_flag = flower_dvl_magic_countered
+		}
+		timeout_effect = {
+			flower_ai_execute_dvl_magic_strike = yes
+		}
+	}
+
+	#魔导国超位魔法玩家反制决议：启动防空结界与紧急疏散（偏转前2处核心落点并获得90天抢修加成）
+	flower_dvl_magic_counter_dec = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_dvl_warning_active
+			NOT = { has_country_flag = flower_dvl_magic_countered }
+			has_war_with = DVL
+		}
+		available = {
+			command_power > 49.99
+			has_political_power > 49.99
+		}
+		ai_will_do = {
+			base = 100
+		}
+		complete_effect = {
+			add_command_power = -50
+			add_political_power = -50
+			set_country_flag = flower_dvl_magic_countered
+			custom_effect_tooltip = flower_dvl_magic_counter_dec_tt
+		}
+	}
+
+	#黑市6个月净收入契约（现结或允许1.2倍高利贷负债，流派12享8折贵宾价与加注选项）
+	flower_op_black_market_contract = {
+		icon = generic_fundraising
+		visible = {
+			OR = {
+				has_global_flag = flower_anomaly_1_active
+				has_global_flag = flower_anomaly_3_active
+				has_global_flag = flower_anomaly_4_active
+				has_country_flag = flower_roguelike_gambler_active
+			}
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+		}
+		available = {
+			NOT = { has_idea = flower_bm_arms_supply_idea }
+			NOT = { has_idea = flower_bm_industry_boost_idea }
+			NOT = { has_idea = flower_bm_intel_tech_idea }
+			NOT = { has_idea = flower_bm_vip_jackpot_idea }
+		}
+		days_re_enable = 365
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 60
+				check_variable = { flower_black_market_cost > 0 }
+				NOT = { check_variable = { ubs_save < flower_black_market_cost } }
+				check_variable = { ubs_load < 300 }
+			}
+			modifier = {
+				factor = 1.8
+				has_war = yes
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				flower_ai_recalc_black_market_cost = yes
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+			}
+			custom_effect_tooltip = flower_op_black_market_contract_tt
+			country_event = { id = FLWAI.41 }
+		}
+	}
+
+	#流派1：战地回炉车间（拆解缴获步枪换火炮、反坦、支援、燃油与本子层数）
 	flower_op_slayer_salvage = {
 		icon = generic_merge_plant_materiel
 		visible = {
@@ -15,35 +109,36 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 40
+				add = 45
 				has_equipment = { infantry_equipment > 7999 }
 			}
 			modifier = {
-				add = 40
-				check_variable = { flower_slayer_stacks < 10 }
+				add = 45
+				check_variable = { flower_slayer_stacks < 8 }
 				has_equipment = { infantry_equipment > 5999 }
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_1_slayer" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_1_slayer" } }
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -3000
 			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
-				amount = 600
+				amount = 550
 			}
 			add_equipment_to_stockpile = {
 				type = support_equipment
-				amount = 400
+				amount = 350
 			}
-			army_experience = 45
+			add_fuel = 30000
+			army_experience = 40
 			flower_ai_add_slayer_stack = yes
 		}
 	}
 
-	#流派2：下达半年生产指标（扩军工/扩民工/冲效率三选一，达标爆额外工厂与叠层）
+	#流派2：下达半年生产指标（扩军工/扩民工/冲效率三选一，分支2B达标顺带本土探矿）
 	flower_op_corp_five_year_plan = {
 		icon = generic_construction
 		visible = {
@@ -55,7 +150,7 @@ flower_roguelike_ops_cat = {
 			NOT = { has_idea = flower_op_corp_eff_plan_idea }
 		}
 		cost = 25
-		days_re_enable = 180
+		days_re_enable = 185
 		ai_will_do = {
 			base = 50
 			modifier = {
@@ -64,12 +159,12 @@ flower_roguelike_ops_cat = {
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
 			country_event = { id = FLWAI.31 }
 		}
 	}
 
-	#流派3：炮兵饱和弹幕总攻（战时消耗火炮与指挥点引爆90天攻坚窗口）
+	#流派3：炮兵饱和弹幕总攻（分支3A同步实景轰毁交战敌方前线要塞与铁路）
 	flower_op_arty_barrage = {
 		icon = generic_ignite_civil_war
 		visible = {
@@ -84,14 +179,15 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 65
+				add = 75
 				has_war = yes
+				any_enemy_country = { is_major = yes }
 				has_equipment = { artillery_equipment > 799 }
 				command_power > 34.99
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" } }
 			add_command_power = -25
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
@@ -101,10 +197,34 @@ flower_roguelike_ops_cat = {
 				idea = flower_op_arty_barrage_idea
 				days = 90
 			}
+			if = {
+				limit = { has_idea = flower_evo_arty_carpet_idea }
+				custom_effect_tooltip = flower_op_arty_demolish_tt
+				hidden_effect = {
+					every_enemy_country = {
+						limit = { is_major = yes }
+						random_controlled_state = {
+							limit = {
+								any_neighbor_state = { is_controlled_by = ROOT }
+							}
+							damage_building = { type = bunker damage = 3 }
+							damage_building = { type = rail_way damage = 2 }
+							damage_building = { type = supply_node damage = 1 }
+						}
+						random_controlled_state = {
+							limit = {
+								any_neighbor_state = { is_controlled_by = ROOT }
+							}
+							damage_building = { type = bunker damage = 2 }
+							damage_building = { type = infrastructure damage = 2 }
+						}
+					}
+				}
+			}
 		}
 	}
 
-	#流派4：按下银怀表：时停穿插（战时开启60天极速高突破包饺子窗口）
+	#流派4：按下银怀表：时停穿插（分支4A同步给主要交战敌国挂30天时间凝滞减益）
 	flower_op_tank_timestop = {
 		icon = generic_tank
 		visible = {
@@ -119,22 +239,54 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 70
+				add = 80
 				has_war = yes
+				any_enemy_country = { is_major = yes }
 				command_power > 44.99
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_timestop_dio" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_timestop_dio" } }
 			add_command_power = -35
+			add_fuel = 100000
 			add_timed_idea = {
 				idea = flower_op_tank_timestop_idea
 				days = 60
 			}
+			if = {
+				limit = { has_idea = flower_evo_tank_timestop_idea }
+				custom_effect_tooltip = flower_op_tank_timestop_enemy_tt
+				if = {
+					limit = {
+						any_enemy_country = {
+							is_major = yes
+							NOT = { has_idea = flower_enemy_timestopped_idea }
+						}
+					}
+					random_enemy_country = {
+						limit = {
+							is_major = yes
+							NOT = { has_idea = flower_enemy_timestopped_idea }
+						}
+						add_timed_idea = {
+							idea = flower_enemy_timestopped_idea
+							days = 30
+						}
+					}
+				}
+				else = {
+					random_enemy_country = {
+						add_timed_idea = {
+							idea = flower_enemy_timestopped_idea
+							days = 30
+						}
+					}
+				}
+			}
 		}
 	}
 
-	#流派5：全空域护航与断后勤洗地（战时扩建前线机场并引爆90天强力密接支援）
+	#流派5：全空域护航与机场压制洗地（分支5A先发炸伤敌前线机场并挂45天空域瘫痪）
 	flower_op_air_carpet = {
 		icon = generic_air
 		visible = {
@@ -149,14 +301,15 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 65
+				add = 75
 				has_war = yes
+				any_enemy_country = { is_major = yes }
 				has_air_experience > 44.99
 				command_power > 34.99
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" } }
 			air_experience = -30
 			add_command_power = -25
 			add_timed_idea = {
@@ -168,6 +321,27 @@ flower_roguelike_ops_cat = {
 					type = air_base
 					level = 2
 					instant_build = yes
+				}
+			}
+			if = {
+				limit = { has_idea = flower_evo_air_cas_idea }
+				custom_effect_tooltip = flower_op_air_crush_enemy_tt
+				random_enemy_country = {
+					limit = {
+						OR = {
+							is_major = yes
+							any_controlled_state = { air_base > 0 }
+						}
+					}
+					add_timed_idea = {
+						idea = flower_enemy_airspace_crushed_idea
+						days = 45
+					}
+					random_controlled_state = {
+						limit = { air_base > 0 }
+						damage_building = { type = air_base damage = 2 }
+						damage_building = { type = anti_air_building damage = 2 }
+					}
 				}
 			}
 		}
@@ -193,7 +367,7 @@ flower_roguelike_ops_cat = {
 				NOT = { has_idea = flower_op_wave_rest_idea }
 			}
 			modifier = {
-				add = 50
+				add = 55
 				surrender_progress > 0.12
 				NOT = { has_idea = flower_op_wave_hold_idea }
 			}
@@ -204,12 +378,12 @@ flower_roguelike_ops_cat = {
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_6_wave" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_6_wave" } }
 			country_event = { id = FLWAI.32 }
 		}
 	}
 
-	#流派7：子夜魔导奇袭令（战时开启90天超高夜战突破并补发魔导装备）
+	#流派7：子夜奇袭令（分支7A同步致盲主要敌国情报60天并直接偷取1张敌国科技加速卡）
 	flower_op_nightingale_raid = {
 		icon = generic_cavalry
 		visible = {
@@ -224,14 +398,15 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 65
+				add = 75
 				has_war = yes
+				any_enemy_country = { is_major = yes }
 				command_power > 34.99
 				has_army_experience > 29.99
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_7_nightingale" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_7_nightingale" } }
 			add_command_power = -30
 			army_experience = -20
 			add_timed_idea = {
@@ -239,13 +414,46 @@ flower_roguelike_ops_cat = {
 				days = 90
 			}
 			add_equipment_to_stockpile = {
-				type = magic_assault_equipment_0
-				amount = 800
+				type = infantry_equipment
+				amount = 2000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+			}
+			if = {
+				limit = { has_idea = flower_evo_nightingale_blood_idea }
+				custom_effect_tooltip = flower_op_night_blind_steal_tt
+				random_enemy_country = {
+					limit = {
+						OR = {
+							is_major = yes
+							NOT = { has_idea = flower_enemy_intel_blind_idea }
+						}
+					}
+					add_timed_idea = {
+						idea = flower_enemy_intel_blind_idea
+						days = 60
+					}
+					ROOT = {
+						steal_random_tech_bonus = {
+							folder = infantry_folder
+							folder = artillery_folder
+							folder = industry_folder
+							folder = electronics_folder
+							bonus = 1.25
+							name = flower_night_stolen_tech_bonus
+							target = PREV
+							dynamic = yes
+							uses = 1
+						}
+					}
+				}
 			}
 		}
 	}
 
-	#流派8：发动敌后大破交（给交战敌国挂90天补给瘫痪并反缴获火炮支援）
+	#流派8：发动敌后大破交（瘫痪敌国后勤90天，分支8A同步实景炸毁沦陷区铁路并拉高抵抗度）
 	flower_op_guerrilla_sabotage = {
 		icon = generic_scorched_earth
 		visible = {
@@ -260,13 +468,13 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 65
+				add = 75
 				has_war = yes
 				has_equipment = { infantry_equipment > 3999 }
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_8_guerrilla" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_8_guerrilla" } }
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -1500
@@ -297,6 +505,11 @@ flower_roguelike_ops_cat = {
 					}
 				}
 			}
+			if = {
+				limit = { has_idea = flower_evo_guerrilla_scorch_idea }
+				custom_effect_tooltip = flower_op_guerrilla_scorch_tt
+				flower_ai_guerrilla_scorch_occupied_cores = yes
+			}
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
 				amount = 300
@@ -309,7 +522,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派9：开启灵魂熔炉（骨海起尸/黑曜骨甲/亡灵进厂三选一）
+	#流派9：开启战地血炉调度（伤兵回流/卖血极限过载/血汗轮班，分支9B解锁高强度过载）
 	flower_op_undead_furnace = {
 		icon = generic_operation
 		visible = {
@@ -321,19 +534,19 @@ flower_roguelike_ops_cat = {
 		cost = 25
 		days_re_enable = 150
 		ai_will_do = {
-			base = 55
+			base = 45
 			modifier = {
-				factor = 1.5
+				factor = 1.8
 				has_war = yes
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_9_undead" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_9_undead" } }
 			country_event = { id = FLWAI.33 }
 		}
 	}
 
-	#流派10：调谐异界裂隙功率（稳态科研共鸣/超载召唤突袭二选一）
+	#流派10：特种司令部调令（将领地形专精特训/三栖斩首强攻二选一）
 	flower_op_magic_rift = {
 		icon = generic_research
 		visible = {
@@ -347,17 +560,17 @@ flower_roguelike_ops_cat = {
 		ai_will_do = {
 			base = 55
 			modifier = {
-				factor = 1.5
-				has_political_power > 80
+				factor = 1.6
+				has_war = yes
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_10_magic" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_10_magic" } }
 			country_event = { id = FLWAI.34 }
 		}
 	}
 
-	#流派11：奇幻双线专项实验（森林庇护/飞碟逆向试飞二选一）
+	#流派11：疯狂实验室专项课题（分支11A可直接加开原型机盲盒，否则选常规科研专项）
 	flower_op_punk_expedition = {
 		icon = generic_electricity
 		visible = {
@@ -376,12 +589,18 @@ flower_roguelike_ops_cat = {
 			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_11_steampunk" }
-			country_event = { id = FLWAI.35 }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_11_steampunk" } }
+			if = {
+				limit = { has_idea = flower_evo_punk_ufo_idea }
+				country_event = { id = FLWAI.42 }
+			}
+			else = {
+				country_event = { id = FLWAI.35 }
+			}
 		}
 	}
 
-	#流派12：黑市赌桌筹码操作（买保险洗负面保底/加倍重摇领物资）
+	#流派12：黑市赌桌筹码操作（买保险/重摇领物资，分支12B可把负面骰子甩锅给敌国，分支12C可用资金直购战备）
 	flower_op_gambler_chips = {
 		icon = generic_fundraising
 		visible = {
@@ -405,9 +624,14 @@ flower_roguelike_ops_cat = {
 					has_idea = flower_gambler_debuff_scandal_idea
 				}
 			}
+			modifier = {
+				add = 40
+				has_idea = flower_egg_arcane_blueprint_idea
+				check_variable = { ubs_save > 399 }
+			}
 		}
 		complete_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_12_gambler" }
+			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_12_gambler" } }
 			if = {
 				limit = { NOT = { check_variable = { ubs_save < 100 } } }
 				custom_effect_tooltip = flower_hcp_minus_100_tt

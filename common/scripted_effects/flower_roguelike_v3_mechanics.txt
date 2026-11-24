@@ -1,0 +1,1177 @@
+#肉鸽三期核心机制：黑市6个月净收入契约、方案B+动态规则引擎、魔导国21天预警超位魔法与AI追赶
+
+#===============================================================================
+#一、黑市6个月净收入契约（支持现金支付与1.2倍高利贷负债）
+#===============================================================================
+flower_ai_recalc_black_market_cost = {
+	set_variable = { flower_black_market_cost = AHES_Net_income }
+	if = {
+		limit = { check_variable = { flower_black_market_cost > 0 } }
+		multiply_variable = { flower_black_market_cost = 6 }
+	}
+	else = {
+		set_variable = { flower_black_market_cost = AHES_Total_income }
+		multiply_variable = { flower_black_market_cost = 3 }
+	}
+	round_variable = flower_black_market_cost
+	if = {
+		limit = { check_variable = { flower_black_market_cost < 250 } }
+		set_variable = { flower_black_market_cost = 250 }
+	}
+	if = {
+		limit = { has_country_flag = flower_roguelike_gambler_active }
+		multiply_variable = { flower_black_market_cost = 0.8 }
+		round_variable = flower_black_market_cost
+		if = {
+			limit = { check_variable = { flower_black_market_cost < 200 } }
+			set_variable = { flower_black_market_cost = 200 }
+		}
+	}
+	#预估高利贷所需额度（供事件文案实时显示）
+	if = {
+		limit = { check_variable = { ubs_save < flower_black_market_cost } }
+		set_variable = { flower_bm_loan_preview = flower_black_market_cost }
+		if = {
+			limit = { check_variable = { ubs_save > 0 } }
+			subtract_from_variable = { flower_bm_loan_preview = ubs_save }
+		}
+		multiply_variable = { flower_bm_loan_preview = 1.2 }
+		round_variable = flower_bm_loan_preview
+	}
+	else = {
+		set_variable = { flower_bm_loan_preview = 0 }
+	}
+}
+
+flower_ai_pay_black_market_cost = {
+	flower_ai_recalc_black_market_cost = yes
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < flower_black_market_cost } } }
+		subtract_from_variable = { ubs_save = flower_black_market_cost }
+	}
+	else = {
+		set_temp_variable = { temp_bm_shortfall = flower_black_market_cost }
+		if = {
+			limit = { check_variable = { ubs_save > 0 } }
+			subtract_from_variable = { temp_bm_shortfall = ubs_save }
+			set_variable = { ubs_save = 0 }
+		}
+		multiply_variable = { temp_bm_shortfall = 1.2 }
+		round_variable = temp_bm_shortfall
+		add_to_variable = { ubs_load = temp_bm_shortfall }
+	}
+	flower_ai_sync_hcp_ui = yes
+}
+
+#===============================================================================
+#二、方案B+12大流派动态规则引擎（重算与钩子）
+#===============================================================================
+
+#流派2分支2B：本土随机州平地勘探永久战略矿脉
+flower_ai_corp_prospect_mineral = {
+	random_owned_controlled_state = {
+		limit = { is_core_of = ROOT }
+		random_list = {
+			25 = { add_resource = { type = steel amount = 12 } }
+			20 = { add_resource = { type = aluminium amount = 10 } }
+			20 = { add_resource = { type = tungsten amount = 10 } }
+			15 = { add_resource = { type = chromium amount = 10 } }
+			20 = { add_resource = { type = oil amount = 10 } }
+		}
+	}
+}
+
+#流派3：重算炮兵火力密度动态修正
+flower_ai_recalc_arty_density = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_arty_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_arty_density_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_arty_density_dynamic_mod }
+		}
+		set_temp_variable = { temp_arty_tier = 1 }
+		if = {
+			limit = { OR = { has_equipment = { artillery_equipment > 999 } num_divisions > 35 } }
+			add_to_temp_variable = { temp_arty_tier = 1 }
+		}
+		if = {
+			limit = { OR = { has_equipment = { artillery_equipment > 2499 } num_divisions > 60 } }
+			add_to_temp_variable = { temp_arty_tier = 1 }
+		}
+		if = {
+			limit = { OR = { has_idea = flower_arty_stage_2_idea has_idea = flower_arty_stage_3_idea } }
+			add_to_temp_variable = { temp_arty_tier = 1 }
+		}
+		if = {
+			limit = { has_idea = flower_arty_stage_3_idea }
+			add_to_temp_variable = { temp_arty_tier = 2 }
+		}
+		set_variable = { flower_arty_den_atk_var = temp_arty_tier }
+		multiply_variable = { flower_arty_den_atk_var = 0.025 }
+		set_variable = { flower_arty_den_brk_var = temp_arty_tier }
+		multiply_variable = { flower_arty_den_brk_var = 0.02 }
+		set_variable = { flower_arty_den_crd_var = temp_arty_tier }
+		multiply_variable = { flower_arty_den_crd_var = 0.015 }
+		set_variable = { flower_arty_den_spd_var = 0 }
+		set_variable = { flower_arty_den_org_var = 0 }
+		if = {
+			limit = { has_idea = flower_evo_arty_carpet_idea }
+			multiply_variable = { flower_arty_den_atk_var = 1.3 }
+			multiply_variable = { flower_arty_den_brk_var = 1.35 }
+			set_variable = { flower_arty_den_spd_var = -0.04 }
+		}
+		else_if = {
+			limit = { has_idea = flower_evo_arty_mobile_idea }
+			set_variable = { flower_arty_den_spd_var = temp_arty_tier }
+			multiply_variable = { flower_arty_den_spd_var = 0.02 }
+			set_variable = { flower_arty_den_org_var = temp_arty_tier }
+			multiply_variable = { flower_arty_den_org_var = 0.015 }
+		}
+	}
+}
+
+#流派4：重算闪击惯性动态修正
+flower_ai_recalc_blitz_momentum = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_tank_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_blitz_momentum_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_blitz_momentum_dynamic_mod }
+		}
+		if = {
+			limit = { has_idea = flower_evo_tank_fortress_idea }
+			#分支4B：取消停滞衰减，锁定常驻重甲推土机壁垒
+			set_variable = { flower_blitz_spd_var = 0.04 }
+			set_variable = { flower_blitz_atk_var = 0.10 }
+			set_variable = { flower_blitz_def_var = 0.16 }
+			set_variable = { flower_blitz_brk_var = 0.14 }
+			set_variable = { flower_blitz_org_var = -0.15 }
+			set_variable = { flower_blitz_sup_var = 48 }
+		}
+		else = {
+			set_temp_variable = { temp_cap = 6 }
+			if = {
+				limit = { has_idea = flower_evo_tank_timestop_idea }
+				set_temp_variable = { temp_cap = 10 }
+			}
+			if = {
+				limit = { check_variable = { flower_blitz_stacks > temp_cap } }
+				set_variable = { flower_blitz_stacks = temp_cap }
+			}
+			if = {
+				limit = { check_variable = { flower_blitz_stacks < 0 } }
+				set_variable = { flower_blitz_stacks = 0 }
+			}
+			set_variable = { flower_blitz_spd_var = flower_blitz_stacks }
+			multiply_variable = { flower_blitz_spd_var = 0.025 }
+			set_variable = { flower_blitz_atk_var = flower_blitz_stacks }
+			multiply_variable = { flower_blitz_atk_var = 0.015 }
+			set_variable = { flower_blitz_def_var = 0 }
+			set_variable = { flower_blitz_brk_var = flower_blitz_stacks }
+			multiply_variable = { flower_blitz_brk_var = 0.02 }
+			set_variable = { flower_blitz_org_var = flower_blitz_stacks }
+			multiply_variable = { flower_blitz_org_var = -0.03 }
+			set_variable = { flower_blitz_sup_var = flower_blitz_stacks }
+			multiply_variable = { flower_blitz_sup_var = 8 }
+		}
+	}
+}
+
+#流派5：重算王牌飞行员威望动态修正
+flower_ai_recalc_ace_prestige = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_air_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_ace_prestige_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_ace_prestige_dynamic_mod }
+		}
+		if = {
+			limit = { check_variable = { flower_ace_stacks > 10 } }
+			set_variable = { flower_ace_stacks = 10 }
+		}
+		if = {
+			limit = { check_variable = { flower_ace_stacks < 0 } }
+			set_variable = { flower_ace_stacks = 0 }
+		}
+		set_variable = { flower_ace_cas_var = flower_ace_stacks }
+		multiply_variable = { flower_ace_cas_var = 0.015 }
+		set_variable = { flower_ace_sup_var = flower_ace_stacks }
+		multiply_variable = { flower_ace_sup_var = 0.015 }
+		set_variable = { flower_ace_atk_var = flower_ace_stacks }
+		multiply_variable = { flower_ace_atk_var = 0.012 }
+		set_variable = { flower_ace_agi_var = flower_ace_stacks }
+		multiply_variable = { flower_ace_agi_var = 0.01 }
+		set_variable = { flower_ace_bon_var = flower_ace_stacks }
+		multiply_variable = { flower_ace_bon_var = 0.012 }
+		if = {
+			limit = { has_idea = flower_evo_air_cas_idea }
+			multiply_variable = { flower_ace_cas_var = 1.6 }
+		}
+		else_if = {
+			limit = { has_idea = flower_evo_air_superiority_idea }
+			multiply_variable = { flower_ace_sup_var = 1.5 }
+			multiply_variable = { flower_ace_atk_var = 1.5 }
+			multiply_variable = { flower_ace_agi_var = 1.5 }
+		}
+	}
+}
+
+#流派6：重算血战老兵传承与绝境反击动态修正
+flower_ai_recalc_veteran_furnace = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_wave_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_veteran_furnace_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_veteran_furnace_dynamic_mod }
+		}
+		if = {
+			limit = { check_variable = { flower_vet_stacks > 8 } }
+			set_variable = { flower_vet_stacks = 8 }
+		}
+		if = {
+			limit = { check_variable = { flower_vet_stacks < 0 } }
+			set_variable = { flower_vet_stacks = 0 }
+		}
+		set_variable = { flower_vet_hp_var = flower_vet_stacks }
+		multiply_variable = { flower_vet_hp_var = 0.02 }
+		set_variable = { flower_vet_rec_var = flower_vet_stacks }
+		multiply_variable = { flower_vet_rec_var = 0.025 }
+		set_variable = { flower_vet_rei_var = flower_vet_stacks }
+		multiply_variable = { flower_vet_rei_var = 0.015 }
+		set_variable = { flower_vet_cdef_var = 0 }
+		set_variable = { flower_vet_catk_var = 0 }
+		set_variable = { flower_vet_brk_var = 0 }
+		set_variable = { flower_vet_dig_var = 0 }
+		if = {
+			limit = { has_idea = flower_evo_wave_meatgrinder_idea }
+			#分支6A：残血绝境锁血光环（失地越多越狂暴）
+			if = {
+				limit = { surrender_progress > 0.35 }
+				set_variable = { flower_vet_cdef_var = 0.25 }
+				set_variable = { flower_vet_catk_var = 0.20 }
+				set_variable = { flower_vet_dig_var = 0.30 }
+			}
+			else_if = {
+				limit = { surrender_progress > 0.15 }
+				set_variable = { flower_vet_cdef_var = 0.15 }
+				set_variable = { flower_vet_catk_var = 0.12 }
+				set_variable = { flower_vet_dig_var = 0.20 }
+			}
+			else_if = {
+				limit = { has_war = yes }
+				set_variable = { flower_vet_cdef_var = 0.08 }
+				set_variable = { flower_vet_dig_var = 0.10 }
+			}
+		}
+		else_if = {
+			limit = { has_idea = flower_evo_wave_banzai_idea }
+			#分支6B：反攻红潮（老兵层数转为纯进攻突破）
+			set_variable = { flower_vet_brk_var = flower_vet_stacks }
+			multiply_variable = { flower_vet_brk_var = 0.025 }
+			multiply_variable = { flower_vet_rec_var = 1.35 }
+		}
+	}
+}
+
+#流派8：重算游击越穷越强与敌后适应动态修正
+flower_ai_recalc_guerrilla_underdog = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_guerrilla_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_guerrilla_underdog_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_guerrilla_underdog_dynamic_mod }
+		}
+		set_temp_variable = { temp_gu_lvl = 1 }
+		if = {
+			limit = { num_of_factories < 60 }
+			add_to_temp_variable = { temp_gu_lvl = 1 }
+		}
+		if = {
+			limit = { num_of_factories < 30 }
+			add_to_temp_variable = { temp_gu_lvl = 1 }
+		}
+		if = {
+			limit = { surrender_progress > 0.08 }
+			add_to_temp_variable = { temp_gu_lvl = 2 }
+		}
+		set_variable = { flower_gu_ter_var = temp_gu_lvl }
+		multiply_variable = { flower_gu_ter_var = 0.04 }
+		set_variable = { flower_gu_oos_var = temp_gu_lvl }
+		multiply_variable = { flower_gu_oos_var = -0.08 }
+		set_variable = { flower_gu_catk_var = temp_gu_lvl }
+		multiply_variable = { flower_gu_catk_var = 0.04 }
+		set_variable = { flower_gu_cdef_var = temp_gu_lvl }
+		multiply_variable = { flower_gu_cdef_var = 0.05 }
+		set_variable = { flower_gu_att_var = temp_gu_lvl }
+		multiply_variable = { flower_gu_att_var = -0.05 }
+	}
+}
+
+#流派8分支8A/大破交：实景炸毁沦陷区铁路并拉高抵抗度
+flower_ai_guerrilla_scorch_occupied_cores = {
+	every_core_state = {
+		limit = {
+			NOT = { is_controlled_by = ROOT }
+			controller = { has_war_with = ROOT }
+		}
+		add_resistance = 25
+		add_compliance = -15
+		damage_building = {
+			type = infrastructure
+			damage = 2
+		}
+		damage_building = {
+			type = rail_way
+			damage = 2
+		}
+	}
+}
+
+#流派9分支9C：富裕人力动态折算工业产能
+flower_ai_recalc_blood_labor = {
+	if = {
+		limit = { has_idea = flower_evo_undead_sweatshop_idea }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_blood_labor_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_blood_labor_dynamic_mod }
+		}
+		set_temp_variable = { temp_bl_tier = 1 }
+		if = {
+			limit = { has_manpower > 300000 }
+			set_temp_variable = { temp_bl_tier = 2 }
+		}
+		if = {
+			limit = { has_manpower > 800000 }
+			set_temp_variable = { temp_bl_tier = 3 }
+		}
+		if = {
+			limit = { has_manpower > 1500000 }
+			set_temp_variable = { temp_bl_tier = 4 }
+		}
+		set_variable = { flower_blab_ic_var = temp_bl_tier }
+		multiply_variable = { flower_blab_ic_var = 0.04 }
+		set_variable = { flower_blab_bld_var = temp_bl_tier }
+		multiply_variable = { flower_blab_bld_var = 0.04 }
+		set_variable = { flower_blab_rep_var = temp_bl_tier }
+		multiply_variable = { flower_blab_rep_var = 0.08 }
+	}
+}
+
+#流派9：战损充能检测（满6点自动引爆战地狂潮）
+flower_ai_add_blood_charge = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_undead_ai }
+		add_to_variable = { flower_blood_charge = 1 }
+		if = {
+			limit = { check_variable = { flower_blood_charge > 5 } }
+			set_variable = { flower_blood_charge = 0 }
+			add_command_power = 40
+			add_manpower = 35000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 400
+			}
+			add_timed_idea = {
+				idea = flower_op_undead_surge_idea
+				days = 60
+			}
+		}
+	}
+}
+
+#流派10：少师精锐编制动态修正（48师以下激活，分支10B解除少师机制改走特种大军）
+flower_ai_recalc_elite_small_army = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_magic_ai }
+		if = {
+			limit = { has_idea = flower_evo_magic_grimoire_idea }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod } }
+				remove_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod }
+			}
+		}
+		else = {
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod } } }
+				add_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod }
+			}
+			if = {
+				limit = { num_divisions < 49 }
+				set_variable = { flower_elite_atk_var = 0.10 }
+				set_variable = { flower_elite_def_var = 0.10 }
+				set_variable = { flower_elite_brk_var = 0.10 }
+				set_variable = { flower_elite_xp_var = 0.35 }
+				set_variable = { flower_elite_ter_var = 0.12 }
+				if = {
+					limit = { has_idea = flower_evo_magic_chosen_idea }
+					set_variable = { flower_elite_atk_var = 0.15 }
+					set_variable = { flower_elite_def_var = 0.15 }
+					set_variable = { flower_elite_brk_var = 0.15 }
+					set_variable = { flower_elite_xp_var = 0.55 }
+					set_variable = { flower_elite_ter_var = 0.20 }
+				}
+			}
+			else_if = {
+				limit = { num_divisions < 65 }
+				set_variable = { flower_elite_atk_var = 0.05 }
+				set_variable = { flower_elite_def_var = 0.05 }
+				set_variable = { flower_elite_brk_var = 0.05 }
+				set_variable = { flower_elite_xp_var = 0.20 }
+				set_variable = { flower_elite_ter_var = 0.06 }
+				if = {
+					limit = { has_idea = flower_evo_magic_chosen_idea }
+					set_variable = { flower_elite_atk_var = 0.08 }
+					set_variable = { flower_elite_def_var = 0.08 }
+					set_variable = { flower_elite_brk_var = 0.08 }
+					set_variable = { flower_elite_xp_var = 0.35 }
+					set_variable = { flower_elite_ter_var = 0.10 }
+				}
+			}
+			else = {
+				set_variable = { flower_elite_atk_var = 0 }
+				set_variable = { flower_elite_def_var = 0 }
+				set_variable = { flower_elite_brk_var = 0 }
+				set_variable = { flower_elite_xp_var = 0.15 }
+				set_variable = { flower_elite_ter_var = 0 }
+			}
+		}
+	}
+}
+
+#流派11：科研领先反哺全军动态修正
+flower_ai_recalc_science_compute = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_steampunk_ai }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_science_compute_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_science_compute_dynamic_mod }
+		}
+		set_temp_variable = { temp_sci_lvl = 1 }
+		if = { limit = { amount_research_slots > 3 } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { amount_research_slots > 4 } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { date > 1938.1.1 } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { date > 1940.1.1 } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { has_idea = flower_steampunk_stage_3_idea } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		set_variable = { flower_sci_crd_var = temp_sci_lvl }
+		multiply_variable = { flower_sci_crd_var = 0.02 }
+		set_variable = { flower_sci_dec_var = temp_sci_lvl }
+		multiply_variable = { flower_sci_dec_var = 0.04 }
+		set_variable = { flower_sci_cap_var = temp_sci_lvl }
+		multiply_variable = { flower_sci_cap_var = 0.02 }
+		set_variable = { flower_sci_att_var = temp_sci_lvl }
+		multiply_variable = { flower_sci_att_var = -0.025 }
+	}
+}
+
+#流派12分支12A：账户资金转化战力动态修正
+flower_ai_recalc_cash_power = {
+	if = {
+		limit = { has_idea = flower_egg_clockwork_forge_idea }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_cash_power_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_cash_power_dynamic_mod }
+		}
+		set_temp_variable = { temp_cp_lvl = 0 }
+		if = { limit = { check_variable = { ubs_save > 499 } } set_temp_variable = { temp_cp_lvl = 1 } }
+		if = { limit = { check_variable = { ubs_save > 1499 } } set_temp_variable = { temp_cp_lvl = 2 } }
+		if = { limit = { check_variable = { ubs_save > 2999 } } set_temp_variable = { temp_cp_lvl = 3 } }
+		if = { limit = { check_variable = { ubs_save > 5999 } } set_temp_variable = { temp_cp_lvl = 4 } }
+		set_variable = { flower_cash_atk_var = temp_cp_lvl }
+		multiply_variable = { flower_cash_atk_var = 0.03 }
+		set_variable = { flower_cash_ic_var = temp_cp_lvl }
+		multiply_variable = { flower_cash_ic_var = 0.035 }
+		set_variable = { flower_cash_cap_var = temp_cp_lvl }
+		multiply_variable = { flower_cash_cap_var = 0.03 }
+	}
+}
+
+#月度统一巡检所有方案B+动态规则引擎
+flower_ai_tick_roguelike_v3_engines = {
+	flower_ai_recalc_black_market_cost = yes
+	#流派1分支1A：月度自动将多余步枪回炉为火炮与支援装备
+	if = {
+		limit = {
+			has_idea = flower_evo_slayer_dismantle_idea
+			has_equipment = { infantry_equipment > 6000 }
+		}
+		add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 180 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 120 }
+	}
+	#流派2分支2A：每满10座民工额外提供月度资金红利
+	if = {
+		limit = { has_idea = flower_evo_corp_trust_idea }
+		set_temp_variable = { temp_civ_bonus = num_of_civilian_factories }
+		multiply_variable = { temp_civ_bonus = 2 }
+		if = {
+			limit = { check_variable = { temp_civ_bonus > 250 } }
+			set_temp_variable = { temp_civ_bonus = 250 }
+		}
+		add_to_variable = { ubs_save = temp_civ_bonus }
+		flower_ai_sync_hcp_ui = yes
+	}
+	flower_ai_recalc_arty_density = yes
+	#流派4：无持续推进超过30天时闪击惯性衰减1层（分支4B不衰减）
+	if = {
+		limit = {
+			has_country_flag = flower_roguelike_tank_ai
+			NOT = { has_idea = flower_evo_tank_fortress_idea }
+			NOT = { has_country_flag = flower_blitz_momentum_alive }
+			check_variable = { flower_blitz_stacks > 0 }
+		}
+		subtract_from_variable = { flower_blitz_stacks = 1 }
+	}
+	flower_ai_recalc_blitz_momentum = yes
+	#流派5：战时空军激战保底每4个月累计1层王牌威望
+	if = {
+		limit = {
+			has_country_flag = flower_roguelike_air_ai
+			has_war = yes
+		}
+		add_to_variable = { flower_ace_war_months = 1 }
+		if = {
+			limit = { check_variable = { flower_ace_war_months > 3 } }
+			set_variable = { flower_ace_war_months = 0 }
+			add_to_variable = { flower_ace_stacks = 1 }
+		}
+	}
+	flower_ai_recalc_ace_prestige = yes
+	#流派6：战时每2个月自动累计1层血战老兵传承
+	if = {
+		limit = {
+			has_country_flag = flower_roguelike_wave_ai
+			has_war = yes
+		}
+		add_to_variable = { flower_vet_war_months = 1 }
+		if = {
+			limit = { check_variable = { flower_vet_war_months > 1 } }
+			set_variable = { flower_vet_war_months = 0 }
+			add_to_variable = { flower_vet_stacks = 1 }
+		}
+	}
+	flower_ai_recalc_veteran_furnace = yes
+	flower_ai_recalc_guerrilla_underdog = yes
+	#流派8分支8A：战时每3个月自动破坏敌占核心区铁路并拉高抵抗度
+	if = {
+		limit = {
+			has_idea = flower_evo_guerrilla_scorch_idea
+			has_war = yes
+			any_core_state = { NOT = { is_controlled_by = ROOT } }
+		}
+		add_to_variable = { flower_gu_scorch_months = 1 }
+		if = {
+			limit = { check_variable = { flower_gu_scorch_months > 2 } }
+			set_variable = { flower_gu_scorch_months = 0 }
+			flower_ai_guerrilla_scorch_occupied_cores = yes
+		}
+	}
+	#流派9：战时每月累计战损充能+分支9C人力折算工业
+	if = {
+		limit = {
+			has_country_flag = flower_roguelike_undead_ai
+			has_war = yes
+		}
+		flower_ai_add_blood_charge = yes
+	}
+	flower_ai_recalc_blood_labor = yes
+	flower_ai_recalc_elite_small_army = yes
+	flower_ai_recalc_science_compute = yes
+	#流派11分支11A：每180天弹出疯狂实验室原型机三选一
+	if = {
+		limit = {
+			has_idea = flower_evo_punk_ufo_idea
+			NOT = { has_country_flag = flower_proto_box_cd }
+		}
+		set_country_flag = { flag = flower_proto_box_cd days = 180 value = 1 }
+		country_event = { id = FLWAI.42 days = 1 }
+	}
+	flower_ai_recalc_cash_power = yes
+}
+
+#占领敌方地区钩子（在on_state_control_changed中调用，ROOT=新控制者，FROM=原控制者，FROM.FROM=州）
+flower_ai_on_state_captured_v3 = {
+	if = {
+		limit = {
+			ROOT = { has_war_with = FROM }
+		}
+		#流派1：攻占敌方带工厂州时顺走仓库装备（30天冷却）
+		if = {
+			limit = {
+				ROOT = {
+					has_country_flag = flower_roguelike_slayer_ai
+					NOT = { has_country_flag = flower_slayer_raid_cd }
+				}
+				FROM.FROM = {
+					OR = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_slayer_raid_cd days = 30 value = 1 }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 1200 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 120 }
+				add_equipment_to_stockpile = { type = motorized_equipment amount = 80 }
+				add_fuel = 15000
+				if = {
+					limit = { has_idea = flower_evo_slayer_dismantle_idea }
+					add_to_variable = { ubs_save = 120 }
+					flower_ai_sync_hcp_ui = yes
+				}
+				if = {
+					limit = {
+						has_idea = flower_evo_slayer_retrofit_idea
+						NOT = { has_country_flag = flower_slayer_steal_tech_cd }
+					}
+					random_list = {
+						35 = {
+							set_country_flag = { flag = flower_slayer_steal_tech_cd days = 180 value = 1 }
+							add_tech_bonus = {
+								name = flower_slayer_stolen_blueprint_bonus
+								bonus = 1.0
+								uses = 1
+								category = infantry_weapons
+								category = artillery
+								category = armor
+							}
+						}
+						65 = { army_experience = 10 }
+					}
+				}
+			}
+		}
+		#流派3分支3A：攻占敌方带要塞或补给枢纽的州返还火炮与指挥点
+		if = {
+			limit = {
+				ROOT = {
+					has_idea = flower_evo_arty_carpet_idea
+					NOT = { has_country_flag = flower_arty_fort_refund_cd }
+				}
+				FROM.FROM = {
+					OR = {
+						any_province_building_level = { province = { all_provinces = yes } building = bunker level > 0 }
+						supply_node > 0
+					}
+				}
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_arty_fort_refund_cd days = 20 value = 1 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 250 }
+				add_command_power = 15
+			}
+		}
+		#流派4：持续占州叠闪击惯性并触发闪击补油（10天冷却，重置30天不衰减标记）
+		if = {
+			limit = {
+				ROOT = {
+					has_country_flag = flower_roguelike_tank_ai
+					NOT = { has_country_flag = flower_blitz_cap_cd }
+				}
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_blitz_cap_cd days = 10 value = 1 }
+				set_country_flag = { flag = flower_blitz_momentum_alive days = 35 value = 1 }
+				add_to_variable = { flower_blitz_stacks = 1 }
+				add_fuel = 20000
+				add_command_power = 5
+				flower_ai_recalc_blitz_momentum = yes
+			}
+		}
+		#流派7分支7A：攻占敌方核心州概率截获密码本（60天冷却）
+		if = {
+			limit = {
+				ROOT = {
+					has_idea = flower_evo_nightingale_blood_idea
+					NOT = { has_country_flag = flower_night_codebook_cd }
+				}
+				FROM.FROM = { is_core_of = FROM }
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_night_codebook_cd days = 60 value = 1 }
+				add_command_power = 20
+				army_experience = 15
+			}
+		}
+	}
+}
+
+#开战触发钩子（流派7开战即享30天灯下黑先手窗口）
+flower_ai_on_declare_war_v3 = {
+	if = {
+		limit = {
+			has_country_flag = flower_roguelike_nightingale_ai
+			NOT = { has_idea = flower_night_first_strike_idea }
+		}
+		add_timed_idea = {
+			idea = flower_night_first_strike_idea
+			days = 30
+		}
+	}
+}
+
+#诞生王牌飞行员钩子（流派5永久叠王牌威望并振奋士气）
+flower_ai_on_ace_promoted_v3 = {
+	if = {
+		limit = { has_country_flag = flower_roguelike_air_ai }
+		add_to_variable = { flower_ace_stacks = 1 }
+		air_experience = 10
+		add_war_support = 0.01
+		flower_ai_recalc_ace_prestige = yes
+	}
+}
+
+#===============================================================================
+#三、魔导国（DVL）21天预警二段超位魔法与玩家反制系统（多维战术智能选点 + 落地动态重瞄）
+#===============================================================================
+
+#内部选点评分器：在目标敌国作用域调用
+#入参：flower_dvl_slot_mode (1=战略中枢/重兵矛头, 2=军工心脏/大机场, 3=前线补给/次高价值重兵)
+#      flower_dvl_desp_mode (0=常规开战咏唱, 1=濒死绝唱)
+#出参：flower_dvl_best_st_id (最高价值受控州ID，无可用州为0；调用方负责标记flower_dvl_target_tmp)
+flower_ai_dvl_pick_best_state = {
+	set_variable = { flower_dvl_best_st_score = -9999 }
+	set_variable = { flower_dvl_best_st_id = 0 }
+	every_controlled_state = {
+		limit = {
+			NOT = { has_state_flag = flower_dvl_target_tmp }
+			impassable = no
+		}
+		set_temp_variable = { st_score = 1 }
+		#1. 军用工厂权重（落点2重点定点拔除军工心脏）
+		set_temp_variable = { t_af = building_level@arms_factory }
+		if = {
+			limit = { check_variable = { PREV.flower_dvl_slot_mode = 2 } }
+			multiply_temp_variable = { t_af = 20 }
+		}
+		else = {
+			multiply_temp_variable = { t_af = 14 }
+		}
+		add_to_temp_variable = { st_score = t_af }
+		#2. 民用工厂权重
+		set_temp_variable = { t_ic = building_level@industrial_complex }
+		multiply_temp_variable = { t_ic = 8 }
+		add_to_temp_variable = { st_score = t_ic }
+		#3. 空军基地权重（落点2重点摧毁大机场）
+		set_temp_variable = { t_ab = building_level@air_base }
+		if = {
+			limit = { check_variable = { PREV.flower_dvl_slot_mode = 2 } }
+			multiply_temp_variable = { t_ab = 9 }
+		}
+		else = {
+			multiply_temp_variable = { t_ab = 5 }
+		}
+		add_to_temp_variable = { st_score = t_ab }
+		#4. 战略胜利点价值
+		set_temp_variable = { t_sv = state_strategic_value }
+		multiply_temp_variable = { t_sv = 1.2 }
+		add_to_temp_variable = { st_score = t_sv }
+		#5. 核反应堆与补给枢纽
+		if = {
+			limit = { nuclear_reactor > 0 }
+			add_to_temp_variable = { st_score = 35 }
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_slot_mode = 2 } }
+				add_to_temp_variable = { st_score = 20 }
+			}
+		}
+		if = {
+			limit = { supply_node > 0 }
+			add_to_temp_variable = { st_score = 22 }
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_slot_mode = 3 } }
+				add_to_temp_variable = { st_score = 22 }
+			}
+		}
+		#6. 本土核心、直连区、欧洲战区与避开无人孤岛
+		if = {
+			limit = { is_core_of = PREV }
+			add_to_temp_variable = { st_score = 25 }
+		}
+		if = {
+			limit = { is_in_home_area = yes }
+			add_to_temp_variable = { st_score = 20 }
+		}
+		if = {
+			limit = { is_on_continent = europe }
+			add_to_temp_variable = { st_score = 15 }
+		}
+		if = {
+			limit = { is_island_state = yes }
+			add_to_temp_variable = { st_score = -35 }
+		}
+		#7. 首都加权（常规落点1优先首都，但若前线出现超大重兵集团则允许前线反超；濒死时淡化空壳首都）
+		if = {
+			limit = { is_capital = yes }
+			if = {
+				limit = {
+					check_variable = { PREV.flower_dvl_slot_mode = 1 }
+					check_variable = { PREV.flower_dvl_desp_mode = 0 }
+				}
+				add_to_temp_variable = { st_score = 45 }
+			}
+			else = {
+				add_to_temp_variable = { st_score = 15 }
+			}
+		}
+		#8. 实时重兵集群侦测（核爆优先砸向敌方兵力最密集的集团军驻地）
+		if = {
+			limit = { controller = { divisions_in_state = { state = PREV size > 2 } } }
+			add_to_temp_variable = { st_score = 30 }
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_desp_mode > 0 } }
+				add_to_temp_variable = { st_score = 15 }
+			}
+		}
+		if = {
+			limit = { controller = { divisions_in_state = { state = PREV size > 6 } } }
+			add_to_temp_variable = { st_score = 45 }
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_desp_mode > 0 } }
+				add_to_temp_variable = { st_score = 25 }
+			}
+		}
+		if = {
+			limit = { controller = { divisions_in_state = { state = PREV size > 12 } } }
+			add_to_temp_variable = { st_score = 70 }
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_desp_mode > 0 } }
+				add_to_temp_variable = { st_score = 45 }
+			}
+		}
+		#9. 交战第一线与二线纵深地缘加权（优先摧毁压在魔导国边境线上的进攻矛头）
+		if = {
+			limit = {
+				any_neighbor_state = {
+					controller = {
+						OR = {
+							tag = DVL
+							is_in_faction_with = DVL
+						}
+					}
+				}
+			}
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_desp_mode > 0 } }
+				add_to_temp_variable = { st_score = 110 }
+			}
+			else = {
+				add_to_temp_variable = { st_score = 55 }
+			}
+			if = {
+				limit = { check_variable = { PREV.flower_dvl_slot_mode = 3 } }
+				add_to_temp_variable = { st_score = 25 }
+			}
+		}
+		else_if = {
+			limit = {
+				any_neighbor_state = {
+					any_neighbor_state = {
+						controller = {
+							OR = {
+								tag = DVL
+								is_in_faction_with = DVL
+							}
+						}
+					}
+				}
+			}
+			add_to_temp_variable = { st_score = 18 }
+		}
+		if = {
+			limit = { check_variable = { st_score > PREV.flower_dvl_best_st_score } }
+			set_temp_variable = { t_cur_st_id = THIS.id }
+			PREV = {
+				set_variable = { flower_dvl_best_st_score = st_score }
+				set_variable = { flower_dvl_best_st_id = t_cur_st_id }
+			}
+		}
+	}
+	clear_variable = flower_dvl_best_st_score
+}
+
+flower_ai_start_dvl_magic_warning = {
+	#调用前需设置temp_variable flower_gutou_nuke_target 与 flower_dvl_is_desperate (0=开战咏唱, 1=濒死绝唱)
+	if = {
+		limit = {
+			DVL = {
+				exists = yes
+				OR = {
+					has_idea = red_super_gutou
+					has_idea = red_super_gutou_phase2
+				}
+			}
+			var:flower_gutou_nuke_target = {
+				exists = yes
+				NOT = { tag = DVL }
+				NOT = { has_country_flag = flower_dvl_warning_active }
+			}
+		}
+		var:flower_gutou_nuke_target = {
+			set_country_flag = { flag = flower_dvl_warning_active days = 30 value = 1 }
+			clr_country_flag = flower_dvl_magic_countered
+			set_variable = { flower_dvl_warn_st_1 = 0 }
+			set_variable = { flower_dvl_warn_st_2 = 0 }
+			set_variable = { flower_dvl_warn_st_3 = 0 }
+			set_variable = { flower_dvl_desp_mode = flower_dvl_is_desperate }
+			#锁定落点1：战略中枢或前线最大重兵矛头
+			set_variable = { flower_dvl_slot_mode = 1 }
+			flower_ai_dvl_pick_best_state = yes
+			if = {
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				set_variable = { flower_dvl_warn_st_1 = flower_dvl_best_st_id }
+				var:flower_dvl_warn_st_1 = {
+					set_state_flag = flower_dvl_target_tmp
+					save_event_target_as = flower_dvl_target_st_1
+				}
+			}
+			#锁定落点2：军工心脏、大机场或核设施所在州
+			set_variable = { flower_dvl_slot_mode = 2 }
+			flower_ai_dvl_pick_best_state = yes
+			if = {
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				set_variable = { flower_dvl_warn_st_2 = flower_dvl_best_st_id }
+				var:flower_dvl_warn_st_2 = {
+					set_state_flag = flower_dvl_target_tmp
+					save_event_target_as = flower_dvl_target_st_2
+				}
+			}
+			#锁定落点3：前线补给枢纽或次高价值重兵集群州
+			set_variable = { flower_dvl_slot_mode = 3 }
+			flower_ai_dvl_pick_best_state = yes
+			if = {
+				limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+				set_variable = { flower_dvl_warn_st_3 = flower_dvl_best_st_id }
+				var:flower_dvl_warn_st_3 = {
+					set_state_flag = flower_dvl_target_tmp
+					save_event_target_as = flower_dvl_target_st_3
+				}
+			}
+			clear_variable = flower_dvl_slot_mode
+			clear_variable = flower_dvl_best_st_id
+			every_controlled_state = {
+				limit = { has_state_flag = flower_dvl_target_tmp }
+				clr_state_flag = flower_dvl_target_tmp
+			}
+			#若目标国仅余1至2州，复用落点1的event_target供事件文案兜底显示（不增加重复轰炸）
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_2 = 0 }
+					check_variable = { flower_dvl_warn_st_1 > 0 }
+				}
+				event_target:flower_dvl_target_st_1 = { save_event_target_as = flower_dvl_target_st_2 }
+			}
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_3 = 0 }
+					check_variable = { flower_dvl_warn_st_1 > 0 }
+				}
+				event_target:flower_dvl_target_st_1 = { save_event_target_as = flower_dvl_target_st_3 }
+			}
+			#启动21天倒计时任务与预警弹窗
+			activate_mission = flower_dvl_super_magic_warning_mission
+			if = {
+				limit = { check_variable = { flower_dvl_is_desperate > 0 } }
+				country_event = { id = FLWAI.44 }
+			}
+			else = {
+				set_country_flag = { flag = flower_gutou_super_magic_nuked days = 730 value = 1 }
+				country_event = { id = FLWAI.43 }
+			}
+		}
+	}
+}
+
+flower_ai_execute_dvl_magic_strike = {
+	#在被打击目标国作用域执行（21天倒计时结束触发）
+	if = {
+		limit = {
+			DVL = {
+				exists = yes
+				has_war_with = ROOT
+			}
+		}
+		set_temp_variable = { temp_dvl_did_strike = 0 }
+		if = {
+			limit = { has_country_flag = flower_dvl_magic_countered }
+			#玩家已开启防空结界与紧急疏散：成功偏转前2处核心落点，仅第3处外围（若仍由敌对国控制）受创并获快速修复补偿
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_3 > 0 }
+					var:flower_dvl_warn_st_3 = { controller = { has_war_with = DVL } }
+				}
+				set_temp_variable = { temp_st_hit = flower_dvl_warn_st_3 }
+				set_temp_variable = { temp_dvl_did_strike = 1 }
+				DVL = {
+					launch_nuke = {
+						state = var:temp_st_hit
+						use_nuke = no
+					}
+				}
+			}
+			add_timed_idea = {
+				idea = flower_dvl_ward_shield_idea
+				days = 90
+			}
+		}
+		else = {
+			#未拦截：逐一校验原锁定州是否仍属敌控；若21天内已被魔导国或盟友攻下，则自动重瞄敌国当前最高价值受控州，绝不误炸也不空弹
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_1 > 0 }
+					var:flower_dvl_warn_st_1 = { controller = { has_war_with = DVL } }
+				}
+				var:flower_dvl_warn_st_1 = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { temp_st_hit = flower_dvl_warn_st_1 }
+				set_temp_variable = { temp_dvl_did_strike = 1 }
+				DVL = {
+					launch_nuke = {
+						state = var:temp_st_hit
+						use_nuke = no
+					}
+				}
+			}
+			else = {
+				set_variable = { flower_dvl_slot_mode = 1 }
+				flower_ai_dvl_pick_best_state = yes
+				if = {
+					limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+					var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+					set_temp_variable = { temp_st_hit = flower_dvl_best_st_id }
+					set_temp_variable = { temp_dvl_did_strike = 1 }
+					DVL = {
+						launch_nuke = {
+							state = var:temp_st_hit
+							use_nuke = no
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_2 > 0 }
+					var:flower_dvl_warn_st_2 = {
+						NOT = { has_state_flag = flower_dvl_target_tmp }
+						controller = { has_war_with = DVL }
+					}
+				}
+				var:flower_dvl_warn_st_2 = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { temp_st_hit = flower_dvl_warn_st_2 }
+				set_temp_variable = { temp_dvl_did_strike = 1 }
+				DVL = {
+					launch_nuke = {
+						state = var:temp_st_hit
+						use_nuke = no
+					}
+				}
+			}
+			else = {
+				set_variable = { flower_dvl_slot_mode = 2 }
+				flower_ai_dvl_pick_best_state = yes
+				if = {
+					limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+					var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+					set_temp_variable = { temp_st_hit = flower_dvl_best_st_id }
+					set_temp_variable = { temp_dvl_did_strike = 1 }
+					DVL = {
+						launch_nuke = {
+							state = var:temp_st_hit
+							use_nuke = no
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { flower_dvl_warn_st_3 > 0 }
+					var:flower_dvl_warn_st_3 = {
+						NOT = { has_state_flag = flower_dvl_target_tmp }
+						controller = { has_war_with = DVL }
+					}
+				}
+				var:flower_dvl_warn_st_3 = { set_state_flag = flower_dvl_target_tmp }
+				set_temp_variable = { temp_st_hit = flower_dvl_warn_st_3 }
+				set_temp_variable = { temp_dvl_did_strike = 1 }
+				DVL = {
+					launch_nuke = {
+						state = var:temp_st_hit
+						use_nuke = no
+					}
+				}
+			}
+			else = {
+				set_variable = { flower_dvl_slot_mode = 3 }
+				flower_ai_dvl_pick_best_state = yes
+				if = {
+					limit = { check_variable = { flower_dvl_best_st_id > 0 } }
+					var:flower_dvl_best_st_id = { set_state_flag = flower_dvl_target_tmp }
+					set_temp_variable = { temp_st_hit = flower_dvl_best_st_id }
+					set_temp_variable = { temp_dvl_did_strike = 1 }
+					DVL = {
+						launch_nuke = {
+							state = var:temp_st_hit
+							use_nuke = no
+						}
+					}
+				}
+			}
+			every_controlled_state = {
+				limit = { has_state_flag = flower_dvl_target_tmp }
+				clr_state_flag = flower_dvl_target_tmp
+			}
+			clear_variable = flower_dvl_slot_mode
+			clear_variable = flower_dvl_best_st_id
+		}
+		if = {
+			limit = { check_variable = { temp_dvl_did_strike > 0 } }
+			set_temp_variable = { temp_victim_dvl = THIS.id }
+			every_country = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ainz_overlord" }
+				set_temp_variable = { temp_alert_id = 913 }
+				set_temp_variable = { temp_tag = DVL }
+				set_temp_variable = { temp_tag2 = temp_victim_dvl }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+	}
+	clear_variable = flower_dvl_desp_mode
+	clr_country_flag = flower_dvl_warning_active
+	clr_country_flag = flower_dvl_magic_countered
+}
+
+#===============================================================================
+#四、AI动态追赶机制（玩家词条领先时同步补强敌对/邻国主要AI）
+#===============================================================================
+flower_ai_check_ai_catchup = {
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_1_active
+			is_ai = yes
+			is_major = yes
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+			NOT = { has_country_flag = flower_ai_catchup_cd }
+		}
+		set_temp_variable = { temp_ai_need_cards = flower_roguelike_cards_count }
+		add_to_temp_variable = { temp_ai_need_cards = 2 }
+		if = {
+			limit = {
+				any_country = {
+					is_ai = no
+					OR = {
+						has_war_with = ROOT
+						is_neighbor_of = ROOT
+					}
+					check_variable = { flower_roguelike_cards_count > temp_ai_need_cards }
+				}
+			}
+			set_country_flag = { flag = flower_ai_catchup_cd days = 180 value = 1 }
+			flower_ai_open_roguelike_draft = yes
+		}
+	}
+}

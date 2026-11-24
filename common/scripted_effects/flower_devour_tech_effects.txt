@@ -1,0 +1,1333 @@
+#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
+flower_ai_absorb_defeated_nation_special_techs = {
+	set_temp_variable = { flower_devour_absorbed_special = 0 }
+	#PAO夜莺之国：夜莺魂灵、魔导兵械全套（夜莺骑士团1939年或PAO已研发时渐进解放）
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PAO
+					has_country_flag = flower_devour_pack_pao
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_pao }
+		}
+		set_country_flag = flower_devour_pack_pao
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			wangling2_tech = 1
+			wangling2_on_me = 1
+			PAO_gongbing = 1
+			PAO_yjwl = 1
+			PAO_yjwl2 = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			magic_artillery1 = 1
+			popup = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1939.1.1
+					var:temp_devour_victim = { has_tech = wangling3_tech }
+				}
+			}
+			set_technology = {
+				wangling3_tech = 1
+				PAO_wangling3tupo = 1
+				PAO_wangling3tupo2 = 1
+				popup = yes
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 1500
+		}
+		add_equipment_to_stockpile = {
+			type = magic_artillery_equipment_1
+			amount = 500
+		}
+	}
+	#LHS/QYJ革命游击阵营：1.3宽革命游击队、赤色骑兵与游击装甲车
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_lhs
+					original_tag = LHS
+					original_tag = QYJ
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_lhs }
+		}
+		set_country_flag = flower_devour_pack_lhs
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			youjidui_tech = 1
+			youji_on_me = 1
+			youji_on_me2 = 1
+			youji_on_me3 = 1
+			youji_on_me4 = 1
+			youji_on_me5 = 1
+			youji_on_me6 = 1
+			youji_on_me7 = 1
+			youji_on_me8 = 1
+			youji_on_me13 = 1
+			LHS_qibing_tech = 1
+			chiseqibing = 1
+			youji_zjc = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 4000
+		}
+	}
+
+	#WL1躁动的亡灵：0.2宽亡灵兵种与死者的利箭
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = WL1
+					has_country_flag = flower_devour_pack_wl1
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_wl1 }
+		}
+		set_country_flag = flower_devour_pack_wl1
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			wangling_tech = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = wangling_equipment_0
+			amount = 3000
+		}
+	}
+
+	#KMK/KNM红魔馆：咲夜时停坦克、现代时停坦克与咲夜女仆支援连
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_kmk
+					original_tag = KMK
+					original_tag = KNM
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_kmk }
+		}
+		set_country_flag = flower_devour_pack_kmk
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			the_world_0 = 1
+			the_world_1 = 1
+			the_maid_0 = 1
+			tech_modern_theworld_tank = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = huaibiao_equipment_0
+			amount = 250
+		}
+	}
+
+	#FRA幻想乡：0宽早苗神风炮、纯化妖精、空降坦克与竹林小队
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = FRA
+					has_country_flag = flower_devour_pack_fra
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_fra }
+		}
+		set_country_flag = flower_devour_pack_fra
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			tech_Sanae_Artillery = 1
+			tech_Purified_Fairy = 1
+			Airborne_tanks_tech = 1
+			bamboo_grove_squad_tech = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+
+	#SOV/PA1苏联系：布拉蒂诺温压火箭、双联天启炮、磁能炮弹与工兵后勤黑科技
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_sov
+					original_tag = SOV
+					original_tag = PA1
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_sov }
+		}
+		set_country_flag = flower_devour_pack_sov
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			flower_roguelike_bratino_rocket_tech = 1
+			PA1_tank_Bratino_warm_pressure_rocket = 1
+			SOV_tank_dual_mounted_cannon = 1
+			SOV_tank_dual_mounted_cannon1 = 1
+			SOV_tank_dual_mounted_cannon2 = 1
+			SOV_engineer_training_tech = 1
+			SOV_tech_integrated_logistics_force = 1
+			penal_infantry = 1
+			popup = yes
+		}
+	}
+
+	#DVL魔导国：装甲算力网络、人工智能辅助火控、魔导协同战术与亡灵魔导全套
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = DVL
+					has_country_flag = flower_devour_pack_dvl
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_dvl }
+		}
+		set_country_flag = flower_devour_pack_dvl
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			flower_roguelike_armor_computing_network_tech = 1
+			flower_roguelike_ai_assisted_modules_tech = 1
+			DVL_Wizard_Tactics_Development_tech = 1
+			DVL_Coordinated_operations_tech = 1
+			wangling_tech = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			magic_artillery1 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = wangling_equipment_0
+			amount = 2000
+		}
+		add_equipment_to_stockpile = {
+			type = magic_assault_equipment_0
+			amount = 1000
+		}
+	}
+
+	#GER/BAY/FRG德意志系：超人血清、天外飞碟、突击步兵营与超重坦强化
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_ger
+					original_tag = GER
+					original_tag = BAY
+					original_tag = FRG
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_ger }
+		}
+		set_country_flag = flower_devour_pack_ger
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			tech_germany_spuerman = 1
+			flying_saucer_tech = 1
+			sturmtruppe_battalion_tech = 1
+			GER_heavy_armored_car = 1
+			tech_GER_Improved_super_heavy_tanks_2 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 60
+		}
+	}
+
+	#ENG不列颠圣杯：圣杯构装骑士、攻城武装直升机、强袭魔女与流星喷气引擎
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = ENG
+					has_country_flag = flower_devour_pack_eng
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_eng }
+		}
+		set_country_flag = flower_devour_pack_eng
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			Construct_knight_research_available = 1
+			construct_knight_1 = 1
+			construct_knight_2 = 1
+			Siege_helicopter_available = 1
+			Siege_helicopter_0 = 1
+			Siege_helicopter_1 = 1
+			strike_unit1 = 1
+			strike_unit2 = 1
+			ENG_jet_engine_meteor_tech = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = construct_knight_equipment_1
+			amount = 250
+		}
+		add_equipment_to_stockpile = {
+			type = siege_helicopter_equipment_0
+			amount = 150
+		}
+	}
+
+	#JAP樱花帝国：钢铁浪人、鬼王、激光武士、陆战舰娘与纳米作战
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = JAP
+					has_country_flag = flower_devour_pack_jap
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_jap }
+		}
+		set_country_flag = flower_devour_pack_jap
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			steel_ronin = 1
+			Ghost_King = 1
+			Laser_Warrior = 1
+			Marine_carrier_girl = 1
+			JAP_namizuozhan = 1
+			JAP_zhongjiwushi = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = steel_ronin_equipment_0
+			amount = 200
+		}
+		add_equipment_to_stockpile = {
+			type = Ghost_King_equipment_0
+			amount = 100
+		}
+	}
+
+	#MGU魔法少女系：天雷机甲、魔法政委、防弹丝袜与强袭魔女
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_mgu
+					original_tag = MGU
+					original_tag = MGC
+					original_tag = MGR
+					original_tag = MGS
+					original_tag = MRB
+					original_tag = MS1
+					original_tag = MS2
+					original_tag = MST
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_mgu }
+		}
+		set_country_flag = flower_devour_pack_mgu
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			Sky_Thunder_tech = 1
+			MGU_Magic_commissar = 1
+			MGU_Bulletproof_stockings_tech = 1
+			MGU_Bulletproof_latex_tech = 1
+			MGU_The_Dream_of_the_Library_tech = 1
+			strike_unit1 = 1
+			strike_unit2 = 1
+			strike_unit4 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = Sky_Thunder_equipment_0
+			amount = 150
+		}
+	}
+
+	#ELF森林妖精诸国：森林妖精与林地作战科技
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_elf
+					original_tag = ELF
+					original_tag = ELW
+					original_tag = EWW
+					original_tag = EFC
+					original_tag = ELG
+					original_tag = EDW
+					original_tag = EBS
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_elf }
+		}
+		set_country_flag = flower_devour_pack_elf
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			yaojing_tech = 1
+			forest_training_tech = 1
+			popup = yes
+		}
+	}
+
+	#TAM/PER/MON特雷森与草原系：赛马娘部队与魔能银枪天马
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_tam
+					original_tag = TAM
+					original_tag = PER
+					original_tag = MON
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_tam }
+		}
+		set_country_flag = flower_devour_pack_tam
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			TAM_umamusume_tech_0 = 1
+			TAM_umamusume_technology = 1
+			TAM_umamusume_tech_person = 1
+			tech_magic_silverspear_pegasus = 1
+			tech_silverspear_pegasus = 1
+			popup = yes
+		}
+	}
+
+	#POL波兰：魔能银枪天马与天马骑兵
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = POL
+					has_country_flag = flower_devour_pack_pol
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_pol }
+		}
+		set_country_flag = flower_devour_pack_pol
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			tech_magic_silverspear_pegasus = 1
+			tech_silverspear_pegasus = 1
+			popup = yes
+		}
+	}
+
+	#PAQ阿德莱希：混沌四军与发条自律人偶
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PAQ
+					has_country_flag = flower_devour_pack_paq
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_paq }
+		}
+		set_country_flag = flower_devour_pack_paq
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			Chaos_Warrior = 1
+			Chaos_Beast = 1
+			Chaos_Demon = 1
+			Chaos_Chose = 1
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = auto_meta_0_equipments
+			amount = 300
+		}
+	}
+
+	#PAU白夜军团：白夜伞降轻装甲三件套
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PAU
+					has_country_flag = flower_devour_pack_pau
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_pau }
+		}
+		set_country_flag = flower_devour_pack_pau
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			PAU_airborne_light_armor_tech = 1
+			PAU_airborne_armor_glider_tech = 1
+			PAU_airborne_armor_drop_pod_tech = 1
+			popup = yes
+		}
+	}
+
+	#PAM莉兰迪亚王国：血肉傀儡
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PAM
+					has_country_flag = flower_devour_pack_pam
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_pam }
+		}
+		set_country_flag = flower_devour_pack_pam
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			xrkl_tech = 1
+			popup = yes
+		}
+	}
+
+	#PAN/PAY/CUB/GUA圣遗物系：圣遗物使用者、圣枪与圣盾全套
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_pan
+					original_tag = PAN
+					original_tag = PAY
+					original_tag = CUB
+					original_tag = GUA
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_pan }
+		}
+		set_country_flag = flower_devour_pack_pan
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			Artifact_research_available = 1
+			Artifact_0 = 1
+			Artifact_1 = 1
+			Artifact_2 = 1
+			Ho_0 = 1
+			Ho_1 = 1
+			Ho_2 = 1
+			Artifact_Helper_0 = 1
+			Artifact_Shield_0 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = Artifact_equipments_0
+			amount = 300
+		}
+		add_equipment_to_stockpile = {
+			type = Holylance_equipments_0
+			amount = 200
+		}
+	}
+
+	#DEN丹麦：蒸汽陆行舰全系、全套副炮与自动机械（后续自动同步2~4代车体与22种副炮）
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = DEN
+					has_country_flag = flower_devour_pack_den
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_den }
+		}
+		set_country_flag = flower_devour_pack_den
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			steamtank1 = 1
+			secondary_gun_tank_medium_howitzer_tech = 1
+			secondary_gun_tank_medium_cannon_tech = 1
+			secondary_gun_tank_heavy_cannon_tech = 1
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			auto_meta_fireup = 1
+			auto_meta_repairup = 1
+			magic_weapons0 = 1
+			magic_weapons1 = 1
+			gwtank_chassis = 1
+			interwar_artillery = 1
+			popup = yes
+		}
+		if = {
+			limit = { var:temp_devour_victim = { has_tech = steamtank2 } }
+			set_technology = { steamtank2 = 1 popup = yes }
+		}
+		if = {
+			limit = { var:temp_devour_victim = { has_tech = steamtank3 } }
+			set_technology = { steamtank3 = 1 popup = yes }
+		}
+		if = {
+			limit = { var:temp_devour_victim = { has_tech = steamtank4 } }
+			set_technology = { steamtank4 = 1 popup = yes }
+		}
+		flower_ai_sync_steampunk_upgrades = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_steampunk_variant_created } }
+			set_country_flag = flower_steampunk_variant_created
+			create_equipment_variant = {
+				name = "蒸汽陆地巡洋舰I型"
+				type = steampunk_tank_chassis_0
+				parent_version = 0
+				modules = {
+					main_armament_slot = tank_close_support_gun
+					turret_type_slot = tank_heavy_three_man_tank_turret
+					suspension_type_slot = tank_bogie_suspension
+					armor_type_slot = tank_cast_armor
+					engine_type_slot = tank_tesla_coil_engine
+					special_type_slot_1 = secondary_gun_tank_medium_howitzer
+					special_type_slot_2 = secondary_gun_tank_heavy_cannon
+					special_type_slot_3 = sloped_armor
+					special_type_slot_4 = extra_ammo_storage
+				}
+				upgrades = {
+					tank_nsb_engine_upgrade = 4
+					tank_nsb_armor_upgrade = 6
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = steampunk_tank_chassis_0
+				variant_name = "蒸汽陆地巡洋舰I型"
+				producer = THIS
+				amount = 200
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = auto_meta_equipments
+			amount = 1500
+		}
+	}
+	#SWE瑞典：0宽传奇龙骑士、博福斯反坦与极寒后勤
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = SWE
+					has_country_flag = flower_devour_pack_swe
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_swe }
+		}
+		set_country_flag = flower_devour_pack_swe
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			dragon_rider_tech = 1
+			SWE_Legendary_Dragon_Knight_tech = 1
+			SWE_bofors_antitank_gun = 1
+			winter_logistics_support_tech = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = dragon_rider_equipment_0
+			amount = 150
+		}
+	}
+
+	#中华诸派：神机四系火炮（若为PRC额外附带自律人偶与攻城直升机）
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_chi
+					is_chinese_country = yes
+					original_tag = CHI
+					original_tag = PRC
+					original_tag = MAN
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_chi }
+		}
+		set_country_flag = flower_devour_pack_chi
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			CHI_ShenJi_Artillery = 1
+			CHI_ShenJi_rocket_Artillery = 1
+			CHI_ShenJi_AA_artiller = 1
+			CHI_ShenJi_Anti_Tank_Aritiller = 1
+			popup = yes
+		}
+		if = {
+			limit = { var:temp_devour_victim = { original_tag = PRC } }
+			set_technology = {
+				AUTO_META_research_available = 1
+				auto_meta_0 = 1
+				Siege_helicopter_available = 1
+				Siege_helicopter_0 = 1
+				popup = yes
+			}
+		}
+	}
+
+	#TUR土耳其：基础机甲与火魔导使者
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = TUR
+					has_country_flag = flower_devour_pack_tur
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_tur }
+		}
+		set_country_flag = flower_devour_pack_tur
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			TUR_mech_technology = 1
+			TUR_mech_technology_2 = 1
+			TUR_fire_magic_emissary_technology = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = mech_equipment_1
+			amount = 150
+		}
+	}
+
+	#USA合众国：51区天外飞碟、AI辅助火控、攻城直升机与全套尖端雷达
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = USA
+					has_country_flag = flower_devour_pack_usa
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_usa }
+		}
+		set_country_flag = flower_devour_pack_usa
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			flying_saucer_tech = 1
+			flower_roguelike_ai_assisted_modules_tech = 1
+			Siege_helicopter_available = 1
+			Siege_helicopter_0 = 1
+			Siege_helicopter_1 = 1
+			cavity_magnatron = 1
+			phased_array = 1
+			monopulse_radar = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 60
+		}
+		add_equipment_to_stockpile = {
+			type = siege_helicopter_equipment_0
+			amount = 120
+		}
+	}
+
+	#ONM阴阳蛇魔：蛇魔步卒与军制
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = ONM
+					has_country_flag = flower_devour_pack_onm
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_onm }
+		}
+		set_country_flag = flower_devour_pack_onm
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			onm_unlock_unit_snake = 1
+			onm_tech_ONM_army_12 = 1
+			popup = yes
+		}
+	}
+
+	#NGD/NPT远洋与超次元：自律人偶全套
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_autometa
+					original_tag = NGD
+					original_tag = NPT
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_autometa }
+		}
+		set_country_flag = flower_devour_pack_autometa
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			auto_meta_1 = 1
+			auto_meta_2 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = auto_meta_0_equipments
+			amount = 400
+		}
+	}
+
+	#CAN晴空：炮兵集中战术与山地民兵
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = CAN
+					has_country_flag = flower_devour_pack_can
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_can }
+		}
+		set_country_flag = flower_devour_pack_can
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			CAN_artillery_concentration_tactics = 1
+			CAN_improved_divisional_support = 1
+			CAN_mountain_warfare_militias_tech = 1
+			popup = yes
+		}
+	}
+
+	#PAW安弗里奥斯：游骑兵强化科技
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PAW
+					has_country_flag = flower_devour_pack_paw
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_paw }
+		}
+		set_country_flag = flower_devour_pack_paw
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			PAW_rangers_buff_tech = 1
+			popup = yes
+		}
+	}
+
+	#LFC露丝契亚：远征军、远征工兵与圣杯构装骑士
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = LFC
+					has_country_flag = flower_devour_pack_lfc
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_lfc }
+		}
+		set_country_flag = flower_devour_pack_lfc
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			Expeditionary_research = 1
+			Construct_knight_research_available = 1
+			construct_knight_1 = 1
+			popup = yes
+		}
+	}
+
+	#BAL波罗的海：战地医疗与银枪天马
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = BAL
+					has_country_flag = flower_devour_pack_bal
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_bal }
+		}
+		set_country_flag = flower_devour_pack_bal
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			BAL_field_medical_training_tech = 1
+			tech_silverspear_pegasus = 1
+			popup = yes
+		}
+	}
+
+	#FIN芬兰：莫洛托夫鸡尾酒、冬季后勤、远程巡逻与自行车营
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = FIN
+					has_country_flag = flower_devour_pack_fin
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_fin }
+		}
+		set_country_flag = flower_devour_pack_fin
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			molotov_cocktails_tech = 1
+			winter_logistics_support_tech = 1
+			long_range_patrol_support_tech = 1
+			bicycle_infantry = 1
+			popup = yes
+		}
+	}
+
+	#NOR挪威：国家坦克模块
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = NOR
+					has_country_flag = flower_devour_pack_nor
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_nor }
+		}
+		set_country_flag = flower_devour_pack_nor
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			NOR_rikstanken_tech = 1
+			popup = yes
+		}
+	}
+
+	#TRY圣三一：圣三一突击步兵群
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = TRY
+					has_country_flag = flower_devour_pack_try
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_try }
+		}
+		set_country_flag = flower_devour_pack_try
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			KS_infantry_battle_group_tech = 1
+			popup = yes
+		}
+	}
+
+	#ITA/ALS意大利系：黑衫军突击营与袖珍/巡洋潜艇
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					has_country_flag = flower_devour_pack_ita
+					original_tag = ITA
+					original_tag = ALS
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_ita }
+		}
+		set_country_flag = flower_devour_pack_ita
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			blackshirt_assault_battalion_tech = 1
+			midget_submarines = 1
+			cruiser_submarines = 1
+			popup = yes
+		}
+	}
+
+	#NFA旧法兰西：森林、山地与丛林工兵特种战术
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = NFA
+					has_country_flag = flower_devour_pack_nfa
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_nfa }
+		}
+		set_country_flag = flower_devour_pack_nfa
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			forest_training_tech = 1
+			mountain_warfare = 1
+			TOA_jungle_pioneers_support_tech = 1
+			popup = yes
+		}
+	}
+	#继承败者此前吸收的通用稀有隐藏战术科技
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = molotov_cocktails_tech }
+			NOT = { has_tech = molotov_cocktails_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { molotov_cocktails_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = winter_logistics_support_tech }
+			NOT = { has_tech = winter_logistics_support_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { winter_logistics_support_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = long_range_patrol_support_tech }
+			NOT = { has_tech = long_range_patrol_support_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { long_range_patrol_support_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = jungle_warfare }
+			NOT = { has_tech = jungle_warfare }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { jungle_warfare = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = mountain_warfare }
+			NOT = { has_tech = mountain_warfare }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { mountain_warfare = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = TOA_jungle_pioneers_support_tech }
+			NOT = { has_tech = TOA_jungle_pioneers_support_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = forest_training_tech }
+			NOT = { has_tech = forest_training_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { forest_training_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = elephantry }
+			NOT = { has_tech = elephantry }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { elephantry = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = camelry }
+			NOT = { has_tech = camelry }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { camelry = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = bicycle_infantry }
+			NOT = { has_tech = bicycle_infantry }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { bicycle_infantry = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = tech_tachka }
+			NOT = { has_tech = tech_tachka }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { tech_tachka = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_improved_optics_tech_1 }
+			NOT = { has_tech = r56_improved_optics_tech_1 }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_gammon_bomb_tech }
+			NOT = { has_tech = r56_gammon_bomb_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_anti_tank_rifle_grenade_tech }
+			NOT = { has_tech = r56_anti_tank_rifle_grenade_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
+	}
+	#若本次未吸收到任何专属包或继承科技，再从通用稀有隐藏战术池兜底抽取
+	if = {
+		limit = { check_variable = { flower_devour_absorbed_special < 1 } }
+		if = {
+			limit = { NOT = { has_country_flag = flower_devour_minor_tech_cd } }
+			set_country_flag = { flag = flower_devour_minor_tech_cd days = 45 value = 1 }
+			add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+			random_list = {
+				10 = {
+					modifier = { factor = 0 has_tech = molotov_cocktails_tech }
+					set_technology = { molotov_cocktails_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = winter_logistics_support_tech }
+					set_technology = { winter_logistics_support_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = long_range_patrol_support_tech }
+					set_technology = { long_range_patrol_support_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = jungle_warfare }
+					set_technology = { jungle_warfare = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = mountain_warfare }
+					set_technology = { mountain_warfare = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = TOA_jungle_pioneers_support_tech }
+					set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = forest_training_tech }
+					set_technology = { forest_training_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = elephantry }
+					set_technology = { elephantry = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = camelry }
+					set_technology = { camelry = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = bicycle_infantry }
+					set_technology = { bicycle_infantry = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = tech_tachka }
+					set_technology = { tech_tachka = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = r56_improved_optics_tech_1 }
+					set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = r56_gammon_bomb_tech }
+					set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
+				}
+				10 = {
+					modifier = { factor = 0 has_tech = r56_anti_tank_rifle_grenade_tech }
+					set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
+				}
+				5 = {
+					army_experience = 50
+				}
+			}
+			add_breakthrough_points = {
+				specialization = specialization_land
+				value = 1
+			}
+			add_breakthrough_points = {
+				specialization = specialization_air
+				value = 1
+			}
+		}
+	}
+	#推送全图人类玩家右下角双国旗战报（仅首次吸收到该国特殊科技时）
+	if = {
+		limit = {
+			check_variable = { flower_devour_absorbed_special > 0 }
+			OR = {
+				is_ai = no
+				var:temp_devour_victim = {
+					OR = {
+						is_major = yes
+						has_country_flag = flower_cached_is_major
+					}
+				}
+			}
+		}
+		set_temp_variable = { flower_devour_winner_id = THIS.id }
+		every_country = {
+			limit = { is_ai = no }
+			set_temp_variable = { temp_alert_id = 914 }
+			set_temp_variable = { temp_tag = flower_devour_winner_id }
+			set_temp_variable = { temp_tag2 = temp_devour_victim }
+			flower_ai_push_bottom_right_alert = yes
+		}
+	}
+}
+
+#蒸汽陆行舰全套同步（突破丹麦专属科技分支与副炮决议限制：自动同步2~4代车体、喷火蒸汽与22种副炮）
+flower_ai_sync_steampunk_upgrades = {
+	if = {
+		limit = { has_tech = steamtank1 }
+		if = {
+			limit = {
+				NOT = { has_tech = steamtank2 }
+				OR = {
+					has_tech = improved_heavy_tank_chassis
+					has_tech = improved_medium_tank_chassis
+					date > 1940.1.1
+				}
+			}
+			set_technology = { steamtank2 = 1 popup = yes }
+		}
+		if = {
+			limit = {
+				NOT = { has_tech = steamtank3 }
+				OR = {
+					has_tech = advanced_heavy_tank_chassis
+					has_tech = advanced_medium_tank_chassis
+					date > 1943.1.1
+				}
+			}
+			set_technology = { steamtank3 = 1 popup = yes }
+		}
+		if = {
+			limit = {
+				NOT = { has_tech = steamtank4 }
+				OR = {
+					has_tech = main_battle_tank_chassis
+					date > 1945.1.1
+				}
+			}
+			set_technology = { steamtank4 = 1 popup = yes }
+		}
+		if = {
+			limit = {
+				NOT = { has_tech = flower_steampunk_flame_tank_unlock_tech }
+				OR = {
+					is_special_project_completed = sp:sp_land_flamethrower_tank
+					has_tech = tech_engineers2
+				}
+			}
+			set_technology = { flower_steampunk_flame_tank_unlock_tech = 1 popup = no }
+		}
+		#同步全部22种蒸汽坦克副炮模块（对照丹麦原生前置科技自动解锁）
+		if = {
+			limit = { has_tech = magic_artillery2 NOT = { has_tech = secondary_gun_tank_magic_howitzer_1_tech } }
+			set_technology = { secondary_gun_tank_magic_howitzer_1_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = magic_artillery4 NOT = { has_tech = secondary_gun_tank_magic_howitzer_2_tech } }
+			set_technology = { secondary_gun_tank_magic_howitzer_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = magic_artillery6 NOT = { has_tech = secondary_gun_tank_magic_howitzer_3_tech } }
+			set_technology = { secondary_gun_tank_magic_howitzer_3_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = antiair5 NOT = { has_tech = secondary_gun_tank_anti_air_cannon_3_tech } }
+			set_technology = { secondary_gun_tank_anti_air_cannon_3_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = antitank3 has_tech = antitank4 } NOT = { has_tech = secondary_gun_tank_high_velocity_cannon_2_tech } }
+			set_technology = { secondary_gun_tank_high_velocity_cannon_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = antitank5 NOT = { has_tech = secondary_gun_tank_high_velocity_cannon_3_tech } }
+			set_technology = { secondary_gun_tank_high_velocity_cannon_3_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = antiair_c has_tech = antiair_d has_tech = antitank_c } NOT = { has_tech = secondary_gun_tank_high_velocity_cannon_4_tech } }
+			set_technology = { secondary_gun_tank_high_velocity_cannon_4_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = artillery1 has_tech = antitank1 } NOT = { has_tech = secondary_gun_tank_medium_cannon_tech } }
+			set_technology = { secondary_gun_tank_medium_cannon_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = artillery4 has_tech = antitank3 } NOT = { has_tech = secondary_gun_tank_medium_cannon_2_tech } }
+			set_technology = { secondary_gun_tank_medium_cannon_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = artillery_a has_tech = antitank5 } NOT = { has_tech = secondary_gun_tank_medium_cannon_3_tech } }
+			set_technology = { secondary_gun_tank_medium_cannon_3_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = artillery_d has_tech = antiair_c has_tech = antitank_c } NOT = { has_tech = secondary_gun_tank_medium_cannon_4_tech } }
+			set_technology = { secondary_gun_tank_medium_cannon_4_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = interwar_artillery NOT = { has_tech = secondary_gun_tank_medium_howitzer_tech } }
+			set_technology = { secondary_gun_tank_medium_howitzer_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = artillery1 has_tech = artillery3 } NOT = { has_tech = secondary_gun_tank_medium_howitzer_2_tech } }
+			set_technology = { secondary_gun_tank_medium_howitzer_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = rocket_artillery NOT = { has_tech = secondary_gun_tank_rocket_launcher_tech } }
+			set_technology = { secondary_gun_tank_rocket_launcher_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = rocket_artillery4 NOT = { has_tech = secondary_gun_tank_rocket_launcher_2_tech } }
+			set_technology = { secondary_gun_tank_rocket_launcher_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = interwar_antiair has_tech = interwar_antitank } NOT = { has_tech = secondary_gun_tank_heavy_cannon_tech } }
+			set_technology = { secondary_gun_tank_heavy_cannon_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = antiair3 has_tech = antitank2 } NOT = { has_tech = secondary_gun_tank_heavy_cannon_2_tech } }
+			set_technology = { secondary_gun_tank_heavy_cannon_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = antiair5 has_tech = antitank5 } NOT = { has_tech = secondary_gun_tank_heavy_cannon_3_tech } }
+			set_technology = { secondary_gun_tank_heavy_cannon_3_tech = 1 popup = no }
+		}
+		if = {
+			limit = { OR = { has_tech = antiair_c has_tech = antitank_c } NOT = { has_tech = secondary_gun_tank_heavy_cannon_4_tech } }
+			set_technology = { secondary_gun_tank_heavy_cannon_4_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = artillery5 NOT = { has_tech = secondary_gun_tank_heavy_howitzer_tech } }
+			set_technology = { secondary_gun_tank_heavy_howitzer_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = artillery_a NOT = { has_tech = secondary_gun_tank_heavy_howitzer_2_tech } }
+			set_technology = { secondary_gun_tank_heavy_howitzer_2_tech = 1 popup = no }
+		}
+		if = {
+			limit = { has_tech = artillery_c NOT = { has_tech = secondary_gun_tank_heavy_howitzer_3_tech } }
+			set_technology = { secondary_gun_tank_heavy_howitzer_3_tech = 1 popup = no }
+		}
+	}
+}
+
+#畸变4月度渐进科技同步（蒸汽陆行舰升级与副炮 + PAO夜莺骑士团1939渐进解放）
+flower_ai_sync_devour_progressive_techs = {
+	if = {
+		limit = { has_tech = steamtank1 }
+		flower_ai_sync_steampunk_upgrades = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = flower_devour_pack_pao
+			date > 1939.1.1
+			NOT = { has_tech = wangling3_tech }
+		}
+		set_technology = {
+			wangling3_tech = 1
+			PAO_wangling3tupo = 1
+			PAO_wangling3tupo2 = 1
+			popup = yes
+		}
+	}
+}

@@ -474,70 +474,6 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #切换盟友战线净空
-    hua_no_ally_crowd_decision = {
-        icon = GFX_exchange_bad_luck
-        allowed = { }
-        available = {
-            always = yes
-        }
-        visible = {
-            is_ai = no
-        }
-        fire_only_once = no
-        ai_will_do = { base = 0 }
-        complete_effect = {
-            if = {
-                limit = {
-                    has_country_flag = flower_ai_no_ally_crowd
-                }
-                clr_country_flag = flower_ai_no_ally_crowd
-                custom_effect_tooltip = hua_no_ally_crowd_off_tt
-                hidden_effect = {
-                    every_country = {
-                        limit = {
-                            has_country_flag = flower_ai_dont_crowd_@ROOT
-                        }
-                        clr_country_flag = flower_ai_dont_crowd_@ROOT
-                        add_ai_strategy = {
-                            type = dont_defend_ally_borders
-                            id = ROOT
-                            value = -500
-                        }
-                        add_ai_strategy = {
-                            type = force_defend_ally_borders
-                            id = ROOT
-                            value = 500
-                        }
-                    }
-                }
-            }
-            else = {
-                set_country_flag = flower_ai_no_ally_crowd
-                custom_effect_tooltip = hua_no_ally_crowd_on_tt
-                hidden_effect = {
-                    every_country = {
-                        limit = {
-                            is_ai = yes
-                            NOT = { tag = ROOT }
-                        }
-                        set_country_flag = flower_ai_dont_crowd_@ROOT
-                        add_ai_strategy = {
-                            type = dont_defend_ally_borders
-                            id = ROOT
-                            value = 500
-                        }
-                        add_ai_strategy = {
-                            type = force_defend_ally_borders
-                            id = ROOT
-                            value = -500
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     #全局AI难度升档
     hua_global_difficulty_up_dec = {
         icon = GFX_die_tec
@@ -561,6 +497,11 @@ hua_lunyi_decisions_categories = {
                     remove_ideas = { red_most_hard_ai red_hard_ai red_normal_hard_ai }
                     add_ideas = red_apocalypse_ai
                 }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_most_hard_player }
+                    add_ideas = red_apocalypse_player
+                }
             }
             else_if = {
                 limit = { has_global_flag = red_hard }
@@ -570,6 +511,11 @@ hua_lunyi_decisions_categories = {
                     limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
                     remove_ideas = { red_hard_ai red_normal_hard_ai }
                     add_ideas = red_most_hard_ai
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_apocalypse_player }
+                    add_ideas = red_most_hard_player
                 }
             }
             else_if = {
@@ -626,6 +572,11 @@ hua_lunyi_decisions_categories = {
                     remove_ideas = { red_apocalypse_ai }
                     add_ideas = red_most_hard_ai
                 }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_apocalypse_player }
+                    add_ideas = red_most_hard_player
+                }
             }
             else_if = {
                 limit = { has_global_flag = red_most_hard }
@@ -635,6 +586,10 @@ hua_lunyi_decisions_categories = {
                     limit = { is_ai = yes NOT = { tag = ZDW } NOT = { tag = WL1 } NOT = { has_country_flag = flower_ai_single_apocalypse } }
                     remove_ideas = { red_most_hard_ai }
                     add_ideas = red_hard_ai
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_apocalypse_player red_most_hard_player }
                 }
             }
             else_if = {
@@ -646,6 +601,10 @@ hua_lunyi_decisions_categories = {
                     remove_ideas = { red_hard_ai }
                     add_ideas = red_normal_hard_ai
                 }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_apocalypse_player red_most_hard_player }
+                }
             }
             else_if = {
                 limit = { has_global_flag = red_normal_hard }
@@ -654,6 +613,10 @@ hua_lunyi_decisions_categories = {
                 every_country = {
                     limit = { is_ai = yes NOT = { has_country_flag = flower_ai_single_apocalypse } }
                     remove_ideas = { red_normal_hard_ai }
+                }
+                every_country = {
+                    limit = { is_ai = no }
+                    remove_ideas = { red_apocalypse_player red_most_hard_player }
                 }
             }
         }
@@ -790,7 +753,7 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #主动花费政治点数加抽一轮肉鸽三选一（玩家与AI主要国家均可用）
+    #主动加抽一轮肉鸽三选一（整合原政治点/HCP双决议为单一入口，每180天限1次，优先耗100政治点、不足时自动改耗250 HCP）
     hua_buy_roguelike_draft_pp_dec = {
         icon = generic_political_discourse
         allowed = { }
@@ -809,16 +772,27 @@ hua_lunyi_decisions_categories = {
             }
         }
         available = {
-            has_political_power > 99
+            OR = {
+                has_political_power > 99
+                custom_trigger_tooltip = {
+                    tooltip = hua_need_hcp_250_tt
+                    check_variable = { ubs_save > 249.999 }
+                }
+            }
         }
-        cost = 100
         fire_only_once = no
         days_re_enable = 180
         ai_will_do = {
             base = 0
             modifier = {
-                add = 40
-                has_political_power > 160
+                add = 45
+                OR = {
+                    has_political_power > 160
+                    AND = {
+                        check_variable = { ubs_save > 499 }
+                        check_variable = { ubs_load < 150 }
+                    }
+                }
             }
             modifier = {
                 factor = 2
@@ -828,62 +802,21 @@ hua_lunyi_decisions_categories = {
         complete_effect = {
             custom_effect_tooltip = hua_buy_roguelike_draft_pp_tt
             hidden_effect = {
-                set_country_flag = flower_draft_manual_open
-                flower_ai_open_roguelike_draft = yes
-            }
-        }
-    }
-
-    #主动花费HCP黑市加抽一轮肉鸽三选一（使用真实萌心经济变量ubs_save，玩家与AI主要国家均可用）
-    hua_buy_roguelike_draft_hcp_dec = {
-        icon = generic_consumer_goods
-        allowed = { }
-        visible = {
-            OR = {
-                is_ai = no
-                AND = {
-                    is_major = yes
-                    NOT = { tag = ZDW }
-                    NOT = { tag = WL1 }
+                if = {
+                    limit = { has_political_power > 99 }
+                    add_political_power = -100
                 }
-            }
-            OR = {
-                has_global_flag = flower_anomaly_1_active
-                has_global_flag = flower_anomaly_4_active
-            }
-        }
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = hua_need_hcp_250_tt
-                check_variable = { ubs_save > 249.999 }
-            }
-        }
-        fire_only_once = no
-        days_re_enable = 180
-        ai_will_do = {
-            base = 0
-            modifier = {
-                add = 45
-                check_variable = { ubs_save > 499 }
-                check_variable = { ubs_load < 150 }
-            }
-            modifier = {
-                factor = 2
-                has_war = yes
-            }
-        }
-        complete_effect = {
-            custom_effect_tooltip = hua_buy_roguelike_draft_hcp_tt
-            hidden_effect = {
-                add_to_variable = { ubs_save = -250 }
-                flower_ai_sync_hcp_ui = yes
+                else = {
+                    add_to_variable = { ubs_save = -250 }
+                    flower_ai_sync_hcp_ui = yes
+                }
                 set_country_flag = flower_draft_manual_open
                 flower_ai_open_roguelike_draft = yes
             }
         }
     }
 
-    #主动翻开12大流派面板（升阶或另开副流派玩多修，玩家与AI主要国家均可用）
+    #主动翻开12大流派面板（限4次，按已修不同流派数阶梯收费：1条150PP / 2条225PP / 3条及以上300PP）
     hua_open_extra_archetype_dec = {
         icon = GFX_exchange_good_luck
         allowed = { }
@@ -900,9 +833,20 @@ hua_lunyi_decisions_categories = {
                 has_global_flag = flower_anomaly_1_active
                 has_global_flag = flower_anomaly_4_active
             }
+            check_variable = { flower_dec_extra_arch_count < 4 }
         }
         available = {
-            has_political_power > 149
+            if = {
+                limit = { check_variable = { flower_distinct_archetypes_count > 2 } }
+                has_political_power > 299
+            }
+            else_if = {
+                limit = { check_variable = { flower_distinct_archetypes_count > 1 } }
+                has_political_power > 224
+            }
+            else = {
+                has_political_power > 149
+            }
         }
         cost = 150
         fire_only_once = no
@@ -910,8 +854,8 @@ hua_lunyi_decisions_categories = {
         ai_will_do = {
             base = 0
             modifier = {
-                add = 60
-                has_political_power > 210
+                add = 65
+                has_political_power > 240
             }
             modifier = {
                 factor = 2
@@ -920,7 +864,16 @@ hua_lunyi_decisions_categories = {
         }
         complete_effect = {
             custom_effect_tooltip = hua_open_extra_archetype_tt
+            if = {
+                limit = { check_variable = { flower_distinct_archetypes_count > 2 } }
+                add_political_power = -150
+            }
+            else_if = {
+                limit = { check_variable = { flower_distinct_archetypes_count > 1 } }
+                add_political_power = -75
+            }
             hidden_effect = {
+                add_to_variable = { flower_dec_extra_arch_count = 1 }
                 set_country_flag = flower_draft_manual_open
                 flower_ai_open_starter_selection = yes
             }

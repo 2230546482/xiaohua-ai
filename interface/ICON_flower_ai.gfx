@@ -309,7 +309,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_steampunk"
-		texturefile = "gfx/interface/ideas/flower_std/flower_std_ufo_s3.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_big_house.png"
 	}
 	#肉鸽进阶分叉、战术遗物、诅咒契约与化学反应图标（全部复用萌心主mod原生图标）
 	spriteType = {
@@ -318,7 +318,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_iron"
-		texturefile = "gfx/interface/ideas/PAO/PAO_wwth.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_guasha.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_magic_arty"
@@ -334,7 +334,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_star_fleet"
-		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ufo_watermeter.png"
+		texturefile = "gfx/interface/ideas/flower_std/flower_std_ufo_s3.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_elf"
@@ -379,11 +379,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_assembly"
-		texturefile = "gfx/interface/ideas/LHS/chanxian.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_niuma_worker.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_intel"
-		texturefile = "gfx/interface/ideas/generic_spy_intel.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_spy_cat.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_blackmarket"
@@ -391,11 +391,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_specops"
-		texturefile = "gfx/interface/ideas/KMK/idea_eng_special_air_service.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_muscle_doge.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_marshal"
-		texturefile = "gfx/interface/ideas/CAN/generic_crown.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_advantage_me.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_bunker"
@@ -419,7 +419,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_curse_boats"
-		texturefile = "gfx/interface/ideas/idea_INS_defend_java_til_death.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_burn_boats.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_curse_alchemy"
@@ -439,7 +439,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_curse_reactor"
-		texturefile = "gfx/interface/ideas/idea_SOV_atomic_bomb_project.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_crazy_spirit.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_curse_nostep"
@@ -539,7 +539,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_ng_blood"
-		texturefile = "gfx/interface/ideas/DVL/DVL_Shalltear_Bloodfallen_idea.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_fbi_open.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_gu_scorch"
@@ -559,11 +559,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_corp_trust"
-		texturefile = "gfx/interface/ideas/idea_NOR_printing_money.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_stonks_uma.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_corp_mega"
-		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_big_house.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_infra_maniac.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_arty_carpet"
@@ -579,7 +579,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_tank_fort"
-		texturefile = "gfx/interface/ideas/idea_generic_acquire_tanks.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_baidunwang.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_air_cas"
@@ -595,7 +595,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_magic_chosen"
-		texturefile = "gfx/interface/ideas/SOV/magic_book.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_muscle_doge.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_magic_grim"
@@ -820,7 +820,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_micro_elf"
-		texturefile = "gfx/interface/ideas/ELF/bsxy.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_bear_grylls.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_slayer_dis"
@@ -973,7 +973,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_stock_god_idea"
-		texturefile = "gfx/interface/ideas/SOV/staggering_reserves.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_stonks_uma.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_stock_rooftop_idea"
@@ -1026,6 +1026,21 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_flower_portrait_cat"
 		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_cat.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_cat_hiss"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_cat_hiss.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_kurumi_happy"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_kurumi_happy.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_portrait_kurumi_cry"
+		texturefile = "gfx/interface/gui/flower_ui/flower_portrait_kurumi_cry.png"
 		legacy_lazy_load = no
 	}
 	spriteType = {
@@ -1203,4 +1218,9 @@ spriteTypes = {
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
 	#END_GRAND_FLOWER_UI
+
+	spriteType = {
+		name = "GFX_idea_flower_ico_micro_revive"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_revive_lover.png"
+	}
 }

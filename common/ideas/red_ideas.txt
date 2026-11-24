@@ -769,12 +769,20 @@ ideas = {
                 breakthrough_bonus_against = 2
             }
             on_remove = {
+                if = {
+                    limit = {
+                        NOT = { has_country_flag = flower_ai_manual_remove_gutou }
+                        is_ai = yes
+                        exists = yes
+                    }
+                    add_ideas = red_super_gutou_phase2
+                }
             }
         }
         red_super_gutou_phase2 = {
             removal_cost = -1
             allowed = { always = no }
-            picture = GFX_idea_DVL_nazarick
+            picture = flower_ai_emeng
             modifier = {
                 army_attack_factor = 0.25
                 army_defence_factor = 0.25
@@ -854,16 +862,16 @@ ideas = {
                 research_speed_factor = 0.15
             }
         }
-        #肉鸽三阶进化路线：火炮流（静态重炮阵地粉碎与火力协同）
+        #肉鸽三阶进化路线：重炮洗地俱乐部（静态重炮阵地粉碎与饱和火力协同）
         flower_arty_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_arty_s1
             modifier = {
-                army_artillery_attack_factor = 0.12
-                army_artillery_defence_factor = 0.12
-                coordination_bonus = 0.08
-                max_planning = 0.10
+                army_artillery_attack_factor = 0.08
+                army_artillery_defence_factor = 0.08
+                coordination_bonus = 0.05
+                max_planning = 0.06
             }
         }
         flower_arty_stage_2_idea = {
@@ -871,11 +879,12 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_arty_evolve
             modifier = {
-                army_artillery_attack_factor = 0.22
-                army_artillery_defence_factor = 0.18
-                breakthrough_factor = 0.15
-                coordination_bonus = 0.12
-                max_planning = 0.15
+                army_artillery_attack_factor = 0.13
+                army_artillery_defence_factor = 0.12
+                breakthrough_factor = 0.08
+                coordination_bonus = 0.08
+                max_planning = 0.10
+                army_attack_against_major_factor = 0.05
             }
         }
         flower_arty_stage_3_idea = {
@@ -883,25 +892,25 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_arty_s3
             modifier = {
-                army_artillery_attack_factor = 0.12
+                army_artillery_attack_factor = 0.18
                 army_artillery_defence_factor = 0.16
-                breakthrough_factor = 0.10
-                coordination_bonus = 0.15
-                max_planning = 0.20
-                supply_consumption_factor = 0.22
-                army_speed_factor = -0.05
+                breakthrough_factor = 0.12
+                coordination_bonus = 0.12
+                max_planning = 0.14
+                army_attack_against_major_factor = 0.10
+                supply_consumption_factor = 0.08
             }
         }
-        #肉鸽三阶进化路线：装甲高达流（高速装甲穿插、低油耗与行军不掉组织度）
+        #肉鸽三阶进化路线：时停装甲闪电战（高速装甲穿插、低油耗与超长穿插续航）
         flower_tank_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_tank_s1
             modifier = {
-                army_armor_attack_factor = 0.15
-                army_armor_speed_factor = 0.15
-                army_fuel_consumption_factor = -0.15
-                planning_speed = 0.20
+                army_armor_attack_factor = 0.08
+                army_armor_speed_factor = 0.08
+                army_fuel_consumption_factor = -0.10
+                planning_speed = 0.15
             }
         }
         flower_tank_stage_2_idea = {
@@ -909,11 +918,11 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_tank_s2
             modifier = {
-                army_armor_attack_factor = 0.22
-                army_armor_defence_factor = 0.15
-                army_armor_speed_factor = 0.20
-                breakthrough_factor = 0.15
-                army_fuel_consumption_factor = -0.20
+                army_armor_attack_factor = 0.13
+                army_armor_defence_factor = 0.10
+                army_armor_speed_factor = 0.13
+                breakthrough_factor = 0.10
+                army_fuel_consumption_factor = -0.15
                 org_loss_when_moving = -0.15
             }
         }
@@ -922,13 +931,14 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_tank_evolve
             modifier = {
-                army_armor_attack_factor = 0.20
-                army_armor_defence_factor = 0.16
-                army_armor_speed_factor = 0.22
-                breakthrough_factor = 0.16
+                army_armor_attack_factor = 0.18
+                army_armor_defence_factor = 0.15
+                army_armor_speed_factor = 0.18
+                breakthrough_factor = 0.15
                 org_loss_when_moving = -0.25
-                army_fuel_consumption_factor = -0.25
-                special_forces_cap = 0.25
+                army_fuel_consumption_factor = -0.22
+                no_supply_grace = 72
+                planning_speed = 0.25
             }
         }
         #肉鸽三阶进化路线：神仙外援与嘉豪财团流
@@ -1032,9 +1042,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_corp_s1
             modifier = {
-                line_change_production_efficiency_factor = 0.40
-                production_factory_start_efficiency_factor = 0.20
-                production_speed_buildings_factor = 0.12
+                line_change_production_efficiency_factor = 0.25
+                production_factory_start_efficiency_factor = 0.12
+                production_speed_buildings_factor = 0.08
             }
         }
         flower_corp_stage_2_idea = {
@@ -1042,11 +1052,11 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_corp_s2
             modifier = {
-                line_change_production_efficiency_factor = 0.60
-                production_factory_start_efficiency_factor = 0.25
-                consumer_goods_factor = -0.12
-                factory_energy_consumption = -0.40
-                production_lack_of_resource_penalty_factor = -0.50
+                line_change_production_efficiency_factor = 0.35
+                production_factory_start_efficiency_factor = 0.16
+                consumer_goods_factor = -0.08
+                factory_energy_consumption = -0.25
+                production_lack_of_resource_penalty_factor = -0.30
             }
         }
         flower_corp_stage_3_idea = {
@@ -1054,26 +1064,27 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_corp_s3
             modifier = {
-                line_change_production_efficiency_factor = 0.65
-                production_factory_max_efficiency_factor = 0.20
-                consumer_goods_factor = -0.15
-                factory_energy_consumption = -0.60
-                production_lack_of_resource_penalty_factor = -0.65
-                industrial_capacity_factory = 0.20
+                line_change_production_efficiency_factor = 0.45
+                production_factory_max_efficiency_factor = 0.12
+                consumer_goods_factor = -0.10
+                factory_energy_consumption = -0.40
+                production_lack_of_resource_penalty_factor = -0.45
+                industrial_capacity_factory = 0.14
             }
         }
-        #肉鸽三阶进化路线：制空遮天与王牌空天流（纯空权、长航程与密接蒸发地面）
+        #肉鸽三阶进化路线：斯图卡洗头房（纯空权、王牌养成、密接洗地与空降斩首）
         flower_air_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_air_s1
             modifier = {
-                air_accidents_factor = -0.25
-                experience_gain_air_factor = 0.75
-                air_superiority_efficiency = 0.20
-                air_attack_factor = 0.15
-                air_range_factor = 0.15
-                production_speed_air_base_factor = 0.50
+                air_accidents_factor = -0.20
+                experience_gain_air_factor = 0.50
+                air_superiority_efficiency = 0.10
+                air_attack_factor = 0.08
+                air_range_factor = 0.10
+                production_speed_air_base_factor = 0.35
+                air_ace_generation_chance_factor = 0.50
             }
         }
         flower_air_stage_2_idea = {
@@ -1081,12 +1092,13 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_air_evolve
             modifier = {
-                air_cas_present_factor = 0.25
-                air_cas_efficiency = 0.25
-                air_superiority_efficiency = 0.25
-                air_attack_factor = 0.20
-                air_agility_factor = 0.15
-                air_weather_penalty = -0.50
+                air_cas_present_factor = 0.14
+                air_cas_efficiency = 0.14
+                air_superiority_efficiency = 0.15
+                air_attack_factor = 0.12
+                air_agility_factor = 0.10
+                air_weather_penalty = -0.35
+                air_ace_generation_chance_factor = 0.85
             }
         }
         flower_air_stage_3_idea = {
@@ -1094,26 +1106,28 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_air_s3
             modifier = {
-                air_cas_present_factor = 0.32
-                air_cas_efficiency = 0.32
-                air_superiority_efficiency = 0.30
-                air_attack_factor = 0.25
-                air_strategic_bomber_bombing_factor = 0.40
-                air_range_factor = 0.25
-                extra_paratrooper_supply_grace = 100
+                air_cas_present_factor = 0.20
+                air_cas_efficiency = 0.20
+                air_superiority_efficiency = 0.20
+                air_attack_factor = 0.16
+                air_strategic_bomber_bombing_factor = 0.25
+                air_range_factor = 0.20
+                extra_paratrooper_supply_grace = 120
+                paradrop_organization_factor = 0.25
+                air_ace_generation_chance_factor = 1.25
             }
         }
-        #肉鸽三阶进化路线：人海狂潮与不死督战队流（铁血填线、超高增援/HP与反包围）
+        #肉鸽三阶进化路线：人海狂潮与不死督战队流（铁血填线、老兵保全与反包围）
         flower_wave_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_wave_s1
             modifier = {
-                conscription = 0.025
-                training_time_factor = -0.40
-                army_infantry_attack_factor = 0.08
-                army_infantry_defence_factor = 0.15
-                land_reinforce_rate = 0.10
+                conscription = 0.02
+                training_time_factor = -0.10
+                army_infantry_attack_factor = 0.06
+                army_infantry_defence_factor = 0.08
+                land_reinforce_rate = 0.06
             }
         }
         flower_wave_stage_2_idea = {
@@ -1121,15 +1135,15 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_wave_s2
             modifier = {
-                conscription = 0.04
-                training_time_factor = -0.45
-                experience_loss_factor = -0.30
-                weekly_manpower = 4000
-                land_reinforce_rate = 0.15
-                pocket_penalty = -0.45
-                army_infantry_attack_factor = 0.14
-                army_infantry_defence_factor = 0.15
-                army_strength_factor = 0.10
+                conscription = 0.03
+                training_time_factor = -0.12
+                experience_loss_factor = -0.25
+                weekly_manpower = 3000
+                land_reinforce_rate = 0.10
+                pocket_penalty = -0.35
+                army_infantry_attack_factor = 0.10
+                army_infantry_defence_factor = 0.12
+                army_strength_factor = 0.08
             }
         }
         flower_wave_stage_3_idea = {
@@ -1137,29 +1151,30 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_wave_evolve
             modifier = {
-                conscription = 0.06
-                weekly_manpower = 10000
+                conscription = 0.045
+                weekly_manpower = 6500
                 experience_loss_factor = -0.45
-                army_strength_factor = 0.25
-                land_reinforce_rate = 0.25
-                pocket_penalty = -0.70
-                army_morale_factor = 0.35
-                army_infantry_attack_factor = 0.22
-                army_infantry_defence_factor = 0.25
-                breakthrough_factor = 0.12
+                army_strength_factor = 0.16
+                land_reinforce_rate = 0.18
+                pocket_penalty = -0.65
+                army_morale_factor = 0.22
+                army_infantry_attack_factor = 0.15
+                army_infantry_defence_factor = 0.18
+                breakthrough_factor = 0.10
             }
         }
-        #肉鸽三阶进化路线：异界召唤与奇幻秘术流（超高特种上限与精锐特种面板）
+        #肉鸽三阶进化路线：皇家王牌特战营（原版特种精锐、将领微操与两栖空降全能破点）
         flower_magic_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_magic_evolve
             modifier = {
-                special_forces_cap = 0.60
-                special_forces_attack_factor = 0.12
-                special_forces_defence_factor = 0.12
-                army_speed_factor = 0.10
-                training_time_army_factor = -0.20
+                special_forces_cap = 0.40
+                special_forces_attack_factor = 0.10
+                special_forces_defence_factor = 0.10
+                army_speed_factor = 0.06
+                command_power_gain_mult = 0.25
+                training_time_army_factor = -0.08
             }
         }
         flower_magic_stage_2_idea = {
@@ -1167,11 +1182,14 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_magic_s2
             modifier = {
-                special_forces_cap = 1.20
-                special_forces_attack_factor = 0.18
-                special_forces_defence_factor = 0.18
-                initiative_factor = 0.15
-                supply_consumption_factor = -0.20
+                special_forces_cap = 0.80
+                special_forces_attack_factor = 0.16
+                special_forces_defence_factor = 0.16
+                initiative_factor = 0.12
+                supply_consumption_factor = -0.15
+                experience_gain_factor = 0.45
+                amphibious_invasion = 0.20
+                paradrop_organization_factor = 0.20
             }
         }
         flower_magic_stage_3_idea = {
@@ -1179,14 +1197,15 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_magic_s3
             modifier = {
-                special_forces_cap = 2.0
-                special_forces_attack_factor = 0.14
-                special_forces_defence_factor = 0.14
-                breakthrough_factor = 0.10
-                supply_consumption_factor = -0.15
-                attrition = -0.30
-                initiative_factor = 0.20
-                consumer_goods_factor = 0.05
+                special_forces_cap = 1.25
+                special_forces_attack_factor = 0.22
+                special_forces_defence_factor = 0.22
+                breakthrough_factor = 0.12
+                supply_consumption_factor = -0.20
+                attrition = -0.25
+                initiative_factor = 0.18
+                experience_gain_factor = 0.75
+                max_command_power = 60
             }
         }
         #双流派满级共鸣终极精神
@@ -1272,17 +1291,17 @@ ideas = {
                 supply_consumption_factor = -0.50
             }
         }
-        #肉鸽三阶进化路线：夜莺骑士团流（本体四装叠乘已极强，精神侧重夜战机动并约束补给开销）
+        #肉鸽三阶进化路线：午夜奇袭特遣队（极致夜战统治、情报侦察与闪电穿插）
         flower_nightingale_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_ng_s1
             modifier = {
-                army_infantry_attack_factor = 0.10
-                army_infantry_defence_factor = 0.10
-                army_speed_factor = 0.15
-                army_org_factor = 0.06
                 land_night_attack = 0.18
+                recon_factor = 0.20
+                army_speed_factor = 0.08
+                army_infantry_attack_factor = 0.06
+                decryption_factor = 0.20
             }
         }
         flower_nightingale_stage_2_idea = {
@@ -1290,14 +1309,14 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_ng_s2
             modifier = {
-                cavalry_attack_factor = 0.12
-                cavalry_defence_factor = 0.12
-                army_speed_factor = 0.20
-                army_org_factor = 0.08
-                army_morale_factor = 0.12
+                land_night_attack = 0.28
+                recon_factor = 0.30
+                army_speed_factor = 0.12
                 breakthrough_factor = 0.08
-                land_night_attack = 0.25
-                supply_consumption_factor = 0.08
+                army_infantry_attack_factor = 0.10
+                initiative_factor = 0.10
+                river_crossing_factor = -0.15
+                intel_from_combat_factor = 0.25
             }
         }
         flower_nightingale_stage_3_idea = {
@@ -1305,29 +1324,29 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_nightingale
             modifier = {
-                cavalry_attack_factor = 0.16
-                cavalry_defence_factor = 0.15
-                army_speed_factor = 0.25
-                army_org_factor = 0.10
-                army_morale_factor = 0.15
-                breakthrough_factor = 0.12
+                land_night_attack = 0.40
+                recon_factor = 0.45
+                army_speed_factor = 0.15
+                breakthrough_factor = 0.14
+                army_infantry_attack_factor = 0.15
+                army_org_regain = 0.15
+                initiative_factor = 0.16
                 coordination_bonus = 0.10
-                land_night_attack = 0.35
-                supply_consumption_factor = 0.12
+                enemy_army_bonus_air_superiority_factor = -0.15
             }
         }
-        #肉鸽三阶进化路线：野火游击队流（本土攻防、境外步攻补偿、敌后抵抗与高侦查）
+        #肉鸽三阶进化路线：野火游击破交网（本土攻防、敌后抵抗破交与无视烂地断补给）
         flower_guerrilla_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_guerrilla
             modifier = {
-                army_infantry_attack_factor = 0.10
-                army_core_attack_factor = 0.15
-                army_core_defence_factor = 0.20
+                army_infantry_attack_factor = 0.06
+                army_core_attack_factor = 0.12
+                army_core_defence_factor = 0.15
                 resistance_growth_on_our_occupied_states = 0.50
-                attrition = -0.20
-                supply_consumption_factor = -0.20
+                attrition = -0.15
+                supply_consumption_factor = -0.12
                 recon_factor = 0.15
             }
         }
@@ -1336,15 +1355,16 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_gu_s2
             modifier = {
-                army_infantry_attack_factor = 0.16
-                breakthrough_factor = 0.10
-                army_core_attack_factor = 0.22
-                army_core_defence_factor = 0.25
-                resistance_growth_on_our_occupied_states = 1.0
-                attrition = -0.30
-                supply_consumption_factor = -0.25
-                recon_factor = 0.30
+                army_infantry_attack_factor = 0.10
+                breakthrough_factor = 0.08
+                army_core_attack_factor = 0.18
+                army_core_defence_factor = 0.20
+                resistance_growth_on_our_occupied_states = 0.85
+                resistance_damage_to_garrison_on_our_occupied_states = 0.25
+                attrition = -0.25
+                supply_consumption_factor = -0.18
                 river_crossing_factor = -0.20
+                equipment_capture_factor = 0.12
             }
         }
         flower_guerrilla_stage_3_idea = {
@@ -1352,28 +1372,31 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_gu_s3
             modifier = {
-                army_infantry_attack_factor = 0.24
-                breakthrough_factor = 0.16
-                army_core_attack_factor = 0.30
-                army_core_defence_factor = 0.30
-                resistance_growth_on_our_occupied_states = 1.5
-                attrition = -0.45
-                supply_consumption_factor = -0.30
-                recon_factor = 0.50
-                out_of_supply_factor = -0.50
-                pocket_penalty = -0.50
+                army_infantry_attack_factor = 0.15
+                breakthrough_factor = 0.12
+                army_core_attack_factor = 0.24
+                army_core_defence_factor = 0.25
+                resistance_growth_on_our_occupied_states = 1.25
+                resistance_damage_to_garrison_on_our_occupied_states = 0.40
+                attrition = -0.35
+                supply_consumption_factor = -0.24
+                out_of_supply_factor = -0.45
+                pocket_penalty = -0.45
+                equipment_capture_factor = 0.20
             }
         }
-        #肉鸽三阶进化路线：躁动的亡灵流（0.2宽低组织度再生尸海、极寒与断补给免疫）
+        #肉鸽三阶进化路线：绝境血炉死士团（极速组织度恢复、老兵急救回流与严寒断补给免疫）
         flower_undead_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_undead
             modifier = {
-                land_night_attack = 0.20
-                attrition = -0.25
-                winter_attrition_factor = -0.25
                 army_morale_factor = 0.15
+                experience_loss_factor = -0.20
+                attrition = -0.18
+                winter_attrition_factor = -0.20
+                weekly_manpower = 2000
+                land_night_attack = 0.10
             }
         }
         flower_undead_stage_2_idea = {
@@ -1381,12 +1404,14 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_undead_s2
             modifier = {
-                land_night_attack = 0.26
-                attrition = -0.40
-                winter_attrition_factor = -0.45
-                out_of_supply_factor = -0.45
-                army_morale_factor = 0.20
-                army_org_factor = -0.05
+                army_morale_factor = 0.22
+                experience_loss_factor = -0.35
+                attrition = -0.28
+                winter_attrition_factor = -0.35
+                out_of_supply_factor = -0.35
+                no_supply_grace = 72
+                weekly_manpower = 4000
+                land_night_attack = 0.14
             }
         }
         flower_undead_stage_3_idea = {
@@ -1394,28 +1419,30 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_undead_s3
             modifier = {
-                land_night_attack = 0.30
-                attrition = -0.55
-                winter_attrition_factor = -0.60
-                out_of_supply_factor = -0.60
-                army_morale_factor = 0.25
+                army_morale_factor = 0.30
+                experience_loss_factor = -0.50
+                attrition = -0.40
+                winter_attrition_factor = -0.50
+                out_of_supply_factor = -0.50
+                weekly_manpower = 6500
                 conscription_factor = 0.15
-                army_org_factor = -0.15
+                army_strength_factor = 0.12
+                land_night_attack = 0.18
             }
         }
-        #肉鸽三阶进化路线：森林妖精与蒸汽飞碟流（科研/专项计划优势，重点补强3宽蒸汽装甲面板与三阶延续性）
+        #肉鸽三阶进化路线：疯狂科研黑盒局（科研跃升、军工设计局经费狂飙与跨时代质量代差）
         flower_steampunk_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_punk_s1
             modifier = {
-                research_speed_factor = 0.12
-                special_project_speed_factor = 0.35
-                winter_attrition_factor = -0.20
-                heat_attrition_factor = -0.20
-                army_org_factor = 0.16
-                army_defence_factor = 0.20
-                army_infantry_attack_factor = 0.12
+                research_speed_factor = 0.10
+                special_project_speed_factor = 0.30
+                military_industrial_organization_funds_gain = 0.45
+                army_org_factor = 0.06
+                army_defence_factor = 0.06
+                winter_attrition_factor = -0.15
+                heat_attrition_factor = -0.15
             }
         }
         flower_steampunk_stage_2_idea = {
@@ -1423,17 +1450,15 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_punk_s2
             modifier = {
-                research_speed_factor = 0.20
-                special_project_speed_factor = 0.65
-                army_armor_attack_factor = 0.28
-                army_armor_defence_factor = 0.22
-                army_armor_speed_factor = 0.20
-                breakthrough_factor = 0.18
-                river_crossing_factor = -0.25
-                attrition = -0.20
-                supply_consumption_factor = -0.10
+                research_speed_factor = 0.16
+                special_project_speed_factor = 0.55
+                military_industrial_organization_funds_gain = 0.90
+                equipment_conversion_speed = 0.35
+                industrial_capacity_factory = 0.08
                 cas_damage_reduction = 0.15
-                industrial_capacity_factory = 0.10
+                river_crossing_factor = -0.15
+                army_attack_factor = 0.08
+                army_defence_factor = 0.08
             }
         }
         flower_steampunk_stage_3_idea = {
@@ -1441,16 +1466,16 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_steampunk
             modifier = {
-                research_speed_factor = 0.28
-                special_project_speed_factor = 1.0
-                production_speed_nuclear_reactor_factor = 0.75
-                army_armor_attack_factor = 0.25
-                army_armor_defence_factor = 0.20
-                breakthrough_factor = 0.18
-                river_crossing_factor = -0.25
-                air_superiority_efficiency = 0.25
-                air_cas_efficiency = 0.25
-                industrial_capacity_factory = 0.15
+                research_speed_factor = 0.22
+                special_project_speed_factor = 0.85
+                military_industrial_organization_funds_gain = 1.40
+                production_speed_nuclear_reactor_factor = 0.60
+                production_factory_max_efficiency_factor = 0.10
+                industrial_capacity_factory = 0.12
+                army_attack_factor = 0.12
+                army_defence_factor = 0.12
+                breakthrough_factor = 0.12
+                air_mission_efficiency = 0.15
             }
         }
         #赌徒流派专属：命运骰子随机正面Buff（4种，180天定时重摇）
@@ -1545,7 +1570,7 @@ ideas = {
                 political_power_factor = -0.20
             }
         }
-        #第四种双流派满级共鸣终极精神：冥界游击风暴
+        #第四种双流派满级共鸣终极精神：暗夜游击血潮
         flower_synergy_nightmare_guerrilla_idea = {
             removal_cost = -1
             allowed = { always = no }
@@ -1556,7 +1581,63 @@ ideas = {
                 land_night_attack = 0.50
                 supply_consumption_factor = -0.25
                 breakthrough_factor = 0.25
-                cavalry_attack_factor = 0.25
+                army_infantry_attack_factor = 0.20
+            }
+        }
+        #记仇小本本与发光怪蛋原创突破精神（取代原别国特殊科技奖励）
+        flower_slayer_exo_armor_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_idea_evo_iron
+            modifier = {
+                army_infantry_attack_factor = 0.15
+                breakthrough_factor = 0.15
+                cas_damage_reduction = 0.20
+                army_strength_factor = 0.10
+            }
+        }
+        flower_slayer_field_repair_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_idea_evo_steam_gear
+            modifier = {
+                equipment_capture_factor = 0.25
+                attrition = -0.25
+                army_org_regain = 0.20
+                equipment_conversion_speed = 0.40
+            }
+        }
+        flower_egg_clockwork_forge_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_egg_hatched
+            modifier = {
+                industrial_capacity_factory = 0.18
+                production_factory_max_efficiency_factor = 0.18
+                production_speed_buildings_factor = 0.15
+                consumer_goods_factor = -0.06
+            }
+        }
+        flower_egg_golden_vanguard_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_idea_relic_army
+            modifier = {
+                special_forces_cap = 0.45
+                special_forces_attack_factor = 0.22
+                special_forces_defence_factor = 0.22
+                army_speed_factor = 0.15
+            }
+        }
+        flower_egg_arcane_blueprint_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_idea_relic_tech
+            modifier = {
+                research_speed_factor = 0.18
+                special_project_speed_factor = 0.50
+                military_industrial_organization_funds_gain = 0.80
+                experience_gain_army_factor = 0.40
             }
         }
         #12大流派专属主动运营限时精神与姿态
@@ -1626,7 +1707,7 @@ ideas = {
             picture = flower_ico_op_wave_exp
             modifier = {
                 conscription = 0.03
-                training_time_army_factor = -0.30
+                training_time_army_factor = -0.12
                 weekly_manpower = 5000
                 army_attack_factor = -0.05
             }
@@ -1658,10 +1739,11 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_ng_raid
             modifier = {
-                land_night_attack = 0.30
-                breakthrough_factor = 0.20
-                recon_factor = 0.25
+                land_night_attack = 0.40
+                breakthrough_factor = 0.25
+                recon_factor = 0.35
                 army_speed_factor = 0.15
+                enemy_army_bonus_air_superiority_factor = -0.25
             }
         }
         flower_op_guerrilla_sabotaged_idea = {
@@ -1672,6 +1754,16 @@ ideas = {
                 supply_consumption_factor = 0.20
                 attrition = 0.20
                 army_speed_factor = -0.15
+            }
+        }
+        flower_op_undead_surge_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_relic_surgery
+            modifier = {
+                army_morale_factor = 0.35
+                land_reinforce_rate = 0.12
+                experience_loss_factor = -0.35
             }
         }
         flower_op_undead_armor_idea = {
@@ -1700,7 +1792,7 @@ ideas = {
             picture = flower_ico_op_magic_std
             modifier = {
                 research_speed_factor = 0.15
-                special_forces_cap = 0.20
+                special_forces_cap = 0.25
                 special_project_speed_factor = 0.25
             }
         }
@@ -1709,9 +1801,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_magic_ovr
             modifier = {
-                army_attack_factor = 0.12
+                army_attack_factor = 0.15
                 army_defence_factor = 0.12
-                special_forces_attack_factor = 0.15
+                special_forces_attack_factor = 0.20
             }
         }
         flower_op_punk_forest_idea = {
@@ -1729,9 +1821,238 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_punk_ufo
             modifier = {
-                research_speed_factor = 0.18
+                research_speed_factor = 0.20
+                military_industrial_organization_funds_gain = 1.50
                 air_agility_factor = 0.20
-                air_attack_factor = 0.15
+                air_attack_factor = 0.18
+            }
+        }
+        #黑市6个月净收入契约精神（持续365天）
+        flower_bm_arms_supply_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_arty_bar
+            modifier = {
+                army_attack_factor = 0.10
+                breakthrough_factor = 0.12
+                equipment_capture_factor = 0.10
+                supply_consumption_factor = -0.10
+            }
+        }
+        flower_bm_industry_boost_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_corp_mil
+            modifier = {
+                production_speed_buildings_factor = 0.15
+                industrial_capacity_factory = 0.12
+                production_factory_max_efficiency_factor = 0.10
+                consumer_goods_factor = -0.05
+            }
+        }
+        flower_bm_intel_tech_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_magic_std
+            modifier = {
+                research_speed_factor = 0.15
+                decryption_factor = 0.35
+                special_project_speed_factor = 0.25
+            }
+        }
+        flower_bm_vip_jackpot_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_fate_godhand
+            modifier = {
+                army_attack_factor = 0.12
+                industrial_capacity_factory = 0.15
+                production_speed_buildings_factor = 0.15
+                research_speed_factor = 0.15
+                consumer_goods_factor = -0.06
+            }
+        }
+        #方案B+流派敌我互动、战场先手与魔导国结界反制精神
+        flower_enemy_timestopped_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_fate_jammed
+            modifier = {
+                army_speed_factor = -0.30
+                land_reinforce_rate = -0.15
+                planning_speed = -0.50
+                army_org_regain = -0.25
+            }
+        }
+        flower_enemy_airspace_crushed_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_fate_chaos
+            modifier = {
+                air_mission_efficiency = -0.20
+                enemy_army_bonus_air_superiority_factor = 0.15
+            }
+        }
+        flower_enemy_intel_blind_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_fate_scandal
+            modifier = {
+                recon_factor = -0.40
+                max_planning = -0.20
+                command_power_gain_mult = -0.35
+            }
+        }
+        flower_night_first_strike_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_ng_s1
+            modifier = {
+                land_night_attack = 0.25
+                army_speed_factor = 0.10
+                initiative_factor = 0.15
+                decryption_factor = 0.25
+            }
+        }
+        flower_op_undead_overdrive_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_undead_s3
+            modifier = {
+                army_attack_factor = 0.18
+                breakthrough_factor = 0.22
+                army_org_regain = 0.35
+                out_of_supply_factor = -0.50
+                winter_attrition_factor = -0.50
+            }
+        }
+        flower_dvl_ward_shield_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_punk_for
+            modifier = {
+                industry_repair_factor = 0.75
+                army_defence_factor = 0.10
+                cas_damage_reduction = 0.20
+            }
+        }
+        #流派11分支11A：疯狂实验室原型机（持续180天，带趣味小代价）
+        flower_proto_antigrav_tracks_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_punk_ufo
+            modifier = {
+                army_speed_factor = 0.18
+                terrain_penalty_reduction = 0.22
+                river_crossing_factor = -0.25
+                army_fuel_consumption_factor = 0.12
+            }
+        }
+        flower_proto_ammo_printer_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_corp_mil
+            modifier = {
+                industrial_capacity_factory = 0.22
+                army_artillery_attack_factor = 0.15
+                attrition = 0.08
+            }
+        }
+        flower_proto_weather_ctrl_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_punk_for
+            modifier = {
+                winter_attrition_factor = -0.50
+                heat_attrition_factor = -0.50
+                air_weather_penalty = -0.50
+            }
+        }
+        flower_enemy_bad_weather_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_fate_chaos
+            modifier = {
+                winter_attrition_factor = 0.30
+                attrition = 0.15
+                air_weather_penalty = 0.30
+            }
+        }
+        flower_proto_super_wargame_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_magic_std
+            modifier = {
+                max_planning = 0.20
+                planning_speed = 0.35
+                decryption_factor = 0.40
+                coordination_bonus = 0.12
+            }
+        }
+        flower_proto_micro_reactor_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            picture = flower_ico_op_corp_eff
+            modifier = {
+                production_speed_nuclear_reactor_factor = 0.75
+                production_speed_buildings_factor = 0.15
+                supply_consumption_factor = -0.15
+            }
+        }
+    }
+    hidden_ideas = {
+        #玩家选择PAO时：拉普拉塔内战AI野火定向必胜保障（仅针对PAU/PAM，内战结束或与PAO交战瞬间自动失效）
+        flower_pao_player_lhs_win_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            available = {
+                is_ai = yes
+                PAO = { is_ai = no }
+                NOT = { has_war_with = PAO }
+                OR = {
+                    PAU = { exists = yes is_ai = yes }
+                    PAM = { exists = yes is_ai = yes }
+                }
+            }
+            modifier = {
+                army_speed_factor = 0.15
+                org_loss_when_moving = -0.25
+                supply_consumption_factor = -0.20
+            }
+            targeted_modifier = {
+                tag = PAU
+                attack_bonus_against = 0.70
+                defense_bonus_against = 0.55
+                breakthrough_bonus_against = 0.70
+            }
+            targeted_modifier = {
+                tag = PAM
+                attack_bonus_against = 0.70
+                defense_bonus_against = 0.55
+                breakthrough_bonus_against = 0.70
+            }
+        }
+        #玩家选择PAO时：拉普拉塔内战AI PAU/PAM对野火让路保障（仅针对LHS，LHS灭亡或与PAO交战立即失效）
+        flower_pao_player_pau_yield_idea = {
+            removal_cost = -1
+            allowed = { always = no }
+            available = {
+                is_ai = yes
+                PAO = { is_ai = no }
+                LHS = {
+                    exists = yes
+                    is_ai = yes
+                    NOT = { has_war_with = PAO }
+                }
+            }
+            modifier = {
+                surrender_limit = -0.30
+            }
+            targeted_modifier = {
+                tag = LHS
+                attack_bonus_against = -0.45
+                defense_bonus_against = -0.45
+                breakthrough_bonus_against = -0.45
             }
         }
     }

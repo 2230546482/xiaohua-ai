@@ -151,7 +151,7 @@ flower_stock_check_milestones = {
 		add_ideas = flower_stock_god_idea
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "flower_sfx_branch_stonks_money"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 			set_temp_variable = { temp_alert_id = 915 }
 			set_temp_variable = { temp_tag = THIS.id }
 			set_temp_variable = { temp_tag2 = THIS.id }
@@ -171,7 +171,7 @@ flower_stock_check_milestones = {
 		}
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "flower_sfx_branch_rooftop_crash"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
 		}
 	}
 }
@@ -269,8 +269,8 @@ flower_stock_check_margin_calls = {
 		}
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "flower_sfx_branch_rooftop_crash"
-			set_temp_variable = { temp_alert_id = 914 }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
+			set_temp_variable = { temp_alert_id = 916 }
 			set_temp_variable = { temp_tag = THIS.id }
 			set_temp_variable = { temp_tag2 = THIS.id }
 			flower_ai_push_bottom_right_alert = yes
@@ -1121,7 +1121,7 @@ flower_stk_buy_factory_action = {
 		set_country_flag = { flag = flower_stk_buy_factory_cd days = 180 value = 1 }
 		if = {
 			limit = { is_ai = no }
-			scoped_sound_effect = "flower_sfx_branch_stonks_money"
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 		}
 		subtract_from_variable = { ubs_save = 500 }
 		flower_ai_sync_hcp_ui = yes

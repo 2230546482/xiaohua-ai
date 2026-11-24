@@ -15,12 +15,20 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上发牌猫猫立绘框
-		iconType = {
-			name = "flower_draft_cat_portrait"
-			spriteType = "GFX_flower_portrait_cat"
+		#左上哈基米立绘框（点击切换哈气表情并播放哈气音效）
+		buttonType = {
+			name = "flower_draft_cat_calm_btn"
+			quadTextureSprite = "GFX_flower_portrait_cat"
 			position = { x = 28 y = 22 }
 			pdx_tooltip = "FLOWER_DRAFT_CAT_TT"
+			clicksound = flower_sfx_cat_hiss
+		}
+		buttonType = {
+			name = "flower_draft_cat_hiss_btn"
+			quadTextureSprite = "GFX_flower_portrait_cat_hiss"
+			position = { x = 28 y = 22 }
+			pdx_tooltip = "FLOWER_DRAFT_CAT_HISS_TT"
+			clicksound = click_default
 		}
 		instantTextBoxType = {
 			name = "flower_draft_cat_mood"
@@ -309,10 +317,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_1_status"
-			position = { x = 46 y = 346 }
+			position = { x = 64 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch1Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -330,10 +338,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_2_status"
-			position = { x = 340 y = 346 }
+			position = { x = 358 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch2Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -351,10 +359,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_3_status"
-			position = { x = 634 y = 346 }
+			position = { x = 652 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch3Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -372,10 +380,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_4_status"
-			position = { x = 46 y = 540 }
+			position = { x = 64 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch4Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -393,10 +401,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_5_status"
-			position = { x = 340 y = 540 }
+			position = { x = 358 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch5Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -414,10 +422,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_6_status"
-			position = { x = 634 y = 540 }
+			position = { x = 652 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch6Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -435,10 +443,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_7_status"
-			position = { x = 46 y = 346 }
+			position = { x = 64 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch7Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -456,10 +464,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_8_status"
-			position = { x = 340 y = 346 }
+			position = { x = 358 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch8Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -477,10 +485,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_9_status"
-			position = { x = 634 y = 346 }
+			position = { x = 652 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch9Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -498,10 +506,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_10_status"
-			position = { x = 46 y = 540 }
+			position = { x = 64 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch10Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -519,10 +527,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_11_status"
-			position = { x = 340 y = 540 }
+			position = { x = 358 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch11Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -540,10 +548,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_12_status"
-			position = { x = 634 y = 540 }
+			position = { x = 652 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch12Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -591,32 +599,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_1_title"
-			position = { x = 42 y = 284 }
+			position = { x = 46 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerDraftSlot1Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_1_quote"
-			position = { x = 42 y = 308 }
+			position = { x = 46 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot1Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_1_body"
-			position = { x = 44 y = 360 }
+			position = { x = 48 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot1Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -664,32 +672,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_2_title"
-			position = { x = 336 y = 284 }
+			position = { x = 340 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerDraftSlot2Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_2_quote"
-			position = { x = 336 y = 308 }
+			position = { x = 340 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot2Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_2_body"
-			position = { x = 338 y = 360 }
+			position = { x = 342 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot2Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -737,32 +745,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_3_title"
-			position = { x = 630 y = 284 }
+			position = { x = 634 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerDraftSlot3Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_3_quote"
-			position = { x = 630 y = 308 }
+			position = { x = 634 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot3Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_3_body"
-			position = { x = 632 y = 360 }
+			position = { x = 636 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftSlot3Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -780,32 +788,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_1_title"
-			position = { x = 42 y = 284 }
+			position = { x = 46 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerBranchOpt1Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_1_quote"
-			position = { x = 42 y = 308 }
+			position = { x = 46 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt1Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_1_body"
-			position = { x = 44 y = 360 }
+			position = { x = 48 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt1Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -823,32 +831,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_2_title"
-			position = { x = 336 y = 284 }
+			position = { x = 340 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerBranchOpt2Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_2_quote"
-			position = { x = 336 y = 308 }
+			position = { x = 340 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt2Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_2_body"
-			position = { x = 338 y = 360 }
+			position = { x = 342 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt2Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -866,32 +874,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_3_title"
-			position = { x = 630 y = 284 }
+			position = { x = 634 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerBranchOpt3Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_3_quote"
-			position = { x = 630 y = 308 }
+			position = { x = 634 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt3Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_3_body"
-			position = { x = 632 y = 360 }
+			position = { x = 636 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt3Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -909,32 +917,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_1_title"
-			position = { x = 180 y = 284 }
+			position = { x = 184 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerBranchOpt1Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_1_quote"
-			position = { x = 180 y = 308 }
+			position = { x = 184 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt1Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_1_body"
-			position = { x = 182 y = 360 }
+			position = { x = 186 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt1Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -952,32 +960,32 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_2_title"
-			position = { x = 492 y = 284 }
+			position = { x = 496 y = 285 }
 			font = "flower_a4_18"
 			text = "[GetFlowerBranchOpt2Name]"
-			maxWidth = 248
-			maxHeight = 24
+			maxWidth = 240
+			maxHeight = 22
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_2_quote"
-			position = { x = 492 y = 308 }
+			position = { x = 496 y = 312 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt2Quote]"
-			maxWidth = 248
-			maxHeight = 36
+			maxWidth = 240
+			maxHeight = 34
 			format = center
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_2_body"
-			position = { x = 494 y = 360 }
+			position = { x = 498 y = 360 }
 			font = "flower_a4_16"
 			text = "[GetFlowerBranchOpt2Body]"
-			maxWidth = 244
+			maxWidth = 236
 			maxHeight = 180
 			format = left
 			fixedsize = yes
@@ -987,11 +995,11 @@ guiTypes = {
 		#底部实时本子栏与模式1右下角快速翻页按钮（视线扫完第6张卡自然落点）
 		instantTextBoxType = {
 			name = "flower_draft_footer_text"
-			position = { x = 32 y = 614 }
+			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_FOOTER_SETTLED"
-			maxWidth = 626
-			maxHeight = 22
+			maxWidth = 614
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes

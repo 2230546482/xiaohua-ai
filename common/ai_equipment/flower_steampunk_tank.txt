@@ -1,15 +1,13 @@
-#肉鸽流派十一：蒸汽装甲AI自动设计蓝图（解决steampunk_tank_chassis无AI设计蓝图导致永远0产出的问题）
+#蒸汽装甲AI自动设计蓝图（通过畸变4击败丹麦等途径解锁steamtank1~4后全阶段自动迭代设计，仅占重坦角色不挤占常规中坦）
 flower_steampunk_tanks = {
 	category = land
 	roles = {
 		land_heavy_tank
-		land_medium_tank
 	}
 	priority = {
 		factor = 0
 		modifier = {
-			add = 3500
-			has_country_flag = flower_roguelike_steampunk_ai
+			add = 2600
 			has_tech = steamtank1
 		}
 	}
@@ -180,6 +178,174 @@ flower_steampunk_tanks = {
 			tank_welded_armor
 			tank_cast_armor
 			tank_riveted_armor
+			tank_tesla_coil_engine
+			tank_steam_engine
+			secondary_gun_tank_heavy_howitzer
+			secondary_gun_tank_medium_howitzer
+			secondary_gun_tank_medium_cannon_2
+			secondary_gun_tank_medium_cannon
+			sloped_armor
+			extra_ammo_storage
+			smoke_launchers
+		}
+	}
+	flower_steampunk_tank_mk3 = {
+		priority = {
+			factor = 1100
+			modifier = {
+				has_tech = steamtank4
+				factor = 0
+			}
+		}
+		target_variant = {
+			match_value = 2100
+			type = steampunk_tank_chassis_2
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_close_support_gun
+						tank_small_cannon_2
+						tank_small_cannon
+					}
+				}
+				turret_type_slot = {
+					any_of = {
+						tank_heavy_three_man_tank_turret
+						tank_medium_three_man_tank_turret
+					}
+				}
+				suspension_type_slot = {
+					any_of = {
+						tank_torsion_bar_suspension
+						tank_bogie_suspension
+					}
+				}
+				armor_type_slot = {
+					any_of = {
+						tank_welded_armor
+						tank_cast_armor
+					}
+				}
+				engine_type_slot = {
+					any_of = {
+						tank_tesla_coil_engine
+						tank_steam_engine
+					}
+				}
+				special_type_slot_1 = {
+					any_of = {
+						secondary_gun_tank_heavy_howitzer
+						secondary_gun_tank_medium_howitzer
+						sloped_armor
+					}
+				}
+				special_type_slot_2 = {
+					any_of = {
+						secondary_gun_tank_medium_cannon_2
+						secondary_gun_tank_medium_cannon
+						extra_ammo_storage
+					}
+				}
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = smoke_launchers
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 8
+				tank_nsb_armor_upgrade = 8
+			}
+		}
+		allowed_modules = {
+			tank_close_support_gun
+			tank_small_cannon_2
+			tank_small_cannon
+			tank_heavy_three_man_tank_turret
+			tank_medium_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_cast_armor
+			tank_tesla_coil_engine
+			tank_steam_engine
+			secondary_gun_tank_heavy_howitzer
+			secondary_gun_tank_medium_howitzer
+			secondary_gun_tank_medium_cannon_2
+			secondary_gun_tank_medium_cannon
+			sloped_armor
+			extra_ammo_storage
+			smoke_launchers
+		}
+	}
+	flower_steampunk_tank_mk4 = {
+		priority = {
+			factor = 1400
+		}
+		target_variant = {
+			match_value = 2400
+			type = steampunk_tank_chassis_3
+			modules = {
+				main_armament_slot = {
+					any_of = {
+						tank_close_support_gun
+						tank_small_cannon_2
+						tank_small_cannon
+					}
+				}
+				turret_type_slot = {
+					any_of = {
+						tank_heavy_three_man_tank_turret
+						tank_medium_three_man_tank_turret
+					}
+				}
+				suspension_type_slot = {
+					any_of = {
+						tank_torsion_bar_suspension
+						tank_bogie_suspension
+					}
+				}
+				armor_type_slot = {
+					any_of = {
+						tank_welded_armor
+						tank_cast_armor
+					}
+				}
+				engine_type_slot = {
+					any_of = {
+						tank_tesla_coil_engine
+						tank_steam_engine
+					}
+				}
+				special_type_slot_1 = {
+					any_of = {
+						secondary_gun_tank_heavy_howitzer
+						secondary_gun_tank_medium_howitzer
+						sloped_armor
+					}
+				}
+				special_type_slot_2 = {
+					any_of = {
+						secondary_gun_tank_medium_cannon_2
+						secondary_gun_tank_medium_cannon
+						extra_ammo_storage
+					}
+				}
+				special_type_slot_3 = sloped_armor
+				special_type_slot_4 = smoke_launchers
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 10
+				tank_nsb_armor_upgrade = 10
+			}
+		}
+		allowed_modules = {
+			tank_close_support_gun
+			tank_small_cannon_2
+			tank_small_cannon
+			tank_heavy_three_man_tank_turret
+			tank_medium_three_man_tank_turret
+			tank_torsion_bar_suspension
+			tank_bogie_suspension
+			tank_welded_armor
+			tank_cast_armor
 			tank_tesla_coil_engine
 			tank_steam_engine
 			secondary_gun_tank_heavy_howitzer

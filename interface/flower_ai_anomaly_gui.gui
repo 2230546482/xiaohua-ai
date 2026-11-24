@@ -88,8 +88,8 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_confirm_lbl"
-			position = { x = 176 y = 113 }
-			font = "flower_a4_18"
+			position = { x = 176 y = 114 }
+			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyConfirmBtnText]"
 			maxWidth = 164
 			maxHeight = 22
@@ -197,15 +197,26 @@ guiTypes = {
 			oversound = PAU_hover_paper
 		}
 
-		#分区标题
+		#分区标题与右侧实时已投人数统计
 		instantTextBoxType = {
 			name = "flower_anomaly_section_title"
 			position = { x = 38 y = 165 }
 			font = "flower_a4_18"
 			text = "FLOWER_ANOMALY_GUI_SECTION_TITLE"
-			maxWidth = 640
+			maxWidth = 480
 			maxHeight = 22
 			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_vote_progress"
+			position = { x = 538 y = 166 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyVoteProgressText]"
+			maxWidth = 350
+			maxHeight = 20
+			format = right
 			fixedsize = yes
 			alwaystransparent = yes
 		}
@@ -223,10 +234,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_1_status"
-			position = { x = 46 y = 346 }
+			position = { x = 64 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard1Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -244,10 +255,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_2_status"
-			position = { x = 340 y = 346 }
+			position = { x = 358 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard2Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -265,10 +276,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_3_status"
-			position = { x = 634 y = 346 }
+			position = { x = 652 y = 347 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard3Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -286,10 +297,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_4_status"
-			position = { x = 46 y = 540 }
+			position = { x = 64 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard4Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -307,10 +318,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_5_status"
-			position = { x = 340 y = 540 }
+			position = { x = 358 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard5Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -328,10 +339,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_6_status"
-			position = { x = 634 y = 540 }
+			position = { x = 652 y = 541 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard6Status]"
-			maxWidth = 240
+			maxWidth = 204
 			maxHeight = 20
 			format = center
 			fixedsize = yes
@@ -341,11 +352,11 @@ guiTypes = {
 		#底部状态栏与猫猫蝴蝶结彩蛋
 		instantTextBoxType = {
 			name = "flower_anomaly_footer_text"
-			position = { x = 32 y = 614 }
+			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyFooterText]"
-			maxWidth = 650
-			maxHeight = 22
+			maxWidth = 640
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes

@@ -1,5 +1,5 @@
 guiTypes = {
-	#本局肉鸽已选卡牌图鉴与构筑总览主面板（920x660 星露谷木框风格）
+	#本局肉鸽已选卡牌图鉴与构筑总览主面板（920x660 星露谷柔和奶油木框风格）
 	containerWindowType = {
 		name = "flower_roguelike_history_window"
 		position = { x = -460 y = -330 }
@@ -8,25 +8,36 @@ guiTypes = {
 		moveable = yes
 		click_to_front = yes
 		clipping = no
+		fade_time = 180
+		fade_type = linear
 
 		background = {
 			name = "flower_history_bg"
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		iconType = {
-			name = "flower_history_cat_portrait"
-			position = { x = 28 y = 20 }
-			spriteType = "GFX_flower_portrait_cat"
+		#左上哈基米立绘框（点击切换哈气表情并播放哈气音效）
+		buttonType = {
+			name = "flower_history_cat_calm_btn"
+			position = { x = 28 y = 22 }
+			quadTextureSprite = "GFX_flower_portrait_cat"
 			pdx_tooltip = "FLOWER_DRAFT_CAT_TT"
+			clicksound = flower_sfx_cat_hiss
+		}
+		buttonType = {
+			name = "flower_history_cat_hiss_btn"
+			position = { x = 28 y = 22 }
+			quadTextureSprite = "GFX_flower_portrait_cat_hiss"
+			pdx_tooltip = "FLOWER_DRAFT_CAT_HISS_TT"
+			clicksound = click_default
 		}
 
 		instantTextBoxType = {
 			name = "flower_history_cat_mood"
-			position = { x = 32 y = 120 }
+			position = { x = 32 y = 122 }
 			font = "flower_a4_16"
-			text = "FLOWER_HISTORY_CAT_MOOD"
-			maxWidth = 108
+			text = "[GetFlowerHistoryCatMood]"
+			maxWidth = 104
 			maxHeight = 18
 			format = center
 			fixedsize = yes
@@ -35,11 +46,11 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_title"
-			position = { x = 160 y = 22 }
+			position = { x = 166 y = 24 }
 			font = "flower_a4_24"
 			text = "FLOWER_HISTORY_GUI_TITLE"
-			maxWidth = 680
-			maxHeight = 32
+			maxWidth = 660
+			maxHeight = 30
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
@@ -47,11 +58,11 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_lead"
-			position = { x = 160 y = 58 }
-			font = "flower_a4_18"
+			position = { x = 166 y = 58 }
+			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_GUI_LEAD"
-			maxWidth = 710
-			maxHeight = 26
+			maxWidth = 680
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
@@ -59,11 +70,11 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_sub"
-			position = { x = 160 y = 88 }
+			position = { x = 166 y = 82 }
 			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_GUI_SUB"
-			maxWidth = 710
-			maxHeight = 22
+			maxWidth = 560
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
@@ -81,8 +92,8 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_history_peek_map_lbl"
-			position = { x = 752 y = 113 }
-			font = "flower_a4_18"
+			position = { x = 752 y = 114 }
+			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
 			maxHeight = 20
@@ -106,7 +117,7 @@ guiTypes = {
 			position = { x = 38 y = 164 }
 			font = "flower_a4_18"
 			text = "FLOWER_HISTORY_SEC_TITLE"
-			maxWidth = 520
+			maxWidth = 480
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -115,10 +126,10 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_sec_hint"
-			position = { x = 540 y = 166 }
+			position = { x = 528 y = 166 }
 			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_SEC_HINT"
-			maxWidth = 344
+			maxWidth = 356
 			maxHeight = 20
 			format = right
 			fixedsize = yes
@@ -135,11 +146,11 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_arch_summary"
-			position = { x = 42 y = 206 }
+			position = { x = 44 y = 205 }
 			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_ARCH_SUMMARY"
-			maxWidth = 836
-			maxHeight = 32
+			maxWidth = 832
+			maxHeight = 34
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
@@ -147,33 +158,35 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_combo_summary"
-			position = { x = 42 y = 246 }
+			position = { x = 44 y = 244 }
 			font = "flower_a4_16"
 			text = "FLOWER_HISTORY_COMBO_SUMMARY"
-			maxWidth = 836
-			maxHeight = 32
+			maxWidth = 832
+			maxHeight = 34
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
 		}
 
-		#可滚动已选词条卡牌网格（3列动态展示所有已选卡牌，悬停查看完整词条与数值）
+		#可滚动已选词条卡牌网格（3列左上锚点对齐，修复无 format 导致整体右移问题）
 		containerWindowType = {
 			name = "flower_history_scroll_container"
-			position = { x = 28 y = 292 }
-			size = { width = 864 height = 296 }
+			position = { x = 28 y = 290 }
+			size = { width = 864 height = 298 }
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 40
 			smooth_scrolling = yes
+			clipping = yes
 			margin = { top = 4 bottom = 4 left = 4 right = 14 }
 
 			gridboxtype = {
 				name = "flower_history_cards_grid"
-				position = { x = 4 y = 2 }
-				size = { width = 836 height = 100%% }
+				position = { x = 6 y = 4 }
+				size = { width = 834 height = 100%% }
 				slotsize = { width = 278 height = 70 }
 				max_slots_horizontal = 3
 				add_horizontal = yes
+				format = "UPPER_LEFT"
 			}
 		}
 
@@ -192,11 +205,11 @@ guiTypes = {
 		#底部实时本子栏
 		instantTextBoxType = {
 			name = "flower_history_footer_text"
-			position = { x = 32 y = 614 }
+			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_FOOTER_SETTLED"
-			maxWidth = 856
-			maxHeight = 22
+			maxWidth = 832
+			maxHeight = 20
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes
@@ -207,6 +220,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "flower_history_card_entry"
 		position = { x = 0 y = 0 }
+		orientation = upper_left
 		size = { width = 272 height = 66 }
 
 		buttonType = {
@@ -219,10 +233,10 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_card_name"
-			position = { x = 18 y = 9 }
+			position = { x = 16 y = 10 }
 			font = "flower_a4_16"
 			text = "[GetFlowerHistoryCardName]"
-			maxWidth = 228
+			maxWidth = 240
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -231,10 +245,10 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "flower_history_card_cat"
-			position = { x = 18 y = 33 }
+			position = { x = 16 y = 36 }
 			font = "flower_a4_16"
 			text = "[GetFlowerHistoryCardCat]"
-			maxWidth = 228
+			maxWidth = 240
 			maxHeight = 20
 			format = left
 			fixedsize = yes
