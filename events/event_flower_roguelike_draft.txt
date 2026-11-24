@@ -65,6 +65,30 @@ country_event = {
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_1 = 34 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_tank_ai } }
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_1 = 35 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_slayer_ai } }
 			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 36 } has_country_flag = flower_roguelike_steampunk_ai }
+			#60卡扩容流派联动卡AI智能加权
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 37 } has_country_flag = flower_roguelike_slayer_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 38 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 39 } has_country_flag = flower_roguelike_arty_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_1 = 40 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 41 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_1 = 42 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 43 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 44 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 45 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_1 = 46 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_1 = 47 } has_country_flag = flower_roguelike_guerrilla_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 48 } has_country_flag = flower_roguelike_undead_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_1 = 49 } has_country_flag = flower_roguelike_magic_ai num_divisions < 61 }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 50 } has_country_flag = flower_roguelike_steampunk_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_1 = 51 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_1 = 52 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_1 = 53 } date < 1939.1.1 }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_1 = 55 } date < 1939.1.1 }
+			modifier = { factor = 2.6 check_variable = { flower_draft_slot_1 = 56 } has_war = yes }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_1 = 57 } has_war = yes surrender_progress > 0.10 }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_1 = 60 } has_war = yes }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_1 = 49 } num_divisions > 65 }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_1 = 54 } num_of_civilian_factories < 12 }
 			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_1 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_1 = 14 } has_manpower < 400000 }
@@ -134,6 +158,30 @@ country_event = {
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_2 = 34 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_tank_ai } }
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_2 = 35 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_slayer_ai } }
 			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 36 } has_country_flag = flower_roguelike_steampunk_ai }
+			#60卡扩容流派联动卡AI智能加权
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 37 } has_country_flag = flower_roguelike_slayer_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 38 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 39 } has_country_flag = flower_roguelike_arty_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_2 = 40 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 41 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_2 = 42 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 43 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 44 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 45 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_2 = 46 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_2 = 47 } has_country_flag = flower_roguelike_guerrilla_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 48 } has_country_flag = flower_roguelike_undead_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_2 = 49 } has_country_flag = flower_roguelike_magic_ai num_divisions < 61 }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 50 } has_country_flag = flower_roguelike_steampunk_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_2 = 51 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_2 = 52 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_2 = 53 } date < 1939.1.1 }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_2 = 55 } date < 1939.1.1 }
+			modifier = { factor = 2.6 check_variable = { flower_draft_slot_2 = 56 } has_war = yes }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_2 = 57 } has_war = yes surrender_progress > 0.10 }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_2 = 60 } has_war = yes }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_2 = 49 } num_divisions > 65 }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_2 = 54 } num_of_civilian_factories < 12 }
 			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_2 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_2 = 14 } has_manpower < 400000 }
@@ -203,6 +251,30 @@ country_event = {
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_3 = 34 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_tank_ai } }
 			modifier = { factor = 2.8 check_variable = { flower_draft_slot_3 = 35 } OR = { has_country_flag = flower_roguelike_magic_ai has_country_flag = flower_roguelike_slayer_ai } }
 			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 36 } has_country_flag = flower_roguelike_steampunk_ai }
+			#60卡扩容流派联动卡AI智能加权
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 37 } has_country_flag = flower_roguelike_slayer_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 38 } has_country_flag = flower_roguelike_corp_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 39 } has_country_flag = flower_roguelike_arty_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_3 = 40 } has_country_flag = flower_roguelike_tank_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 41 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_3 = 42 } has_country_flag = flower_roguelike_air_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 43 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 44 } has_country_flag = flower_roguelike_wave_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 45 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_3 = 46 } has_country_flag = flower_roguelike_nightingale_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_3 = 47 } has_country_flag = flower_roguelike_guerrilla_ai }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 48 } has_country_flag = flower_roguelike_undead_ai }
+			modifier = { factor = 3.0 check_variable = { flower_draft_slot_3 = 49 } has_country_flag = flower_roguelike_magic_ai num_divisions < 61 }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 50 } has_country_flag = flower_roguelike_steampunk_ai }
+			modifier = { factor = 3.2 check_variable = { flower_draft_slot_3 = 51 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 3.5 check_variable = { flower_draft_slot_3 = 52 } has_country_flag = flower_roguelike_gambler_active }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_3 = 53 } date < 1939.1.1 }
+			modifier = { factor = 2.2 check_variable = { flower_draft_slot_3 = 55 } date < 1939.1.1 }
+			modifier = { factor = 2.6 check_variable = { flower_draft_slot_3 = 56 } has_war = yes }
+			modifier = { factor = 2.8 check_variable = { flower_draft_slot_3 = 57 } has_war = yes surrender_progress > 0.10 }
+			modifier = { factor = 2.4 check_variable = { flower_draft_slot_3 = 60 } has_war = yes }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_3 = 49 } num_divisions > 65 }
+			modifier = { factor = 0.2 check_variable = { flower_draft_slot_3 = 54 } num_of_civilian_factories < 12 }
 			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_3 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_3 = 14 } has_manpower < 400000 }

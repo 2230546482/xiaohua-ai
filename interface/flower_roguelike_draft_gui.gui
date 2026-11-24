@@ -605,6 +605,17 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
+			name = "flower_hex_slot_1_faction_tag"
+			position = { x = 74 y = 211 }
+			font = "flower_a4_18"
+			text = "[GetFlowerDraftSlot1Tag]"
+			maxWidth = 184
+			maxHeight = 24
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
 			name = "flower_hex_slot_1_title"
 			position = { x = 46 y = 285 }
 			font = "flower_a4_18"
@@ -685,6 +696,17 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {
+			name = "flower_hex_slot_2_faction_tag"
+			position = { x = 368 y = 211 }
+			font = "flower_a4_18"
+			text = "[GetFlowerDraftSlot2Tag]"
+			maxWidth = 184
+			maxHeight = 24
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
 			name = "flower_hex_slot_2_title"
 			position = { x = 340 y = 285 }
 			font = "flower_a4_18"
@@ -762,6 +784,17 @@ guiTypes = {
 			position = { x = 732 y = 238 }
 			spriteType = "GFX_flower_hex_card_icons"
 			frame = 1
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_hex_slot_3_faction_tag"
+			position = { x = 662 y = 211 }
+			font = "flower_a4_18"
+			text = "[GetFlowerDraftSlot3Tag]"
+			maxWidth = 184
+			maxHeight = 24
+			format = center
+			fixedsize = yes
 			alwaystransparent = yes
 		}
 		instantTextBoxType = {

@@ -383,17 +383,22 @@ flower_ai_open_branch_evolution_event = {
 	}
 }
 
-#从36张词条牌库随机抽出一张不重复卡牌（大幅提高已选流派专属卡与同系高协同卡的抽中概率）
+#从60张词条牌库随机抽出一张不重复卡牌（12大流派各4张1对1专属高权重倾斜 + 12张中立分期战略池）
 flower_ai_pick_one_draft_card = {
 	random_list = {
-		#1.大意了，没有闪（夜战强协同）
-		12 = {
+		#1.大意了，没有闪[午夜夜战·遗物]
+		10 = {
 			modifier = {
-				factor = 3.0
+				factor = 6.5
 				has_country_flag = flower_roguelike_nightingale_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_nightingale_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -406,17 +411,10 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 1 }
 		}
-		#2.顺丰包邮到前线（游击/装甲协同）
+		#2.顺丰包邮到前线[中立·遗物]
 		12 = {
 			modifier = {
-				factor = 2.4
-				OR = {
-					has_country_flag = flower_roguelike_guerrilla_ai
-					has_country_flag = flower_roguelike_tank_ai
-				}
-			}
-			modifier = {
-				factor = 2.5
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -429,14 +427,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 2 }
 		}
-		#3.牛马产线连轴转（大基建强协同）
-		12 = {
+		#3.牛马产线连轴转[大基建·遗物]
+		10 = {
 			modifier = {
-				factor = 3.2
+				factor = 6.5
 				has_country_flag = flower_roguelike_corp_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_corp_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -449,14 +452,20 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 3 }
 		}
-		#4.对面开全图挂了？（夜战/科研协同）
-		12 = {
+		#4.对面开全图挂了？[疯狂科研·遗物]
+		10 = {
 			modifier = {
-				factor = 2.6
-				OR = {
-					has_country_flag = flower_roguelike_nightingale_ai
-					has_country_flag = flower_roguelike_steampunk_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_steampunk_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_steampunk_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
 				factor = 0
@@ -468,17 +477,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 4 }
 		}
-		#5.你这军火保熟吗（扒装备/黑市强协同）
-		12 = {
+		#5.你这军火保熟吗[战地扒装备·遗物]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_slayer_ai
-					has_country_flag = flower_roguelike_gambler_active
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_slayer_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_slayer_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -491,14 +502,20 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 5 }
 		}
-		#6.空降对面首都不就行了（特种/空军强协同）
-		11 = {
+		#6.空降对面首都不就行了[王牌特种·遗物]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_magic_ai
-					has_country_flag = flower_roguelike_air_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_magic_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_magic_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
 				factor = 0
@@ -510,14 +527,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 6 }
 		}
-		#7.微操大师参谋部（特种协同）
-		12 = {
+		#7.微操大师参谋部[王牌特种·机制]
+		10 = {
 			modifier = {
-				factor = 2.4
+				factor = 6.5
 				has_country_flag = flower_roguelike_magic_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_magic_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -530,14 +552,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 7 }
 		}
-		#8.马奇诺施工队（人海/游击协同）
-		11 = {
+		#8.马奇诺施工队[敌后游击·遗物]
+		10 = {
 			modifier = {
-				factor = 2.6
-				OR = {
-					has_country_flag = flower_roguelike_wave_ai
-					has_country_flag = flower_roguelike_guerrilla_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_guerrilla_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_guerrilla_ai }
 			}
 			modifier = {
 				factor = 0
@@ -549,17 +573,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 8 }
 		}
-		#9.从从容容总参谋部（装甲/重炮协同）
-		12 = {
+		#9.从从容容总参谋部[重炮洗地·遗物]
+		10 = {
 			modifier = {
-				factor = 2.4
-				OR = {
-					has_country_flag = flower_roguelike_tank_ai
-					has_country_flag = flower_roguelike_arty_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_arty_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_arty_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -572,11 +598,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 9 }
 		}
-		#10.全图绿空，谁问你了（空军强协同）
-		11 = {
+		#10.全图绿空，谁问你了[斯图卡空军·遗物]
+		10 = {
 			modifier = {
-				factor = 3.6
+				factor = 6.5
 				has_country_flag = flower_roguelike_air_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_air_ai }
 			}
 			modifier = {
 				factor = 0
@@ -588,17 +619,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 10 }
 		}
-		#11.战地华佗：还能抢救（敢死队/人海强协同）
-		12 = {
+		#11.战地华佗：还能抢救[战地敢死队·遗物]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_undead_ai
-					has_country_flag = flower_roguelike_wave_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_undead_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_undead_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -611,14 +644,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 11 }
 		}
-		#12.后院一铲挖出大油田（装甲/空军强协同）
-		11 = {
+		#12.后院一铲挖出大油田[时停装甲·遗物]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_tank_ai
-					has_country_flag = flower_roguelike_air_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_tank_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_tank_ai }
 			}
 			modifier = {
 				factor = 0
@@ -630,17 +665,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 12 }
 		}
-		#13.破釜沉舟（敢死队/人海协同）
-		11 = {
+		#13.破釜沉舟[战地敢死队·契约]
+		10 = {
 			modifier = {
-				factor = 2.2
-				OR = {
-					has_country_flag = flower_roguelike_undead_ai
-					has_country_flag = flower_roguelike_wave_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_undead_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_undead_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -653,14 +690,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 13 }
 		}
-		#14.全员进厂打螺丝（大基建强协同）
-		12 = {
+		#14.全员进厂打螺丝[大基建·契约]
+		10 = {
 			modifier = {
-				factor = 3.2
+				factor = 6.5
 				has_country_flag = flower_roguelike_corp_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_corp_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -673,17 +715,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 14 }
 		}
-		#15.睡什么睡，起来嗨！（装甲/夜战协同）
-		11 = {
+		#15.睡什么睡，起来嗨！[时停装甲·契约]
+		10 = {
 			modifier = {
-				factor = 2.4
-				OR = {
-					has_country_flag = flower_roguelike_tank_ai
-					has_country_flag = flower_roguelike_nightingale_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_tank_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_tank_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -696,17 +740,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 15 }
 		}
-		#16.防御降了？如何呢，又能怎！（扒装备/重炮协同）
-		11 = {
+		#16.防御降了？如何呢，又能怎！[扒装备·契约]
+		10 = {
 			modifier = {
-				factor = 2.4
-				OR = {
-					has_country_flag = flower_roguelike_slayer_ai
-					has_country_flag = flower_roguelike_arty_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_slayer_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_slayer_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -719,17 +765,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 16 }
 		}
-		#17.凭本事借的钱（大基建/黑市强协同）
-		11 = {
+		#17.凭本事借的钱[黑市轮盘·契约]
+		10 = {
 			modifier = {
-				factor = 3.0
-				OR = {
-					has_country_flag = flower_roguelike_corp_ai
-					has_country_flag = flower_roguelike_gambler_active
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_gambler_active
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_gambler_active }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -742,14 +790,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 17 }
 		}
-		#18.这科研正常吗？（疯狂科研强协同）
+		#18.这科研正常吗？[疯狂科研·契约]
 		10 = {
 			modifier = {
-				factor = 3.6
+				factor = 6.5
 				has_country_flag = flower_roguelike_steampunk_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_steampunk_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -762,14 +815,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 18 }
 		}
-		#19.回答我！为什么不冲！（人海/敢死队强协同）
+		#19.回答我！为什么不冲！[督战队人海·契约]
 		10 = {
 			modifier = {
-				factor = 3.0
-				OR = {
-					has_country_flag = flower_roguelike_wave_ai
-					has_country_flag = flower_roguelike_undead_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_wave_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_wave_ai }
 			}
 			modifier = {
 				factor = 0
@@ -781,17 +836,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 19 }
 		}
-		#20.炮管打到红温（重炮/装甲强协同）
-		11 = {
+		#20.炮管打到红温[重炮洗地·契约]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_arty_ai
-					has_country_flag = flower_roguelike_tank_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_arty_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_arty_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -804,7 +861,7 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 20 }
 		}
-		#21.流派分支启动
+		#21.流派分支启动[中立·进化]
 		0 = {
 			modifier = {
 				add = 28
@@ -824,7 +881,7 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 21 }
 		}
-		#22.小孩子才做选择
+		#22.小孩子才做选择[中立·升阶双修]
 		24 = {
 			modifier = {
 				factor = 1.45
@@ -854,15 +911,21 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 22 }
 		}
-		#23.赛博盲盒拆一发（黑市轮盘专属强倾斜）
-		11 = {
+		#23.赛博盲盒拆一发[黑市轮盘·专属]
+		10 = {
 			modifier = {
-				factor = 4.0
+				factor = 8.0
 				has_country_flag = flower_roguelike_gambler_active
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_gambler_active }
 			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
+				NOT = { has_country_flag = flower_roguelike_gambler_active }
 			}
 			modifier = {
 				factor = 0
@@ -873,18 +936,8 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 23 }
 		}
-		#24.义父的租借法案
+		#24.义父的租借法案[中立·空投]
 		12 = {
-			modifier = {
-				factor = 1.6
-				OR = {
-					has_country_flag = flower_roguelike_tank_ai
-					has_country_flag = flower_roguelike_air_ai
-					has_country_flag = flower_roguelike_nightingale_ai
-					has_country_flag = flower_roguelike_guerrilla_ai
-					has_country_flag = flower_roguelike_undead_ai
-				}
-			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
@@ -898,14 +951,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 24 }
 		}
-		#25.午夜消音突袭包（午夜夜战专属）
-		11 = {
+		#25.午夜消音突袭包[午夜夜战·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_nightingale_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_nightingale_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -918,14 +976,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 25 }
 		}
-		#26.敌后破坏手册（敌后游击专属）
-		11 = {
+		#26.敌后破坏手册[敌后游击·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_guerrilla_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_guerrilla_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -938,14 +1001,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 26 }
 		}
-		#27.复活吧，我的爱人！（战地敢死队专属）
-		11 = {
+		#27.复活吧，我的爱人！[战地敢死队·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_undead_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_undead_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -958,11 +1026,20 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 27 }
 		}
-		#28.早苗开过光的炮弹（重炮洗地专属）
+		#28.早苗开过光的炮弹[重炮洗地·专属]
 		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_arty_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_arty_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
 				factor = 0
@@ -974,14 +1051,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 28 }
 		}
-		#29.银怀表：极速穿插手册（时停装甲专属）
+		#29.银怀表：极速穿插手册[时停装甲·专属]
 		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_tank_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_tank_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -994,14 +1076,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 29 }
 		}
-		#30.全天候航空引导雷达（斯图卡空军专属）
+		#30.全天候航空引导雷达[斯图卡空军·专属]
 		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_air_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_air_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -1014,14 +1101,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 30 }
 		}
-		#31.草台班子连夜盖厂（大基建五年计划专属）
-		11 = {
+		#31.草台班子连夜盖厂[大基建·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_corp_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_corp_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -1034,14 +1126,19 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 31 }
 		}
-		#32.战场零元购指南（战地扒装备专属）
-		11 = {
+		#32.战场零元购指南[战地扒装备·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_slayer_ai
 			}
 			modifier = {
-				factor = 2.5
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_slayer_ai }
+			}
+			modifier = {
+				factor = 2.0
 				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
@@ -1054,15 +1151,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 32 }
 		}
-		#33.荒野求生：贝爷带队（游击/特种/敢死队强协同）
+		#33.荒野求生：贝爷带队[敌后游击·机制]
 		10 = {
 			modifier = {
-				factor = 3.5
-				OR = {
-					has_country_flag = flower_roguelike_guerrilla_ai
-					has_country_flag = flower_roguelike_magic_ai
-					has_country_flag = flower_roguelike_undead_ai
-				}
+				factor = 6.5
+				has_country_flag = flower_roguelike_guerrilla_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_guerrilla_ai }
 			}
 			modifier = {
 				factor = 0
@@ -1074,11 +1172,20 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 33 }
 		}
-		#34.全军狂奔加速鞋（王牌特种专属）
+		#34.全军狂奔加速鞋[王牌特种·专属]
 		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 8.0
 				has_country_flag = flower_roguelike_magic_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_magic_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
 			}
 			modifier = {
 				factor = 0
@@ -1090,18 +1197,21 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 34 }
 		}
-		#35.魔鬼教官特训营（人海/特种强协同）
-		11 = {
+		#35.魔鬼教官特训营[督战队人海·专属]
+		10 = {
 			modifier = {
-				factor = 3.2
-				OR = {
-					has_country_flag = flower_roguelike_wave_ai
-					has_country_flag = flower_roguelike_magic_ai
-				}
+				factor = 7.5
+				has_country_flag = flower_roguelike_wave_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_wave_ai }
 			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
+				NOT = { has_country_flag = flower_roguelike_wave_ai }
 			}
 			modifier = {
 				factor = 0
@@ -1112,15 +1222,21 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 35 }
 		}
-		#36.这合理吗？满地图纸（疯狂科研专属）
-		11 = {
+		#36.这合理吗？满地图纸[疯狂科研·专属]
+		10 = {
 			modifier = {
-				factor = 4.5
+				factor = 7.5
 				has_country_flag = flower_roguelike_steampunk_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_steampunk_ai }
 			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
+				NOT = { has_country_flag = flower_roguelike_steampunk_ai }
 			}
 			modifier = {
 				factor = 0
@@ -1130,6 +1246,583 @@ flower_ai_pick_one_draft_card = {
 				}
 			}
 			set_variable = { flower_draft_temp = 36 }
+		}
+		#37.战利品的事能算偷吗[战地扒装备·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_slayer_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_slayer_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 37 }
+					check_variable = { flower_draft_slot_2 = 37 }
+					has_country_flag = flower_card_owned_37
+				}
+			}
+			set_variable = { flower_draft_temp = 37 }
+		}
+		#38.别打仗了先让我把厂盖完[大基建·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_corp_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_corp_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 38 }
+					check_variable = { flower_draft_slot_2 = 38 }
+					has_country_flag = flower_card_owned_38
+				}
+			}
+			set_variable = { flower_draft_temp = 38 }
+		}
+		#39.火力不足恐惧症[重炮洗地·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_arty_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_arty_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 39 }
+					check_variable = { flower_draft_slot_2 = 39 }
+					has_country_flag = flower_card_owned_39
+				}
+			}
+			set_variable = { flower_draft_temp = 39 }
+		}
+		#40.排水渠过河大法[时停装甲·契约]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_tank_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_tank_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 40 }
+					check_variable = { flower_draft_slot_2 = 40 }
+					has_country_flag = flower_card_owned_40
+				}
+			}
+			set_variable = { flower_draft_temp = 40 }
+		}
+		#41.皇牌空战主角光环[斯图卡空军·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_air_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_air_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 41 }
+					check_variable = { flower_draft_slot_2 = 41 }
+					has_country_flag = flower_card_owned_41
+				}
+			}
+			set_variable = { flower_draft_temp = 41 }
+		}
+		#42.天降正义专业户[斯图卡空军·契约]
+		10 = {
+			modifier = {
+				factor = 6.5
+				has_country_flag = flower_roguelike_air_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_air_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 42 }
+					check_variable = { flower_draft_slot_2 = 42 }
+					has_country_flag = flower_card_owned_42
+				}
+			}
+			set_variable = { flower_draft_temp = 42 }
+		}
+		#43.这次终于人手一把枪[督战队人海·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_wave_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_wave_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 43 }
+					check_variable = { flower_draft_slot_2 = 43 }
+					has_country_flag = flower_card_owned_43
+				}
+			}
+			set_variable = { flower_draft_temp = 43 }
+		}
+		#44.看你子弹多还是我人多[督战队人海·契约]
+		10 = {
+			modifier = {
+				factor = 6.5
+				has_country_flag = flower_roguelike_wave_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_wave_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 44 }
+					check_variable = { flower_draft_slot_2 = 44 }
+					has_country_flag = flower_card_owned_44
+				}
+			}
+			set_variable = { flower_draft_temp = 44 }
+		}
+		#45.暗号：宫廷玉液酒[午夜夜战·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_nightingale_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_nightingale_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 45 }
+					check_variable = { flower_draft_slot_2 = 45 }
+					has_country_flag = flower_card_owned_45
+				}
+			}
+			set_variable = { flower_draft_temp = 45 }
+		}
+		#46.月亮不睡我不睡[午夜夜战·契约]
+		10 = {
+			modifier = {
+				factor = 6.5
+				has_country_flag = flower_roguelike_nightingale_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_nightingale_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 46 }
+					check_variable = { flower_draft_slot_2 = 46 }
+					has_country_flag = flower_card_owned_46
+				}
+			}
+			set_variable = { flower_draft_temp = 46 }
+		}
+		#47.这片树林怎么在说话[敌后游击·契约]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_guerrilla_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_guerrilla_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 47 }
+					check_variable = { flower_draft_slot_2 = 47 }
+					has_country_flag = flower_card_owned_47
+				}
+			}
+			set_variable = { flower_draft_temp = 47 }
+		}
+		#48.电击器一下就满血[战地敢死队·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_undead_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_undead_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 48 }
+					check_variable = { flower_draft_slot_2 = 48 }
+					has_country_flag = flower_card_owned_48
+				}
+			}
+			set_variable = { flower_draft_temp = 48 }
+		}
+		#49.钢四传统艺能：伞兵偷家[王牌特种·契约]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_magic_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_magic_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 49 }
+					check_variable = { flower_draft_slot_2 = 49 }
+					has_country_flag = flower_card_owned_49
+				}
+			}
+			set_variable = { flower_draft_temp = 49 }
+		}
+		#50.牛顿的棺材板按不住了[疯狂科研·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_steampunk_ai
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_steampunk_ai }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 50 }
+					check_variable = { flower_draft_slot_2 = 50 }
+					has_country_flag = flower_card_owned_50
+				}
+			}
+			set_variable = { flower_draft_temp = 50 }
+		}
+		#51.战争之王的供货单[黑市轮盘·联动]
+		10 = {
+			modifier = {
+				factor = 7.5
+				has_country_flag = flower_roguelike_gambler_active
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_gambler_active }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 51 }
+					check_variable = { flower_draft_slot_2 = 51 }
+					has_country_flag = flower_card_owned_51
+				}
+			}
+			set_variable = { flower_draft_temp = 51 }
+		}
+		#52.非酋保底救助金[黑市轮盘·联动]
+		10 = {
+			modifier = {
+				factor = 8.0
+				has_country_flag = flower_roguelike_gambler_active
+			}
+			modifier = {
+				factor = 0.30
+				check_variable = { flower_distinct_archetypes_count > 0 }
+				NOT = { has_country_flag = flower_roguelike_gambler_active }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 52 }
+					check_variable = { flower_draft_slot_2 = 52 }
+					has_country_flag = flower_card_owned_52
+				}
+			}
+			set_variable = { flower_draft_temp = 52 }
+		}
+		#53.家里有矿就是硬气[中立·备战]
+		11 = {
+			modifier = {
+				factor = 1.8
+				date < 1939.1.1
+			}
+			modifier = {
+				factor = 0.35
+				date > 1940.12.31
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 53 }
+					check_variable = { flower_draft_slot_2 = 53 }
+					has_country_flag = flower_card_owned_53
+				}
+			}
+			set_variable = { flower_draft_temp = 53 }
+		}
+		#54.这真是农用拖拉机厂[中立·备战契约]
+		11 = {
+			modifier = {
+				factor = 1.8
+				date < 1939.1.1
+			}
+			modifier = {
+				factor = 0.35
+				date > 1940.12.31
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 54 }
+					check_variable = { flower_draft_slot_2 = 54 }
+					has_country_flag = flower_card_owned_54
+				}
+			}
+			set_variable = { flower_draft_temp = 54 }
+		}
+		#55.九步一炮还是纯步填线[中立·备战]
+		11 = {
+			modifier = {
+				factor = 1.8
+				date < 1939.1.1
+			}
+			modifier = {
+				factor = 0.35
+				date > 1940.12.31
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 55 }
+					check_variable = { flower_draft_slot_2 = 55 }
+					has_country_flag = flower_card_owned_55
+				}
+			}
+			set_variable = { flower_draft_temp = 55 }
+		}
+		#56.画条大箭头直接平推[中立·战时限时]
+		12 = {
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+			modifier = {
+				factor = 1.6
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 56 }
+					check_variable = { flower_draft_slot_2 = 56 }
+					has_idea = flower_card56_big_arrow_push_idea
+				}
+			}
+			set_variable = { flower_draft_temp = 56 }
+		}
+		#57.施泰纳真的带着救兵来了[中立·战时限时]
+		12 = {
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+			modifier = {
+				factor = 1.6
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 57 }
+					check_variable = { flower_draft_slot_2 = 57 }
+					has_idea = flower_card57_steiner_hold_idea
+				}
+			}
+			set_variable = { flower_draft_temp = 57 }
+		}
+		#58.海军是怎么玩的来着[中立·跨海]
+		11 = {
+			modifier = {
+				factor = 0
+				NOT = { any_owned_state = { is_coastal = yes } }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 58 }
+					check_variable = { flower_draft_slot_2 = 58 }
+					has_country_flag = flower_card_owned_58
+				}
+			}
+			set_variable = { flower_draft_temp = 58 }
+		}
+		#59.海狮计划：登陆艇全速冲[中立·跨海契约]
+		11 = {
+			modifier = {
+				factor = 0
+				NOT = { any_owned_state = { is_coastal = yes } }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 59 }
+					check_variable = { flower_draft_slot_2 = 59 }
+					has_country_flag = flower_card_owned_59
+				}
+			}
+			set_variable = { flower_draft_temp = 59 }
+		}
+		#60.赶紧投降早打完早下班[中立·中后期]
+		11 = {
+			modifier = {
+				factor = 0.25
+				date < 1939.6.1
+				has_war = no
+			}
+			modifier = {
+				factor = 1.8
+				OR = { date > 1939.6.1 has_war = yes }
+			}
+			modifier = {
+				factor = 2.0
+				has_country_flag = flower_draft_high_roller
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					check_variable = { flower_draft_slot_1 = 60 }
+					check_variable = { flower_draft_slot_2 = 60 }
+					has_country_flag = flower_card_owned_60
+				}
+			}
+			set_variable = { flower_draft_temp = 60 }
 		}
 	}
 }
@@ -1710,6 +2403,182 @@ flower_ai_apply_draft_slot_1 = {
 		army_experience = 50
 		air_experience = 50
 	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 37 } }
+		set_country_flag = flower_card_owned_37
+		add_ideas = flower_card37_steal_warehouse_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 38 } }
+		set_country_flag = flower_card_owned_38
+		add_ideas = flower_card38_build_first_idea
+		if = {
+			limit = {
+				check_variable = { flower_builder_stacks > 0 }
+				check_variable = { flower_builder_next_goal > 5 }
+			}
+			subtract_from_variable = { flower_builder_next_goal = 5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 39 } }
+		set_country_flag = flower_card_owned_39
+		add_ideas = flower_card39_firepower_phobia_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 40 } }
+		set_country_flag = flower_card_owned_40
+		add_ideas = flower_card40_gutter_river_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 41 } }
+		set_country_flag = flower_card_owned_41
+		add_ideas = flower_card41_ace_combat_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 42 } }
+		set_country_flag = flower_card_owned_42
+		add_ideas = flower_card42_justice_rain_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 43 } }
+		set_country_flag = flower_card_owned_43
+		add_ideas = flower_card43_rifle_for_all_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 44 } }
+		set_country_flag = flower_card_owned_44
+		add_ideas = flower_card44_bullets_vs_men_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 45 } }
+		set_country_flag = flower_card_owned_45
+		add_ideas = flower_card45_palace_wine_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 46 } }
+		set_country_flag = flower_card_owned_46
+		add_ideas = flower_card46_moon_awake_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 47 } }
+		set_country_flag = flower_card_owned_47
+		add_ideas = flower_card47_talking_trees_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 48 } }
+		set_country_flag = flower_card_owned_48
+		add_ideas = flower_card48_defib_full_hp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 49 } }
+		set_country_flag = flower_card_owned_49
+		add_ideas = flower_card49_para_steal_cap_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 50 } }
+		set_country_flag = flower_card_owned_50
+		add_ideas = flower_card50_newton_coffin_idea
+		flower_ai_recalc_science_compute = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 51 } }
+		set_country_flag = flower_card_owned_51
+		add_ideas = flower_card51_lord_of_war_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 52 } }
+		set_country_flag = flower_card_owned_52
+		add_ideas = flower_card52_pity_subsidy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 53 } }
+		set_country_flag = flower_card_owned_53
+		add_ideas = flower_card53_rich_mines_idea
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+			}
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+		else = {
+			capital_scope = {
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 54 } }
+		set_country_flag = flower_card_owned_54
+		add_ideas = flower_card54_tractor_factory_idea
+		#将3座民用工厂改建为5座军用工厂
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 55 } }
+		set_country_flag = flower_card_owned_55
+		add_ideas = flower_card55_nine_inf_one_art_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 56 } }
+		add_timed_idea = { idea = flower_card56_big_arrow_push_idea days = 120 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 57 } }
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 15000 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 1500 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 1000 }
+		add_fuel = 100000
+		add_timed_idea = { idea = flower_card57_steiner_hold_idea days = 90 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 58 } }
+		set_country_flag = flower_card_owned_58
+		add_ideas = flower_card58_how_to_navy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 59 } }
+		set_country_flag = flower_card_owned_59
+		add_ideas = flower_card59_sealion_rush_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_1 = 60 } }
+		set_country_flag = flower_card_owned_60
+		add_ideas = flower_card60_surrender_radio_idea
+	}
 	flower_ai_check_chemical_combos = yes
 }
 #执行槽位2卡牌效果
@@ -2184,6 +3053,182 @@ flower_ai_apply_draft_slot_2 = {
 		army_experience = 50
 		air_experience = 50
 	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 37 } }
+		set_country_flag = flower_card_owned_37
+		add_ideas = flower_card37_steal_warehouse_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 38 } }
+		set_country_flag = flower_card_owned_38
+		add_ideas = flower_card38_build_first_idea
+		if = {
+			limit = {
+				check_variable = { flower_builder_stacks > 0 }
+				check_variable = { flower_builder_next_goal > 5 }
+			}
+			subtract_from_variable = { flower_builder_next_goal = 5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 39 } }
+		set_country_flag = flower_card_owned_39
+		add_ideas = flower_card39_firepower_phobia_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 40 } }
+		set_country_flag = flower_card_owned_40
+		add_ideas = flower_card40_gutter_river_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 41 } }
+		set_country_flag = flower_card_owned_41
+		add_ideas = flower_card41_ace_combat_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 42 } }
+		set_country_flag = flower_card_owned_42
+		add_ideas = flower_card42_justice_rain_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 43 } }
+		set_country_flag = flower_card_owned_43
+		add_ideas = flower_card43_rifle_for_all_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 44 } }
+		set_country_flag = flower_card_owned_44
+		add_ideas = flower_card44_bullets_vs_men_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 45 } }
+		set_country_flag = flower_card_owned_45
+		add_ideas = flower_card45_palace_wine_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 46 } }
+		set_country_flag = flower_card_owned_46
+		add_ideas = flower_card46_moon_awake_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 47 } }
+		set_country_flag = flower_card_owned_47
+		add_ideas = flower_card47_talking_trees_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 48 } }
+		set_country_flag = flower_card_owned_48
+		add_ideas = flower_card48_defib_full_hp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 49 } }
+		set_country_flag = flower_card_owned_49
+		add_ideas = flower_card49_para_steal_cap_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 50 } }
+		set_country_flag = flower_card_owned_50
+		add_ideas = flower_card50_newton_coffin_idea
+		flower_ai_recalc_science_compute = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 51 } }
+		set_country_flag = flower_card_owned_51
+		add_ideas = flower_card51_lord_of_war_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 52 } }
+		set_country_flag = flower_card_owned_52
+		add_ideas = flower_card52_pity_subsidy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 53 } }
+		set_country_flag = flower_card_owned_53
+		add_ideas = flower_card53_rich_mines_idea
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+			}
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+		else = {
+			capital_scope = {
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 54 } }
+		set_country_flag = flower_card_owned_54
+		add_ideas = flower_card54_tractor_factory_idea
+		#将3座民用工厂改建为5座军用工厂
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 55 } }
+		set_country_flag = flower_card_owned_55
+		add_ideas = flower_card55_nine_inf_one_art_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 56 } }
+		add_timed_idea = { idea = flower_card56_big_arrow_push_idea days = 120 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 57 } }
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 15000 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 1500 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 1000 }
+		add_fuel = 100000
+		add_timed_idea = { idea = flower_card57_steiner_hold_idea days = 90 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 58 } }
+		set_country_flag = flower_card_owned_58
+		add_ideas = flower_card58_how_to_navy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 59 } }
+		set_country_flag = flower_card_owned_59
+		add_ideas = flower_card59_sealion_rush_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_2 = 60 } }
+		set_country_flag = flower_card_owned_60
+		add_ideas = flower_card60_surrender_radio_idea
+	}
 	flower_ai_check_chemical_combos = yes
 }
 #执行槽位3卡牌效果
@@ -2657,6 +3702,182 @@ flower_ai_apply_draft_slot_3 = {
 		flower_ai_sync_hcp_ui = yes
 		army_experience = 50
 		air_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 37 } }
+		set_country_flag = flower_card_owned_37
+		add_ideas = flower_card37_steal_warehouse_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 38 } }
+		set_country_flag = flower_card_owned_38
+		add_ideas = flower_card38_build_first_idea
+		if = {
+			limit = {
+				check_variable = { flower_builder_stacks > 0 }
+				check_variable = { flower_builder_next_goal > 5 }
+			}
+			subtract_from_variable = { flower_builder_next_goal = 5 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 39 } }
+		set_country_flag = flower_card_owned_39
+		add_ideas = flower_card39_firepower_phobia_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 40 } }
+		set_country_flag = flower_card_owned_40
+		add_ideas = flower_card40_gutter_river_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 41 } }
+		set_country_flag = flower_card_owned_41
+		add_ideas = flower_card41_ace_combat_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 42 } }
+		set_country_flag = flower_card_owned_42
+		add_ideas = flower_card42_justice_rain_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 43 } }
+		set_country_flag = flower_card_owned_43
+		add_ideas = flower_card43_rifle_for_all_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 44 } }
+		set_country_flag = flower_card_owned_44
+		add_ideas = flower_card44_bullets_vs_men_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 45 } }
+		set_country_flag = flower_card_owned_45
+		add_ideas = flower_card45_palace_wine_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 46 } }
+		set_country_flag = flower_card_owned_46
+		add_ideas = flower_card46_moon_awake_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 47 } }
+		set_country_flag = flower_card_owned_47
+		add_ideas = flower_card47_talking_trees_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 48 } }
+		set_country_flag = flower_card_owned_48
+		add_ideas = flower_card48_defib_full_hp_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 49 } }
+		set_country_flag = flower_card_owned_49
+		add_ideas = flower_card49_para_steal_cap_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 50 } }
+		set_country_flag = flower_card_owned_50
+		add_ideas = flower_card50_newton_coffin_idea
+		flower_ai_recalc_science_compute = yes
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 51 } }
+		set_country_flag = flower_card_owned_51
+		add_ideas = flower_card51_lord_of_war_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 52 } }
+		set_country_flag = flower_card_owned_52
+		add_ideas = flower_card52_pity_subsidy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 53 } }
+		set_country_flag = flower_card_owned_53
+		add_ideas = flower_card53_rich_mines_idea
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+			}
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+		else = {
+			capital_scope = {
+				add_resource = { type = steel amount = 20 }
+				add_resource = { type = aluminium amount = 20 }
+				add_resource = { type = tungsten amount = 20 }
+				add_resource = { type = chromium amount = 15 }
+				add_resource = { type = oil amount = 20 }
+				add_resource = { type = rubber amount = 15 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 54 } }
+		set_country_flag = flower_card_owned_54
+		add_ideas = flower_card54_tractor_factory_idea
+		#将3座民用工厂改建为5座军用工厂
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			limit = { industrial_complex > 0 }
+			remove_building = { type = industrial_complex level = 1 }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 55 } }
+		set_country_flag = flower_card_owned_55
+		add_ideas = flower_card55_nine_inf_one_art_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 56 } }
+		add_timed_idea = { idea = flower_card56_big_arrow_push_idea days = 120 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 57 } }
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 15000 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 1500 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 1000 }
+		add_fuel = 100000
+		add_timed_idea = { idea = flower_card57_steiner_hold_idea days = 90 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 58 } }
+		set_country_flag = flower_card_owned_58
+		add_ideas = flower_card58_how_to_navy_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 59 } }
+		set_country_flag = flower_card_owned_59
+		add_ideas = flower_card59_sealion_rush_idea
+	}
+	else_if = {
+		limit = { check_variable = { flower_draft_slot_3 = 60 } }
+		set_country_flag = flower_card_owned_60
+		add_ideas = flower_card60_surrender_radio_idea
 	}
 	flower_ai_check_chemical_combos = yes
 }

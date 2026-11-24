@@ -970,6 +970,12 @@ flower_ai_add_slayer_stack = {
 			}
 		}
 	}
+	#词条37《战利品的事能算偷吗》：每次叠记仇小本本自动折现+200储备资金
+	if = {
+		limit = { has_country_flag = flower_card_owned_37 }
+		add_to_variable = { ubs_save = 200 }
+		flower_ai_sync_hcp_ui = yes
+	}
 	flower_ai_recalc_slayer_book = yes
 }
 
@@ -1013,6 +1019,18 @@ flower_ai_add_builder_stack = {
 	if = {
 		limit = { has_idea = flower_evo_corp_megaproject_idea }
 		flower_ai_corp_prospect_mineral = yes
+	}
+	#词条38《别打仗了先让我把厂盖完》：每次叠流水账自动为最空核心州扩2建筑槽与1级基建
+	if = {
+		limit = { has_country_flag = flower_card_owned_38 }
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 2
+			if = {
+				limit = { free_building_slots = { building = infrastructure size > 0 include_locked = no } }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+		}
 	}
 	random_owned_controlled_state = {
 		limit = {
@@ -1153,6 +1171,16 @@ flower_ai_roll_gambler_fate = {
 				days = 180
 			}
 		}
+	}
+	#词条52《非酋保底救助金》：摇出负面骰子自动补贴+300储备资金与+50政治点数
+	if = {
+		limit = {
+			has_country_flag = flower_card_owned_52
+			check_variable = { flower_gambler_last_roll > 4 }
+		}
+		add_to_variable = { ubs_save = 300 }
+		flower_ai_sync_hcp_ui = yes
+		add_political_power = 50
 	}
 	clr_country_flag = flower_gambler_insured
 	if = {

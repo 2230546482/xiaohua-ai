@@ -207,67 +207,160 @@ scripted_gui = {
 			}
 			flower_hex_slot_1_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_1 < 13 }
+				OR = {
+					check_variable = { flower_draft_slot_1 < 13 }
+					check_variable = { flower_draft_slot_1 = 53 }
+					check_variable = { flower_draft_slot_1 = 55 }
+					check_variable = { flower_draft_slot_1 = 56 }
+					check_variable = { flower_draft_slot_1 = 57 }
+					check_variable = { flower_draft_slot_1 = 58 }
+					check_variable = { flower_draft_slot_1 = 60 }
+				}
 			}
 			flower_hex_slot_1_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_1 > 12 }
-				check_variable = { flower_draft_slot_1 < 21 }
+				OR = {
+					AND = { check_variable = { flower_draft_slot_1 > 12 } check_variable = { flower_draft_slot_1 < 21 } }
+					check_variable = { flower_draft_slot_1 = 40 }
+					check_variable = { flower_draft_slot_1 = 42 }
+					check_variable = { flower_draft_slot_1 = 44 }
+					check_variable = { flower_draft_slot_1 = 46 }
+					check_variable = { flower_draft_slot_1 = 47 }
+					check_variable = { flower_draft_slot_1 = 49 }
+					check_variable = { flower_draft_slot_1 = 54 }
+					check_variable = { flower_draft_slot_1 = 59 }
+				}
 			}
 			flower_hex_slot_1_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_1 > 20 }
-				check_variable = { flower_draft_slot_1 < 25 }
+				OR = {
+					check_variable = { flower_draft_slot_1 = 21 }
+					check_variable = { flower_draft_slot_1 = 22 }
+					check_variable = { flower_draft_slot_1 = 24 }
+				}
 			}
 			flower_hex_slot_1_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_1 > 24 }
+				OR = {
+					check_variable = { flower_draft_slot_1 = 23 }
+					AND = { check_variable = { flower_draft_slot_1 > 24 } check_variable = { flower_draft_slot_1 < 40 } }
+					check_variable = { flower_draft_slot_1 = 41 }
+					check_variable = { flower_draft_slot_1 = 43 }
+					check_variable = { flower_draft_slot_1 = 45 }
+					check_variable = { flower_draft_slot_1 = 48 }
+					check_variable = { flower_draft_slot_1 = 50 }
+					check_variable = { flower_draft_slot_1 = 51 }
+					check_variable = { flower_draft_slot_1 = 52 }
+				}
 			}
 			flower_hex_slot_1_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
+			flower_hex_slot_1_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_2 < 13 }
+				OR = {
+					check_variable = { flower_draft_slot_2 < 13 }
+					check_variable = { flower_draft_slot_2 = 53 }
+					check_variable = { flower_draft_slot_2 = 55 }
+					check_variable = { flower_draft_slot_2 = 56 }
+					check_variable = { flower_draft_slot_2 = 57 }
+					check_variable = { flower_draft_slot_2 = 58 }
+					check_variable = { flower_draft_slot_2 = 60 }
+				}
 			}
 			flower_hex_slot_2_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_2 > 12 }
-				check_variable = { flower_draft_slot_2 < 21 }
+				OR = {
+					AND = { check_variable = { flower_draft_slot_2 > 12 } check_variable = { flower_draft_slot_2 < 21 } }
+					check_variable = { flower_draft_slot_2 = 40 }
+					check_variable = { flower_draft_slot_2 = 42 }
+					check_variable = { flower_draft_slot_2 = 44 }
+					check_variable = { flower_draft_slot_2 = 46 }
+					check_variable = { flower_draft_slot_2 = 47 }
+					check_variable = { flower_draft_slot_2 = 49 }
+					check_variable = { flower_draft_slot_2 = 54 }
+					check_variable = { flower_draft_slot_2 = 59 }
+				}
 			}
 			flower_hex_slot_2_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_2 > 20 }
-				check_variable = { flower_draft_slot_2 < 25 }
+				OR = {
+					check_variable = { flower_draft_slot_2 = 21 }
+					check_variable = { flower_draft_slot_2 = 22 }
+					check_variable = { flower_draft_slot_2 = 24 }
+				}
 			}
 			flower_hex_slot_2_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_2 > 24 }
+				OR = {
+					check_variable = { flower_draft_slot_2 = 23 }
+					AND = { check_variable = { flower_draft_slot_2 > 24 } check_variable = { flower_draft_slot_2 < 40 } }
+					check_variable = { flower_draft_slot_2 = 41 }
+					check_variable = { flower_draft_slot_2 = 43 }
+					check_variable = { flower_draft_slot_2 = 45 }
+					check_variable = { flower_draft_slot_2 = 48 }
+					check_variable = { flower_draft_slot_2 = 50 }
+					check_variable = { flower_draft_slot_2 = 51 }
+					check_variable = { flower_draft_slot_2 = 52 }
+				}
 			}
 			flower_hex_slot_2_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
+			flower_hex_slot_2_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_3 < 13 }
+				OR = {
+					check_variable = { flower_draft_slot_3 < 13 }
+					check_variable = { flower_draft_slot_3 = 53 }
+					check_variable = { flower_draft_slot_3 = 55 }
+					check_variable = { flower_draft_slot_3 = 56 }
+					check_variable = { flower_draft_slot_3 = 57 }
+					check_variable = { flower_draft_slot_3 = 58 }
+					check_variable = { flower_draft_slot_3 = 60 }
+				}
 			}
 			flower_hex_slot_3_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_3 > 12 }
-				check_variable = { flower_draft_slot_3 < 21 }
+				OR = {
+					AND = { check_variable = { flower_draft_slot_3 > 12 } check_variable = { flower_draft_slot_3 < 21 } }
+					check_variable = { flower_draft_slot_3 = 40 }
+					check_variable = { flower_draft_slot_3 = 42 }
+					check_variable = { flower_draft_slot_3 = 44 }
+					check_variable = { flower_draft_slot_3 = 46 }
+					check_variable = { flower_draft_slot_3 = 47 }
+					check_variable = { flower_draft_slot_3 = 49 }
+					check_variable = { flower_draft_slot_3 = 54 }
+					check_variable = { flower_draft_slot_3 = 59 }
+				}
 			}
 			flower_hex_slot_3_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_3 > 20 }
-				check_variable = { flower_draft_slot_3 < 25 }
+				OR = {
+					check_variable = { flower_draft_slot_3 = 21 }
+					check_variable = { flower_draft_slot_3 = 22 }
+					check_variable = { flower_draft_slot_3 = 24 }
+				}
 			}
 			flower_hex_slot_3_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
-				check_variable = { flower_draft_slot_3 > 24 }
+				OR = {
+					check_variable = { flower_draft_slot_3 = 23 }
+					AND = { check_variable = { flower_draft_slot_3 > 24 } check_variable = { flower_draft_slot_3 < 40 } }
+					check_variable = { flower_draft_slot_3 = 41 }
+					check_variable = { flower_draft_slot_3 = 43 }
+					check_variable = { flower_draft_slot_3 = 45 }
+					check_variable = { flower_draft_slot_3 = 48 }
+					check_variable = { flower_draft_slot_3 = 50 }
+					check_variable = { flower_draft_slot_3 = 51 }
+					check_variable = { flower_draft_slot_3 = 52 }
+				}
 			}
 			flower_hex_slot_3_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
+			flower_hex_slot_3_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }

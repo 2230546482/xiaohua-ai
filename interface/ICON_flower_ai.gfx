@@ -1287,7 +1287,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_flower_hex_card_icons"
 		texturefile = "gfx/interface/gui/flower_ui/flower_hex_card_icons.png"
-		noOfFrames = 36
+		noOfFrames = 60
 		legacy_lazy_load = no
 	}
 	spriteType = {

@@ -368,6 +368,10 @@ flower_ai_add_blood_charge = {
 		limit = { has_country_flag = flower_roguelike_undead_ai }
 		add_to_variable = { flower_blood_charge = 1 }
 		if = {
+			limit = { has_country_flag = flower_card_owned_48 }
+			add_to_variable = { flower_blood_charge = 1 }
+		}
+		if = {
 			limit = { check_variable = { flower_blood_charge > 5 } }
 			set_variable = { flower_blood_charge = 0 }
 			add_command_power = 40
@@ -380,9 +384,17 @@ flower_ai_add_blood_charge = {
 				type = artillery_equipment
 				amount = 400
 			}
-			add_timed_idea = {
-				idea = flower_op_undead_surge_idea
-				days = 60
+			add_timed_idea = {
+				idea = flower_op_undead_surge_idea
+				days = 60
+			}
+			if = {
+				limit = { has_country_flag = flower_card_owned_48 }
+				army_experience = 50
+				random_army_leader = {
+					add_defense = 1
+					add_logistics = 1
+				}
 			}
 		}
 	}
@@ -464,6 +476,8 @@ flower_ai_recalc_science_compute = {
 		if = { limit = { amount_research_slots > 4 } add_to_temp_variable = { temp_sci_lvl = 1 } }
 		if = { limit = { date > 1938.12.31 } add_to_temp_variable = { temp_sci_lvl = 1 } }
 		if = { limit = { has_idea = flower_steampunk_stage_3_idea } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { has_country_flag = flower_card_owned_50 } add_to_temp_variable = { temp_sci_lvl = 1 } }
+		if = { limit = { check_variable = { temp_sci_lvl > 5 } } set_temp_variable = { temp_sci_lvl = 5 } }
 		set_variable = { flower_sci_crd_var = temp_sci_lvl }
 		multiply_variable = { flower_sci_crd_var = 0.02 }
 		set_variable = { flower_sci_dec_var = temp_sci_lvl }

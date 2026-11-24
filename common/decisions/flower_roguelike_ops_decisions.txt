@@ -93,6 +93,11 @@ flower_roguelike_ops_cat = {
 				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 			}
 			custom_effect_tooltip = flower_op_black_market_contract_tt
+			if = {
+				limit = { has_country_flag = flower_card_owned_51 }
+				add_to_variable = { ubs_save = 200 }
+				flower_ai_sync_hcp_ui = yes
+			}
 			country_event = { id = FLWAI.41 }
 		}
 	}
@@ -137,6 +142,13 @@ flower_roguelike_ops_cat = {
 			add_fuel = 30000
 			army_experience = 40
 			flower_ai_add_slayer_stack = yes
+			if = {
+				limit = { has_country_flag = flower_card_owned_37 }
+				flower_ai_add_slayer_stack = yes
+				add_equipment_to_stockpile = { type = anti_tank_equipment amount = 500 }
+				add_equipment_to_stockpile = { type = anti_air_equipment amount = 500 }
+				add_equipment_to_stockpile = { type = motorized_equipment amount = 500 }
+			}
 		}
 	}
 
@@ -162,6 +174,11 @@ flower_roguelike_ops_cat = {
 		}
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
+			if = {
+				limit = { has_country_flag = flower_card_owned_38 }
+				add_to_variable = { ubs_save = 200 }
+				flower_ai_sync_hcp_ui = yes
+			}
 			country_event = { id = FLWAI.31 }
 		}
 	}
@@ -174,7 +191,13 @@ flower_roguelike_ops_cat = {
 		}
 		available = {
 			has_war = yes
-			has_equipment = { artillery_equipment > 499 }
+			OR = {
+				has_equipment = { artillery_equipment > 499 }
+				AND = {
+					has_country_flag = flower_card_owned_39
+					has_equipment = { artillery_equipment > 249 }
+				}
+			}
 			command_power > 24.99
 		}
 		days_re_enable = 150
@@ -191,9 +214,22 @@ flower_roguelike_ops_cat = {
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" } }
 			add_command_power = -25
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = -500
+			if = {
+				limit = { has_country_flag = flower_card_owned_39 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = -250 }
+				hidden_effect = {
+					every_enemy_country = {
+						limit = { is_major = yes }
+						random_controlled_state = {
+							limit = { any_neighbor_state = { is_controlled_by = ROOT } }
+							damage_building = { type = bunker damage = 2 }
+							damage_building = { type = rail_way damage = 2 }
+						}
+					}
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = { type = artillery_equipment amount = -500 }
 			}
 			add_timed_idea = {
 				idea = flower_op_arty_barrage_idea
@@ -254,6 +290,12 @@ flower_roguelike_ops_cat = {
 			add_timed_idea = {
 				idea = flower_op_tank_timestop_idea
 				days = 60
+			}
+			if = {
+				limit = { has_country_flag = flower_card_owned_40 }
+				set_variable = { flower_blitz_stacks = 10 }
+				set_country_flag = { flag = flower_blitz_momentum_alive days = 60 value = 1 }
+				flower_ai_recalc_blitz_momentum = yes
 			}
 			if = {
 				limit = { has_idea = flower_evo_tank_timestop_idea }
@@ -326,6 +368,16 @@ flower_roguelike_ops_cat = {
 				}
 			}
 			if = {
+				limit = { has_country_flag = flower_card_owned_41 }
+				random_controlled_state = {
+					limit = {
+						any_neighbor_state = { controller = { has_war_with = ROOT } }
+						free_building_slots = { building = air_base size > 1 include_locked = no }
+					}
+					add_building_construction = { type = air_base level = 2 instant_build = yes }
+				}
+			}
+			if = {
 				limit = { has_idea = flower_evo_air_cas_idea }
 				custom_effect_tooltip = flower_op_air_crush_enemy_tt
 				random_enemy_country = {
@@ -381,6 +433,11 @@ flower_roguelike_ops_cat = {
 		}
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_6_wave" } }
+			if = {
+				limit = { has_country_flag = flower_card_owned_43 }
+				add_manpower = 50000
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 10000 }
+			}
 			country_event = { id = FLWAI.32 }
 		}
 	}
@@ -422,6 +479,26 @@ flower_roguelike_ops_cat = {
 			add_equipment_to_stockpile = {
 				type = support_equipment
 				amount = 300
+			}
+			if = {
+				limit = { has_country_flag = flower_card_owned_45 }
+				add_command_power = 25
+				random_enemy_country = {
+					limit = { OR = { is_major = yes NOT = { has_idea = flower_card45_radio_jammed_idea } } }
+					add_timed_idea = { idea = flower_card45_radio_jammed_idea days = 60 }
+					ROOT = {
+						steal_random_tech_bonus = {
+							folder = infantry_folder
+							folder = industry_folder
+							folder = electronics_folder
+							bonus = 1.0
+							name = flower_night_stolen_tech_bonus
+							target = PREV
+							dynamic = yes
+							uses = 1
+						}
+					}
+				}
 			}
 			if = {
 				limit = { has_idea = flower_evo_nightingale_blood_idea }
@@ -521,6 +598,13 @@ flower_roguelike_ops_cat = {
 				amount = 250
 			}
 			army_experience = 50
+			if = {
+				limit = { has_country_flag = flower_card_owned_47 }
+				add_equipment_to_stockpile = { type = support_equipment amount = 500 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 500 }
+				add_fuel = 50000
+				flower_ai_guerrilla_scorch_occupied_cores = yes
+			}
 		}
 	}
 
@@ -531,9 +615,11 @@ flower_roguelike_ops_cat = {
 			has_country_flag = flower_roguelike_undead_ai
 		}
 		available = {
-			always = yes
+			OR = {
+				has_country_flag = flower_card_owned_48
+				has_political_power > 24.99
+			}
 		}
-		cost = 25
 		days_re_enable = 150
 		ai_will_do = {
 			base = 45
@@ -544,6 +630,13 @@ flower_roguelike_ops_cat = {
 		}
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_9_undead" } }
+			if = {
+				limit = { has_country_flag = flower_card_owned_48 }
+				add_equipment_to_stockpile = { type = support_equipment amount = 500 }
+			}
+			else = {
+				add_political_power = -25
+			}
 			country_event = { id = FLWAI.33 }
 		}
 	}
@@ -568,6 +661,18 @@ flower_roguelike_ops_cat = {
 		}
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_10_magic" } }
+			if = {
+				limit = {
+					has_country_flag = flower_card_owned_49
+					num_divisions < 61
+				}
+				random_army_leader = {
+					add_attack = 1
+					add_planning = 1
+				}
+				add_equipment_to_stockpile = { type = transport_plane_equipment amount = 50 }
+				add_equipment_to_stockpile = { type = convoy amount = 50 }
+			}
 			country_event = { id = FLWAI.34 }
 		}
 	}
@@ -593,6 +698,15 @@ flower_roguelike_ops_cat = {
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_11_steampunk" } }
 			if = {
+				limit = { has_country_flag = flower_card_owned_50 }
+				random_list = {
+					25 = { add_breakthrough_points = { specialization = specialization_land value = 1 } }
+					25 = { add_breakthrough_points = { specialization = specialization_air value = 1 } }
+					25 = { add_breakthrough_points = { specialization = specialization_naval value = 1 } }
+					25 = { add_breakthrough_points = { specialization = specialization_nuclear value = 1 } }
+				}
+			}
+			if = {
 				limit = { has_idea = flower_evo_punk_ufo_idea }
 				country_event = { id = FLWAI.42 }
 			}
@@ -612,6 +726,13 @@ flower_roguelike_ops_cat = {
 			OR = {
 				NOT = { check_variable = { ubs_save < 100 } }
 				has_political_power > 39.99
+				AND = {
+					has_country_flag = flower_card_owned_52
+					OR = {
+						NOT = { check_variable = { ubs_save < 50 } }
+						has_political_power > 19.99
+					}
+				}
 			}
 		}
 		days_re_enable = 150
@@ -635,6 +756,23 @@ flower_roguelike_ops_cat = {
 		complete_effect = {
 			hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_12_gambler" } }
 			if = {
+				limit = { has_country_flag = flower_card_owned_52 }
+				remove_ideas = {
+					flower_gambler_debuff_bankrupt_idea
+					flower_gambler_debuff_jammed_idea
+					flower_gambler_debuff_chaos_idea
+					flower_gambler_debuff_scandal_idea
+				}
+				if = {
+					limit = { NOT = { check_variable = { ubs_save < 50 } } }
+					add_to_variable = { ubs_save = -50 }
+					flower_ai_sync_hcp_ui = yes
+				}
+				else = {
+					add_political_power = -20
+				}
+			}
+			else_if = {
 				limit = { NOT = { check_variable = { ubs_save < 100 } } }
 				custom_effect_tooltip = flower_hcp_minus_100_tt
 				hidden_effect = {

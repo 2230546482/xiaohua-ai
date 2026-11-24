@@ -264,13 +264,19 @@ on_actions = {
                     clr_country_flag = flower_cached_is_major
                 }
             }
-            #《基建狂魔的流水账》造厂达标自动叠层返利（满15座即触发）
+            #《基建狂魔的流水账》造厂达标自动叠层返利（满15座触发；拥有词条38降为满10座即触发）
             if = {
                 limit = {
                     check_variable = { flower_builder_stacks > 0 }
                     NOT = { check_variable = { num_of_factories < flower_builder_next_goal } }
                 }
-                add_to_variable = { flower_builder_next_goal = 15 }
+                if = {
+                    limit = { has_country_flag = flower_card_owned_38 }
+                    add_to_variable = { flower_builder_next_goal = 10 }
+                }
+                else = {
+                    add_to_variable = { flower_builder_next_goal = 15 }
+                }
                 flower_ai_add_builder_stack = yes
             }
             #《记仇小本本》战时激战满4个月自动叠层
@@ -299,6 +305,35 @@ on_actions = {
                 flower_ai_check_archetype_milestones = yes
                 flower_ai_tick_roguelike_v3_engines = yes
                 flower_ai_check_ai_catchup = yes
+                #词条44《看你子弹多还是我人多》：战时人力低于200000每180天自动急征预备役
+                if = {
+                    limit = {
+                        has_country_flag = flower_card_owned_44
+                        has_war = yes
+                        has_manpower < 200000
+                        NOT = { has_country_flag = flower_card44_reserve_cd }
+                    }
+                    set_country_flag = { flag = flower_card44_reserve_cd days = 180 value = 1 }
+                    add_manpower = 100000
+                    add_equipment_to_stockpile = { type = infantry_equipment amount = 10000 }
+                }
+                #词条60《赶紧投降早打完早下班》：战时每满120天令随机交战主要敌国挂60天人心涣散
+                if = {
+                    limit = {
+                        has_country_flag = flower_card_owned_60
+                        has_war = yes
+                        NOT = { has_country_flag = flower_card60_radio_cd }
+                        any_enemy_country = { is_major = yes }
+                    }
+                    set_country_flag = { flag = flower_card60_radio_cd days = 120 value = 1 }
+                    random_enemy_country = {
+                        limit = { is_major = yes }
+                        add_timed_idea = {
+                            idea = flower_card60_morale_broken_idea
+                            days = 60
+                        }
+                    }
+                }
             }
             #畸变4月度渐进科技同步（仅开启畸变4时执行）
             if = {
