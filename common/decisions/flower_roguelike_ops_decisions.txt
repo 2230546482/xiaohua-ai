@@ -55,6 +55,7 @@ flower_roguelike_ops_cat = {
 	#黑市6个月净收入契约（现结或允许1.2倍高利贷负债，流派12享8折贵宾价与加注选项）
 	flower_op_black_market_contract = {
 		icon = generic_fundraising
+		ai_check_interval = 120
 		visible = {
 			OR = {
 				has_global_flag = flower_anomaly_1_active
@@ -98,6 +99,7 @@ flower_roguelike_ops_cat = {
 	#流派1：战地回炉车间（拆解缴获步枪换火炮、反坦、支援、燃油与本子层数）
 	flower_op_slayer_salvage = {
 		icon = generic_merge_plant_materiel
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_slayer_ai
 		}
@@ -141,6 +143,7 @@ flower_roguelike_ops_cat = {
 	#流派2：下达半年生产指标（扩军工/扩民工/冲效率三选一，分支2B达标顺带本土探矿）
 	flower_op_corp_five_year_plan = {
 		icon = generic_construction
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_corp_ai
 		}
@@ -167,6 +170,7 @@ flower_roguelike_ops_cat = {
 	#流派3：炮兵饱和弹幕总攻（分支3A同步实景轰毁交战敌方前线要塞与铁路）
 	flower_op_arty_barrage = {
 		icon = generic_ignite_civil_war
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_arty_ai
 		}
@@ -227,6 +231,7 @@ flower_roguelike_ops_cat = {
 	#流派4：按下银怀表：时停穿插（分支4A同步给主要交战敌国挂30天时间凝滞减益）
 	flower_op_tank_timestop = {
 		icon = generic_tank
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_tank_ai
 		}
@@ -289,6 +294,7 @@ flower_roguelike_ops_cat = {
 	#流派5：全空域护航与机场压制洗地（分支5A先发炸伤敌前线机场并挂45天空域瘫痪）
 	flower_op_air_carpet = {
 		icon = generic_air
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_air_ai
 		}
@@ -350,6 +356,7 @@ flower_roguelike_ops_cat = {
 	#流派6：切换战时总动员姿态（扩军/死守/整补三态实时切换）
 	flower_op_wave_stance = {
 		icon = generic_prepare_civil_war
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_wave_ai
 		}
@@ -386,6 +393,7 @@ flower_roguelike_ops_cat = {
 	#流派7：子夜奇袭令（分支7A同步致盲主要敌国情报60天并直接偷取1张敌国科技加速卡）
 	flower_op_nightingale_raid = {
 		icon = generic_cavalry
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_nightingale_ai
 		}
@@ -456,6 +464,7 @@ flower_roguelike_ops_cat = {
 	#流派8：发动敌后大破交（瘫痪敌国后勤90天，分支8A同步实景炸毁沦陷区铁路并拉高抵抗度）
 	flower_op_guerrilla_sabotage = {
 		icon = generic_scorched_earth
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_guerrilla_ai
 		}
@@ -525,6 +534,7 @@ flower_roguelike_ops_cat = {
 	#流派9：开启战地血炉调度（伤兵回流/卖血极限过载/血汗轮班，分支9B解锁高强度过载）
 	flower_op_undead_furnace = {
 		icon = generic_operation
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_undead_ai
 		}
@@ -549,6 +559,7 @@ flower_roguelike_ops_cat = {
 	#流派10：特种司令部调令（将领地形专精特训/三栖斩首强攻二选一）
 	flower_op_magic_rift = {
 		icon = generic_research
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_magic_ai
 		}
@@ -573,6 +584,7 @@ flower_roguelike_ops_cat = {
 	#流派11：疯狂实验室专项课题（分支11A可直接加开原型机盲盒，否则选常规科研专项）
 	flower_op_punk_expedition = {
 		icon = generic_electricity
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_steampunk_ai
 		}
@@ -603,6 +615,7 @@ flower_roguelike_ops_cat = {
 	#流派12：黑市赌桌筹码操作（买保险/重摇领物资，分支12B可把负面骰子甩锅给敌国，分支12C可用资金直购战备）
 	flower_op_gambler_chips = {
 		icon = generic_fundraising
+		ai_check_interval = 120
 		visible = {
 			has_country_flag = flower_roguelike_gambler_active
 		}

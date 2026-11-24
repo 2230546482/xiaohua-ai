@@ -25,6 +25,10 @@ flower_stock_init_market = {
 	set_variable = { global.flower_stk_regime = 3 }
 	set_variable = { global.flower_stk_hint = 1 }
 	set_variable = { global.flower_stk_month_cnt = 0 }
+	set_variable = { global.flower_stk_ai_flow_1 = 0 }
+	set_variable = { global.flower_stk_ai_flow_2 = 0 }
+	set_variable = { global.flower_stk_ai_flow_3 = 0 }
+	set_variable = { global.flower_stk_ai_flow_4 = 0 }
 	set_global_flag = { flag = flower_stk_monthly_cd days = 25 value = 1 }
 
 	every_country = {
@@ -48,6 +52,7 @@ flower_stock_recalc_country_pnl = {
 	else = {
 		set_variable = { flower_stk_1_avg = 0 }
 		set_variable = { flower_stk_1_cost = 0 }
+		set_variable = { flower_stk_1_loan = 0 }
 	}
 	set_variable = { flower_stk_1_pnl = flower_stk_1_shares }
 	multiply_variable = { flower_stk_1_pnl = global.flower_stk_1_price }
@@ -73,6 +78,7 @@ flower_stock_recalc_country_pnl = {
 	else = {
 		set_variable = { flower_stk_2_avg = 0 }
 		set_variable = { flower_stk_2_cost = 0 }
+		set_variable = { flower_stk_2_loan = 0 }
 	}
 	set_variable = { flower_stk_2_pnl = flower_stk_2_shares }
 	multiply_variable = { flower_stk_2_pnl = global.flower_stk_2_price }
@@ -98,6 +104,7 @@ flower_stock_recalc_country_pnl = {
 	else = {
 		set_variable = { flower_stk_3_avg = 0 }
 		set_variable = { flower_stk_3_cost = 0 }
+		set_variable = { flower_stk_3_loan = 0 }
 	}
 	set_variable = { flower_stk_3_pnl = flower_stk_3_shares }
 	multiply_variable = { flower_stk_3_pnl = global.flower_stk_3_price }
@@ -123,6 +130,7 @@ flower_stock_recalc_country_pnl = {
 	else = {
 		set_variable = { flower_stk_4_avg = 0 }
 		set_variable = { flower_stk_4_cost = 0 }
+		set_variable = { flower_stk_4_loan = 0 }
 	}
 	set_variable = { flower_stk_4_pnl = flower_stk_4_shares }
 	multiply_variable = { flower_stk_4_pnl = global.flower_stk_4_price }
@@ -176,9 +184,119 @@ flower_stock_check_milestones = {
 	}
 }
 
-#检查并执行本国空头爆仓强平
+#检查并执行本国杠杆多头与融券空头爆仓强平
 flower_stock_check_margin_calls = {
 	set_temp_variable = { did_margin_call = 0 }
+
+	# --- 杠杆多头爆仓强平（持仓市值跌破融资负债本金时强制斩仓还债） ---
+	if = {
+		limit = {
+			check_variable = { flower_stk_1_shares > 0 }
+			check_variable = { flower_stk_1_loan > 0 }
+		}
+		set_temp_variable = { l_val = flower_stk_1_shares }
+		multiply_temp_variable = { l_val = global.flower_stk_1_price }
+		if = {
+			limit = { NOT = { check_variable = { l_val > flower_stk_1_loan } } }
+			set_temp_variable = { l_pnl = l_val }
+			subtract_from_temp_variable = { l_pnl = flower_stk_1_cost }
+			add_to_variable = { ubs_save = l_val }
+			set_temp_variable = { l_rep = flower_stk_1_loan }
+			if = { limit = { check_variable = { l_rep > ubs_load } } set_temp_variable = { l_rep = ubs_load } }
+			if = {
+				limit = { check_variable = { l_rep > 0 } }
+				subtract_from_variable = { ubs_save = l_rep }
+				subtract_from_variable = { ubs_load = l_rep }
+			}
+			add_to_variable = { flower_stk_realized_pnl = l_pnl }
+			set_variable = { flower_stk_1_shares = 0 }
+			set_variable = { flower_stk_1_cost = 0 }
+			set_variable = { flower_stk_1_loan = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_2_shares > 0 }
+			check_variable = { flower_stk_2_loan > 0 }
+		}
+		set_temp_variable = { l_val = flower_stk_2_shares }
+		multiply_temp_variable = { l_val = global.flower_stk_2_price }
+		if = {
+			limit = { NOT = { check_variable = { l_val > flower_stk_2_loan } } }
+			set_temp_variable = { l_pnl = l_val }
+			subtract_from_temp_variable = { l_pnl = flower_stk_2_cost }
+			add_to_variable = { ubs_save = l_val }
+			set_temp_variable = { l_rep = flower_stk_2_loan }
+			if = { limit = { check_variable = { l_rep > ubs_load } } set_temp_variable = { l_rep = ubs_load } }
+			if = {
+				limit = { check_variable = { l_rep > 0 } }
+				subtract_from_variable = { ubs_save = l_rep }
+				subtract_from_variable = { ubs_load = l_rep }
+			}
+			add_to_variable = { flower_stk_realized_pnl = l_pnl }
+			set_variable = { flower_stk_2_shares = 0 }
+			set_variable = { flower_stk_2_cost = 0 }
+			set_variable = { flower_stk_2_loan = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_3_shares > 0 }
+			check_variable = { flower_stk_3_loan > 0 }
+		}
+		set_temp_variable = { l_val = flower_stk_3_shares }
+		multiply_temp_variable = { l_val = global.flower_stk_3_price }
+		if = {
+			limit = { NOT = { check_variable = { l_val > flower_stk_3_loan } } }
+			set_temp_variable = { l_pnl = l_val }
+			subtract_from_temp_variable = { l_pnl = flower_stk_3_cost }
+			add_to_variable = { ubs_save = l_val }
+			set_temp_variable = { l_rep = flower_stk_3_loan }
+			if = { limit = { check_variable = { l_rep > ubs_load } } set_temp_variable = { l_rep = ubs_load } }
+			if = {
+				limit = { check_variable = { l_rep > 0 } }
+				subtract_from_variable = { ubs_save = l_rep }
+				subtract_from_variable = { ubs_load = l_rep }
+			}
+			add_to_variable = { flower_stk_realized_pnl = l_pnl }
+			set_variable = { flower_stk_3_shares = 0 }
+			set_variable = { flower_stk_3_cost = 0 }
+			set_variable = { flower_stk_3_loan = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_4_shares > 0 }
+			check_variable = { flower_stk_4_loan > 0 }
+		}
+		set_temp_variable = { l_val = flower_stk_4_shares }
+		multiply_temp_variable = { l_val = global.flower_stk_4_price }
+		if = {
+			limit = { NOT = { check_variable = { l_val > flower_stk_4_loan } } }
+			set_temp_variable = { l_pnl = l_val }
+			subtract_from_temp_variable = { l_pnl = flower_stk_4_cost }
+			add_to_variable = { ubs_save = l_val }
+			set_temp_variable = { l_rep = flower_stk_4_loan }
+			if = { limit = { check_variable = { l_rep > ubs_load } } set_temp_variable = { l_rep = ubs_load } }
+			if = {
+				limit = { check_variable = { l_rep > 0 } }
+				subtract_from_variable = { ubs_save = l_rep }
+				subtract_from_variable = { ubs_load = l_rep }
+			}
+			add_to_variable = { flower_stk_realized_pnl = l_pnl }
+			set_variable = { flower_stk_4_shares = 0 }
+			set_variable = { flower_stk_4_cost = 0 }
+			set_variable = { flower_stk_4_loan = 0 }
+			add_to_variable = { flower_stk_margin_calls = 1 }
+			set_temp_variable = { did_margin_call = 1 }
+		}
+	}
 
 	if = {
 		limit = { check_variable = { flower_stk_1_short > 0 } }
@@ -344,8 +462,11 @@ flower_stock_monthly_tick = {
 	else_if = { limit = { check_variable = { global.flower_stk_regime = 4 } } set_temp_variable = { macro_bias = -6 } }
 	else_if = { limit = { check_variable = { global.flower_stk_regime = 5 } } set_temp_variable = { macro_bias = -15 } }
 
-	#2. 军工防务 (WAR)：紧跟全球紧张度与大战局势
+	#2. 军工防务 (WAR)：紧跟全球紧张度、大战局势与AI大户资金流
 	set_temp_variable = { d1 = macro_bias }
+	clamp_variable = { var = global.flower_stk_ai_flow_1 min = -5 max = 5 }
+	add_to_temp_variable = { d1 = global.flower_stk_ai_flow_1 }
+	set_variable = { global.flower_stk_ai_flow_1 = 0 }
 	if = { limit = { threat > 0.75 } add_to_temp_variable = { d1 = 7 } }
 	else_if = { limit = { threat > 0.40 } add_to_temp_variable = { d1 = 4 } }
 	else_if = { limit = { threat < 0.20 } add_to_temp_variable = { d1 = -2 } }
@@ -381,6 +502,9 @@ flower_stock_monthly_tick = {
 	#3. 基建重工 (IND)：稳健蓝筹，抗跌慢涨，半年派息 8 HCP/股
 	set_temp_variable = { d2 = macro_bias }
 	multiply_temp_variable = { d2 = 0.55 }
+	clamp_variable = { var = global.flower_stk_ai_flow_2 min = -4 max = 4 }
+	add_to_temp_variable = { d2 = global.flower_stk_ai_flow_2 }
+	set_variable = { global.flower_stk_ai_flow_2 = 0 }
 	if = { limit = { check_variable = { global.flower_stk_2_price > 260 } } add_to_temp_variable = { d2 = -4 } }
 	else_if = { limit = { check_variable = { global.flower_stk_2_price < 75 } } add_to_temp_variable = { d2 = 4 } }
 	random_list = {
@@ -413,6 +537,9 @@ flower_stock_monthly_tick = {
 	#4. 科技飞碟 (UFO)：高弹性成长股，牛市领涨，泡沫破裂大跌
 	set_temp_variable = { d3 = macro_bias }
 	multiply_temp_variable = { d3 = 1.35 }
+	clamp_variable = { var = global.flower_stk_ai_flow_3 min = -5 max = 5 }
+	add_to_temp_variable = { d3 = global.flower_stk_ai_flow_3 }
+	set_variable = { global.flower_stk_ai_flow_3 = 0 }
 	if = { limit = { date > 1938.6.1 } add_to_temp_variable = { d3 = 3 } }
 	if = { limit = { check_variable = { global.flower_stk_3_price > 420 } } add_to_temp_variable = { d3 = -8 } }
 	else_if = { limit = { check_variable = { global.flower_stk_3_price < 60 } } add_to_temp_variable = { d3 = 7 } }
@@ -446,6 +573,9 @@ flower_stock_monthly_tick = {
 	#5. 黑市期货 (FUT)：超高波动妖股，庄家拉盘与暴力砸盘并存
 	set_temp_variable = { d4 = macro_bias }
 	multiply_temp_variable = { d4 = 1.1 }
+	clamp_variable = { var = global.flower_stk_ai_flow_4 min = -6 max = 6 }
+	add_to_temp_variable = { d4 = global.flower_stk_ai_flow_4 }
+	set_variable = { global.flower_stk_ai_flow_4 = 0 }
 	if = { limit = { check_variable = { global.flower_stk_4_price > 280 } } add_to_temp_variable = { d4 = -12 } }
 	else_if = { limit = { check_variable = { global.flower_stk_4_price < 45 } } add_to_temp_variable = { d4 = 12 } }
 	random_list = {
@@ -524,7 +654,7 @@ flower_stock_monthly_tick = {
 		}
 	}
 
-	#8. 结算人类玩家爆仓、浮盈、里程碑与悬浮窗提醒；同步模拟主要AI实盘收益
+	#8. 结算人类玩家爆仓、浮盈、里程碑与悬浮窗提醒（AI交易已拆入各国错峰on_monthly，消除月初1号同帧卡顿尖峰）
 	every_country = {
 		limit = { is_ai = no }
 		flower_stock_check_margin_calls = yes
@@ -533,24 +663,6 @@ flower_stock_monthly_tick = {
 		if = {
 			limit = { NOT = { has_country_flag = flower_stock_gui_open } }
 			set_country_flag = flower_stk_new_tick_unread
-		}
-	}
-	every_country = {
-		limit = {
-			is_ai = yes
-			is_major = yes
-			NOT = { tag = ZDW }
-			NOT = { tag = WL1 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_stk_regime < 3 } }
-			add_to_variable = { ubs_save = 60 }
-			flower_ai_sync_hcp_ui = yes
-		}
-		else_if = {
-			limit = { check_variable = { global.flower_stk_regime = 5 } }
-			add_to_variable = { ubs_save = -45 }
-			flower_ai_sync_hcp_ui = yes
 		}
 	}
 }
@@ -625,6 +737,7 @@ flower_stk_1_lev_2 = {
 		limit = { NOT = { check_variable = { ubs_save < px } } }
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_1_loan = px }
 		add_to_variable = { flower_stk_1_shares = 2 }
 		add_to_variable = { flower_stk_1_cost = px }
 		add_to_variable = { flower_stk_1_cost = px }
@@ -642,9 +755,28 @@ flower_stk_1_sell_1 = {
 		set_temp_variable = { r_pnl = px }
 		subtract_from_temp_variable = { r_pnl = unit_c }
 		add_to_variable = { ubs_save = px }
+		if = {
+			limit = { check_variable = { flower_stk_1_loan > 0 } }
+			set_temp_variable = { unit_l = flower_stk_1_loan }
+			divide_temp_variable = { unit_l = flower_stk_1_shares }
+			round_temp_variable = unit_l
+			subtract_from_variable = { flower_stk_1_loan = unit_l }
+			if = { limit = { check_variable = { flower_stk_1_loan < 0 } } set_variable = { flower_stk_1_loan = 0 } }
+			set_temp_variable = { rep = unit_l }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		subtract_from_variable = { flower_stk_1_shares = 1 }
 		subtract_from_variable = { flower_stk_1_cost = unit_c }
-		if = { limit = { check_variable = { flower_stk_1_shares < 1 } } set_variable = { flower_stk_1_cost = 0 } }
+		if = {
+			limit = { check_variable = { flower_stk_1_shares < 1 } }
+			set_variable = { flower_stk_1_cost = 0 }
+			set_variable = { flower_stk_1_loan = 0 }
+		}
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -659,8 +791,19 @@ flower_stk_1_sell_all = {
 		set_temp_variable = { r_pnl = rev }
 		subtract_from_temp_variable = { r_pnl = flower_stk_1_cost }
 		add_to_variable = { ubs_save = rev }
+		if = {
+			limit = { check_variable = { flower_stk_1_loan > 0 } }
+			set_temp_variable = { rep = flower_stk_1_loan }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		set_variable = { flower_stk_1_shares = 0 }
 		set_variable = { flower_stk_1_cost = 0 }
+		set_variable = { flower_stk_1_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -751,6 +894,7 @@ flower_stk_2_lev_2 = {
 		limit = { NOT = { check_variable = { ubs_save < px } } }
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_2_loan = px }
 		add_to_variable = { flower_stk_2_shares = 2 }
 		add_to_variable = { flower_stk_2_cost = px }
 		add_to_variable = { flower_stk_2_cost = px }
@@ -768,9 +912,28 @@ flower_stk_2_sell_1 = {
 		set_temp_variable = { r_pnl = px }
 		subtract_from_temp_variable = { r_pnl = unit_c }
 		add_to_variable = { ubs_save = px }
+		if = {
+			limit = { check_variable = { flower_stk_2_loan > 0 } }
+			set_temp_variable = { unit_l = flower_stk_2_loan }
+			divide_temp_variable = { unit_l = flower_stk_2_shares }
+			round_temp_variable = unit_l
+			subtract_from_variable = { flower_stk_2_loan = unit_l }
+			if = { limit = { check_variable = { flower_stk_2_loan < 0 } } set_variable = { flower_stk_2_loan = 0 } }
+			set_temp_variable = { rep = unit_l }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		subtract_from_variable = { flower_stk_2_shares = 1 }
 		subtract_from_variable = { flower_stk_2_cost = unit_c }
-		if = { limit = { check_variable = { flower_stk_2_shares < 1 } } set_variable = { flower_stk_2_cost = 0 } }
+		if = {
+			limit = { check_variable = { flower_stk_2_shares < 1 } }
+			set_variable = { flower_stk_2_cost = 0 }
+			set_variable = { flower_stk_2_loan = 0 }
+		}
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -785,8 +948,19 @@ flower_stk_2_sell_all = {
 		set_temp_variable = { r_pnl = rev }
 		subtract_from_temp_variable = { r_pnl = flower_stk_2_cost }
 		add_to_variable = { ubs_save = rev }
+		if = {
+			limit = { check_variable = { flower_stk_2_loan > 0 } }
+			set_temp_variable = { rep = flower_stk_2_loan }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		set_variable = { flower_stk_2_shares = 0 }
 		set_variable = { flower_stk_2_cost = 0 }
+		set_variable = { flower_stk_2_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -877,6 +1051,7 @@ flower_stk_3_lev_2 = {
 		limit = { NOT = { check_variable = { ubs_save < px } } }
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_3_loan = px }
 		add_to_variable = { flower_stk_3_shares = 2 }
 		add_to_variable = { flower_stk_3_cost = px }
 		add_to_variable = { flower_stk_3_cost = px }
@@ -894,9 +1069,28 @@ flower_stk_3_sell_1 = {
 		set_temp_variable = { r_pnl = px }
 		subtract_from_temp_variable = { r_pnl = unit_c }
 		add_to_variable = { ubs_save = px }
+		if = {
+			limit = { check_variable = { flower_stk_3_loan > 0 } }
+			set_temp_variable = { unit_l = flower_stk_3_loan }
+			divide_temp_variable = { unit_l = flower_stk_3_shares }
+			round_temp_variable = unit_l
+			subtract_from_variable = { flower_stk_3_loan = unit_l }
+			if = { limit = { check_variable = { flower_stk_3_loan < 0 } } set_variable = { flower_stk_3_loan = 0 } }
+			set_temp_variable = { rep = unit_l }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		subtract_from_variable = { flower_stk_3_shares = 1 }
 		subtract_from_variable = { flower_stk_3_cost = unit_c }
-		if = { limit = { check_variable = { flower_stk_3_shares < 1 } } set_variable = { flower_stk_3_cost = 0 } }
+		if = {
+			limit = { check_variable = { flower_stk_3_shares < 1 } }
+			set_variable = { flower_stk_3_cost = 0 }
+			set_variable = { flower_stk_3_loan = 0 }
+		}
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -911,8 +1105,19 @@ flower_stk_3_sell_all = {
 		set_temp_variable = { r_pnl = rev }
 		subtract_from_temp_variable = { r_pnl = flower_stk_3_cost }
 		add_to_variable = { ubs_save = rev }
+		if = {
+			limit = { check_variable = { flower_stk_3_loan > 0 } }
+			set_temp_variable = { rep = flower_stk_3_loan }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		set_variable = { flower_stk_3_shares = 0 }
 		set_variable = { flower_stk_3_cost = 0 }
+		set_variable = { flower_stk_3_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -1003,6 +1208,7 @@ flower_stk_4_lev_2 = {
 		limit = { NOT = { check_variable = { ubs_save < px } } }
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { ubs_load = px }
+		add_to_variable = { flower_stk_4_loan = px }
 		add_to_variable = { flower_stk_4_shares = 2 }
 		add_to_variable = { flower_stk_4_cost = px }
 		add_to_variable = { flower_stk_4_cost = px }
@@ -1020,9 +1226,28 @@ flower_stk_4_sell_1 = {
 		set_temp_variable = { r_pnl = px }
 		subtract_from_temp_variable = { r_pnl = unit_c }
 		add_to_variable = { ubs_save = px }
+		if = {
+			limit = { check_variable = { flower_stk_4_loan > 0 } }
+			set_temp_variable = { unit_l = flower_stk_4_loan }
+			divide_temp_variable = { unit_l = flower_stk_4_shares }
+			round_temp_variable = unit_l
+			subtract_from_variable = { flower_stk_4_loan = unit_l }
+			if = { limit = { check_variable = { flower_stk_4_loan < 0 } } set_variable = { flower_stk_4_loan = 0 } }
+			set_temp_variable = { rep = unit_l }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		subtract_from_variable = { flower_stk_4_shares = 1 }
 		subtract_from_variable = { flower_stk_4_cost = unit_c }
-		if = { limit = { check_variable = { flower_stk_4_shares < 1 } } set_variable = { flower_stk_4_cost = 0 } }
+		if = {
+			limit = { check_variable = { flower_stk_4_shares < 1 } }
+			set_variable = { flower_stk_4_cost = 0 }
+			set_variable = { flower_stk_4_loan = 0 }
+		}
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -1037,8 +1262,19 @@ flower_stk_4_sell_all = {
 		set_temp_variable = { r_pnl = rev }
 		subtract_from_temp_variable = { r_pnl = flower_stk_4_cost }
 		add_to_variable = { ubs_save = rev }
+		if = {
+			limit = { check_variable = { flower_stk_4_loan > 0 } }
+			set_temp_variable = { rep = flower_stk_4_loan }
+			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
+			if = {
+				limit = { check_variable = { rep > 0 } }
+				subtract_from_variable = { ubs_save = rep }
+				subtract_from_variable = { ubs_load = rep }
+			}
+		}
 		set_variable = { flower_stk_4_shares = 0 }
 		set_variable = { flower_stk_4_cost = 0 }
+		set_variable = { flower_stk_4_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
 		flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
@@ -1170,6 +1406,305 @@ flower_stk_buy_factory_action = {
 					level = 1
 					instant_build = yes
 				}
+			}
+		}
+	}
+}
+
+# ==============================================================================
+# 真·AI 实盘炒股系统（与玩家共享同一套资金、多空、杠杆爆仓、股神/天台与盈利购厂规则）
+# ==============================================================================
+flower_stock_ai_monthly_trade = {
+	#0. 首次参股时按国情与性格分配投资风格：1=战火军工派 2=稳健蓝筹派 3=杠杆赌狗派
+	if = {
+		limit = { check_variable = { flower_ai_stk_style < 1 } }
+		random_list = {
+			35 = {
+				modifier = { factor = 2.0 OR = { has_government = fascism has_war = yes } }
+				set_variable = { flower_ai_stk_style = 1 }
+			}
+			40 = {
+				modifier = { factor = 1.8 OR = { has_government = democratic has_government = neutrality } }
+				set_variable = { flower_ai_stk_style = 2 }
+			}
+			25 = {
+				modifier = { factor = 1.5 num_of_factories > 55 }
+				set_variable = { flower_ai_stk_style = 3 }
+			}
+		}
+	}
+
+	#1. 先按真实行情执行空头爆仓强平、重算浮盈、检查【一代股神】与【天台排队中】里程碑
+	flower_stock_check_margin_calls = yes
+	flower_stock_recalc_country_pnl = yes
+	flower_stock_check_milestones = yes
+
+	#1b. 杠杆多头风控：大盘阴跌/熔断且背负杠杆债、浮亏过深时真实砍仓还债（绝不白嫖）
+	if = {
+		limit = {
+			check_variable = { ubs_load > 80 }
+			check_variable = { global.flower_stk_regime > 3 }
+			check_variable = { flower_stk_unrealized_pnl < -260 }
+		}
+		flower_stk_liquidate_everything = yes
+		# 偿还部分杠杆债
+		if = {
+			limit = {
+				check_variable = { ubs_save > 120 }
+				check_variable = { ubs_load > 0 }
+			}
+			set_temp_variable = { ai_repay = ubs_load }
+			if = {
+				limit = { check_variable = { ai_repay > ubs_save } }
+				set_temp_variable = { ai_repay = ubs_save }
+				subtract_from_temp_variable = { ai_repay = 80 }
+			}
+			if = {
+				limit = { check_variable = { ai_repay > 0 } }
+				subtract_from_variable = { ubs_save = ai_repay }
+				subtract_from_variable = { ubs_load = ai_repay }
+				flower_ai_sync_hcp_ui = yes
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { global.flower_stk_regime = 5 }
+				NOT = { has_idea = flower_stock_rooftop_idea }
+			}
+			add_timed_idea = {
+				idea = flower_stock_rooftop_idea
+				days = 180
+			}
+		}
+	}
+
+	#2. 盈利购厂：真赚到钱且留足安全垫，按同一冷却规则扣 500 HCP 瞬建 1军+1民
+	if = {
+		limit = {
+			NOT = { has_country_flag = flower_stk_buy_factory_cd }
+			check_variable = { ubs_save > 720 }
+			check_variable = { flower_stk_realized_pnl > 199 }
+		}
+		flower_stk_buy_factory_action = yes
+	}
+
+	#3. 主动止盈 & 风险平仓（多头高抛 / 空头见好就收 / 熔断预警逃顶）
+	# --- 股票1：军工防务 ---
+	if = {
+		limit = {
+			check_variable = { flower_stk_1_shares > 0 }
+			OR = {
+				check_variable = { flower_stk_1_pnl > 160 }
+				check_variable = { global.flower_stk_1_price > 340 }
+				AND = {
+					check_variable = { global.flower_stk_hint = 6 }
+					NOT = { check_variable = { flower_ai_stk_style = 3 } }
+				}
+			}
+		}
+		flower_stk_1_sell_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_1 = -1 }
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_1_short > 0 }
+			OR = {
+				check_variable = { flower_stk_1_pnl > 110 }
+				check_variable = { global.flower_stk_regime < 3 }
+				check_variable = { global.flower_stk_hint = 1 }
+				check_variable = { global.flower_stk_hint = 5 }
+			}
+		}
+		flower_stk_1_cover_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_1 = 1 }
+	}
+
+	# --- 股票2：基建重工 ---
+	if = {
+		limit = {
+			check_variable = { flower_stk_2_shares > 0 }
+			OR = {
+				check_variable = { flower_stk_2_pnl > 140 }
+				check_variable = { global.flower_stk_2_price > 250 }
+				check_variable = { global.flower_stk_hint = 6 }
+			}
+		}
+		flower_stk_2_sell_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_2 = -1 }
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_2_short > 0 }
+			OR = {
+				check_variable = { flower_stk_2_pnl > 90 }
+				check_variable = { global.flower_stk_regime < 3 }
+				check_variable = { global.flower_stk_hint = 2 }
+				check_variable = { global.flower_stk_hint = 5 }
+			}
+		}
+		flower_stk_2_cover_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_2 = 1 }
+	}
+
+	# --- 股票3：科技飞碟 ---
+	if = {
+		limit = {
+			check_variable = { flower_stk_3_shares > 0 }
+			OR = {
+				check_variable = { flower_stk_3_pnl > 190 }
+				check_variable = { global.flower_stk_3_price > 370 }
+				check_variable = { global.flower_stk_hint = 6 }
+			}
+		}
+		flower_stk_3_sell_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_3 = -1 }
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_3_short > 0 }
+			OR = {
+				check_variable = { flower_stk_3_pnl > 130 }
+				check_variable = { global.flower_stk_regime < 3 }
+				check_variable = { global.flower_stk_hint = 5 }
+			}
+		}
+		flower_stk_3_cover_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_3 = 1 }
+	}
+
+	# --- 股票4：黑市期货 ---
+	if = {
+		limit = {
+			check_variable = { flower_stk_4_shares > 0 }
+			OR = {
+				check_variable = { flower_stk_4_pnl > 170 }
+				check_variable = { global.flower_stk_4_price > 240 }
+				check_variable = { global.flower_stk_hint = 6 }
+			}
+		}
+		flower_stk_4_sell_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_4 = -1 }
+	}
+	if = {
+		limit = {
+			check_variable = { flower_stk_4_short > 0 }
+			OR = {
+				check_variable = { flower_stk_4_pnl > 120 }
+				check_variable = { global.flower_stk_regime < 3 }
+				check_variable = { global.flower_stk_hint = 4 }
+				check_variable = { global.flower_stk_hint = 5 }
+			}
+		}
+		flower_stk_4_cover_all = yes
+		add_to_variable = { global.flower_stk_ai_flow_4 = 1 }
+	}
+
+	#4. 真金白银建仓（仅在国库有余钱且债务可控时进场，绝不搞垮AI正常战争经济）
+	if = {
+		limit = {
+			check_variable = { ubs_save > 260 }
+			check_variable = { ubs_load < 400 }
+		}
+		random_list = {
+			# 建仓军工防务
+			24 = {
+				modifier = { factor = 2.4 check_variable = { flower_ai_stk_style = 1 } }
+				modifier = { factor = 1.8 has_war = yes }
+				modifier = { factor = 2.2 check_variable = { global.flower_stk_hint = 1 } }
+				modifier = { factor = 0.25 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 0.2 check_variable = { flower_stk_1_shares > 5 } }
+				if = {
+					limit = {
+						check_variable = { flower_ai_stk_style = 3 }
+						check_variable = { global.flower_stk_regime < 3 }
+						check_variable = { ubs_load < 200 }
+					}
+					flower_stk_1_lev_2 = yes
+				}
+				else = {
+					flower_stk_1_buy_1 = yes
+				}
+				add_to_variable = { global.flower_stk_ai_flow_1 = 1 }
+			}
+			# 建仓基建重工
+			24 = {
+				modifier = { factor = 2.4 check_variable = { flower_ai_stk_style = 2 } }
+				modifier = { factor = 1.6 has_war = no }
+				modifier = { factor = 2.2 check_variable = { global.flower_stk_hint = 2 } }
+				modifier = { factor = 0.3 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 0.2 check_variable = { flower_stk_2_shares > 6 } }
+				flower_stk_2_buy_1 = yes
+				add_to_variable = { global.flower_stk_ai_flow_2 = 1 }
+			}
+			# 建仓科技飞碟
+			20 = {
+				modifier = { factor = 1.7 num_of_factories > 50 }
+				modifier = { factor = 1.8 check_variable = { global.flower_stk_hint = 3 } }
+				modifier = { factor = 1.5 check_variable = { global.flower_stk_hint = 5 } }
+				modifier = { factor = 0.25 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 0.2 check_variable = { flower_stk_3_shares > 5 } }
+				if = {
+					limit = {
+						check_variable = { flower_ai_stk_style = 3 }
+						check_variable = { ubs_load < 220 }
+					}
+					flower_stk_3_lev_2 = yes
+				}
+				else = {
+					flower_stk_3_buy_1 = yes
+				}
+				add_to_variable = { global.flower_stk_ai_flow_3 = 1 }
+			}
+			# 建仓黑市期货（赌狗派与抄底派最爱）
+			16 = {
+				modifier = { factor = 2.8 check_variable = { flower_ai_stk_style = 3 } }
+				modifier = { factor = 2.4 check_variable = { global.flower_stk_hint = 4 } }
+				modifier = { factor = 1.6 check_variable = { global.flower_stk_4_price < 75 } }
+				modifier = { factor = 0.2 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 0.2 check_variable = { flower_stk_4_shares > 5 } }
+				if = {
+					limit = {
+						check_variable = { flower_ai_stk_style = 3 }
+						check_variable = { ubs_load < 250 }
+					}
+					flower_stk_4_lev_2 = yes
+				}
+				else = {
+					flower_stk_4_buy_1 = yes
+				}
+				add_to_variable = { global.flower_stk_ai_flow_4 = 1 }
+			}
+			# 融券做空（熊市/熔断预警/泡沫高位时，AI也会真实进场做空！）
+			12 = {
+				modifier = { factor = 3.2 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 2.2 check_variable = { global.flower_stk_regime > 3 } }
+				modifier = { factor = 1.8 check_variable = { flower_ai_stk_style = 3 } }
+				modifier = { factor = 0.2 check_variable = { global.flower_stk_regime < 3 } }
+				if = {
+					limit = {
+						check_variable = { global.flower_stk_4_price > 160 }
+						check_variable = { flower_stk_4_short < 4 }
+					}
+					flower_stk_4_short_1 = yes
+					add_to_variable = { global.flower_stk_ai_flow_4 = -1 }
+				}
+				else_if = {
+					limit = {
+						check_variable = { global.flower_stk_3_price > 210 }
+						check_variable = { flower_stk_3_short < 4 }
+					}
+					flower_stk_3_short_1 = yes
+					add_to_variable = { global.flower_stk_ai_flow_3 = -1 }
+				}
+				else_if = {
+					limit = { check_variable = { flower_stk_1_short < 3 } }
+					flower_stk_1_short_1 = yes
+					add_to_variable = { global.flower_stk_ai_flow_1 = -1 }
+				}
+			}
+			# 持币观望
+			14 = {
+				modifier = { factor = 2.0 check_variable = { global.flower_stk_regime = 3 } }
 			}
 		}
 	}

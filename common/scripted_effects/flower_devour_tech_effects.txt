@@ -453,7 +453,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#PAU白夜军团：白夜伞降轻装甲三件套
+	#PAU白夜军团：白夜伞降轻装甲三件套 + 伞兵科技保底 + 空投战车图纸与空降装甲旅编制
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -467,10 +467,52 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_country_flag = flower_devour_pack_pau
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
+			paratroopers = 1
 			PAU_airborne_light_armor_tech = 1
 			PAU_airborne_armor_glider_tech = 1
 			PAU_airborne_armor_drop_pod_tech = 1
 			popup = yes
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+					has_tech = basic_light_tank_chassis
+					NOT = { has_country_flag = PAU_airborne_tank_variant_created }
+				}
+				set_country_flag = PAU_airborne_tank_variant_created
+				create_equipment_variant = {
+					name = "白夜空投轻战车"
+					type = light_tank_chassis_1
+					parent_version = 0
+					modules = {
+						main_armament_slot = tank_small_cannon
+						turret_type_slot = tank_light_two_man_tank_turret
+						suspension_type_slot = tank_bogie_suspension
+						armor_type_slot = tank_riveted_armor
+						engine_type_slot = tank_gasoline_engine
+					}
+					upgrades = {
+						tank_nsb_engine_upgrade = 5
+						tank_nsb_armor_upgrade = 2
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { has_template = "白夜伞降轻装甲旅" } }
+				division_template = {
+					name = "白夜伞降轻装甲旅"
+					regiments = {
+						PAU_airborne_light_armor = { x = 0 y = 0 }
+						PAU_airborne_light_armor = { x = 0 y = 1 }
+						PAU_airborne_light_armor = { x = 1 y = 0 }
+						PAU_airborne_light_armor = { x = 1 y = 1 }
+						paratrooper = { x = 2 y = 0 }
+						paratrooper = { x = 2 y = 1 }
+					}
+					priority = 2
+				}
+			}
 		}
 	}
 

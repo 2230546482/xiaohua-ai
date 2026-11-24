@@ -202,7 +202,7 @@ guiTypes = {
 			name = "flower_anomaly_section_title"
 			position = { x = 38 y = 165 }
 			font = "flower_a4_18"
-			text = "FLOWER_ANOMALY_GUI_SECTION_TITLE"
+			text = "[GetFlowerAnomalySectionTitle]"
 			maxWidth = 480
 			maxHeight = 22
 			format = left
@@ -349,13 +349,141 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#底部状态栏与猫猫蝴蝶结彩蛋
+		#第2页：新增六大开局畸变卡片（7~12号，同3列x2行宽敞布局，专属热梗音效）
+		buttonType = {
+			name = "flower_anomaly_card_7_btn"
+			position = { x = 28 y = 208 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_7"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_7_TT"
+			clicksound = flower_sfx_anomaly_7_ziwen
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_7_status"
+			position = { x = 64 y = 347 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard7Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_card_8_btn"
+			position = { x = 322 y = 208 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_8"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_8_TT"
+			clicksound = flower_sfx_anomaly_8_yemen
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_8_status"
+			position = { x = 358 y = 347 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard8Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_card_9_btn"
+			position = { x = 616 y = 208 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_9"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_9_TT"
+			clicksound = flower_sfx_anomaly_9_pinhaofan
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_9_status"
+			position = { x = 652 y = 347 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard9Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_card_10_btn"
+			position = { x = 28 y = 402 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_10"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_10_TT"
+			clicksound = flower_sfx_anomaly_10_congrong
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_10_status"
+			position = { x = 64 y = 541 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard10Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_card_11_btn"
+			position = { x = 322 y = 402 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_11"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_11_TT"
+			clicksound = flower_sfx_anomaly_11_manba
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_11_status"
+			position = { x = 358 y = 541 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard11Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_card_12_btn"
+			position = { x = 616 y = 402 }
+			quadTextureSprite = "GFX_flower_grand_anomaly_12"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CARD_12_TT"
+			clicksound = flower_sfx_anomaly_12_look_eyes
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_card_12_status"
+			position = { x = 652 y = 541 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyCard12Status]"
+			maxWidth = 204
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#底部状态栏、猫猫蝴蝶结彩蛋与翻页钮
 		instantTextBoxType = {
 			name = "flower_anomaly_footer_text"
 			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyFooterText]"
-			maxWidth = 640
+			maxWidth = 446
 			maxHeight = 20
 			format = left
 			fixedsize = yes
@@ -363,7 +491,7 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "flower_anomaly_bow_btn"
-			position = { x = 702 y = 607 }
+			position = { x = 504 y = 607 }
 			quadTextureSprite = "GFX_flower_btn_bow"
 			buttonFont = "flower_a4_16"
 			buttonText = ""
@@ -373,9 +501,30 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_bow_lbl"
-			position = { x = 724 y = 615 }
+			position = { x = 526 y = 615 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_BOW_BTN_TEXT"
+			maxWidth = 154
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_anomaly_page_btn"
+			position = { x = 702 y = 607 }
+			quadTextureSprite = "GFX_flower_btn_page_nav"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_PAGE_BTN_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_page_lbl"
+			position = { x = 724 y = 615 }
+			font = "flower_a4_16"
+			text = "[GetFlowerAnomalyPageBtnText]"
 			maxWidth = 154
 			maxHeight = 20
 			format = center

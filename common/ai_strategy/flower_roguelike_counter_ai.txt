@@ -6,8 +6,9 @@
 
 #对位反制：敌方人类玩家走装甲闪电战 -> 强化反坦克炮与重火力产线
 flower_counter_player_armor_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_war = yes
 		num_of_factories > 20
@@ -37,8 +38,9 @@ flower_counter_player_armor_strat = {
 
 #对位反制：敌方人类玩家走空军洗地 -> 强化防空炮、截击战斗机与本土防空阵地
 flower_counter_player_air_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_war = yes
 		num_of_factories > 20
@@ -78,8 +80,9 @@ flower_counter_player_air_strat = {
 
 #对位反制：敌方人类玩家走步兵人海/游击/敢死队 -> 强化火炮软攻与密接支援机压制
 flower_counter_player_infantry_swarm_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_war = yes
 		num_of_factories > 25
@@ -113,8 +116,9 @@ flower_counter_player_infantry_swarm_strat = {
 
 #对位反制：敌方人类玩家走重炮洗地 -> 强化装甲突破与空军轰炸压制炮兵阵地
 flower_counter_player_arty_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_war = yes
 		num_of_factories > 30
@@ -148,8 +152,9 @@ flower_counter_player_arty_strat = {
 
 #流派10分支10A（少师精锐）：师数逼近48师阈值时强力控军，压过默认扩军与爆兵副流派，保住高额少师精锐加成
 flower_branch_10a_elite_cap_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_magic_chosen_idea
 		num_divisions > 41
@@ -168,8 +173,9 @@ flower_branch_10a_elite_cap_strat = {
 
 #流派10分支10B（特种大军）：解除少师限制后大胆扩军并提高特种师比例
 flower_branch_10b_grand_specops_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_magic_grimoire_idea
 	}
@@ -188,8 +194,9 @@ flower_branch_10b_grand_specops_strat = {
 
 #流派3分支3B（高速机动火炮）：补强摩托化装备产线支撑机动火炮师
 flower_branch_3b_mobile_arty_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_arty_mobile_idea
 	}
@@ -209,8 +216,9 @@ flower_branch_3b_mobile_arty_strat = {
 
 #流派4分支4A（极速时停闪击）：强化炼油厂与摩托化补给支撑高机动穿插
 flower_branch_4a_blitz_fuel_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_tank_timestop_idea
 	}
@@ -230,8 +238,9 @@ flower_branch_4a_blitz_fuel_strat = {
 
 #流派4分支4B（重装阵地平推）：拉满坦克与重炮产线稳扎稳打
 flower_branch_4b_heavy_armor_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_tank_fortress_idea
 	}

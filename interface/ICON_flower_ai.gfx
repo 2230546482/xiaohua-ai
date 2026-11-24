@@ -1116,6 +1116,42 @@ spriteTypes = {
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
 	spriteType = {
+		name = "GFX_flower_grand_anomaly_7"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_7.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_8"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_8.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_9"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_9.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_10"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_10.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_11"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_11.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_grand_anomaly_12"
+		texturefile = "gfx/interface/gui/flower_ui/flower_grand_anomaly_12.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
 		name = "GFX_flower_grand_arch_1"
 		texturefile = "gfx/interface/gui/flower_ui/flower_grand_arch_1.png"
 		legacy_lazy_load = no
@@ -1222,5 +1258,29 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_flower_ico_micro_revive"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_revive_lover.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_7_ziwen"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_7_ziwen.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_8_yemen"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_8_yemen.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_9_pinhaofan"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_9_pinhaofan.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_10_congrong"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_10_congrong.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_11_manba"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_11_manba.png"
+	}
+	spriteType = {
+		name = "GFX_idea_flower_anom_12_look_eyes"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_12_look_eyes.png"
 	}
 }

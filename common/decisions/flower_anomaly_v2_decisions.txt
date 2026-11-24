@@ -1,0 +1,72 @@
+flower_anomaly_v2_ops_cat = {
+	#畸变7主动决议：【三军听令，自刎归天！】（30天孤注一掷爆发，到期后60天强弩之末）
+	flower_anom7_ziwen_charge_dec = {
+		icon = generic_ignite_civil_war
+		visible = {
+			has_global_flag = flower_anomaly_7_active
+		}
+		available = {
+			has_war = yes
+			NOT = { has_idea = flower_anom7_exhausted_idea }
+		}
+		cost = 25
+		days_remove = 30
+		days_re_enable = 180
+		ai_check_interval = 120
+		modifier = {
+			army_attack_factor = 0.25
+			breakthrough_factor = 0.25
+			org_loss_when_moving = -0.50
+			army_morale_factor = 0.30
+		}
+		complete_effect = {
+			if = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_7_ziwen" }
+			}
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = flower_anom7_exhausted_idea
+				days = 60
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				has_war = yes
+				surrender_progress > 0.25
+			}
+		}
+	}
+
+	#畸变8主动决议：【大喊：我是爷们儿！】（玩家专属0消耗战时主动拍桌爆发60天，冷却120天；AI走月度自动触发）
+	flower_anom8_yemen_roar_dec = {
+		icon = generic_army_support
+		visible = {
+			has_global_flag = flower_anomaly_8_active
+			is_ai = no
+		}
+		available = {
+			has_war = yes
+			NOT = { has_country_flag = flower_anom8_boast_cd }
+		}
+		cost = 0
+		days_re_enable = 120
+		complete_effect = {
+			set_country_flag = { flag = flower_anom8_boast_cd days = 120 value = 1 }
+			add_timed_idea = {
+				idea = flower_anom8_boast_idea
+				days = 60
+			}
+			if = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_8_yemen" }
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}

@@ -1,0 +1,582 @@
+#==============================================================================
+# 新增6大开局畸变（7~12号）完整运行引擎（零送枪零刷师、零移除将领、零弹窗骚扰）
+#==============================================================================
+
+#为单个国家补挂当前已激活的7~12号全局畸变初始精神与前置科技
+flower_ai_sync_country_anomalies_v2 = {
+	if = {
+		limit = {
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_7_active
+				NOT = { has_idea = flower_anom7_base_idea }
+			}
+			add_ideas = flower_anom7_base_idea
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_8_active
+				NOT = { has_idea = flower_anom8_base_idea }
+			}
+			add_ideas = flower_anom8_base_idea
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_9_active
+				NOT = { has_idea = flower_anom9_base_idea }
+			}
+			add_ideas = flower_anom9_base_idea
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_10_active
+				NOT = {
+					has_idea = flower_anom10_calm_idea
+					has_idea = flower_anom10_war_idea
+				}
+			}
+			if = {
+				limit = { has_war = yes }
+				add_ideas = flower_anom10_war_idea
+			}
+			else = {
+				add_ideas = flower_anom10_calm_idea
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_11_active
+			}
+			if = {
+				limit = { NOT = { has_idea = flower_anom11_base_idea } }
+				add_ideas = flower_anom11_base_idea
+			}
+			if = {
+				limit = { NOT = { has_country_flag = flower_anom11_techs_given } }
+				set_country_flag = flower_anom11_techs_given
+				hidden_effect = {
+					set_technology = {
+						paratroopers = 1
+						marines = 1
+						popup = no
+					}
+					if = {
+						limit = { has_dlc = "Man the Guns" }
+						set_technology = { mtg_transport = 1 popup = no }
+					}
+					else = {
+						set_technology = { transport = 1 popup = no }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_12_active
+				NOT = { has_idea = flower_anom12_base_idea }
+			}
+			add_ideas = flower_anom12_base_idea
+		}
+	}
+}
+
+#投票结算瞬间统一激活7~12号全局畸变
+flower_ai_activate_anomalies_v2 = {
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = flower_anomaly_7_active
+				has_global_flag = flower_anomaly_8_active
+				has_global_flag = flower_anomaly_9_active
+				has_global_flag = flower_anomaly_10_active
+				has_global_flag = flower_anomaly_11_active
+				has_global_flag = flower_anomaly_12_active
+			}
+		}
+		every_country = {
+			flower_ai_sync_country_anomalies_v2 = yes
+		}
+		#若开启畸变9《全员拼好饭》，错峰15天在首个自然月度结算送出第一盒外卖，避免与开局结算音效叠音
+		if = {
+			limit = { has_global_flag = flower_anomaly_9_active }
+			set_global_flag = { flag = flower_anom9_box_cd days = 15 value = 1 }
+		}
+	}
+}
+
+#畸变9：每90天全图同步开盒1种外卖战地状态（持续90天无缝轮换，零送枪零刷师、零弹窗）
+flower_ai_anom9_roll_global_takeout = {
+	random_list = {
+		34 = {
+			every_country = {
+				limit = { NOT = { tag = ZDW tag = WL1 } }
+				add_timed_idea = { idea = flower_anom9_meal_chicken_idea days = 90 }
+			}
+			every_country = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				set_temp_variable = { temp_alert_id = 922 }
+				set_temp_variable = { temp_tag = THIS.id }
+				set_temp_variable = { temp_tag2 = THIS.id }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+		33 = {
+			every_country = {
+				limit = { NOT = { tag = ZDW tag = WL1 } }
+				add_timed_idea = { idea = flower_anom9_meal_tech_idea days = 90 }
+			}
+			every_country = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				set_temp_variable = { temp_alert_id = 923 }
+				set_temp_variable = { temp_tag = THIS.id }
+				set_temp_variable = { temp_tag2 = THIS.id }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+		33 = {
+			every_country = {
+				limit = { NOT = { tag = ZDW tag = WL1 } }
+				add_timed_idea = { idea = flower_anom9_meal_late_idea days = 90 }
+			}
+			every_country = {
+				limit = { is_ai = no }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				set_temp_variable = { temp_alert_id = 924 }
+				set_temp_variable = { temp_tag = THIS.id }
+				set_temp_variable = { temp_tag2 = THIS.id }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+	}
+}
+
+#畸变7：单国实时重算【骄兵必败】与三阶【哀兵必胜】（月度巡检与丢核心省瞬间双端调用）
+flower_ai_anom7_refresh_tiers = {
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_7_active
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+		}
+		if = {
+			limit = { has_war = no }
+			if = { limit = { has_idea = flower_anom7_arrogant_idea } remove_ideas = flower_anom7_arrogant_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_1_idea } remove_ideas = flower_anom7_desperate_1_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_2_idea } remove_ideas = flower_anom7_desperate_2_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
+		}
+		else_if = {
+			limit = { surrender_progress > 0.60 }
+			if = { limit = { has_idea = flower_anom7_arrogant_idea } remove_ideas = flower_anom7_arrogant_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_1_idea } remove_ideas = flower_anom7_desperate_1_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_2_idea } remove_ideas = flower_anom7_desperate_2_idea }
+			if = { limit = { NOT = { has_idea = flower_anom7_desperate_3_idea } } add_ideas = flower_anom7_desperate_3_idea }
+		}
+		else_if = {
+			limit = { surrender_progress > 0.40 }
+			if = { limit = { has_idea = flower_anom7_arrogant_idea } remove_ideas = flower_anom7_arrogant_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_1_idea } remove_ideas = flower_anom7_desperate_1_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
+			if = { limit = { NOT = { has_idea = flower_anom7_desperate_2_idea } } add_ideas = flower_anom7_desperate_2_idea }
+		}
+		else_if = {
+			limit = { surrender_progress > 0.20 }
+			if = { limit = { has_idea = flower_anom7_arrogant_idea } remove_ideas = flower_anom7_arrogant_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_2_idea } remove_ideas = flower_anom7_desperate_2_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
+			if = { limit = { NOT = { has_idea = flower_anom7_desperate_1_idea } } add_ideas = flower_anom7_desperate_1_idea }
+		}
+		else_if = {
+			limit = { surrender_progress < 0.05 }
+			set_temp_variable = { anom7_occ_cnt = 0 }
+			every_controlled_state = {
+				limit = { NOT = { is_owned_by = PREV } }
+				add_to_temp_variable = { anom7_occ_cnt = 1 }
+			}
+			if = { limit = { has_idea = flower_anom7_desperate_1_idea } remove_ideas = flower_anom7_desperate_1_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_2_idea } remove_ideas = flower_anom7_desperate_2_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
+			if = {
+				limit = {
+					check_variable = { anom7_occ_cnt > 2 }
+					NOT = { has_idea = flower_anom7_arrogant_idea }
+				}
+				add_ideas = flower_anom7_arrogant_idea
+			}
+			else_if = {
+				limit = {
+					check_variable = { anom7_occ_cnt < 3 }
+					has_idea = flower_anom7_arrogant_idea
+				}
+				remove_ideas = flower_anom7_arrogant_idea
+			}
+		}
+		else = {
+			if = { limit = { has_idea = flower_anom7_arrogant_idea } remove_ideas = flower_anom7_arrogant_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_1_idea } remove_ideas = flower_anom7_desperate_1_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_2_idea } remove_ideas = flower_anom7_desperate_2_idea }
+			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
+		}
+	}
+}
+
+#月度巡检7~12号畸变动态机制（未开任何新畸变时顶层秒跳过，零性能开销）
+flower_ai_tick_anomalies_v2_monthly = {
+	if = {
+		limit = {
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+			OR = {
+				has_global_flag = flower_anomaly_7_active
+				has_global_flag = flower_anomaly_8_active
+				has_global_flag = flower_anomaly_9_active
+				has_global_flag = flower_anomaly_10_active
+				has_global_flag = flower_anomaly_11_active
+				has_global_flag = flower_anomaly_12_active
+			}
+		}
+		flower_ai_sync_country_anomalies_v2 = yes
+
+		#--- 畸变7：骄兵必败 / 哀兵必胜 三档实时切换 ---
+		if = {
+			limit = { has_global_flag = flower_anomaly_7_active }
+			flower_ai_anom7_refresh_tiers = yes
+		}
+
+		#--- 畸变8：仅AI国家在战时劣势或低稳态自动嘴硬反弹（人类玩家保留0消耗手动拍桌按钮！）---
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_8_active
+				is_ai = yes
+				has_war = yes
+				NOT = { has_country_flag = flower_anom8_boast_cd }
+			}
+			set_temp_variable = { anom8_strong_enemy_th = num_of_factories }
+			multiply_temp_variable = { anom8_strong_enemy_th = 1.5 }
+			if = {
+				limit = {
+					OR = {
+						has_stability < 0.50
+						surrender_progress > 0.15
+						any_enemy_country = {
+							check_variable = { num_of_factories > anom8_strong_enemy_th }
+						}
+					}
+				}
+				set_country_flag = { flag = flower_anom8_boast_cd days = 120 value = 1 }
+				add_timed_idea = { idea = flower_anom8_boast_idea days = 60 }
+			}
+		}
+
+		#--- 畸变9：全局每90天定时开盒全图外卖状态（全局仅执行1次，无缝衔接）---
+		if = {
+			limit = {
+				has_global_flag = flower_anomaly_9_active
+				NOT = { has_global_flag = flower_anom9_box_cd }
+			}
+			set_global_flag = { flag = flower_anom9_box_cd days = 90 value = 1 }
+			flower_ai_anom9_roll_global_takeout = yes
+		}
+
+		#--- 畸变10：和平【从从容容】与战时【扛厂跑路体制】平滑切换 ---
+		if = {
+			limit = { has_global_flag = flower_anomaly_10_active }
+			if = {
+				limit = { has_war = no }
+				if = { limit = { has_idea = flower_anom10_war_idea } remove_ideas = flower_anom10_war_idea }
+				if = { limit = { NOT = { has_idea = flower_anom10_calm_idea } } add_ideas = flower_anom10_calm_idea }
+			}
+			else = {
+				if = { limit = { has_idea = flower_anom10_calm_idea } remove_ideas = flower_anom10_calm_idea }
+				if = { limit = { NOT = { has_idea = flower_anom10_war_idea } } add_ideas = flower_anom10_war_idea }
+			}
+		}
+	}
+}
+
+#畸变10：从和平步入战争瞬间触发90天【匆匆忙忙，连滚带爬】（宣战、被宣战、盟友保独入战均即时生效）
+flower_ai_anom10_on_enter_war = {
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_10_active
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+			has_idea = flower_anom10_calm_idea
+			NOT = { has_country_flag = flower_anom10_panic_cd }
+		}
+		set_country_flag = { flag = flower_anom10_panic_cd days = 180 value = 1 }
+		remove_ideas = flower_anom10_calm_idea
+		add_ideas = flower_anom10_war_idea
+		add_timed_idea = { idea = flower_anom10_panic_idea days = 90 }
+		if = {
+			limit = { is_ai = no }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_10_congrong" }
+		}
+	}
+}
+
+#畸变7核心专属：主要国家死亡（投降/灭亡）时对全体人类玩家全局播放《关羽之歌》并推右下角战报
+#（在阵亡国作用域调用，temp_anom7_killer 为击败方作用域ID）
+flower_ai_anom7_major_death_guanyu_song = {
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_7_active
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+			NOT = { has_global_flag = flower_anom7_guanyu_song_cd }
+			OR = {
+				is_major = yes
+				has_country_flag = flower_cached_is_major
+				check_variable = { flower_cached_factories > 39 }
+			}
+		}
+		set_global_flag = { flag = flower_anom7_guanyu_song_cd days = 15 value = 1 }
+		set_temp_variable = { temp_anom7_dead = THIS.id }
+		every_country = {
+			limit = { is_ai = no }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_7_guanyu_song" }
+			set_temp_variable = { temp_alert_id = 921 }
+			set_temp_variable = { temp_tag = temp_anom7_dead }
+			set_temp_variable = { temp_tag2 = temp_anom7_killer }
+			flower_ai_push_bottom_right_alert = yes
+		}
+	}
+}
+
+#地区控制权变更钩子（on_state_control_changed：ROOT=新控制方，FROM=原控制方，FROM.FROM=易手地区）
+flower_ai_on_state_changed_anomalies_v2 = {
+	#--- 畸变7：失守核心省瞬间即时刷新【哀兵必胜】档位，消除月检滞后 ---
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_7_active
+			ROOT = { has_war_with = FROM }
+			FROM.FROM = { is_core_of = FROM }
+		}
+		FROM = {
+			flower_ai_anom7_refresh_tiers = yes
+		}
+	}
+
+	#--- 畸变10：失守带工厂核心省时，物理扛走1座工厂优先迁往不临敌的安全后方核心省，并炸毁该省铁路与基建各2级 ---
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_10_active
+			ROOT = { has_war_with = FROM }
+			FROM = {
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+				NOT = { has_country_flag = flower_anom10_evac_cd }
+			}
+			FROM.FROM = {
+				is_core_of = FROM
+				OR = {
+					arms_factory > 0
+					industrial_complex > 0
+				}
+			}
+		}
+		FROM.FROM = {
+			set_state_flag = { flag = flower_anom10_just_lost days = 3 value = 1 }
+		}
+		if = {
+			limit = {
+				FROM = {
+					any_controlled_state = {
+						is_core_of = FROM
+						NOT = { has_state_flag = flower_anom10_just_lost }
+					}
+				}
+			}
+			FROM = {
+				set_country_flag = { flag = flower_anom10_evac_cd days = 60 value = 1 }
+			}
+			if = {
+				limit = { FROM.FROM = { arms_factory > 0 } }
+				FROM.FROM = {
+					remove_building = { type = arms_factory level = 1 }
+					damage_building = { type = rail_way damage = 2 }
+					damage_building = { type = infrastructure damage = 2 }
+				}
+				FROM = {
+					if = {
+						limit = {
+							any_controlled_state = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+								NOT = {
+									any_neighbor_state = {
+										CONTROLLER = { has_war_with = FROM }
+									}
+								}
+							}
+						}
+						random_controlled_state = {
+							limit = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+								NOT = {
+									any_neighbor_state = {
+										CONTROLLER = { has_war_with = FROM }
+									}
+								}
+							}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = arms_factory
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+					else = {
+						random_controlled_state = {
+							limit = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+							}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = arms_factory
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}
+			else = {
+				FROM.FROM = {
+					remove_building = { type = industrial_complex level = 1 }
+					damage_building = { type = rail_way damage = 2 }
+					damage_building = { type = infrastructure damage = 2 }
+				}
+				FROM = {
+					if = {
+						limit = {
+							any_controlled_state = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+								NOT = {
+									any_neighbor_state = {
+										CONTROLLER = { has_war_with = FROM }
+									}
+								}
+							}
+						}
+						random_controlled_state = {
+							limit = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+								NOT = {
+									any_neighbor_state = {
+										CONTROLLER = { has_war_with = FROM }
+									}
+								}
+							}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = industrial_complex
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+					else = {
+						random_controlled_state = {
+							limit = {
+								is_core_of = FROM
+								NOT = { has_state_flag = flower_anom10_just_lost }
+							}
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = industrial_complex
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { FROM = { is_ai = no } }
+				FROM = {
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_10_congrong" }
+					set_temp_variable = { temp_alert_id = 925 }
+					set_temp_variable = { temp_tag = FROM.id }
+					set_temp_variable = { temp_tag2 = ROOT.id }
+					flower_ai_push_bottom_right_alert = yes
+				}
+			}
+		}
+	}
+
+	#--- 畸变12：攻陷敌方首都或高胜利点大城时发动灵魂拷问（仅对交战当事玩家播放咆哮与战报，联机不扰民）---
+	if = {
+		limit = {
+			has_global_flag = flower_anomaly_12_active
+			ROOT = {
+				has_war_with = FROM
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+				NOT = { has_country_flag = flower_anom12_interrogate_cd }
+			}
+			FROM = {
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+			}
+			FROM.FROM = {
+				is_core_of = FROM
+				OR = {
+					is_capital = yes
+					check_variable = { state_strategic_value > 19 }
+				}
+			}
+		}
+		ROOT = {
+			set_country_flag = { flag = flower_anom12_interrogate_cd days = 90 value = 1 }
+			add_tech_bonus = {
+				name = flower_anom12_interrogate_tech_bonus
+				bonus = 0.50
+				uses = 1
+				category = electronics
+				category = industry
+				category = infantry_weapons
+				category = artillery
+				category = armor
+			}
+		}
+		FROM = {
+			add_timed_idea = { idea = flower_anom12_speechless_idea days = 60 }
+		}
+		if = {
+			limit = { ROOT = { is_ai = no } }
+			ROOT = {
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				set_temp_variable = { temp_alert_id = 926 }
+				set_temp_variable = { temp_tag = ROOT.id }
+				set_temp_variable = { temp_tag2 = FROM.id }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					is_ai = no
+					NOT = { tag = ROOT }
+				}
+			}
+			FROM = {
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				set_temp_variable = { temp_alert_id = 926 }
+				set_temp_variable = { temp_tag = ROOT.id }
+				set_temp_variable = { temp_tag2 = FROM.id }
+				flower_ai_push_bottom_right_alert = yes
+			}
+		}
+	}
+}

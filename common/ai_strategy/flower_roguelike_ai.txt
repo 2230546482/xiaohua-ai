@@ -530,8 +530,9 @@ flower_roguelike_norm_sov_apocalypse = {
 
 #通用常规陆军角色去重减权（防止双修或多修肉鸽流派时叠扣infantry/armor/special_armor爆负）
 flower_roguelike_norm_generic_mainline = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		OR = {
 			has_country_flag = flower_roguelike_slayer_ai
 			has_country_flag = flower_roguelike_arty_ai
@@ -560,8 +561,9 @@ flower_roguelike_norm_generic_mainline = {
 	}
 }
 flower_roguelike_norm_generic_heavy = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		NOT = {
 			has_country_flag = flower_roguelike_slayer_ai
 			has_country_flag = flower_roguelike_arty_ai
@@ -610,8 +612,9 @@ flower_roguelike_norm_generic_heavy = {
 
 #流派一：战地扒装备AI（主力替代型：目标占比55%-65%，以步炮突击师为主力以战养战）
 flower_roguelike_slayer_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_slayer_ai
 	}
 	abort_when_not_enabled = yes
@@ -639,8 +642,9 @@ flower_roguelike_slayer_ai_strat = {
 
 #流派二：大基建五年计划AI（重装转型型：工业成型后精锐装甲机步稳占30%-40%）
 flower_roguelike_corp_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_corp_ai
 	}
 	abort_when_not_enabled = yes
@@ -667,8 +671,9 @@ flower_roguelike_corp_ai_strat = {
 	}
 }
 flower_roguelike_corp_heavy_role_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_corp_ai
 		num_of_factories > 30
 		has_tech = basic_medium_tank_chassis
@@ -685,8 +690,9 @@ flower_roguelike_corp_heavy_role_strat = {
 
 #流派三：重炮洗地俱乐部AI（主力替代型：目标占比58%-65%，分支3B自动升级摩托化重炮师）
 flower_roguelike_arty_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_arty_ai
 	}
 	abort_when_not_enabled = yes
@@ -715,8 +721,9 @@ flower_roguelike_arty_ai_strat = {
 
 #流派四：时停装甲闪电战AI（重装主力30%-40%，纯原版中坦+机步高速穿插）
 flower_roguelike_tank_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_tank_ai
 	}
 	abort_when_not_enabled = yes
@@ -745,8 +752,9 @@ flower_roguelike_tank_ai_strat = {
 
 #流派五：斯图卡洗头房AI（全力倾泻空军产能，二阶同步激活10%-15%王牌伞兵空降旅）
 flower_roguelike_air_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_air_ai
 	}
 	abort_when_not_enabled = yes
@@ -777,8 +785,9 @@ flower_roguelike_air_ai_strat = {
 	}
 }
 flower_roguelike_air_s2_heli_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_air_ai
 		has_tech = paratroopers
 	}
@@ -793,8 +802,9 @@ flower_roguelike_air_s2_heli_strat = {
 
 #流派六：督战队人海AI（主力替代型：目标占比58%-65%，铺满12步2炮高HP重填线师）
 flower_roguelike_wave_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_wave_ai
 	}
 	abort_when_not_enabled = yes
@@ -822,8 +832,9 @@ flower_roguelike_wave_ai_strat = {
 
 #流派七：午夜夜战部队AI（主力替代型：高侦察高主动夜战快反步炮师）
 flower_roguelike_nightingale_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_nightingale_ai
 	}
 	abort_when_not_enabled = yes
@@ -847,8 +858,9 @@ flower_roguelike_nightingale_ai_strat = {
 
 #流派八：敌后游击战AI（主力替代型：低补给反坦步炮游击主力）
 flower_roguelike_guerrilla_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_guerrilla_ai
 	}
 	abort_when_not_enabled = yes
@@ -876,8 +888,9 @@ flower_roguelike_guerrilla_ai_strat = {
 
 #流派九：战地敢死队AI（高韧性医院步炮师，吃满老兵保全与极速组织度恢复）
 flower_roguelike_undead_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_undead_ai
 	}
 	abort_when_not_enabled = yes
@@ -905,8 +918,9 @@ flower_roguelike_undead_ai_strat = {
 
 #流派十：王牌特种兵团AI（精锐山地特种突击旅，稳占25%左右特种配额）
 flower_roguelike_magic_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_magic_ai
 		has_tech = tech_mountaineers
 	}
@@ -931,8 +945,9 @@ flower_roguelike_magic_ai_strat = {
 
 #流派十一：疯狂科研实验室AI（依托高科研与设计局优势组建精锐中坦机步师）
 flower_roguelike_steampunk_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_steampunk_ai
 		has_tech = basic_medium_tank_chassis
 		has_tech = motorised_infantry
@@ -986,8 +1001,9 @@ flower_devour_steampunk_ai_strat = {
 
 #流派十二：赌徒流派AI灵活均衡配比
 flower_roguelike_gambler_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_gambler_active
 	}
 	abort_when_not_enabled = yes
@@ -1014,8 +1030,9 @@ flower_roguelike_gambler_ai_strat = {
 
 #分叉特化AI：游击队《二营长的意大利炮》拉满火炮产线
 flower_evo_guerrilla_heavy_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_evo_guerrilla_heavy_ai
 	}
 	abort_when_not_enabled = yes
@@ -1034,8 +1051,9 @@ flower_evo_guerrilla_heavy_ai_strat = {
 
 #分叉特化AI：午夜奇袭《幽灵后勤快反》补强支援与火炮产线
 flower_evo_nightingale_alchemy_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_nightingale_alchemy_idea
 	}
 	abort_when_not_enabled = yes
@@ -1054,8 +1072,9 @@ flower_evo_nightingale_alchemy_ai_strat = {
 
 #分叉特化AI：空天《斯图卡在线洗头》狂暴堆近距支援机
 flower_evo_air_cas_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_air_cas_idea
 	}
 	abort_when_not_enabled = yes
@@ -1074,8 +1093,9 @@ flower_evo_air_cas_ai_strat = {
 
 #分叉特化AI：空天《纯制空不解释》狂暴堆战斗机
 flower_evo_air_superiority_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_air_superiority_idea
 	}
 	abort_when_not_enabled = yes
@@ -1094,8 +1114,9 @@ flower_evo_air_superiority_ai_strat = {
 
 #分叉特化AI：疯狂科研黑盒《超前空天核能狂想》拉高战机与密接产能
 flower_evo_punk_ufo_ai_strat = {
-	allowed = { always = yes }
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_punk_ufo_idea
 	}
 	abort_when_not_enabled = yes
@@ -1113,5 +1134,30 @@ flower_evo_punk_ufo_ai_strat = {
 		type = equipment_production_factor
 		id = cas
 		value = 180
+	}
+}
+
+#全局畸变11《孩子们，我回来了》：引导具备一定军工底子的AI真实排产运输机与空降/两栖兵力
+flower_anom11_global_airborne_ai = {
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
+	enable = {
+		has_global_flag = flower_anomaly_11_active
+		num_of_military_factories > 14
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_min_factories_archetype
+		id = transport_plane_equipment
+		value = 1
+	}
+	ai_strategy = {
+		type = save_equipment
+		id = transport_plane_equipment
+		value = 15
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 35
 	}
 }

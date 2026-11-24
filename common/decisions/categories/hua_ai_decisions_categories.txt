@@ -38,3 +38,17 @@ flower_roguelike_ops_cat = {
 		}
 	}
 }
+
+flower_anomaly_v2_ops_cat = {
+	allowed = {
+		always = yes
+	}
+	icon = GFX_PAM_amjy
+	priority = 490
+	visible = {
+		OR = {
+			has_global_flag = flower_anomaly_7_active
+			has_global_flag = flower_anomaly_8_active
+		}
+	}
+}

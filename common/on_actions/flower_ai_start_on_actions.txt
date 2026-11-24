@@ -169,6 +169,12 @@ on_actions = {
                 set_variable = { global.flower_anomaly_vote_4 = 0 }
                 set_variable = { global.flower_anomaly_vote_5 = 0 }
                 set_variable = { global.flower_anomaly_vote_6 = 0 }
+                set_variable = { global.flower_anomaly_vote_7 = 0 }
+                set_variable = { global.flower_anomaly_vote_8 = 0 }
+                set_variable = { global.flower_anomaly_vote_9 = 0 }
+                set_variable = { global.flower_anomaly_vote_10 = 0 }
+                set_variable = { global.flower_anomaly_vote_11 = 0 }
+                set_variable = { global.flower_anomaly_vote_12 = 0 }
                 flower_ai_recalc_anomaly_ready = yes
             }
             #初始化各国工厂数、主要国家身份缓存与黑市契约费
@@ -189,7 +195,10 @@ on_actions = {
                 LHS = { add_ideas = flower_pao_player_lhs_win_idea }
                 if = {
                     limit = { PAU = { exists = yes is_ai = yes } }
-                    PAU = { add_ideas = flower_pao_player_pau_yield_idea }
+                    PAU = {
+                        add_ideas = flower_pao_player_pau_yield_idea
+                        set_country_flag = flower_pao_yield_lock
+                    }
                 }
                 if = {
                     limit = { PAM = { exists = yes is_ai = yes } }
@@ -210,14 +219,26 @@ on_actions = {
                 set_global_flag = { flag = flower_anomaly_vote_monthly_cd days = 25 value = 1 }
                 flower_ai_recalc_anomaly_ready = yes
             }
-            #【老实赚钱很枯燥吧】实盘全球股市月度跳价与分红（全局每月仅触发一次）
+            #【老实赚钱很枯燥吧】全球股市月度跳价（每月1次）+ 各工业AI按自身月度Tick错峰分散交易（零月初同帧尖峰）
             if = {
-                limit = {
-                    has_global_flag = flower_anomaly_3_active
-                    NOT = { has_global_flag = flower_stk_monthly_cd }
+                limit = { has_global_flag = flower_anomaly_3_active }
+                if = {
+                    limit = { NOT = { has_global_flag = flower_stk_monthly_cd } }
+                    set_global_flag = { flag = flower_stk_monthly_cd days = 25 value = 1 }
+                    flower_stock_monthly_tick = yes
                 }
-                set_global_flag = { flag = flower_stk_monthly_cd days = 25 value = 1 }
-                flower_stock_monthly_tick = yes
+                if = {
+                    limit = {
+                        is_ai = yes
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        OR = {
+                            is_major = yes
+                            num_of_factories > 24
+                        }
+                    }
+                    flower_stock_ai_monthly_trade = yes
+                }
             }
             #缓存各国非投降状态下的战前/峰值工厂数与主要国家身份（防止投降或吞并瞬间数值归零导致误判）
             if = {
@@ -265,13 +286,31 @@ on_actions = {
                     flower_ai_add_slayer_stack = yes
                 }
             }
-            #12大流派专属局内成长里程碑月度检测（玩家与AI通用）
-            flower_ai_check_archetype_milestones = yes
-            #畸变4月度渐进科技同步（蒸汽陆行舰升级与22门副炮 + 夜莺骑士团1939渐进解放）
-            flower_ai_sync_devour_progressive_techs = yes
-            #方案B+流派动态规则引擎巡检与AI词条动态追赶
-            flower_ai_tick_roguelike_v3_engines = yes
-            flower_ai_check_ai_catchup = yes
+            #12大流派专属局内成长里程碑、动态规则引擎与AI词条追赶（顶层全局旗标O(1)短路，未开流派模式时跳过200国轮询）
+            if = {
+                limit = {
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                    OR = {
+                        has_global_flag = flower_anomaly_1_active
+                        has_global_flag = flower_anomaly_4_active
+                    }
+                }
+                flower_ai_check_archetype_milestones = yes
+                flower_ai_tick_roguelike_v3_engines = yes
+                flower_ai_check_ai_catchup = yes
+            }
+            #畸变4月度渐进科技同步（仅开启畸变4时执行）
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_4_active
+                    NOT = { tag = ZDW }
+                    NOT = { tag = WL1 }
+                }
+                flower_ai_sync_devour_progressive_techs = yes
+            }
+            #新增6大开局畸变（7~12号）月度巡检
+            flower_ai_tick_anomalies_v2_monthly = yes
             #魔导国濒死绝唱（投降进度超过55%时智能锁定最致命的宿敌：优先已攻入本土/接壤的玩家或主要强敌）
             if = {
                 limit = {
@@ -786,6 +825,10 @@ on_actions = {
                     NOT = { has_idea = flower_pao_player_pau_yield_idea }
                 }
                 add_ideas = flower_pao_player_pau_yield_idea
+                if = {
+                    limit = { original_tag = PAU }
+                    set_country_flag = flower_pao_yield_lock
+                }
             }
             #AI PAU通用防自杀守护（主模组与肉鸽模式均生效；玩家玩PAO且野火内战期不给PAU续命）
             if = {
@@ -799,6 +842,7 @@ on_actions = {
                         }
                     }
                 }
+                clr_country_flag = flower_pao_yield_lock
                 #1. 圣杯流亡营口粮防饿死兜底：杜绝AI连点消费决议把299岛移交圣杯判负
                 if = {
                     limit = {
@@ -911,6 +955,7 @@ on_actions = {
                     }
                     add_ideas = flower_anomaly_nightmare_ai_idea
                 }
+                flower_ai_sync_country_anomalies_v2 = yes
             }
         }
     }
@@ -983,6 +1028,7 @@ on_actions = {
                     }
                     add_ideas = flower_anomaly_nightmare_ai_idea
                 }
+                flower_ai_sync_country_anomalies_v2 = yes
             }
         }
     }
@@ -1054,6 +1100,7 @@ on_actions = {
                     }
                     add_ideas = flower_anomaly_nightmare_ai_idea
                 }
+                flower_ai_sync_country_anomalies_v2 = yes
             }
         }
     }
@@ -1068,6 +1115,9 @@ on_actions = {
             #流派7开战瞬间灯下黑先手窗口
             ROOT = { flower_ai_on_declare_war_v3 = yes }
             FROM = { flower_ai_on_declare_war_v3 = yes }
+            #畸变10《从从容容，连滚带爬》和平入战瞬间切入90天连滚带爬
+            ROOT = { flower_ai_anom10_on_enter_war = yes }
+            FROM = { flower_ai_anom10_on_enter_war = yes }
             #马奇诺防线硬编码超位魔法仅在魔导国与AI幻想乡交战且控制阿尔萨斯时触发；玩家幻想乡改走21天预警系统
             if = {
                 limit = {
@@ -1591,6 +1641,12 @@ on_actions = {
                     clr_country_flag = flower_card22_cd
                 }
             }
+            #畸变7《三军听令，自刎归天！》主要国家投降死亡时全局播放《关羽之歌》
+            if = {
+                limit = { has_global_flag = flower_anomaly_7_active }
+                set_temp_variable = { temp_anom7_killer = FROM.id }
+                ROOT = { flower_ai_anom7_major_death_guanyu_song = yes }
+            }
             #标记战败国已走过停止抵抗判定，防止和谈吞并同国时重复计次
             ROOT = {
                 set_country_flag = { flag = flower_recently_capitulated days = 1825 value = 1 }
@@ -1754,6 +1810,15 @@ on_actions = {
                     }
                 }
             }
+            #畸变7《三军听令，自刎归天！》未投降即被直接吞并灭亡的主要国家同样全局播放《关羽之歌》
+            if = {
+                limit = {
+                    has_global_flag = flower_anomaly_7_active
+                    FROM = { NOT = { has_country_flag = flower_recently_capitulated } }
+                }
+                set_temp_variable = { temp_anom7_killer = ROOT.id }
+                FROM = { flower_ai_anom7_major_death_guanyu_song = yes }
+            }
         }
     }
     #修复主模组夜莺二线(PAO)完成【自我之歌】(PAO_zwzg)击败亡灵(WL1)后偶发不触发脚本和平与结局事件PAO.110的问题
@@ -1818,10 +1883,38 @@ on_actions = {
             }
         }
     }
-    #方案B+占领敌方地区钩子（流派1顺仓库、流派3拆堡返炮、流派4闪击惯性补油、流派7截密码本）
+    #新畸变10入战全覆盖钩子（涵盖宣战、盟友召唤、保障独立、国策连带参战等一切入战方式）
+    on_war_relation_added = {
+        effect = {
+            if = {
+                limit = { has_global_flag = flower_anomaly_10_active }
+                ROOT = { flower_ai_anom10_on_enter_war = yes }
+                FROM = { flower_ai_anom10_on_enter_war = yes }
+            }
+        }
+    }
+    #方案B+占领敌方地区钩子与新畸变7/10/12钩子（外层O(1)全局旗标短路，未开启对应玩法时零省份易手开销）
     on_state_control_changed = {
         effect = {
-            flower_ai_on_state_captured_v3 = yes
+            if = {
+                limit = {
+                    OR = {
+                        has_global_flag = flower_anomaly_1_active
+                        has_global_flag = flower_anomaly_4_active
+                    }
+                }
+                flower_ai_on_state_captured_v3 = yes
+            }
+            if = {
+                limit = {
+                    OR = {
+                        has_global_flag = flower_anomaly_7_active
+                        has_global_flag = flower_anomaly_10_active
+                        has_global_flag = flower_anomaly_12_active
+                    }
+                }
+                flower_ai_on_state_changed_anomalies_v2 = yes
+            }
         }
     }
     #方案B+王牌飞行员诞生钩子（流派5王牌威望叠层）

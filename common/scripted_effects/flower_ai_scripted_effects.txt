@@ -1124,6 +1124,22 @@ flower_ai_trigger_roguelike_wave = {
 	}
 }
 
+#清理当前国家已投出的全部开局畸变选票（1~12号统一安全退票）
+flower_ai_clear_own_anomaly_votes = {
+	if = { limit = { has_country_flag = flower_voted_card_1 } clr_country_flag = flower_voted_card_1 if = { limit = { check_variable = { global.flower_anomaly_vote_1 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_1 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_2 } clr_country_flag = flower_voted_card_2 if = { limit = { check_variable = { global.flower_anomaly_vote_2 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_2 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_3 } clr_country_flag = flower_voted_card_3 if = { limit = { check_variable = { global.flower_anomaly_vote_3 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_3 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_4 } clr_country_flag = flower_voted_card_4 if = { limit = { check_variable = { global.flower_anomaly_vote_4 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_4 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_5 } clr_country_flag = flower_voted_card_5 if = { limit = { check_variable = { global.flower_anomaly_vote_5 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_5 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_6 } clr_country_flag = flower_voted_card_6 if = { limit = { check_variable = { global.flower_anomaly_vote_6 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_6 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_7 } clr_country_flag = flower_voted_card_7 if = { limit = { check_variable = { global.flower_anomaly_vote_7 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_7 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_8 } clr_country_flag = flower_voted_card_8 if = { limit = { check_variable = { global.flower_anomaly_vote_8 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_8 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_9 } clr_country_flag = flower_voted_card_9 if = { limit = { check_variable = { global.flower_anomaly_vote_9 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_9 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_10 } clr_country_flag = flower_voted_card_10 if = { limit = { check_variable = { global.flower_anomaly_vote_10 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_10 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_11 } clr_country_flag = flower_voted_card_11 if = { limit = { check_variable = { global.flower_anomaly_vote_11 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_11 = 1 } } }
+	if = { limit = { has_country_flag = flower_voted_card_12 } clr_country_flag = flower_voted_card_12 if = { limit = { check_variable = { global.flower_anomaly_vote_12 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_12 = 1 } } }
+}
+
 #重算开局畸变投票全员就绪状态（必须全部人类玩家就绪后方可生效，支持单人秒开与多人随时取消投票）
 flower_ai_recalc_anomaly_ready = {
 	set_variable = { global.flower_human_total = 0 }
@@ -1142,6 +1158,12 @@ flower_ai_recalc_anomaly_ready = {
 					has_country_flag = flower_voted_card_4
 					has_country_flag = flower_voted_card_5
 					has_country_flag = flower_voted_card_6
+					has_country_flag = flower_voted_card_7
+					has_country_flag = flower_voted_card_8
+					has_country_flag = flower_voted_card_9
+					has_country_flag = flower_voted_card_10
+					has_country_flag = flower_voted_card_11
+					has_country_flag = flower_voted_card_12
 					has_country_flag = flower_anomaly_player_skip
 				}
 			}
@@ -1181,96 +1203,60 @@ flower_ai_recalc_anomaly_ready = {
 	}
 }
 
-#结算开局畸变投票并正式启动世界线法则（绝不强行默认投肉鸽，严格按玩家实际投票结算）
+#结算开局畸变投票并正式启动世界线法则（1~12号全覆盖，严格按玩家实际投票结算）
 flower_ai_lock_in_anomalies_and_start = {
 	clr_global_flag = flower_anomaly_voting_open
 	set_global_flag = flower_anomaly_voting_settled
 	if = {
 		limit = { has_global_flag = flower_anomaly_multi_mode }
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_1 > 0 } }
-			set_global_flag = flower_anomaly_1_active
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_2 > 0 } }
-			set_global_flag = flower_anomaly_2_active
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_3 > 0 } }
-			set_global_flag = flower_anomaly_3_active
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_4 > 0 } }
-			set_global_flag = flower_anomaly_4_active
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_5 > 0 } }
-			set_global_flag = flower_anomaly_5_active
-		}
+		if = { limit = { check_variable = { global.flower_anomaly_vote_1 > 0 } } set_global_flag = flower_anomaly_1_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_2 > 0 } } set_global_flag = flower_anomaly_2_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_3 > 0 } } set_global_flag = flower_anomaly_3_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_4 > 0 } } set_global_flag = flower_anomaly_4_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_5 > 0 } } set_global_flag = flower_anomaly_5_active }
 		if = {
 			limit = { check_variable = { global.flower_anomaly_vote_6 > 0 } }
 			set_global_flag = flower_anomaly_6_active
 			set_global_flag = flower_anomaly_1_active
 		}
+		if = { limit = { check_variable = { global.flower_anomaly_vote_7 > 0 } } set_global_flag = flower_anomaly_7_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_8 > 0 } } set_global_flag = flower_anomaly_8_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_9 > 0 } } set_global_flag = flower_anomaly_9_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_10 > 0 } } set_global_flag = flower_anomaly_10_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_11 > 0 } } set_global_flag = flower_anomaly_11_active }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_12 > 0 } } set_global_flag = flower_anomaly_12_active }
 	}
 	else = {
 		set_temp_variable = { max_v = 0 }
 		set_temp_variable = { win_id = 0 }
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_1 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_1 }
-			set_temp_variable = { win_id = 1 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_2 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_2 }
-			set_temp_variable = { win_id = 2 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_3 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_3 }
-			set_temp_variable = { win_id = 3 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_4 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_4 }
-			set_temp_variable = { win_id = 4 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_5 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_5 }
-			set_temp_variable = { win_id = 5 }
-		}
-		if = {
-			limit = { check_variable = { global.flower_anomaly_vote_6 > max_v } }
-			set_temp_variable = { max_v = global.flower_anomaly_vote_6 }
-			set_temp_variable = { win_id = 6 }
-		}
-		if = {
-			limit = { check_variable = { win_id = 1 } }
-			set_global_flag = flower_anomaly_1_active
-		}
-		else_if = {
-			limit = { check_variable = { win_id = 2 } }
-			set_global_flag = flower_anomaly_2_active
-		}
-		else_if = {
-			limit = { check_variable = { win_id = 3 } }
-			set_global_flag = flower_anomaly_3_active
-		}
-		else_if = {
-			limit = { check_variable = { win_id = 4 } }
-			set_global_flag = flower_anomaly_4_active
-		}
-		else_if = {
-			limit = { check_variable = { win_id = 5 } }
-			set_global_flag = flower_anomaly_5_active
-		}
+		if = { limit = { check_variable = { global.flower_anomaly_vote_1 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_1 } set_temp_variable = { win_id = 1 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_2 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_2 } set_temp_variable = { win_id = 2 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_3 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_3 } set_temp_variable = { win_id = 3 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_4 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_4 } set_temp_variable = { win_id = 4 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_5 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_5 } set_temp_variable = { win_id = 5 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_6 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_6 } set_temp_variable = { win_id = 6 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_7 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_7 } set_temp_variable = { win_id = 7 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_8 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_8 } set_temp_variable = { win_id = 8 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_9 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_9 } set_temp_variable = { win_id = 9 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_10 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_10 } set_temp_variable = { win_id = 10 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_11 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_11 } set_temp_variable = { win_id = 11 } }
+		if = { limit = { check_variable = { global.flower_anomaly_vote_12 > max_v } } set_temp_variable = { max_v = global.flower_anomaly_vote_12 } set_temp_variable = { win_id = 12 } }
+		if = { limit = { check_variable = { win_id = 1 } } set_global_flag = flower_anomaly_1_active }
+		else_if = { limit = { check_variable = { win_id = 2 } } set_global_flag = flower_anomaly_2_active }
+		else_if = { limit = { check_variable = { win_id = 3 } } set_global_flag = flower_anomaly_3_active }
+		else_if = { limit = { check_variable = { win_id = 4 } } set_global_flag = flower_anomaly_4_active }
+		else_if = { limit = { check_variable = { win_id = 5 } } set_global_flag = flower_anomaly_5_active }
 		else_if = {
 			limit = { check_variable = { win_id = 6 } }
 			set_global_flag = flower_anomaly_6_active
 			set_global_flag = flower_anomaly_1_active
 		}
+		else_if = { limit = { check_variable = { win_id = 7 } } set_global_flag = flower_anomaly_7_active }
+		else_if = { limit = { check_variable = { win_id = 8 } } set_global_flag = flower_anomaly_8_active }
+		else_if = { limit = { check_variable = { win_id = 9 } } set_global_flag = flower_anomaly_9_active }
+		else_if = { limit = { check_variable = { win_id = 10 } } set_global_flag = flower_anomaly_10_active }
+		else_if = { limit = { check_variable = { win_id = 11 } } set_global_flag = flower_anomaly_11_active }
+		else_if = { limit = { check_variable = { win_id = 12 } } set_global_flag = flower_anomaly_12_active }
 	}
 	if = {
 		limit = { has_global_flag = flower_anomaly_2_active }
@@ -1329,6 +1315,8 @@ flower_ai_lock_in_anomalies_and_start = {
 			add_ideas = flower_anomaly_nightmare_ai_idea
 		}
 	}
+	#激活新增6大开局畸变（7~12号）初始法则
+	flower_ai_activate_anomalies_v2 = yes
 	every_country = {
 		limit = { is_ai = no }
 		clr_country_flag = flower_anomaly_panel_open

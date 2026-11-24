@@ -804,7 +804,6 @@ ideas = {
                 army_morale_factor = 0.50
                 org_loss_when_moving = -0.25
                 invasion_preparation = -0.75
-                justify_war_goal_time = -0.75
             }
         }
         flower_anomaly_tycoon_idea = {

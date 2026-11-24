@@ -348,7 +348,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_nightmare_boss
-	volume = 0.58
+	volume = 0.70
 	sounds = {
 		sound = flower_sfx_branch_nightmare_boss
 	}
@@ -515,5 +515,97 @@ soundeffect = {
 	volume = 0.60
 	sounds = {
 		sound = flower_sfx_meme_sparta
+	}
+}
+
+#新增6大开局畸变（7~12号）专属热梗原声与全局关羽之歌
+sound = {
+	name = "flower_sfx_anomaly_7_ziwen"
+	file = "flower_memes/flower_sfx_anomaly_7_ziwen.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_7_ziwen
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_7_ziwen
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_7_guanyu_song"
+	file = "flower_memes/flower_sfx_anomaly_7_guanyu_song.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_7_guanyu_song
+	volume = 0.72
+	sounds = {
+		sound = flower_sfx_anomaly_7_guanyu_song
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_8_yemen"
+	file = "flower_memes/flower_sfx_anomaly_8_yemen.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_8_yemen
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_8_yemen
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_9_pinhaofan"
+	file = "flower_memes/flower_sfx_anomaly_9_pinhaofan.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_9_pinhaofan
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_9_pinhaofan
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_10_congrong"
+	file = "flower_memes/flower_sfx_anomaly_10_congrong.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_10_congrong
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_10_congrong
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_11_manba"
+	file = "flower_memes/flower_sfx_anomaly_11_manba.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_11_manba
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_11_manba
+	}
+}
+
+sound = {
+	name = "flower_sfx_anomaly_12_look_eyes"
+	file = "flower_memes/flower_sfx_anomaly_12_look_eyes.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_anomaly_12_look_eyes
+	volume = 0.65
+	sounds = {
+		sound = flower_sfx_anomaly_12_look_eyes
 	}
 }
