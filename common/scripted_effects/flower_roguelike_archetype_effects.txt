@@ -562,7 +562,7 @@ flower_ai_pick_archetype_5 = {
 	flower_ai_recalc_ace_prestige = yes
 	if = {
 		limit = { is_ai = no }
-		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_5_air" }
+		hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" }
 	}
 	if = {
 		limit = { has_idea = flower_air_stage_2_idea }
@@ -1583,7 +1583,7 @@ flower_ai_apply_branch_choice_1 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 6 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_bomb_area" } }
 		add_ideas = flower_evo_arty_carpet_idea
 		flower_ai_recalc_arty_density = yes
 		add_equipment_to_stockpile = {
@@ -1677,7 +1677,7 @@ flower_ai_apply_branch_choice_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 4 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_good_gun" } }
 		add_ideas = flower_evo_slayer_retrofit_idea
 		army_experience = 50
 	}
@@ -1707,7 +1707,7 @@ flower_ai_apply_branch_choice_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 8 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_5_air" } }
 		add_ideas = flower_evo_air_superiority_idea
 		flower_ai_recalc_ace_prestige = yes
 		air_experience = 100
@@ -1735,7 +1735,7 @@ flower_ai_apply_branch_choice_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 11 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_11_steampunk" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_good_gun" } }
 		add_ideas = flower_evo_punk_elfsteam_idea
 		army_experience = 80
 	}
@@ -1747,7 +1747,7 @@ flower_ai_apply_branch_choice_2 = {
 flower_ai_apply_branch_choice_3 = {
 	if = {
 		limit = { check_variable = { flower_branch_id = 1 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_7_nightingale" } }
 		add_ideas = flower_evo_nightingale_alchemy_idea
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
@@ -1764,7 +1764,7 @@ flower_ai_apply_branch_choice_3 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 2 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_6_wave" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_8_guerrilla" } }
 		add_ideas = flower_evo_guerrilla_sea_idea
 		add_manpower = 80000
 		add_equipment_to_stockpile = {
@@ -1774,7 +1774,7 @@ flower_ai_apply_branch_choice_3 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 3 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" } }
 		add_ideas = flower_evo_undead_sweatshop_idea
 		flower_ai_recalc_blood_labor = yes
 		add_to_variable = { ubs_save = 500 }

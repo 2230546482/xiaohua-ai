@@ -609,3 +609,159 @@ soundeffect = {
 		sound = flower_sfx_anomaly_12_look_eyes
 	}
 }
+
+sound = {
+	name = "flower_sfx_meme_mambo"
+	file = "flower_memes/flower_sfx_meme_mambo.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_mambo
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_mambo
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_touhou_spark"
+	file = "flower_memes/flower_sfx_meme_touhou_spark.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_touhou_spark
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_touhou_spark
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_sakuya_world"
+	file = "flower_memes/flower_sfx_meme_sakuya_world.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_sakuya_world
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_sakuya_world
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_defib"
+	file = "flower_memes/flower_sfx_meme_defib.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_defib
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_defib
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_helicopter"
+	file = "flower_memes/flower_sfx_meme_helicopter.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_helicopter
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_helicopter
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_mgs_alert"
+	file = "flower_memes/flower_sfx_meme_mgs_alert.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_mgs_alert
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_mgs_alert
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_loot"
+	file = "flower_memes/flower_sfx_meme_lj_loot.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_loot
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_lj_loot
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_good_gun"
+	file = "flower_memes/flower_sfx_meme_lj_good_gun.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_good_gun
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_lj_good_gun
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_bomb_area"
+	file = "flower_memes/flower_sfx_meme_lj_bomb_area.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_bomb_area
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_lj_bomb_area
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_genius"
+	file = "flower_memes/flower_sfx_meme_lj_genius.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_genius
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_lj_genius
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_sword"
+	file = "flower_memes/flower_sfx_meme_lj_sword.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_sword
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_lj_sword
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_tactical_nuke"
+	file = "flower_memes/flower_sfx_meme_tactical_nuke.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_tactical_nuke
+	volume = 0.62
+	sounds = {
+		sound = flower_sfx_meme_tactical_nuke
+	}
+}

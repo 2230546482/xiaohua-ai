@@ -123,19 +123,59 @@ flower_ai_record_chosen_card = {
 	}
 	if = {
 		limit = { is_ai = no }
+		#严格按原梗1:1精准匹配音效（无对应原声的卡走清脆GUI盖章，绝不乱贴无关梗）
 		if = {
+			# #1 大意了，没有闪（马保国原声）
 			limit = { check_variable = { flower_record_card_id = 1 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ma_baoguo" }
 		}
 		else_if = {
-			limit = { check_variable = { flower_record_card_id = 4 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_fbi_open" }
+			# #3 牛马产线连轴转 / #14 全员进厂打螺丝（《军民大生产》）
+			limit = {
+				OR = {
+					check_variable = { flower_record_card_id = 3 }
+					check_variable = { flower_record_card_id = 14 }
+				}
+			}
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_2_corp" }
 		}
 		else_if = {
+			# #4 对面开全图挂了？（合金装备“！”警报发现原声）
+			limit = { check_variable = { flower_record_card_id = 4 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_mgs_alert" }
+		}
+		else_if = {
+			# #6 空降对面首都不就行了 / #49 钢四传统艺能：伞兵偷家（Helikopter!）
+			limit = {
+				OR = {
+					check_variable = { flower_record_card_id = 6 }
+					check_variable = { flower_record_card_id = 49 }
+				}
+			}
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_helicopter" }
+		}
+		else_if = {
+			# #7 微操大师参谋部 / #50 牛顿的棺材板按不住了（李云龙：你他娘的还真是个天才！）
+			limit = {
+				OR = {
+					check_variable = { flower_record_card_id = 7 }
+					check_variable = { flower_record_card_id = 50 }
+				}
+			}
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_genius" }
+		}
+		else_if = {
+			# #9 从从容容总参谋部（王世坚：从从容容游刃有余）
 			limit = { check_variable = { flower_record_card_id = 9 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_wang_shijian" }
 		}
 		else_if = {
+			# #10 全图绿空，谁问你了（A-10 制空机炮扫射原声）
+			limit = { check_variable = { flower_record_card_id = 10 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_5_air" }
+		}
+		else_if = {
+			# #11 战地华佗：还能抢救 / #27 复活吧，我的爱人！（Heroes never die!）
 			limit = {
 				OR = {
 					check_variable = { flower_record_card_id = 11 }
@@ -145,104 +185,127 @@ flower_ai_record_chosen_card = {
 			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_heroes_revive" }
 		}
 		else_if = {
+			# #13 破釜沉舟（李云龙：逢敌必亮剑，绝不含糊！）
 			limit = { check_variable = { flower_record_card_id = 13 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_sparta" }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_sword" }
 		}
 		else_if = {
-			limit = { check_variable = { flower_record_card_id = 15 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_gas_gas" }
-		}
-		else_if = {
+			# #17 凭本事借的钱 / #24 义父的租借法案（收银机进账 Cha-ching!）
 			limit = {
 				OR = {
-					check_variable = { flower_record_card_id = 16 }
-					check_variable = { flower_record_card_id = 19 }
-				}
-			}
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_tiger_look" }
-		}
-		else_if = {
-			limit = { check_variable = { flower_record_card_id = 20 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_katsu_boom" }
-		}
-		else_if = {
-			limit = { check_variable = { flower_record_card_id = 36 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_zhenxiang" }
-		}
-		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 5 }
 					check_variable = { flower_record_card_id = 17 }
 					check_variable = { flower_record_card_id = 24 }
-					check_variable = { flower_record_card_id = 31 }
 				}
 			}
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 		}
 		else_if = {
+			# #18 这科研正常吗？（《X档案》外星黑科技电音）
+			limit = { check_variable = { flower_record_card_id = 18 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ufo_watermeter" }
+		}
+		else_if = {
+			# #19 回答我！为什么不冲！（回答我！Look in my eyes! 原声）
+			limit = { check_variable = { flower_record_card_id = 19 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+		}
+		else_if = {
+			# #20 炮管打到红温（迪达拉 Katsu 大爆炸！）
+			limit = { check_variable = { flower_record_card_id = 20 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_katsu_boom" }
+		}
+		else_if = {
+			# #23 赛博盲盒拆一发 / #52 非酋保底救助金（老虎机爆金币）
+			limit = {
+				OR = {
+					check_variable = { flower_record_card_id = 23 }
+					check_variable = { flower_record_card_id = 52 }
+				}
+			}
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_12_gambler" }
+		}
+		else_if = {
+			# #25 午夜消音突袭包（Bravo Six, going dark!）
 			limit = { check_variable = { flower_record_card_id = 25 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_7_nightingale" }
 		}
 		else_if = {
+			# #26 敌后破坏手册（《地道战》原唱）
 			limit = { check_variable = { flower_record_card_id = 26 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_8_guerrilla" }
 		}
 		else_if = {
+			# #28 早苗开过光的炮弹（东方原版魔炮原声）
 			limit = { check_variable = { flower_record_card_id = 28 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_italian_cannon" }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_touhou_spark" }
 		}
 		else_if = {
+			# #29 银怀表：极速穿插手册（东方咲夜女仆长 Za Warudo!）
 			limit = { check_variable = { flower_record_card_id = 29 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_timestop_dio" }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_sakuya_world" }
 		}
 		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 18 }
-					check_variable = { flower_record_card_id = 30 }
-				}
-			}
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ufo_watermeter" }
-		}
-		else_if = {
+			# #32 战场零元购指南（I'll take your entire stock!）
 			limit = { check_variable = { flower_record_card_id = 32 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_1_slayer" }
 		}
-		else_if = {
+	}
+	if = {
+		limit = { is_ai = no }
+		if = {
+			# #33 荒野求生：贝爷带队（去掉头就能吃 -> 卡比 Poyo!）
 			limit = { check_variable = { flower_record_card_id = 33 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_eat_tuva" }
 		}
 		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 6 }
-					check_variable = { flower_record_card_id = 34 }
-				}
-			}
-			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_10_magic" }
+			# #34 全军狂奔加速鞋（曼波，曼波，欧嘛吉里曼波~）
+			limit = { check_variable = { flower_record_card_id = 34 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_mambo" }
 		}
 		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 7 }
-					check_variable = { flower_record_card_id = 35 }
-				}
-			}
+			# #36 这合理吗？满地图纸（王境泽：真香！）
+			limit = { check_variable = { flower_record_card_id = 36 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_zhenxiang" }
+		}
+		else_if = {
+			# #37 战利品的事能算偷吗（李云龙：别的能耐没有，就他娘的会抢！）
+			limit = { check_variable = { flower_record_card_id = 37 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_loot" }
+		}
+		else_if = {
+			# #39 火力不足恐惧症（李云龙：一炸一大片啊！）
+			limit = { check_variable = { flower_record_card_id = 39 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_bomb_area" }
+		}
+		else_if = {
+			# #40 排水渠过河大法（头文字D Deja Vu!）
+			limit = { check_variable = { flower_record_card_id = 40 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_deja_vu" }
+		}
+		else_if = {
+			# #42 天降正义专业户（Tactical nuke incoming!）
+			limit = { check_variable = { flower_record_card_id = 42 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_tactical_nuke" }
+		}
+		else_if = {
+			# #43 这次终于人手一把枪（李云龙：手里的家伙好，咱腰杆子就硬！）
+			limit = { check_variable = { flower_record_card_id = 43 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_good_gun" }
+		}
+		else_if = {
+			# #44 看你子弹多还是我人多（万人齐吼 URAAAA!）
+			limit = { check_variable = { flower_record_card_id = 44 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_6_wave" }
+		}
+		else_if = {
+			# #48 电击器一下就满血（真实电击除颤器音效）
+			limit = { check_variable = { flower_record_card_id = 48 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_defib" }
+		}
+		else_if = {
+			# #57 施泰纳真的带着救兵来了（《帝国的毁灭》施泰纳进攻原声）
+			limit = { check_variable = { flower_record_card_id = 57 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_steiner_heroes" }
-		}
-		else_if = {
-			limit = { check_variable = { flower_record_card_id = 10 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" }
-		}
-		else_if = {
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 3 }
-					check_variable = { flower_record_card_id = 14 }
-				}
-			}
-			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_2_corp" }
 		}
 	}
 }

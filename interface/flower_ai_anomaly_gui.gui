@@ -250,7 +250,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_2_TT"
-			clicksound = flower_sfx_branch_ma_baoguo
+			clicksound = flower_sfx_meme_gas_gas
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -313,7 +313,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CARD_5_TT"
-			clicksound = flower_sfx_branch_steiner_heroes
+			clicksound = flower_sfx_meme_heroes_revive
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {

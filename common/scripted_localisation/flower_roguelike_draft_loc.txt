@@ -1847,105 +1847,105 @@ defined_text = {
 defined_text = {
 	name = GetFlowerDraftSlot1Tag
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } } localization_key = flower_tag_card_1 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 1 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_1 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 2 } } localization_key = flower_tag_card_2 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } } localization_key = flower_tag_card_3 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 3 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_3 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } } localization_key = flower_tag_card_4 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 4 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_4 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } } localization_key = flower_tag_card_5 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 5 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_5 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } } localization_key = flower_tag_card_6 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 6 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_6 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } } localization_key = flower_tag_card_7 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 7 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_7 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } } localization_key = flower_tag_card_8 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 8 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_8 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } } localization_key = flower_tag_card_9 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 9 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_9 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } } localization_key = flower_tag_card_10 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 10 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_10 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } } localization_key = flower_tag_card_11 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 11 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_11 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } } localization_key = flower_tag_card_12 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 12 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_12 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } } localization_key = flower_tag_card_13 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 13 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_13 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } } localization_key = flower_tag_card_14 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 14 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_14 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } } localization_key = flower_tag_card_15 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 15 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_15 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } } localization_key = flower_tag_card_16 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 16 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_16 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } } localization_key = flower_tag_card_17 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 17 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_17 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } } localization_key = flower_tag_card_18 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 18 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_18 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } } localization_key = flower_tag_card_19 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 19 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_19 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } } localization_key = flower_tag_card_20 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 20 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_20 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 21 } } localization_key = flower_tag_card_21 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 22 } } localization_key = flower_tag_card_22 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } } localization_key = flower_tag_card_23 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 23 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_23 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 24 } } localization_key = flower_tag_card_24 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } } localization_key = flower_tag_card_25 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 25 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_25 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } } localization_key = flower_tag_card_26 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 26 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_26 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } } localization_key = flower_tag_card_27 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 27 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_27 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } } localization_key = flower_tag_card_28 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 28 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_28 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } } localization_key = flower_tag_card_29 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 29 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_29 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } } localization_key = flower_tag_card_30 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 30 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_30 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } } localization_key = flower_tag_card_31 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 31 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_31 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } } localization_key = flower_tag_card_32 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 32 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_32 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } } localization_key = flower_tag_card_33 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 33 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_33 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } } localization_key = flower_tag_card_34 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 34 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_34 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } } localization_key = flower_tag_card_35 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 35 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_35 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } } localization_key = flower_tag_card_36 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 36 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_36 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 37 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 37 } } localization_key = flower_tag_card_37 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 37 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_37 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 38 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 38 } } localization_key = flower_tag_card_38 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 38 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_38 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 39 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 39 } } localization_key = flower_tag_card_39 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 39 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_39 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 40 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 40 } } localization_key = flower_tag_card_40 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 40 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_40 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 41 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 41 } } localization_key = flower_tag_card_41 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 41 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_41 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 42 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 42 } } localization_key = flower_tag_card_42 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 42 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_42 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 43 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 43 } } localization_key = flower_tag_card_43 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 43 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_43 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 44 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 44 } } localization_key = flower_tag_card_44 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 44 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_44 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 45 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 45 } } localization_key = flower_tag_card_45 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 45 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_45 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 46 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 46 } } localization_key = flower_tag_card_46 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 46 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_46 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 47 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 47 } } localization_key = flower_tag_card_47 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 47 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_47 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 48 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 48 } } localization_key = flower_tag_card_48 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 48 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_48 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 49 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 49 } } localization_key = flower_tag_card_49 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 49 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_49 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 50 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 50 } } localization_key = flower_tag_card_50 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 50 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_50 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 51 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 51 } } localization_key = flower_tag_card_51 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 51 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_51 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 52 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_1 = 52 } } localization_key = flower_tag_card_52 }
+	text = { trigger = { check_variable = { flower_draft_slot_1 = 52 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_52 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 53 } } localization_key = flower_tag_card_53 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 54 } } localization_key = flower_tag_card_54 }
 	text = { trigger = { check_variable = { flower_draft_slot_1 = 55 } } localization_key = flower_tag_card_55 }
@@ -1959,105 +1959,105 @@ defined_text = {
 defined_text = {
 	name = GetFlowerDraftSlot2Tag
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } } localization_key = flower_tag_card_1 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 1 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_1 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 2 } } localization_key = flower_tag_card_2 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } } localization_key = flower_tag_card_3 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 3 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_3 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } } localization_key = flower_tag_card_4 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 4 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_4 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } } localization_key = flower_tag_card_5 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 5 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_5 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } } localization_key = flower_tag_card_6 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 6 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_6 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } } localization_key = flower_tag_card_7 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 7 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_7 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } } localization_key = flower_tag_card_8 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 8 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_8 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } } localization_key = flower_tag_card_9 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 9 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_9 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } } localization_key = flower_tag_card_10 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 10 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_10 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } } localization_key = flower_tag_card_11 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 11 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_11 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } } localization_key = flower_tag_card_12 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 12 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_12 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } } localization_key = flower_tag_card_13 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 13 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_13 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } } localization_key = flower_tag_card_14 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 14 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_14 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } } localization_key = flower_tag_card_15 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 15 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_15 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } } localization_key = flower_tag_card_16 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 16 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_16 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } } localization_key = flower_tag_card_17 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 17 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_17 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } } localization_key = flower_tag_card_18 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 18 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_18 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } } localization_key = flower_tag_card_19 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 19 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_19 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } } localization_key = flower_tag_card_20 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 20 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_20 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 21 } } localization_key = flower_tag_card_21 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 22 } } localization_key = flower_tag_card_22 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } } localization_key = flower_tag_card_23 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 23 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_23 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 24 } } localization_key = flower_tag_card_24 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } } localization_key = flower_tag_card_25 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 25 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_25 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } } localization_key = flower_tag_card_26 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 26 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_26 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } } localization_key = flower_tag_card_27 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 27 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_27 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } } localization_key = flower_tag_card_28 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 28 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_28 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } } localization_key = flower_tag_card_29 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 29 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_29 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } } localization_key = flower_tag_card_30 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 30 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_30 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } } localization_key = flower_tag_card_31 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 31 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_31 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } } localization_key = flower_tag_card_32 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 32 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_32 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } } localization_key = flower_tag_card_33 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 33 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_33 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } } localization_key = flower_tag_card_34 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 34 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_34 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } } localization_key = flower_tag_card_35 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 35 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_35 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } } localization_key = flower_tag_card_36 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 36 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_36 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 37 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 37 } } localization_key = flower_tag_card_37 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 37 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_37 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 38 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 38 } } localization_key = flower_tag_card_38 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 38 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_38 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 39 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 39 } } localization_key = flower_tag_card_39 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 39 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_39 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 40 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 40 } } localization_key = flower_tag_card_40 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 40 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_40 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 41 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 41 } } localization_key = flower_tag_card_41 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 41 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_41 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 42 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 42 } } localization_key = flower_tag_card_42 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 42 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_42 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 43 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 43 } } localization_key = flower_tag_card_43 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 43 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_43 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 44 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 44 } } localization_key = flower_tag_card_44 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 44 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_44 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 45 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 45 } } localization_key = flower_tag_card_45 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 45 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_45 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 46 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 46 } } localization_key = flower_tag_card_46 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 46 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_46 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 47 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 47 } } localization_key = flower_tag_card_47 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 47 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_47 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 48 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 48 } } localization_key = flower_tag_card_48 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 48 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_48 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 49 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 49 } } localization_key = flower_tag_card_49 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 49 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_49 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 50 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 50 } } localization_key = flower_tag_card_50 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 50 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_50 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 51 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 51 } } localization_key = flower_tag_card_51 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 51 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_51 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 52 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_2 = 52 } } localization_key = flower_tag_card_52 }
+	text = { trigger = { check_variable = { flower_draft_slot_2 = 52 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_52 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 53 } } localization_key = flower_tag_card_53 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 54 } } localization_key = flower_tag_card_54 }
 	text = { trigger = { check_variable = { flower_draft_slot_2 = 55 } } localization_key = flower_tag_card_55 }
@@ -2071,105 +2071,105 @@ defined_text = {
 defined_text = {
 	name = GetFlowerDraftSlot3Tag
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } } localization_key = flower_tag_card_1 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 1 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_1 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 2 } } localization_key = flower_tag_card_2 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } } localization_key = flower_tag_card_3 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 3 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_3 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } } localization_key = flower_tag_card_4 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 4 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_4 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } } localization_key = flower_tag_card_5 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 5 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_5 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } } localization_key = flower_tag_card_6 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 6 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_6 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } } localization_key = flower_tag_card_7 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 7 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_7 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } } localization_key = flower_tag_card_8 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 8 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_8 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } } localization_key = flower_tag_card_9 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 9 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_9 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } } localization_key = flower_tag_card_10 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 10 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_10 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } } localization_key = flower_tag_card_11 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 11 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_11 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } } localization_key = flower_tag_card_12 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 12 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_12 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } } localization_key = flower_tag_card_13 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 13 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_13 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } } localization_key = flower_tag_card_14 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 14 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_14 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } } localization_key = flower_tag_card_15 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 15 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_15 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } } localization_key = flower_tag_card_16 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 16 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_16 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } } localization_key = flower_tag_card_17 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 17 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_17 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } } localization_key = flower_tag_card_18 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 18 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_18 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } } localization_key = flower_tag_card_19 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 19 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_19 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } } localization_key = flower_tag_card_20 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 20 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_20 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 21 } } localization_key = flower_tag_card_21 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 22 } } localization_key = flower_tag_card_22 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } } localization_key = flower_tag_card_23 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 23 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_23 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 24 } } localization_key = flower_tag_card_24 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } } localization_key = flower_tag_card_25 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 25 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_25 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } } localization_key = flower_tag_card_26 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 26 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_26 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } } localization_key = flower_tag_card_27 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 27 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_27 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } } localization_key = flower_tag_card_28 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 28 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_28 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } } localization_key = flower_tag_card_29 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 29 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_29 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } } localization_key = flower_tag_card_30 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 30 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_30 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } } localization_key = flower_tag_card_31 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 31 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_31 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } } localization_key = flower_tag_card_32 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 32 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_32 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } } localization_key = flower_tag_card_33 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 33 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_33 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } } localization_key = flower_tag_card_34 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 34 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_34 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } } localization_key = flower_tag_card_35 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 35 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_35 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } } localization_key = flower_tag_card_36 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 36 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_36 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 37 } has_country_flag = flower_roguelike_slayer_ai } localization_key = flower_tag_own_slayer }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 37 } } localization_key = flower_tag_card_37 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 37 } NOT = { has_country_flag = flower_roguelike_slayer_ai } } localization_key = flower_tag_card_37 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 38 } has_country_flag = flower_roguelike_corp_ai } localization_key = flower_tag_own_corp }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 38 } } localization_key = flower_tag_card_38 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 38 } NOT = { has_country_flag = flower_roguelike_corp_ai } } localization_key = flower_tag_card_38 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 39 } has_country_flag = flower_roguelike_arty_ai } localization_key = flower_tag_own_arty }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 39 } } localization_key = flower_tag_card_39 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 39 } NOT = { has_country_flag = flower_roguelike_arty_ai } } localization_key = flower_tag_card_39 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 40 } has_country_flag = flower_roguelike_tank_ai } localization_key = flower_tag_own_tank }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 40 } } localization_key = flower_tag_card_40 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 40 } NOT = { has_country_flag = flower_roguelike_tank_ai } } localization_key = flower_tag_card_40 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 41 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 41 } } localization_key = flower_tag_card_41 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 41 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_41 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 42 } has_country_flag = flower_roguelike_air_ai } localization_key = flower_tag_own_air }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 42 } } localization_key = flower_tag_card_42 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 42 } NOT = { has_country_flag = flower_roguelike_air_ai } } localization_key = flower_tag_card_42 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 43 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 43 } } localization_key = flower_tag_card_43 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 43 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_43 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 44 } has_country_flag = flower_roguelike_wave_ai } localization_key = flower_tag_own_wave }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 44 } } localization_key = flower_tag_card_44 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 44 } NOT = { has_country_flag = flower_roguelike_wave_ai } } localization_key = flower_tag_card_44 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 45 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 45 } } localization_key = flower_tag_card_45 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 45 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_45 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 46 } has_country_flag = flower_roguelike_nightingale_ai } localization_key = flower_tag_own_night }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 46 } } localization_key = flower_tag_card_46 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 46 } NOT = { has_country_flag = flower_roguelike_nightingale_ai } } localization_key = flower_tag_card_46 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 47 } has_country_flag = flower_roguelike_guerrilla_ai } localization_key = flower_tag_own_guerrilla }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 47 } } localization_key = flower_tag_card_47 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 47 } NOT = { has_country_flag = flower_roguelike_guerrilla_ai } } localization_key = flower_tag_card_47 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 48 } has_country_flag = flower_roguelike_undead_ai } localization_key = flower_tag_own_undead }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 48 } } localization_key = flower_tag_card_48 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 48 } NOT = { has_country_flag = flower_roguelike_undead_ai } } localization_key = flower_tag_card_48 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 49 } has_country_flag = flower_roguelike_magic_ai } localization_key = flower_tag_own_magic }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 49 } } localization_key = flower_tag_card_49 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 49 } NOT = { has_country_flag = flower_roguelike_magic_ai } } localization_key = flower_tag_card_49 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 50 } has_country_flag = flower_roguelike_steampunk_ai } localization_key = flower_tag_own_punk }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 50 } } localization_key = flower_tag_card_50 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 50 } NOT = { has_country_flag = flower_roguelike_steampunk_ai } } localization_key = flower_tag_card_50 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 51 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 51 } } localization_key = flower_tag_card_51 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 51 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_51 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 52 } has_country_flag = flower_roguelike_gambler_active } localization_key = flower_tag_own_gambler }
-	text = { trigger = { check_variable = { flower_draft_slot_3 = 52 } } localization_key = flower_tag_card_52 }
+	text = { trigger = { check_variable = { flower_draft_slot_3 = 52 } NOT = { has_country_flag = flower_roguelike_gambler_active } } localization_key = flower_tag_card_52 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 53 } } localization_key = flower_tag_card_53 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 54 } } localization_key = flower_tag_card_54 }
 	text = { trigger = { check_variable = { flower_draft_slot_3 = 55 } } localization_key = flower_tag_card_55 }

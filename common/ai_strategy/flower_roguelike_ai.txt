@@ -948,7 +948,7 @@ flower_roguelike_magic_ai_strat = {
 	}
 	ai_strategy = {
 		type = equipment_production_factor
-		id = support_equipment
+		id = support
 		value = 140
 	}
 }

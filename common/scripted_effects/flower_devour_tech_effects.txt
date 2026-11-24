@@ -1,4 +1,4 @@
-﻿#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
+#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
 flower_ai_absorb_defeated_nation_special_techs = {
 	set_temp_variable = { flower_devour_absorbed_special = 0 }
 	#PAO夜莺之国：T1立刻给夜莺魂灵与魔导兵械；T2夜莺骑士团三阶（1939自动/PAO已研即解/蓝图决议提前兑换）

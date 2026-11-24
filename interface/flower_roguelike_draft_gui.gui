@@ -312,7 +312,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_1_TT_WRAP"
-			clicksound = flower_sfx_arch_1_slayer
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -333,7 +333,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_2_TT_WRAP"
-			clicksound = flower_sfx_arch_2_corp
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -354,7 +354,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_3_TT_WRAP"
-			clicksound = flower_sfx_arch_3_arty
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -375,7 +375,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_4_TT_WRAP"
-			clicksound = flower_sfx_arch_4_tank
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -396,7 +396,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_5_TT_WRAP"
-			clicksound = flower_sfx_arch_5_air
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -417,7 +417,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_6_TT_WRAP"
-			clicksound = flower_sfx_arch_6_wave
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -438,7 +438,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_7_TT_WRAP"
-			clicksound = flower_sfx_arch_7_nightingale
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -459,7 +459,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_8_TT_WRAP"
-			clicksound = flower_sfx_arch_8_guerrilla
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -480,7 +480,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_9_TT_WRAP"
-			clicksound = flower_sfx_arch_9_undead
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -501,7 +501,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_10_TT_WRAP"
-			clicksound = flower_sfx_arch_10_magic
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -522,7 +522,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_11_TT_WRAP"
-			clicksound = flower_sfx_arch_11_steampunk
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
@@ -543,7 +543,7 @@ guiTypes = {
 			buttonFont = "flower_a4_16"
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ARCH_CARD_12_TT_WRAP"
-			clicksound = flower_sfx_arch_12_gambler
+			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
