@@ -1336,6 +1336,15 @@ flower_ai_apply_draft_slot_1 = {
 				}
 			}
 		}
+		else_if = {
+			limit = { has_war = yes }
+			random_enemy_country = {
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 4000
@@ -1801,6 +1810,15 @@ flower_ai_apply_draft_slot_2 = {
 				}
 			}
 		}
+		else_if = {
+			limit = { has_war = yes }
+			random_enemy_country = {
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 4000
@@ -2260,6 +2278,15 @@ flower_ai_apply_draft_slot_3 = {
 			limit = { any_enemy_country = { is_major = yes } }
 			random_enemy_country = {
 				limit = { is_major = yes }
+				add_timed_idea = {
+					idea = flower_op_guerrilla_sabotaged_idea
+					days = 90
+				}
+			}
+		}
+		else_if = {
+			limit = { has_war = yes }
+			random_enemy_country = {
 				add_timed_idea = {
 					idea = flower_op_guerrilla_sabotaged_idea
 					days = 90

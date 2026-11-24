@@ -153,7 +153,7 @@ flower_roguelike_ops_cat = {
 			NOT = { has_idea = flower_op_corp_eff_plan_idea }
 		}
 		cost = 25
-		days_re_enable = 185
+		days_re_enable = 180
 		ai_will_do = {
 			base = 50
 			modifier = {
