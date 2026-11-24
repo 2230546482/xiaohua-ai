@@ -163,7 +163,7 @@ scripted_gui = {
 		}
 	}
 
-	#开局畸变投票箱主面板（920x660大气版，全员就绪后正式生效）
+	#开局畸变投票箱主面板
 	flower_ai_anomaly_vote_gui = {
 		context_type = player_context
 		window_name = "flower_ai_anomaly_vote_window"
@@ -559,7 +559,7 @@ scripted_gui = {
 					limit = { NOT = { has_global_flag = flower_anomaly_voting_settled } }
 					clr_country_flag = flower_anomaly_player_ready
 					clr_country_flag = flower_anomaly_player_skip
-					#先退掉当前玩家已投旧票，杜绝连续点击猫爪无限刷票
+					#先退掉当前玩家已投旧票
 					flower_ai_clear_own_anomaly_votes = yes
 					random_list = {
 						10 = { clr_country_flag = flower_anomaly_page_2 set_country_flag = flower_voted_card_1 add_to_variable = { global.flower_anomaly_vote_1 = 1 } }

@@ -1,6 +1,6 @@
-#随机三选一肉鸽牌库、分支觉醒与隐藏共鸣（玩家走手账GUI，AI走事件）
+#肉鸽三选一牌库、分支与隐藏组合
 
-#开启流派进阶分支（支持队列防挤掉 + 音效提示 + 防误触静默提醒，AI弹出事件）
+#开启流派进阶分支
 flower_ai_open_branch_evolution_event = {
 	if = {
 		limit = {
@@ -383,7 +383,7 @@ flower_ai_open_branch_evolution_event = {
 	}
 }
 
-#从60张词条牌库随机抽出一张不重复卡牌（12大流派各4张1对1专属高权重倾斜 + 12张中立分期战略池）
+#从60张词条牌库抽取一张不重复卡牌
 flower_ai_pick_one_draft_card = {
 	random_list = {
 		#1.大意了，没有闪[午夜夜战·遗物]
@@ -1827,7 +1827,7 @@ flower_ai_pick_one_draft_card = {
 	}
 }
 
-#洗牌并抽出3张互不相同的肉鸽词条（内置三大卡22【流派进阶/跨界多修】必定保底技巧）
+#洗牌并抽出3张互不相同的词条
 flower_ai_roll_roguelike_draft = {
 	set_variable = { flower_draft_slot_1 = 0 }
 	set_variable = { flower_draft_slot_2 = 0 }
@@ -1836,7 +1836,7 @@ flower_ai_roll_roguelike_draft = {
 	set_variable = { flower_draft_slot_1 = flower_draft_temp }
 	flower_ai_pick_one_draft_card = yes
 	set_variable = { flower_draft_slot_2 = flower_draft_temp }
-	#保底技巧1（押军火切牌必出）、技巧2（迫降敌方主要国家战功必出）、技巧3（连续2轮未见后第3轮保底必出）
+	#卡22保底判定
 	if = {
 		limit = {
 			check_variable = { flower_card22_picked_count < 4 }
@@ -1882,7 +1882,7 @@ flower_ai_roll_roguelike_draft = {
 	clr_country_flag = flower_draft_high_roller
 }
 
-#开启一轮随机三选一（支持队列防挤掉 + 音效提示 + 防误触静默提醒，AI走FLWRG.1）
+#开启一轮随机三选一
 flower_ai_open_roguelike_draft = {
 	if = {
 		limit = { is_ai = no }

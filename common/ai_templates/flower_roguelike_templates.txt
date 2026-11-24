@@ -1,4 +1,4 @@
-#肉鸽流派全图AI最优编制适配（全100%原版合法兵种，覆盖全部核心流派与特种分支，高优先级稳压原生模板且无特殊兵种依赖）
+#肉鸽流派AI编制模板
 
 #流派一：战地扒装备AI突击步炮师
 flower_roguelike_slayer_templates = {
@@ -263,7 +263,7 @@ flower_roguelike_sakuya_armor_templates = {
 	}
 }
 
-#流派五：斯图卡洗头房王牌空降旅AI编制（纯原版8营精锐伞兵空降斩首）
+#流派五：斯图卡洗头房空降旅AI编制
 flower_roguelike_air_heli_templates = {
 	role = flower_air_heli_assault
 	upgrade_prio = {

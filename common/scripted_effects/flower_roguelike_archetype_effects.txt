@@ -1,6 +1,6 @@
 #12大流派核心选择与11大流派进阶分支统一执行脚本（GUI与AI共用）
 
-#打开12大流派选择（支持队列防挤掉 + 音效提示 + 防误触静默提醒，AI走智能流派决策）
+#打开12大流派选择
 flower_ai_open_starter_selection = {
 	if = {
 		limit = { is_ai = no }
@@ -58,7 +58,7 @@ flower_ai_pick_random_archetype = {
 	}
 }
 
-#完成本轮选牌并自动从队列弹出下一轮待选界面（防止额外抽卡被定时波次挤掉）
+#完成本轮选牌并弹出下一轮队列
 flower_ai_close_draft_gui_done = {
 	if = {
 		limit = { is_ai = no }
@@ -66,7 +66,7 @@ flower_ai_close_draft_gui_done = {
 	}
 }
 
-#GUI点击3个海克斯词条槽位（先结算卡牌效果再从队列弹出下一轮；21/22号卡无缝切换分支/流派界面且保留后续队列）
+#GUI点击3个词条槽位
 flower_ai_gui_click_hex_slot_1 = {
 	if = {
 		limit = {
@@ -217,7 +217,7 @@ flower_ai_pick_archetype_2 = {
 	}
 }
 
-#3.重炮洗地俱乐部（纯原版重炮、火箭炮与列车炮饱和火力流）
+#3.重炮洗地俱乐部
 flower_ai_pick_archetype_3 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_arty_ai } }
@@ -392,7 +392,7 @@ flower_ai_pick_archetype_3 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#4.时停装甲闪电战（纯原版装甲高速穿插、超低油耗与纵深包饺子流）
+#4.时停装甲闪电战
 flower_ai_pick_archetype_4 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_tank_ai } }
@@ -552,7 +552,7 @@ flower_ai_pick_archetype_4 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#5.斯图卡洗头房（全天候制空、王牌密接洗地与伞兵空降斩首流）
+#5.斯图卡洗头房
 flower_ai_pick_archetype_5 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_air_ai } }
@@ -684,7 +684,7 @@ flower_ai_pick_archetype_5 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#6.督战队人海（铁血填线、老兵保全与反包围钢铁防线）
+#6.督战队人海
 flower_ai_pick_archetype_6 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_wave_ai } }
@@ -776,7 +776,7 @@ flower_ai_pick_archetype_6 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#7.午夜奇袭特遣队（暗夜统治、情报侦察先手与全军夜袭穿插流）
+#7.午夜夜战部队
 flower_ai_pick_archetype_7 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_nightingale_ai } }
@@ -893,7 +893,7 @@ flower_ai_pick_archetype_7 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#8.野火游击破交网（本土反杀、敌后瘫痪破交与零补给烂地战神流）
+#8.敌后游击战
 flower_ai_pick_archetype_8 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_guerrilla_ai } }
@@ -1007,7 +1007,7 @@ flower_ai_pick_archetype_8 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#9.绝境血炉死士团（极速组织度恢复、战损急救回流与严寒断补给死战流）
+#9.战地敢死队
 flower_ai_pick_archetype_9 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_undead_ai } }
@@ -1108,7 +1108,7 @@ flower_ai_pick_archetype_9 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#10.皇家王牌特战营（原版山地/海军陆战队/伞兵特种精锐与将领王牌微操流）
+#10.王牌特种兵团
 flower_ai_pick_archetype_10 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_magic_ai } }
@@ -1287,7 +1287,7 @@ flower_ai_pick_archetype_10 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#11.疯狂科研黑盒局（科技代差跃升、设计局经费狂飙与超前装备研产流）
+#11.疯狂科研实验室
 flower_ai_pick_archetype_11 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_steampunk_ai } }
@@ -1414,7 +1414,7 @@ flower_ai_pick_archetype_11 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#12.怪蛋与大转盘（赌徒流派：孵怪蛋 + 血誓军令状 + 黑市转盘 + 命运骰子随机Buff/Debuff）
+#12.黑市俄罗斯轮盘
 flower_ai_pick_archetype_12 = {
 	if = {
 		limit = { NOT = { has_country_flag = flower_roguelike_gambler_active } }
@@ -1536,7 +1536,7 @@ flower_ai_pick_archetype_12 = {
 	flower_ai_roll_gambler_fate = yes
 }
 
-#执行分支界面第1张卡选择（绑定各分支专属热梗代表性音效）
+#执行分支界面第1张卡选择
 flower_ai_apply_branch_choice_1 = {
 	if = {
 		limit = { check_variable = { flower_branch_id = 1 } }
@@ -1646,7 +1646,7 @@ flower_ai_apply_branch_choice_1 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#执行分支界面第2张卡选择（绑定各分支专属热梗代表性音效）
+#执行分支界面第2张卡选择
 flower_ai_apply_branch_choice_2 = {
 	if = {
 		limit = { check_variable = { flower_branch_id = 1 } }
@@ -1743,7 +1743,7 @@ flower_ai_apply_branch_choice_2 = {
 	flower_ai_check_chemical_combos = yes
 }
 
-#执行分支界面第3张卡选择（绑定各分支专属热梗代表性音效）
+#执行分支界面第3张卡选择
 flower_ai_apply_branch_choice_3 = {
 	if = {
 		limit = { check_variable = { flower_branch_id = 1 } }

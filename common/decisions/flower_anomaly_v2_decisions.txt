@@ -40,7 +40,7 @@ flower_anomaly_v2_ops_cat = {
 		}
 	}
 
-	#畸变8主动决议：【大喊：我是爷们儿！】（玩家专属0消耗战时主动拍桌爆发60天，冷却120天；AI走月度自动触发）
+	#畸变8主动决议：【大喊：我是爷们儿！】
 	flower_anom8_yemen_roar_dec = {
 		icon = flower_dec_yemen
 		visible = {

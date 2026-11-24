@@ -1,4 +1,4 @@
-#蒸汽装甲AI自动设计蓝图（通过畸变4击败丹麦等途径解锁steamtank1~4后全阶段自动迭代设计，仅占重坦角色不挤占常规中坦）
+#蒸汽装甲AI设计蓝图
 flower_steampunk_tanks = {
 	category = land
 	roles = {

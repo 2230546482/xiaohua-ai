@@ -1,4 +1,4 @@
-#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
+#畸变4：吸收战败国特殊科技与兵种
 flower_ai_absorb_defeated_nation_special_techs = {
 	set_temp_variable = { flower_devour_absorbed_special = 0 }
 	#PAO夜莺之国：T1立刻给夜莺魂灵与魔导兵械；T2夜莺骑士团三阶（1939自动/PAO已研即解/蓝图决议提前兑换）
@@ -1221,7 +1221,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			popup = yes
 		}
 	}
-	#继承败者身上携带的跨国共享终极蓝图（防止因已吸收过同阵营国家而漏继承共享蓝图）
+	#继承败者携带的共享终极蓝图
 	if = {
 		limit = {
 			var:temp_devour_victim = { has_country_flag = flower_bp_has_t3_ufo }
@@ -1258,7 +1258,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			flower_unlock_bp_t3_ai_fcs = yes
 		}
 	}
-	#严格按败者实际已完成的通用特殊项目继承（陆/空/海/核全覆盖，对方未完成绝不凭空赠送）
+	#继承败者已完成的通用特殊项目
 	if = {
 		limit = {
 			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_flamethrower_tank }
@@ -1755,7 +1755,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		complete_special_project = sp:sp_nuclear_warheads
 	}
-	#严格按败者实际已拥有的通用特殊项目科技与稀有隐藏战术科技继承（对方未研发绝不凭空赠送）
+	#继承败者已研发的特殊项目与隐藏科技
 	if = {
 		limit = {
 			var:temp_devour_victim = { has_tech = r56_improved_optics_tech_1 }

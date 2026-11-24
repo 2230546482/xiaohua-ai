@@ -198,7 +198,7 @@ spriteTypes = {
 		name = "GFX_trait_flower_grand_chessmaster_trait"
 		texturefile = "gfx/interface/flower_grand_chessmaster_trait.png"
 	}
-	#民族精神与成长词条图标（复用主模组原汁原味图标，零AI贴纸画风）
+	#民族精神与成长词条图标
 	spriteType = {
 		name = "GFX_flower_ai_jungong"
 		texturefile = "gfx/interface/ideas/flower_ai_jungong.png"
@@ -311,7 +311,7 @@ spriteTypes = {
 		name = "GFX_idea_flower_idea_steampunk"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_big_house.png"
 	}
-	#肉鸽进阶分叉、战术遗物、诅咒契约与化学反应图标（全部复用萌心主mod原生图标）
+	#流派分支、遗物、契约与组合图标
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_blood"
 		texturefile = "gfx/interface/ideas/PAO/PAO_psyl.png"
@@ -368,7 +368,7 @@ spriteTypes = {
 		name = "GFX_idea_flower_idea_combo_spark"
 		texturefile = "gfx/interface/ideas/PAM/PAM_living_world_icon.png"
 	}
-	#肉鸽专属细分民族精神图标（一精神一图，彻底消除重复与不搭）
+	#细分民族精神图标
 	spriteType = {
 		name = "GFX_idea_flower_ico_relic_night"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_ma_baoguo.png"
@@ -633,7 +633,6 @@ spriteTypes = {
 		name = "GFX_idea_flower_ico_egg_hatched"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_egg_hatched.png"
 	}
-	#BEGIN_UNIQUE_IDEA_ICONS
 	spriteType = {
 		name = "GFX_idea_flower_ico_corp_s1"
 		texturefile = "gfx/interface/ideas/CAN/IRE_medium_industry.png"
@@ -830,8 +829,7 @@ spriteTypes = {
 		name = "GFX_idea_flower_ico_op_gu_sabo"
 		texturefile = "gfx/interface/ideas/PAU/PAU_undead_burn_depot.png"
 	}
-	#END_UNIQUE_IDEA_ICONS
-	#全新大气悬浮窗与920x660主面板GUI素材
+	#悬浮窗与主面板素材
 	spriteType = {
 		name = "GFX_flower_dock_bg"
 		texturefile = "gfx/interface/gui/flower_ui/flower_dock_bg.png"
@@ -1253,7 +1251,6 @@ spriteTypes = {
 		legacy_lazy_load = no
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
-	#END_GRAND_FLOWER_UI
 
 	spriteType = {
 		name = "GFX_idea_flower_ico_micro_revive"
@@ -1283,7 +1280,7 @@ spriteTypes = {
 		name = "GFX_idea_flower_anom_12_look_eyes"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_12_look_eyes.png"
 	}
-	#抽牌词条卡(36帧)与流派进阶分支卡(25帧)流派/梗图专属相框图标精灵条
+	#词条卡与分支卡图标精灵条
 	spriteType = {
 		name = "GFX_flower_hex_card_icons"
 		texturefile = "gfx/interface/gui/flower_ui/flower_hex_card_icons.png"
@@ -1296,7 +1293,7 @@ spriteTypes = {
 		noOfFrames = 25
 		legacy_lazy_load = no
 	}
-	#特色决议专属梗图小图标(36x36)
+	#决议小图标
 	spriteType = {
 		name = "GFX_decision_flower_dec_ziwen"
 		texturefile = "gfx/interface/decisions/decision_flower_dec_ziwen.png"

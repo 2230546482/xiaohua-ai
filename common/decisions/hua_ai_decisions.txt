@@ -861,7 +861,7 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #主动加抽一轮肉鸽三选一（整合原政治点/HCP双决议为单一入口，每180天限1次，优先耗100政治点、不足时自动改耗250 HCP）
+    #主动加抽一轮肉鸽三选一
     hua_buy_roguelike_draft_pp_dec = {
         icon = flower_dec_draft_cat
         priority = 89
@@ -925,7 +925,7 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #主动翻开12大流派面板（限4次，按已修不同流派数消耗：1条150 / 2条200 / 3条及以上300政治点数）
+    #主动翻开12大流派面板
     hua_open_extra_archetype_dec = {
         icon = flower_dec_draft_hiss
         priority = 88

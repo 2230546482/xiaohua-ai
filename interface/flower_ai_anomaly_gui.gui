@@ -40,7 +40,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#顶部大气标题与状态说明
+		#顶部标题与状态说明
 		instantTextBoxType = {
 			name = "flower_anomaly_title"
 			position = { x = 166 y = 24 }
@@ -75,7 +75,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#顶部操作按钮栏（宽敞排列，配有选择音效）
+		#顶部操作按钮栏
 		buttonType = {
 			name = "flower_anomaly_confirm_btn"
 			position = { x = 166 y = 104 }
@@ -221,7 +221,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#六大开局畸变卡片（3列x2行，276x178，宽敞清晰，每张卡绑定专属热梗代表性音效）
+		#第1页：开局畸变1-6
 		buttonType = {
 			name = "flower_anomaly_card_1_btn"
 			position = { x = 28 y = 208 }
@@ -349,7 +349,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#第2页：新增六大开局畸变卡片（7~12号，同3列x2行宽敞布局，专属热梗音效）
+		#第2页：开局畸变7-12
 		buttonType = {
 			name = "flower_anomaly_card_7_btn"
 			position = { x = 28 y = 208 }
@@ -477,7 +477,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#底部状态栏、猫猫蝴蝶结彩蛋与翻页钮
+		#底部状态栏与翻页按钮
 		instantTextBoxType = {
 			name = "flower_anomaly_footer_text"
 			position = { x = 44 y = 614 }

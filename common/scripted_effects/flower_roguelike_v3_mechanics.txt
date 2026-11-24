@@ -1,4 +1,4 @@
-#肉鸽三期核心机制：黑市6个月净收入契约、方案B+动态规则引擎、魔导国21天预警超位魔法与AI追赶
+#黑市契约、流派动态修正、魔导国超位魔法与AI追赶
 
 #===============================================================================
 #一、黑市6个月净收入契约（支持现金支付与1.2倍高利贷负债）
@@ -64,7 +64,7 @@ flower_ai_pay_black_market_cost = {
 }
 
 #===============================================================================
-#二、方案B+12大流派动态规则引擎（重算与钩子）
+#二、12大流派动态修正与钩子
 #===============================================================================
 
 #流派2分支2B：本土随机州平地勘探永久战略矿脉
@@ -81,7 +81,7 @@ flower_ai_corp_prospect_mineral = {
 	}
 }
 
-#流派3：重算炮兵火力密度动态修正（1~5档，全整数步长）
+#流派3：重算炮兵火力密度
 flower_ai_recalc_arty_density = {
 	if = {
 		limit = { has_country_flag = flower_roguelike_arty_ai }
@@ -130,7 +130,7 @@ flower_ai_recalc_arty_density = {
 	}
 }
 
-#流派4：重算闪击惯性动态修正（基础5层，4A上限10层，全整数步长）
+#流派4：重算闪击惯性
 flower_ai_recalc_blitz_momentum = {
 	if = {
 		limit = { has_country_flag = flower_roguelike_tank_ai }
@@ -216,7 +216,7 @@ flower_ai_recalc_ace_prestige = {
 	}
 }
 
-#流派6：重算血战老兵传承与绝境反击动态修正（5层上限，全整数步长）
+#流派6：重算血战老兵传承
 flower_ai_recalc_veteran_furnace = {
 	if = {
 		limit = { has_country_flag = flower_roguelike_wave_ai }
@@ -265,7 +265,7 @@ flower_ai_recalc_veteran_furnace = {
 		}
 		else_if = {
 			limit = { has_idea = flower_evo_wave_banzai_idea }
-			#分支6B：反攻红潮（老兵层数转为纯进攻突破，全整数）
+			#分支6B：反攻红潮
 			set_variable = { flower_vet_brk_var = flower_vet_stacks }
 			multiply_variable = { flower_vet_brk_var = 0.02 }
 			set_variable = { flower_vet_rec_var = flower_vet_stacks }
@@ -274,7 +274,7 @@ flower_ai_recalc_veteran_furnace = {
 	}
 }
 
-#流派8：重算游击烂地与敌后适应动态修正（1~5档，全整数步长）
+#流派8：重算游击适应度
 flower_ai_recalc_guerrilla_underdog = {
 	if = {
 		limit = { has_country_flag = flower_roguelike_guerrilla_ai }
@@ -384,9 +384,12 @@ flower_ai_add_blood_charge = {
 				type = artillery_equipment
 				amount = 400
 			}
-			add_timed_idea = {
-				idea = flower_op_undead_surge_idea
-				days = 60
+			add_timed_idea = {
+
+				idea = flower_op_undead_surge_idea
+
+				days = 60
+
 			}
 			if = {
 				limit = { has_country_flag = flower_card_owned_48 }
@@ -463,7 +466,7 @@ flower_ai_recalc_elite_small_army = {
 	}
 }
 
-#流派11：科研领先反哺全军动态修正（1~5档，全整数步长）
+#流派11：重算科研成果转化
 flower_ai_recalc_science_compute = {
 	if = {
 		limit = { has_country_flag = flower_roguelike_steampunk_ai }
@@ -489,7 +492,7 @@ flower_ai_recalc_science_compute = {
 	}
 }
 
-#流派12分支12A：账户资金转化战力动态修正（5档，全整数步长）
+#流派12分支12A：重算资金转化战力
 flower_ai_recalc_cash_power = {
 	if = {
 		limit = { has_idea = flower_egg_clockwork_forge_idea }
@@ -512,7 +515,7 @@ flower_ai_recalc_cash_power = {
 	}
 }
 
-#月度统一巡检所有方案B+动态规则引擎
+#月度巡检各流派动态修正
 flower_ai_tick_roguelike_v3_engines = {
 	flower_ai_recalc_black_market_cost = yes
 	#流派1分支1A：月度自动将多余步枪回炉为火炮与支援装备
@@ -615,7 +618,7 @@ flower_ai_tick_roguelike_v3_engines = {
 	flower_ai_recalc_cash_power = yes
 }
 
-#占领敌方地区钩子（在on_state_control_changed中调用，ROOT=新控制者，FROM=原控制者，FROM.FROM=州）
+#占领敌方地区钩子
 flower_ai_on_state_captured_v3 = {
 	if = {
 		limit = {
@@ -752,10 +755,7 @@ flower_ai_on_ace_promoted_v3 = {
 #三、魔导国（DVL）21天预警二段超位魔法与玩家反制系统（多维战术智能选点 + 落地动态重瞄）
 #===============================================================================
 
-#内部选点评分器：在目标敌国作用域调用
-#入参：flower_dvl_slot_mode (1=战略中枢/重兵矛头, 2=军工心脏/大机场, 3=前线补给/次高价值重兵)
-#      flower_dvl_desp_mode (0=常规开战咏唱, 1=濒死绝唱)
-#出参：flower_dvl_best_st_id (最高价值受控州ID，无可用州为0；调用方负责标记flower_dvl_target_tmp)
+#魔导国超位魔法落点评分
 flower_ai_dvl_pick_best_state = {
 	set_variable = { flower_dvl_best_st_score = -9999 }
 	set_variable = { flower_dvl_best_st_id = 0 }
@@ -918,7 +918,6 @@ flower_ai_dvl_pick_best_state = {
 }
 
 flower_ai_start_dvl_magic_warning = {
-	#调用前需设置temp_variable flower_gutou_nuke_target 与 flower_dvl_is_desperate (0=开战咏唱, 1=濒死绝唱)
 	if = {
 		limit = {
 			DVL = {
@@ -980,7 +979,7 @@ flower_ai_start_dvl_magic_warning = {
 				limit = { has_state_flag = flower_dvl_target_tmp }
 				clr_state_flag = flower_dvl_target_tmp
 			}
-			#若目标国仅余1至2州，复用落点1的event_target供事件文案兜底显示（不增加重复轰炸）
+			#目标国不足3州时复用落点1显示
 			if = {
 				limit = {
 					check_variable = { flower_dvl_warn_st_2 = 0 }
@@ -1042,7 +1041,7 @@ flower_ai_execute_dvl_magic_strike = {
 			}
 		}
 		else = {
-			#未拦截：逐一校验原锁定州是否仍属敌控；若21天内已被魔导国或盟友攻下，则自动重瞄敌国当前最高价值受控州，绝不误炸也不空弹
+			#未拦截：校验落点控制权并自动重瞄
 			if = {
 				limit = {
 					check_variable = { flower_dvl_warn_st_1 > 0 }

@@ -160,7 +160,7 @@ on_actions = {
                 }
                 set_global_flag = flower_anomaly_voting_open
             }
-            #初始化开局畸变票数为0（杜绝任何默认预投票）并在合法国家作用域重算全员就绪计数
+            #初始化开局畸变票数与就绪计数
             random_country = {
                 limit = { is_ai = no }
                 set_variable = { global.flower_anomaly_vote_1 = 0 }
@@ -186,7 +186,7 @@ on_actions = {
                     set_country_flag = flower_cached_is_major
                 }
             }
-            #玩家选择PAO时：加载本加强AI模组后确保拉普拉塔内战由AI野火（LHS）必定胜出（不涉肉鸽亦生效）
+            #玩家选PAO时拉普拉塔内战偏向LHS
             if = {
                 limit = {
                     PAO = { is_ai = no }
@@ -210,7 +210,7 @@ on_actions = {
     #月度补挂难度精神与肉鸽成长推进
     on_monthly = {
         effect = {
-            #投票阶段断线与变动防卡死自动重算（全局每月仅执行一次，避免O(N^2)遍历）
+            #投票阶段月度重算
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_voting_open
@@ -219,7 +219,7 @@ on_actions = {
                 set_global_flag = { flag = flower_anomaly_vote_monthly_cd days = 25 value = 1 }
                 flower_ai_recalc_anomaly_ready = yes
             }
-            #【老实赚钱很枯燥吧】全球股市月度跳价（每月1次）+ 各工业AI按自身月度Tick错峰分散交易（零月初同帧尖峰）
+            #全球股市月度跳价与AI交易
             if = {
                 limit = { has_global_flag = flower_anomaly_3_active }
                 if = {
@@ -240,7 +240,7 @@ on_actions = {
                     flower_stock_ai_monthly_trade = yes
                 }
             }
-            #缓存各国非投降状态下的战前/峰值工厂数与主要国家身份（防止投降或吞并瞬间数值归零导致误判）
+            #缓存战前工厂数与主要国家身份
             if = {
                 limit = {
                     has_capitulated = no
@@ -292,7 +292,7 @@ on_actions = {
                     flower_ai_add_slayer_stack = yes
                 }
             }
-            #12大流派专属局内成长里程碑、动态规则引擎与AI词条追赶（顶层全局旗标O(1)短路，未开流派模式时跳过200国轮询）
+            #12大流派里程碑、动态引擎与AI追赶
             if = {
                 limit = {
                     NOT = { tag = ZDW }
@@ -344,7 +344,7 @@ on_actions = {
                 }
                 flower_ai_sync_devour_progressive_techs = yes
             }
-            #新增6大开局畸变（7~12号）月度巡检
+            #开局畸变7-12月度巡检
             flower_ai_tick_anomalies_v2_monthly = yes
             #魔导国濒死绝唱（投降进度超过55%时智能锁定最致命的宿敌：优先已攻入本土/接壤的玩家或主要强敌）
             if = {
@@ -814,7 +814,7 @@ on_actions = {
                     add_ideas = flower_anomaly_nightmare_ai_idea
                 }
             }
-            #玩家选择PAO时：拉普拉塔内战野火（LHS）必胜月度巡检与一次性内战应急补给（与PAO开战或内战结束瞬间自动卸载）
+            #拉普拉塔内战LHS月度巡检与补给
             if = {
                 limit = {
                     original_tag = LHS
@@ -865,7 +865,7 @@ on_actions = {
                     set_country_flag = flower_pao_yield_lock
                 }
             }
-            #AI PAU通用防自杀守护（主模组与肉鸽模式均生效；玩家玩PAO且野火内战期不给PAU续命）
+            #AI PAU防崩盘守护
             if = {
                 limit = {
                     original_tag = PAU
@@ -878,7 +878,7 @@ on_actions = {
                     }
                 }
                 clr_country_flag = flower_pao_yield_lock
-                #1. 圣杯流亡营口粮防饿死兜底：杜绝AI连点消费决议把299岛移交圣杯判负
+                #1. 圣杯流亡营口粮兜底
                 if = {
                     limit = {
                         has_country_flag = PAU_grail_camp
@@ -887,7 +887,7 @@ on_actions = {
                     }
                     add_to_variable = { PAU_grail_rations = 25 }
                 }
-                #2. 真实期权力平衡BoP极端崩盘温和回拉：防AI连环触发PAU.600/PAU.611稳定度雪崩
+                #2. 权力平衡极端崩盘回拉
                 if = {
                     limit = {
                         has_country_flag = has_PAU_xiaoyao4
@@ -1153,7 +1153,7 @@ on_actions = {
             #畸变10《从从容容，连滚带爬》和平入战瞬间切入90天连滚带爬
             ROOT = { flower_ai_anom10_on_enter_war = yes }
             FROM = { flower_ai_anom10_on_enter_war = yes }
-            #马奇诺防线硬编码超位魔法仅在魔导国与AI幻想乡交战且控制阿尔萨斯时触发；玩家幻想乡改走21天预警系统
+            #马奇诺防线魔导国超位魔法触发条件
             if = {
                 limit = {
                     NOT = { has_global_flag = DVL_use_nuke }
@@ -1187,7 +1187,7 @@ on_actions = {
                     }
                 }
                 set_global_flag = DVL_use_nuke
-                #避免同一瞬间对幻想乡叠加第二次超位魔法小规模核爆
+                #避免对幻想乡重复触发核爆
                 FRA = { set_country_flag = { flag = flower_gutou_super_magic_nuked days = 730 value = 1 } }
                 every_country = {
                     limit = {
@@ -1687,7 +1687,7 @@ on_actions = {
                 set_temp_variable = { temp_anom7_killer = FROM.id }
                 ROOT = { flower_ai_anom7_major_death_guanyu_song = yes }
             }
-            #标记战败国已走过停止抵抗判定，防止和谈吞并同国时重复计次
+            #标记已投降防重复计次
             ROOT = {
                 set_country_flag = { flag = flower_recently_capitulated days = 1825 value = 1 }
             }
@@ -1695,7 +1695,7 @@ on_actions = {
     }
     on_annex = {
         effect = {
-            #仅对尚未停止抵抗即被吞并的国家（如国策/事件吞并，或和谈中吞并此前未停止抵抗的国家）生效，杜绝先停止抵抗再和谈吞并重复计次
+            #直接吞并判定（排除已停止抵抗国家）
             if = {
                 limit = {
                     ROOT = { check_variable = { flower_slayer_stacks > 0 } }
@@ -1869,7 +1869,7 @@ on_actions = {
             }
         }
     }
-    #修复主模组夜莺二线(PAO)完成【自我之歌】(PAO_zwzg)击败亡灵(WL1)后偶发不触发脚本和平与结局事件PAO.110的问题
+    #PAO击败WL1结局事件补触发
     on_capitulation_immediate = {
         effect = {
             if = {
@@ -1931,7 +1931,7 @@ on_actions = {
             }
         }
     }
-    #新畸变10入战全覆盖钩子（涵盖宣战、盟友召唤、保障独立、国策连带参战等一切入战方式）
+    #畸变10入战钩子
     on_war_relation_added = {
         effect = {
             if = {
@@ -1941,7 +1941,7 @@ on_actions = {
             }
         }
     }
-    #方案B+占领敌方地区钩子与新畸变7/10/12钩子（外层O(1)全局旗标短路，未开启对应玩法时零省份易手开销）
+    #占领敌方地区与畸变7/10/12钩子
     on_state_control_changed = {
         effect = {
             if = {
@@ -1965,7 +1965,7 @@ on_actions = {
             }
         }
     }
-    #方案B+王牌飞行员诞生钩子（流派5王牌威望叠层）
+    #王牌飞行员诞生钩子
     on_ace_promoted = {
         effect = {
             flower_ai_on_ace_promoted_v3 = yes

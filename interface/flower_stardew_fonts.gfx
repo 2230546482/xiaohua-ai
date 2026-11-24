@@ -1,5 +1,5 @@
 bitmapfonts = {
-	#星露谷护眼高对比羊皮纸正文墨水字体（16号：纯黑墨水 0xff100c0a + 零同色高亮色表，WCAG AAA 13:1）
+	#16号羊皮纸墨水字体
 	bitmapfont = {
 		name = "flower_stardew_ink_16"
 		fontfiles = {
@@ -36,7 +36,7 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#星露谷护眼高对比副标题与粗体按钮墨水字体（18号：纯黑墨水 + 零同色高亮色表）
+	#18号粗体墨水字体
 	bitmapfont = {
 		name = "flower_stardew_ink_18"
 		fontfiles = {
@@ -72,7 +72,7 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#星露谷护眼高对比大标题墨水字体（22号：纯黑墨水 + 零同色高亮色表）
+	#22号标题墨水字体
 	bitmapfont = {
 		name = "flower_stardew_ink_22"
 		fontfiles = {
@@ -108,7 +108,7 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#GUI 主用 16 号高清墨黑字体（WCAG AAA 13:1 对比度，彻底杜绝文字与背景同色）
+	#GUI 16号墨黑字体
 	bitmapfont = {
 		name = "flower_a4_16"
 		fontfiles = {
@@ -145,7 +145,7 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#GUI 主用 18 号粗体副标题与分区标题墨黑字体
+	#GUI 18号粗体墨黑字体
 	bitmapfont = {
 		name = "flower_a4_18"
 		fontfiles = {
@@ -181,7 +181,7 @@ bitmapfonts = {
 		languages = { "l_simp_chinese" }
 	}
 
-	#GUI 主用 24 号主标题墨黑字体
+	#GUI 24号标题墨黑字体
 	bitmapfont = {
 		name = "flower_a4_24"
 		fontfiles = {

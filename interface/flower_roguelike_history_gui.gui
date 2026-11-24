@@ -1,5 +1,5 @@
 guiTypes = {
-	#本局肉鸽已选卡牌图鉴与构筑总览主面板（920x660 星露谷柔和奶油木框风格）
+	#本局已选卡牌图鉴主面板
 	containerWindowType = {
 		name = "flower_roguelike_history_window"
 		position = { x = -460 y = -330 }
@@ -136,7 +136,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#顶部流派阶位、羁绊共鸣与命运骰子实时状态栏（悬停查看全部10组羁绊配方）
+		#顶部流派、组合与命运骰子状态栏
 		iconType = {
 			name = "flower_history_summary_bg"
 			position = { x = 28 y = 198 }
@@ -168,7 +168,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#可滚动已选词条卡牌网格（3列左上锚点对齐，修复无 format 导致整体右移问题）
+		#已选词条卡牌网格
 		containerWindowType = {
 			name = "flower_history_scroll_container"
 			position = { x = 28 y = 290 }

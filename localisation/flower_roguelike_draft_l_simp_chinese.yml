@@ -84,7 +84,7 @@
  FLOWER_ARCH_CARD_10_TT_WRAP:0 "[GetFlowerArch10TT]"
  FLOWER_ARCH_CARD_11_TT_WRAP:0 "[GetFlowerArch11TT]"
  FLOWER_ARCH_CARD_12_TT_WRAP:0 "[GetFlowerArch12TT]"
-#12大流派卡片悬停提示（严格采用P社官中修正译名）
+#12大流派悬停提示
  FLOWER_ARCH_CARD_1_TT:0 "§R战地扒装备§!\n§L你的装备很不错，下一秒归我了！§!\n--------------\n§G【专属机制：以战养战】§!\n战时每攻占敌方带工厂地区（冷却 §Y30天§!），立刻缴获：\n£infantry_equipment_text_icon 步兵装备 §G+1500§!   £attack_artillery_texticon 牵引式火炮 §G+150§!\n£attrition_supply_truck_texticon 卡车 §G+100§!   £fuel_texticon 燃油 §G+15000§!\n\n§Y【记仇小本本】§!（本次 §G+2层§!，属性上限 §Y5层§!）\n每层永久提供：\n£attack_texticon 陆军师攻击 §G+2%§!   £breakthrough_texticon 突破 §G+2%§!\n£organization_texticon 陆军师组织度 §G+2%§!   £infantry_equipment_texticon 装备缴获比例系数 §G+5%§!\n£supply_consumption_texticon 补给消耗 §G-5%§!   £manpower_texticon 每周人力 §G+1000§!\n\n§C【立即获得】§!\n£infantry_equipment_text_icon 步兵装备 §G+4000§!   £attack_artillery_texticon 牵引式火炮 §G+500§!   £supply_texticon 支援装备 §G+300§!\n--------------\n§1★ 小本本越写越厚，攒到一定层数还会开启进阶分支和额外惊喜。§!"
  FLOWER_ARCH_CARD_1_ACTIVE_TT:0 "§R战地扒装备（当前[?flower_slayer_stacks|0]层）§!\n§L你的装备很不错，下一秒归我了！§!\n--------------\n§Y【记仇小本本】§!：本次 §G+2层§!（属性上限 §Y5层§!）\n\n§C【立即获得】§!\n£infantry_equipment_text_icon 步兵装备 §G+4000§!   £attack_artillery_texticon 牵引式火炮 §G+500§!\n£supply_texticon 支援装备 §G+300§!\n\n§1★ 攒满 3层 时自动开启流派进阶分支。§!"
  FLOWER_ARCH_CARD_12_TT:0 "§Y黑市俄罗斯轮盘§!\n§L信黑市老板，还是信我是秦始皇？§!\n--------------\n§G【黑市大客户特权】§!\n£hcp_small 签署【黑市半年净收入契约】享 §G8折§! 优惠，并解锁独享对赌契约\n£research_bonus_texticon 首次选择抱回发光怪蛋（§Y270天§!后破壳择一秘宝），同时立下半年军令状（§Y180天§!内多控 §G2个地区§! 或新增 §G10座工厂§! 即达标）\n\n§O【黑市轮盘奖励池】§!（每次选择当场转动 + 摇180天命运骰子）\n£research_icon §G25% 头奖§!：科研槽 §G+1§!、£mil_factory 军用工厂 §G+5§!、£hcp_small 储备 §G+1000§!\n£infantry_equipment_text_icon §Y50% 军火奖§!：步兵装备 §G+20000§!、牵引式火炮 §G+2000§!、支援装备 §G+1000§!、£army_experience 陆军经验 §G+100§!、£hcp_small 储备 §G+250§!\n£political_power_texticon §R25% 吃亏§!：政治点数 §R-75§!，但获【防骗指南】且 §G下次必中头奖§!"
@@ -129,7 +129,7 @@
  FLOWER_ARCH_CARD_11_S2_TT:0 "§C疯狂科研实验室（二阶）§!\n§L怎么个事？别人还在拉大栓，咱这都快手搓黑科技了！§!\n--------------\n§Y【本阶属性】§!\n£research_speed_texticon 科研速度：§G+15%§!   £special_project_texticon 专项计划速度：§G+50%§!\n£funds_texticon 军工机构经费获取：§G+100%§!   £equipment_conversion_texticon 装备改装速度：§G+40%§!\n£civ_factory_output 工厂产出：§G+10%§!   £defence_cas_texticon 承受密接支援伤害减免：§G+15%§!\n£org_loss_when_moving_texticon 移动中组织度损失：§G-15%§!\n£attack_texticon 陆军师攻击：§G+5%§!   £defence_texticon 陆军师防御：§G+5%§!\n\n§C【立即获得】§!\n£research_icon 若科研槽不足6个则新增科研槽 §G+1§!\n£research_bonus_texticon 2张 §G+100%§! 陆军装备科研加速卡   £special_project_breakthrough_texticon 陆军突破点 §G+2§!\n\n§1★ 升至二阶即刻开启流派进阶分支。§!"
  FLOWER_ARCH_CARD_11_S3_TT:0 "§t疯狂科研实验室（满级）§!\n§L给我干哪来了，这还是二战吗？§!\n--------------\n§Y【本阶属性】§!\n£research_speed_texticon 科研速度：§G+25%§!   £special_project_texticon 专项计划速度：§G+75%§!\n£funds_texticon 军工机构经费获取：§G+150%§!   £construction_speed_reactor_texticon §Y核反应堆§!建设速度：§G+60%§!\n£prod_eff_cap 生产效率上限：§G+10%§!   £civ_factory_output 工厂产出：§G+15%§!\n£attack_texticon 陆军师攻击：§G+10%§!   £defence_texticon 陆军师防御：§G+10%§!   £breakthrough_texticon 突破：§G+5%§!\n£air_efficiency_texticon 空军任务效率：§G+15%§!\n\n§C【立即获得】§!\n£research_bonus_texticon 2张 §G+150%§! 装甲、航空与核研究科研加速卡\n£special_project_breakthrough_texticon 陆军、空军、核研究突破点 §G各+2§!\n£army_experience 陆军经验 §G+60§!   £air_experience 空军经验 §G+60§!"
  FLOWER_ARCH_CARD_11_MAX_TT:0 "§t疯狂科研实验室（已满级）§!\n--------------\n§C【满级补给奖励】§!\n£special_project_breakthrough_texticon 陆军、空军突破点 §G各+1§!   £hcp_small 储备 §G+250§!"
-#36张肉鸽词条卡（严格核对实际代码与P社官中原文）
+#词条卡1-36
  flower_draft_card_1_name:0 "§Y大意了，没有闪§!"
  flower_draft_card_1_quote:0 "§L偷袭！年轻人不讲武德，我大意了啊，没有闪！§!"
  flower_draft_card_1_body:0 "£land_night_attack_texticon 陆战夜战攻击：§G+20%§!\n£org_loss_when_moving_texticon 移动中组织度损失：§G-20%§!\n£attrition_texticon 陆军师损耗：§G-15%§!\n£breakthrough_texticon 突破：§G+5%§!\n£recon_texticon 侦查：§G+20%§!"
@@ -274,7 +274,7 @@
  flower_draft_card_36_quote:0 "§L真香！§!"
  flower_draft_card_36_body:0 "£special_project_breakthrough_texticon 陆军、海军、空军与核研究突破点：§G各+2§!\n£hcp_small 储备：§G+500§!\n£army_experience 陆军经验：§G+50§!\n£air_experience 空军经验：§G+50§!"
  flower_draft_card_36_tt:0 "§C这合理吗？满地图纸§!\n§L真香！§!\n--------------\n§Y【派系归属】疯狂科研局（流派专属）§!\n£special_project_breakthrough_texticon 陆军、海军、空军与核研究突破点：§G各+2§!\n£hcp_small 储备：§G+500§!\n£army_experience 陆军经验：§G+50§!   £air_experience 空军经验：§G+50§!"
-#11大流派进阶分支（25张卡严格用P社官中原文并精确对齐实际效果）
+#流派进阶分支
  FLWRG.11.t:0 "午夜夜战部队进阶分支"
  FLWRG.11.d:0 "夜战部队已经把摸黑干活的门道玩得炉火纯青啦！参谋部递来三条整编路子，快挑一条当本局王牌吧："
  flower_branch_1_opt_1_name:0 "§R半夜硬控突袭§!"
@@ -446,7 +446,7 @@
  flower_combo_popup_8:0 "【隐藏组合】天降神兵空骑\n战斗机清场，特种精锐直接伞降首都，正面战壕修了个寂寞！"
  flower_combo_popup_9:0 "【隐藏组合】以战养战永动机\n伤员抬下去喝口热汤，转头又能拎着对面掉的步枪再上阵！"
  flower_combo_popup_10:0 "【隐藏组合】黑市杠杆庄家\n工厂印钱，黑市坐庄，立刻入账400储备！"
-#25个分支精神与36个词条精神与10个组合精神
+#分支、词条与组合精神
  flower_evo_nightingale_blood_idea:0 "半夜硬控突袭"
  flower_evo_nightingale_blood_idea_desc:0 "开门，查水表！"
  flower_evo_nightingale_iron_idea:0 "重甲龟壳老登"
@@ -653,7 +653,7 @@
  FLOWER_HIST_FATE_6:0 "§R[骰子：枪管炸膛]§! "
  FLOWER_HIST_FATE_7:0 "§R[骰子：地图拿反]§! "
  FLOWER_HIST_FATE_8:0 "§R[骰子：黑料曝光]§! "
-#模式1显眼直连页签与独立引导文案
+#开局流派页签文案
  FLOWER_DRAFT_STARTER_GUIDE_TEXT:0 "§Y共12条流派（分2页）§!：点下方页签切换目录"
  FLOWER_DRAFT_TAB_P1_ON:0 "§Y第1页：经典强军(1~6)§!"
  FLOWER_DRAFT_TAB_P1_OFF:0 "<<第1页：经典强军(1~6)"
@@ -661,7 +661,7 @@
  FLOWER_DRAFT_TAB_P2_OFF:0 "第2页：特色机制(7~12)>>"
  FLOWER_DRAFT_TAB_P1_TT:0 "§Y第1页：经典强军流派（1~6）§!\n包含：战地扒装备、大基建五年计划、重炮洗地俱乐部、时停装甲闪电战、斯图卡洗头房、督战队人海。"
  FLOWER_DRAFT_TAB_P2_TT:0 "§G第2页：特色机制流派（7~12）§!\n包含：午夜夜战部队、敌后游击战、战地敢死队、王牌特种兵团、疯狂科研实验室、黑市俄罗斯轮盘。"
-#隐藏组合传闻（点到为止，保留探索感）
+#隐藏组合传闻
  FLOWER_HISTORY_COMBO_GUIDE_TT:0 "§Y私下打听来的隐藏组合传闻§!\n有些流派和词条凑在一块，会擦出意想不到的火花哦：\n--------------\n听说有人把战地敢死队配上了大基建工厂，前线竟跑成了全自动流水线；\n也有人借着夜色轰重炮、按下怀表打饱和齐射，或是让空军清场直接伞降对面首都；\n至于游击队怎么把敌人变成军火库、黑市老板怎么和五年计划坐庄分钱——剩下的才不剧透呢，自己在局里多混搭试试吧~"
 #吞噬科技通用解锁条目
  flower_roguelike_armor_computing_network_tech:0 "装甲火控计算网络（通用解锁）"
@@ -673,7 +673,7 @@
  flower_steampunk_flame_tank_unlock_tech:0 "喷火蒸汽陆行舰（吞噬解锁）"
  flower_steampunk_flame_tank_unlock_tech_desc:0 "通过畸变吸收蒸汽陆行舰体系后，随坦克底盘发展自动解锁喷火蒸汽陆行舰支援连。"
 
-#60张抽牌词条扩容本地化（新增#37~#60词条、26个精神、60张顶栏派系标牌与Flag本地化）
+#词条卡37-60
  flower_draft_card_37_name:0 "§C战利品的事能算偷吗§!"
  flower_draft_card_37_quote:0 "§L缴获装备怎么能算偷，这叫战场物资再分配！§!"
  flower_draft_card_37_body:0 "£infantry_equipment_texticon 装备缴获比例系数：§G+10%§!\n§G★ 回炉联动§!：发动【战地回炉车间】叠双倍记仇，并追加反坦克炮、防空炮与卡车各 §G+500§!\n§Y★ 叠层折现§!：往后每叠新层《记仇小本本》，自动折现 £hcp_small 储备 §G+200§!"
@@ -771,7 +771,7 @@
  flower_draft_card_60_body:0 "£garrison_texticon 顺从度增长速度：§G+30%§!   £civ_factory 地区可用工厂：§G+15%§!\n£war_support_modifiericons_texticon 战争支持度：§G+10%§!\n§G★ 战时劝降§!：战时每满120天令随机交战主要敌国挂60天【前线人心涣散】"
  flower_draft_card_60_tt:0 "§Y赶紧投降早打完早下班§!\n§L前线高音喇叭循环播放回家船票和热饭菜单，对面仗还没打完先想签和约了！§!\n--------------\n§Y【派系归属】中立通用（中后期战时劝降）§!\n§Y【常驻属性】§!\n£garrison_texticon 顺从度增长速度：§G+30%§!\n£civ_factory 地区可用工厂：§G+15%§!\n£war_support_modifiericons_texticon 战争支持度：§G+10%§!\n\n§G【战时循环被动】§!\n£war_support_modifiericons_texticon 处于战争状态每满 §Y120天§!，随机令 1 个正在交战的主要敌国承受 §Y60天§! §R【前线人心涣散】§!（稳定度 §R-10%§!、战争支持度 §R-10%§!、陆军师组织度恢复速率 §R-10%§!）"
 
-#26个60卡扩容新增民族精神本地化
+#词条卡37-60民族精神
  flower_card37_steal_warehouse_idea:0 "战利品的事能算偷吗"
  flower_card37_steal_warehouse_idea_desc:0 "每次发动【战地回炉车间】改为叠加2层《记仇小本本》并额外回收反坦克炮、防空炮与卡车各500；往后每次叠加《记仇小本本》都会自动折现进账200储备资金。"
  flower_card38_build_first_idea:0 "别打仗了先让我把厂盖完"
@@ -825,7 +825,7 @@
  flower_card60_morale_broken_idea:0 "前线人心涣散"
  flower_card60_morale_broken_idea_desc:0 "前线高音喇叭整宿播着热饭香味和回家船票，战壕里的士气直线下滑。"
 
-#60张抽牌词条卡顶栏1对1派系标牌
+#抽牌顶栏派系标牌
  flower_tag_own_slayer:0 "§G★本流派·扒装备§!"
  flower_tag_own_corp:0 "§G★本流派·大基建§!"
  flower_tag_own_arty:0 "§G★本流派·重炮洗地§!"
@@ -899,7 +899,7 @@
  flower_tag_card_59:0 "§R中立通用·跨海§!"
  flower_tag_card_60:0 "§Y中立通用·后期§!"
 
-#新增词条与冷却Flag本地化
+#词条与冷却标记
  flower_card_owned_37:0 "已获取词条【战利品的事能算偷吗】"
  flower_card_owned_38:0 "已获取词条【别打仗了先让我把厂盖完】"
  flower_card_owned_39:0 "已获取词条【火力不足恐惧症】"

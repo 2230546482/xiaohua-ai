@@ -318,7 +318,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_grand_chessmaster_trait:0 "§Y大兵团棋手§!"
  flower_grand_chessmaster_trait_desc:0 "§L一人微操几十个满编师还能顺手泡杯茶。§!"
 
-#动态成长修正与国家精神（精神描述只讲风味与非数值机制，绝不复述游戏原生已渲染的数值）
+#动态成长修正与国家精神
  flower_slayer_book_dynamic_mod:0 "§R记仇小本本§!"
  flower_builder_ledger_dynamic_mod:0 "§C基建狂魔的流水账§!"
  flower_devour_anomaly_dynamic_mod:0 "§O吃饱长高高§!"
@@ -444,7 +444,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_egg_arcane_blueprint_idea:0 "§C蛋壳秘宝：跨时代蓝图秘匣§!"
  flower_egg_arcane_blueprint_idea_desc:0 "装满超前图纸的神秘金属匣，科研院和军工机构如获至宝。"
 
-#肉鸽流派目录事件（AI后台路径备用文案，无颜色码）
+#肉鸽流派目录事件
  FLWAI.10.t:0 "流派目录（第1页）"
  FLWAI.10.d:0 "挑选一条核心流派主线或升阶现有流派。"
  FLWAI.10.a:0 "战地扒装备"
@@ -500,7 +500,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  FLWAI.13.c_tt:0 "开启黑市大客户特权，首次选择会抱回发光怪蛋并签下半年军令状；每次选择都会立刻转动一次黑市轮盘，并摇一轮持续180天的命运骰子。"
  FLWAI.13.e:0 "翻回第1页"
 
-#核心里程碑与畸变事件（零颜色码）
+#核心里程碑与畸变事件
  FLWAI.21.t:0 "记仇小本本写满啦！"
  FLWAI.21.d:0 "《记仇小本本》总算翻到最后一页啦！库房里堆得满满当当，全是从各条战线缴获回来的光学瞄具、装甲钢板和精密扳手——连对面司令部的备用发电机都被编上号了。\n\n这批好料放着多浪费呀：拿去给步兵装一套重装外骨骼，还是把全军野战维修网彻底铺开？"
  FLWAI.21.a:0 "战地外骨骼重装改造"
@@ -541,7 +541,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  FLWAI.28.b:0 "缴获全套卡车，补满全军油箱"
  FLWAI.28.c:0 "空地协同推进，扩建前线空军基地"
 
-#赌徒流派命运骰子随机状态（事件描述严格零颜色码）
+#赌徒流派命运骰子随机状态
  flower_gambler_buff_godhand_idea:0 "§G命运骰子：欧皇附体§!"
  flower_gambler_buff_godhand_idea_desc:0 "哇，金色传说！"
  flower_gambler_buff_windfall_idea:0 "§Y命运骰子：天降横财§!"
@@ -812,7 +812,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_egg_mercenary_tech_bonus:0 "黑市重金购入技术"
  flower_proto_wargame_bonus:0 "沙盘推演机科研突破"
 
-#流派主动运营交互事件、黑市契约、实验原型机与魔导国21天预警事件（零颜色码）
+#流派主动运营与交互事件
  FLWAI.31.t:0 "【大基建】下达半年生产指标"
  FLWAI.31.d:0 "计划委员会把未来半年的三套工业指标摊在桌上啦。\n\n接下军用工厂或民用工业扩建任务，180天到期达标就能白拿额外厂房和《基建狂魔的流水账》层数；要是国内建筑槽快见底了，直接选生产效率冲刺最省心！"
  FLWAI.31.a:0 "军用工厂扩产指标（180天内新增3座军用工厂）"
@@ -932,7 +932,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_sfx_meme_heroes_revive:0 "英雄不朽急救复活音效"
  flower_sfx_meme_sparta:0 "斯巴达冲锋战吼音效"
 
-#新增6大开局畸变（7~12号）民族精神、决议与音效文案
+#开局畸变7-12文案
  flower_anom7_base_idea:0 "三军听令，自刎归天！"
  flower_anom7_base_idea_desc:0 "顺风顺水时最容易飘，逼到悬崖边反而能打出惊人血性。每当主要国家在非内战战争中战败覆灭，天下都会响起《关羽之歌》送它最后一程。"
  flower_anom7_arrogant_idea:0 "骄兵冒进"
@@ -1026,7 +1026,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_stk_dec_supply_corps_desc:0 "重金请来王牌铁道工程队——只要经费给到位，炮火底下照样把补给中心和铁路飞快铺到阵地后头！"
  flower_stk_dec_supply_corps_tt:0 "扣除 §Y600§! 储备。"
 
- #畸变4：缴获蓝图破译所（按时代自动攻克 + 提前逆向攻关）
+ #缴获蓝图破译所
  flower_devour_tech_cat:0 "§O缴获蓝图破译所§!"
  flower_devour_tech_cat_desc:0 "打赢敌国后，£research_icon §G基础特色科技§! 当场到手，更珍贵的图纸会先收进档案室慢慢破译：\n£special_project_texticon §Y高阶蓝图§!：§G1939年§! 自动攻克（§C1938年§! 起满足前置可调拨民用工厂与经验提前攻关）\n£special_project_breakthrough_texticon §R绝密蓝图§!：§G1941年§! 自动攻克（§C1940年§! 起满足高阶前置可调拨民用工厂与经验提前攻关）"
 
@@ -1086,7 +1086,7 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  flower_bp_dec_t3_den_next:0 "【跨代攻关】推进下一代蒸汽陆行舰"
  flower_bp_dec_t3_den_next_desc:0 "不等常规坦克底盘慢慢换代，集中人手提前把下一代蒸汽陆行舰车体造出来！"
 
- #国家与全局标记本地化（杜绝游戏原生条件/效果栏出现英文变量名）
+ #国家与全局标记
  hua_ai_player:0 "已启用小花AI控制面板"
  hua_ai_qu:0 "已开启超级玩家轮椅"
  red_qu:0 "超级轮椅开启中"

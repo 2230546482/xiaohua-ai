@@ -1,4 +1,4 @@
-#肉鸽流派、核心分支与开局畸变代表性热梗音效资产定义
+#肉鸽流派、分支与畸变音效
 
 sound = {
 	name = "flower_sfx_arch_1_slayer"
@@ -518,7 +518,7 @@ soundeffect = {
 	}
 }
 
-#新增6大开局畸变（7~12号）专属热梗原声与全局关羽之歌
+#开局畸变7-12音效
 sound = {
 	name = "flower_sfx_anomaly_7_ziwen"
 	file = "flower_memes/flower_sfx_anomaly_7_ziwen.wav"

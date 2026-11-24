@@ -563,7 +563,7 @@ ideas = {
 		}
 
 		#==================================================
-		#四、跨界奇招增益精神（纯机制战术卡，无别国特殊兵种）
+		#四、跨界奇招增益精神
 		#==================================================
 		flower_micro_nightingale_cloak_idea = {
 			picture = flower_ico_micro_ng_cloak
@@ -771,7 +771,7 @@ ideas = {
 				consumer_goods_factor = -0.10
 			}
 		}
-		# === 60-CARD EXPANSION IDEAS (#37..#60) ===
+		#六、词条卡37-60民族精神
 		flower_card37_steal_warehouse_idea = {
 			picture = flower_ico_evo_slayer_dis
 			allowed = { always = no }

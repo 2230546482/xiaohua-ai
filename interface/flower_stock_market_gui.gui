@@ -1,5 +1,5 @@
 guiTypes = {
-	#老实赚钱很枯燥吧：全球交易所实盘炒股主面板（920x660 星露谷木框 + 2x2深胡桃木交易卡片）
+	#全球交易所主面板
 	containerWindowType = {
 		name = "flower_stock_market_window"
 		position = { x = -460 y = -330 }
@@ -16,7 +16,7 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上角久留美立绘心情框（116x128，盈利开心 / 浮亏恐慌）
+		#左上角立绘框
 		iconType = {
 			name = "flower_xiaohua_portrait_happy"
 			position = { x = 28 y = 22 }
@@ -76,7 +76,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#头部快捷动作栏：盈利购厂（主正反馈动作在左） / 一键全部平仓（风控动作在右）
+		#头部快捷操作栏
 		buttonType = {
 			name = "flower_stk_buy_factory_btn"
 			position = { x = 166 y = 104 }
@@ -121,7 +121,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#顶栏右侧显眼大木牌退出按钮：先看地图 / 关闭交易所
+		#先看地图与关闭按钮
 		buttonType = {
 			name = "flower_stk_peek_map_btn"
 			position = { x = 742 y = 104 }
@@ -243,7 +243,7 @@ guiTypes = {
 			fixedsize = yes
 			alwaystransparent = yes
 		}
-		#股票1操作按钮（2行x3列，126x32）
+		#股票1操作按钮
 		buttonType = {
 			name = "flower_stk_1_buy_1_btn"
 			position = { x = 42 y = 310 }

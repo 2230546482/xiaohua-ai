@@ -130,7 +130,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#按钮4：抽卡弹窗防误触模式一键开关
+		#按钮4：抽卡提醒模式开关
 		buttonType = {
 			name = "flower_dock_guard_btn"
 			position = { x = 12 y = 146 }
@@ -189,7 +189,7 @@ guiTypes = {
 		}
 	}
 
-	#折叠后的迷你小花徽章悬浮钮（42x42，随时点击一键展开完整悬浮窗）
+	#折叠状态迷你悬浮按钮
 	containerWindowType = {
 		name = "flower_ai_floating_dock_mini_window"
 		position = { x = -118 y = 88 }

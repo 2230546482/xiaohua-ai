@@ -1886,7 +1886,7 @@ ideas = {
                 consumer_goods_factor = -0.05
             }
         }
-        #方案B+流派敌我互动、战场先手与魔导国结界反制精神
+        #流派互动与结界反制精神
         flower_enemy_timestopped_idea = {
             removal_cost = -1
             allowed = { always = no }

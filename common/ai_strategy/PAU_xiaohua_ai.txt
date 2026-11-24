@@ -1,11 +1,6 @@
-#小花AI附属模组：PAU（莉兰迪亚军团/白夜同盟）通用增强AI策略（主模组与肉鸽模式均生效）
-#设计原则：
-#1. 绝不触碰主模组PAU_guyong雇佣兵合同（保持base=0），防止AI到处接单乱宣战。
-#2. 军改满36解锁白夜伞降轻装甲后，真正造兵、配运输机底仓并投入跨洋作战。
-#3. 充分吃满PAU专属全地形轻坦子学说（不宿营轻装甲），不让AI过早弃用轻坦。
-#4. 当玩家选择PAO且加载本加强AI模组时，确保野火（LHS）在内战中必定战胜PAU与PAM。
+#PAU通用AI策略
 
-#一、专属全地形轻坦子学说产线与科技支撑（不宿营轻装甲）
+#一、全地形轻坦产线与科技
 PAU_xiaohua_light_armor_doctrine_plan = {
     allowed = { original_tag = PAU }
     enable = {
@@ -41,7 +36,7 @@ PAU_xiaohua_light_armor_doctrine_plan = {
     }
 }
 
-#二、军改满36解锁：白夜伞降轻装甲突击旅编成 + 运输机底仓保底（确保稳定满足【空降装甲奇袭】决议条件）
+#二、白夜伞降轻装甲与运输机
 PAU_xiaohua_airborne_light_armor_plan = {
     allowed = { original_tag = PAU }
     enable = {
@@ -141,7 +136,7 @@ PAU_xiaohua_pacific_invasion_JAP = {
     }
 }
 
-#四、玩家选择PAO时：拉普拉塔内战保证野火（LHS）必定胜利（一旦PAU/PAM灭亡或LHS与PAO开战立即自动失效）
+#四、玩家选PAO时拉普拉塔内战偏向LHS
 PAU_xiaohua_pao_player_pau_hold = {
     allowed = { original_tag = PAU }
     enable = {

@@ -123,7 +123,7 @@ flower_ai_record_chosen_card = {
 	}
 	if = {
 		limit = { is_ai = no }
-		#严格按原梗1:1精准匹配音效（无对应原声的卡走清脆GUI盖章，绝不乱贴无关梗）
+		#词条卡专属音效
 		if = {
 			# #1 大意了，没有闪（马保国原声）
 			limit = { check_variable = { flower_record_card_id = 1 } }
@@ -310,7 +310,7 @@ flower_ai_record_chosen_card = {
 	}
 }
 
-#从抽卡队列中自动弹出下一轮待选界面（彻底杜绝额外抽卡与定时抽卡互相挤掉）
+#弹出下一轮待选界面
 flower_ai_pop_next_queued_draft = {
 	if = {
 		limit = { is_ai = no }
@@ -864,7 +864,7 @@ flower_ai_push_bottom_right_alert = {
 	}
 }
 
-#安全新增科研槽（上限6槽；已满6槽自动折算为陆军与空军突破点各+1与250储备，防止撑爆UI）
+#安全新增科研槽（上限6槽）
 flower_ai_add_research_slot_capped = {
 	if = {
 		limit = { amount_research_slots < 6 }
@@ -928,7 +928,7 @@ flower_ai_check_dual_mastery_synergy = {
 	}
 }
 
-#《记仇小本本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限5层，全整数步长）
+#《记仇小本本》叠层重算与战利品
 flower_ai_recalc_slayer_book = {
 	if = {
 		limit = {
@@ -1117,7 +1117,7 @@ flower_ai_add_builder_stack = {
 	}
 }
 
-#畸变4《吃人就能变大只》吞并进化叠层与蛊王检测（属性上限10层，全整数步长防互秒）
+#畸变4吞并进化叠层与蛊王检测
 flower_ai_recalc_devour_mod = {
 	if = {
 		limit = {
@@ -1149,7 +1149,6 @@ flower_ai_add_devour_stack = {
 	flower_ai_recalc_devour_mod = yes
 }
 
-#已废止旧特殊兵种刷师函数（全部特殊兵种与科技已集中至畸变4击败敌国吸收机制）
 
 #赌徒流派专属：命运骰子随机抽取 180 天强力正面 Buff（64%）或刺激负面 Debuff（36%）
 flower_ai_roll_gambler_fate = {
@@ -1313,7 +1312,7 @@ flower_ai_clear_own_anomaly_votes = {
 	if = { limit = { has_country_flag = flower_voted_card_12 } clr_country_flag = flower_voted_card_12 if = { limit = { check_variable = { global.flower_anomaly_vote_12 > 0 } } subtract_from_variable = { global.flower_anomaly_vote_12 = 1 } } }
 }
 
-#重算开局畸变投票全员就绪状态（必须全部人类玩家就绪后方可生效，支持单人秒开与多人随时取消投票）
+#重算开局畸变投票就绪状态
 flower_ai_recalc_anomaly_ready = {
 	set_variable = { global.flower_human_total = 0 }
 	set_variable = { global.flower_human_voted = 0 }
@@ -1376,7 +1375,7 @@ flower_ai_recalc_anomaly_ready = {
 	}
 }
 
-#结算开局畸变投票并正式启动世界线法则（1~12号全覆盖，严格按玩家实际投票结算）
+#结算开局畸变投票并启动法则
 flower_ai_lock_in_anomalies_and_start = {
 	clr_global_flag = flower_anomaly_voting_open
 	set_global_flag = flower_anomaly_voting_settled
@@ -1488,7 +1487,7 @@ flower_ai_lock_in_anomalies_and_start = {
 			add_ideas = flower_anomaly_nightmare_ai_idea
 		}
 	}
-	#激活新增6大开局畸变（7~12号）初始法则
+	#激活开局畸变7-12初始法则
 	flower_ai_activate_anomalies_v2 = yes
 	every_country = {
 		limit = { is_ai = no }

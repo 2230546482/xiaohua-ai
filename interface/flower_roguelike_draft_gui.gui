@@ -42,7 +42,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#顶部大气标题与状态说明
+		#顶部标题与状态说明
 		instantTextBoxType = {
 			name = "flower_draft_title_text"
 			position = { x = 166 y = 24 }
@@ -77,7 +77,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#模式1顶栏：左侧纯引导文案 + 右上独立工具区【手气随机开局】（与下方页签彻底隔离，杜绝误触）
+		#模式1顶栏与随机开局按钮
 		instantTextBoxType = {
 			name = "flower_draft_p1_guide_lbl"
 			position = { x = 166 y = 114 }
@@ -155,7 +155,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#全模式通用：先看地图稍后选（收起后可随时从悬浮窗重开）
+		#先看地图按钮
 		buttonType = {
 			name = "flower_draft_peek_map_btn"
 			position = { x = 742 y = 104 }
@@ -189,7 +189,7 @@ guiTypes = {
 			oversound = PAU_hover_paper
 		}
 
-		#模式1卡片区顶部直连页签：第1页（经典强军 1~6）/ 第2页（特色异界 7~12）
+		#模式1顶部页签
 		buttonType = {
 			name = "flower_draft_tab_p1_on_btn"
 			position = { x = 28 y = 154 }
@@ -1081,7 +1081,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#底部实时本子栏与模式1右下角快速翻页按钮（视线扫完第6张卡自然落点）
+		#底部状态栏与翻页按钮
 		instantTextBoxType = {
 			name = "flower_draft_footer_text"
 			position = { x = 44 y = 614 }

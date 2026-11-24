@@ -1,9 +1,7 @@
-#肉鸽流派全图AI产线、兵种配比、基建目标与精准编制占比适配（覆盖12大流派与全图特化大国基盘对冲）
+#肉鸽流派AI策略
 
 #====================================================================
-#零、特化大国原生高额role_ratio基盘归一化（仅在选择带专属陆军编制的肉鸽流派时生效）
-#目的：将FRA/PAO/PAM/ELF/LHS/PAU/KFL/KNM/TAM/LIB/XYK等国虚高到100-800的原生权重压回标准常备盘（约55-65），
-#使全图所有国家选择同一流派时都能获得一致、可控的精准编制占比（主力55-65%/重装30-40%/特种10-15%）。
+#零、大国原生编制权重归一化
 #====================================================================
 
 #法兰西(FRA)基盘归一化：无中坦时100压至45，解锁中坦后340(120+140+80)压至60(35+15+10)
@@ -82,7 +80,7 @@ flower_roguelike_norm_fra_air = {
 	}
 }
 
-#超高权重特化国(PAO/ELF/PAM/LIB/XYK)选空军流二阶时的空降特种比例补偿，确保空降旅稳落10%-15%
+#空军流二阶空降特种比例补偿
 flower_roguelike_norm_500_air = {
 	allowed = {
 		OR = {
@@ -491,7 +489,7 @@ flower_roguelike_norm_xyk = {
 	}
 }
 
-#苏联(SOV)天启双联炮基盘归一化（将apocalypse从2000压至60，避免肉鸽编制被稀释到<5%）
+#苏联(SOV)天启双联炮基盘归一化
 flower_roguelike_norm_sov_apocalypse = {
 	allowed = { original_tag = SOV }
 	enable = {
@@ -528,7 +526,7 @@ flower_roguelike_norm_sov_apocalypse = {
 	}
 }
 
-#通用常规陆军角色去重减权（防止双修或多修肉鸽流派时叠扣infantry/armor/special_armor爆负）
+#通用常规陆军角色去重减权
 flower_roguelike_norm_generic_mainline = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
@@ -719,7 +717,7 @@ flower_roguelike_arty_ai_strat = {
 	}
 }
 
-#流派四：时停装甲闪电战AI（重装主力30%-40%，纯原版中坦+机步高速穿插）
+#流派四：时停装甲闪电战AI
 flower_roguelike_tank_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
@@ -1147,7 +1145,7 @@ flower_evo_punk_ufo_ai_strat = {
 	}
 }
 
-#全局畸变11《孩子们，我回来了》：引导具备一定军工底子的AI真实排产运输机与空降/两栖兵力
+#畸变11：运输机与空降两栖产线
 flower_anom11_global_airborne_ai = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {

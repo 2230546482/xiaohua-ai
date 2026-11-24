@@ -1,10 +1,7 @@
-#畸变4《这是什么？能吃吗？》按强度分级蓝图解锁与月度自动破译引擎
-# T1 基础特色科技：击败当场立即解锁
-# T2 精锐黑科技：1939.1.1 起自动解锁 / 败者已研发则当场直接解锁 / 缴获蓝图破译所决议提前20天兑换
-# T3 镇国终极黑科技：1941.1.1 起自动解锁 / 败者已研发则当场直接解锁 / 缴获蓝图破译所决议提前35天兑换
+#畸变4蓝图解锁与月度破译
 
 #======================================================================
-# T2 精锐黑科技解锁效果（15项）
+# 高阶蓝图解锁效果
 #======================================================================
 
 flower_unlock_bp_t2_pao = {
@@ -215,7 +212,7 @@ flower_unlock_bp_t2_autometa = {
 }
 
 #======================================================================
-# T3 镇国终极黑科技解锁效果（11项 + 丹麦蒸汽陆行舰跨代突破）
+# 终极蓝图解锁效果
 #======================================================================
 
 flower_unlock_bp_t3_ufo = {
@@ -374,7 +371,7 @@ flower_unlock_bp_t3_den_next = {
 }
 
 #======================================================================
-# 决议兑换费用统一结算（T2：优先400现金，否则50PP+35陆军经验；T3：优先750现金，否则80PP+60陆/空经验）
+# 蓝图决议兑换费用结算
 #======================================================================
 
 #======================================================================
@@ -382,7 +379,7 @@ flower_unlock_bp_t3_den_next = {
 #======================================================================
 
 flower_ai_sync_all_blueprint_tiers = {
-	#T2 精锐黑科技：1939.1.1 自动解锁
+	#1939年起自动解锁高阶蓝图
 	if = {
 		limit = { date > 1938.12.31 }
 		if = { limit = { has_country_flag = flower_bp_has_t2_pao NOT = { has_country_flag = flower_bp_done_t2_pao } } flower_unlock_bp_t2_pao = yes }
@@ -401,7 +398,7 @@ flower_ai_sync_all_blueprint_tiers = {
 		if = { limit = { has_country_flag = flower_bp_has_t2_usa_radar NOT = { has_country_flag = flower_bp_done_t2_usa_radar } } flower_unlock_bp_t2_usa_radar = yes }
 		if = { limit = { has_country_flag = flower_bp_has_t2_autometa NOT = { has_country_flag = flower_bp_done_t2_autometa } } flower_unlock_bp_t2_autometa = yes }
 	}
-	#T3 镇国终极黑科技：1941.1.1 自动解锁
+	#1941年起自动解锁终极蓝图
 	if = {
 		limit = { date > 1940.12.31 }
 		if = { limit = { has_country_flag = flower_bp_has_t3_ufo NOT = { has_country_flag = flower_bp_done_t3_ufo } } flower_unlock_bp_t3_ufo = yes }

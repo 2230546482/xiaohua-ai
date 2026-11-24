@@ -283,7 +283,7 @@ country_event = {
 		flower_ai_add_slayer_stack = yes
 	}
 
-	#选项B：【流派二：基建狂魔与黑灯巨企流】《五年计划流水账》（叠层返厂+三阶黑灯巨企，不与轮椅冲突）
+	#选项B：【流派二：大基建五年计划】
 	option = {
 		name = FLWAI.10.b
 		ai_chance = {
@@ -1340,7 +1340,7 @@ country_event = {
 	}
 }
 
-#《记仇小本本》叠满5层/10层突破觉醒事件（纯原创战地魔改精神，无别国特殊科技）
+#《记仇小本本》叠满突破觉醒事件
 country_event = {
 	id = FLWAI.21
 	title = FLWAI.21.t
@@ -1418,7 +1418,7 @@ country_event = {
 	}
 }
 
-#《后院挖出来的怪蛋》270天破壳孵化事件（三款原创蛋壳宝藏，无别国特殊兵种）
+#《后院挖出来的怪蛋》孵化事件
 country_event = {
 	id = FLWAI.23
 	title = FLWAI.23.t
@@ -1802,7 +1802,7 @@ country_event = {
 	}
 }
 
-#畸变5专属：《将星武道会：本命主帅悟道飞升！》（完全独立于轮椅，可重复把主帅养到15攻怪兽）
+#畸变5专属：《将星武道会》
 country_event = {
 	id = FLWAI.27
 	title = FLWAI.27.t

@@ -654,7 +654,7 @@ flower_stock_monthly_tick = {
 		}
 	}
 
-	#8. 结算人类玩家爆仓、浮盈、里程碑与悬浮窗提醒（AI交易已拆入各国错峰on_monthly，消除月初1号同帧卡顿尖峰）
+	#8. 结算玩家爆仓、浮盈与里程碑
 	every_country = {
 		limit = { is_ai = no }
 		flower_stock_check_margin_calls = yes
@@ -1439,7 +1439,7 @@ flower_stock_ai_monthly_trade = {
 	flower_stock_recalc_country_pnl = yes
 	flower_stock_check_milestones = yes
 
-	#1b. 杠杆多头风控：大盘阴跌/熔断且背负杠杆债、浮亏过深时真实砍仓还债（绝不白嫖）
+	#1b. 杠杆多头风控斩仓
 	if = {
 		limit = {
 			check_variable = { ubs_load > 80 }
@@ -1599,7 +1599,7 @@ flower_stock_ai_monthly_trade = {
 		add_to_variable = { global.flower_stk_ai_flow_4 = 1 }
 	}
 
-	#4. 真金白银建仓（仅在国库有余钱且债务可控时进场，绝不搞垮AI正常战争经济）
+	#4. AI建仓逻辑
 	if = {
 		limit = {
 			check_variable = { ubs_save > 260 }

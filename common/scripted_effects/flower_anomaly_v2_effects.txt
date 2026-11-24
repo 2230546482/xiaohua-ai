@@ -1,5 +1,5 @@
 #==============================================================================
-# 新增6大开局畸变（7~12号）完整运行引擎（零送枪零刷师、零移除将领、零弹窗骚扰）
+# 开局畸变7-12运行脚本
 #==============================================================================
 
 #为单个国家补挂当前已激活的7~12号全局畸变初始精神与前置科技
@@ -99,7 +99,7 @@ flower_ai_activate_anomalies_v2 = {
 		every_country = {
 			flower_ai_sync_country_anomalies_v2 = yes
 		}
-		#若开启畸变9《全员拼好饭》，错峰15天在首个自然月度结算送出第一盒外卖，避免与开局结算音效叠音
+		#畸变9首月外卖结算
 		if = {
 			limit = { has_global_flag = flower_anomaly_9_active }
 			set_global_flag = { flag = flower_anom9_box_cd days = 15 value = 1 }
@@ -107,7 +107,7 @@ flower_ai_activate_anomalies_v2 = {
 	}
 }
 
-#畸变9：每90天全图同步开盒1种外卖战地状态（持续90天无缝轮换，零送枪零刷师、零弹窗）
+#畸变9：每90天轮换外卖状态
 flower_ai_anom9_roll_global_takeout = {
 	random_list = {
 		34 = {
@@ -225,7 +225,7 @@ flower_ai_anom7_refresh_tiers = {
 	}
 }
 
-#月度巡检7~12号畸变动态机制（未开任何新畸变时顶层秒跳过，零性能开销）
+#畸变7-12月度巡检
 flower_ai_tick_anomalies_v2_monthly = {
 	if = {
 		limit = {
@@ -248,7 +248,7 @@ flower_ai_tick_anomalies_v2_monthly = {
 			flower_ai_anom7_refresh_tiers = yes
 		}
 
-		#--- 畸变8：仅AI国家在战时劣势或低稳态自动嘴硬反弹（人类玩家保留0消耗手动拍桌按钮！）---
+		#--- 畸变8：AI战时嘴硬反弹 ---
 		if = {
 			limit = {
 				has_global_flag = flower_anomaly_8_active
@@ -321,7 +321,6 @@ flower_ai_anom10_on_enter_war = {
 }
 
 #畸变7：主要国家投降或灭亡时对全图玩家播放《关羽之歌》并推右下角提示
-#（在阵亡国作用域调用，temp_anom7_killer为击败方作用域ID）
 flower_ai_anom7_major_death_guanyu_song = {
 	if = {
 		limit = {
@@ -349,7 +348,7 @@ flower_ai_anom7_major_death_guanyu_song = {
 
 #地区控制权变更钩子（on_state_control_changed：ROOT=新控制方，FROM=原控制方，FROM.FROM=易手地区）
 flower_ai_on_state_changed_anomalies_v2 = {
-	#--- 畸变7：失守核心省瞬间即时刷新【哀兵必胜】档位，消除月检滞后 ---
+	#--- 畸变7：失守核心省即时刷新 ---
 	if = {
 		limit = {
 			has_global_flag = flower_anomaly_7_active
@@ -514,7 +513,7 @@ flower_ai_on_state_changed_anomalies_v2 = {
 		}
 	}
 
-	#--- 畸变12：攻陷敌方首都或高胜利点大城时发动灵魂拷问（仅对交战当事玩家播放咆哮与战报，联机不扰民）---
+	#--- 畸变12：破城灵魂拷问 ---
 	if = {
 		limit = {
 			has_global_flag = flower_anomaly_12_active
