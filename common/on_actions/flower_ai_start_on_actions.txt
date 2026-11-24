@@ -1472,7 +1472,7 @@ on_actions = {
                     country_event = { id = FLWAI.28 days = 1 }
                 }
             }
-            #畸变4《这是什么？能吃吗？》击败任意非内战敌国即吸收其镇国特殊科技与独门兵种（无工厂门槛与冷却，含WL1亡灵）
+            #畸变4《这是什么？能吃吗？》击败任意非内战敌国即吸收其镇国特殊科技、独门兵种与已完成的通用特殊项目/隐藏科技（含WL1亡灵，排除ZDW）
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_4_active
@@ -1641,9 +1641,14 @@ on_actions = {
                     clr_country_flag = flower_card22_cd
                 }
             }
-            #畸变7《三军听令，自刎归天！》主要国家投降死亡时全局播放《关羽之歌》
+            #畸变7《三军听令，自刎归天！》主要国家非内战战败投降时全局播放《关羽之歌》
             if = {
-                limit = { has_global_flag = flower_anomaly_7_active }
+                limit = {
+                    has_global_flag = flower_anomaly_7_active
+                    ROOT = {
+                        NOT = { original_tag = FROM }
+                    }
+                }
                 set_temp_variable = { temp_anom7_killer = FROM.id }
                 ROOT = { flower_ai_anom7_major_death_guanyu_song = yes }
             }
@@ -1696,7 +1701,7 @@ on_actions = {
                     }
                 }
             }
-            #畸变4《这是什么？能吃吗？》吞并任意非内战敌国时吸收其镇国特殊科技与独门兵种（内置每国单次防重复，含WL1亡灵）
+            #畸变4《这是什么？能吃吗？》仅对尚未停止抵抗即被直接吞并的非内战敌国吸收镇国特殊科技、独门兵种与已完成的通用特殊项目/隐藏科技
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_4_active
@@ -1707,6 +1712,7 @@ on_actions = {
                     FROM = {
                         NOT = { original_tag = ROOT }
                         NOT = { tag = ZDW }
+                        NOT = { has_country_flag = flower_recently_capitulated }
                     }
                 }
                 ROOT = {
@@ -1810,11 +1816,18 @@ on_actions = {
                     }
                 }
             }
-            #畸变7《三军听令，自刎归天！》未投降即被直接吞并灭亡的主要国家同样全局播放《关羽之歌》
+            #畸变7《三军听令，自刎归天！》仅在交战状态下直接打灭非内战主要敌国时全局播放《关羽之歌》，排除和平事件吞并、国策合并及附庸吞并
             if = {
                 limit = {
                     has_global_flag = flower_anomaly_7_active
-                    FROM = { NOT = { has_country_flag = flower_recently_capitulated } }
+                    ROOT = { has_war_with = FROM }
+                    FROM = {
+                        NOT = { original_tag = ROOT }
+                        NOT = { is_subject_of = ROOT }
+                        NOT = { tag = ZDW }
+                        NOT = { tag = WL1 }
+                        NOT = { has_country_flag = flower_recently_capitulated }
+                    }
                 }
                 set_temp_variable = { temp_anom7_killer = ROOT.id }
                 FROM = { flower_ai_anom7_major_death_guanyu_song = yes }

@@ -498,11 +498,13 @@ hua_lunyi_decisions_categories = {
         fire_only_once = no
         ai_will_do = { base = 0 }
         complete_effect = {
-            if = {
-                limit = { NOT = { has_country_flag = hua_ai_player } }
-                set_country_flag = hua_ai_player
+            hidden_effect = {
+                if = {
+                    limit = { NOT = { has_country_flag = hua_ai_player } }
+                    set_country_flag = hua_ai_player
+                }
+                set_country_flag = flower_show_ai_buff_decisions
             }
-            set_country_flag = flower_show_ai_buff_decisions
             custom_effect_tooltip = hua_show_ai_buff_decisions_tt
         }
     }
@@ -522,7 +524,9 @@ hua_lunyi_decisions_categories = {
         fire_only_once = no
         ai_will_do = { base = 0 }
         complete_effect = {
-            clr_country_flag = flower_show_ai_buff_decisions
+            hidden_effect = {
+                clr_country_flag = flower_show_ai_buff_decisions
+            }
             custom_effect_tooltip = hua_hide_ai_buff_decisions_tt
         }
     }
@@ -543,13 +547,17 @@ hua_lunyi_decisions_categories = {
         complete_effect = {
             if = {
                 limit = { has_country_flag = flower_floating_dock_hidden }
-                clr_country_flag = flower_floating_dock_hidden
-                clr_country_flag = flower_floating_dock_fully_off
+                hidden_effect = {
+                    clr_country_flag = flower_floating_dock_hidden
+                    clr_country_flag = flower_floating_dock_fully_off
+                }
                 custom_effect_tooltip = hua_toggle_floating_dock_show_tt
             }
             else = {
-                set_country_flag = flower_floating_dock_hidden
-                set_country_flag = flower_floating_dock_fully_off
+                hidden_effect = {
+                    set_country_flag = flower_floating_dock_hidden
+                    set_country_flag = flower_floating_dock_fully_off
+                }
                 custom_effect_tooltip = hua_toggle_floating_dock_hide_tt
             }
         }
@@ -917,7 +925,7 @@ hua_lunyi_decisions_categories = {
         }
     }
 
-    #主动翻开12大流派面板（限4次，按已修不同流派数阶梯收费：1条150PP / 2条225PP / 3条及以上300PP）
+    #主动翻开12大流派面板（限4次，按已修不同流派数消耗：1条150 / 2条200 / 3条及以上300政治点数）
     hua_open_extra_archetype_dec = {
         icon = GFX_exchange_good_luck
         priority = 88
@@ -944,7 +952,7 @@ hua_lunyi_decisions_categories = {
             }
             else_if = {
                 limit = { check_variable = { flower_distinct_archetypes_count > 1 } }
-                has_political_power > 224
+                has_political_power > 199
             }
             else = {
                 has_political_power > 149
@@ -972,7 +980,7 @@ hua_lunyi_decisions_categories = {
             }
             else_if = {
                 limit = { check_variable = { flower_distinct_archetypes_count > 1 } }
-                add_political_power = -75
+                add_political_power = -50
             }
             hidden_effect = {
                 add_to_variable = { flower_dec_extra_arch_count = 1 }

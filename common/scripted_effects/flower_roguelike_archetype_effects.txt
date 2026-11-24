@@ -1221,11 +1221,33 @@ flower_ai_pick_archetype_10 = {
 		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
-			amount = 3000
+			amount = 4000
 		}
 		add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 400
+			amount = 500
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 200
+		}
+		add_equipment_to_stockpile = {
+			type = transport_plane_equipment_1
+			amount = 30
+		}
+		if = {
+			limit = { any_army_leader = { is_assigned = yes } }
+			random_army_leader = {
+				limit = { is_assigned = yes }
+				add_attack = 1
+				add_defense = 1
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 1
+				add_defense = 1
+			}
 		}
 		if = {
 			limit = {
@@ -1247,14 +1269,19 @@ flower_ai_pick_archetype_10 = {
 					mountaineers = { x = 1 y = 3 }
 					mountaineers = { x = 2 y = 0 }
 					mountaineers = { x = 2 y = 1 }
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
 				}
 				support = {
 					engineer = { x = 0 y = 0 }
 					recon = { x = 0 y = 1 }
+					artillery = { x = 0 y = 2 }
+					anti_air = { x = 0 y = 3 }
+					logistics_company = { x = 0 y = 4 }
 				}
 			}
 		}
-		army_experience = 50
+		army_experience = 60
 		flower_ai_close_draft_gui_done = yes
 	}
 	flower_ai_check_chemical_combos = yes

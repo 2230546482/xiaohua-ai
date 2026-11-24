@@ -405,13 +405,13 @@ flower_ai_smart_pick_archetype = {
 			modifier = { factor = 0.08 has_idea = flower_undead_stage_3_idea }
 			flower_ai_pick_archetype_9 = yes
 		}
-		#流派10：王牌特种兵团（48师以下少师精锐或10B三栖特种大军，偏精锐强国与山地海空国）
+		#流派10：王牌特种兵团（60师以内少师精锐或10B三栖特种大军，偏精锐强国与山地海空国）
 		10 = {
 			modifier = { factor = 8.0 OR = { has_idea = flower_magic_stage_1_idea has_idea = flower_magic_stage_2_idea } }
 			modifier = { factor = 2.1 OR = { original_tag = MGU original_tag = JAP original_tag = RJE original_tag = SWE original_tag = ELF original_tag = LAN original_tag = PAU } }
 			modifier = { factor = 1.7 OR = { original_tag = DVL original_tag = ENG original_tag = NFA original_tag = KMK original_tag = PAO original_tag = FIN original_tag = NPT } }
 			modifier = { factor = 1.8 num_of_factories > 38 }
-			modifier = { factor = 1.4 num_divisions < 46 }
+			modifier = { factor = 1.4 num_divisions < 61 }
 			modifier = { factor = 0.3 num_of_factories < 24 }
 			modifier = { factor = 2.8 OR = { has_idea = flower_air_stage_3_idea has_idea = flower_steampunk_stage_3_idea has_idea = flower_nightingale_stage_3_idea } NOT = { has_country_flag = flower_roguelike_magic_ai } }
 			modifier = { factor = 0.35 check_variable = { flower_distinct_archetypes_count > 2 } NOT = { has_country_flag = flower_roguelike_magic_ai } }
@@ -620,24 +620,29 @@ flower_ai_check_archetype_milestones = {
 			}
 			flower_ai_open_roguelike_draft = yes
 		}
-		#流派10里程碑：科研槽达4个且异界流派达二阶以上
+		#流派10里程碑：战时王牌特种流派达二阶以上（或拥有4科研槽且达二阶以上）
 		if = {
 			limit = {
 				has_country_flag = flower_roguelike_magic_ai
 				NOT = { has_country_flag = flower_milestone_arch_10_done }
-				amount_research_slots > 3
+				OR = {
+					has_war = yes
+					amount_research_slots > 3
+				}
 				OR = {
 					has_idea = flower_magic_stage_2_idea
 					has_idea = flower_magic_stage_3_idea
 				}
 			}
 			set_country_flag = flower_milestone_arch_10_done
-			add_breakthrough_points = {
-				specialization = specialization_land
-				value = 2
+			army_experience = 80
+			add_command_power = 60
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 600
 			}
 			add_breakthrough_points = {
-				specialization = specialization_air
+				specialization = specialization_land
 				value = 2
 			}
 			flower_ai_open_roguelike_draft = yes
@@ -788,7 +793,7 @@ flower_ai_check_dual_mastery_synergy = {
 	}
 }
 
-#《记仇小本本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限10层，强化装备缴获与补给自持）
+#《记仇小本本》（战地拾荒扒衣流）叠层重算与缴获爆装（属性上限5层，全整数步长）
 flower_ai_recalc_slayer_book = {
 	if = {
 		limit = {
@@ -798,21 +803,21 @@ flower_ai_recalc_slayer_book = {
 	}
 	set_temp_variable = { slayer_eff = flower_slayer_stacks }
 	if = {
-		limit = { check_variable = { slayer_eff > 8 } }
-		set_temp_variable = { slayer_eff = 8 }
+		limit = { check_variable = { slayer_eff > 5 } }
+		set_temp_variable = { slayer_eff = 5 }
 	}
 	set_variable = { flower_slayer_atk_var = slayer_eff }
-	multiply_variable = { flower_slayer_atk_var = 0.025 }
+	multiply_variable = { flower_slayer_atk_var = 0.02 }
 	set_variable = { flower_slayer_brk_var = slayer_eff }
-	multiply_variable = { flower_slayer_brk_var = 0.025 }
+	multiply_variable = { flower_slayer_brk_var = 0.02 }
 	set_variable = { flower_slayer_org_var = slayer_eff }
-	multiply_variable = { flower_slayer_org_var = 0.025 }
+	multiply_variable = { flower_slayer_org_var = 0.02 }
 	set_variable = { flower_slayer_cap_var = slayer_eff }
 	multiply_variable = { flower_slayer_cap_var = 0.05 }
 	set_variable = { flower_slayer_sup_var = slayer_eff }
-	multiply_variable = { flower_slayer_sup_var = -0.025 }
+	multiply_variable = { flower_slayer_sup_var = -0.05 }
 	set_variable = { flower_slayer_mp_var = slayer_eff }
-	multiply_variable = { flower_slayer_mp_var = 500 }
+	multiply_variable = { flower_slayer_mp_var = 1000 }
 	if = {
 		limit = {
 			check_variable = { flower_slayer_stacks > 4 }
@@ -827,7 +832,7 @@ flower_ai_recalc_slayer_book = {
 			NOT = { has_country_flag = flower_slayer_milestone_10_done }
 		}
 		set_country_flag = flower_slayer_milestone_10_done
-		army_experience = 80
+		army_experience = 100
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = 4000
@@ -896,7 +901,7 @@ flower_ai_add_slayer_stack = {
 	flower_ai_recalc_slayer_book = yes
 }
 
-#《基建狂魔的流水账》叠层重算与突破检测（属性上限8层，每层+2%）
+#《基建狂魔的流水账》叠层重算与突破检测（属性上限10层，每层+2%）
 flower_ai_recalc_builder_ledger = {
 	if = {
 		limit = {
@@ -906,17 +911,17 @@ flower_ai_recalc_builder_ledger = {
 	}
 	set_temp_variable = { builder_eff = flower_builder_stacks }
 	if = {
-		limit = { check_variable = { builder_eff > 8 } }
-		set_temp_variable = { builder_eff = 8 }
+		limit = { check_variable = { builder_eff > 10 } }
+		set_temp_variable = { builder_eff = 10 }
 	}
 	set_variable = { flower_builder_spd_var = builder_eff }
-	multiply_variable = { flower_builder_spd_var = 0.025 }
+	multiply_variable = { flower_builder_spd_var = 0.02 }
 	set_variable = { flower_builder_out_var = builder_eff }
-	multiply_variable = { flower_builder_out_var = 0.025 }
+	multiply_variable = { flower_builder_out_var = 0.02 }
 	set_variable = { flower_builder_cap_var = builder_eff }
-	multiply_variable = { flower_builder_cap_var = 0.025 }
+	multiply_variable = { flower_builder_cap_var = 0.02 }
 	set_variable = { flower_builder_slot_var = builder_eff }
-	multiply_variable = { flower_builder_slot_var = 0.025 }
+	multiply_variable = { flower_builder_slot_var = 0.02 }
 	if = {
 		limit = {
 			check_variable = { flower_builder_stacks > 4 }
@@ -959,7 +964,7 @@ flower_ai_add_builder_stack = {
 	}
 }
 
-#畸变4《吃人就能变大只》吞并进化叠层与蛊王检测
+#畸变4《吃人就能变大只》吞并进化叠层与蛊王检测（属性上限10层，全整数步长防互秒）
 flower_ai_recalc_devour_mod = {
 	if = {
 		limit = {
@@ -967,17 +972,22 @@ flower_ai_recalc_devour_mod = {
 		}
 		add_dynamic_modifier = { modifier = flower_devour_anomaly_dynamic_mod }
 	}
-	set_variable = { flower_devour_atk_var = flower_devour_stacks }
-	multiply_variable = { flower_devour_atk_var = 0.025 }
-	set_variable = { flower_devour_def_var = flower_devour_stacks }
-	multiply_variable = { flower_devour_def_var = 0.025 }
-	set_variable = { flower_devour_brk_var = flower_devour_stacks }
-	multiply_variable = { flower_devour_brk_var = 0.025 }
-	set_variable = { flower_devour_ic_var = flower_devour_stacks }
+	set_temp_variable = { devour_eff = flower_devour_stacks }
+	if = {
+		limit = { check_variable = { devour_eff > 10 } }
+		set_temp_variable = { devour_eff = 10 }
+	}
+	set_variable = { flower_devour_atk_var = devour_eff }
+	multiply_variable = { flower_devour_atk_var = 0.01 }
+	set_variable = { flower_devour_def_var = devour_eff }
+	multiply_variable = { flower_devour_def_var = 0.01 }
+	set_variable = { flower_devour_brk_var = devour_eff }
+	multiply_variable = { flower_devour_brk_var = 0.01 }
+	set_variable = { flower_devour_ic_var = devour_eff }
 	multiply_variable = { flower_devour_ic_var = 0.05 }
-	set_variable = { flower_devour_ncm_var = flower_devour_stacks }
+	set_variable = { flower_devour_ncm_var = devour_eff }
 	multiply_variable = { flower_devour_ncm_var = 0.05 }
-	set_variable = { flower_devour_mp_var = flower_devour_stacks }
+	set_variable = { flower_devour_mp_var = devour_eff }
 	multiply_variable = { flower_devour_mp_var = 1000 }
 }
 
@@ -988,7 +998,7 @@ flower_ai_add_devour_stack = {
 
 #已废止旧特殊兵种刷师函数（全部特殊兵种与科技已集中至畸变4击败敌国吸收机制）
 
-#赌徒流派专属：命运骰子随机抽取 180 天强力正面 Buff（56%）或刺激负面 Debuff（44%）
+#赌徒流派专属：命运骰子随机抽取 180 天强力正面 Buff（64%）或刺激负面 Debuff（36%）
 flower_ai_roll_gambler_fate = {
 	remove_ideas = {
 		flower_gambler_buff_godhand_idea
@@ -1002,7 +1012,7 @@ flower_ai_roll_gambler_fate = {
 	}
 	set_country_flag = { flag = flower_gambler_fate_cd days = 180 value = 1 }
 	random_list = {
-		14 = {
+		16 = {
 			set_variable = { flower_gambler_last_roll = 1 }
 			add_timed_idea = {
 				idea = flower_gambler_buff_godhand_idea
@@ -1010,7 +1020,7 @@ flower_ai_roll_gambler_fate = {
 			}
 			add_political_power = 50
 		}
-		14 = {
+		16 = {
 			set_variable = { flower_gambler_last_roll = 2 }
 			add_timed_idea = {
 				idea = flower_gambler_buff_windfall_idea
@@ -1019,7 +1029,7 @@ flower_ai_roll_gambler_fate = {
 			add_to_variable = { ubs_save = 300 }
 			flower_ai_sync_hcp_ui = yes
 		}
-		14 = {
+		16 = {
 			set_variable = { flower_gambler_last_roll = 3 }
 			add_timed_idea = {
 				idea = flower_gambler_buff_einstein_idea
@@ -1028,14 +1038,14 @@ flower_ai_roll_gambler_fate = {
 			army_experience = 50
 			air_experience = 50
 		}
-		14 = {
+		16 = {
 			set_variable = { flower_gambler_last_roll = 4 }
 			add_timed_idea = {
 				idea = flower_gambler_buff_ironluck_idea
 				days = 180
 			}
 		}
-		11 = {
+		9 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
 			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 5 }
@@ -1044,7 +1054,7 @@ flower_ai_roll_gambler_fate = {
 				days = 180
 			}
 		}
-		11 = {
+		9 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
 			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 6 }
@@ -1053,7 +1063,7 @@ flower_ai_roll_gambler_fate = {
 				days = 180
 			}
 		}
-		11 = {
+		9 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
 			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 7 }
@@ -1062,7 +1072,7 @@ flower_ai_roll_gambler_fate = {
 				days = 180
 			}
 		}
-		11 = {
+		9 = {
 			modifier = { factor = 0 has_country_flag = flower_gambler_insured }
 			modifier = { factor = 0.3 has_idea = flower_egg_golden_vanguard_idea }
 			set_variable = { flower_gambler_last_roll = 8 }

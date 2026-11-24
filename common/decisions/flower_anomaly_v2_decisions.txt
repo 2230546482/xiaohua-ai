@@ -13,10 +13,10 @@ flower_anomaly_v2_ops_cat = {
 		days_remove = 30
 		days_re_enable = 180
 		modifier = {
-			army_attack_factor = 0.25
-			breakthrough_factor = 0.25
-			org_loss_when_moving = -0.50
-			army_morale_factor = 0.30
+			army_attack_factor = 0.15
+			breakthrough_factor = 0.15
+			org_loss_when_moving = -0.40
+			army_morale_factor = 0.25
 		}
 		complete_effect = {
 			if = {
@@ -27,7 +27,7 @@ flower_anomaly_v2_ops_cat = {
 		remove_effect = {
 			add_timed_idea = {
 				idea = flower_anom7_exhausted_idea
-				days = 60
+				days = 45
 			}
 		}
 		ai_will_do = {
@@ -49,12 +49,13 @@ flower_anomaly_v2_ops_cat = {
 		}
 		available = {
 			has_war = yes
-			NOT = { has_country_flag = flower_anom8_boast_cd }
 		}
 		cost = 0
 		days_re_enable = 120
 		complete_effect = {
-			set_country_flag = { flag = flower_anom8_boast_cd days = 120 value = 1 }
+			hidden_effect = {
+				set_country_flag = { flag = flower_anom8_boast_cd days = 120 value = 1 }
+			}
 			add_timed_idea = {
 				idea = flower_anom8_boast_idea
 				days = 60

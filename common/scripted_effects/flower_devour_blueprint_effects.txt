@@ -1,0 +1,419 @@
+#畸变4《这是什么？能吃吗？》按强度分级蓝图解锁与月度自动破译引擎
+# T1 基础特色科技：击败当场立即解锁
+# T2 精锐黑科技：1939.1.1 起自动解锁 / 败者已研发则当场直接解锁 / 缴获蓝图破译所决议提前20天兑换
+# T3 镇国终极黑科技：1941.1.1 起自动解锁 / 败者已研发则当场直接解锁 / 缴获蓝图破译所决议提前35天兑换
+
+#======================================================================
+# T2 精锐黑科技解锁效果（15项）
+#======================================================================
+
+flower_unlock_bp_t2_pao = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_pao } }
+		set_country_flag = flower_bp_done_t2_pao
+		set_technology = {
+			wangling3_tech = 1
+			PAO_wangling3tupo = 1
+			PAO_wangling3tupo2 = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_kmk = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_kmk } }
+		set_country_flag = flower_bp_done_t2_kmk
+		set_technology = {
+			the_world_1 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = huaibiao_equipment_0
+			amount = 150
+		}
+	}
+}
+
+flower_unlock_bp_t2_fra = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_fra } }
+		set_country_flag = flower_bp_done_t2_fra
+		set_technology = {
+			Airborne_tanks_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_sov = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_sov } }
+		set_country_flag = flower_bp_done_t2_sov
+		set_technology = {
+			SOV_tank_dual_mounted_cannon = 1
+			SOV_tank_dual_mounted_cannon1 = 1
+			SOV_tank_dual_mounted_cannon2 = 1
+			SOV_tech_integrated_logistics_force = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_dvl = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_dvl } }
+		set_country_flag = flower_bp_done_t2_dvl
+		set_technology = {
+			DVL_Wizard_Tactics_Development_tech = 1
+			DVL_Coordinated_operations_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_ger = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_ger } }
+		set_country_flag = flower_bp_done_t2_ger
+		set_technology = {
+			tech_GER_Improved_super_heavy_tanks_2 = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_eng = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_eng } }
+		set_country_flag = flower_bp_done_t2_eng
+		set_technology = {
+			construct_knight_2 = 1
+			strike_unit1 = 1
+			strike_unit2 = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_jap = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_jap } }
+		set_country_flag = flower_bp_done_t2_jap
+		set_technology = {
+			Ghost_King = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = Ghost_King_equipment_0
+			amount = 100
+		}
+	}
+}
+
+flower_unlock_bp_t2_mgu = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_mgu } }
+		set_country_flag = flower_bp_done_t2_mgu
+		set_technology = {
+			Sky_Thunder_tech = 1
+			MGU_The_Dream_of_the_Library_tech = 1
+			strike_unit1 = 1
+			strike_unit2 = 1
+			strike_unit4 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = Sky_Thunder_equipment_0
+			amount = 150
+		}
+	}
+}
+
+flower_unlock_bp_t2_paq = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_paq } }
+		set_country_flag = flower_bp_done_t2_paq
+		set_technology = {
+			Chaos_Demon = 1
+			Chaos_Chose = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_pau = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_pau } }
+		set_country_flag = flower_bp_done_t2_pau
+		set_technology = {
+			PAU_airborne_armor_glider_tech = 1
+			PAU_airborne_armor_drop_pod_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_pan = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_pan } }
+		set_country_flag = flower_bp_done_t2_pan
+		set_technology = {
+			Artifact_1 = 1
+			Artifact_2 = 1
+			Ho_1 = 1
+			Ho_2 = 1
+			Artifact_Helper_0 = 1
+			Artifact_Shield_0 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = Holylance_equipments_0
+			amount = 200
+		}
+	}
+}
+
+flower_unlock_bp_t2_tur = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_tur } }
+		set_country_flag = flower_bp_done_t2_tur
+		set_technology = {
+			TUR_mech_technology_2 = 1
+			TUR_fire_magic_emissary_technology = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = mech_equipment_1
+			amount = 100
+		}
+	}
+}
+
+flower_unlock_bp_t2_usa_radar = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_usa_radar } }
+		set_country_flag = flower_bp_done_t2_usa_radar
+		set_technology = {
+			phased_array = 1
+			monopulse_radar = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t2_autometa = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t2_autometa } }
+		set_country_flag = flower_bp_done_t2_autometa
+		set_technology = {
+			auto_meta_1 = 1
+			auto_meta_2 = 1
+			popup = yes
+		}
+	}
+}
+
+#======================================================================
+# T3 镇国终极黑科技解锁效果（11项 + 丹麦蒸汽陆行舰跨代突破）
+#======================================================================
+
+flower_unlock_bp_t3_ufo = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_ufo } }
+		set_country_flag = flower_bp_done_t3_ufo
+		set_technology = {
+			flying_saucer_tech = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = flying_saucer_equipment_0
+			amount = 60
+		}
+	}
+}
+
+flower_unlock_bp_t3_kmk = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_kmk } }
+		set_country_flag = flower_bp_done_t3_kmk
+		set_technology = {
+			tech_modern_theworld_tank = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_fra = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_fra } }
+		set_country_flag = flower_bp_done_t3_fra
+		set_technology = {
+			tech_Sanae_Artillery = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 1500
+		}
+	}
+}
+
+flower_unlock_bp_t3_sov = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_sov } }
+		set_country_flag = flower_bp_done_t3_sov
+		set_technology = {
+			flower_roguelike_bratino_rocket_tech = 1
+			PA1_tank_Bratino_warm_pressure_rocket = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_dvl_net = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_dvl_net } }
+		set_country_flag = flower_bp_done_t3_dvl_net
+		set_technology = {
+			flower_roguelike_armor_computing_network_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_ai_fcs = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_ai_fcs } }
+		set_country_flag = flower_bp_done_t3_ai_fcs
+		set_technology = {
+			flower_roguelike_ai_assisted_modules_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_ger_serum = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_ger_serum } }
+		set_country_flag = flower_bp_done_t3_ger_serum
+		set_technology = {
+			tech_germany_spuerman = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_heli = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_heli } }
+		set_country_flag = flower_bp_done_t3_heli
+		set_technology = {
+			Siege_helicopter_available = 1
+			Siege_helicopter_0 = 1
+			Siege_helicopter_1 = 1
+			popup = yes
+		}
+		add_equipment_to_stockpile = {
+			type = siege_helicopter_equipment_0
+			amount = 150
+		}
+	}
+}
+
+flower_unlock_bp_t3_eng_jet = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_eng_jet } }
+		set_country_flag = flower_bp_done_t3_eng_jet
+		set_technology = {
+			ENG_jet_engine_meteor_tech = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_jap = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_jap } }
+		set_country_flag = flower_bp_done_t3_jap
+		set_technology = {
+			Laser_Warrior = 1
+			Marine_carrier_girl = 1
+			JAP_namizuozhan = 1
+			popup = yes
+		}
+	}
+}
+
+flower_unlock_bp_t3_swe = {
+	if = {
+		limit = { NOT = { has_country_flag = flower_bp_done_t3_swe } }
+		set_country_flag = flower_bp_done_t3_swe
+		set_technology = {
+			SWE_Legendary_Dragon_Knight_tech = 1
+			popup = yes
+		}
+	}
+}
+
+#丹麦蒸汽陆行舰跨代提前突破（按2->3->4代顺序立刻晋升下一代）
+flower_unlock_bp_t3_den_next = {
+	if = {
+		limit = { NOT = { has_tech = steamtank2 } }
+		set_technology = { steamtank2 = 1 popup = yes }
+	}
+	else_if = {
+		limit = { NOT = { has_tech = steamtank3 } }
+		set_technology = { steamtank3 = 1 popup = yes }
+	}
+	else_if = {
+		limit = { NOT = { has_tech = steamtank4 } }
+		set_technology = { steamtank4 = 1 popup = yes }
+	}
+	flower_ai_sync_steampunk_upgrades = yes
+}
+
+#======================================================================
+# 决议兑换费用统一结算（T2：优先400现金，否则50PP+35陆军经验；T3：优先750现金，否则80PP+60陆/空经验）
+#======================================================================
+
+#======================================================================
+# 月度自动渐进解码巡检（1939年起自动攻克持有高阶蓝图；1941年起自动攻克持有绝密蓝图）
+#======================================================================
+
+flower_ai_sync_all_blueprint_tiers = {
+	#T2 精锐黑科技：1939.1.1 自动解锁
+	if = {
+		limit = { date > 1938.12.31 }
+		if = { limit = { has_country_flag = flower_bp_has_t2_pao NOT = { has_country_flag = flower_bp_done_t2_pao } } flower_unlock_bp_t2_pao = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_kmk NOT = { has_country_flag = flower_bp_done_t2_kmk } } flower_unlock_bp_t2_kmk = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_fra NOT = { has_country_flag = flower_bp_done_t2_fra } } flower_unlock_bp_t2_fra = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_sov NOT = { has_country_flag = flower_bp_done_t2_sov } } flower_unlock_bp_t2_sov = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_dvl NOT = { has_country_flag = flower_bp_done_t2_dvl } } flower_unlock_bp_t2_dvl = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_ger NOT = { has_country_flag = flower_bp_done_t2_ger } } flower_unlock_bp_t2_ger = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_eng NOT = { has_country_flag = flower_bp_done_t2_eng } } flower_unlock_bp_t2_eng = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_jap NOT = { has_country_flag = flower_bp_done_t2_jap } } flower_unlock_bp_t2_jap = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_mgu NOT = { has_country_flag = flower_bp_done_t2_mgu } } flower_unlock_bp_t2_mgu = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_paq NOT = { has_country_flag = flower_bp_done_t2_paq } } flower_unlock_bp_t2_paq = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_pau NOT = { has_country_flag = flower_bp_done_t2_pau } } flower_unlock_bp_t2_pau = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_pan NOT = { has_country_flag = flower_bp_done_t2_pan } } flower_unlock_bp_t2_pan = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_tur NOT = { has_country_flag = flower_bp_done_t2_tur } } flower_unlock_bp_t2_tur = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_usa_radar NOT = { has_country_flag = flower_bp_done_t2_usa_radar } } flower_unlock_bp_t2_usa_radar = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t2_autometa NOT = { has_country_flag = flower_bp_done_t2_autometa } } flower_unlock_bp_t2_autometa = yes }
+	}
+	#T3 镇国终极黑科技：1941.1.1 自动解锁
+	if = {
+		limit = { date > 1940.12.31 }
+		if = { limit = { has_country_flag = flower_bp_has_t3_ufo NOT = { has_country_flag = flower_bp_done_t3_ufo } } flower_unlock_bp_t3_ufo = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_kmk NOT = { has_country_flag = flower_bp_done_t3_kmk } } flower_unlock_bp_t3_kmk = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_fra NOT = { has_country_flag = flower_bp_done_t3_fra } } flower_unlock_bp_t3_fra = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_sov NOT = { has_country_flag = flower_bp_done_t3_sov } } flower_unlock_bp_t3_sov = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_dvl_net NOT = { has_country_flag = flower_bp_done_t3_dvl_net } } flower_unlock_bp_t3_dvl_net = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_ai_fcs NOT = { has_country_flag = flower_bp_done_t3_ai_fcs } } flower_unlock_bp_t3_ai_fcs = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_ger_serum NOT = { has_country_flag = flower_bp_done_t3_ger_serum } } flower_unlock_bp_t3_ger_serum = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_heli NOT = { has_country_flag = flower_bp_done_t3_heli } } flower_unlock_bp_t3_heli = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_eng_jet NOT = { has_country_flag = flower_bp_done_t3_eng_jet } } flower_unlock_bp_t3_eng_jet = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_jap NOT = { has_country_flag = flower_bp_done_t3_jap } } flower_unlock_bp_t3_jap = yes }
+		if = { limit = { has_country_flag = flower_bp_has_t3_swe NOT = { has_country_flag = flower_bp_done_t3_swe } } flower_unlock_bp_t3_swe = yes }
+	}
+}

@@ -76,6 +76,39 @@ AI_armor = {
             date > 1938.1.1
         }
     }
+    MEDIUM_ARMOR_0 = {
+        upgrade_prio = {
+            factor = 200
+            modifier = {
+                factor = 0
+                has_tech = motorised_infantry
+            }
+            modifier = {
+                factor = 0
+                date < 1938.1.1
+            }
+        }
+        enable = {
+            NOT = { has_tech = motorised_infantry }
+            NOT = { has_tech = mechanised_infantry }
+        }
+        target_template = {
+            regiments = {
+                cavalry = 10
+                medium_armor = 6
+            }
+            regimental_support = {
+                fire_support = 2
+            }
+            support = {
+                engineer = 1
+                anti_air = 1
+                recon = 1
+                field_hospital = 1
+                logistics_company = 1
+            }
+        }
+    }
     MEDIUM_ARMOR_1 = {
         upgrade_prio = {
             factor = 400
@@ -89,23 +122,24 @@ AI_armor = {
             }
         }
         enable = {
+            has_tech = motorised_infantry
             NOT = {
                 has_tech = mechanised_infantry
             }
         }
         target_template = {
             regiments = {
-                irregular_infantry = 12
+                motorized = 10
                 medium_armor = 8
             }
             regimental_support = {
-                fire_support = 3
-                medium_sp_anti_air_support = 2
+                mot_fire_support = 2
+                medium_sp_anti_air_support = 1
             }
             support = {
-                assault_engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
+                engineer = 1
+                anti_air = 1
+                recon = 1
                 field_hospital = 1
                 logistics_company = 1
             }
@@ -137,7 +171,7 @@ AI_armor = {
         }
         target_template = {
             regiments = {
-                mechanized = 12
+                mechanized = 10
                 medium_armor = 8
             }
             regimental_support = {
@@ -145,9 +179,9 @@ AI_armor = {
                 medium_sp_anti_air_support = 2
             }
             support = {
-                assault_engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
+                engineer = 1
+                anti_air = 1
+                recon = 1
                 field_hospital = 1
                 logistics_company = 1
             }
@@ -171,7 +205,7 @@ AI_armor = {
         }
         target_template = {
             regiments = {
-                mechanized = 12
+                mechanized = 10
                 modern_armor = 8
             }
             regimental_support = {
@@ -179,9 +213,9 @@ AI_armor = {
                 medium_sp_anti_air_support = 2
             }
             support = {
-                assault_engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
+                engineer = 1
+                anti_air = 1
+                recon = 1
                 field_hospital = 1
                 logistics_company = 1
             }
@@ -220,7 +254,7 @@ AI_special_armor = {
         }
         target_template = {
             regiments = {
-                magic_assault = 12
+                magic_assault = 10
                 medium_armor = 8
             }
             regimental_support = {
@@ -228,9 +262,9 @@ AI_special_armor = {
                 medium_sp_anti_air_support = 2
             }
             support = {
-                assault_engineer = 1
-                light_tank_recon = 1
-                medium_flame_tank = 1
+                engineer = 1
+                anti_air = 1
+                recon = 1
                 field_hospital = 1
                 logistics_company = 1
             }
@@ -323,7 +357,7 @@ mountaineer_default = {
                 fire_support = 2
             }
             support = {
-                rangers_support = 1
+                recon = 1
                 engineer = 1
                 artillery = 1
                 anti_air = 1

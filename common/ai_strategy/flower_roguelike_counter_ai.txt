@@ -146,18 +146,58 @@ flower_counter_player_arty_strat = {
 	}
 }
 
+#对位反制：敌方人类玩家走王牌精兵/疯狂科研黑盒 -> 强化重炮软攻、反坦克与制空权压制
+flower_counter_player_elite_tech_strat = {
+	allowed = { NOT = { tag = ZDW tag = WL1 } }
+	enable = {
+		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
+		is_ai = yes
+		has_war = yes
+		num_of_factories > 25
+		any_enemy_country = {
+			is_ai = no
+			OR = {
+				has_country_flag = flower_roguelike_magic_ai
+				has_country_flag = flower_roguelike_steampunk_ai
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = equipment_production_factor
+		id = artillery
+		value = 130
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = anti_tank
+		value = 110
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 120
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 100
+	}
+}
+
 #====================================================================
 #二、方案B+分支机制AI配兵与控师联动
 #====================================================================
 
-#流派10分支10A（少师精锐）：师数逼近48师阈值时强力控军，压过默认扩军与爆兵副流派，保住高额少师精锐加成
+#流派10分支10A（少师精锐）：师数逼近60师满档阈值时强力控军，压过默认扩军与爆兵副流派，保住高额少师精锐加成
 flower_branch_10a_elite_cap_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_magic_chosen_idea
-		num_divisions > 43
+		num_divisions > 54
 	}
 	abort_when_not_enabled = yes
 

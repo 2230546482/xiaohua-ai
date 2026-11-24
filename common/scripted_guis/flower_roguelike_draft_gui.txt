@@ -97,12 +97,12 @@ scripted_gui = {
 				NOT = { has_country_flag = flower_draft_blood_reroll_used }
 				OR = {
 					AND = {
-						num_of_factories > 44
+						num_of_factories > 49
 						has_equipment = { infantry_equipment > 4999 }
 						has_equipment = { artillery_equipment > 499 }
 					}
 					AND = {
-						num_of_factories < 45
+						num_of_factories < 50
 						has_equipment = { infantry_equipment > 1999 }
 						has_equipment = { artillery_equipment > 199 }
 					}
@@ -482,7 +482,6 @@ scripted_gui = {
 					else = {
 						add_political_power = -75
 						army_experience = -25
-						add_stability = -0.025
 					}
 				}
 				else = {
@@ -507,7 +506,7 @@ scripted_gui = {
 				set_country_flag = flower_draft_high_roller
 				if = {
 					limit = {
-						num_of_factories < 45
+						num_of_factories < 50
 						has_equipment = { infantry_equipment > 1999 }
 						has_equipment = { artillery_equipment > 199 }
 					}
@@ -522,7 +521,7 @@ scripted_gui = {
 				}
 				else_if = {
 					limit = {
-						num_of_factories > 44
+						num_of_factories > 49
 						has_equipment = { infantry_equipment > 4999 }
 						has_equipment = { artillery_equipment > 499 }
 					}

@@ -27,17 +27,17 @@ armored_FRA = {
 		target_template = {
 			regiments = {
 				medium_armor = 8
-				irregular_infantry = 12
+				motorized = 10
 			}
 			regimental_support = {
 				medium_sp_anti_air_support = 2
 				mot_fire_support = 3
 			}
 			support = {
-				assault_engineer = 1
-				light_tank_recon = 1
-				armored_signal = 1
-				medium_flame_tank = 1
+				engineer = 1
+				anti_air = 1
+				recon = 1
+				signal_company = 1
 				logistics_company = 1
 			}
 		}
@@ -65,18 +65,18 @@ armored_FRA = {
 		target_template = {
 			regiments = {
 				medium_armor = 8
-				mechanized = 12
+				mechanized = 10
 			}
 			regimental_support = {
 				medium_sp_anti_air_support = 2
 				mot_fire_support = 3
 			}
 			support = {
-				assault_engineer = 1
-				light_tank_recon = 1
-				medium_flame_tank = 1
+				engineer = 1
+				anti_air = 1
+				recon = 1
 				logistics_company = 1
-				armored_signal = 1
+				signal_company = 1
 			}
 		}
 	}
@@ -97,18 +97,19 @@ armored_FRA = {
 		}
 		target_template = {
 			regiments = {
-				modern_armor = 10
-				mechanized = 15
+				modern_armor = 8
+				mechanized = 10
 			}
 			regimental_support = {
+				medium_sp_anti_air_support = 2
 				mot_fire_support = 3
 			}
 			support = {
-				assault_engineer = 1
-				light_tank_recon = 1
-				medium_flame_tank = 1
+				engineer = 1
+				anti_air = 1
+				recon = 1
 				logistics_company = 1
-				armored_signal = 1
+				signal_company = 1
 			}
 		}
 	}

@@ -847,6 +847,9 @@ ideas = {
                 command_power_gain_mult = 1.0
                 max_command_power = 100
                 army_leader_cost_factor = -0.75
+                army_leader_start_attack_level = 1
+                army_leader_start_logistics_level = 1
+                max_planning = 0.15
             }
         }
         flower_anomaly_nightmare_ai_idea = {
@@ -855,8 +858,8 @@ ideas = {
             cancel = { is_ai = no }
             picture = flower_idea_nightmare
             modifier = {
-                army_attack_factor = 0.15
-                army_defence_factor = 0.15
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
                 industrial_capacity_factory = 0.20
                 research_speed_factor = 0.15
             }
@@ -867,8 +870,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_arty_s1
             modifier = {
-                army_artillery_attack_factor = 0.10
-                army_artillery_defence_factor = 0.10
+                army_artillery_attack_factor = 0.05
+                army_artillery_defence_factor = 0.05
                 coordination_bonus = 0.05
                 max_planning = 0.05
             }
@@ -878,9 +881,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_arty_evolve
             modifier = {
-                army_artillery_attack_factor = 0.15
-                army_artillery_defence_factor = 0.15
-                breakthrough_factor = 0.10
+                army_artillery_attack_factor = 0.10
+                army_artillery_defence_factor = 0.10
+                breakthrough_factor = 0.05
                 coordination_bonus = 0.10
                 max_planning = 0.10
                 army_attack_against_major_factor = 0.05
@@ -891,13 +894,12 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_arty_s3
             modifier = {
-                army_artillery_attack_factor = 0.20
-                army_artillery_defence_factor = 0.20
-                breakthrough_factor = 0.15
+                army_artillery_attack_factor = 0.15
+                army_artillery_defence_factor = 0.15
+                breakthrough_factor = 0.10
                 coordination_bonus = 0.15
                 max_planning = 0.15
-                army_attack_against_major_factor = 0.10
-                supply_consumption_factor = 0.10
+                army_attack_against_major_factor = 0.05
             }
         }
         #肉鸽三阶进化路线：时停装甲闪电战（高速装甲穿插、低油耗与超长穿插续航）
@@ -906,7 +908,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_tank_s1
             modifier = {
-                army_armor_attack_factor = 0.10
+                army_armor_attack_factor = 0.05
                 army_armor_speed_factor = 0.10
                 army_fuel_consumption_factor = -0.10
                 planning_speed = 0.15
@@ -917,10 +919,10 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_tank_s2
             modifier = {
-                army_armor_attack_factor = 0.15
-                army_armor_defence_factor = 0.10
+                army_armor_attack_factor = 0.10
+                army_armor_defence_factor = 0.05
                 army_armor_speed_factor = 0.15
-                breakthrough_factor = 0.10
+                breakthrough_factor = 0.05
                 army_fuel_consumption_factor = -0.15
                 org_loss_when_moving = -0.15
             }
@@ -930,10 +932,10 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_tank_evolve
             modifier = {
-                army_armor_attack_factor = 0.20
-                army_armor_defence_factor = 0.15
+                army_armor_attack_factor = 0.15
+                army_armor_defence_factor = 0.10
                 army_armor_speed_factor = 0.20
-                breakthrough_factor = 0.15
+                breakthrough_factor = 0.10
                 org_loss_when_moving = -0.25
                 army_fuel_consumption_factor = -0.25
                 no_supply_grace = 100
@@ -991,8 +993,8 @@ ideas = {
             picture = flower_ico_egg_hatched
             modifier = {
                 special_forces_cap = 0.50
-                special_forces_attack_factor = 0.20
-                special_forces_defence_factor = 0.20
+                special_forces_attack_factor = 0.15
+                special_forces_defence_factor = 0.15
                 army_speed_factor = 0.15
             }
         }
@@ -1011,8 +1013,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_wager_win
             modifier = {
-                army_attack_factor = 0.15
-                army_defence_factor = 0.15
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
                 production_speed_buildings_factor = 0.20
                 research_speed_factor = 0.15
             }
@@ -1091,8 +1093,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_air_evolve
             modifier = {
-                air_cas_present_factor = 0.15
-                air_cas_efficiency = 0.15
+                air_cas_present_factor = 0.10
+                air_cas_efficiency = 0.10
                 air_superiority_efficiency = 0.15
                 air_attack_factor = 0.15
                 air_agility_factor = 0.10
@@ -1105,10 +1107,10 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_air_s3
             modifier = {
-                air_cas_present_factor = 0.20
-                air_cas_efficiency = 0.20
-                air_superiority_efficiency = 0.20
-                air_attack_factor = 0.20
+                air_cas_present_factor = 0.15
+                air_cas_efficiency = 0.15
+                air_superiority_efficiency = 0.15
+                air_attack_factor = 0.15
                 air_strategic_bomber_bombing_factor = 0.25
                 air_range_factor = 0.20
                 extra_paratrooper_supply_grace = 120
@@ -1125,7 +1127,7 @@ ideas = {
                 conscription = 0.02
                 training_time_factor = -0.10
                 army_infantry_attack_factor = 0.05
-                army_infantry_defence_factor = 0.10
+                army_infantry_defence_factor = 0.05
                 land_reinforce_rate = 0.05
             }
         }
@@ -1140,8 +1142,8 @@ ideas = {
                 weekly_manpower = 3000
                 land_reinforce_rate = 0.10
                 pocket_penalty = -0.35
-                army_infantry_attack_factor = 0.10
-                army_infantry_defence_factor = 0.15
+                army_infantry_attack_factor = 0.05
+                army_infantry_defence_factor = 0.10
                 army_strength_factor = 0.10
             }
         }
@@ -1157,22 +1159,24 @@ ideas = {
                 land_reinforce_rate = 0.20
                 pocket_penalty = -0.60
                 army_morale_factor = 0.25
-                army_infantry_attack_factor = 0.15
-                army_infantry_defence_factor = 0.20
-                breakthrough_factor = 0.10
+                army_infantry_attack_factor = 0.10
+                army_infantry_defence_factor = 0.15
+                breakthrough_factor = 0.05
             }
         }
-        #肉鸽三阶进化路线：皇家王牌特战营（原版特种精锐、将领微操与两栖空降全能破点）
+        #肉鸽三阶进化路线：皇家王牌特战营（固定特种营保底+少师精锐质量+老兵保全+名将统帅）
         flower_magic_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_magic_evolve
             modifier = {
+                special_forces_min = 40
                 special_forces_cap = 0.50
                 special_forces_attack_factor = 0.10
                 special_forces_defence_factor = 0.10
-                army_speed_factor = 0.05
-                command_power_gain_mult = 0.25
+                experience_loss_factor = -0.20
+                army_speed_factor = 0.10
+                command_power_gain_mult = 0.30
                 training_time_army_factor = -0.10
             }
         }
@@ -1181,14 +1185,16 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_magic_s2
             modifier = {
+                special_forces_min = 80
                 special_forces_cap = 0.75
                 special_forces_attack_factor = 0.15
                 special_forces_defence_factor = 0.15
-                initiative_factor = 0.10
+                experience_loss_factor = -0.35
+                initiative_factor = 0.15
                 supply_consumption_factor = -0.15
                 experience_gain_factor = 0.50
-                amphibious_invasion = 0.20
-                paradrop_organization_factor = 0.20
+                amphibious_invasion = 0.25
+                paradrop_organization_factor = 0.25
             }
         }
         flower_magic_stage_3_idea = {
@@ -1196,14 +1202,16 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_magic_s3
             modifier = {
+                special_forces_min = 140
                 special_forces_cap = 1.25
-                special_forces_attack_factor = 0.25
-                special_forces_defence_factor = 0.25
-                breakthrough_factor = 0.15
-                supply_consumption_factor = -0.20
-                attrition = -0.25
-                initiative_factor = 0.20
-                experience_gain_factor = 0.75
+                special_forces_attack_factor = 0.20
+                special_forces_defence_factor = 0.20
+                breakthrough_factor = 0.10
+                experience_loss_factor = -0.50
+                supply_consumption_factor = -0.25
+                attrition = -0.30
+                initiative_factor = 0.25
+                experience_gain_factor = 1.00
                 max_command_power = 50
             }
         }
@@ -1213,9 +1221,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_syn_ironrain
             modifier = {
-                army_attack_factor = 0.20
-                breakthrough_factor = 0.25
-                air_cas_present_factor = 0.25
+                army_attack_factor = 0.10
+                breakthrough_factor = 0.15
+                air_cas_present_factor = 0.15
                 army_speed_factor = 0.15
             }
         }
@@ -1236,7 +1244,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_syn_void
             modifier = {
-                special_forces_attack_factor = 0.25
+                special_forces_attack_factor = 0.15
                 research_speed_factor = 0.25
                 compliance_gain = 0.10
                 non_core_manpower = 0.25
@@ -1249,7 +1257,7 @@ ideas = {
             picture = flower_ico_blitz_king
             modifier = {
                 army_speed_factor = 0.25
-                breakthrough_factor = 0.25
+                breakthrough_factor = 0.15
                 supply_node_range = 0.25
                 org_loss_when_moving = -0.25
                 pocket_penalty = -0.20
@@ -1282,25 +1290,25 @@ ideas = {
             cancel = { is_ai = no }
             picture = flower_ico_nightmare_boss
             modifier = {
-                army_attack_factor = 0.25
-                army_defence_factor = 0.25
-                breakthrough_factor = 0.25
+                army_attack_factor = 0.15
+                army_defence_factor = 0.15
+                breakthrough_factor = 0.15
                 industrial_capacity_factory = 0.50
                 weekly_manpower = 20000
                 supply_consumption_factor = -0.50
             }
         }
-        #肉鸽三阶进化路线：午夜奇袭特遣队（极致夜战统治、情报侦察与闪电穿插）
+        #肉鸽三阶进化路线：午夜奇袭特遣队（极致夜战统治、情报侦察与快反穿插）
         flower_nightingale_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_ng_s1
             modifier = {
                 land_night_attack = 0.20
-                recon_factor = 0.20
+                recon_factor = 0.25
                 army_speed_factor = 0.10
                 army_infantry_attack_factor = 0.05
-                decryption_factor = 0.20
+                decryption_factor = 0.25
             }
         }
         flower_nightingale_stage_2_idea = {
@@ -1309,11 +1317,12 @@ ideas = {
             picture = flower_ico_ng_s2
             modifier = {
                 land_night_attack = 0.30
-                recon_factor = 0.30
-                army_speed_factor = 0.10
-                breakthrough_factor = 0.10
+                recon_factor = 0.35
+                army_speed_factor = 0.15
+                breakthrough_factor = 0.05
                 army_infantry_attack_factor = 0.10
-                initiative_factor = 0.10
+                supply_consumption_factor = -0.10
+                initiative_factor = 0.15
                 org_loss_when_moving = -0.15
                 intel_from_combat_factor = 0.25
             }
@@ -1326,26 +1335,27 @@ ideas = {
                 land_night_attack = 0.40
                 recon_factor = 0.50
                 army_speed_factor = 0.15
-                breakthrough_factor = 0.15
+                breakthrough_factor = 0.10
                 army_infantry_attack_factor = 0.15
-                army_org_regain = 0.15
-                initiative_factor = 0.15
-                coordination_bonus = 0.10
-                enemy_army_bonus_air_superiority_factor = -0.15
+                supply_consumption_factor = -0.15
+                army_org_regain = 0.20
+                initiative_factor = 0.20
+                coordination_bonus = 0.15
+                enemy_army_bonus_air_superiority_factor = -0.20
             }
         }
-        #肉鸽三阶进化路线：野火游击破交网（本土攻防、敌后抵抗破交与无视烂地断补给）
+        #肉鸽三阶进化路线：野火游击破交网（本土韧性、烂地低耗与敌后抵抗破交）
         flower_guerrilla_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_guerrilla
             modifier = {
                 army_infantry_attack_factor = 0.05
-                army_core_attack_factor = 0.10
-                army_core_defence_factor = 0.15
+                army_core_attack_factor = 0.05
+                army_core_defence_factor = 0.10
                 resistance_growth_on_our_occupied_states = 0.50
-                attrition = -0.15
-                supply_consumption_factor = -0.10
+                attrition = -0.20
+                supply_consumption_factor = -0.15
                 recon_factor = 0.15
             }
         }
@@ -1355,14 +1365,14 @@ ideas = {
             picture = flower_ico_gu_s2
             modifier = {
                 army_infantry_attack_factor = 0.10
-                breakthrough_factor = 0.10
-                army_core_attack_factor = 0.20
-                army_core_defence_factor = 0.20
+                breakthrough_factor = 0.05
+                army_core_attack_factor = 0.10
+                army_core_defence_factor = 0.15
                 resistance_growth_on_our_occupied_states = 0.75
                 resistance_damage_to_garrison_on_our_occupied_states = 0.25
                 attrition = -0.25
                 supply_consumption_factor = -0.20
-                out_of_supply_factor = -0.25
+                out_of_supply_factor = -0.30
                 equipment_capture_factor = 0.15
             }
         }
@@ -1371,25 +1381,26 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_gu_s3
             modifier = {
-                army_infantry_attack_factor = 0.15
-                breakthrough_factor = 0.15
-                army_core_attack_factor = 0.25
-                army_core_defence_factor = 0.25
+                army_infantry_attack_factor = 0.10
+                breakthrough_factor = 0.10
+                army_core_attack_factor = 0.15
+                army_core_defence_factor = 0.15
                 resistance_growth_on_our_occupied_states = 1.25
                 resistance_damage_to_garrison_on_our_occupied_states = 0.40
                 attrition = -0.35
                 supply_consumption_factor = -0.25
                 out_of_supply_factor = -0.50
                 pocket_penalty = -0.50
-                equipment_capture_factor = 0.20
+                equipment_capture_factor = 0.25
             }
         }
-        #肉鸽三阶进化路线：绝境血炉死士团（极速组织度恢复、老兵急救回流与严寒断补给免疫）
+        #肉鸽三阶进化路线：绝境血炉死士团（极速组织度恢复、老兵急救回流与严寒断补给韧性）
         flower_undead_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_idea_undead
             modifier = {
+                army_attack_factor = 0.05
                 army_morale_factor = 0.15
                 experience_loss_factor = -0.20
                 attrition = -0.20
@@ -1403,6 +1414,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_undead_s2
             modifier = {
+                army_attack_factor = 0.05
+                breakthrough_factor = 0.05
                 army_morale_factor = 0.25
                 experience_loss_factor = -0.35
                 attrition = -0.30
@@ -1418,6 +1431,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_undead_s3
             modifier = {
+                army_attack_factor = 0.10
+                breakthrough_factor = 0.10
                 army_morale_factor = 0.30
                 experience_loss_factor = -0.50
                 attrition = -0.40
@@ -1429,7 +1444,7 @@ ideas = {
                 land_night_attack = 0.20
             }
         }
-        #肉鸽三阶进化路线：疯狂科研黑盒局（科研跃升、军工设计局经费狂飙与跨时代质量代差）
+        #肉鸽三阶进化路线：疯狂科研黑盒局（科研跃升、军工设计局经费与装备质量代差）
         flower_steampunk_stage_1_idea = {
             removal_cost = -1
             allowed = { always = no }
@@ -1456,8 +1471,8 @@ ideas = {
                 industrial_capacity_factory = 0.10
                 cas_damage_reduction = 0.15
                 org_loss_when_moving = -0.15
-                army_attack_factor = 0.10
-                army_defence_factor = 0.10
+                army_attack_factor = 0.05
+                army_defence_factor = 0.05
             }
         }
         flower_steampunk_stage_3_idea = {
@@ -1471,9 +1486,9 @@ ideas = {
                 production_speed_nuclear_reactor_factor = 0.60
                 production_factory_max_efficiency_factor = 0.10
                 industrial_capacity_factory = 0.15
-                army_attack_factor = 0.15
-                army_defence_factor = 0.15
-                breakthrough_factor = 0.15
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
+                breakthrough_factor = 0.05
                 air_mission_efficiency = 0.15
             }
         }
@@ -1483,9 +1498,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_fate_godhand
             modifier = {
-                army_attack_factor = 0.20
-                army_defence_factor = 0.15
-                breakthrough_factor = 0.25
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
+                breakthrough_factor = 0.15
                 army_speed_factor = 0.15
                 planning_speed = 0.50
             }
@@ -1524,16 +1539,16 @@ ideas = {
                 weekly_manpower = 4000
             }
         }
-        #赌徒流派专属：命运骰子随机负面Debuff（4种，180天定时重摇或重选12号流派洗掉）
+        #赌徒流派专属：命运骰子随机负面Debuff（4种，180天定时重摇或重选12号流派洗掉，缓和负面防直接炸档）
         flower_gambler_debuff_bankrupt_idea = {
             removal_cost = -1
             allowed = { always = no }
             picture = flower_ico_fate_bankrupt
             modifier = {
-                consumer_goods_factor = 0.15
-                industrial_capacity_factory = -0.15
-                production_speed_buildings_factor = -0.15
-                hcp_income_factor_monthly = -0.25
+                consumer_goods_factor = 0.10
+                industrial_capacity_factory = -0.10
+                production_speed_buildings_factor = -0.10
+                hcp_income_factor_monthly = -0.20
             }
         }
         flower_gambler_debuff_jammed_idea = {
@@ -1541,10 +1556,10 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_fate_jammed
             modifier = {
-                army_attack_factor = -0.15
-                breakthrough_factor = -0.15
-                attrition = 0.20
-                supply_consumption_factor = 0.15
+                army_attack_factor = -0.10
+                breakthrough_factor = -0.10
+                attrition = 0.15
+                supply_consumption_factor = 0.10
             }
         }
         flower_gambler_debuff_chaos_idea = {
@@ -1552,10 +1567,10 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_fate_chaos
             modifier = {
-                army_org_factor = -0.15
-                planning_speed = -0.35
+                army_org_factor = -0.10
+                planning_speed = -0.25
                 army_speed_factor = -0.10
-                org_loss_when_moving = 0.25
+                org_loss_when_moving = 0.15
             }
         }
         flower_gambler_debuff_scandal_idea = {
@@ -1565,8 +1580,8 @@ ideas = {
             modifier = {
                 stability_factor = -0.10
                 war_support_factor = -0.10
-                research_speed_factor = -0.15
-                political_power_factor = -0.20
+                research_speed_factor = -0.10
+                political_power_factor = -0.15
             }
         }
         #第四种双流派满级共鸣终极精神：暗夜游击血潮
@@ -1575,12 +1590,12 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_syn_nightmare
             modifier = {
-                army_org_factor = 0.25
-                army_morale_factor = 0.50
-                land_night_attack = 0.50
+                army_org_factor = 0.15
+                army_morale_factor = 0.35
+                land_night_attack = 0.35
                 supply_consumption_factor = -0.25
-                breakthrough_factor = 0.25
-                army_infantry_attack_factor = 0.20
+                breakthrough_factor = 0.10
+                army_infantry_attack_factor = 0.10
             }
         }
         #记仇小本本与发光怪蛋原创突破精神（取代原别国特殊科技奖励）
@@ -1589,8 +1604,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_idea_evo_iron
             modifier = {
-                army_infantry_attack_factor = 0.15
-                breakthrough_factor = 0.15
+                army_infantry_attack_factor = 0.10
+                breakthrough_factor = 0.10
                 cas_damage_reduction = 0.20
                 army_strength_factor = 0.10
             }
@@ -1623,8 +1638,8 @@ ideas = {
             picture = flower_idea_relic_army
             modifier = {
                 special_forces_cap = 0.50
-                special_forces_attack_factor = 0.20
-                special_forces_defence_factor = 0.20
+                special_forces_attack_factor = 0.15
+                special_forces_defence_factor = 0.15
                 army_speed_factor = 0.15
             }
         }
@@ -1672,8 +1687,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_arty_bar
             modifier = {
-                army_artillery_attack_factor = 0.25
-                breakthrough_factor = 0.20
+                army_artillery_attack_factor = 0.15
+                breakthrough_factor = 0.10
                 coordination_bonus = 0.15
                 supply_consumption_factor = 0.10
             }
@@ -1683,9 +1698,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_tank_ts
             modifier = {
-                army_armor_speed_factor = 0.35
-                army_armor_attack_factor = 0.20
-                breakthrough_factor = 0.30
+                army_armor_speed_factor = 0.30
+                army_armor_attack_factor = 0.10
+                breakthrough_factor = 0.15
                 org_loss_when_moving = -0.40
             }
         }
@@ -1694,9 +1709,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_air_carp
             modifier = {
-                air_cas_present_factor = 0.30
-                air_cas_efficiency = 0.30
-                air_attack_factor = 0.15
+                air_cas_present_factor = 0.15
+                air_cas_efficiency = 0.15
+                air_attack_factor = 0.10
                 air_range_factor = 0.20
             }
         }
@@ -1716,7 +1731,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_wave_hold
             modifier = {
-                army_core_defence_factor = 0.25
+                army_core_defence_factor = 0.15
                 land_reinforce_rate = 0.15
                 experience_loss_factor = -0.25
                 army_speed_factor = -0.10
@@ -1738,8 +1753,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_ng_raid
             modifier = {
-                land_night_attack = 0.40
-                breakthrough_factor = 0.25
+                land_night_attack = 0.25
+                breakthrough_factor = 0.15
                 recon_factor = 0.35
                 army_speed_factor = 0.15
                 enemy_army_bonus_air_superiority_factor = -0.25
@@ -1770,9 +1785,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_undead_arm
             modifier = {
-                army_defence_factor = 0.20
+                army_defence_factor = 0.15
                 army_strength_factor = 0.15
-                army_org_factor = 0.15
+                army_org_factor = 0.10
             }
         }
         flower_op_undead_labor_idea = {
@@ -1800,9 +1815,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_magic_ovr
             modifier = {
-                army_attack_factor = 0.15
-                army_defence_factor = 0.15
-                special_forces_attack_factor = 0.20
+                army_attack_factor = 0.10
+                army_defence_factor = 0.10
+                special_forces_attack_factor = 0.10
             }
         }
         flower_op_punk_forest_idea = {
@@ -1812,7 +1827,7 @@ ideas = {
             modifier = {
                 cas_damage_reduction = 0.25
                 attrition = -0.30
-                army_defence_factor = 0.15
+                army_defence_factor = 0.10
             }
         }
         flower_op_punk_ufo_idea = {
@@ -1822,8 +1837,8 @@ ideas = {
             modifier = {
                 research_speed_factor = 0.20
                 military_industrial_organization_funds_gain = 1.50
-                air_agility_factor = 0.20
-                air_attack_factor = 0.20
+                air_agility_factor = 0.15
+                air_attack_factor = 0.15
             }
         }
         #黑市6个月净收入契约精神（持续365天）
@@ -1832,8 +1847,8 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_op_arty_bar
             modifier = {
-                army_attack_factor = 0.10
-                breakthrough_factor = 0.15
+                army_attack_factor = 0.05
+                breakthrough_factor = 0.10
                 equipment_capture_factor = 0.10
                 supply_consumption_factor = -0.10
             }
@@ -1864,7 +1879,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_fate_godhand
             modifier = {
-                army_attack_factor = 0.15
+                army_attack_factor = 0.10
                 industrial_capacity_factory = 0.15
                 production_speed_buildings_factor = 0.15
                 research_speed_factor = 0.15
@@ -1907,7 +1922,7 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_ng_s1
             modifier = {
-                land_night_attack = 0.25
+                land_night_attack = 0.20
                 army_speed_factor = 0.10
                 initiative_factor = 0.15
                 decryption_factor = 0.25
@@ -1918,9 +1933,9 @@ ideas = {
             allowed = { always = no }
             picture = flower_ico_undead_s3
             modifier = {
-                army_attack_factor = 0.20
-                breakthrough_factor = 0.25
-                army_org_regain = 0.35
+                army_attack_factor = 0.10
+                breakthrough_factor = 0.15
+                army_org_regain = 0.30
                 out_of_supply_factor = -0.50
                 winter_attrition_factor = -0.50
             }
@@ -1942,7 +1957,7 @@ ideas = {
             picture = flower_ico_op_punk_ufo
             modifier = {
                 army_speed_factor = 0.20
-                breakthrough_factor = 0.15
+                breakthrough_factor = 0.10
                 org_loss_when_moving = -0.25
                 army_fuel_consumption_factor = 0.15
             }
@@ -1953,7 +1968,7 @@ ideas = {
             picture = flower_ico_op_corp_mil
             modifier = {
                 industrial_capacity_factory = 0.20
-                army_artillery_attack_factor = 0.15
+                army_artillery_attack_factor = 0.10
                 attrition = 0.10
             }
         }

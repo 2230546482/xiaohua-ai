@@ -101,7 +101,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_random_btn_lbl"
-			position = { x = 554 y = 114 }
+			position = { x = 554 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_RANDOM_BTN_TEXT"
 			maxWidth = 164
@@ -124,7 +124,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_reroll_btn_lbl"
-			position = { x = 176 y = 114 }
+			position = { x = 176 y = 111 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftRerollBtnShort]"
 			maxWidth = 176
@@ -145,7 +145,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_gamble_btn_lbl"
-			position = { x = 388 y = 114 }
+			position = { x = 388 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_GAMBLE_BTN_TEXT"
 			maxWidth = 176
@@ -168,7 +168,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_peek_map_lbl"
-			position = { x = 752 y = 114 }
+			position = { x = 752 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
@@ -202,7 +202,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_tab_p1_on_lbl"
-			position = { x = 44 y = 164 }
+			position = { x = 44 y = 161 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_TAB_P1_ON"
 			maxWidth = 216
@@ -223,7 +223,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_tab_p1_off_lbl"
-			position = { x = 44 y = 164 }
+			position = { x = 44 y = 161 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_TAB_P1_OFF"
 			maxWidth = 216
@@ -244,7 +244,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_tab_p2_on_lbl"
-			position = { x = 300 y = 164 }
+			position = { x = 300 y = 161 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_TAB_P2_ON"
 			maxWidth = 216
@@ -265,7 +265,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_tab_p2_off_lbl"
-			position = { x = 300 y = 164 }
+			position = { x = 300 y = 161 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_TAB_P2_OFF"
 			maxWidth = 216
@@ -317,7 +317,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_1_status"
-			position = { x = 64 y = 347 }
+			position = { x = 64 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch1Status]"
 			maxWidth = 204
@@ -338,7 +338,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_2_status"
-			position = { x = 358 y = 347 }
+			position = { x = 358 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch2Status]"
 			maxWidth = 204
@@ -359,7 +359,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_3_status"
-			position = { x = 652 y = 347 }
+			position = { x = 652 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch3Status]"
 			maxWidth = 204
@@ -380,7 +380,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_4_status"
-			position = { x = 64 y = 541 }
+			position = { x = 64 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch4Status]"
 			maxWidth = 204
@@ -401,7 +401,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_5_status"
-			position = { x = 358 y = 541 }
+			position = { x = 358 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch5Status]"
 			maxWidth = 204
@@ -422,7 +422,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_6_status"
-			position = { x = 652 y = 541 }
+			position = { x = 652 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch6Status]"
 			maxWidth = 204
@@ -443,7 +443,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_7_status"
-			position = { x = 64 y = 347 }
+			position = { x = 64 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch7Status]"
 			maxWidth = 204
@@ -464,7 +464,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_8_status"
-			position = { x = 358 y = 347 }
+			position = { x = 358 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch8Status]"
 			maxWidth = 204
@@ -485,7 +485,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_9_status"
-			position = { x = 652 y = 347 }
+			position = { x = 652 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch9Status]"
 			maxWidth = 204
@@ -506,7 +506,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_10_status"
-			position = { x = 64 y = 541 }
+			position = { x = 64 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch10Status]"
 			maxWidth = 204
@@ -527,7 +527,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_11_status"
-			position = { x = 358 y = 541 }
+			position = { x = 358 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch11Status]"
 			maxWidth = 204
@@ -548,7 +548,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_arch_card_12_status"
-			position = { x = 652 y = 541 }
+			position = { x = 652 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerArch12Status]"
 			maxWidth = 204
@@ -1006,7 +1006,7 @@ guiTypes = {
 		}
 		buttonType = {
 			name = "flower_draft_page_btn"
-			position = { x = 674 y = 605 }
+			position = { x = 702 y = 607 }
 			quadTextureSprite = "GFX_flower_btn_page_nav"
 			buttonFont = "flower_a4_16"
 			buttonText = ""
@@ -1016,10 +1016,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_page_btn_lbl"
-			position = { x = 682 y = 614 }
+			position = { x = 724 y = 612 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStarterPageBtnText]"
-			maxWidth = 202
+			maxWidth = 154
 			maxHeight = 20
 			format = center
 			fixedsize = yes

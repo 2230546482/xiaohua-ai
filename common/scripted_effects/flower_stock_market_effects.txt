@@ -1347,14 +1347,14 @@ flower_stk_liquidate_everything = {
 	flower_stk_4_cover_all = yes
 }
 
-#盈利购厂：花 500 HCP 瞬建 1 座军工 + 1 座民工（180天冷却）
+#盈利购厂：花 500 HCP 瞬建 1 座军工 + 1 座民工（60天冷却）
 flower_stk_buy_factory_action = {
 	if = {
 		limit = {
 			NOT = { has_country_flag = flower_stk_buy_factory_cd }
 			NOT = { check_variable = { ubs_save < 500 } }
 		}
-		set_country_flag = { flag = flower_stk_buy_factory_cd days = 180 value = 1 }
+		set_country_flag = { flag = flower_stk_buy_factory_cd days = 60 value = 1 }
 		if = {
 			limit = { is_ai = no }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }

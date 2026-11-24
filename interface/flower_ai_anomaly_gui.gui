@@ -88,7 +88,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_confirm_lbl"
-			position = { x = 176 y = 114 }
+			position = { x = 176 y = 111 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyConfirmBtnText]"
 			maxWidth = 164
@@ -110,7 +110,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_multi_off_lbl"
-			position = { x = 376 y = 114 }
+			position = { x = 376 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_MULTI_OFF_TEXT"
 			maxWidth = 176
@@ -132,7 +132,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_multi_on_lbl"
-			position = { x = 376 y = 114 }
+			position = { x = 376 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_MULTI_ON_TEXT"
 			maxWidth = 176
@@ -154,7 +154,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_peek_paw_lbl"
-			position = { x = 588 y = 114 }
+			position = { x = 588 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_RANDOM_BTN_TEXT"
 			maxWidth = 128
@@ -176,7 +176,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_bookmark_lbl"
-			position = { x = 752 y = 114 }
+			position = { x = 752 y = 111 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalySkipBtnText]"
 			maxWidth = 128
@@ -234,7 +234,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_1_status"
-			position = { x = 64 y = 347 }
+			position = { x = 64 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard1Status]"
 			maxWidth = 204
@@ -255,7 +255,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_2_status"
-			position = { x = 358 y = 347 }
+			position = { x = 358 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard2Status]"
 			maxWidth = 204
@@ -276,7 +276,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_3_status"
-			position = { x = 652 y = 347 }
+			position = { x = 652 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard3Status]"
 			maxWidth = 204
@@ -297,7 +297,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_4_status"
-			position = { x = 64 y = 541 }
+			position = { x = 64 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard4Status]"
 			maxWidth = 204
@@ -318,7 +318,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_5_status"
-			position = { x = 358 y = 541 }
+			position = { x = 358 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard5Status]"
 			maxWidth = 204
@@ -339,7 +339,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_6_status"
-			position = { x = 652 y = 541 }
+			position = { x = 652 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard6Status]"
 			maxWidth = 204
@@ -362,7 +362,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_7_status"
-			position = { x = 64 y = 347 }
+			position = { x = 64 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard7Status]"
 			maxWidth = 204
@@ -383,7 +383,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_8_status"
-			position = { x = 358 y = 347 }
+			position = { x = 358 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard8Status]"
 			maxWidth = 204
@@ -404,7 +404,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_9_status"
-			position = { x = 652 y = 347 }
+			position = { x = 652 y = 342 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard9Status]"
 			maxWidth = 204
@@ -425,7 +425,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_10_status"
-			position = { x = 64 y = 541 }
+			position = { x = 64 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard10Status]"
 			maxWidth = 204
@@ -446,7 +446,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_11_status"
-			position = { x = 358 y = 541 }
+			position = { x = 358 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard11Status]"
 			maxWidth = 204
@@ -467,7 +467,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_card_12_status"
-			position = { x = 652 y = 541 }
+			position = { x = 652 y = 536 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyCard12Status]"
 			maxWidth = 204
@@ -501,7 +501,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_bow_lbl"
-			position = { x = 526 y = 615 }
+			position = { x = 526 y = 612 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_BOW_BTN_TEXT"
 			maxWidth = 154
@@ -522,7 +522,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_anomaly_page_lbl"
-			position = { x = 724 y = 615 }
+			position = { x = 724 y = 612 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyPageBtnText]"
 			maxWidth = 154

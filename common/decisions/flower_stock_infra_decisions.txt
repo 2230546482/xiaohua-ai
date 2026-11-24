@@ -1,0 +1,511 @@
+#老实赚钱很枯燥吧（畸变3）：股市钞能力 — 基建与工业大包干决议
+flower_stock_infra_cat = {
+
+	#1. 重金征地扩建厂区（花350现金 -> 2个控制州各+2建筑槽，30天冷却）
+	flower_stk_dec_expand_slots = {
+		icon = generic_construction
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_350_tt
+				NOT = { check_variable = { ubs_save < 350 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 30
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				check_variable = { ubs_save > 850 }
+				check_variable = { ubs_load < 250 }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_expand_slots_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 350 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			if = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { is_core_of = ROOT }
+					add_extra_state_shared_building_slots = 2
+				}
+				random_owned_controlled_state = {
+					limit = { is_core_of = ROOT }
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+	}
+
+	#2. 民营基建财团包干（花500现金 -> 扩槽并立刻落成2座民用工厂，45天冷却）
+	flower_stk_dec_build_civs = {
+		icon = generic_factory
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_500_tt
+				NOT = { check_variable = { ubs_save < 500 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 45
+				check_variable = { ubs_save > 950 }
+				check_variable = { ubs_load < 250 }
+			}
+			modifier = {
+				factor = 1.5
+				has_war = no
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_build_civs_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 500 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			if = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { is_core_of = ROOT }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	#3. 军工巨头紧急扩产（花550现金 -> 扩槽并立刻落成2座军用工厂，45天冷却）
+	flower_stk_dec_build_mils = {
+		icon = generic_industry
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_550_tt
+				NOT = { check_variable = { ubs_save < 550 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				check_variable = { ubs_save > 1000 }
+				check_variable = { ubs_load < 250 }
+			}
+			modifier = {
+				factor = 1.8
+				has_war = yes
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_build_mils_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 550 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			if = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						is_core_of = ROOT
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { is_core_of = ROOT }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	#4. 黄金海岸船厂扩建（花450现金 -> 沿海州扩槽并立刻落成2座海军造船厂，45天冷却）
+	flower_stk_dec_build_docks = {
+		icon = generic_naval
+		visible = {
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_450_tt
+				NOT = { check_variable = { ubs_save < 450 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_coastal = yes
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				check_variable = { ubs_save > 1100 }
+				check_variable = { ubs_load < 200 }
+				is_major = yes
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_build_docks_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 450 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			random_owned_controlled_state = {
+				limit = { is_coastal = yes }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#5. 全国基础设施大包干（花300现金 -> 3个未满级控制州各+1基建 + 90天全建造提速15%/修复25%，45天冷却）
+	flower_stk_dec_national_infra = {
+		icon = generic_prepare_civil_war
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_300_tt
+				NOT = { check_variable = { ubs_save < 300 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 30
+				check_variable = { ubs_save > 800 }
+				check_variable = { ubs_load < 250 }
+				NOT = { has_idea = flower_stk_infra_rush_idea }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_national_infra_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 300 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = flower_stk_infra_rush_idea
+				days = 90
+			}
+		}
+	}
+
+	#6. 合成石化与战备油库包干（花450现金 -> 1座合成炼油厂 + 2座储油罐 + 20000燃油，45天冷却）
+	flower_stk_dec_fuel_synth = {
+		icon = oil
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_450_tt
+				NOT = { check_variable = { ubs_save < 450 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				check_variable = { ubs_save > 1000 }
+				check_variable = { ubs_load < 200 }
+				fuel_ratio < 0.45
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_fuel_synth_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 450 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			if = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = synthetic_refinery
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = synthetic_refinery
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = fuel_silo
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = fuel_silo
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_fuel = 20000
+		}
+	}
+
+	#7. 前沿机场与防空雷达网包干（花350现金 -> 2个控制州各+2机场、+1防空炮，已解锁雷达再+1雷达站，45天冷却）
+	flower_stk_dec_air_radar = {
+		icon = generic_air
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_350_tt
+				NOT = { check_variable = { ubs_save < 350 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+			}
+		}
+		days_re_enable = 45
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				check_variable = { ubs_save > 1000 }
+				check_variable = { ubs_load < 200 }
+				has_war = yes
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_air_radar_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 350 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			random_owned_controlled_state = {
+				if = {
+					limit = { free_building_slots = { building = air_base size > 1 include_locked = no } }
+					add_building_construction = { type = air_base level = 2 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = anti_air_building size > 0 include_locked = no } }
+					add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+				}
+				if = {
+					limit = {
+						ROOT = { has_tech = radio_detection }
+						free_building_slots = { building = radar_station size > 0 include_locked = no }
+					}
+					add_building_construction = { type = radar_station level = 1 instant_build = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				if = {
+					limit = { free_building_slots = { building = air_base size > 1 include_locked = no } }
+					add_building_construction = { type = air_base level = 2 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = anti_air_building size > 0 include_locked = no } }
+					add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+				}
+				if = {
+					limit = {
+						ROOT = { has_tech = radio_detection }
+						free_building_slots = { building = radar_station size > 0 include_locked = no }
+					}
+					add_building_construction = { type = radar_station level = 1 instant_build = yes }
+				}
+			}
+		}
+	}
+
+	#8. 重金雇佣铁路与补给枢纽工程队（花600现金 -> 2州+1基建 + 120天补给枢纽+150%/铁路+100%/基建+50%/补给消耗-10%，90天冷却）
+	flower_stk_dec_supply_corps = {
+		icon = generic_operation
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = flower_need_hcp_600_tt
+				NOT = { check_variable = { ubs_save < 600 } }
+			}
+		}
+		days_re_enable = 90
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 35
+				check_variable = { ubs_save > 1100 }
+				check_variable = { ubs_load < 200 }
+				has_war = yes
+				NOT = { has_idea = flower_stk_supply_corps_idea }
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = flower_stk_dec_supply_corps_tt
+			hidden_effect = {
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				subtract_from_variable = { ubs_save = 600 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = flower_stk_supply_corps_idea
+				days = 120
+			}
+		}
+	}
+}

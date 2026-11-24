@@ -106,7 +106,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			num_of_factories < 45
+			num_of_factories < 50
 			has_equipment = { infantry_equipment > 1999 }
 			has_equipment = { artillery_equipment > 199 }
 		}
@@ -114,7 +114,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			num_of_factories > 44
+			num_of_factories > 49
 			has_equipment = { infantry_equipment > 4999 }
 			has_equipment = { artillery_equipment > 499 }
 		}
@@ -125,7 +125,7 @@ defined_text = {
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_HCP
 	}
 	text = {
-		trigger = { num_of_factories < 45 }
+		trigger = { num_of_factories < 50 }
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_SMALL
 	}
 	text = { localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE }

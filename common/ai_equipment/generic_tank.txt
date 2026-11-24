@@ -62,13 +62,13 @@ generic_light_tanks = {
 		        suspension_type_slot = tank_wheeled_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_diesel_engine
-		        special_type_slot_1 = r56_tank_improved_optics
+		        special_type_slot_1 = { any_of = { r56_tank_improved_optics tank_radio_1 } }
 		        special_type_slot_2 = smoke_launchers
 		        special_type_slot_3 = extra_ammo_storage
 		        special_type_slot_4 = additional_machine_guns
 		    }
 		    upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 3
                 tank_nsb_armor_upgrade = 0
 			}
 		}
@@ -79,6 +79,7 @@ generic_light_tanks = {
 			tank_riveted_armor
 			tank_diesel_engine
 			r56_tank_improved_optics
+			tank_radio_1
 			smoke_launchers
 			extra_ammo_storage
 			additional_machine_guns
@@ -101,19 +102,20 @@ generic_light_tanks = {
 		        suspension_type_slot = tank_wheeled_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_diesel_engine
-		        special_type_slot_1 = easy_maintenance
+		        special_type_slot_1 = { any_of = { easy_maintenance wet_ammo_storage } }
 		        special_type_slot_2 = {
 					any_of = {
 						r56_tank_advanced_rangefinder
 						r56_tank_optical_rangefinder
 						r56_tank_improved_optics
+						tank_radio_1
 					}
 				}
 		        special_type_slot_3 = smoke_launchers
 		        special_type_slot_4 = extra_ammo_storage
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 4
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
@@ -124,11 +126,13 @@ generic_light_tanks = {
             tank_riveted_armor
 			tank_diesel_engine
 			easy_maintenance
+			wet_ammo_storage
 			smoke_launchers
             extra_ammo_storage
 			r56_tank_advanced_rangefinder
 			r56_tank_optical_rangefinder
 			r56_tank_improved_optics
+			tank_radio_1
 		}
 	}
 	light_tank_best_best = {
@@ -145,39 +149,44 @@ generic_light_tanks = {
 			match_value = 1000
 			type = light_tank_chassis_3
 		    modules = {
-		        main_armament_slot = tank_high_velocity_cannon
+		        main_armament_slot = { any_of = { tank_high_velocity_cannon tank_close_support_gun } }
 		        turret_type_slot = tank_light_one_man_tank_turret
 		        suspension_type_slot = tank_wheeled_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_diesel_engine
-		        special_type_slot_1 = easy_maintenance
+		        special_type_slot_1 = { any_of = { easy_maintenance wet_ammo_storage } }
 		        special_type_slot_2 = {
 					any_of = {
 						r56_tank_advanced_rangefinder
 						r56_tank_optical_rangefinder
 						r56_tank_improved_optics
+						tank_radio_1
 					}
 				}
-		        special_type_slot_3 = dozer_blade
+		        special_type_slot_3 = { any_of = { dozer_blade smoke_launchers } }
 		        special_type_slot_4 = extra_ammo_storage
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 4
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
 		allowed_modules = {
 			tank_high_velocity_cannon
+			tank_close_support_gun
 			tank_light_one_man_tank_turret
             tank_wheeled_suspension
             tank_riveted_armor
 			tank_diesel_engine
 			easy_maintenance
+			wet_ammo_storage
 			dozer_blade
+			smoke_launchers
             extra_ammo_storage
 			r56_tank_advanced_rangefinder
 			r56_tank_optical_rangefinder
 			r56_tank_improved_optics
+			tank_radio_1
 		}
 	}
 	light_tank_best_best_best = {
@@ -188,32 +197,41 @@ generic_light_tanks = {
 			match_value = 1000
 			type = light_tank_chassis_4
 		    modules = {
-		        main_armament_slot = r56_tank_medium_cannon_3
-		        turret_type_slot = r56_tank_light_oscillating_turret
+		        main_armament_slot = { any_of = { r56_tank_medium_cannon_3 tank_high_velocity_cannon tank_close_support_gun } }
+		        turret_type_slot = { any_of = { r56_tank_light_oscillating_turret tank_light_one_man_tank_turret } }
 		        suspension_type_slot = tank_interleaved_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_gasoline_engine
-		        special_type_slot_1 = easy_maintenance
-		        special_type_slot_2 = r56_tank_advanced_rangefinder
-		        special_type_slot_3 = dozer_blade
-		        special_type_slot_4 = tank_radio_3
+		        special_type_slot_1 = { any_of = { easy_maintenance wet_ammo_storage } }
+		        special_type_slot_2 = { any_of = { r56_tank_advanced_rangefinder r56_tank_optical_rangefinder r56_tank_improved_optics } }
+		        special_type_slot_3 = { any_of = { dozer_blade smoke_launchers } }
+		        special_type_slot_4 = { any_of = { tank_radio_3 tank_radio_2 tank_radio_1 } }
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 5
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
 		allowed_modules = {
 			Armor_Computing_Network
 			r56_tank_medium_cannon_3
+			tank_high_velocity_cannon
+			tank_close_support_gun
 			r56_tank_light_oscillating_turret
+			tank_light_one_man_tank_turret
             tank_interleaved_suspension
             tank_riveted_armor
 			tank_gasoline_engine
 			easy_maintenance
+			wet_ammo_storage
 			tank_radio_3
+			tank_radio_2
+			tank_radio_1
             dozer_blade
+			smoke_launchers
 			r56_tank_advanced_rangefinder
+			r56_tank_optical_rangefinder
+			r56_tank_improved_optics
 		}
 	}
 }
@@ -353,6 +371,7 @@ generic_medium_tanks = {
 					any_of = {
 						tank_medium_cannon_2
 						tank_medium_cannon
+						tank_close_support_gun
 					}
 				}
 		        turret_type_slot = tank_medium_three_man_tank_turret #三乘员炮塔
@@ -376,13 +395,14 @@ generic_medium_tanks = {
 				}
 	        }
 	        upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 4
                 tank_nsb_armor_upgrade = 4
 	        }
 		}
 		allowed_modules = {
 			tank_medium_cannon_2
             tank_medium_cannon
+			tank_close_support_gun
 			tank_medium_three_man_tank_turret
             tank_torsion_bar_suspension
             tank_riveted_armor
@@ -438,7 +458,7 @@ generic_medium_tanks = {
 				}
 	        }
 	        upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 4
                 tank_nsb_armor_upgrade = 4
 	        }
 		}
@@ -478,6 +498,7 @@ generic_medium_tanks = {
 					any_of = {
 						tank_medium_cannon_2
 						tank_medium_cannon
+						tank_close_support_gun
 					}
 				}
 		        turret_type_slot = tank_medium_three_man_tank_turret
@@ -493,16 +514,22 @@ generic_medium_tanks = {
 				}
                 special_type_slot_2 = secondary_turret_small_cannon
                 special_type_slot_3 = secondary_turret_small_cannon
-                special_type_slot_4 = easy_maintenance
+                special_type_slot_4 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
             }
             upgrades = {
-	            tank_nsb_engine_upgrade = 0
+	            tank_nsb_engine_upgrade = 5
 	            tank_nsb_armor_upgrade = 4
 	        }
 		}
 		allowed_modules = {
 			tank_medium_cannon_2
 			tank_medium_cannon
+			tank_close_support_gun
 			tank_medium_three_man_tank_turret
 			tank_bogie_suspension
 			tank_riveted_armor
@@ -511,6 +538,7 @@ generic_medium_tanks = {
 			tank_radio_2
 			tank_radio_1
 			easy_maintenance
+			wet_ammo_storage
 			secondary_turret_small_cannon
 		}
 	}
@@ -549,10 +577,15 @@ generic_medium_tanks = {
 				}
                 special_type_slot_2 = secondary_turret_small_cannon
                 special_type_slot_3 = secondary_turret_small_cannon
-                special_type_slot_4 = easy_maintenance
+                special_type_slot_4 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
             }
             upgrades = {
-	            tank_nsb_engine_upgrade = 0
+	            tank_nsb_engine_upgrade = 5
 	            tank_nsb_armor_upgrade = 4
 	        }
 		}
@@ -566,6 +599,7 @@ generic_medium_tanks = {
 			tank_radio_2
 			tank_radio_1
 			easy_maintenance
+			wet_ammo_storage
 			secondary_turret_small_cannon
 		}
 	}
@@ -577,24 +611,37 @@ generic_medium_tanks = {
 			match_value = 3500
 			type = medium_tank_chassis_3
             modules = {
-		        main_armament_slot = r56_tank_medium_cannon_3
+		        main_armament_slot = {
+					any_of = {
+						r56_tank_medium_cannon_3
+						tank_medium_cannon_2
+						tank_medium_cannon
+					}
+				}
 		        turret_type_slot = tank_medium_three_man_tank_turret
 		        suspension_type_slot = tank_bogie_suspension
                 armor_type_slot = tank_riveted_armor
                 engine_type_slot = tank_diesel_engine
-                special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
+                special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 tank_radio_2 tank_radio_1 } }
                 special_type_slot_2 = secondary_turret_small_cannon
                 special_type_slot_3 = secondary_turret_small_cannon
-                special_type_slot_4 = easy_maintenance
+                special_type_slot_4 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
             }
             upgrades = {
-	            tank_nsb_engine_upgrade = 0
+	            tank_nsb_engine_upgrade = 6
 	            tank_nsb_armor_upgrade = 4
 	        }
 		}
 		allowed_modules = {
 			Armor_Computing_Network
 			r56_tank_medium_cannon_3
+			tank_medium_cannon_2
+			tank_medium_cannon
 			tank_medium_three_man_tank_turret
 			tank_bogie_suspension
 			tank_riveted_armor
@@ -603,6 +650,7 @@ generic_medium_tanks = {
 			tank_radio_2
 			tank_radio_1
 			easy_maintenance
+			wet_ammo_storage
 			secondary_turret_small_cannon
 		}
 	}
@@ -642,12 +690,17 @@ generic_medium_tank_aa = {
 						wet_ammo_storage
 					}
 				}
-		        special_type_slot_2 = r56_tank_improved_optics
+		        special_type_slot_2 = {
+					any_of = {
+						r56_tank_improved_optics
+						smoke_launchers
+					}
+				}
 		        special_type_slot_3 = expanded_fuel_tank
 		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 4
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
@@ -660,6 +713,7 @@ generic_medium_tank_aa = {
             wet_ammo_storage
             easy_maintenance
 			r56_tank_improved_optics
+			smoke_launchers
             expanded_fuel_tank
 		}
 	}
@@ -691,19 +745,25 @@ generic_medium_tank_aa = {
 		        suspension_type_slot = tank_bogie_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_gasoline_engine
-		        special_type_slot_1 = easy_maintenance
+		        special_type_slot_1 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
 		        special_type_slot_2 = {
 					any_of = {
 						r56_tank_advanced_rangefinder
 						r56_tank_optical_rangefinder
 						r56_tank_improved_optics
+						smoke_launchers
 					}
 				}
 		        special_type_slot_3 = dozer_blade
 		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 5
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
@@ -715,9 +775,11 @@ generic_medium_tank_aa = {
             tank_riveted_armor
 			tank_gasoline_engine
             easy_maintenance
+			wet_ammo_storage
 			r56_tank_advanced_rangefinder
 			r56_tank_optical_rangefinder
 			r56_tank_improved_optics
+			smoke_launchers
             expanded_fuel_tank
 			dozer_blade
 		}
@@ -749,19 +811,25 @@ generic_medium_tank_aa = {
 		        suspension_type_slot = tank_bogie_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_gasoline_engine
-		        special_type_slot_1 = easy_maintenance
+		        special_type_slot_1 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
 		        special_type_slot_2 = {
 					any_of = {
 						r56_tank_advanced_rangefinder
 						r56_tank_optical_rangefinder
 						r56_tank_improved_optics
+						smoke_launchers
 					}
 				}
 		        special_type_slot_3 = dozer_blade
 		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 5
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
@@ -772,9 +840,11 @@ generic_medium_tank_aa = {
             tank_riveted_armor
 			tank_gasoline_engine
             easy_maintenance
+			wet_ammo_storage
 			r56_tank_advanced_rangefinder
 			r56_tank_optical_rangefinder
 			r56_tank_improved_optics
+			smoke_launchers
             expanded_fuel_tank
 			dozer_blade
 		}
@@ -788,37 +858,53 @@ generic_medium_tank_aa = {
 			match_value = 3500
 			type = medium_tank_aa_chassis_3
             modules = {
-		        main_armament_slot = tank_anti_air_cannon_3
+		        main_armament_slot = {
+					any_of = {
+						tank_anti_air_cannon_3
+						tank_anti_air_cannon_2
+						tank_anti_air_cannon
+					}
+				}
 		        turret_type_slot = tank_medium_three_man_tank_turret
 		        suspension_type_slot = tank_bogie_suspension
 		        armor_type_slot = tank_riveted_armor
 		        engine_type_slot = tank_gasoline_engine
-		        special_type_slot_1 = easy_maintenance
+		        special_type_slot_1 = {
+					any_of = {
+						easy_maintenance
+						wet_ammo_storage
+					}
+				}
 		        special_type_slot_2 = {
 					any_of = {
 						r56_tank_advanced_rangefinder
 						r56_tank_optical_rangefinder
 						r56_tank_improved_optics
+						smoke_launchers
 					}
 				}
 		        special_type_slot_3 = dozer_blade
 		        special_type_slot_4 = expanded_fuel_tank
             }
             upgrades = {
-                tank_nsb_engine_upgrade = 0
+                tank_nsb_engine_upgrade = 6
                 tank_nsb_armor_upgrade = 0
 	        }
 		}
 		allowed_modules = {
 			tank_anti_air_cannon_3
+			tank_anti_air_cannon_2
+			tank_anti_air_cannon
 			tank_medium_three_man_tank_turret
             tank_bogie_suspension
             tank_riveted_armor
 			tank_gasoline_engine
             easy_maintenance
+			wet_ammo_storage
 			r56_tank_advanced_rangefinder
 			r56_tank_optical_rangefinder
 			r56_tank_improved_optics
+			smoke_launchers
 			dozer_blade
 			expanded_fuel_tank
 		}
@@ -977,13 +1063,13 @@ generic_heavy_tanks = {
 			match_value = 3000
 			type = heavy_tank_chassis_2
 			modules = {
-				main_armament_slot = { any_of = { tank_heavy_cannon_2 tank_heavy_cannon tank_high_velocity_cannon_2 } }
+				main_armament_slot = { any_of = { tank_heavy_cannon_2 tank_heavy_cannon tank_high_velocity_cannon_2 tank_medium_cannon_2 } }
 				turret_type_slot = tank_heavy_three_man_tank_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_riveted_armor
 				engine_type_slot = tank_diesel_engine
 				special_type_slot_1 = { any_of = { tank_radio_3 tank_radio_2 tank_radio_1 } }
-				special_type_slot_2 = easy_maintenance
+				special_type_slot_2 = { any_of = { easy_maintenance wet_ammo_storage } }
 				special_type_slot_3 = secondary_turret_small_cannon
 				special_type_slot_4 = secondary_turret_small_cannon
 			}
@@ -996,6 +1082,7 @@ generic_heavy_tanks = {
 			tank_heavy_cannon_2
 			tank_heavy_cannon
 			tank_high_velocity_cannon_2
+			tank_medium_cannon_2
 			tank_heavy_three_man_tank_turret
 			tank_torsion_bar_suspension
 			tank_riveted_armor
@@ -1004,6 +1091,7 @@ generic_heavy_tanks = {
 			tank_radio_2
 			tank_radio_1
 			easy_maintenance
+			wet_ammo_storage
 			secondary_turret_small_cannon
 		}
 	}
@@ -1015,18 +1103,18 @@ generic_heavy_tanks = {
 			match_value = 4000
 			type = heavy_tank_chassis_3
 			modules = {
-				main_armament_slot = { any_of = { tank_heavy_cannon_3 tank_heavy_cannon_2 tank_high_velocity_cannon_3 } }
+				main_armament_slot = { any_of = { tank_heavy_cannon_3 tank_heavy_cannon_2 tank_high_velocity_cannon_3 tank_heavy_cannon } }
 				turret_type_slot = tank_heavy_three_man_tank_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_welded_armor
 				engine_type_slot = tank_diesel_engine
-				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
-				special_type_slot_2 = easy_maintenance
+				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 tank_radio_2 tank_radio_1 } }
+				special_type_slot_2 = { any_of = { easy_maintenance wet_ammo_storage } }
 				special_type_slot_3 = secondary_turret_small_cannon
 				special_type_slot_4 = secondary_turret_small_cannon
 			}
 			upgrades = {
-				tank_nsb_engine_upgrade = 4
+				tank_nsb_engine_upgrade = 5
 				tank_nsb_armor_upgrade = 6
 			}
 		}
@@ -1034,13 +1122,17 @@ generic_heavy_tanks = {
 			Armor_Computing_Network
 			tank_heavy_cannon_3
 			tank_heavy_cannon_2
+			tank_heavy_cannon
 			tank_high_velocity_cannon_3
 			tank_heavy_three_man_tank_turret
 			tank_torsion_bar_suspension
 			tank_welded_armor
 			tank_diesel_engine
 			tank_radio_3
+			tank_radio_2
+			tank_radio_1
 			easy_maintenance
+			wet_ammo_storage
 			secondary_turret_small_cannon
 		}
 	}
@@ -1067,18 +1159,18 @@ generic_modern_tanks = {
 			match_value = 4500
 			type = modern_tank_chassis_1
 			modules = {
-				main_armament_slot = { any_of = { tank_high_velocity_cannon_3 tank_heavy_cannon_3 r56_tank_medium_cannon_3 } }
+				main_armament_slot = { any_of = { tank_high_velocity_cannon_3 tank_heavy_cannon_3 r56_tank_medium_cannon_3 tank_heavy_cannon_2 tank_medium_cannon_2 } }
 				turret_type_slot = tank_modern_tank_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_welded_armor
 				engine_type_slot = tank_diesel_engine
-				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 } }
-				special_type_slot_2 = easy_maintenance
-				special_type_slot_3 = stabilizer
+				special_type_slot_1 = { any_of = { Armor_Computing_Network tank_radio_3 tank_radio_2 tank_radio_1 } }
+				special_type_slot_2 = { any_of = { easy_maintenance wet_ammo_storage } }
+				special_type_slot_3 = { any_of = { stabilizer secondary_turret_small_cannon } }
 				special_type_slot_4 = { any_of = { Artificial_Intelligence_Assisted_Module tank_magnetic_energy_amplification_projectile r56_tank_advanced_rangefinder sloped_armor wet_ammo_storage } }
 			}
 			upgrades = {
-				tank_nsb_engine_upgrade = 4
+				tank_nsb_engine_upgrade = 6
 				tank_nsb_armor_upgrade = 6
 			}
 		}
@@ -1088,14 +1180,19 @@ generic_modern_tanks = {
 			tank_magnetic_energy_amplification_projectile
 			tank_high_velocity_cannon_3
 			tank_heavy_cannon_3
+			tank_heavy_cannon_2
 			r56_tank_medium_cannon_3
+			tank_medium_cannon_2
 			tank_modern_tank_turret
 			tank_torsion_bar_suspension
 			tank_welded_armor
 			tank_diesel_engine
 			tank_radio_3
+			tank_radio_2
+			tank_radio_1
 			easy_maintenance
 			stabilizer
+			secondary_turret_small_cannon
 			r56_tank_advanced_rangefinder
 			sloped_armor
 			wet_ammo_storage

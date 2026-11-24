@@ -40,7 +40,7 @@ AI_start1 = {
         execution_type = balanced
         manual_attack = yes
     }
-    #沿海战线适度加快推进
+    #沿海战线稳健推进（避免劣势期盲目冲锋掉光组织度）
     ai_strategy = {
         type = front_control
         state_trigger = {
@@ -49,7 +49,7 @@ AI_start1 = {
         }
         priority = 20
         ordertype = front
-        execution_type = rush
+        execution_type = balanced
         manual_attack = yes
     }
     #基础科研优先级
@@ -1985,6 +1985,59 @@ moren_wartime_air_superiority = {
     }
 }
 
+#中等军工国家战时防空与基础制空保底（填补20-50军工国被空军白嫖的真空）
+moren_midtier_air_and_aa_defense = {
+    allowed = {
+        NOT = {
+            OR = {
+                original_tag = PAO
+                original_tag = PAM
+                original_tag = ELF
+                original_tag = ELW
+                original_tag = EWW
+                original_tag = EFC
+                original_tag = ELG
+                original_tag = EDW
+                original_tag = EBS
+                original_tag = KNM
+                original_tag = KFL
+                original_tag = FRA
+                original_tag = LHS
+                original_tag = PAU
+                original_tag = TAM
+                original_tag = XYK
+            }
+        }
+    }
+    enable = {
+        has_war = yes
+        num_of_military_factories > 19
+        num_of_military_factories < 51
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = equipment_production_factor
+        id = anti_air
+        value = 120
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = anti_air
+        value = 2
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = 110
+    }
+    ai_strategy = {
+        type = equipment_production_min_factories
+        id = fighter
+        value = 4
+    }
+}
+
 #海军舰种生产比例
 ai_naval_unit_role_ratios = {
     allowed = {
@@ -2319,17 +2372,18 @@ moren_state_is_zhanlue = {
     enable = {
         has_war = yes
         num_of_military_factories > 20
+        surrender_progress < 0.10
         any_enemy_country = {
             strength_ratio = {
                 tag = ROOT
-                ratio < 1.4
+                ratio < 0.95
             }
         }
         NOT = {
             any_enemy_country = {
                 strength_ratio = {
                     tag = ROOT
-                    ratio > 1.4
+                    ratio > 1.05
                 }
             }
         }
@@ -2432,6 +2486,7 @@ moren_crisis_iron_wall = {
         priority = 80
         ordertype = front
         execution_type = careful
+        execute_order = no
         manual_attack = yes
     }
     ai_strategy = {
@@ -2807,6 +2862,7 @@ moren_strategic_withdrawal = {
         priority = 55
         ordertype = front
         execution_type = careful
+        execute_order = no
         manual_attack = yes
     }
 }

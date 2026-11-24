@@ -203,14 +203,14 @@ flower_ai_anom7_refresh_tiers = {
 			if = { limit = { has_idea = flower_anom7_desperate_3_idea } remove_ideas = flower_anom7_desperate_3_idea }
 			if = {
 				limit = {
-					check_variable = { anom7_occ_cnt > 2 }
+					check_variable = { anom7_occ_cnt > 5 }
 					NOT = { has_idea = flower_anom7_arrogant_idea }
 				}
 				add_ideas = flower_anom7_arrogant_idea
 			}
 			else_if = {
 				limit = {
-					check_variable = { anom7_occ_cnt < 3 }
+					check_variable = { anom7_occ_cnt < 6 }
 					has_idea = flower_anom7_arrogant_idea
 				}
 				remove_ideas = flower_anom7_arrogant_idea
@@ -320,7 +320,7 @@ flower_ai_anom10_on_enter_war = {
 	}
 }
 
-#畸变7：主要国家投降或灭亡时仅对玩家播放《关羽之歌》并推右下角提示
+#畸变7：主要国家投降或灭亡时对全图玩家播放《关羽之歌》并推右下角提示
 #（在阵亡国作用域调用，temp_anom7_killer为击败方作用域ID）
 flower_ai_anom7_major_death_guanyu_song = {
 	if = {
@@ -332,7 +332,6 @@ flower_ai_anom7_major_death_guanyu_song = {
 			OR = {
 				is_major = yes
 				has_country_flag = flower_cached_is_major
-				check_variable = { flower_cached_factories > 39 }
 			}
 		}
 		set_global_flag = { flag = flower_anom7_guanyu_song_cd days = 15 value = 1 }

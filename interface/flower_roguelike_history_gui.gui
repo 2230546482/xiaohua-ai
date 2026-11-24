@@ -92,7 +92,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_history_peek_map_lbl"
-			position = { x = 752 y = 114 }
+			position = { x = 752 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128

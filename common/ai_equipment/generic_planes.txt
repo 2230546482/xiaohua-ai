@@ -70,7 +70,7 @@ AI_cas = {
 			match_value = 2000
 			type = small_plane_cas_airframe_3
 			modules = {
-				fixed_main_weapon_slot = tank_buster_2
+				fixed_main_weapon_slot = { any_of = { tank_buster_2 heavy_bomb_locks bomb_locks } }
 				fixed_auxiliary_weapon_slot_1 = heavy_bomb_locks
 				fixed_auxiliary_weapon_slot_2 = heavy_bomb_locks
 				fixed_auxiliary_weapon_slot_3 = heavy_bomb_locks
@@ -84,6 +84,7 @@ AI_cas = {
 		allowed_modules = {
 			air_Artificial_Intelligence_Assisted_Module
 			heavy_bomb_locks
+			bomb_locks
 			tank_buster_2
 			engine_4_1x
 			self_sealing_fuel_tanks_small
@@ -140,7 +141,7 @@ AI_fighter = {
 			type = small_plane_airframe_1
 			modules = {
 				fixed_main_weapon_slot = { any_of = { heavy_mg_4x light_mg_4x } }
-				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+				fixed_auxiliary_weapon_slot_1 = { any_of = { heavy_mg_4x light_mg_4x } }
 				engine_type_slot = engine_2_1x
 				special_type_slot_1 = fuel_tanks_small
 				special_type_slot_2 = self_sealing_fuel_tanks_small
@@ -166,9 +167,9 @@ AI_fighter = {
 			match_value = 2000
 			type = small_plane_airframe_2
 			modules = {
-				fixed_main_weapon_slot = heavy_mg_4x
-				fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
-                fixed_auxiliary_weapon_slot_2 = heavy_mg_4x
+				fixed_main_weapon_slot = { any_of = { heavy_mg_4x light_mg_4x } }
+				fixed_auxiliary_weapon_slot_1 = { any_of = { heavy_mg_4x light_mg_4x } }
+                fixed_auxiliary_weapon_slot_2 = { any_of = { heavy_mg_4x light_mg_4x } }
 				engine_type_slot = engine_3_1x
 				special_type_slot_1 = self_sealing_fuel_tanks_small
 				special_type_slot_2 = fuel_tanks_small
@@ -177,6 +178,7 @@ AI_fighter = {
 		}
 		allowed_modules = {
 			heavy_mg_4x
+			light_mg_4x
 			engine_3_1x
             self_sealing_fuel_tanks_small
 			fuel_tanks_small
@@ -195,9 +197,9 @@ AI_fighter = {
 			match_value = 2500
 			type = small_plane_airframe_3
 			modules = {
-				fixed_main_weapon_slot = aircraft_cannon_2_2x
-				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
-                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+				fixed_main_weapon_slot = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+				fixed_auxiliary_weapon_slot_1 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+                fixed_auxiliary_weapon_slot_2 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
                 fixed_auxiliary_weapon_slot_3 = empty
 				engine_type_slot = engine_4_1x
 				special_type_slot_1 = armor_plate_small
@@ -209,6 +211,7 @@ AI_fighter = {
 		allowed_modules = {
 			air_Artificial_Intelligence_Assisted_Module
 			aircraft_cannon_2_2x
+			heavy_mg_4x
 			engine_4_1x
             fuel_tanks_small
 			armor_plate_small
@@ -223,11 +226,11 @@ AI_fighter = {
 			match_value = 3000
 			type = small_plane_airframe_4
 			modules = {
-				fixed_main_weapon_slot = aircraft_cannon_2_2x
-				fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
-                fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
-                fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
-				engine_type_slot = engine_4_1x
+				fixed_main_weapon_slot = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+				fixed_auxiliary_weapon_slot_1 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+                fixed_auxiliary_weapon_slot_2 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+                fixed_auxiliary_weapon_slot_3 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+				engine_type_slot = { any_of = { jet_engine_1x engine_4_1x } }
 				special_type_slot_1 = armor_plate_small
 				special_type_slot_2 = self_sealing_fuel_tanks_small
                 special_type_slot_3 = fuel_tanks_small
@@ -237,6 +240,8 @@ AI_fighter = {
 		allowed_modules = {
 			air_Artificial_Intelligence_Assisted_Module
 			aircraft_cannon_2_2x
+			heavy_mg_4x
+			jet_engine_1x
 			engine_4_1x
             fuel_tanks_small
 			armor_plate_small
@@ -371,11 +376,11 @@ AI_cv_fighter = {
 			match_value = 40000
 			type = cv_small_plane_airframe_4
 			modules = {
-					fixed_main_weapon_slot = aircraft_cannon_2_2x
-					fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
-					fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
-					fixed_auxiliary_weapon_slot_3 = aircraft_cannon_2_2x
-					engine_type_slot = engine_4_1x
+					fixed_main_weapon_slot = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+					fixed_auxiliary_weapon_slot_1 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+					fixed_auxiliary_weapon_slot_2 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+					fixed_auxiliary_weapon_slot_3 = { any_of = { aircraft_cannon_2_2x heavy_mg_4x } }
+					engine_type_slot = { any_of = { jet_engine_1x engine_4_1x } }
 					special_type_slot_1 = armor_plate_small
 					special_type_slot_2 = self_sealing_fuel_tanks_small
 					special_type_slot_3 = armor_plate_small
@@ -384,6 +389,8 @@ AI_cv_fighter = {
 		allowed_modules = {
 			air_Artificial_Intelligence_Assisted_Module
 			aircraft_cannon_2_2x
+			heavy_mg_4x
+			jet_engine_1x
 			engine_4_1x
 			armor_plate_small
 			self_sealing_fuel_tanks_small
@@ -459,7 +466,7 @@ AI_cv_naval_bomber = {
 			match_value = 40000
 			type = cv_small_plane_naval_bomber_airframe_3
 			modules = {
-				fixed_main_weapon_slot = torpedo_mounting_3
+				fixed_main_weapon_slot = { any_of = { torpedo_mounting_3 torpedo_mounting_2 torpedo_mounting } }
 				fixed_auxiliary_weapon_slot_1 = empty
 				fixed_auxiliary_weapon_slot_2 = empty
 				engine_type_slot = engine_4_1x
@@ -470,6 +477,8 @@ AI_cv_naval_bomber = {
 		}
 		allowed_modules = {
 			torpedo_mounting_3
+			torpedo_mounting_2
+			torpedo_mounting
 			engine_4_1x
 		}
 	}

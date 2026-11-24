@@ -1,7 +1,7 @@
-#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
+﻿#畸变4专属：击败或吞并敌国时吸收该国全部独门特殊科技与特殊兵种（调用作用域为胜者，temp_devour_victim为败者ID）
 flower_ai_absorb_defeated_nation_special_techs = {
 	set_temp_variable = { flower_devour_absorbed_special = 0 }
-	#PAO夜莺之国：夜莺魂灵、魔导兵械全套（夜莺骑士团1939年或PAO已研发时渐进解放）
+	#PAO夜莺之国：T1立刻给夜莺魂灵与魔导兵械；T2夜莺骑士团三阶（1939自动/PAO已研即解/蓝图决议提前兑换）
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -13,6 +13,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_pao }
 		}
 		set_country_flag = flower_devour_pack_pao
+		set_country_flag = flower_bp_has_t2_pao
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			wangling2_tech = 1
@@ -28,16 +29,11 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		if = {
 			limit = {
 				OR = {
-					date > 1939.1.1
+					date > 1938.12.31
 					var:temp_devour_victim = { has_tech = wangling3_tech }
 				}
 			}
-			set_technology = {
-				wangling3_tech = 1
-				PAO_wangling3tupo = 1
-				PAO_wangling3tupo2 = 1
-				popup = yes
-			}
+			flower_unlock_bp_t2_pao = yes
 		}
 		add_equipment_to_stockpile = {
 			type = magic_assault_equipment_0
@@ -107,7 +103,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#KMK/KNM红魔馆：咲夜时停坦克、现代时停坦克与咲夜女仆支援连
+	#KMK/KNM红魔馆：T1女仆连+一代时停车；T2二阶时停车(1939/已研/兑换)；T3现代时停坦克(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -120,21 +116,39 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_kmk }
 		}
 		set_country_flag = flower_devour_pack_kmk
+		set_country_flag = flower_bp_has_t2_kmk
+		set_country_flag = flower_bp_has_t3_kmk
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			the_world_0 = 1
-			the_world_1 = 1
 			the_maid_0 = 1
-			tech_modern_theworld_tank = 1
 			popup = yes
 		}
 		add_equipment_to_stockpile = {
 			type = huaibiao_equipment_0
-			amount = 250
+			amount = 150
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = the_world_1 }
+				}
+			}
+			flower_unlock_bp_t2_kmk = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = tech_modern_theworld_tank }
+				}
+			}
+			flower_unlock_bp_t3_kmk = yes
 		}
 	}
 
-	#FRA幻想乡：0宽早苗神风炮、纯化妖精、空降坦克与竹林小队
+	#FRA幻想乡：T1竹林小队与纯化妖精；T2空降坦克(1939/已研/兑换)；T3 0宽早苗神风炮(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -146,21 +160,35 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_fra }
 		}
 		set_country_flag = flower_devour_pack_fra
+		set_country_flag = flower_bp_has_t2_fra
+		set_country_flag = flower_bp_has_t3_fra
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			tech_Sanae_Artillery = 1
 			tech_Purified_Fairy = 1
-			Airborne_tanks_tech = 1
 			bamboo_grove_squad_tech = 1
 			popup = yes
 		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = Airborne_tanks_tech }
+				}
+			}
+			flower_unlock_bp_t2_fra = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = tech_Sanae_Artillery }
+				}
+			}
+			flower_unlock_bp_t3_fra = yes
 		}
 	}
 
-	#SOV/PA1苏联系：布拉蒂诺温压火箭、双联天启炮、磁能炮弹与工兵后勤黑科技
+	#SOV/PA1苏联系：T1惩戒营与工兵训练；T2双联天启炮与综合后勤(1939/已研/兑换)；T3布拉蒂诺温压火箭(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -173,21 +201,40 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_sov }
 		}
 		set_country_flag = flower_devour_pack_sov
+		set_country_flag = flower_bp_has_t2_sov
+		set_country_flag = flower_bp_has_t3_sov
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			flower_roguelike_bratino_rocket_tech = 1
-			PA1_tank_Bratino_warm_pressure_rocket = 1
-			SOV_tank_dual_mounted_cannon = 1
-			SOV_tank_dual_mounted_cannon1 = 1
-			SOV_tank_dual_mounted_cannon2 = 1
 			SOV_engineer_training_tech = 1
-			SOV_tech_integrated_logistics_force = 1
 			penal_infantry = 1
 			popup = yes
 		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = SOV_tank_dual_mounted_cannon }
+				}
+			}
+			flower_unlock_bp_t2_sov = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = {
+						OR = {
+							has_tech = PA1_tank_Bratino_warm_pressure_rocket
+							has_tech = flower_roguelike_bratino_rocket_tech
+						}
+					}
+				}
+			}
+			flower_unlock_bp_t3_sov = yes
+		}
 	}
 
-	#DVL魔导国：装甲算力网络、人工智能辅助火控、魔导协同战术与亡灵魔导全套
+	#DVL魔导国：T1亡灵与魔导枪炮；T2魔导协同战术(1939/已研/兑换)；T3装甲算力网络与AI火控(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -199,12 +246,11 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_dvl }
 		}
 		set_country_flag = flower_devour_pack_dvl
+		set_country_flag = flower_bp_has_t2_dvl
+		set_country_flag = flower_bp_has_t3_dvl_net
+		set_country_flag = flower_bp_has_t3_ai_fcs
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			flower_roguelike_armor_computing_network_tech = 1
-			flower_roguelike_ai_assisted_modules_tech = 1
-			DVL_Wizard_Tactics_Development_tech = 1
-			DVL_Coordinated_operations_tech = 1
 			wangling_tech = 1
 			magic_weapons0 = 1
 			magic_weapons1 = 1
@@ -219,9 +265,36 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			type = magic_assault_equipment_0
 			amount = 1000
 		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = DVL_Wizard_Tactics_Development_tech }
+				}
+			}
+			flower_unlock_bp_t2_dvl = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = flower_roguelike_armor_computing_network_tech }
+				}
+			}
+			flower_unlock_bp_t3_dvl_net = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = flower_roguelike_ai_assisted_modules_tech }
+				}
+			}
+			flower_unlock_bp_t3_ai_fcs = yes
+		}
 	}
 
-	#GER/BAY/FRG德意志系：超人血清、天外飞碟、突击步兵营与超重坦强化
+	#GER/BAY/FRG德意志系：T1突击步兵营与重装甲车；T2超重坦改良(1939/已研/兑换)；T3超人血清与天外飞碟(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -235,22 +308,45 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_ger }
 		}
 		set_country_flag = flower_devour_pack_ger
+		set_country_flag = flower_bp_has_t2_ger
+		set_country_flag = flower_bp_has_t3_ger_serum
+		set_country_flag = flower_bp_has_t3_ufo
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			tech_germany_spuerman = 1
-			flying_saucer_tech = 1
 			sturmtruppe_battalion_tech = 1
 			GER_heavy_armored_car = 1
-			tech_GER_Improved_super_heavy_tanks_2 = 1
 			popup = yes
 		}
-		add_equipment_to_stockpile = {
-			type = flying_saucer_equipment_0
-			amount = 60
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = tech_GER_Improved_super_heavy_tanks_2 }
+				}
+			}
+			flower_unlock_bp_t2_ger = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = tech_germany_spuerman }
+				}
+			}
+			flower_unlock_bp_t3_ger_serum = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = flying_saucer_tech }
+				}
+			}
+			flower_unlock_bp_t3_ufo = yes
 		}
 	}
 
-	#ENG不列颠圣杯：圣杯构装骑士、攻城武装直升机、强袭魔女与流星喷气引擎
+	#ENG不列颠圣杯：T1圣杯构装骑士I代；T2构装骑士II代与强袭魔女(1939/已研/兑换)；T3攻城直升机与流星喷气(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -262,30 +358,54 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_eng }
 		}
 		set_country_flag = flower_devour_pack_eng
+		set_country_flag = flower_bp_has_t2_eng
+		set_country_flag = flower_bp_has_t3_heli
+		set_country_flag = flower_bp_has_t3_eng_jet
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			Construct_knight_research_available = 1
 			construct_knight_1 = 1
-			construct_knight_2 = 1
-			Siege_helicopter_available = 1
-			Siege_helicopter_0 = 1
-			Siege_helicopter_1 = 1
-			strike_unit1 = 1
-			strike_unit2 = 1
-			ENG_jet_engine_meteor_tech = 1
 			popup = yes
 		}
 		add_equipment_to_stockpile = {
 			type = construct_knight_equipment_1
 			amount = 250
 		}
-		add_equipment_to_stockpile = {
-			type = siege_helicopter_equipment_0
-			amount = 150
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = {
+						OR = {
+							has_tech = construct_knight_2
+							has_tech = strike_unit1
+						}
+					}
+				}
+			}
+			flower_unlock_bp_t2_eng = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = Siege_helicopter_0 }
+				}
+			}
+			flower_unlock_bp_t3_heli = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = ENG_jet_engine_meteor_tech }
+				}
+			}
+			flower_unlock_bp_t3_eng_jet = yes
 		}
 	}
 
-	#JAP樱花帝国：钢铁浪人、鬼王、激光武士、陆战舰娘与纳米作战
+	#JAP樱花帝国：T1钢铁浪人与重击武士；T2鬼王(1939/已研/兑换)；T3激光武士、陆战舰娘与纳米作战(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -297,13 +417,11 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_jap }
 		}
 		set_country_flag = flower_devour_pack_jap
+		set_country_flag = flower_bp_has_t2_jap
+		set_country_flag = flower_bp_has_t3_jap
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			steel_ronin = 1
-			Ghost_King = 1
-			Laser_Warrior = 1
-			Marine_carrier_girl = 1
-			JAP_namizuozhan = 1
 			JAP_zhongjiwushi = 1
 			popup = yes
 		}
@@ -311,13 +429,32 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			type = steel_ronin_equipment_0
 			amount = 200
 		}
-		add_equipment_to_stockpile = {
-			type = Ghost_King_equipment_0
-			amount = 100
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = Ghost_King }
+				}
+			}
+			flower_unlock_bp_t2_jap = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = {
+						OR = {
+							has_tech = Laser_Warrior
+							has_tech = JAP_namizuozhan
+						}
+					}
+				}
+			}
+			flower_unlock_bp_t3_jap = yes
 		}
 	}
 
-	#MGU魔法少女系：天雷机甲、魔法政委、防弹丝袜与强袭魔女
+	#MGU魔法少女系：T1魔法政委与防弹丝袜；T2天雷机甲与强袭魔女(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -336,21 +473,22 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_mgu }
 		}
 		set_country_flag = flower_devour_pack_mgu
+		set_country_flag = flower_bp_has_t2_mgu
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			Sky_Thunder_tech = 1
 			MGU_Magic_commissar = 1
 			MGU_Bulletproof_stockings_tech = 1
 			MGU_Bulletproof_latex_tech = 1
-			MGU_The_Dream_of_the_Library_tech = 1
-			strike_unit1 = 1
-			strike_unit2 = 1
-			strike_unit4 = 1
 			popup = yes
 		}
-		add_equipment_to_stockpile = {
-			type = Sky_Thunder_equipment_0
-			amount = 150
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = Sky_Thunder_tech }
+				}
+			}
+			flower_unlock_bp_t2_mgu = yes
 		}
 	}
 
@@ -425,7 +563,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#PAQ阿德莱希：混沌四军与发条自律人偶
+	#PAQ阿德莱希：T1混沌战士、野兽与初阶人偶；T2混沌恶魔与神选军团(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -437,12 +575,11 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_paq }
 		}
 		set_country_flag = flower_devour_pack_paq
+		set_country_flag = flower_bp_has_t2_paq
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			Chaos_Warrior = 1
 			Chaos_Beast = 1
-			Chaos_Demon = 1
-			Chaos_Chose = 1
 			AUTO_META_research_available = 1
 			auto_meta_0 = 1
 			popup = yes
@@ -451,9 +588,23 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			type = auto_meta_0_equipments
 			amount = 300
 		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = {
+						OR = {
+							has_tech = Chaos_Demon
+							has_tech = Chaos_Chose
+						}
+					}
+				}
+			}
+			flower_unlock_bp_t2_paq = yes
+		}
 	}
 
-	#PAU白夜军团：白夜伞降轻装甲三件套 + 伞兵科技保底 + 空投战车图纸与空降装甲旅编制
+	#PAU白夜军团：T1伞兵与白夜伞降轻装甲基础营 + 变体编制；T2滑翔与空投舱模块(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -465,13 +616,21 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_pau }
 		}
 		set_country_flag = flower_devour_pack_pau
+		set_country_flag = flower_bp_has_t2_pau
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			paratroopers = 1
 			PAU_airborne_light_armor_tech = 1
-			PAU_airborne_armor_glider_tech = 1
-			PAU_airborne_armor_drop_pod_tech = 1
 			popup = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = PAU_airborne_armor_drop_pod_tech }
+				}
+			}
+			flower_unlock_bp_t2_pau = yes
 		}
 		hidden_effect = {
 			if = {
@@ -535,7 +694,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#PAN/PAY/CUB/GUA圣遗物系：圣遗物使用者、圣枪与圣盾全套
+	#PAN/PAY/CUB/GUA圣遗物系：T1初阶圣遗物与圣枪；T2高阶圣遗物、圣枪与圣盾全套(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -550,26 +709,26 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_pan }
 		}
 		set_country_flag = flower_devour_pack_pan
+		set_country_flag = flower_bp_has_t2_pan
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			Artifact_research_available = 1
 			Artifact_0 = 1
-			Artifact_1 = 1
-			Artifact_2 = 1
 			Ho_0 = 1
-			Ho_1 = 1
-			Ho_2 = 1
-			Artifact_Helper_0 = 1
-			Artifact_Shield_0 = 1
 			popup = yes
 		}
 		add_equipment_to_stockpile = {
 			type = Artifact_equipments_0
 			amount = 300
 		}
-		add_equipment_to_stockpile = {
-			type = Holylance_equipments_0
-			amount = 200
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = Artifact_1 }
+				}
+			}
+			flower_unlock_bp_t2_pan = yes
 		}
 	}
 
@@ -649,7 +808,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			amount = 1500
 		}
 	}
-	#SWE瑞典：0宽传奇龙骑士、博福斯反坦与极寒后勤
+	#SWE瑞典：T1基础龙骑士、博福斯反坦与极寒后勤；T3 0宽传奇龙骑士(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -661,10 +820,10 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_swe }
 		}
 		set_country_flag = flower_devour_pack_swe
+		set_country_flag = flower_bp_has_t3_swe
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			dragon_rider_tech = 1
-			SWE_Legendary_Dragon_Knight_tech = 1
 			SWE_bofors_antitank_gun = 1
 			winter_logistics_support_tech = 1
 			popup = yes
@@ -673,9 +832,18 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			type = dragon_rider_equipment_0
 			amount = 150
 		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = SWE_Legendary_Dragon_Knight_tech }
+				}
+			}
+			flower_unlock_bp_t3_swe = yes
+		}
 	}
 
-	#中华诸派：神机四系火炮（若为PRC额外附带自律人偶与攻城直升机）
+	#中华诸派：T1神机四系火炮（若为PRC额外立刻给自律人偶0阶，并将攻城直升机纳入T3蓝图）
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -700,17 +868,25 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 		if = {
 			limit = { var:temp_devour_victim = { original_tag = PRC } }
+			set_country_flag = flower_bp_has_t3_heli
 			set_technology = {
 				AUTO_META_research_available = 1
 				auto_meta_0 = 1
-				Siege_helicopter_available = 1
-				Siege_helicopter_0 = 1
 				popup = yes
+			}
+			if = {
+				limit = {
+					OR = {
+						date > 1940.12.31
+						var:temp_devour_victim = { has_tech = Siege_helicopter_0 }
+					}
+				}
+				flower_unlock_bp_t3_heli = yes
 			}
 		}
 	}
 
-	#TUR土耳其：基础机甲与火魔导使者
+	#TUR土耳其：T1一代基础机甲；T2二代机甲与火魔导使者(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -722,20 +898,33 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_tur }
 		}
 		set_country_flag = flower_devour_pack_tur
+		set_country_flag = flower_bp_has_t2_tur
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			TUR_mech_technology = 1
-			TUR_mech_technology_2 = 1
-			TUR_fire_magic_emissary_technology = 1
 			popup = yes
 		}
 		add_equipment_to_stockpile = {
 			type = mech_equipment_1
-			amount = 150
+			amount = 100
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = {
+						OR = {
+							has_tech = TUR_mech_technology_2
+							has_tech = TUR_fire_magic_emissary_technology
+						}
+					}
+				}
+			}
+			flower_unlock_bp_t2_tur = yes
 		}
 	}
 
-	#USA合众国：51区天外飞碟、AI辅助火控、攻城直升机与全套尖端雷达
+	#USA合众国：T1磁控管雷达；T2相控阵与单脉冲尖端雷达(1939/已研/兑换)；T3天外飞碟、攻城直升机与AI火控(1941/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -747,25 +936,50 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_usa }
 		}
 		set_country_flag = flower_devour_pack_usa
+		set_country_flag = flower_bp_has_t2_usa_radar
+		set_country_flag = flower_bp_has_t3_ufo
+		set_country_flag = flower_bp_has_t3_heli
+		set_country_flag = flower_bp_has_t3_ai_fcs
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
-			flying_saucer_tech = 1
-			flower_roguelike_ai_assisted_modules_tech = 1
-			Siege_helicopter_available = 1
-			Siege_helicopter_0 = 1
-			Siege_helicopter_1 = 1
 			cavity_magnatron = 1
-			phased_array = 1
-			monopulse_radar = 1
 			popup = yes
 		}
-		add_equipment_to_stockpile = {
-			type = flying_saucer_equipment_0
-			amount = 60
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = phased_array }
+				}
+			}
+			flower_unlock_bp_t2_usa_radar = yes
 		}
-		add_equipment_to_stockpile = {
-			type = siege_helicopter_equipment_0
-			amount = 120
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = flying_saucer_tech }
+				}
+			}
+			flower_unlock_bp_t3_ufo = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = Siege_helicopter_0 }
+				}
+			}
+			flower_unlock_bp_t3_heli = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = flower_roguelike_ai_assisted_modules_tech }
+				}
+			}
+			flower_unlock_bp_t3_ai_fcs = yes
 		}
 	}
 
@@ -789,7 +1003,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#NGD/NPT远洋与超次元：自律人偶全套
+	#NGD/NPT远洋与超次元：T1初阶自律人偶；T2高阶自律人偶I/II型(1939/已研/兑换)
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -802,17 +1016,25 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_country_flag = flower_devour_pack_autometa }
 		}
 		set_country_flag = flower_devour_pack_autometa
+		set_country_flag = flower_bp_has_t2_autometa
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			AUTO_META_research_available = 1
 			auto_meta_0 = 1
-			auto_meta_1 = 1
-			auto_meta_2 = 1
 			popup = yes
 		}
 		add_equipment_to_stockpile = {
 			type = auto_meta_0_equipments
 			amount = 400
+		}
+		if = {
+			limit = {
+				OR = {
+					date > 1938.12.31
+					var:temp_devour_victim = { has_tech = auto_meta_1 }
+				}
+			}
+			flower_unlock_bp_t2_autometa = yes
 		}
 	}
 
@@ -999,7 +1221,773 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			popup = yes
 		}
 	}
-	#继承败者此前吸收的通用稀有隐藏战术科技
+	#继承败者身上携带的跨国共享终极蓝图（防止因已吸收过同阵营国家而漏继承共享蓝图）
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_country_flag = flower_bp_has_t3_ufo }
+			NOT = { has_country_flag = flower_bp_has_t3_ufo }
+		}
+		set_country_flag = flower_bp_has_t3_ufo
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		if = {
+			limit = { OR = { date > 1940.12.31 var:temp_devour_victim = { has_tech = flying_saucer_tech } } }
+			flower_unlock_bp_t3_ufo = yes
+		}
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_country_flag = flower_bp_has_t3_heli }
+			NOT = { has_country_flag = flower_bp_has_t3_heli }
+		}
+		set_country_flag = flower_bp_has_t3_heli
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		if = {
+			limit = { OR = { date > 1940.12.31 var:temp_devour_victim = { has_tech = Siege_helicopter_0 } } }
+			flower_unlock_bp_t3_heli = yes
+		}
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_country_flag = flower_bp_has_t3_ai_fcs }
+			NOT = { has_country_flag = flower_bp_has_t3_ai_fcs }
+		}
+		set_country_flag = flower_bp_has_t3_ai_fcs
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		if = {
+			limit = { OR = { date > 1940.12.31 var:temp_devour_victim = { has_tech = flower_roguelike_ai_assisted_modules_tech } } }
+			flower_unlock_bp_t3_ai_fcs = yes
+		}
+	}
+	#严格按败者实际已完成的通用特殊项目继承（陆/空/海/核全覆盖，对方未完成绝不凭空赠送）
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_flamethrower_tank }
+			NOT = { is_special_project_completed = sp:sp_land_flamethrower_tank }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_flamethrower_tank
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_military_engineering_vehicles }
+			NOT = { is_special_project_completed = sp:sp_land_military_engineering_vehicles }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_military_engineering_vehicles
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_land_cruiser }
+			NOT = { is_special_project_completed = sp:sp_land_land_cruiser }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_land_cruiser
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_large_caliber_kinetic_energy_sabot }
+			NOT = { is_special_project_completed = sp:sp_land_large_caliber_kinetic_energy_sabot }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_large_caliber_kinetic_energy_sabot
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_multi_charge_large_caliber_gun }
+			NOT = { is_special_project_completed = sp:sp_land_multi_charge_large_caliber_gun }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_multi_charge_large_caliber_gun
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_super_heavy_howitzer }
+			NOT = { is_special_project_completed = sp:sp_land_super_heavy_howitzer }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_super_heavy_howitzer
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_self_propelled_super_heavy_howitzer }
+			NOT = { is_special_project_completed = sp:sp_land_self_propelled_super_heavy_howitzer }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_self_propelled_super_heavy_howitzer
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_super_heavy_railway_gun }
+			NOT = { is_special_project_completed = sp:sp_land_super_heavy_railway_gun }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_super_heavy_railway_gun
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_land_stronghold_network }
+			NOT = { is_special_project_completed = sp:sp_land_stronghold_network }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_land_stronghold_network
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_tank_optical_rangefinder }
+			NOT = { is_special_project_completed = sp:sp_r56_tank_optical_rangefinder }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_tank_optical_rangefinder
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_advance_tank_optical_rangefinder }
+			NOT = { is_special_project_completed = sp:sp_r56_advance_tank_optical_rangefinder }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_advance_tank_optical_rangefinder
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_gammon_bomb }
+			NOT = { is_special_project_completed = sp:sp_r56_gammon_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_gammon_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_anti_tank_rifle_grenade }
+			NOT = { is_special_project_completed = sp:sp_r56_anti_tank_rifle_grenade }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_anti_tank_rifle_grenade
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_heavy_tank_studies }
+			NOT = { is_special_project_completed = sp:sp_r56_heavy_tank_studies }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_heavy_tank_studies
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_radar }
+			NOT = { is_special_project_completed = sp:sp_air_radar }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_radar
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_rdf }
+			NOT = { is_special_project_completed = sp:sp_air_rdf }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_rdf
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_improved_iff }
+			NOT = { is_special_project_completed = sp:sp_improved_iff }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_improved_iff
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_fido }
+			NOT = { is_special_project_completed = sp:sp_air_fido }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_fido
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_helicopter }
+			NOT = { is_special_project_completed = sp:sp_air_helicopter }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_helicopter
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_r56_helicopter }
+			NOT = { is_special_project_completed = sp:sp_air_r56_helicopter }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_r56_helicopter
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_jet_engine }
+			NOT = { is_special_project_completed = sp:sp_air_jet_engine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_jet_engine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_axial_jet_engine }
+			NOT = { is_special_project_completed = sp:sp_air_axial_jet_engine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_axial_jet_engine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_r56_afterburning_engine }
+			NOT = { is_special_project_completed = sp:sp_air_r56_afterburning_engine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_r56_afterburning_engine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_supersonic_jet }
+			NOT = { is_special_project_completed = sp:sp_air_supersonic_jet }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_supersonic_jet
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_intercontinental_bomber }
+			NOT = { is_special_project_completed = sp:sp_air_intercontinental_bomber }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_intercontinental_bomber
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_mothership_aircraft }
+			NOT = { is_special_project_completed = sp:sp_air_mothership_aircraft }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_mothership_aircraft
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_earthshaker_bomb }
+			NOT = { is_special_project_completed = sp:sp_air_earthshaker_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_earthshaker_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_air_bouncing_bomb }
+			NOT = { is_special_project_completed = sp:sp_air_bouncing_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_air_bouncing_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rocket_interceptor }
+			NOT = { is_special_project_completed = sp:sp_rocket_interceptor }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rocket_interceptor
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rockets_flying_bomb }
+			NOT = { is_special_project_completed = sp:sp_rockets_flying_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rockets_flying_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rockets_ballistic_missile }
+			NOT = { is_special_project_completed = sp:sp_rockets_ballistic_missile }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rockets_ballistic_missile
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rockets_medium_range_ballistic_missile }
+			NOT = { is_special_project_completed = sp:sp_rockets_medium_range_ballistic_missile }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rockets_medium_range_ballistic_missile
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rockets_long_range_ballistic_missile }
+			NOT = { is_special_project_completed = sp:sp_rockets_long_range_ballistic_missile }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rockets_long_range_ballistic_missile
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_rockets_ground_to_air_missile }
+			NOT = { is_special_project_completed = sp:sp_rockets_ground_to_air_missile }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_rockets_ground_to_air_missile
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_staged_rockets }
+			NOT = { is_special_project_completed = sp:sp_staged_rockets }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_staged_rockets
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_satellite }
+			NOT = { is_special_project_completed = sp:sp_satellite }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_satellite
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_cruiser_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_cruiser_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_cruiser_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_fleet_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_fleet_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_fleet_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_midget_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_midget_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_midget_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_super_heavy_battleship }
+			NOT = { is_special_project_completed = sp:sp_naval_super_heavy_battleship }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_super_heavy_battleship
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_torpedo_cruiser }
+			NOT = { is_special_project_completed = sp:sp_naval_torpedo_cruiser }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_torpedo_cruiser
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_aip_engine }
+			NOT = { is_special_project_completed = sp:sp_naval_aip_engine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_aip_engine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_anechoic_tiles }
+			NOT = { is_special_project_completed = sp:sp_naval_anechoic_tiles }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_anechoic_tiles
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_escort_carrier }
+			NOT = { is_special_project_completed = sp:sp_naval_escort_carrier }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_escort_carrier
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_ice_carrier }
+			NOT = { is_special_project_completed = sp:sp_naval_ice_carrier }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_ice_carrier
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_modern_battleship }
+			NOT = { is_special_project_completed = sp:sp_naval_modern_battleship }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_modern_battleship
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_modern_carrier }
+			NOT = { is_special_project_completed = sp:sp_naval_modern_carrier }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_modern_carrier
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_nuclear_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_nuclear_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_nuclear_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_nuclear_missile_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_nuclear_missile_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_nuclear_missile_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_nuclear_torpedo }
+			NOT = { is_special_project_completed = sp:sp_naval_nuclear_torpedo }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_nuclear_torpedo
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_rocket_launching_submarine }
+			NOT = { is_special_project_completed = sp:sp_naval_rocket_launching_submarine }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_rocket_launching_submarine
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_submarine_carrier }
+			NOT = { is_special_project_completed = sp:sp_naval_submarine_carrier }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_submarine_carrier
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_proximity_fuze }
+			NOT = { is_special_project_completed = sp:sp_naval_proximity_fuze }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_proximity_fuze
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_support_ships }
+			NOT = { is_special_project_completed = sp:sp_naval_support_ships }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_support_ships
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_naval_underway_replenishment }
+			NOT = { is_special_project_completed = sp:sp_naval_underway_replenishment }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_naval_underway_replenishment
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_r56_naval_huff_duff_device }
+			NOT = { is_special_project_completed = sp:sp_r56_naval_huff_duff_device }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_r56_naval_huff_duff_device
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_nuclear_reactor }
+			NOT = { is_special_project_completed = sp:sp_nuclear_reactor }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_nuclear_reactor
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_commercial_nuclear_reactor }
+			NOT = { is_special_project_completed = sp:sp_commercial_nuclear_reactor }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_commercial_nuclear_reactor
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_nuclear_bomb }
+			NOT = { is_special_project_completed = sp:sp_nuclear_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_nuclear_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_thermo_nuclear_bomb }
+			NOT = { is_special_project_completed = sp:sp_thermo_nuclear_bomb }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_thermo_nuclear_bomb
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_nuclear_engines }
+			NOT = { is_special_project_completed = sp:sp_nuclear_engines }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_nuclear_engines
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { is_special_project_completed = sp:sp_nuclear_warheads }
+			NOT = { is_special_project_completed = sp:sp_nuclear_warheads }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		complete_special_project = sp:sp_nuclear_warheads
+	}
+	#严格按败者实际已拥有的通用特殊项目科技与稀有隐藏战术科技继承（对方未研发绝不凭空赠送）
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_improved_optics_tech_1 }
+			NOT = { has_tech = r56_improved_optics_tech_1 }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_improved_optics_tech_2 }
+			NOT = { has_tech = r56_improved_optics_tech_2 }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_improved_optics_tech_2 = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_gammon_bomb_tech }
+			NOT = { has_tech = r56_gammon_bomb_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_anti_tank_rifle_grenade_tech }
+			NOT = { has_tech = r56_anti_tank_rifle_grenade_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_heavy_tank_studies_tech }
+			NOT = { has_tech = r56_heavy_tank_studies_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_heavy_tank_studies_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_fido_tech }
+			NOT = { has_tech = r56_fido_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_fido_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_improved_iff_tech }
+			NOT = { has_tech = r56_improved_iff_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_improved_iff_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_sp_helicopter_tech }
+			NOT = { has_tech = r56_sp_helicopter_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_sp_helicopter_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_sp_naval_huff_duff_device_tech }
+			NOT = { has_tech = r56_sp_naval_huff_duff_device_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_sp_naval_huff_duff_device_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_gd_tech }
+			NOT = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_gd_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_gd_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech }
+			NOT = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = land_multi_charge_large_caliber_gun_tech }
+			NOT = { has_tech = land_multi_charge_large_caliber_gun_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { land_multi_charge_large_caliber_gun_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = stronghold_network_tech }
+			NOT = { has_tech = stronghold_network_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { stronghold_network_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = rdf0 }
+			NOT = { has_tech = rdf0 }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { rdf0 = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_proximity_fuze_tech }
+			NOT = { has_tech = sp_naval_proximity_fuze_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_proximity_fuze_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_underway_replenishment_pick_a }
+			NOT = { has_tech = sp_naval_underway_replenishment_pick_a }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_underway_replenishment_pick_a = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_underway_replenishment_pick_b }
+			NOT = { has_tech = sp_naval_underway_replenishment_pick_b }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_underway_replenishment_pick_b = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_support_ships_pick_a }
+			NOT = { has_tech = sp_naval_support_ships_pick_a }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_support_ships_pick_a = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_support_ships_pick_b }
+			NOT = { has_tech = sp_naval_support_ships_pick_b }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_support_ships_pick_b = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_support_ships_pick_c }
+			NOT = { has_tech = sp_naval_support_ships_pick_c }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_support_ships_pick_c = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_repair_ships_pick_a }
+			NOT = { has_tech = sp_naval_repair_ships_pick_a }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_repair_ships_pick_a = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_repair_ships_pick_b }
+			NOT = { has_tech = sp_naval_repair_ships_pick_b }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_repair_ships_pick_b = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = sp_naval_repair_ships_pick_c }
+			NOT = { has_tech = sp_naval_repair_ships_pick_c }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { sp_naval_repair_ships_pick_c = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = nuclear_reactor }
+			NOT = { has_tech = nuclear_reactor }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { nuclear_reactor = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = nuclear_reactor_heavy_water }
+			NOT = { has_tech = nuclear_reactor_heavy_water }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { nuclear_reactor_heavy_water = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = isotope_separation_centrifugal }
+			NOT = { has_tech = isotope_separation_centrifugal }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { isotope_separation_centrifugal = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = commercial_nuclear_reactor_tech }
+			NOT = { has_tech = commercial_nuclear_reactor_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { commercial_nuclear_reactor_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = nukes }
+			NOT = { has_tech = nukes }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { nukes = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = thermonuclear_bombs }
+			NOT = { has_tech = thermonuclear_bombs }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { thermonuclear_bombs = 1 popup = yes }
+	}
 	if = {
 		limit = {
 			var:temp_devour_victim = { has_tech = molotov_cocktails_tech }
@@ -1034,6 +2022,30 @@ flower_ai_absorb_defeated_nation_special_techs = {
 	}
 	if = {
 		limit = {
+			var:temp_devour_victim = { has_tech = jungle_training_tech }
+			NOT = { has_tech = jungle_training_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { jungle_training_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = desert_training_tech }
+			NOT = { has_tech = desert_training_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { desert_training_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = hills_training_tech }
+			NOT = { has_tech = hills_training_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { hills_training_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
 			var:temp_devour_victim = { has_tech = mountain_warfare }
 			NOT = { has_tech = mountain_warfare }
 		}
@@ -1047,6 +2059,14 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = ToA_river_boats_tech }
+			NOT = { has_tech = ToA_river_boats_tech }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { ToA_river_boats_tech = 1 popup = yes }
 	}
 	if = {
 		limit = {
@@ -1090,105 +2110,91 @@ flower_ai_absorb_defeated_nation_special_techs = {
 	}
 	if = {
 		limit = {
-			var:temp_devour_victim = { has_tech = r56_improved_optics_tech_1 }
-			NOT = { has_tech = r56_improved_optics_tech_1 }
+			var:temp_devour_victim = { has_tech = mountain_gun }
+			NOT = { has_tech = mountain_gun }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
+		set_technology = { mountain_gun = 1 popup = yes }
 	}
 	if = {
 		limit = {
-			var:temp_devour_victim = { has_tech = r56_gammon_bomb_tech }
-			NOT = { has_tech = r56_gammon_bomb_tech }
+			var:temp_devour_victim = { has_tech = field_hospital_upgrade_0 }
+			NOT = { has_tech = field_hospital_upgrade_0 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
+		set_technology = { field_hospital_upgrade_0 = 1 popup = yes }
 	}
 	if = {
 		limit = {
-			var:temp_devour_victim = { has_tech = r56_anti_tank_rifle_grenade_tech }
-			NOT = { has_tech = r56_anti_tank_rifle_grenade_tech }
+			var:temp_devour_victim = { has_tech = field_hospital_upgrade_1 }
+			NOT = { has_tech = field_hospital_upgrade_1 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
+		set_technology = { field_hospital_upgrade_1 = 1 popup = yes }
 	}
-	#若本次未吸收到任何专属包或继承科技，再从通用稀有隐藏战术池兜底抽取
 	if = {
-		limit = { check_variable = { flower_devour_absorbed_special < 1 } }
-		if = {
-			limit = { NOT = { has_country_flag = flower_devour_minor_tech_cd } }
-			set_country_flag = { flag = flower_devour_minor_tech_cd days = 45 value = 1 }
-			add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-			random_list = {
-				10 = {
-					modifier = { factor = 0 has_tech = molotov_cocktails_tech }
-					set_technology = { molotov_cocktails_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = winter_logistics_support_tech }
-					set_technology = { winter_logistics_support_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = long_range_patrol_support_tech }
-					set_technology = { long_range_patrol_support_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = jungle_warfare }
-					set_technology = { jungle_warfare = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = mountain_warfare }
-					set_technology = { mountain_warfare = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = TOA_jungle_pioneers_support_tech }
-					set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = forest_training_tech }
-					set_technology = { forest_training_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = elephantry }
-					set_technology = { elephantry = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = camelry }
-					set_technology = { camelry = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = bicycle_infantry }
-					set_technology = { bicycle_infantry = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = tech_tachka }
-					set_technology = { tech_tachka = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = r56_improved_optics_tech_1 }
-					set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = r56_gammon_bomb_tech }
-					set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
-				}
-				10 = {
-					modifier = { factor = 0 has_tech = r56_anti_tank_rifle_grenade_tech }
-					set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
-				}
-				5 = {
-					army_experience = 50
-				}
-			}
-			add_breakthrough_points = {
-				specialization = specialization_land
-				value = 1
-			}
-			add_breakthrough_points = {
-				specialization = specialization_air
-				value = 1
-			}
+		limit = {
+			var:temp_devour_victim = { has_tech = field_hospital_upgrade_2 }
+			NOT = { has_tech = field_hospital_upgrade_2 }
 		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { field_hospital_upgrade_2 = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = r56_anti_tank_kit }
+			NOT = { has_tech = r56_anti_tank_kit }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { r56_anti_tank_kit = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = ship_hull_super_heavy }
+			NOT = { has_tech = ship_hull_super_heavy }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { ship_hull_super_heavy = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = panzerschiffe }
+			NOT = { has_tech = panzerschiffe }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { panzerschiffe = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = torpedo_cruiser_mtg }
+			NOT = { has_tech = torpedo_cruiser_mtg }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { torpedo_cruiser_mtg = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = cruiser_submarines }
+			NOT = { has_tech = cruiser_submarines }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { cruiser_submarines = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = midget_submarines }
+			NOT = { has_tech = midget_submarines }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { midget_submarines = 1 popup = yes }
+	}
+	if = {
+		limit = {
+			var:temp_devour_victim = { has_tech = coastal_defense_ships }
+			NOT = { has_tech = coastal_defense_ships }
+		}
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = { coastal_defense_ships = 1 popup = yes }
 	}
 	#推送全图人类玩家右下角双国旗战报（仅首次吸收到该国特殊科技时）
 	if = {
@@ -1353,23 +2359,11 @@ flower_ai_sync_steampunk_upgrades = {
 	}
 }
 
-#畸变4月度渐进科技同步（蒸汽陆行舰升级与副炮 + PAO夜莺骑士团1939渐进解放）
+#畸变4月度渐进科技同步（蒸汽陆行舰升级与副炮 + T2 1939自动解码 / T3 1941自动解码）
 flower_ai_sync_devour_progressive_techs = {
 	if = {
 		limit = { has_tech = steamtank1 }
 		flower_ai_sync_steampunk_upgrades = yes
 	}
-	if = {
-		limit = {
-			has_country_flag = flower_devour_pack_pao
-			date > 1939.1.1
-			NOT = { has_tech = wangling3_tech }
-		}
-		set_technology = {
-			wangling3_tech = 1
-			PAO_wangling3tupo = 1
-			PAO_wangling3tupo2 = 1
-			popup = yes
-		}
-	}
+	flower_ai_sync_all_blueprint_tiers = yes
 }

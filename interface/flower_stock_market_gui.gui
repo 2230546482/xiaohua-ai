@@ -89,7 +89,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_buy_factory_lbl"
-			position = { x = 176 y = 113 }
+			position = { x = 176 y = 111 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStockBuyFactoryBtnText]"
 			maxWidth = 176
@@ -111,7 +111,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_liquidate_all_lbl"
-			position = { x = 388 y = 114 }
+			position = { x = 388 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_LIQUIDATE_ALL_BTN_TEXT"
 			maxWidth = 164
@@ -134,7 +134,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_peek_map_lbl"
-			position = { x = 752 y = 114 }
+			position = { x = 752 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
 			maxWidth = 128
@@ -256,7 +256,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_1_lbl"
-			position = { x = 48 y = 317 }
+			position = { x = 48 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
@@ -277,7 +277,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_5_lbl"
-			position = { x = 183 y = 317 }
+			position = { x = 183 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
@@ -298,7 +298,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_lev_lbl"
-			position = { x = 318 y = 317 }
+			position = { x = 318 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
@@ -319,7 +319,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_sell_all_lbl"
-			position = { x = 48 y = 353 }
+			position = { x = 48 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
@@ -340,7 +340,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_short_1_lbl"
-			position = { x = 183 y = 353 }
+			position = { x = 183 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
@@ -361,7 +361,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_cover_all_lbl"
-			position = { x = 318 y = 353 }
+			position = { x = 318 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
@@ -448,7 +448,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_1_lbl"
-			position = { x = 488 y = 317 }
+			position = { x = 488 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
@@ -469,7 +469,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_5_lbl"
-			position = { x = 623 y = 317 }
+			position = { x = 623 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
@@ -490,7 +490,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_lev_lbl"
-			position = { x = 758 y = 317 }
+			position = { x = 758 y = 315 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
@@ -511,7 +511,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_sell_all_lbl"
-			position = { x = 488 y = 353 }
+			position = { x = 488 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
@@ -532,7 +532,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_short_1_lbl"
-			position = { x = 623 y = 353 }
+			position = { x = 623 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
@@ -553,7 +553,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_cover_all_lbl"
-			position = { x = 758 y = 353 }
+			position = { x = 758 y = 351 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
@@ -640,7 +640,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_1_lbl"
-			position = { x = 48 y = 519 }
+			position = { x = 48 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
@@ -661,7 +661,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_5_lbl"
-			position = { x = 183 y = 519 }
+			position = { x = 183 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
@@ -682,7 +682,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_lev_lbl"
-			position = { x = 318 y = 519 }
+			position = { x = 318 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
@@ -703,7 +703,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_sell_all_lbl"
-			position = { x = 48 y = 555 }
+			position = { x = 48 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
@@ -724,7 +724,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_short_1_lbl"
-			position = { x = 183 y = 555 }
+			position = { x = 183 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
@@ -745,7 +745,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_cover_all_lbl"
-			position = { x = 318 y = 555 }
+			position = { x = 318 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114
@@ -832,7 +832,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_1_lbl"
-			position = { x = 488 y = 519 }
+			position = { x = 488 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_1"
 			maxWidth = 114
@@ -853,7 +853,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_5_lbl"
-			position = { x = 623 y = 519 }
+			position = { x = 623 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_5"
 			maxWidth = 114
@@ -874,7 +874,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_lev_lbl"
-			position = { x = 758 y = 519 }
+			position = { x = 758 y = 517 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_BUY_LEV"
 			maxWidth = 114
@@ -895,7 +895,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_sell_all_lbl"
-			position = { x = 488 y = 555 }
+			position = { x = 488 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SELL_ALL"
 			maxWidth = 114
@@ -916,7 +916,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_short_1_lbl"
-			position = { x = 623 y = 555 }
+			position = { x = 623 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_SHORT_1"
 			maxWidth = 114
@@ -937,7 +937,7 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_cover_all_lbl"
-			position = { x = 758 y = 555 }
+			position = { x = 758 y = 553 }
 			font = "flower_a4_16"
 			text = "FLOWER_STK_BTN_COVER_ALL"
 			maxWidth = 114

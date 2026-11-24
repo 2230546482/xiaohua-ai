@@ -47,7 +47,9 @@ flower_roguelike_ops_cat = {
 		complete_effect = {
 			add_command_power = -50
 			add_political_power = -50
-			set_country_flag = flower_dvl_magic_countered
+			hidden_effect = {
+				set_country_flag = flower_dvl_magic_countered
+			}
 			custom_effect_tooltip = flower_dvl_magic_counter_dec_tt
 		}
 	}

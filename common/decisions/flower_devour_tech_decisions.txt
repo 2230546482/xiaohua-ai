@@ -1,0 +1,766 @@
+﻿#缴获蓝图破译所：按时代与前置科技提前逆向攻关缴获蓝图
+#高阶缴获蓝图：1939年起自动攻克；1938年起可投入政治点数、经验与民用工厂攻关60天提前掌握
+#绝密终极蓝图：1941年起自动攻克；1940年起可投入政治点数、经验与民用工厂攻关90天提前掌握
+
+flower_devour_tech_cat = {
+
+	flower_bp_dec_t2_pao = {
+		icon = generic_research
+		visible = {
+			has_country_flag = flower_bp_has_t2_pao
+			NOT = { has_country_flag = flower_bp_done_t2_pao }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_pao }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_pao = yes
+		}
+	}
+
+	flower_bp_dec_t2_kmk = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t2_kmk
+			NOT = { has_country_flag = flower_bp_done_t2_kmk }
+		}
+		available = {
+			date > 1937.12.31
+			OR = {
+				has_tech = basic_medium_tank_chassis
+				has_tech = basic_heavy_tank_chassis
+			}
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_kmk }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_kmk = yes
+		}
+	}
+
+	flower_bp_dec_t2_fra = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t2_fra
+			NOT = { has_country_flag = flower_bp_done_t2_fra }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = paratroopers
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_fra }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_fra = yes
+		}
+	}
+
+	flower_bp_dec_t2_sov = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t2_sov
+			NOT = { has_country_flag = flower_bp_done_t2_sov }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = artillery1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_sov }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_sov = yes
+		}
+	}
+
+	flower_bp_dec_t2_dvl = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t2_dvl
+			NOT = { has_country_flag = flower_bp_done_t2_dvl }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_dvl }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_dvl = yes
+		}
+	}
+
+	flower_bp_dec_t2_ger = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t2_ger
+			NOT = { has_country_flag = flower_bp_done_t2_ger }
+		}
+		available = {
+			date > 1937.12.31
+			OR = {
+				has_tech = basic_medium_tank_chassis
+				has_tech = basic_heavy_tank_chassis
+			}
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_ger }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_ger = yes
+		}
+	}
+
+	flower_bp_dec_t2_eng = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t2_eng
+			NOT = { has_country_flag = flower_bp_done_t2_eng }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_eng }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_eng = yes
+		}
+	}
+
+	flower_bp_dec_t2_jap = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t2_jap
+			NOT = { has_country_flag = flower_bp_done_t2_jap }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_jap }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_jap = yes
+		}
+	}
+
+	flower_bp_dec_t2_mgu = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t2_mgu
+			NOT = { has_country_flag = flower_bp_done_t2_mgu }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_mgu }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_mgu = yes
+		}
+	}
+
+	flower_bp_dec_t2_paq = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t2_paq
+			NOT = { has_country_flag = flower_bp_done_t2_paq }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_paq }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_paq = yes
+		}
+	}
+
+	flower_bp_dec_t2_pau = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t2_pau
+			NOT = { has_country_flag = flower_bp_done_t2_pau }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = paratroopers
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_pau }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_pau = yes
+		}
+	}
+
+	flower_bp_dec_t2_pan = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t2_pan
+			NOT = { has_country_flag = flower_bp_done_t2_pan }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_pan }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_pan = yes
+		}
+	}
+
+	flower_bp_dec_t2_tur = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t2_tur
+			NOT = { has_country_flag = flower_bp_done_t2_tur }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_tur }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_tur = yes
+		}
+	}
+
+	flower_bp_dec_t2_usa_radar = {
+		icon = generic_research
+		visible = {
+			has_country_flag = flower_bp_has_t2_usa_radar
+			NOT = { has_country_flag = flower_bp_done_t2_usa_radar }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = radio_detection
+			has_air_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_usa_radar }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			air_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_usa_radar = yes
+		}
+	}
+
+	flower_bp_dec_t2_autometa = {
+		icon = generic_industry
+		visible = {
+			has_country_flag = flower_bp_has_t2_autometa
+			NOT = { has_country_flag = flower_bp_done_t2_autometa }
+		}
+		available = {
+			date > 1937.12.31
+			has_tech = infantry_weapons1
+			has_army_experience > 49.99
+		}
+		cost = 100
+		days_remove = 60
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t2_autometa }
+		modifier = {
+			civilian_factory_use = 3
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -50
+		}
+		remove_effect = {
+			flower_unlock_bp_t2_autometa = yes
+		}
+	}
+
+	flower_bp_dec_t3_ufo = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t3_ufo
+			NOT = { has_country_flag = flower_bp_done_t3_ufo }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_small_airframe
+				has_tech = improved_medium_airframe
+			}
+			has_air_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_ufo }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			air_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_ufo = yes
+		}
+	}
+
+	flower_bp_dec_t3_kmk = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t3_kmk
+			NOT = { has_country_flag = flower_bp_done_t3_kmk }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_medium_tank_chassis
+				has_tech = improved_heavy_tank_chassis
+			}
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_kmk }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_kmk = yes
+		}
+	}
+
+	flower_bp_dec_t3_fra = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t3_fra
+			NOT = { has_country_flag = flower_bp_done_t3_fra }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = artillery3
+				has_tech = rocket_artillery
+			}
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_fra }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_fra = yes
+		}
+	}
+
+	flower_bp_dec_t3_sov = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t3_sov
+			NOT = { has_country_flag = flower_bp_done_t3_sov }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_medium_tank_chassis
+				has_tech = improved_heavy_tank_chassis
+			}
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_sov }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_sov = yes
+		}
+	}
+
+	flower_bp_dec_t3_dvl_net = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_bp_has_t3_dvl_net
+			NOT = { has_country_flag = flower_bp_done_t3_dvl_net }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_medium_tank_chassis
+				has_tech = improved_heavy_tank_chassis
+			}
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_dvl_net }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_dvl_net = yes
+		}
+	}
+
+	flower_bp_dec_t3_ai_fcs = {
+		icon = generic_research
+		visible = {
+			has_country_flag = flower_bp_has_t3_ai_fcs
+			NOT = { has_country_flag = flower_bp_done_t3_ai_fcs }
+		}
+		available = {
+			date > 1939.12.31
+			has_tech = computing_machine
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_ai_fcs }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_ai_fcs = yes
+		}
+	}
+
+	flower_bp_dec_t3_ger_serum = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t3_ger_serum
+			NOT = { has_country_flag = flower_bp_done_t3_ger_serum }
+		}
+		available = {
+			date > 1939.12.31
+			has_tech = improved_infantry_weapons
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_ger_serum }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_ger_serum = yes
+		}
+	}
+
+	flower_bp_dec_t3_heli = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t3_heli
+			NOT = { has_country_flag = flower_bp_done_t3_heli }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_small_airframe
+				has_tech = improved_medium_airframe
+			}
+			has_air_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_heli }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			air_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_heli = yes
+		}
+	}
+
+	flower_bp_dec_t3_eng_jet = {
+		icon = generic_air
+		visible = {
+			has_country_flag = flower_bp_has_t3_eng_jet
+			NOT = { has_country_flag = flower_bp_done_t3_eng_jet }
+		}
+		available = {
+			date > 1939.12.31
+			OR = {
+				has_tech = improved_small_airframe
+				has_tech = improved_medium_airframe
+			}
+			has_air_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_eng_jet }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			air_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_eng_jet = yes
+		}
+	}
+
+	flower_bp_dec_t3_jap = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t3_jap
+			NOT = { has_country_flag = flower_bp_done_t3_jap }
+		}
+		available = {
+			date > 1939.12.31
+			has_tech = improved_infantry_weapons
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_jap }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_jap = yes
+		}
+	}
+
+	flower_bp_dec_t3_swe = {
+		icon = generic_military
+		visible = {
+			has_country_flag = flower_bp_has_t3_swe
+			NOT = { has_country_flag = flower_bp_done_t3_swe }
+		}
+		available = {
+			date > 1939.12.31
+			has_tech = improved_infantry_weapons
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		fire_only_once = yes
+		cancel_trigger = { has_country_flag = flower_bp_done_t3_swe }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 15 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_swe = yes
+		}
+	}
+
+	flower_bp_dec_t3_den_next = {
+		icon = generic_tank
+		visible = {
+			has_country_flag = flower_devour_pack_den
+			has_tech = steamtank1
+			NOT = { has_tech = steamtank4 }
+		}
+		available = {
+			date > 1937.12.31
+			OR = {
+				has_tech = basic_medium_tank_chassis
+				has_tech = basic_heavy_tank_chassis
+			}
+			has_army_experience > 99.99
+		}
+		cost = 150
+		days_remove = 90
+		days_re_enable = 180
+		cancel_trigger = { has_tech = steamtank4 }
+		modifier = {
+			civilian_factory_use = 5
+		}
+		ai_will_do = { base = 10 modifier = { factor = 2 has_war = yes } }
+		complete_effect = {
+			army_experience = -100
+		}
+		remove_effect = {
+			flower_unlock_bp_t3_den_next = yes
+		}
+	}
+}

@@ -916,7 +916,7 @@ flower_roguelike_undead_ai_strat = {
 	}
 }
 
-#流派十：王牌特种兵团AI（精锐山地特种突击旅，稳占25%左右特种配额）
+#流派十：王牌特种兵团AI（精锐山地特种突击旅，借由特种保底配额真正以特种精锐为主力）
 flower_roguelike_magic_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
@@ -929,7 +929,12 @@ flower_roguelike_magic_ai_strat = {
 	ai_strategy = {
 		type = role_ratio
 		id = flower_summon_special
-		value = 35
+		value = 55
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -25
 	}
 	ai_strategy = {
 		type = equipment_production_factor
@@ -939,6 +944,11 @@ flower_roguelike_magic_ai_strat = {
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
+		value = 160
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = support_equipment
 		value = 140
 	}
 }
