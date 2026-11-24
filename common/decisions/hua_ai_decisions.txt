@@ -1,5 +1,6 @@
 hua_lunyi_decisions_categories = {
     lunyi_decisions = {
+        priority = 82
         allowed = {
 
         }
@@ -87,6 +88,7 @@ hua_lunyi_decisions_categories = {
 
     hua_qu_decisions = {
         icon = GFX_die_tec
+        priority = 81
         allowed = {  }
 
         available = {
@@ -119,6 +121,7 @@ hua_lunyi_decisions_categories = {
 
     hua_qu_gczy_decisions = {
         icon = GFX_KNM_KFL_transfer
+        priority = 80
         allowed = {  }
 
         available = {
@@ -187,6 +190,7 @@ hua_lunyi_decisions_categories = {
     }
     hua_teshujiaqiang_decisions = {
         icon = GFX_die_tec
+        priority = 60
         allowed = {  }
 
         available = {
@@ -194,14 +198,19 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
+        }
+        targets = { SOV }
+        target_root_trigger = {
+            is_ai = no
         }
         target_trigger = {
             FROM = {
                 is_ai = yes
-                or = {
-                    tag = SOV
-                }
+                exists = yes
+                tag = SOV
             }
         }
         fire_only_once = yes
@@ -251,6 +260,7 @@ hua_lunyi_decisions_categories = {
 
     hua_jiaqiang_dec = {
         icon = GFX_die_tec
+        priority = 85
         allowed = {  }
 
         available = {
@@ -290,6 +300,7 @@ hua_lunyi_decisions_categories = {
     }
     hua_super_gutou_decisions = {
         icon = GFX_die_tec
+        priority = 60
         allowed = {  }
 
         available = {
@@ -297,14 +308,21 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
+        }
+        targets = { DVL }
+        target_root_trigger = {
+            is_ai = no
         }
         target_trigger = {
             FROM = {
                 is_ai = yes
-                or = {
-                    tag = DVL
-                }
+                exists = yes
+                tag = DVL
+                NOT = { has_idea = red_super_gutou }
+                NOT = { has_idea = red_super_gutou_phase2 }
             }
         }
         fire_only_once = yes
@@ -318,6 +336,7 @@ hua_lunyi_decisions_categories = {
     }
     hua_super_gutou_decisions_remove = {
         icon = GFX_die_tec
+        priority = 61
         allowed = {  }
 
         available = {
@@ -325,7 +344,9 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
             DVL = {
                 OR = {
                     has_idea = red_super_gutou
@@ -346,6 +367,7 @@ hua_lunyi_decisions_categories = {
     }
     hua_teshujiaqiang_decisions_player = {
         icon = GFX_die_tec
+        priority = 84
         allowed = {  }
 
         available = {
@@ -380,6 +402,7 @@ hua_lunyi_decisions_categories = {
     }
     hua_jiaqiang_decisions = {
         icon = GFX_die_tec
+        priority = 50
         allowed = {  }
 
         available = {
@@ -387,7 +410,12 @@ hua_lunyi_decisions_categories = {
         }
 
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
+        }
+        target_root_trigger = {
+            is_ai = no
         }
         target_trigger = {
             FROM = {
@@ -447,9 +475,62 @@ hua_lunyi_decisions_categories = {
         }
     }
 
+    #展开给AI上Buff的决议列表
+    hua_show_ai_buff_decisions = {
+        icon = GFX_exchange_good_luck
+        priority = 100
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            is_ai = no
+            NOT = { has_country_flag = flower_show_ai_buff_decisions }
+            OR = {
+                has_country_flag = hua_ai_player
+                has_global_flag = red_apocalypse_ai
+                has_global_flag = red_most_hard
+                has_global_flag = red_hard
+                has_global_flag = red_normal_hard
+                has_global_flag = red_none_hard
+            }
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            if = {
+                limit = { NOT = { has_country_flag = hua_ai_player } }
+                set_country_flag = hua_ai_player
+            }
+            set_country_flag = flower_show_ai_buff_decisions
+            custom_effect_tooltip = hua_show_ai_buff_decisions_tt
+        }
+    }
+
+    #隐藏给AI上Buff的决议列表
+    hua_hide_ai_buff_decisions = {
+        icon = GFX_exchange_bad_luck
+        priority = 100
+        allowed = { }
+        available = {
+            always = yes
+        }
+        visible = {
+            is_ai = no
+            has_country_flag = flower_show_ai_buff_decisions
+        }
+        fire_only_once = no
+        ai_will_do = { base = 0 }
+        complete_effect = {
+            clr_country_flag = flower_show_ai_buff_decisions
+            custom_effect_tooltip = hua_hide_ai_buff_decisions_tt
+        }
+    }
+
     #隐藏或显示右上角小花快捷悬浮窗
     hua_toggle_floating_dock_decision = {
         icon = GFX_exchange_good_luck
+        priority = 99
         allowed = { }
         available = {
             always = yes
@@ -477,12 +558,15 @@ hua_lunyi_decisions_categories = {
     #全局AI难度升档
     hua_global_difficulty_up_dec = {
         icon = GFX_die_tec
+        priority = 70
         allowed = { }
         available = {
             NOT = { has_global_flag = red_apocalypse_ai }
         }
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
             NOT = { has_global_flag = red_apocalypse_ai }
         }
         fire_only_once = no
@@ -542,6 +626,7 @@ hua_lunyi_decisions_categories = {
     #全局AI难度降档
     hua_global_difficulty_down_dec = {
         icon = GFX_exchange_bad_luck
+        priority = 69
         allowed = { }
         available = {
             OR = {
@@ -552,7 +637,9 @@ hua_lunyi_decisions_categories = {
             }
         }
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
             OR = {
                 has_global_flag = red_apocalypse_ai
                 has_global_flag = red_most_hard
@@ -625,13 +712,19 @@ hua_lunyi_decisions_categories = {
     #单国升为天灾强化
     hua_target_apocalypse_on_dec = {
         icon = GFX_die_tec
+        priority = 55
         allowed = { }
         available = {
             always = yes
         }
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
             NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        target_root_trigger = {
+            is_ai = no
         }
         target_trigger = {
             FROM = {
@@ -667,13 +760,19 @@ hua_lunyi_decisions_categories = {
     #解除单国天灾强化
     hua_target_apocalypse_off_dec = {
         icon = GFX_exchange_bad_luck
+        priority = 56
         allowed = { }
         available = {
             always = yes
         }
         visible = {
+            is_ai = no
             has_country_flag = hua_ai_player
+            has_country_flag = flower_show_ai_buff_decisions
             NOT = { has_global_flag = red_apocalypse_ai }
+        }
+        target_root_trigger = {
+            is_ai = no
         }
         target_trigger = {
             FROM = {
@@ -715,6 +814,7 @@ hua_lunyi_decisions_categories = {
     #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化，玩家与AI主要国家均可用）
     hua_trigger_branch_evo_dec = {
         icon = generic_military
+        priority = 90
         allowed = { }
         visible = {
             OR = {
@@ -756,6 +856,7 @@ hua_lunyi_decisions_categories = {
     #主动加抽一轮肉鸽三选一（整合原政治点/HCP双决议为单一入口，每180天限1次，优先耗100政治点、不足时自动改耗250 HCP）
     hua_buy_roguelike_draft_pp_dec = {
         icon = generic_political_discourse
+        priority = 89
         allowed = { }
         visible = {
             OR = {
@@ -819,6 +920,7 @@ hua_lunyi_decisions_categories = {
     #主动翻开12大流派面板（限4次，按已修不同流派数阶梯收费：1条150PP / 2条225PP / 3条及以上300PP）
     hua_open_extra_archetype_dec = {
         icon = GFX_exchange_good_luck
+        priority = 88
         allowed = { }
         visible = {
             OR = {

@@ -227,6 +227,12 @@ hua_qu_gczy_decisions:0 "给区添加资源和工厂"
  hua_toggle_floating_dock_decision_desc:0 "一键彻底隐藏或重新显示屏幕右上角的小花快捷悬浮面板（也可直接点击悬浮窗右上角的§Y[-]§!按钮将其折叠为迷你小花徽章）。"
  hua_toggle_floating_dock_show_tt:0 "§G已恢复显示屏幕右上角的【小花快捷悬浮窗】！§!"
  hua_toggle_floating_dock_hide_tt:0 "§Y已彻底隐藏屏幕右上角的【小花快捷悬浮窗】（再次点击本决议可随时恢复显示）。§!"
+ hua_show_ai_buff_decisions:0 "【界面开关】显示给AI上Buff的决议"
+ hua_show_ai_buff_decisions_desc:0 "展开全局AI难度调档、给单国上Buff、单国升天灾及特定大国特殊加强等全部AI强化决议。"
+ hua_show_ai_buff_decisions_tt:0 "§G已展开全部【给AI上Buff】相关决议（可随时点击顶部开关重新隐藏）。§!"
+ hua_hide_ai_buff_decisions:0 "【界面开关】隐藏给AI上Buff的决议"
+ hua_hide_ai_buff_decisions_desc:0 "收起全局AI难度调档、给单国上Buff、单国升天灾及特定大国特殊加强等全部AI强化决议。"
+ hua_hide_ai_buff_decisions_tt:0 "§Y已隐藏全部【给AI上Buff】相关决议（可随时点击顶部开关重新展开）。§!"
 
 #开局畸变投票GUI
  FLOWER_ANOMALY_GUI_TITLE:0 "开局畸变投票箱"
