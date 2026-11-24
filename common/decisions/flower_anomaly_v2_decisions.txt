@@ -12,7 +12,6 @@ flower_anomaly_v2_ops_cat = {
 		cost = 25
 		days_remove = 30
 		days_re_enable = 180
-		ai_check_interval = 120
 		modifier = {
 			army_attack_factor = 0.25
 			breakthrough_factor = 0.25

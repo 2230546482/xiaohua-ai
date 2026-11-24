@@ -320,8 +320,8 @@ flower_ai_anom10_on_enter_war = {
 	}
 }
 
-#畸变7核心专属：主要国家死亡（投降/灭亡）时对全体人类玩家全局播放《关羽之歌》并推右下角战报
-#（在阵亡国作用域调用，temp_anom7_killer 为击败方作用域ID）
+#畸变7：主要国家投降或灭亡时仅对玩家播放《关羽之歌》并推右下角提示
+#（在阵亡国作用域调用，temp_anom7_killer为击败方作用域ID）
 flower_ai_anom7_major_death_guanyu_song = {
 	if = {
 		limit = {

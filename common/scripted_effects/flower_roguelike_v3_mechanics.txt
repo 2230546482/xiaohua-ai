@@ -72,7 +72,7 @@ flower_ai_corp_prospect_mineral = {
 	random_owned_controlled_state = {
 		limit = { is_core_of = ROOT }
 		random_list = {
-			25 = { add_resource = { type = steel amount = 12 } }
+			25 = { add_resource = { type = steel amount = 15 } }
 			20 = { add_resource = { type = aluminium amount = 10 } }
 			20 = { add_resource = { type = tungsten amount = 10 } }
 			15 = { add_resource = { type = chromium amount = 10 } }
@@ -109,23 +109,23 @@ flower_ai_recalc_arty_density = {
 		set_variable = { flower_arty_den_atk_var = temp_arty_tier }
 		multiply_variable = { flower_arty_den_atk_var = 0.025 }
 		set_variable = { flower_arty_den_brk_var = temp_arty_tier }
-		multiply_variable = { flower_arty_den_brk_var = 0.02 }
+		multiply_variable = { flower_arty_den_brk_var = 0.025 }
 		set_variable = { flower_arty_den_crd_var = temp_arty_tier }
-		multiply_variable = { flower_arty_den_crd_var = 0.015 }
+		multiply_variable = { flower_arty_den_crd_var = 0.025 }
 		set_variable = { flower_arty_den_spd_var = 0 }
 		set_variable = { flower_arty_den_org_var = 0 }
 		if = {
 			limit = { has_idea = flower_evo_arty_carpet_idea }
-			multiply_variable = { flower_arty_den_atk_var = 1.3 }
-			multiply_variable = { flower_arty_den_brk_var = 1.35 }
-			set_variable = { flower_arty_den_spd_var = -0.04 }
+			multiply_variable = { flower_arty_den_atk_var = 1.5 }
+			multiply_variable = { flower_arty_den_brk_var = 1.5 }
+			set_variable = { flower_arty_den_spd_var = -0.05 }
 		}
 		else_if = {
 			limit = { has_idea = flower_evo_arty_mobile_idea }
 			set_variable = { flower_arty_den_spd_var = temp_arty_tier }
-			multiply_variable = { flower_arty_den_spd_var = 0.02 }
+			multiply_variable = { flower_arty_den_spd_var = 0.025 }
 			set_variable = { flower_arty_den_org_var = temp_arty_tier }
-			multiply_variable = { flower_arty_den_org_var = 0.015 }
+			multiply_variable = { flower_arty_den_org_var = 0.025 }
 		}
 	}
 }
@@ -141,12 +141,12 @@ flower_ai_recalc_blitz_momentum = {
 		if = {
 			limit = { has_idea = flower_evo_tank_fortress_idea }
 			#分支4B：取消停滞衰减，锁定常驻重甲推土机壁垒
-			set_variable = { flower_blitz_spd_var = 0.04 }
+			set_variable = { flower_blitz_spd_var = 0.05 }
 			set_variable = { flower_blitz_atk_var = 0.10 }
-			set_variable = { flower_blitz_def_var = 0.16 }
-			set_variable = { flower_blitz_brk_var = 0.14 }
+			set_variable = { flower_blitz_def_var = 0.15 }
+			set_variable = { flower_blitz_brk_var = 0.15 }
 			set_variable = { flower_blitz_org_var = -0.15 }
-			set_variable = { flower_blitz_sup_var = 48 }
+			set_variable = { flower_blitz_sup_var = 50 }
 		}
 		else = {
 			set_temp_variable = { temp_cap = 6 }
@@ -165,14 +165,14 @@ flower_ai_recalc_blitz_momentum = {
 			set_variable = { flower_blitz_spd_var = flower_blitz_stacks }
 			multiply_variable = { flower_blitz_spd_var = 0.025 }
 			set_variable = { flower_blitz_atk_var = flower_blitz_stacks }
-			multiply_variable = { flower_blitz_atk_var = 0.015 }
+			multiply_variable = { flower_blitz_atk_var = 0.025 }
 			set_variable = { flower_blitz_def_var = 0 }
 			set_variable = { flower_blitz_brk_var = flower_blitz_stacks }
-			multiply_variable = { flower_blitz_brk_var = 0.02 }
+			multiply_variable = { flower_blitz_brk_var = 0.025 }
 			set_variable = { flower_blitz_org_var = flower_blitz_stacks }
-			multiply_variable = { flower_blitz_org_var = -0.03 }
+			multiply_variable = { flower_blitz_org_var = -0.025 }
 			set_variable = { flower_blitz_sup_var = flower_blitz_stacks }
-			multiply_variable = { flower_blitz_sup_var = 8 }
+			multiply_variable = { flower_blitz_sup_var = 10 }
 		}
 	}
 }
@@ -194,18 +194,18 @@ flower_ai_recalc_ace_prestige = {
 			set_variable = { flower_ace_stacks = 0 }
 		}
 		set_variable = { flower_ace_cas_var = flower_ace_stacks }
-		multiply_variable = { flower_ace_cas_var = 0.015 }
+		multiply_variable = { flower_ace_cas_var = 0.02 }
 		set_variable = { flower_ace_sup_var = flower_ace_stacks }
-		multiply_variable = { flower_ace_sup_var = 0.015 }
+		multiply_variable = { flower_ace_sup_var = 0.02 }
 		set_variable = { flower_ace_atk_var = flower_ace_stacks }
-		multiply_variable = { flower_ace_atk_var = 0.012 }
+		multiply_variable = { flower_ace_atk_var = 0.02 }
 		set_variable = { flower_ace_agi_var = flower_ace_stacks }
-		multiply_variable = { flower_ace_agi_var = 0.01 }
+		multiply_variable = { flower_ace_agi_var = 0.02 }
 		set_variable = { flower_ace_bon_var = flower_ace_stacks }
-		multiply_variable = { flower_ace_bon_var = 0.012 }
+		multiply_variable = { flower_ace_bon_var = 0.02 }
 		if = {
 			limit = { has_idea = flower_evo_air_cas_idea }
-			multiply_variable = { flower_ace_cas_var = 1.6 }
+			multiply_variable = { flower_ace_cas_var = 1.5 }
 		}
 		else_if = {
 			limit = { has_idea = flower_evo_air_superiority_idea }
@@ -233,11 +233,11 @@ flower_ai_recalc_veteran_furnace = {
 			set_variable = { flower_vet_stacks = 0 }
 		}
 		set_variable = { flower_vet_hp_var = flower_vet_stacks }
-		multiply_variable = { flower_vet_hp_var = 0.02 }
+		multiply_variable = { flower_vet_hp_var = 0.025 }
 		set_variable = { flower_vet_rec_var = flower_vet_stacks }
 		multiply_variable = { flower_vet_rec_var = 0.025 }
 		set_variable = { flower_vet_rei_var = flower_vet_stacks }
-		multiply_variable = { flower_vet_rei_var = 0.015 }
+		multiply_variable = { flower_vet_rei_var = 0.025 }
 		set_variable = { flower_vet_cdef_var = 0 }
 		set_variable = { flower_vet_catk_var = 0 }
 		set_variable = { flower_vet_brk_var = 0 }
@@ -254,12 +254,12 @@ flower_ai_recalc_veteran_furnace = {
 			else_if = {
 				limit = { surrender_progress > 0.15 }
 				set_variable = { flower_vet_cdef_var = 0.15 }
-				set_variable = { flower_vet_catk_var = 0.12 }
+				set_variable = { flower_vet_catk_var = 0.10 }
 				set_variable = { flower_vet_dig_var = 0.20 }
 			}
 			else_if = {
 				limit = { has_war = yes }
-				set_variable = { flower_vet_cdef_var = 0.08 }
+				set_variable = { flower_vet_cdef_var = 0.10 }
 				set_variable = { flower_vet_dig_var = 0.10 }
 			}
 		}
@@ -268,7 +268,7 @@ flower_ai_recalc_veteran_furnace = {
 			#分支6B：反攻红潮（老兵层数转为纯进攻突破）
 			set_variable = { flower_vet_brk_var = flower_vet_stacks }
 			multiply_variable = { flower_vet_brk_var = 0.025 }
-			multiply_variable = { flower_vet_rec_var = 1.35 }
+			multiply_variable = { flower_vet_rec_var = 1.5 }
 		}
 	}
 }
@@ -291,15 +291,15 @@ flower_ai_recalc_guerrilla_underdog = {
 			add_to_temp_variable = { temp_gu_lvl = 1 }
 		}
 		if = {
-			limit = { surrender_progress > 0.08 }
+			limit = { surrender_progress > 0.10 }
 			add_to_temp_variable = { temp_gu_lvl = 2 }
 		}
 		set_variable = { flower_gu_ter_var = temp_gu_lvl }
-		multiply_variable = { flower_gu_ter_var = 0.04 }
+		multiply_variable = { flower_gu_ter_var = -0.05 }
 		set_variable = { flower_gu_oos_var = temp_gu_lvl }
-		multiply_variable = { flower_gu_oos_var = -0.08 }
+		multiply_variable = { flower_gu_oos_var = -0.10 }
 		set_variable = { flower_gu_catk_var = temp_gu_lvl }
-		multiply_variable = { flower_gu_catk_var = 0.04 }
+		multiply_variable = { flower_gu_catk_var = 0.05 }
 		set_variable = { flower_gu_cdef_var = temp_gu_lvl }
 		multiply_variable = { flower_gu_cdef_var = 0.05 }
 		set_variable = { flower_gu_att_var = temp_gu_lvl }
@@ -349,11 +349,11 @@ flower_ai_recalc_blood_labor = {
 			set_temp_variable = { temp_bl_tier = 4 }
 		}
 		set_variable = { flower_blab_ic_var = temp_bl_tier }
-		multiply_variable = { flower_blab_ic_var = 0.04 }
+		multiply_variable = { flower_blab_ic_var = 0.05 }
 		set_variable = { flower_blab_bld_var = temp_bl_tier }
-		multiply_variable = { flower_blab_bld_var = 0.04 }
+		multiply_variable = { flower_blab_bld_var = 0.05 }
 		set_variable = { flower_blab_rep_var = temp_bl_tier }
-		multiply_variable = { flower_blab_rep_var = 0.08 }
+		multiply_variable = { flower_blab_rep_var = 0.10 }
 	}
 }
 
@@ -366,7 +366,7 @@ flower_ai_add_blood_charge = {
 			limit = { check_variable = { flower_blood_charge > 5 } }
 			set_variable = { flower_blood_charge = 0 }
 			add_command_power = 40
-			add_manpower = 35000
+			add_manpower = 40000
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = 4000
@@ -400,34 +400,34 @@ flower_ai_recalc_elite_small_army = {
 				add_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod }
 			}
 			if = {
-				limit = { num_divisions < 49 }
+				limit = { num_divisions < 51 }
 				set_variable = { flower_elite_atk_var = 0.10 }
 				set_variable = { flower_elite_def_var = 0.10 }
 				set_variable = { flower_elite_brk_var = 0.10 }
-				set_variable = { flower_elite_xp_var = 0.35 }
-				set_variable = { flower_elite_ter_var = 0.12 }
+				set_variable = { flower_elite_xp_var = 0.40 }
+				set_variable = { flower_elite_ter_var = 0.15 }
 				if = {
 					limit = { has_idea = flower_evo_magic_chosen_idea }
 					set_variable = { flower_elite_atk_var = 0.15 }
 					set_variable = { flower_elite_def_var = 0.15 }
 					set_variable = { flower_elite_brk_var = 0.15 }
-					set_variable = { flower_elite_xp_var = 0.55 }
+					set_variable = { flower_elite_xp_var = 0.60 }
 					set_variable = { flower_elite_ter_var = 0.20 }
 				}
 			}
 			else_if = {
-				limit = { num_divisions < 65 }
+				limit = { num_divisions < 71 }
 				set_variable = { flower_elite_atk_var = 0.05 }
 				set_variable = { flower_elite_def_var = 0.05 }
 				set_variable = { flower_elite_brk_var = 0.05 }
 				set_variable = { flower_elite_xp_var = 0.20 }
-				set_variable = { flower_elite_ter_var = 0.06 }
+				set_variable = { flower_elite_ter_var = 0.05 }
 				if = {
 					limit = { has_idea = flower_evo_magic_chosen_idea }
-					set_variable = { flower_elite_atk_var = 0.08 }
-					set_variable = { flower_elite_def_var = 0.08 }
-					set_variable = { flower_elite_brk_var = 0.08 }
-					set_variable = { flower_elite_xp_var = 0.35 }
+					set_variable = { flower_elite_atk_var = 0.10 }
+					set_variable = { flower_elite_def_var = 0.10 }
+					set_variable = { flower_elite_brk_var = 0.10 }
+					set_variable = { flower_elite_xp_var = 0.30 }
 					set_variable = { flower_elite_ter_var = 0.10 }
 				}
 			}
@@ -457,11 +457,11 @@ flower_ai_recalc_science_compute = {
 		if = { limit = { date > 1940.1.1 } add_to_temp_variable = { temp_sci_lvl = 1 } }
 		if = { limit = { has_idea = flower_steampunk_stage_3_idea } add_to_temp_variable = { temp_sci_lvl = 1 } }
 		set_variable = { flower_sci_crd_var = temp_sci_lvl }
-		multiply_variable = { flower_sci_crd_var = 0.02 }
+		multiply_variable = { flower_sci_crd_var = 0.025 }
 		set_variable = { flower_sci_dec_var = temp_sci_lvl }
-		multiply_variable = { flower_sci_dec_var = 0.04 }
+		multiply_variable = { flower_sci_dec_var = 0.05 }
 		set_variable = { flower_sci_cap_var = temp_sci_lvl }
-		multiply_variable = { flower_sci_cap_var = 0.02 }
+		multiply_variable = { flower_sci_cap_var = 0.025 }
 		set_variable = { flower_sci_att_var = temp_sci_lvl }
 		multiply_variable = { flower_sci_att_var = -0.025 }
 	}
@@ -481,11 +481,11 @@ flower_ai_recalc_cash_power = {
 		if = { limit = { check_variable = { ubs_save > 2999 } } set_temp_variable = { temp_cp_lvl = 3 } }
 		if = { limit = { check_variable = { ubs_save > 5999 } } set_temp_variable = { temp_cp_lvl = 4 } }
 		set_variable = { flower_cash_atk_var = temp_cp_lvl }
-		multiply_variable = { flower_cash_atk_var = 0.03 }
+		multiply_variable = { flower_cash_atk_var = 0.05 }
 		set_variable = { flower_cash_ic_var = temp_cp_lvl }
-		multiply_variable = { flower_cash_ic_var = 0.035 }
+		multiply_variable = { flower_cash_ic_var = 0.05 }
 		set_variable = { flower_cash_cap_var = temp_cp_lvl }
-		multiply_variable = { flower_cash_cap_var = 0.03 }
+		multiply_variable = { flower_cash_cap_var = 0.05 }
 	}
 }
 
@@ -499,8 +499,8 @@ flower_ai_tick_roguelike_v3_engines = {
 			has_equipment = { infantry_equipment > 6000 }
 		}
 		add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 }
-		add_equipment_to_stockpile = { type = artillery_equipment amount = 180 }
-		add_equipment_to_stockpile = { type = support_equipment amount = 120 }
+		add_equipment_to_stockpile = { type = artillery_equipment amount = 200 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 100 }
 	}
 	#流派2分支2A：每满10座民工额外提供月度资金红利
 	if = {
@@ -614,13 +614,13 @@ flower_ai_on_state_captured_v3 = {
 			}
 			ROOT = {
 				set_country_flag = { flag = flower_slayer_raid_cd days = 30 value = 1 }
-				add_equipment_to_stockpile = { type = infantry_equipment amount = 1200 }
-				add_equipment_to_stockpile = { type = artillery_equipment amount = 120 }
-				add_equipment_to_stockpile = { type = motorized_equipment amount = 80 }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 150 }
+				add_equipment_to_stockpile = { type = motorized_equipment amount = 100 }
 				add_fuel = 15000
 				if = {
 					limit = { has_idea = flower_evo_slayer_dismantle_idea }
-					add_to_variable = { ubs_save = 120 }
+					add_to_variable = { ubs_save = 150 }
 					flower_ai_sync_hcp_ui = yes
 				}
 				if = {
@@ -629,7 +629,7 @@ flower_ai_on_state_captured_v3 = {
 						NOT = { has_country_flag = flower_slayer_steal_tech_cd }
 					}
 					random_list = {
-						35 = {
+						50 = {
 							set_country_flag = { flag = flower_slayer_steal_tech_cd days = 180 value = 1 }
 							add_tech_bonus = {
 								name = flower_slayer_stolen_blueprint_bonus
@@ -640,7 +640,7 @@ flower_ai_on_state_captured_v3 = {
 								category = armor
 							}
 						}
-						65 = { army_experience = 10 }
+						50 = { army_experience = 10 }
 					}
 				}
 			}

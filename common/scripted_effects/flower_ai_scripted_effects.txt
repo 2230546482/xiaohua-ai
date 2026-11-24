@@ -802,17 +802,17 @@ flower_ai_recalc_slayer_book = {
 		set_temp_variable = { slayer_eff = 8 }
 	}
 	set_variable = { flower_slayer_atk_var = slayer_eff }
-	multiply_variable = { flower_slayer_atk_var = 0.02 }
+	multiply_variable = { flower_slayer_atk_var = 0.025 }
 	set_variable = { flower_slayer_brk_var = slayer_eff }
-	multiply_variable = { flower_slayer_brk_var = 0.02 }
+	multiply_variable = { flower_slayer_brk_var = 0.025 }
 	set_variable = { flower_slayer_org_var = slayer_eff }
-	multiply_variable = { flower_slayer_org_var = 0.01 }
+	multiply_variable = { flower_slayer_org_var = 0.025 }
 	set_variable = { flower_slayer_cap_var = slayer_eff }
-	multiply_variable = { flower_slayer_cap_var = 0.075 }
+	multiply_variable = { flower_slayer_cap_var = 0.05 }
 	set_variable = { flower_slayer_sup_var = slayer_eff }
-	multiply_variable = { flower_slayer_sup_var = -0.02 }
+	multiply_variable = { flower_slayer_sup_var = -0.025 }
 	set_variable = { flower_slayer_mp_var = slayer_eff }
-	multiply_variable = { flower_slayer_mp_var = 600 }
+	multiply_variable = { flower_slayer_mp_var = 500 }
 	if = {
 		limit = {
 			check_variable = { flower_slayer_stacks > 4 }
@@ -910,13 +910,13 @@ flower_ai_recalc_builder_ledger = {
 		set_temp_variable = { builder_eff = 8 }
 	}
 	set_variable = { flower_builder_spd_var = builder_eff }
-	multiply_variable = { flower_builder_spd_var = 0.02 }
+	multiply_variable = { flower_builder_spd_var = 0.025 }
 	set_variable = { flower_builder_out_var = builder_eff }
-	multiply_variable = { flower_builder_out_var = 0.02 }
+	multiply_variable = { flower_builder_out_var = 0.025 }
 	set_variable = { flower_builder_cap_var = builder_eff }
-	multiply_variable = { flower_builder_cap_var = 0.02 }
+	multiply_variable = { flower_builder_cap_var = 0.025 }
 	set_variable = { flower_builder_slot_var = builder_eff }
-	multiply_variable = { flower_builder_slot_var = 0.02 }
+	multiply_variable = { flower_builder_slot_var = 0.025 }
 	if = {
 		limit = {
 			check_variable = { flower_builder_stacks > 4 }
@@ -976,7 +976,7 @@ flower_ai_recalc_devour_mod = {
 	set_variable = { flower_devour_ic_var = flower_devour_stacks }
 	multiply_variable = { flower_devour_ic_var = 0.05 }
 	set_variable = { flower_devour_ncm_var = flower_devour_stacks }
-	multiply_variable = { flower_devour_ncm_var = 0.03 }
+	multiply_variable = { flower_devour_ncm_var = 0.05 }
 	set_variable = { flower_devour_mp_var = flower_devour_stacks }
 	multiply_variable = { flower_devour_mp_var = 1000 }
 }

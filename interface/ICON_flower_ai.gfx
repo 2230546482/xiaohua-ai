@@ -253,7 +253,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_nightmare"
-		texturefile = "gfx/interface/ideas/DVL/idea_DVL_All_king_land.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_6_feidudu.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_slayer_book"
@@ -491,11 +491,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_barrage"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Marisa.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_combo_barrage.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_diehard"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Huziwara_no_Mokou.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_combo_diehard.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_starmic"
@@ -503,11 +503,11 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_gensokyo"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Reimu.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_combo_gensokyo.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_timestop"
-		texturefile = "gfx/interface/ideas/MGU/idea_MGU_Azure_Star.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_combo_timestop.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_combo_valkyrie"
@@ -527,7 +527,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_syn_tycoon"
-		texturefile = "gfx/interface/ideas/MGU/idea_MGU_sonoko_industrial.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_syn_tycoon.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_syn_void"
@@ -535,7 +535,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_syn_nightmare"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Saigyouji_Yuyuko.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_syn_nightmare.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_ng_blood"
@@ -543,7 +543,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_gu_scorch"
-		texturefile = "gfx/interface/ideas/LHS/youji.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_evo_gu_scorch.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_gu_sea"
@@ -575,7 +575,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_tank_time"
-		texturefile = "gfx/interface/ideas/KMK/idea_KMK_Sakuya.png"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_evo_tank_time.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_evo_tank_fort"
@@ -611,7 +611,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_micro_sanae"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Sanae.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_micro_sanae.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_antiscam"
@@ -631,7 +631,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_egg_hatched"
-		texturefile = "gfx/interface/ideas/FRA/idea_FRA_Star_Sapphire.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_egg_hatched.png"
 	}
 	#BEGIN_UNIQUE_IDEA_ICONS
 	spriteType = {
@@ -752,7 +752,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_hero_s2"
-		texturefile = "gfx/interface/ideas/idea_UBS_Bank.dds"
+		texturefile = "gfx/interface/ideas/flower_memes/flower_emblem_hero_s2.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_ico_arty_s1"

@@ -10,12 +10,12 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_speed_factor = 0.12
+				army_speed_factor = 0.15
 				breakthrough_factor = 0.10
-				land_night_attack = 0.18
-				decryption_factor = 0.35
+				land_night_attack = 0.20
+				decryption_factor = 0.40
 				intel_from_combat_factor = 0.25
-				supply_consumption_factor = 0.08
+				supply_consumption_factor = 0.10
 			}
 		}
 		flower_evo_nightingale_iron_idea = {
@@ -23,7 +23,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_defence_factor = 0.16
+				army_defence_factor = 0.15
 				army_org_factor = 0.10
 				max_dig_in_factor = 0.15
 				army_strength_factor = 0.10
@@ -37,8 +37,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				supply_consumption_factor = -0.22
-				river_crossing_factor = -0.25
+				supply_consumption_factor = -0.25
+				supply_node_range = 0.25
 				attrition = -0.20
 				command_power_gain_mult = 0.25
 			}
@@ -50,11 +50,11 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				resistance_target_on_our_occupied_states = 0.45
+				resistance_target_on_our_occupied_states = 0.50
 				resistance_growth_on_our_occupied_states = 0.50
 				resistance_damage_to_garrison_on_our_occupied_states = 0.30
 				supply_consumption_factor = -0.20
-				out_of_supply_factor = -0.35
+				out_of_supply_factor = -0.40
 				attrition = -0.20
 			}
 		}
@@ -63,9 +63,9 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_artillery_attack_factor = 0.16
-				breakthrough_factor = 0.14
-				terrain_penalty_reduction = 0.20
+				army_artillery_attack_factor = 0.20
+				breakthrough_factor = 0.15
+				org_loss_when_moving = -0.20
 				coordination_bonus = 0.10
 				army_infantry_attack_factor = 0.10
 			}
@@ -75,11 +75,11 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				training_time_army_factor = -0.08
+				training_time_army_factor = -0.10
 				conscription = 0.02
-				army_org_regain = 0.18
-				equipment_capture_factor = 0.18
-				army_core_defence_factor = 0.14
+				army_org_regain = 0.20
+				equipment_capture_factor = 0.20
+				army_core_defence_factor = 0.15
 			}
 		}
 
@@ -89,11 +89,11 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				land_reinforce_rate = 0.08
+				land_reinforce_rate = 0.10
 				army_org_regain = 0.20
 				experience_loss_factor = -0.25
-				supply_consumption_factor = -0.18
-				no_supply_grace = 72
+				supply_consumption_factor = -0.20
+				no_supply_grace = 100
 			}
 		}
 		flower_evo_undead_king_idea = {
@@ -103,9 +103,9 @@ ideas = {
 			modifier = {
 				army_attack_factor = 0.10
 				army_defence_factor = 0.10
-				breakthrough_factor = 0.12
+				breakthrough_factor = 0.15
 				army_org_factor = 0.10
-				winter_attrition_factor = -0.35
+				winter_attrition_factor = -0.40
 			}
 		}
 		flower_evo_undead_sweatshop_idea = {
@@ -113,7 +113,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				consumer_goods_factor = -0.06
+				consumer_goods_factor = -0.05
 				production_lack_of_resource_penalty_factor = -0.20
 				conscription_factor = 0.15
 			}
@@ -125,7 +125,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				equipment_capture_factor = 0.22
+				equipment_capture_factor = 0.25
 				local_factories = 0.20
 				compliance_gain = 0.05
 				production_speed_buildings_factor = 0.10
@@ -138,7 +138,7 @@ ideas = {
 			modifier = {
 				production_lack_of_resource_penalty_factor = -0.60
 				attrition = -0.25
-				experience_gain_army_unit_factor = 0.35
+				experience_gain_army_unit_factor = 0.40
 				army_attack_factor = 0.10
 				equipment_conversion_speed = 0.50
 			}
@@ -150,9 +150,9 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				production_factory_efficiency_gain_factor = 0.18
+				production_factory_efficiency_gain_factor = 0.20
 				line_change_production_efficiency_factor = 0.20
-				research_speed_factor = 0.08
+				research_speed_factor = 0.10
 				consumer_goods_factor = -0.05
 			}
 		}
@@ -176,7 +176,7 @@ ideas = {
 			modifier = {
 				army_artillery_attack_factor = 0.15
 				breakthrough_factor = 0.15
-				max_planning = 0.14
+				max_planning = 0.15
 				coordination_bonus = 0.10
 			}
 		}
@@ -185,10 +185,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_speed_factor = 0.12
-				army_artillery_defence_factor = 0.14
-				terrain_penalty_reduction = 0.15
-				river_crossing_factor = -0.20
+				army_speed_factor = 0.15
+				army_artillery_defence_factor = 0.15
+				breakthrough_factor = 0.15
+				org_loss_when_moving = -0.25
 				supply_consumption_factor = -0.15
 			}
 		}
@@ -200,8 +200,8 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_armor_speed_factor = 0.15
-				breakthrough_factor = 0.14
-				planning_speed = 0.35
+				breakthrough_factor = 0.15
+				planning_speed = 0.40
 				army_fuel_consumption_factor = -0.20
 				org_loss_when_moving = -0.25
 			}
@@ -211,8 +211,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_armor_attack_factor = 0.14
-				army_armor_defence_factor = 0.18
+				army_armor_attack_factor = 0.15
+				army_armor_defence_factor = 0.20
 				attrition = -0.20
 				army_attack_against_major_factor = 0.10
 			}
@@ -224,10 +224,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				air_cas_present_factor = 0.16
-				air_cas_efficiency = 0.18
-				ground_attack_factor = 0.18
-				air_range_factor = 0.18
+				air_cas_present_factor = 0.15
+				air_cas_efficiency = 0.20
+				ground_attack_factor = 0.20
+				air_range_factor = 0.20
 			}
 		}
 		flower_evo_air_superiority_idea = {
@@ -235,11 +235,11 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_bonus_air_superiority_factor = 0.18
-				air_superiority_efficiency = 0.18
-				air_attack_factor = 0.14
-				air_agility_factor = 0.14
-				air_mission_efficiency = 0.12
+				army_bonus_air_superiority_factor = 0.20
+				air_superiority_efficiency = 0.20
+				air_attack_factor = 0.15
+				air_agility_factor = 0.15
+				air_mission_efficiency = 0.15
 			}
 		}
 
@@ -249,8 +249,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_org_factor = 0.12
-				land_reinforce_rate = 0.08
+				army_org_factor = 0.15
+				land_reinforce_rate = 0.10
 				army_core_defence_factor = 0.15
 				experience_loss_factor = -0.20
 				weekly_manpower = 3000
@@ -261,10 +261,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_attack_factor = 0.12
+				army_attack_factor = 0.15
 				breakthrough_factor = 0.15
-				training_time_army_factor = -0.08
-				army_org_regain = 0.18
+				training_time_army_factor = -0.10
+				army_org_regain = 0.20
 			}
 		}
 
@@ -274,10 +274,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				special_forces_attack_factor = 0.16
-				special_forces_defence_factor = 0.16
+				special_forces_attack_factor = 0.15
+				special_forces_defence_factor = 0.15
 				experience_gain_factor = 0.60
-				supply_consumption_factor = -0.18
+				supply_consumption_factor = -0.20
 			}
 		}
 		flower_evo_magic_grimoire_idea = {
@@ -285,13 +285,13 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				special_forces_cap = 0.90
-				invasion_preparation = -0.35
+				special_forces_cap = 1.00
+				invasion_preparation = -0.40
 				amphibious_invasion = 0.25
 				paradrop_organization_factor = 0.25
-				research_speed_factor = 0.12
-				command_power_gain_mult = 0.35
-				max_command_power = 60
+				research_speed_factor = 0.15
+				command_power_gain_mult = 0.40
+				max_command_power = 50
 			}
 		}
 
@@ -301,8 +301,8 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				research_speed_factor = 0.12
-				special_project_speed_factor = 0.45
+				research_speed_factor = 0.15
+				special_project_speed_factor = 0.50
 				production_speed_nuclear_reactor_factor = 0.40
 			}
 		}
@@ -311,7 +311,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				research_speed_factor = 0.16
+				research_speed_factor = 0.15
 				military_industrial_organization_funds_gain = 1.00
 				industrial_capacity_factory = 0.10
 				production_factory_max_efficiency_factor = 0.10
@@ -328,7 +328,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				land_night_attack = 0.25
-				river_crossing_factor = -0.20
+				org_loss_when_moving = -0.20
 				attrition = -0.15
 				breakthrough_factor = 0.10
 				recon_factor = 0.20
@@ -573,7 +573,7 @@ ideas = {
 			modifier = {
 				resistance_target_on_our_occupied_states = 0.40
 				resistance_growth_on_our_occupied_states = 0.40
-				supply_consumption_factor = -0.18
+				supply_consumption_factor = -0.20
 				attrition = -0.20
 			}
 		}
@@ -583,9 +583,9 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 				army_morale_factor = 0.25
-				experience_loss_factor = -0.35
-				weekly_manpower = 3500
-				out_of_supply_factor = -0.35
+				experience_loss_factor = -0.40
+				weekly_manpower = 4000
+				out_of_supply_factor = -0.40
 			}
 		}
 		flower_micro_sakuya_watch_idea = {
@@ -596,7 +596,7 @@ ideas = {
 				army_armor_speed_factor = 0.20
 				army_armor_attack_factor = 0.15
 				org_loss_when_moving = -0.30
-				planning_speed = 0.35
+				planning_speed = 0.40
 			}
 		}
 		flower_micro_sky_radar_idea = {
@@ -615,12 +615,12 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				winter_attrition_factor = -0.35
-				heat_attrition_factor = -0.35
-				acclimatization_cold_climate_gain_factor = 0.60
-				acclimatization_hot_climate_gain_factor = 0.60
-				river_crossing_factor = -0.20
-				army_defence_factor = 0.12
+				winter_attrition_factor = -0.40
+				heat_attrition_factor = -0.40
+				acclimatization_cold_climate_gain_factor = 0.50
+				acclimatization_hot_climate_gain_factor = 0.50
+				out_of_supply_factor = -0.25
+				army_defence_factor = 0.15
 				cas_damage_reduction = 0.15
 			}
 		}
@@ -629,10 +629,10 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				army_speed_factor = 0.18
+				army_speed_factor = 0.20
 				special_forces_cap = 0.25
 				org_loss_when_moving = -0.25
-				initiative_factor = 0.12
+				initiative_factor = 0.15
 			}
 		}
 		flower_micro_sanae_charm_idea = {
@@ -647,7 +647,7 @@ ideas = {
 		}
 
 		#==================================================
-		#五、六大跨流派隐藏共鸣精神
+		#五、十大跨流派隐藏共鸣精神
 		#==================================================
 		flower_combo_undead_sweatshop_idea = {
 			picture = flower_ico_combo_sweatshop
@@ -736,8 +736,8 @@ ideas = {
 			modifier = {
 				special_forces_attack_factor = 0.20
 				air_cas_efficiency = 0.20
-				paradrop_organization_factor = 0.35
-				invasion_preparation = -0.35
+				paradrop_organization_factor = 0.40
+				invasion_preparation = -0.40
 			}
 		}
 		flower_combo_crimson_harvest_idea = {

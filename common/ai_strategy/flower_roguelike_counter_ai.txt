@@ -157,7 +157,7 @@ flower_branch_10a_elite_cap_strat = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		is_ai = yes
 		has_idea = flower_evo_magic_chosen_idea
-		num_divisions > 41
+		num_divisions > 43
 	}
 	abort_when_not_enabled = yes
 

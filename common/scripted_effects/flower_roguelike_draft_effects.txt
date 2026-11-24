@@ -1199,8 +1199,8 @@ flower_ai_apply_draft_slot_1 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_1 = 21 } }
 		add_political_power = 50
-		army_experience = 35
-		air_experience = 35
+		army_experience = 50
+		air_experience = 50
 		add_to_variable = { ubs_save = 150 }
 		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes
@@ -1673,8 +1673,8 @@ flower_ai_apply_draft_slot_2 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_2 = 21 } }
 		add_political_power = 50
-		army_experience = 35
-		air_experience = 35
+		army_experience = 50
+		air_experience = 50
 		add_to_variable = { ubs_save = 150 }
 		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes
@@ -2147,8 +2147,8 @@ flower_ai_apply_draft_slot_3 = {
 	else_if = {
 		limit = { check_variable = { flower_draft_slot_3 = 21 } }
 		add_political_power = 50
-		army_experience = 35
-		air_experience = 35
+		army_experience = 50
+		air_experience = 50
 		add_to_variable = { ubs_save = 150 }
 		flower_ai_sync_hcp_ui = yes
 		flower_ai_open_branch_evolution_event = yes

@@ -218,12 +218,15 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			random_list = {
-				50 = {
-					scoped_sound_effect = "微笑"
-				}
-				50 = {
-					scoped_sound_effect = "大笑"
+			if = {
+				limit = { is_ai = no }
+				random_list = {
+					50 = {
+						scoped_sound_effect = "微笑"
+					}
+					50 = {
+						scoped_sound_effect = "大笑"
+					}
 				}
 			}
 		}
@@ -237,12 +240,15 @@ country_event = {
 			tag = from
 		}
 		hidden_effect = {
-			random_list = {
-				50 = {
-					scoped_sound_effect = "微笑"
-				}
-				50 = {
-					scoped_sound_effect = "大笑"
+			if = {
+				limit = { is_ai = no }
+				random_list = {
+					50 = {
+						scoped_sound_effect = "微笑"
+					}
+					50 = {
+						scoped_sound_effect = "大笑"
+					}
 				}
 			}
 		}
@@ -2413,7 +2419,7 @@ country_event = {
 			modifier = { factor = 3.0 has_war = yes has_stability > 0.55 }
 		}
 		add_manpower = -20000
-		add_stability = -0.04
+		add_stability = -0.05
 		add_timed_idea = {
 			idea = flower_op_undead_overdrive_idea
 			days = 60

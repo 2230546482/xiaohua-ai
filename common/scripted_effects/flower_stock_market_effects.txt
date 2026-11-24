@@ -647,7 +647,7 @@ flower_stock_monthly_tick = {
 			}
 			set_temp_variable = { net_ind = flower_stk_2_shares }
 			subtract_from_temp_variable = { net_ind = flower_stk_2_short }
-			multiply_temp_variable = { net_ind = 8 }
+			multiply_temp_variable = { net_ind = 10 }
 			add_to_variable = { ubs_save = net_ind }
 			add_to_variable = { flower_stk_realized_pnl = net_ind }
 			flower_ai_sync_hcp_ui = yes

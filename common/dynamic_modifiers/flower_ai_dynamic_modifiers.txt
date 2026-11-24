@@ -81,7 +81,7 @@ flower_veteran_furnace_dynamic_mod = {
 flower_guerrilla_underdog_dynamic_mod = {
 	icon = GFX_idea_flower_ico_gu_s2
 	enable = { always = yes }
-	terrain_penalty_reduction = flower_gu_ter_var
+	org_loss_when_moving = flower_gu_ter_var
 	out_of_supply_factor = flower_gu_oos_var
 	army_core_attack_factor = flower_gu_catk_var
 	army_core_defence_factor = flower_gu_cdef_var
@@ -105,7 +105,7 @@ flower_elite_small_army_dynamic_mod = {
 	army_defence_factor = flower_elite_def_var
 	breakthrough_factor = flower_elite_brk_var
 	experience_gain_army_unit_factor = flower_elite_xp_var
-	terrain_penalty_reduction = flower_elite_ter_var
+	army_org_factor = flower_elite_ter_var
 }
 
 #流派11：科研领先反哺全军动态修正
