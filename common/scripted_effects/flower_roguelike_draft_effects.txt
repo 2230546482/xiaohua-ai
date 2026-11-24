@@ -383,10 +383,15 @@ flower_ai_open_branch_evolution_event = {
 	}
 }
 
-#从36张词条牌库随机抽出一张不重复卡牌
+#从36张词条牌库随机抽出一张不重复卡牌（大幅提高已选流派专属卡与同系高协同卡的抽中概率）
 flower_ai_pick_one_draft_card = {
 	random_list = {
+		#1.大意了，没有闪（夜战强协同）
 		12 = {
+			modifier = {
+				factor = 3.0
+				has_country_flag = flower_roguelike_nightingale_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -401,7 +406,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 1 }
 		}
+		#2.顺丰包邮到前线（游击/装甲协同）
 		12 = {
+			modifier = {
+				factor = 2.4
+				OR = {
+					has_country_flag = flower_roguelike_guerrilla_ai
+					has_country_flag = flower_roguelike_tank_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -416,7 +429,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 2 }
 		}
+		#3.牛马产线连轴转（大基建强协同）
 		12 = {
+			modifier = {
+				factor = 3.2
+				has_country_flag = flower_roguelike_corp_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -431,7 +449,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 3 }
 		}
+		#4.对面开全图挂了？（夜战/科研协同）
 		12 = {
+			modifier = {
+				factor = 2.6
+				OR = {
+					has_country_flag = flower_roguelike_nightingale_ai
+					has_country_flag = flower_roguelike_steampunk_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -442,7 +468,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 4 }
 		}
+		#5.你这军火保熟吗（扒装备/黑市强协同）
 		12 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_slayer_ai
+					has_country_flag = flower_roguelike_gambler_active
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -457,7 +491,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 5 }
 		}
+		#6.空降对面首都不就行了（特种/空军强协同）
 		11 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_magic_ai
+					has_country_flag = flower_roguelike_air_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -468,7 +510,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 6 }
 		}
+		#7.微操大师参谋部（特种协同）
 		12 = {
+			modifier = {
+				factor = 2.4
+				has_country_flag = flower_roguelike_magic_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -483,7 +530,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 7 }
 		}
+		#8.马奇诺施工队（人海/游击协同）
 		11 = {
+			modifier = {
+				factor = 2.6
+				OR = {
+					has_country_flag = flower_roguelike_wave_ai
+					has_country_flag = flower_roguelike_guerrilla_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -494,7 +549,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 8 }
 		}
+		#9.从从容容总参谋部（装甲/重炮协同）
 		12 = {
+			modifier = {
+				factor = 2.4
+				OR = {
+					has_country_flag = flower_roguelike_tank_ai
+					has_country_flag = flower_roguelike_arty_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -509,7 +572,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 9 }
 		}
+		#10.全图绿空，谁问你了（空军强协同）
 		11 = {
+			modifier = {
+				factor = 3.6
+				has_country_flag = flower_roguelike_air_ai
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -520,7 +588,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 10 }
 		}
+		#11.战地华佗：还能抢救（敢死队/人海强协同）
 		12 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_undead_ai
+					has_country_flag = flower_roguelike_wave_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -535,7 +611,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 11 }
 		}
+		#12.后院一铲挖出大油田（装甲/空军强协同）
 		11 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_tank_ai
+					has_country_flag = flower_roguelike_air_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -546,7 +630,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 12 }
 		}
+		#13.破釜沉舟（敢死队/人海协同）
 		11 = {
+			modifier = {
+				factor = 2.2
+				OR = {
+					has_country_flag = flower_roguelike_undead_ai
+					has_country_flag = flower_roguelike_wave_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -561,7 +653,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 13 }
 		}
+		#14.全员进厂打螺丝（大基建强协同）
 		12 = {
+			modifier = {
+				factor = 3.2
+				has_country_flag = flower_roguelike_corp_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -576,7 +673,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 14 }
 		}
+		#15.睡什么睡，起来嗨！（装甲/夜战协同）
 		11 = {
+			modifier = {
+				factor = 2.4
+				OR = {
+					has_country_flag = flower_roguelike_tank_ai
+					has_country_flag = flower_roguelike_nightingale_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -591,7 +696,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 15 }
 		}
+		#16.防御降了？如何呢，又能怎！（扒装备/重炮协同）
 		11 = {
+			modifier = {
+				factor = 2.4
+				OR = {
+					has_country_flag = flower_roguelike_slayer_ai
+					has_country_flag = flower_roguelike_arty_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -606,7 +719,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 16 }
 		}
+		#17.凭本事借的钱（大基建/黑市强协同）
 		11 = {
+			modifier = {
+				factor = 3.0
+				OR = {
+					has_country_flag = flower_roguelike_corp_ai
+					has_country_flag = flower_roguelike_gambler_active
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -621,7 +742,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 17 }
 		}
+		#18.这科研正常吗？（疯狂科研强协同）
 		10 = {
+			modifier = {
+				factor = 3.6
+				has_country_flag = flower_roguelike_steampunk_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -636,7 +762,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 18 }
 		}
+		#19.回答我！为什么不冲！（人海/敢死队强协同）
 		10 = {
+			modifier = {
+				factor = 3.0
+				OR = {
+					has_country_flag = flower_roguelike_wave_ai
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -647,7 +781,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 19 }
 		}
+		#20.炮管打到红温（重炮/装甲强协同）
 		11 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_arty_ai
+					has_country_flag = flower_roguelike_tank_ai
+				}
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -662,6 +804,7 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 20 }
 		}
+		#21.流派分支启动
 		0 = {
 			modifier = {
 				add = 28
@@ -681,6 +824,7 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 21 }
 		}
+		#22.小孩子才做选择
 		24 = {
 			modifier = {
 				factor = 1.45
@@ -710,7 +854,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 22 }
 		}
+		#23.赛博盲盒拆一发（黑市轮盘专属强倾斜）
 		11 = {
+			modifier = {
+				factor = 4.0
+				has_country_flag = flower_roguelike_gambler_active
+			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
@@ -724,7 +873,18 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 23 }
 		}
+		#24.义父的租借法案
 		12 = {
+			modifier = {
+				factor = 1.6
+				OR = {
+					has_country_flag = flower_roguelike_tank_ai
+					has_country_flag = flower_roguelike_air_ai
+					has_country_flag = flower_roguelike_nightingale_ai
+					has_country_flag = flower_roguelike_guerrilla_ai
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
@@ -738,7 +898,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 24 }
 		}
+		#25.午夜消音突袭包（午夜夜战专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_nightingale_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -753,7 +918,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 25 }
 		}
+		#26.敌后破坏手册（敌后游击专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_guerrilla_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -768,7 +938,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 26 }
 		}
+		#27.复活吧，我的爱人！（战地敢死队专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_undead_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -783,7 +958,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 27 }
 		}
+		#28.早苗开过光的炮弹（重炮洗地专属）
 		10 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_arty_ai
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -794,7 +974,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 28 }
 		}
+		#29.银怀表：极速穿插手册（时停装甲专属）
 		10 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_tank_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -809,7 +994,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 29 }
 		}
+		#30.全天候航空引导雷达（斯图卡空军专属）
 		10 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_air_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -824,7 +1014,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 30 }
 		}
+		#31.草台班子连夜盖厂（大基建五年计划专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_corp_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -839,7 +1034,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 31 }
 		}
+		#32.战场零元购指南（战地扒装备专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_slayer_ai
+			}
 			modifier = {
 				factor = 2.5
 				has_country_flag = flower_draft_high_roller
@@ -854,7 +1054,16 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 32 }
 		}
+		#33.荒野求生：贝爷带队（游击/特种/敢死队强协同）
 		10 = {
+			modifier = {
+				factor = 3.5
+				OR = {
+					has_country_flag = flower_roguelike_guerrilla_ai
+					has_country_flag = flower_roguelike_magic_ai
+					has_country_flag = flower_roguelike_undead_ai
+				}
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -865,7 +1074,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 33 }
 		}
+		#34.全军狂奔加速鞋（王牌特种专属）
 		10 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_magic_ai
+			}
 			modifier = {
 				factor = 0
 				OR = {
@@ -876,7 +1090,15 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 34 }
 		}
+		#35.魔鬼教官特训营（人海/特种强协同）
 		11 = {
+			modifier = {
+				factor = 3.2
+				OR = {
+					has_country_flag = flower_roguelike_wave_ai
+					has_country_flag = flower_roguelike_magic_ai
+				}
+			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller
@@ -890,7 +1112,12 @@ flower_ai_pick_one_draft_card = {
 			}
 			set_variable = { flower_draft_temp = 35 }
 		}
+		#36.这合理吗？满地图纸（疯狂科研专属）
 		11 = {
+			modifier = {
+				factor = 4.5
+				has_country_flag = flower_roguelike_steampunk_ai
+			}
 			modifier = {
 				factor = 0.15
 				has_country_flag = flower_draft_high_roller

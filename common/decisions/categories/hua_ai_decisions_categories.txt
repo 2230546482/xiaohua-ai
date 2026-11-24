@@ -8,7 +8,7 @@ hua_lunyi_decisions_categories = {
 	allowed = {
 		
 	}
-	icon = GFX_PAM_amjy
+	icon = GFX_decision_flower_dec_dock_xiaohua
 	priority = 500
 	visible = {
 		
@@ -19,7 +19,7 @@ flower_roguelike_ops_cat = {
 	allowed = {
 		always = yes
 	}
-	icon = GFX_PAM_amjy
+	icon = GFX_decision_flower_dec_draft_cat
 	priority = 480
 	visible = {
 		OR = {
@@ -44,7 +44,7 @@ flower_stock_infra_cat = {
 	allowed = {
 		always = yes
 	}
-	icon = GFX_PAM_amjy
+	icon = GFX_decision_flower_dec_stk_stonks
 	priority = 485
 	visible = {
 		has_global_flag = flower_anomaly_3_active
@@ -57,7 +57,7 @@ flower_devour_tech_cat = {
 	allowed = {
 		always = yes
 	}
-	icon = GFX_PAM_amjy
+	icon = GFX_decision_flower_dec_bp_devour
 	priority = 486
 	visible = {
 		has_global_flag = flower_anomaly_4_active
@@ -70,7 +70,7 @@ flower_anomaly_v2_ops_cat = {
 	allowed = {
 		always = yes
 	}
-	icon = GFX_PAM_amjy
+	icon = GFX_decision_flower_dec_ziwen
 	priority = 490
 	visible = {
 		OR = {

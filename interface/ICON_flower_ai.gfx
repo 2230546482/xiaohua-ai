@@ -1283,4 +1283,142 @@ spriteTypes = {
 		name = "GFX_idea_flower_anom_12_look_eyes"
 		texturefile = "gfx/interface/ideas/flower_memes/flower_meme_anom_12_look_eyes.png"
 	}
+	#抽牌词条卡(36帧)与流派进阶分支卡(25帧)流派/梗图专属相框图标精灵条
+	spriteType = {
+		name = "GFX_flower_hex_card_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_hex_card_icons.png"
+		noOfFrames = 36
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_branch_card_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_branch_card_icons.png"
+		noOfFrames = 25
+		legacy_lazy_load = no
+	}
+	#特色决议专属梗图小图标(36x36)
+	spriteType = {
+		name = "GFX_decision_flower_dec_ziwen"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_ziwen.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_yemen"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_yemen.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_dvl_magic"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_dvl_magic.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_dvl_ward"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_dvl_ward.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_black_market"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_black_market.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_slayer"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_slayer.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_corp"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_corp.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_arty"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_arty.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_tank"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_tank.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_air"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_air.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_wave"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_wave.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_night"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_night.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_guerrilla"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_guerrilla.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_undead"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_undead.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_specops"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_specops.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_science"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_science.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_op_gambler"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_op_gambler.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_draft_cat"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_draft_cat.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_draft_hiss"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_draft_hiss.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_draft_branch"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_draft_branch.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_dock_xiaohua"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_dock_xiaohua.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_diff_up"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_diff_up.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_diff_down"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_diff_down.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_stk_kurumi"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_stk_kurumi.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_stk_stonks"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_stk_stonks.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_stk_hotpot"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_stk_hotpot.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_bp_ufo"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_ufo.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_bp_sanae"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_sanae.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_bp_baidun"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_baidun.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_bp_steam"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_steam.png"
+	}
+	spriteType = {
+		name = "GFX_decision_flower_dec_bp_devour"
+		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_devour.png"
+	}
 }

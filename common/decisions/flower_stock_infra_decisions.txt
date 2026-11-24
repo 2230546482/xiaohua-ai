@@ -3,7 +3,7 @@ flower_stock_infra_cat = {
 
 	#1. 重金征地扩建厂区（花350现金 -> 2个控制州各+2建筑槽，30天冷却）
 	flower_stk_dec_expand_slots = {
-		icon = generic_construction
+		icon = flower_dec_stk_kurumi
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_350_tt
@@ -58,7 +58,7 @@ flower_stock_infra_cat = {
 
 	#2. 民营基建财团包干（花500现金 -> 扩槽并立刻落成2座民用工厂，45天冷却）
 	flower_stk_dec_build_civs = {
-		icon = generic_factory
+		icon = flower_dec_stk_stonks
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_500_tt
@@ -120,7 +120,7 @@ flower_stock_infra_cat = {
 
 	#3. 军工巨头紧急扩产（花550现金 -> 扩槽并立刻落成2座军用工厂，45天冷却）
 	flower_stk_dec_build_mils = {
-		icon = generic_industry
+		icon = flower_dec_op_corp
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_550_tt
@@ -230,7 +230,7 @@ flower_stock_infra_cat = {
 
 	#5. 全国基础设施大包干（花300现金 -> 3个未满级控制州各+1基建 + 90天全建造提速15%/修复25%，45天冷却）
 	flower_stk_dec_national_infra = {
-		icon = generic_prepare_civil_war
+		icon = flower_dec_op_corp
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_300_tt
@@ -449,7 +449,7 @@ flower_stock_infra_cat = {
 
 	#8. 重金雇佣铁路与补给枢纽工程队（花600现金 -> 2州+1基建 + 120天补给枢纽+150%/铁路+100%/基建+50%/补给消耗-10%，90天冷却）
 	flower_stk_dec_supply_corps = {
-		icon = generic_operation
+		icon = flower_dec_stk_hotpot
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_600_tt

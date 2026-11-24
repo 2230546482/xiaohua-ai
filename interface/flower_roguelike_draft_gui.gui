@@ -597,6 +597,13 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		iconType = {
+			name = "flower_hex_slot_1_icon"
+			position = { x = 144 y = 238 }
+			spriteType = "GFX_flower_hex_card_icons"
+			frame = 1
+			alwaystransparent = yes
+		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_1_title"
 			position = { x = 46 y = 285 }
@@ -669,6 +676,13 @@ guiTypes = {
 			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_hex_slot_2_icon"
+			position = { x = 438 y = 238 }
+			spriteType = "GFX_flower_hex_card_icons"
+			frame = 1
+			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_2_title"
@@ -743,6 +757,13 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		iconType = {
+			name = "flower_hex_slot_3_icon"
+			position = { x = 732 y = 238 }
+			spriteType = "GFX_flower_hex_card_icons"
+			frame = 1
+			alwaystransparent = yes
+		}
 		instantTextBoxType = {
 			name = "flower_hex_slot_3_title"
 			position = { x = 634 y = 285 }
@@ -785,6 +806,13 @@ guiTypes = {
 			pdx_tooltip = "FLOWER_BRANCH_OPT_1_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch3_opt_1_icon"
+			position = { x = 144 y = 238 }
+			spriteType = "GFX_flower_branch_card_icons"
+			frame = 1
+			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_1_title"
@@ -829,6 +857,13 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		iconType = {
+			name = "flower_branch3_opt_2_icon"
+			position = { x = 438 y = 238 }
+			spriteType = "GFX_flower_branch_card_icons"
+			frame = 1
+			alwaystransparent = yes
+		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_2_title"
 			position = { x = 340 y = 285 }
@@ -871,6 +906,13 @@ guiTypes = {
 			pdx_tooltip = "FLOWER_BRANCH_OPT_3_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch3_opt_3_icon"
+			position = { x = 732 y = 238 }
+			spriteType = "GFX_flower_branch_card_icons"
+			frame = 1
+			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch3_opt_3_title"
@@ -915,6 +957,13 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		iconType = {
+			name = "flower_branch2_opt_1_icon"
+			position = { x = 282 y = 238 }
+			spriteType = "GFX_flower_branch_card_icons"
+			frame = 1
+			alwaystransparent = yes
+		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_1_title"
 			position = { x = 184 y = 285 }
@@ -957,6 +1006,13 @@ guiTypes = {
 			pdx_tooltip = "FLOWER_BRANCH_OPT_2_TT_WRAP"
 			clicksound = 盖章
 			oversound = PAU_hover_paper
+		}
+		iconType = {
+			name = "flower_branch2_opt_2_icon"
+			position = { x = 594 y = 238 }
+			spriteType = "GFX_flower_branch_card_icons"
+			frame = 1
+			alwaystransparent = yes
 		}
 		instantTextBoxType = {
 			name = "flower_branch2_opt_2_title"

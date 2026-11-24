@@ -299,7 +299,7 @@ hua_lunyi_decisions_categories = {
         }
     }
     hua_super_gutou_decisions = {
-        icon = GFX_die_tec
+        icon = flower_dec_dvl_magic
         priority = 60
         allowed = {  }
 
@@ -335,7 +335,7 @@ hua_lunyi_decisions_categories = {
         }
     }
     hua_super_gutou_decisions_remove = {
-        icon = GFX_die_tec
+        icon = flower_dec_dvl_ward
         priority = 61
         allowed = {  }
 
@@ -533,7 +533,7 @@ hua_lunyi_decisions_categories = {
 
     #隐藏或显示右上角小花快捷悬浮窗
     hua_toggle_floating_dock_decision = {
-        icon = GFX_exchange_good_luck
+        icon = flower_dec_dock_xiaohua
         priority = 99
         allowed = { }
         available = {
@@ -565,7 +565,7 @@ hua_lunyi_decisions_categories = {
 
     #全局AI难度升档
     hua_global_difficulty_up_dec = {
-        icon = GFX_die_tec
+        icon = flower_dec_diff_up
         priority = 70
         allowed = { }
         available = {
@@ -633,7 +633,7 @@ hua_lunyi_decisions_categories = {
 
     #全局AI难度降档
     hua_global_difficulty_down_dec = {
-        icon = GFX_exchange_bad_luck
+        icon = flower_dec_diff_down
         priority = 69
         allowed = { }
         available = {
@@ -719,7 +719,7 @@ hua_lunyi_decisions_categories = {
 
     #单国升为天灾强化
     hua_target_apocalypse_on_dec = {
-        icon = GFX_die_tec
+        icon = flower_dec_diff_up
         priority = 55
         allowed = { }
         available = {
@@ -767,7 +767,7 @@ hua_lunyi_decisions_categories = {
 
     #解除单国天灾强化
     hua_target_apocalypse_off_dec = {
-        icon = GFX_exchange_bad_luck
+        icon = flower_dec_diff_down
         priority = 56
         allowed = { }
         available = {
@@ -821,7 +821,7 @@ hua_lunyi_decisions_categories = {
 
     #主动开启当前流派的后续分叉进化（支持双修/多修逐一进化，玩家与AI主要国家均可用）
     hua_trigger_branch_evo_dec = {
-        icon = generic_military
+        icon = flower_dec_draft_branch
         priority = 90
         allowed = { }
         visible = {
@@ -863,7 +863,7 @@ hua_lunyi_decisions_categories = {
 
     #主动加抽一轮肉鸽三选一（整合原政治点/HCP双决议为单一入口，每180天限1次，优先耗100政治点、不足时自动改耗250 HCP）
     hua_buy_roguelike_draft_pp_dec = {
-        icon = generic_political_discourse
+        icon = flower_dec_draft_cat
         priority = 89
         allowed = { }
         visible = {
@@ -927,7 +927,7 @@ hua_lunyi_decisions_categories = {
 
     #主动翻开12大流派面板（限4次，按已修不同流派数消耗：1条150 / 2条200 / 3条及以上300政治点数）
     hua_open_extra_archetype_dec = {
-        icon = GFX_exchange_good_luck
+        icon = flower_dec_draft_hiss
         priority = 88
         allowed = { }
         visible = {

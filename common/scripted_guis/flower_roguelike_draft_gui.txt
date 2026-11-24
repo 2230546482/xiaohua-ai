@@ -223,6 +223,7 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 2 }
 				check_variable = { flower_draft_slot_1 > 24 }
 			}
+			flower_hex_slot_1_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -244,6 +245,7 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 2 }
 				check_variable = { flower_draft_slot_2 > 24 }
 			}
+			flower_hex_slot_2_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -265,6 +267,7 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 2 }
 				check_variable = { flower_draft_slot_3 > 24 }
 			}
+			flower_hex_slot_3_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_quote_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -347,6 +350,53 @@ scripted_gui = {
 			flower_branch2_opt_2_body_visible = {
 				check_variable = { flower_draft_gui_mode = 3 }
 				check_variable = { flower_branch_id > 3 }
+			}
+			flower_branch3_opt_1_icon_visible = {
+				check_variable = { flower_draft_gui_mode = 3 }
+				check_variable = { flower_branch_id < 4 }
+			}
+			flower_branch3_opt_2_icon_visible = {
+				check_variable = { flower_draft_gui_mode = 3 }
+				check_variable = { flower_branch_id < 4 }
+			}
+			flower_branch3_opt_3_icon_visible = {
+				check_variable = { flower_draft_gui_mode = 3 }
+				check_variable = { flower_branch_id < 4 }
+			}
+			flower_branch2_opt_1_icon_visible = {
+				check_variable = { flower_draft_gui_mode = 3 }
+				check_variable = { flower_branch_id > 3 }
+			}
+			flower_branch2_opt_2_icon_visible = {
+				check_variable = { flower_draft_gui_mode = 3 }
+				check_variable = { flower_branch_id > 3 }
+			}
+		}
+
+		properties = {
+			flower_hex_slot_1_icon = {
+				frame = flower_draft_slot_1
+			}
+			flower_hex_slot_2_icon = {
+				frame = flower_draft_slot_2
+			}
+			flower_hex_slot_3_icon = {
+				frame = flower_draft_slot_3
+			}
+			flower_branch3_opt_1_icon = {
+				frame = flower_branch_opt1_frame
+			}
+			flower_branch3_opt_2_icon = {
+				frame = flower_branch_opt2_frame
+			}
+			flower_branch3_opt_3_icon = {
+				frame = flower_branch_opt3_frame
+			}
+			flower_branch2_opt_1_icon = {
+				frame = flower_branch_opt1_frame
+			}
+			flower_branch2_opt_2_icon = {
+				frame = flower_branch_opt2_frame
 			}
 		}
 

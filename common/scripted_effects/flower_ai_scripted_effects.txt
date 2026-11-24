@@ -30,6 +30,78 @@ flower_ai_recalc_pending_drafts = {
 		limit = { check_variable = { flower_queue_hex > 0 } }
 		add_to_variable = { flower_total_pending_drafts = flower_queue_hex }
 	}
+	#同步流派进阶分支卡面专属图标帧号（25帧精灵条 GFX_flower_branch_card_icons）
+	if = {
+		limit = { check_variable = { flower_branch_id = 1 } }
+		set_variable = { flower_branch_opt1_frame = 1 }
+		set_variable = { flower_branch_opt2_frame = 2 }
+		set_variable = { flower_branch_opt3_frame = 3 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 2 } }
+		set_variable = { flower_branch_opt1_frame = 4 }
+		set_variable = { flower_branch_opt2_frame = 5 }
+		set_variable = { flower_branch_opt3_frame = 6 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 3 } }
+		set_variable = { flower_branch_opt1_frame = 7 }
+		set_variable = { flower_branch_opt2_frame = 8 }
+		set_variable = { flower_branch_opt3_frame = 9 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 4 } }
+		set_variable = { flower_branch_opt1_frame = 10 }
+		set_variable = { flower_branch_opt2_frame = 11 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 5 } }
+		set_variable = { flower_branch_opt1_frame = 12 }
+		set_variable = { flower_branch_opt2_frame = 13 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 6 } }
+		set_variable = { flower_branch_opt1_frame = 14 }
+		set_variable = { flower_branch_opt2_frame = 15 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 7 } }
+		set_variable = { flower_branch_opt1_frame = 16 }
+		set_variable = { flower_branch_opt2_frame = 17 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 8 } }
+		set_variable = { flower_branch_opt1_frame = 18 }
+		set_variable = { flower_branch_opt2_frame = 19 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 9 } }
+		set_variable = { flower_branch_opt1_frame = 20 }
+		set_variable = { flower_branch_opt2_frame = 21 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 10 } }
+		set_variable = { flower_branch_opt1_frame = 22 }
+		set_variable = { flower_branch_opt2_frame = 23 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { flower_branch_id = 11 } }
+		set_variable = { flower_branch_opt1_frame = 24 }
+		set_variable = { flower_branch_opt2_frame = 25 }
+		set_variable = { flower_branch_opt3_frame = 1 }
+	}
+	else = {
+		set_variable = { flower_branch_opt1_frame = 1 }
+		set_variable = { flower_branch_opt2_frame = 2 }
+		set_variable = { flower_branch_opt3_frame = 3 }
+	}
 }
 
 #记录玩家已选词条卡牌ID到动态图鉴数组（用于【已选卡牌图鉴】面板，同时为人类玩家播放对应词条的代表性热梗音效）

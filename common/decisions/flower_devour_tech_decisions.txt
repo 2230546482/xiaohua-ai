@@ -5,7 +5,7 @@
 flower_devour_tech_cat = {
 
 	flower_bp_dec_t2_pao = {
-		icon = generic_research
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t2_pao
 			NOT = { has_country_flag = flower_bp_done_t2_pao }
@@ -32,7 +32,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_kmk = {
-		icon = generic_tank
+		icon = flower_dec_op_tank
 		visible = {
 			has_country_flag = flower_bp_has_t2_kmk
 			NOT = { has_country_flag = flower_bp_done_t2_kmk }
@@ -62,7 +62,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_fra = {
-		icon = generic_air
+		icon = flower_dec_bp_sanae
 		visible = {
 			has_country_flag = flower_bp_has_t2_fra
 			NOT = { has_country_flag = flower_bp_done_t2_fra }
@@ -89,7 +89,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_sov = {
-		icon = generic_tank
+		icon = flower_dec_op_arty
 		visible = {
 			has_country_flag = flower_bp_has_t2_sov
 			NOT = { has_country_flag = flower_bp_done_t2_sov }
@@ -116,7 +116,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_dvl = {
-		icon = generic_military
+		icon = flower_dec_dvl_magic
 		visible = {
 			has_country_flag = flower_bp_has_t2_dvl
 			NOT = { has_country_flag = flower_bp_done_t2_dvl }
@@ -143,7 +143,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_ger = {
-		icon = generic_tank
+		icon = flower_dec_bp_baidun
 		visible = {
 			has_country_flag = flower_bp_has_t2_ger
 			NOT = { has_country_flag = flower_bp_done_t2_ger }
@@ -173,7 +173,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_eng = {
-		icon = generic_air
+		icon = flower_dec_op_air
 		visible = {
 			has_country_flag = flower_bp_has_t2_eng
 			NOT = { has_country_flag = flower_bp_done_t2_eng }
@@ -200,7 +200,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_jap = {
-		icon = generic_military
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t2_jap
 			NOT = { has_country_flag = flower_bp_done_t2_jap }
@@ -227,7 +227,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_mgu = {
-		icon = generic_air
+		icon = flower_dec_op_specops
 		visible = {
 			has_country_flag = flower_bp_has_t2_mgu
 			NOT = { has_country_flag = flower_bp_done_t2_mgu }
@@ -254,7 +254,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_paq = {
-		icon = generic_military
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t2_paq
 			NOT = { has_country_flag = flower_bp_done_t2_paq }
@@ -281,7 +281,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_pau = {
-		icon = generic_air
+		icon = flower_dec_op_specops
 		visible = {
 			has_country_flag = flower_bp_has_t2_pau
 			NOT = { has_country_flag = flower_bp_done_t2_pau }
@@ -308,7 +308,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_pan = {
-		icon = generic_military
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t2_pan
 			NOT = { has_country_flag = flower_bp_done_t2_pan }
@@ -335,7 +335,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_tur = {
-		icon = generic_tank
+		icon = flower_dec_op_tank
 		visible = {
 			has_country_flag = flower_bp_has_t2_tur
 			NOT = { has_country_flag = flower_bp_done_t2_tur }
@@ -362,7 +362,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_usa_radar = {
-		icon = generic_research
+		icon = flower_dec_op_science
 		visible = {
 			has_country_flag = flower_bp_has_t2_usa_radar
 			NOT = { has_country_flag = flower_bp_done_t2_usa_radar }
@@ -389,7 +389,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t2_autometa = {
-		icon = generic_industry
+		icon = flower_dec_op_corp
 		visible = {
 			has_country_flag = flower_bp_has_t2_autometa
 			NOT = { has_country_flag = flower_bp_done_t2_autometa }
@@ -416,7 +416,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_ufo = {
-		icon = generic_air
+		icon = flower_dec_bp_ufo
 		visible = {
 			has_country_flag = flower_bp_has_t3_ufo
 			NOT = { has_country_flag = flower_bp_done_t3_ufo }
@@ -446,7 +446,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_kmk = {
-		icon = generic_tank
+		icon = flower_dec_op_tank
 		visible = {
 			has_country_flag = flower_bp_has_t3_kmk
 			NOT = { has_country_flag = flower_bp_done_t3_kmk }
@@ -476,7 +476,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_fra = {
-		icon = generic_military
+		icon = flower_dec_bp_sanae
 		visible = {
 			has_country_flag = flower_bp_has_t3_fra
 			NOT = { has_country_flag = flower_bp_done_t3_fra }
@@ -506,7 +506,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_sov = {
-		icon = generic_tank
+		icon = flower_dec_op_arty
 		visible = {
 			has_country_flag = flower_bp_has_t3_sov
 			NOT = { has_country_flag = flower_bp_done_t3_sov }
@@ -536,7 +536,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_dvl_net = {
-		icon = generic_tank
+		icon = flower_dec_dvl_magic
 		visible = {
 			has_country_flag = flower_bp_has_t3_dvl_net
 			NOT = { has_country_flag = flower_bp_done_t3_dvl_net }
@@ -566,7 +566,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_ai_fcs = {
-		icon = generic_research
+		icon = flower_dec_op_science
 		visible = {
 			has_country_flag = flower_bp_has_t3_ai_fcs
 			NOT = { has_country_flag = flower_bp_done_t3_ai_fcs }
@@ -593,7 +593,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_ger_serum = {
-		icon = generic_military
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t3_ger_serum
 			NOT = { has_country_flag = flower_bp_done_t3_ger_serum }
@@ -620,7 +620,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_heli = {
-		icon = generic_air
+		icon = flower_dec_op_air
 		visible = {
 			has_country_flag = flower_bp_has_t3_heli
 			NOT = { has_country_flag = flower_bp_done_t3_heli }
@@ -650,7 +650,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_eng_jet = {
-		icon = generic_air
+		icon = flower_dec_op_air
 		visible = {
 			has_country_flag = flower_bp_has_t3_eng_jet
 			NOT = { has_country_flag = flower_bp_done_t3_eng_jet }
@@ -680,7 +680,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_jap = {
-		icon = generic_military
+		icon = flower_dec_bp_devour
 		visible = {
 			has_country_flag = flower_bp_has_t3_jap
 			NOT = { has_country_flag = flower_bp_done_t3_jap }
@@ -707,7 +707,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_swe = {
-		icon = generic_military
+		icon = flower_dec_op_specops
 		visible = {
 			has_country_flag = flower_bp_has_t3_swe
 			NOT = { has_country_flag = flower_bp_done_t3_swe }
@@ -734,7 +734,7 @@ flower_devour_tech_cat = {
 	}
 
 	flower_bp_dec_t3_den_next = {
-		icon = generic_tank
+		icon = flower_dec_bp_steam
 		visible = {
 			has_country_flag = flower_devour_pack_den
 			has_tech = steamtank1

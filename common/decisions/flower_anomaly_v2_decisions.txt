@@ -1,7 +1,7 @@
 flower_anomaly_v2_ops_cat = {
 	#畸变7主动决议：【三军听令，自刎归天！】（30天孤注一掷爆发，到期后60天强弩之末）
 	flower_anom7_ziwen_charge_dec = {
-		icon = generic_ignite_civil_war
+		icon = flower_dec_ziwen
 		visible = {
 			has_global_flag = flower_anomaly_7_active
 		}
@@ -42,7 +42,7 @@ flower_anomaly_v2_ops_cat = {
 
 	#畸变8主动决议：【大喊：我是爷们儿！】（玩家专属0消耗战时主动拍桌爆发60天，冷却120天；AI走月度自动触发）
 	flower_anom8_yemen_roar_dec = {
-		icon = generic_army_support
+		icon = flower_dec_yemen
 		visible = {
 			has_global_flag = flower_anomaly_8_active
 			is_ai = no
