@@ -4,7 +4,7 @@ ideas = {
 		#一、11大流派后续分支进化精神（25条独立路线）
 		#==================================================
 
-		#1.夜莺骑士团·三叉进化
+		#1.夜莺骑士团-三叉进化
 		flower_evo_nightingale_blood_idea = {
 			picture = flower_ico_evo_ng_blood
 			allowed = { always = no }
@@ -46,7 +46,7 @@ ideas = {
 			}
 		}
 
-		#2.野火游击队·三叉进化
+		#2.野火游击队-三叉进化
 		flower_evo_guerrilla_scorch_idea = {
 			picture = flower_ico_evo_gu_scorch
 			allowed = { always = no }
@@ -87,7 +87,7 @@ ideas = {
 			}
 		}
 
-		#3.躁动的亡灵·三叉进化
+		#3.躁动的亡灵-三叉进化
 		flower_evo_undead_plague_idea = {
 			picture = flower_ico_evo_ud_plague
 			allowed = { always = no }
@@ -123,7 +123,7 @@ ideas = {
 			}
 		}
 
-		#4.战地拾荒扒衣·双叉进化
+		#4.战地拾荒扒衣-双叉进化
 		flower_evo_slayer_dismantle_idea = {
 			picture = flower_ico_evo_slayer_dis
 			allowed = { always = no }
@@ -148,7 +148,7 @@ ideas = {
 			}
 		}
 
-		#5.黑灯工厂巨企·双叉进化
+		#5.黑灯工厂巨企-双叉进化
 		flower_evo_corp_trust_idea = {
 			picture = flower_ico_evo_corp_trust
 			allowed = { always = no }
@@ -172,7 +172,7 @@ ideas = {
 			}
 		}
 
-		#6.0宽早苗神风火炮·双叉进化
+		#6.0宽早苗神风火炮-双叉进化
 		flower_evo_arty_carpet_idea = {
 			picture = flower_ico_evo_arty_carpet
 			allowed = { always = no }
@@ -197,7 +197,7 @@ ideas = {
 			}
 		}
 
-		#7.废土改装与咲夜时停装甲·双叉进化
+		#7.废土改装与咲夜时停装甲-双叉进化
 		flower_evo_tank_timestop_idea = {
 			picture = flower_ico_evo_tank_time
 			allowed = { always = no }
@@ -222,7 +222,7 @@ ideas = {
 			}
 		}
 
-		#8.遮天斯图卡与飞碟空天·双叉进化
+		#8.遮天斯图卡与飞碟空天-双叉进化
 		flower_evo_air_cas_idea = {
 			picture = flower_ico_evo_air_cas
 			allowed = { always = no }
@@ -247,7 +247,7 @@ ideas = {
 			}
 		}
 
-		#9.不死督战队人海·双叉进化
+		#9.不死督战队人海-双叉进化
 		flower_evo_wave_meatgrinder_idea = {
 			picture = flower_ico_evo_wave_meat
 			allowed = { always = no }
@@ -272,7 +272,7 @@ ideas = {
 			}
 		}
 
-		#10.王牌特种兵团（精兵流）·双叉进化
+		#10.王牌特种兵团（精兵流）-双叉进化
 		flower_evo_magic_chosen_idea = {
 			picture = flower_ico_evo_magic_chosen
 			allowed = { always = no }
@@ -305,7 +305,7 @@ ideas = {
 			}
 		}
 
-		#11.疯狂科研黑盒局·双叉进化
+		#11.疯狂科研黑盒局-双叉进化
 		flower_evo_punk_ufo_idea = {
 			picture = flower_idea_evo_star_fleet
 			allowed = { always = no }
@@ -928,7 +928,7 @@ ideas = {
 			allowed = { always = no }
 			removal_cost = -1
 			modifier = {
-				terrain_penalty_reduction = 0.25
+				terrain_trait_xp_gain_factor = 0.25
 				attrition = -0.20
 				required_garrison_factor = -0.30
 				compliance_growth = 0.25
