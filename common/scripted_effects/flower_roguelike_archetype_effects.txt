@@ -1670,7 +1670,7 @@ flower_ai_apply_branch_choice_2 = {
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 3 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_sparta" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_sword" } }
 		add_ideas = flower_evo_undead_king_idea
 		army_experience = 80
 		add_manpower = 40000

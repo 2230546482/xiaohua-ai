@@ -765,3 +765,55 @@ soundeffect = {
 		sound = flower_sfx_meme_tactical_nuke
 	}
 }
+
+sound = {
+	name = "flower_sfx_meme_cavalry_charge"
+	file = "flower_memes/flower_sfx_meme_cavalry_charge.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_cavalry_charge
+	volume = 0.64
+	sounds = {
+		sound = flower_sfx_meme_cavalry_charge
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_bugle"
+	file = "flower_memes/flower_sfx_meme_bugle.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_bugle
+	volume = 0.64
+	sounds = {
+		sound = flower_sfx_meme_bugle
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_5whips"
+	file = "flower_memes/flower_sfx_meme_5whips.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_5whips
+	volume = 0.64
+	sounds = {
+		sound = flower_sfx_meme_5whips
+	}
+}
+
+sound = {
+	name = "flower_sfx_meme_lj_ambush"
+	file = "flower_memes/flower_sfx_meme_lj_ambush.wav"
+	always_load = yes
+}
+soundeffect = {
+	name = flower_sfx_meme_lj_ambush
+	volume = 0.64
+	sounds = {
+		sound = flower_sfx_meme_lj_ambush
+	}
+}

@@ -175,13 +175,13 @@ flower_ai_record_chosen_card = {
 			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_5_air" }
 		}
 		else_if = {
-			# #11 战地华佗：还能抢救 / #27 复活吧，我的爱人！（Heroes never die!）
-			limit = {
-				OR = {
-					check_variable = { flower_record_card_id = 11 }
-					check_variable = { flower_record_card_id = 27 }
-				}
-			}
+			# #11 战地华佗：还能抢救（电击器除颤声）
+			limit = { check_variable = { flower_record_card_id = 11 } }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_defib" }
+		}
+		else_if = {
+			# #27 复活吧，我的爱人！（唐三原声）
+			limit = { check_variable = { flower_record_card_id = 27 } }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_heroes_revive" }
 		}
 		else_if = {
@@ -245,9 +245,9 @@ flower_ai_record_chosen_card = {
 			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_sakuya_world" }
 		}
 		else_if = {
-			# #32 战场零元购指南（I'll take your entire stock!）
+			# #32 战场零元购指南（李云龙：围住李家镇缴械运武器）
 			limit = { check_variable = { flower_record_card_id = 32 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_1_slayer" }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_lj_ambush" }
 		}
 	}
 	if = {
@@ -283,9 +283,9 @@ flower_ai_record_chosen_card = {
 			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_deja_vu" }
 		}
 		else_if = {
-			# #42 天降正义专业户（Tactical nuke incoming!）
+			# #42 天降正义专业户（斯图卡俯冲尖啸）
 			limit = { check_variable = { flower_record_card_id = 42 } }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_meme_tactical_nuke" }
+			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stuka_shampoo" }
 		}
 		else_if = {
 			# #43 这次终于人手一把枪（李云龙：手里的家伙好，咱腰杆子就硬！）
