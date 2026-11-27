@@ -62,9 +62,9 @@ scripted_gui = {
 			flower_draft_gamble_btn_lbl_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_draft_reroll_btn_click_enabled = {
 				OR = {
-					has_country_flag = flower_draft_free_reroll
+					check_variable = { flower_free_reroll_charges > 0 }
 					AND = {
-						check_variable = { flower_draft_rerolls_used = 1 }
+						check_variable = { flower_draft_rerolls_used = 0 }
 						OR = {
 							AND = {
 								check_variable = { ubs_save > 149 }
@@ -78,7 +78,7 @@ scripted_gui = {
 						}
 					}
 					AND = {
-						check_variable = { flower_draft_rerolls_used = 2 }
+						check_variable = { flower_draft_rerolls_used = 1 }
 						OR = {
 							AND = {
 								check_variable = { ubs_save > 249 }
@@ -93,25 +93,37 @@ scripted_gui = {
 				}
 			}
 			flower_draft_gamble_btn_click_enabled = {
-				NOT = { has_country_flag = flower_draft_free_reroll }
+				check_variable = { flower_free_reroll_charges < 1 }
 				NOT = { has_country_flag = flower_draft_blood_reroll_used }
 				OR = {
 					AND = {
-						num_of_factories > 49
-						has_equipment = { infantry_equipment > 4999 }
-						has_equipment = { artillery_equipment > 499 }
+						num_of_factories < 30
+						has_equipment = { infantry_equipment > 999 }
+						has_equipment = { artillery_equipment > 99 }
 					}
 					AND = {
-						num_of_factories < 50
+						num_of_factories > 29
+						num_of_factories < 70
 						has_equipment = { infantry_equipment > 1999 }
 						has_equipment = { artillery_equipment > 199 }
 					}
-					check_variable = { ubs_save > 299.999 }
+					AND = {
+						num_of_factories > 69
+						has_equipment = { infantry_equipment > 3499 }
+						has_equipment = { artillery_equipment > 349 }
+					}
+					check_variable = { ubs_save > 449.999 }
 				}
 			}
 			flower_arch_card_1_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_arch_card_1_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_1
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_1_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -121,6 +133,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
 			}
+			flower_arch_card_2_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_2
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_2_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
@@ -128,6 +146,12 @@ scripted_gui = {
 			flower_arch_card_3_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_arch_card_3_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_3
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_3_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -137,6 +161,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
 			}
+			flower_arch_card_4_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_4
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_4_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
@@ -144,6 +174,12 @@ scripted_gui = {
 			flower_arch_card_5_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
+			}
+			flower_arch_card_5_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_5
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_5_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -153,6 +189,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
 			}
+			flower_arch_card_6_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_6
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_6_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 1 }
@@ -160,6 +202,12 @@ scripted_gui = {
 			flower_arch_card_7_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_arch_card_7_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_7
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_7_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -169,6 +217,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
 			}
+			flower_arch_card_8_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_8
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_8_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
@@ -176,6 +230,12 @@ scripted_gui = {
 			flower_arch_card_9_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_arch_card_9_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_9
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_9_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -185,6 +245,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
 			}
+			flower_arch_card_10_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_10
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_10_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
@@ -193,6 +259,12 @@ scripted_gui = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
 			}
+			flower_arch_card_11_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_11
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
+			}
 			flower_arch_card_11_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
@@ -200,6 +272,12 @@ scripted_gui = {
 			flower_arch_card_12_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
 				check_variable = { flower_draft_starter_page = 2 }
+			}
+			flower_arch_card_12_btn_click_enabled = {
+				OR = {
+					has_global_flag = flower_pool_arch_12
+					NOT = { has_global_flag = flower_tavern_pool_rolled }
+				}
 			}
 			flower_arch_card_12_status_visible = {
 				check_variable = { flower_draft_gui_mode = 1 }
@@ -210,6 +288,7 @@ scripted_gui = {
 				OR = {
 					check_variable = { flower_draft_slot_1 < 13 }
 					check_variable = { flower_draft_slot_1 = 53 }
+					check_variable = { flower_draft_slot_1 = 54 }
 					check_variable = { flower_draft_slot_1 = 55 }
 					check_variable = { flower_draft_slot_1 = 56 }
 					check_variable = { flower_draft_slot_1 = 57 }
@@ -227,7 +306,6 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_1 = 46 }
 					check_variable = { flower_draft_slot_1 = 47 }
 					check_variable = { flower_draft_slot_1 = 49 }
-					check_variable = { flower_draft_slot_1 = 54 }
 					check_variable = { flower_draft_slot_1 = 59 }
 				}
 			}
@@ -263,6 +341,7 @@ scripted_gui = {
 				OR = {
 					check_variable = { flower_draft_slot_2 < 13 }
 					check_variable = { flower_draft_slot_2 = 53 }
+					check_variable = { flower_draft_slot_2 = 54 }
 					check_variable = { flower_draft_slot_2 = 55 }
 					check_variable = { flower_draft_slot_2 = 56 }
 					check_variable = { flower_draft_slot_2 = 57 }
@@ -280,7 +359,6 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_2 = 46 }
 					check_variable = { flower_draft_slot_2 = 47 }
 					check_variable = { flower_draft_slot_2 = 49 }
-					check_variable = { flower_draft_slot_2 = 54 }
 					check_variable = { flower_draft_slot_2 = 59 }
 				}
 			}
@@ -316,6 +394,7 @@ scripted_gui = {
 				OR = {
 					check_variable = { flower_draft_slot_3 < 13 }
 					check_variable = { flower_draft_slot_3 = 53 }
+					check_variable = { flower_draft_slot_3 = 54 }
 					check_variable = { flower_draft_slot_3 = 55 }
 					check_variable = { flower_draft_slot_3 = 56 }
 					check_variable = { flower_draft_slot_3 = 57 }
@@ -333,7 +412,6 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_3 = 46 }
 					check_variable = { flower_draft_slot_3 = 47 }
 					check_variable = { flower_draft_slot_3 = 49 }
-					check_variable = { flower_draft_slot_3 = 54 }
 					check_variable = { flower_draft_slot_3 = 59 }
 				}
 			}
@@ -610,11 +688,11 @@ scripted_gui = {
 			}
 			flower_draft_reroll_btn_click = {
 				if = {
-					limit = { has_country_flag = flower_draft_free_reroll }
-					clr_country_flag = flower_draft_free_reroll
+					limit = { check_variable = { flower_free_reroll_charges > 0 } }
+					subtract_from_variable = { flower_free_reroll_charges = 1 }
 				}
 				else_if = {
-					limit = { check_variable = { flower_draft_rerolls_used = 1 } }
+					limit = { check_variable = { flower_draft_rerolls_used = 0 } }
 					if = {
 						limit = { check_variable = { ubs_save > 149 } }
 						add_to_variable = { ubs_save = -150 }
@@ -626,6 +704,7 @@ scripted_gui = {
 						add_political_power = -75
 						army_experience = -25
 					}
+					add_to_variable = { flower_draft_rerolls_used = 1 }
 				}
 				else = {
 					if = {
@@ -640,8 +719,8 @@ scripted_gui = {
 						army_experience = -50
 						add_stability = -0.05
 					}
+					add_to_variable = { flower_draft_rerolls_used = 1 }
 				}
-				add_to_variable = { flower_draft_rerolls_used = 1 }
 				flower_ai_roll_roguelike_draft = yes
 			}
 			flower_draft_gamble_btn_click = {
@@ -649,7 +728,23 @@ scripted_gui = {
 				set_country_flag = flower_draft_high_roller
 				if = {
 					limit = {
-						num_of_factories < 50
+						num_of_factories < 30
+						has_equipment = { infantry_equipment > 999 }
+						has_equipment = { artillery_equipment > 99 }
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = -100
+					}
+				}
+				else_if = {
+					limit = {
+						num_of_factories > 29
+						num_of_factories < 70
 						has_equipment = { infantry_equipment > 1999 }
 						has_equipment = { artillery_equipment > 199 }
 					}
@@ -664,21 +759,21 @@ scripted_gui = {
 				}
 				else_if = {
 					limit = {
-						num_of_factories > 49
-						has_equipment = { infantry_equipment > 4999 }
-						has_equipment = { artillery_equipment > 499 }
+						num_of_factories > 69
+						has_equipment = { infantry_equipment > 3499 }
+						has_equipment = { artillery_equipment > 349 }
 					}
 					add_equipment_to_stockpile = {
 						type = infantry_equipment
-						amount = -5000
+						amount = -3500
 					}
 					add_equipment_to_stockpile = {
 						type = artillery_equipment
-						amount = -500
+						amount = -350
 					}
 				}
 				else = {
-					add_to_variable = { ubs_save = -300 }
+					add_to_variable = { ubs_save = -450 }
 					flower_ai_sync_hcp_ui = yes
 				}
 				add_war_support = -0.05
@@ -726,13 +821,53 @@ scripted_gui = {
 			flower_history_empty_lbl_visible = {
 				check_variable = { flower_owned_cards_array^num < 1 }
 			}
+			flower_history_sell_bar_bg_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
+			flower_history_sell_bar_text_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
+			flower_history_sell_confirm_btn_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
+			flower_history_sell_confirm_lbl_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
+			flower_history_sell_cancel_btn_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
+			flower_history_sell_cancel_lbl_visible = {
+				check_variable = { flower_history_sell_confirm_id > 0 }
+			}
 		}
 
 		effects = {
+			flower_history_card_sell_btn_click = {
+				set_variable = { flower_history_sell_confirm_id = v }
+			}
+			flower_history_sell_confirm_btn_click = {
+				if = {
+					limit = { check_variable = { flower_history_sell_confirm_id > 0 } }
+					set_temp_variable = { temp_sell_card_id = flower_history_sell_confirm_id }
+					set_variable = { flower_history_sell_confirm_id = 0 }
+					flower_tavern_sell_card_by_id = yes
+				}
+			}
+			flower_history_sell_cancel_btn_click = {
+				set_variable = { flower_history_sell_confirm_id = 0 }
+			}
+			flower_history_open_badges_btn_click = {
+				set_variable = { flower_history_sell_confirm_id = 0 }
+				clr_country_flag = flower_history_gui_open
+				flower_badge_hub_sync_state = yes
+				set_country_flag = flower_badge_hub_open
+			}
 			flower_history_close_btn_click = {
+				set_variable = { flower_history_sell_confirm_id = 0 }
 				clr_country_flag = flower_history_gui_open
 			}
 			flower_history_peek_map_btn_click = {
+				set_variable = { flower_history_sell_confirm_id = 0 }
 				clr_country_flag = flower_history_gui_open
 			}
 			flower_history_cat_calm_btn_click = {

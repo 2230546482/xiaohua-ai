@@ -1,0 +1,53 @@
+#副模组独立UI音效分类_自动合并至UI总线且不覆盖主模组category.asset
+category = {
+	name = "UI"
+	soundeffects = {
+		flower_sfx_arch_1_slayer
+		flower_sfx_arch_2_corp
+		flower_sfx_arch_3_arty
+		flower_sfx_arch_4_tank
+		flower_sfx_arch_5_air
+		flower_sfx_arch_6_wave
+		flower_sfx_arch_7_nightingale
+		flower_sfx_arch_8_guerrilla
+		flower_sfx_arch_9_undead
+		flower_sfx_arch_10_magic
+		flower_sfx_arch_11_steampunk
+		flower_sfx_arch_12_gambler
+		flower_sfx_branch_italian_cannon
+		flower_sfx_branch_stuka_shampoo
+		flower_sfx_branch_ufo_watermeter
+		flower_sfx_branch_timestop_dio
+		flower_sfx_branch_ainz_overlord
+		flower_sfx_branch_stonks_money
+		flower_sfx_branch_rooftop_crash
+		flower_sfx_branch_ma_baoguo
+		flower_sfx_branch_eat_tuva
+		flower_sfx_branch_steiner_heroes
+		flower_sfx_branch_nightmare_boss
+		flower_sfx_combo_awakening
+		flower_sfx_cat_hiss
+		flower_sfx_meme_deja_vu
+		flower_sfx_meme_wang_shijian
+		flower_sfx_meme_truck_horn
+		flower_sfx_meme_nanomachines
+		flower_sfx_meme_zhenxiang
+		flower_sfx_meme_heroes_revive
+		flower_sfx_anomaly_7_ziwen
+		flower_sfx_anomaly_7_guanyu_song
+		flower_sfx_anomaly_8_yemen
+		flower_sfx_anomaly_9_pinhaofan
+		flower_sfx_anomaly_10_congrong
+		flower_sfx_anomaly_11_manba
+		flower_sfx_anomaly_12_look_eyes
+		flower_sfx_meme_mambo
+		flower_sfx_meme_touhou_spark
+		flower_sfx_meme_sakuya_world
+		flower_sfx_meme_defib
+		flower_sfx_meme_mgs_alert
+		flower_sfx_meme_lj_loot
+		flower_sfx_meme_cavalry_charge
+		flower_sfx_meme_bugle
+		flower_sfx_meme_5whips
+	}
+}

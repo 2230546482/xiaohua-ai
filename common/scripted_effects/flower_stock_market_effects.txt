@@ -1,3 +1,14 @@
+#安全兜底：防止强平、平仓或倒贴分红把国家储备扣成负数（缺口自动转入债务）
+flower_stk_clamp_negative_cash = {
+	if = {
+		limit = { check_variable = { ubs_save < 0 } }
+		set_temp_variable = { stk_neg_debt = 0 }
+		subtract_from_temp_variable = { stk_neg_debt = ubs_save }
+		add_to_variable = { ubs_load = stk_neg_debt }
+		set_variable = { ubs_save = 0 }
+	}
+}
+
 #老实赚钱很枯燥吧：全球交易所实盘炒股核心引擎
 
 #初始化全球股市价格、历史走势、大盘风向与下月传闻
@@ -159,7 +170,11 @@ flower_stock_check_milestones = {
 		add_ideas = flower_stock_god_idea
 		if = {
 			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+			if = {
+				limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+				set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+			}
 			set_temp_variable = { temp_alert_id = 915 }
 			set_temp_variable = { temp_tag = THIS.id }
 			set_temp_variable = { temp_tag2 = THIS.id }
@@ -178,7 +193,11 @@ flower_stock_check_milestones = {
 			days = 180
 		}
 		if = {
-			limit = { is_ai = no }
+			limit = {
+				is_ai = no
+				NOT = { has_country_flag = flower_auto_meme_sfx_cd }
+			}
+			set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
 		}
 	}
@@ -377,7 +396,8 @@ flower_stock_check_margin_calls = {
 
 	if = {
 		limit = { check_variable = { did_margin_call > 0 } }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		if = {
 			limit = { NOT = { has_idea = flower_stock_rooftop_idea } }
 			add_timed_idea = {
@@ -387,7 +407,11 @@ flower_stock_check_margin_calls = {
 		}
 		if = {
 			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
+			if = {
+				limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+				set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
+			}
 			set_temp_variable = { temp_alert_id = 916 }
 			set_temp_variable = { temp_tag = THIS.id }
 			set_temp_variable = { temp_tag2 = THIS.id }
@@ -638,6 +662,9 @@ flower_stock_monthly_tick = {
 	if = {
 		limit = { check_variable = { global.flower_stk_month_cnt > 5 } }
 		set_variable = { global.flower_stk_month_cnt = 0 }
+		#基建重工派息除权：股价同步下调10点（保底不低于30）
+		subtract_from_variable = { global.flower_stk_2_price = 10 }
+		if = { limit = { check_variable = { global.flower_stk_2_price < 30 } } set_variable = { global.flower_stk_2_price = 30 } }
 		every_country = {
 			limit = {
 				OR = {
@@ -650,19 +677,35 @@ flower_stock_monthly_tick = {
 			multiply_temp_variable = { net_ind = 10 }
 			add_to_variable = { ubs_save = net_ind }
 			add_to_variable = { flower_stk_realized_pnl = net_ind }
-			flower_ai_sync_hcp_ui = yes
+			flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		}
 	}
 
-	#8. 结算玩家爆仓、浮盈与里程碑
+	#8. 结算玩家及全部持仓AI爆仓、浮盈与里程碑
 	every_country = {
-		limit = { is_ai = no }
+		limit = {
+			OR = {
+				is_ai = no
+				check_variable = { flower_stk_1_loan > 0 }
+				check_variable = { flower_stk_2_loan > 0 }
+				check_variable = { flower_stk_3_loan > 0 }
+				check_variable = { flower_stk_4_loan > 0 }
+				check_variable = { flower_stk_1_short > 0 }
+				check_variable = { flower_stk_2_short > 0 }
+				check_variable = { flower_stk_3_short > 0 }
+				check_variable = { flower_stk_4_short > 0 }
+			}
+		}
 		flower_stock_check_margin_calls = yes
 		flower_stock_recalc_country_pnl = yes
-		flower_stock_check_milestones = yes
 		if = {
-			limit = { NOT = { has_country_flag = flower_stock_gui_open } }
-			set_country_flag = flower_stk_new_tick_unread
+			limit = { is_ai = no }
+			flower_stock_check_milestones = yes
+			if = {
+				limit = { NOT = { has_country_flag = flower_stock_gui_open } }
+				set_country_flag = flower_stk_new_tick_unread
+			}
 		}
 	}
 }
@@ -715,7 +758,8 @@ flower_stk_1_buy_1 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_1_shares = 1 }
 		add_to_variable = { flower_stk_1_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -727,7 +771,8 @@ flower_stk_1_buy_5 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_1_shares = 5 }
 		add_to_variable = { flower_stk_1_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -741,46 +786,9 @@ flower_stk_1_lev_2 = {
 		add_to_variable = { flower_stk_1_shares = 2 }
 		add_to_variable = { flower_stk_1_cost = px }
 		add_to_variable = { flower_stk_1_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_1_sell_1 = {
-	if = {
-		limit = { check_variable = { flower_stk_1_shares > 0 } }
-		set_temp_variable = { px = global.flower_stk_1_price }
-		set_temp_variable = { unit_c = flower_stk_1_cost }
-		divide_temp_variable = { unit_c = flower_stk_1_shares }
-		round_temp_variable = unit_c
-		set_temp_variable = { r_pnl = px }
-		subtract_from_temp_variable = { r_pnl = unit_c }
-		add_to_variable = { ubs_save = px }
-		if = {
-			limit = { check_variable = { flower_stk_1_loan > 0 } }
-			set_temp_variable = { unit_l = flower_stk_1_loan }
-			divide_temp_variable = { unit_l = flower_stk_1_shares }
-			round_temp_variable = unit_l
-			subtract_from_variable = { flower_stk_1_loan = unit_l }
-			if = { limit = { check_variable = { flower_stk_1_loan < 0 } } set_variable = { flower_stk_1_loan = 0 } }
-			set_temp_variable = { rep = unit_l }
-			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
-			if = {
-				limit = { check_variable = { rep > 0 } }
-				subtract_from_variable = { ubs_save = rep }
-				subtract_from_variable = { ubs_load = rep }
-			}
-		}
-		subtract_from_variable = { flower_stk_1_shares = 1 }
-		subtract_from_variable = { flower_stk_1_cost = unit_c }
-		if = {
-			limit = { check_variable = { flower_stk_1_shares < 1 } }
-			set_variable = { flower_stk_1_cost = 0 }
-			set_variable = { flower_stk_1_loan = 0 }
-		}
-		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-		flower_stock_check_milestones = yes
 	}
 }
 flower_stk_1_sell_all = {
@@ -805,7 +813,8 @@ flower_stk_1_sell_all = {
 		set_variable = { flower_stk_1_cost = 0 }
 		set_variable = { flower_stk_1_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -822,25 +831,8 @@ flower_stk_1_short_1 = {
 		add_to_variable = { flower_stk_1_short = 1 }
 		add_to_variable = { flower_stk_1_short_basis = px }
 		add_to_variable = { flower_stk_1_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_1_short_5 = {
-	set_temp_variable = { px = global.flower_stk_1_price }
-	set_temp_variable = { m = px }
-	multiply_temp_variable = { m = 0.5 }
-	round_temp_variable = m
-	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
-	multiply_temp_variable = { m = 5 }
-	multiply_temp_variable = { px = 5 }
-	if = {
-		limit = { NOT = { check_variable = { ubs_save < m } } }
-		subtract_from_variable = { ubs_save = m }
-		add_to_variable = { flower_stk_1_short = 5 }
-		add_to_variable = { flower_stk_1_short_basis = px }
-		add_to_variable = { flower_stk_1_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -858,7 +850,8 @@ flower_stk_1_cover_all = {
 		set_variable = { flower_stk_1_short = 0 }
 		set_variable = { flower_stk_1_short_basis = 0 }
 		set_variable = { flower_stk_1_short_margin = 0 }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -872,7 +865,8 @@ flower_stk_2_buy_1 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_2_shares = 1 }
 		add_to_variable = { flower_stk_2_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -884,7 +878,8 @@ flower_stk_2_buy_5 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_2_shares = 5 }
 		add_to_variable = { flower_stk_2_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -898,46 +893,9 @@ flower_stk_2_lev_2 = {
 		add_to_variable = { flower_stk_2_shares = 2 }
 		add_to_variable = { flower_stk_2_cost = px }
 		add_to_variable = { flower_stk_2_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_2_sell_1 = {
-	if = {
-		limit = { check_variable = { flower_stk_2_shares > 0 } }
-		set_temp_variable = { px = global.flower_stk_2_price }
-		set_temp_variable = { unit_c = flower_stk_2_cost }
-		divide_temp_variable = { unit_c = flower_stk_2_shares }
-		round_temp_variable = unit_c
-		set_temp_variable = { r_pnl = px }
-		subtract_from_temp_variable = { r_pnl = unit_c }
-		add_to_variable = { ubs_save = px }
-		if = {
-			limit = { check_variable = { flower_stk_2_loan > 0 } }
-			set_temp_variable = { unit_l = flower_stk_2_loan }
-			divide_temp_variable = { unit_l = flower_stk_2_shares }
-			round_temp_variable = unit_l
-			subtract_from_variable = { flower_stk_2_loan = unit_l }
-			if = { limit = { check_variable = { flower_stk_2_loan < 0 } } set_variable = { flower_stk_2_loan = 0 } }
-			set_temp_variable = { rep = unit_l }
-			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
-			if = {
-				limit = { check_variable = { rep > 0 } }
-				subtract_from_variable = { ubs_save = rep }
-				subtract_from_variable = { ubs_load = rep }
-			}
-		}
-		subtract_from_variable = { flower_stk_2_shares = 1 }
-		subtract_from_variable = { flower_stk_2_cost = unit_c }
-		if = {
-			limit = { check_variable = { flower_stk_2_shares < 1 } }
-			set_variable = { flower_stk_2_cost = 0 }
-			set_variable = { flower_stk_2_loan = 0 }
-		}
-		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-		flower_stock_check_milestones = yes
 	}
 }
 flower_stk_2_sell_all = {
@@ -962,7 +920,8 @@ flower_stk_2_sell_all = {
 		set_variable = { flower_stk_2_cost = 0 }
 		set_variable = { flower_stk_2_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -979,25 +938,8 @@ flower_stk_2_short_1 = {
 		add_to_variable = { flower_stk_2_short = 1 }
 		add_to_variable = { flower_stk_2_short_basis = px }
 		add_to_variable = { flower_stk_2_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_2_short_5 = {
-	set_temp_variable = { px = global.flower_stk_2_price }
-	set_temp_variable = { m = px }
-	multiply_temp_variable = { m = 0.5 }
-	round_temp_variable = m
-	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
-	multiply_temp_variable = { m = 5 }
-	multiply_temp_variable = { px = 5 }
-	if = {
-		limit = { NOT = { check_variable = { ubs_save < m } } }
-		subtract_from_variable = { ubs_save = m }
-		add_to_variable = { flower_stk_2_short = 5 }
-		add_to_variable = { flower_stk_2_short_basis = px }
-		add_to_variable = { flower_stk_2_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1015,7 +957,8 @@ flower_stk_2_cover_all = {
 		set_variable = { flower_stk_2_short = 0 }
 		set_variable = { flower_stk_2_short_basis = 0 }
 		set_variable = { flower_stk_2_short_margin = 0 }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -1029,7 +972,8 @@ flower_stk_3_buy_1 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_3_shares = 1 }
 		add_to_variable = { flower_stk_3_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1041,7 +985,8 @@ flower_stk_3_buy_5 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_3_shares = 5 }
 		add_to_variable = { flower_stk_3_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1055,46 +1000,9 @@ flower_stk_3_lev_2 = {
 		add_to_variable = { flower_stk_3_shares = 2 }
 		add_to_variable = { flower_stk_3_cost = px }
 		add_to_variable = { flower_stk_3_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_3_sell_1 = {
-	if = {
-		limit = { check_variable = { flower_stk_3_shares > 0 } }
-		set_temp_variable = { px = global.flower_stk_3_price }
-		set_temp_variable = { unit_c = flower_stk_3_cost }
-		divide_temp_variable = { unit_c = flower_stk_3_shares }
-		round_temp_variable = unit_c
-		set_temp_variable = { r_pnl = px }
-		subtract_from_temp_variable = { r_pnl = unit_c }
-		add_to_variable = { ubs_save = px }
-		if = {
-			limit = { check_variable = { flower_stk_3_loan > 0 } }
-			set_temp_variable = { unit_l = flower_stk_3_loan }
-			divide_temp_variable = { unit_l = flower_stk_3_shares }
-			round_temp_variable = unit_l
-			subtract_from_variable = { flower_stk_3_loan = unit_l }
-			if = { limit = { check_variable = { flower_stk_3_loan < 0 } } set_variable = { flower_stk_3_loan = 0 } }
-			set_temp_variable = { rep = unit_l }
-			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
-			if = {
-				limit = { check_variable = { rep > 0 } }
-				subtract_from_variable = { ubs_save = rep }
-				subtract_from_variable = { ubs_load = rep }
-			}
-		}
-		subtract_from_variable = { flower_stk_3_shares = 1 }
-		subtract_from_variable = { flower_stk_3_cost = unit_c }
-		if = {
-			limit = { check_variable = { flower_stk_3_shares < 1 } }
-			set_variable = { flower_stk_3_cost = 0 }
-			set_variable = { flower_stk_3_loan = 0 }
-		}
-		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-		flower_stock_check_milestones = yes
 	}
 }
 flower_stk_3_sell_all = {
@@ -1119,7 +1027,8 @@ flower_stk_3_sell_all = {
 		set_variable = { flower_stk_3_cost = 0 }
 		set_variable = { flower_stk_3_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -1136,25 +1045,8 @@ flower_stk_3_short_1 = {
 		add_to_variable = { flower_stk_3_short = 1 }
 		add_to_variable = { flower_stk_3_short_basis = px }
 		add_to_variable = { flower_stk_3_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_3_short_5 = {
-	set_temp_variable = { px = global.flower_stk_3_price }
-	set_temp_variable = { m = px }
-	multiply_temp_variable = { m = 0.5 }
-	round_temp_variable = m
-	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
-	multiply_temp_variable = { m = 5 }
-	multiply_temp_variable = { px = 5 }
-	if = {
-		limit = { NOT = { check_variable = { ubs_save < m } } }
-		subtract_from_variable = { ubs_save = m }
-		add_to_variable = { flower_stk_3_short = 5 }
-		add_to_variable = { flower_stk_3_short_basis = px }
-		add_to_variable = { flower_stk_3_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1172,7 +1064,8 @@ flower_stk_3_cover_all = {
 		set_variable = { flower_stk_3_short = 0 }
 		set_variable = { flower_stk_3_short_basis = 0 }
 		set_variable = { flower_stk_3_short_margin = 0 }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -1186,7 +1079,8 @@ flower_stk_4_buy_1 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_4_shares = 1 }
 		add_to_variable = { flower_stk_4_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1198,7 +1092,8 @@ flower_stk_4_buy_5 = {
 		subtract_from_variable = { ubs_save = px }
 		add_to_variable = { flower_stk_4_shares = 5 }
 		add_to_variable = { flower_stk_4_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1212,46 +1107,9 @@ flower_stk_4_lev_2 = {
 		add_to_variable = { flower_stk_4_shares = 2 }
 		add_to_variable = { flower_stk_4_cost = px }
 		add_to_variable = { flower_stk_4_cost = px }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_4_sell_1 = {
-	if = {
-		limit = { check_variable = { flower_stk_4_shares > 0 } }
-		set_temp_variable = { px = global.flower_stk_4_price }
-		set_temp_variable = { unit_c = flower_stk_4_cost }
-		divide_temp_variable = { unit_c = flower_stk_4_shares }
-		round_temp_variable = unit_c
-		set_temp_variable = { r_pnl = px }
-		subtract_from_temp_variable = { r_pnl = unit_c }
-		add_to_variable = { ubs_save = px }
-		if = {
-			limit = { check_variable = { flower_stk_4_loan > 0 } }
-			set_temp_variable = { unit_l = flower_stk_4_loan }
-			divide_temp_variable = { unit_l = flower_stk_4_shares }
-			round_temp_variable = unit_l
-			subtract_from_variable = { flower_stk_4_loan = unit_l }
-			if = { limit = { check_variable = { flower_stk_4_loan < 0 } } set_variable = { flower_stk_4_loan = 0 } }
-			set_temp_variable = { rep = unit_l }
-			if = { limit = { check_variable = { rep > ubs_load } } set_temp_variable = { rep = ubs_load } }
-			if = {
-				limit = { check_variable = { rep > 0 } }
-				subtract_from_variable = { ubs_save = rep }
-				subtract_from_variable = { ubs_load = rep }
-			}
-		}
-		subtract_from_variable = { flower_stk_4_shares = 1 }
-		subtract_from_variable = { flower_stk_4_cost = unit_c }
-		if = {
-			limit = { check_variable = { flower_stk_4_shares < 1 } }
-			set_variable = { flower_stk_4_cost = 0 }
-			set_variable = { flower_stk_4_loan = 0 }
-		}
-		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-		flower_stock_check_milestones = yes
 	}
 }
 flower_stk_4_sell_all = {
@@ -1276,7 +1134,8 @@ flower_stk_4_sell_all = {
 		set_variable = { flower_stk_4_cost = 0 }
 		set_variable = { flower_stk_4_loan = 0 }
 		add_to_variable = { flower_stk_realized_pnl = r_pnl }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -1293,25 +1152,8 @@ flower_stk_4_short_1 = {
 		add_to_variable = { flower_stk_4_short = 1 }
 		add_to_variable = { flower_stk_4_short_basis = px }
 		add_to_variable = { flower_stk_4_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
-		flower_stock_recalc_country_pnl = yes
-	}
-}
-flower_stk_4_short_5 = {
-	set_temp_variable = { px = global.flower_stk_4_price }
-	set_temp_variable = { m = px }
-	multiply_temp_variable = { m = 0.5 }
-	round_temp_variable = m
-	if = { limit = { check_variable = { m < 1 } } set_temp_variable = { m = 1 } }
-	multiply_temp_variable = { m = 5 }
-	multiply_temp_variable = { px = 5 }
-	if = {
-		limit = { NOT = { check_variable = { ubs_save < m } } }
-		subtract_from_variable = { ubs_save = m }
-		add_to_variable = { flower_stk_4_short = 5 }
-		add_to_variable = { flower_stk_4_short_basis = px }
-		add_to_variable = { flower_stk_4_short_margin = m }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 	}
 }
@@ -1329,7 +1171,8 @@ flower_stk_4_cover_all = {
 		set_variable = { flower_stk_4_short = 0 }
 		set_variable = { flower_stk_4_short_basis = 0 }
 		set_variable = { flower_stk_4_short_margin = 0 }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		flower_stock_recalc_country_pnl = yes
 		flower_stock_check_milestones = yes
 	}
@@ -1356,11 +1199,16 @@ flower_stk_buy_factory_action = {
 		}
 		set_country_flag = { flag = flower_stk_buy_factory_cd days = 60 value = 1 }
 		if = {
-			limit = { is_ai = no }
+			limit = {
+				is_ai = no
+				NOT = { has_country_flag = flower_auto_meme_sfx_cd }
+			}
+			set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 		}
 		subtract_from_variable = { ubs_save = 500 }
-		flower_ai_sync_hcp_ui = yes
+		flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 		if = {
 			limit = {
 				any_owned_state = {
@@ -1463,7 +1311,8 @@ flower_stock_ai_monthly_trade = {
 				limit = { check_variable = { ai_repay > 0 } }
 				subtract_from_variable = { ubs_save = ai_repay }
 				subtract_from_variable = { ubs_load = ai_repay }
-				flower_ai_sync_hcp_ui = yes
+				flower_stk_clamp_negative_cash = yes
+	flower_ai_sync_hcp_ui = yes
 			}
 		}
 		if = {
@@ -1553,6 +1402,7 @@ flower_stock_ai_monthly_trade = {
 			OR = {
 				check_variable = { flower_stk_3_pnl > 190 }
 				check_variable = { global.flower_stk_3_price > 370 }
+				check_variable = { global.flower_stk_hint = 3 }
 				check_variable = { global.flower_stk_hint = 6 }
 			}
 		}
@@ -1624,7 +1474,7 @@ flower_stock_ai_monthly_trade = {
 				else = {
 					flower_stk_1_buy_1 = yes
 				}
-				add_to_variable = { global.flower_stk_ai_flow_1 = 1 }
+				if = { limit = { check_variable = { flower_stk_1_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_1 = 1 } }
 			}
 			# 建仓基建重工
 			24 = {
@@ -1634,12 +1484,12 @@ flower_stock_ai_monthly_trade = {
 				modifier = { factor = 0.3 check_variable = { global.flower_stk_hint = 6 } }
 				modifier = { factor = 0.2 check_variable = { flower_stk_2_shares > 6 } }
 				flower_stk_2_buy_1 = yes
-				add_to_variable = { global.flower_stk_ai_flow_2 = 1 }
+				if = { limit = { check_variable = { flower_stk_2_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_2 = 1 } }
 			}
 			# 建仓科技飞碟
 			20 = {
 				modifier = { factor = 1.7 num_of_factories > 50 }
-				modifier = { factor = 1.8 check_variable = { global.flower_stk_hint = 3 } }
+				modifier = { factor = 0.2 check_variable = { global.flower_stk_hint = 3 } }
 				modifier = { factor = 1.5 check_variable = { global.flower_stk_hint = 5 } }
 				modifier = { factor = 0.25 check_variable = { global.flower_stk_hint = 6 } }
 				modifier = { factor = 0.2 check_variable = { flower_stk_3_shares > 5 } }
@@ -1653,7 +1503,7 @@ flower_stock_ai_monthly_trade = {
 				else = {
 					flower_stk_3_buy_1 = yes
 				}
-				add_to_variable = { global.flower_stk_ai_flow_3 = 1 }
+				if = { limit = { check_variable = { flower_stk_3_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_3 = 1 } }
 			}
 			# 建仓黑市期货（赌狗派与抄底派最爱）
 			16 = {
@@ -1672,11 +1522,12 @@ flower_stock_ai_monthly_trade = {
 				else = {
 					flower_stk_4_buy_1 = yes
 				}
-				add_to_variable = { global.flower_stk_ai_flow_4 = 1 }
+				if = { limit = { check_variable = { flower_stk_4_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_4 = 1 } }
 			}
 			# 融券做空（熊市/熔断预警/泡沫高位时，AI也会真实进场做空！）
 			12 = {
 				modifier = { factor = 3.2 check_variable = { global.flower_stk_hint = 6 } }
+				modifier = { factor = 2.4 check_variable = { global.flower_stk_hint = 3 } }
 				modifier = { factor = 2.2 check_variable = { global.flower_stk_regime > 3 } }
 				modifier = { factor = 1.8 check_variable = { flower_ai_stk_style = 3 } }
 				modifier = { factor = 0.2 check_variable = { global.flower_stk_regime < 3 } }
@@ -1686,7 +1537,7 @@ flower_stock_ai_monthly_trade = {
 						check_variable = { flower_stk_4_short < 4 }
 					}
 					flower_stk_4_short_1 = yes
-					add_to_variable = { global.flower_stk_ai_flow_4 = -1 }
+					if = { limit = { check_variable = { flower_stk_4_short > 0 } } add_to_variable = { global.flower_stk_ai_flow_4 = -1 } }
 				}
 				else_if = {
 					limit = {
@@ -1694,12 +1545,12 @@ flower_stock_ai_monthly_trade = {
 						check_variable = { flower_stk_3_short < 4 }
 					}
 					flower_stk_3_short_1 = yes
-					add_to_variable = { global.flower_stk_ai_flow_3 = -1 }
+					if = { limit = { check_variable = { flower_stk_3_short > 0 } } add_to_variable = { global.flower_stk_ai_flow_3 = -1 } }
 				}
 				else_if = {
 					limit = { check_variable = { flower_stk_1_short < 3 } }
 					flower_stk_1_short_1 = yes
-					add_to_variable = { global.flower_stk_ai_flow_1 = -1 }
+					if = { limit = { check_variable = { flower_stk_1_short > 0 } } add_to_variable = { global.flower_stk_ai_flow_1 = -1 } }
 				}
 			}
 			# 持币观望

@@ -1,0 +1,1813 @@
+#酒馆肉鸽核心系统：开局5/12流派池、动态任务难度、4槽小大饰品、合金质变、4槽买卖替换、拆解转型、击败偷牌、AI同权运营
+
+#===============================================================================
+#一、开局5/12随机流派池（全图玩家与AI共享；规则选FULL_12则全开放）
+#===============================================================================
+#统一可靠的将领特质与四维授予辅助（确保特质100%落地且同步加属性、避免给元帅加军长专属特质失败）
+flower_ai_grant_leader_wanrendi = {
+	if = {
+		limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } } }
+		random_army_leader = {
+			limit = { is_assigned = yes NOT = { has_trait = flower_wanrendi_trait } }
+			add_unit_leader_trait = flower_wanrendi_trait
+			add_attack = 3
+			add_defense = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } skill > 2 } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_wanrendi_trait } skill > 2 }
+			add_unit_leader_trait = flower_wanrendi_trait
+			add_attack = 3
+			add_defense = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_wanrendi_trait } } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_wanrendi_trait } }
+			add_unit_leader_trait = flower_wanrendi_trait
+			add_attack = 3
+			add_defense = 2
+		}
+	}
+	else = {
+		create_corps_commander = {
+			name = "势魏延"
+			portrait_path = "gfx/interface/swy.png"
+			traits = { flower_wanrendi_trait armor_officer }
+			skill = 5
+			attack_skill = 7
+			defense_skill = 5
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+}
+
+flower_ai_grant_leader_space_magician = {
+	if = {
+		limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_space_magician_trait } } }
+		random_army_leader = {
+			limit = { is_assigned = yes NOT = { has_trait = flower_space_magician_trait } }
+			add_unit_leader_trait = flower_space_magician_trait
+			add_logistics = 3
+			add_attack = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_space_magician_trait } skill > 2 } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_space_magician_trait } skill > 2 }
+			add_unit_leader_trait = flower_space_magician_trait
+			add_logistics = 3
+			add_attack = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_space_magician_trait } } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_space_magician_trait } }
+			add_unit_leader_trait = flower_space_magician_trait
+			add_logistics = 3
+			add_attack = 2
+		}
+	}
+	else = {
+		create_corps_commander = {
+			name = "后勤魔术师"
+			portrait_path = "gfx/interface/nailong.png"
+			traits = { flower_space_magician_trait organizer }
+			skill = 5
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 8
+		}
+	}
+}
+
+flower_ai_grant_leader_chessmaster = {
+	if = {
+		limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_grand_chessmaster_trait } NOT = { has_trait = flower_space_magician_trait } } }
+		random_army_leader = {
+			limit = { is_assigned = yes NOT = { has_trait = flower_grand_chessmaster_trait } NOT = { has_trait = flower_space_magician_trait } }
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+			add_planning = 3
+			add_defense = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_grand_chessmaster_trait } } }
+		random_army_leader = {
+			limit = { is_assigned = yes NOT = { has_trait = flower_grand_chessmaster_trait } }
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+			add_planning = 3
+			add_defense = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_grand_chessmaster_trait } skill > 2 } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_grand_chessmaster_trait } skill > 2 }
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+			add_planning = 3
+			add_defense = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_grand_chessmaster_trait } } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_grand_chessmaster_trait } }
+			add_unit_leader_trait = flower_grand_chessmaster_trait
+			add_planning = 3
+			add_defense = 2
+		}
+	}
+	else = {
+		create_corps_commander = {
+			name = "大兵团棋手"
+			portrait_path = "gfx/interface/cat.png"
+			traits = { flower_grand_chessmaster_trait organizer }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 6
+			planning_skill = 7
+			logistics_skill = 5
+		}
+	}
+}
+
+flower_ai_grant_leader_dimension_ripper = {
+	if = {
+		limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = flower_dimension_ripper_trait } } }
+		random_army_leader = {
+			limit = { is_assigned = yes NOT = { has_trait = flower_dimension_ripper_trait } }
+			add_unit_leader_trait = flower_dimension_ripper_trait
+			add_attack = 2
+			add_logistics = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_dimension_ripper_trait } skill > 2 } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_dimension_ripper_trait } skill > 2 }
+			add_unit_leader_trait = flower_dimension_ripper_trait
+			add_attack = 2
+			add_logistics = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { NOT = { has_trait = flower_dimension_ripper_trait } } }
+		random_army_leader = {
+			limit = { NOT = { has_trait = flower_dimension_ripper_trait } }
+			add_unit_leader_trait = flower_dimension_ripper_trait
+			add_attack = 2
+			add_logistics = 2
+		}
+	}
+	else = {
+		create_corps_commander = {
+			name = "次元奇袭主帅"
+			portrait_path = "gfx/interface/jiahao.png"
+			traits = { flower_dimension_ripper_trait commando }
+			skill = 5
+			attack_skill = 6
+			defense_skill = 5
+			planning_skill = 5
+			logistics_skill = 6
+		}
+	}
+}
+
+flower_ai_grant_leader_guerilla = {
+	if = {
+		limit = { any_army_leader = { is_assigned = yes is_field_marshal = no NOT = { has_trait = guerilla_fighter } } }
+		random_army_leader = {
+			limit = { is_assigned = yes is_field_marshal = no NOT = { has_trait = guerilla_fighter } }
+			add_unit_leader_trait = guerilla_fighter
+			add_defense = 2
+			add_logistics = 2
+		}
+	}
+	else_if = {
+		limit = { any_army_leader = { is_field_marshal = no NOT = { has_trait = guerilla_fighter } } }
+		random_army_leader = {
+			limit = { is_field_marshal = no NOT = { has_trait = guerilla_fighter } }
+			add_unit_leader_trait = guerilla_fighter
+			add_defense = 2
+			add_logistics = 2
+		}
+	}
+	else = {
+		flower_ai_grant_leader_dimension_ripper = yes
+	}
+}
+flower_tavern_pick_one_pool_arch = {
+	random_list = {
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_1 } set_global_flag = flower_pool_arch_1 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_2 } set_global_flag = flower_pool_arch_2 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_3 } set_global_flag = flower_pool_arch_3 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_4 } set_global_flag = flower_pool_arch_4 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_5 } set_global_flag = flower_pool_arch_5 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_6 } set_global_flag = flower_pool_arch_6 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_7 } set_global_flag = flower_pool_arch_7 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_8 } set_global_flag = flower_pool_arch_8 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_9 } set_global_flag = flower_pool_arch_9 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_10 } set_global_flag = flower_pool_arch_10 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_11 } set_global_flag = flower_pool_arch_11 }
+		10 = { modifier = { factor = 0 has_global_flag = flower_pool_arch_12 } set_global_flag = flower_pool_arch_12 }
+	}
+}
+
+flower_tavern_roll_open_pool = {
+	if = {
+		limit = { NOT = { has_global_flag = flower_tavern_pool_rolled } }
+		set_global_flag = flower_tavern_pool_rolled
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = FLOWER_TAVERN_POOL_RULE
+					option = FULL_12
+				}
+			}
+			set_global_flag = flower_pool_arch_1
+			set_global_flag = flower_pool_arch_2
+			set_global_flag = flower_pool_arch_3
+			set_global_flag = flower_pool_arch_4
+			set_global_flag = flower_pool_arch_5
+			set_global_flag = flower_pool_arch_6
+			set_global_flag = flower_pool_arch_7
+			set_global_flag = flower_pool_arch_8
+			set_global_flag = flower_pool_arch_9
+			set_global_flag = flower_pool_arch_10
+			set_global_flag = flower_pool_arch_11
+			set_global_flag = flower_pool_arch_12
+		}
+		else = {
+			flower_tavern_pick_one_pool_arch = yes
+			flower_tavern_pick_one_pool_arch = yes
+			flower_tavern_pick_one_pool_arch = yes
+			flower_tavern_pick_one_pool_arch = yes
+			flower_tavern_pick_one_pool_arch = yes
+		}
+	}
+}
+
+#===============================================================================
+#二、三维动态目标计算（年份时间倍率 × 国力体量比例 × 累计完成轮次）
+#===============================================================================
+#辅助：将临时变量 t_raw_xp 对齐到12档离散陆军经验表，输出到 t_snapped_xp
+flower_tavern_snap_xp_goal = {
+	set_temp_variable = { t_snapped_xp = 40 }
+	if = { limit = { check_variable = { t_raw_xp > 250 } } set_temp_variable = { t_snapped_xp = 300 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 200 } } set_temp_variable = { t_snapped_xp = 250 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 180 } } set_temp_variable = { t_snapped_xp = 200 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 150 } } set_temp_variable = { t_snapped_xp = 180 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 120 } } set_temp_variable = { t_snapped_xp = 150 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 100 } } set_temp_variable = { t_snapped_xp = 120 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 90 } } set_temp_variable = { t_snapped_xp = 100 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 75 } } set_temp_variable = { t_snapped_xp = 90 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 60 } } set_temp_variable = { t_snapped_xp = 75 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 50 } } set_temp_variable = { t_snapped_xp = 60 } }
+	else_if = { limit = { check_variable = { t_raw_xp > 40 } } set_temp_variable = { t_snapped_xp = 50 } }
+}
+
+flower_tavern_calc_dynamic_goals = {
+	#维度1：按年份持续递增的时间系数（1936=1.00至1943+=3.10，不再于1940年封顶）
+	set_variable = { flower_quest_time_mult = 1.00 }
+	set_variable = { flower_quest_diff_pct = 100 }
+	set_variable = { flower_quest_diff_stars = 1 }
+	if = {
+		limit = { date > 1942.12.31 }
+		set_variable = { flower_quest_time_mult = 3.10 }
+		set_variable = { flower_quest_diff_pct = 310 }
+		set_variable = { flower_quest_diff_stars = 5 }
+	}
+	else_if = {
+		limit = { date > 1941.12.31 }
+		set_variable = { flower_quest_time_mult = 2.65 }
+		set_variable = { flower_quest_diff_pct = 265 }
+		set_variable = { flower_quest_diff_stars = 5 }
+	}
+	else_if = {
+		limit = { date > 1940.12.31 }
+		set_variable = { flower_quest_time_mult = 2.25 }
+		set_variable = { flower_quest_diff_pct = 225 }
+		set_variable = { flower_quest_diff_stars = 4 }
+	}
+	else_if = {
+		limit = { date > 1939.12.31 }
+		set_variable = { flower_quest_time_mult = 1.90 }
+		set_variable = { flower_quest_diff_pct = 190 }
+		set_variable = { flower_quest_diff_stars = 4 }
+	}
+	else_if = {
+		limit = { date > 1938.12.31 }
+		set_variable = { flower_quest_time_mult = 1.60 }
+		set_variable = { flower_quest_diff_pct = 160 }
+		set_variable = { flower_quest_diff_stars = 3 }
+	}
+	else_if = {
+		limit = { date > 1937.12.31 }
+		set_variable = { flower_quest_time_mult = 1.35 }
+		set_variable = { flower_quest_diff_pct = 135 }
+		set_variable = { flower_quest_diff_stars = 2 }
+	}
+	else_if = {
+		limit = { date > 1936.12.31 }
+		set_variable = { flower_quest_time_mult = 1.15 }
+		set_variable = { flower_quest_diff_pct = 115 }
+		set_variable = { flower_quest_diff_stars = 2 }
+	}
+
+	#维度2：按当前总工厂数与控制地区数比例缩放（取消70厂封顶）
+	set_temp_variable = { t_fac_base = num_of_factories }
+	multiply_temp_variable = { t_fac_base = 0.12 }
+	add_to_temp_variable = { t_fac_base = 3 }
+	multiply_temp_variable = { t_fac_base = flower_quest_time_mult }
+	set_variable = { flower_dyn_fac_delta = t_fac_base }
+	round_variable = flower_dyn_fac_delta
+	if = { limit = { check_variable = { flower_dyn_fac_delta < 3 } } set_variable = { flower_dyn_fac_delta = 3 } }
+	if = { limit = { check_variable = { flower_dyn_fac_delta > 120 } } set_variable = { flower_dyn_fac_delta = 120 } }
+
+	set_variable = { flower_dyn_mil_delta = flower_dyn_fac_delta }
+	multiply_variable = { flower_dyn_mil_delta = 0.65 }
+	round_variable = flower_dyn_mil_delta
+	if = { limit = { check_variable = { flower_dyn_mil_delta < 2 } } set_variable = { flower_dyn_mil_delta = 2 } }
+
+	set_temp_variable = { t_st_base = num_controlled_states }
+	multiply_temp_variable = { t_st_base = 0.10 }
+	if = { limit = { check_variable = { t_st_base > 10 } } set_temp_variable = { t_st_base = 10 } }
+	add_to_temp_variable = { t_st_base = 2 }
+	multiply_temp_variable = { t_st_base = flower_quest_time_mult }
+	set_variable = { flower_dyn_state_delta = t_st_base }
+	round_variable = flower_dyn_state_delta
+	if = { limit = { check_variable = { flower_dyn_state_delta < 2 } } set_variable = { flower_dyn_state_delta = 2 } }
+	if = { limit = { check_variable = { flower_dyn_state_delta > 35 } } set_variable = { flower_dyn_state_delta = 35 } }
+
+	set_temp_variable = { t_raw_xp = num_of_factories }
+	multiply_temp_variable = { t_raw_xp = 0.35 }
+	add_to_temp_variable = { t_raw_xp = 35 }
+	multiply_temp_variable = { t_raw_xp = flower_quest_time_mult }
+	flower_tavern_snap_xp_goal = yes
+	set_variable = { flower_dyn_xp_goal = t_snapped_xp }
+
+	#预估下一轮各任务赏金（随轮次递增，用于任务页签即时预览）
+	set_temp_variable = { t_b_rnd = flower_bounty_round }
+	if = { limit = { check_variable = { t_b_rnd > 5 } } set_temp_variable = { t_b_rnd = 5 } }
+	set_variable = { flower_bounty_reward_hcp = t_b_rnd }
+	multiply_variable = { flower_bounty_reward_hcp = 100 }
+	add_to_variable = { flower_bounty_reward_hcp = 350 }
+	set_temp_variable = { t_b_xpr = flower_bounty_round }
+	if = { limit = { check_variable = { t_b_xpr > 4 } } set_temp_variable = { t_b_xpr = 4 } }
+	set_variable = { flower_bounty_reward_xp = t_b_xpr }
+	multiply_variable = { flower_bounty_reward_xp = 10 }
+	add_to_variable = { flower_bounty_reward_xp = 35 }
+	set_variable = { flower_bounty_disp_round = flower_bounty_round }
+	add_to_variable = { flower_bounty_disp_round = 1 }
+
+	set_temp_variable = { t_w_rnd = flower_wager_round }
+	if = { limit = { check_variable = { t_w_rnd > 5 } } set_temp_variable = { t_w_rnd = 5 } }
+	set_variable = { flower_wager_reward_hcp = t_w_rnd }
+	multiply_variable = { flower_wager_reward_hcp = 100 }
+	add_to_variable = { flower_wager_reward_hcp = 400 }
+	set_variable = { flower_wager_disp_round = flower_wager_round }
+	add_to_variable = { flower_wager_disp_round = 1 }
+
+	set_temp_variable = { t_bm_rnd = flower_bm_round }
+	if = { limit = { check_variable = { t_bm_rnd > 6 } } set_temp_variable = { t_bm_rnd = 6 } }
+	set_variable = { flower_bm_reward_hcp = t_bm_rnd }
+	multiply_variable = { flower_bm_reward_hcp = 50 }
+	add_to_variable = { flower_bm_reward_hcp = 200 }
+	set_variable = { flower_bm_disp_round = flower_bm_round }
+	add_to_variable = { flower_bm_disp_round = 1 }
+
+	#小徽章买断价与大徽章基准价（绑定体量、七五折徽章与常驻战术卡抵扣）
+	set_temp_variable = { t_size = 1 }
+	if = { limit = { num_of_factories > 69 } set_temp_variable = { t_size = 3 } }
+	else_if = { limit = { num_of_factories > 29 } set_temp_variable = { t_size = 2 } }
+	set_variable = { flower_st_buyout_cost = 250 }
+	set_variable = { flower_lt_std_cost = 400 }
+	set_variable = { flower_lt_cheap_cost = 200 }
+	if = {
+		limit = { check_variable = { t_size = 2 } }
+		set_variable = { flower_st_buyout_cost = 350 }
+		set_variable = { flower_lt_std_cost = 500 }
+		set_variable = { flower_lt_cheap_cost = 250 }
+	}
+	else_if = {
+		limit = { check_variable = { t_size = 3 } }
+		set_variable = { flower_st_buyout_cost = 500 }
+		set_variable = { flower_lt_std_cost = 750 }
+		set_variable = { flower_lt_cheap_cost = 350 }
+	}
+	if = {
+		limit = { has_idea = flower_st_econ_vip }
+		multiply_variable = { flower_st_buyout_cost = 0.75 }
+		multiply_variable = { flower_lt_std_cost = 0.75 }
+		multiply_variable = { flower_lt_cheap_cost = 0.75 }
+		round_variable = flower_st_buyout_cost
+		round_variable = flower_lt_std_cost
+		round_variable = flower_lt_cheap_cost
+	}
+	#每持有1张常驻战术卡，1939大徽章标准价立减50储备（上限减200储备，保底150）
+	set_temp_variable = { t_card_disc = flower_owned_cards_array^num }
+	if = { limit = { check_variable = { t_card_disc > 4 } } set_temp_variable = { t_card_disc = 4 } }
+	if = { limit = { check_variable = { t_card_disc < 0 } } set_temp_variable = { t_card_disc = 0 } }
+	set_variable = { flower_lt_card_discount = t_card_disc }
+	multiply_variable = { flower_lt_card_discount = 50 }
+	subtract_from_variable = { flower_lt_std_cost = flower_lt_card_discount }
+	if = { limit = { check_variable = { flower_lt_std_cost < 150 } } set_variable = { flower_lt_std_cost = 150 } }
+	set_temp_variable = { t_cheap_disc = t_card_disc }
+	multiply_temp_variable = { t_cheap_disc = 25 }
+	subtract_from_variable = { flower_lt_cheap_cost = t_cheap_disc }
+	if = { limit = { check_variable = { flower_lt_cheap_cost < 100 } } set_variable = { flower_lt_cheap_cost = 100 } }
+}
+
+#===============================================================================
+#三、流派拆解与保阶转型（保留当前流派阶位、已建工厂、科技、经验与库存）
+#===============================================================================
+flower_tavern_clear_current_archetype = {
+	#先记录当前流派阶位（1/2/3），转型后自动保阶
+	set_variable = { flower_pivot_saved_stage = 1 }
+	if = {
+		limit = {
+			OR = {
+				has_idea = flower_corp_stage_3_idea
+				has_idea = flower_arty_stage_3_idea
+				has_idea = flower_tank_stage_3_idea
+				has_idea = flower_air_stage_3_idea
+				has_idea = flower_wave_stage_3_idea
+				has_idea = flower_nightingale_stage_3_idea
+				has_idea = flower_guerrilla_stage_3_idea
+				has_idea = flower_undead_stage_3_idea
+				has_idea = flower_magic_stage_3_idea
+				has_idea = flower_steampunk_stage_3_idea
+				AND = { has_country_flag = flower_roguelike_slayer_ai check_variable = { flower_slayer_stacks > 4 } }
+				AND = { has_country_flag = flower_roguelike_gambler_active has_country_flag = flower_mystery_egg_hatched_flag }
+			}
+		}
+		set_variable = { flower_pivot_saved_stage = 3 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_idea = flower_corp_stage_2_idea
+				has_idea = flower_arty_stage_2_idea
+				has_idea = flower_tank_stage_2_idea
+				has_idea = flower_air_stage_2_idea
+				has_idea = flower_wave_stage_2_idea
+				has_idea = flower_nightingale_stage_2_idea
+				has_idea = flower_guerrilla_stage_2_idea
+				has_idea = flower_undead_stage_2_idea
+				has_idea = flower_magic_stage_2_idea
+				has_idea = flower_steampunk_stage_2_idea
+				AND = { has_country_flag = flower_roguelike_slayer_ai check_variable = { flower_slayer_stacks > 2 } }
+				AND = { has_country_flag = flower_roguelike_gambler_active date > 1938.12.31 }
+			}
+		}
+		set_variable = { flower_pivot_saved_stage = 2 }
+	}
+	clr_country_flag = flower_roguelike_slayer_ai
+	clr_country_flag = flower_roguelike_corp_ai
+	clr_country_flag = flower_roguelike_arty_ai
+	clr_country_flag = flower_roguelike_tank_ai
+	clr_country_flag = flower_roguelike_air_ai
+	clr_country_flag = flower_roguelike_wave_ai
+	clr_country_flag = flower_roguelike_nightingale_ai
+	clr_country_flag = flower_roguelike_guerrilla_ai
+	clr_country_flag = flower_roguelike_undead_ai
+	clr_country_flag = flower_roguelike_magic_ai
+	clr_country_flag = flower_roguelike_steampunk_ai
+	clr_country_flag = flower_roguelike_gambler_active
+	clr_country_flag = flower_evo_guerrilla_heavy_ai
+	remove_ideas = {
+		flower_slayer_base_idea
+		flower_gambler_base_idea
+		flower_corp_stage_1_idea
+		flower_corp_stage_2_idea
+		flower_corp_stage_3_idea
+		flower_arty_stage_1_idea
+		flower_arty_stage_2_idea
+		flower_arty_stage_3_idea
+		flower_tank_stage_1_idea
+		flower_tank_stage_2_idea
+		flower_tank_stage_3_idea
+		flower_air_stage_1_idea
+		flower_air_stage_2_idea
+		flower_air_stage_3_idea
+		flower_wave_stage_1_idea
+		flower_wave_stage_2_idea
+		flower_wave_stage_3_idea
+		flower_nightingale_stage_1_idea
+		flower_nightingale_stage_2_idea
+		flower_nightingale_stage_3_idea
+		flower_guerrilla_stage_1_idea
+		flower_guerrilla_stage_2_idea
+		flower_guerrilla_stage_3_idea
+		flower_undead_stage_1_idea
+		flower_undead_stage_2_idea
+		flower_undead_stage_3_idea
+		flower_magic_stage_1_idea
+		flower_magic_stage_2_idea
+		flower_magic_stage_3_idea
+		flower_steampunk_stage_1_idea
+		flower_steampunk_stage_2_idea
+		flower_steampunk_stage_3_idea
+		flower_evo_nightingale_blood_idea
+		flower_evo_nightingale_iron_idea
+		flower_evo_nightingale_alchemy_idea
+		flower_evo_guerrilla_scorch_idea
+		flower_evo_guerrilla_heavy_idea
+		flower_evo_guerrilla_sea_idea
+		flower_evo_undead_plague_idea
+		flower_evo_undead_king_idea
+		flower_evo_undead_sweatshop_idea
+		flower_evo_slayer_dismantle_idea
+		flower_evo_slayer_retrofit_idea
+		flower_evo_corp_trust_idea
+		flower_evo_corp_megaproject_idea
+		flower_evo_arty_carpet_idea
+		flower_evo_arty_mobile_idea
+		flower_evo_tank_timestop_idea
+		flower_evo_tank_fortress_idea
+		flower_evo_air_cas_idea
+		flower_evo_air_superiority_idea
+		flower_evo_wave_meatgrinder_idea
+		flower_evo_wave_banzai_idea
+		flower_evo_magic_chosen_idea
+		flower_evo_magic_grimoire_idea
+		flower_evo_punk_ufo_idea
+		flower_evo_punk_elfsteam_idea
+		flower_slayer_exo_armor_idea
+		flower_slayer_field_repair_idea
+		flower_op_wave_expand_idea
+		flower_op_wave_hold_idea
+		flower_op_wave_rest_idea
+		flower_mystery_egg_incubating_idea
+		flower_mystery_egg_hatched_idea
+		flower_egg_clockwork_forge_idea
+		flower_egg_golden_vanguard_idea
+		flower_egg_arcane_blueprint_idea
+		flower_blood_wager_active_idea
+		flower_blood_wager_victory_idea
+		flower_blood_wager_consolation_idea
+		flower_gambler_buff_godhand_idea
+		flower_gambler_buff_windfall_idea
+		flower_gambler_buff_einstein_idea
+		flower_gambler_buff_ironluck_idea
+		flower_gambler_debuff_bankrupt_idea
+		flower_gambler_debuff_jammed_idea
+		flower_gambler_debuff_chaos_idea
+		flower_gambler_debuff_scandal_idea
+		flower_gold_arch_1
+		flower_gold_arch_2
+		flower_gold_arch_3
+		flower_gold_arch_4
+		flower_gold_arch_5
+		flower_gold_arch_6
+		flower_gold_arch_7
+		flower_gold_arch_8
+		flower_gold_arch_9
+		flower_gold_arch_10
+		flower_gold_arch_11
+		flower_gold_arch_12
+	}
+	if = { limit = { has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_builder_ledger_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_arty_density_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_arty_density_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_blitz_momentum_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_blitz_momentum_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_ace_prestige_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_ace_prestige_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_veteran_furnace_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_veteran_furnace_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_night_phantom_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_night_phantom_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_guerrilla_underdog_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_guerrilla_underdog_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_blood_labor_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_blood_labor_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_elite_small_army_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_science_compute_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_science_compute_dynamic_mod } }
+	if = { limit = { has_dynamic_modifier = { modifier = flower_cash_power_dynamic_mod } } remove_dynamic_modifier = { modifier = flower_cash_power_dynamic_mod } }
+	set_variable = { flower_slayer_stacks = 0 }
+	set_variable = { flower_slayer_war_months = 0 }
+	set_variable = { flower_builder_stacks = 0 }
+	set_variable = { flower_blitz_stacks = 0 }
+	set_variable = { flower_ace_stacks = 0 }
+	set_variable = { flower_vet_stacks = 0 }
+	set_variable = { flower_blood_charge = 0 }
+	set_variable = { flower_distinct_archetypes_count = 0 }
+	set_variable = { flower_active_arch_id = 0 }
+}
+
+#中期转型后按原阶位自动补阶（2阶直达二阶并开启分支，3阶直达满级并保留分支弹窗）
+flower_tavern_apply_saved_stage_after_pivot = {
+	set_country_flag = flower_pivot_batch_upgrading
+	if = {
+		limit = { check_variable = { flower_pivot_saved_stage > 1 } }
+		if = {
+			limit = { check_variable = { flower_active_arch_id = 1 } }
+			flower_ai_add_slayer_stack = yes
+			flower_ai_add_slayer_stack = yes
+			if = {
+				limit = { check_variable = { flower_pivot_saved_stage > 2 } }
+				flower_ai_add_slayer_stack = yes
+				flower_ai_add_slayer_stack = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = flower_evo_slayer_done } }
+				set_country_flag = flower_evo_slayer_done
+				if = {
+					limit = { is_ai = no }
+					set_variable = { flower_branch_id = 4 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = { country_event = { id = FLWRG.14 } }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 2 } }
+			flower_ai_pick_archetype_2 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_2 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 3 } }
+			flower_ai_pick_archetype_3 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_3 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 4 } }
+			flower_ai_pick_archetype_4 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_4 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 5 } }
+			flower_ai_pick_archetype_5 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_5 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 6 } }
+			flower_ai_pick_archetype_6 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_6 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 7 } }
+			flower_ai_pick_archetype_7 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_7 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 8 } }
+			flower_ai_pick_archetype_8 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_8 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 9 } }
+			flower_ai_pick_archetype_9 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_9 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 10 } }
+			flower_ai_pick_archetype_10 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_10 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 11 } }
+			flower_ai_pick_archetype_11 = yes
+			if = { limit = { check_variable = { flower_pivot_saved_stage > 2 } } flower_ai_pick_archetype_11 = yes }
+		}
+		else_if = {
+			limit = { check_variable = { flower_active_arch_id = 12 } }
+			remove_ideas = flower_mystery_egg_incubating_idea
+			if = {
+				limit = { NOT = { has_country_flag = flower_mystery_egg_hatched_flag } }
+				set_country_flag = flower_mystery_egg_hatched_flag
+				country_event = { id = FLWAI.23 days = 1 }
+			}
+			if = {
+				limit = { check_variable = { flower_pivot_saved_stage > 2 } }
+				add_to_variable = { ubs_save = 250 }
+				army_experience = 35
+				set_country_flag = flower_gambler_insured
+				flower_ai_sync_hcp_ui = yes
+			}
+		}
+	}
+	clr_country_flag = flower_pivot_batch_upgrading
+	set_variable = { flower_pivot_saved_stage = 0 }
+	flower_tavern_recalc_trinket_dynamics = yes
+	flower_tavern_check_golden_synthesis = yes
+}
+
+#===============================================================================
+#四、合金质变检测（当前流派底座 + 同源小饰品 + 同源大饰品自动合金晋升）
+#===============================================================================
+flower_tavern_check_golden_synthesis = {
+	set_temp_variable = { t_gold_new = 0 }
+	if = { limit = { has_country_flag = flower_roguelike_slayer_ai has_idea = flower_st_arch_1 has_idea = flower_lt_arch_1 NOT = { has_idea = flower_gold_arch_1 } } add_ideas = flower_gold_arch_1 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_corp_ai has_idea = flower_st_arch_2 has_idea = flower_lt_arch_2 NOT = { has_idea = flower_gold_arch_2 } } add_ideas = flower_gold_arch_2 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_arty_ai has_idea = flower_st_arch_3 has_idea = flower_lt_arch_3 NOT = { has_idea = flower_gold_arch_3 } } add_ideas = flower_gold_arch_3 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_tank_ai has_idea = flower_st_arch_4 has_idea = flower_lt_arch_4 NOT = { has_idea = flower_gold_arch_4 } } add_ideas = flower_gold_arch_4 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_air_ai has_idea = flower_st_arch_5 has_idea = flower_lt_arch_5 NOT = { has_idea = flower_gold_arch_5 } } add_ideas = flower_gold_arch_5 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_wave_ai has_idea = flower_st_arch_6 has_idea = flower_lt_arch_6 NOT = { has_idea = flower_gold_arch_6 } } add_ideas = flower_gold_arch_6 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_nightingale_ai has_idea = flower_st_arch_7 has_idea = flower_lt_arch_7 NOT = { has_idea = flower_gold_arch_7 } } add_ideas = flower_gold_arch_7 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_guerrilla_ai has_idea = flower_st_arch_8 has_idea = flower_lt_arch_8 NOT = { has_idea = flower_gold_arch_8 } } add_ideas = flower_gold_arch_8 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_undead_ai has_idea = flower_st_arch_9 has_idea = flower_lt_arch_9 NOT = { has_idea = flower_gold_arch_9 } } add_ideas = flower_gold_arch_9 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_magic_ai has_idea = flower_st_arch_10 has_idea = flower_lt_arch_10 NOT = { has_idea = flower_gold_arch_10 } } add_ideas = flower_gold_arch_10 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_steampunk_ai has_idea = flower_st_arch_11 has_idea = flower_lt_arch_11 NOT = { has_idea = flower_gold_arch_11 } } add_ideas = flower_gold_arch_11 set_temp_variable = { t_gold_new = 1 } }
+	if = { limit = { has_country_flag = flower_roguelike_gambler_active has_idea = flower_st_arch_12 has_idea = flower_lt_arch_12 NOT = { has_idea = flower_gold_arch_12 } } add_ideas = flower_gold_arch_12 set_temp_variable = { t_gold_new = 1 } }
+	if = {
+		limit = {
+			is_ai = no
+			check_variable = { t_gold_new > 0 }
+		}
+		hidden_effect = {
+			scoped_sound_effect = "flower_sfx_combo_awakening"
+			set_country_flag = flower_badge_hub_alert
+			set_variable = { flower_badge_feedback_id = 4 }
+			flower_tavern_recalc_trinket_dynamics = yes
+			flower_badge_hub_sync_state = yes
+		}
+	}
+}
+
+#===============================================================================
+#五、1937 小饰品 & 1939 大饰品 4槽差异化商店生成
+#===============================================================================
+#辅助：从当前局开放池挑1个与 temp_exclude_arch 不同的流派号(1..12)存入 flower_tavern_tmp_arch
+flower_tavern_pick_open_arch_excluding = {
+	set_variable = { flower_tavern_tmp_arch = 0 }
+	random_list = {
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 1 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_1 } } } } set_variable = { flower_tavern_tmp_arch = 1 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 2 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_2 } } } } set_variable = { flower_tavern_tmp_arch = 2 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 3 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_3 } } } } set_variable = { flower_tavern_tmp_arch = 3 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 4 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_4 } } } } set_variable = { flower_tavern_tmp_arch = 4 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 5 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_5 } } } } set_variable = { flower_tavern_tmp_arch = 5 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 6 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_6 } } } } set_variable = { flower_tavern_tmp_arch = 6 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 7 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_7 } } } } set_variable = { flower_tavern_tmp_arch = 7 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 8 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_8 } } } } set_variable = { flower_tavern_tmp_arch = 8 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 9 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_9 } } } } set_variable = { flower_tavern_tmp_arch = 9 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 10 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_10 } } } } set_variable = { flower_tavern_tmp_arch = 10 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 11 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_11 } } } } set_variable = { flower_tavern_tmp_arch = 11 } }
+		10 = { modifier = { factor = 0 OR = { check_variable = { temp_exclude_arch = 12 } AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_12 } } } } set_variable = { flower_tavern_tmp_arch = 12 } }
+	}
+	if = {
+		limit = { check_variable = { flower_tavern_tmp_arch = 0 } }
+		if = {
+			limit = { NOT = { check_variable = { temp_exclude_arch = 1 } } }
+			set_variable = { flower_tavern_tmp_arch = 1 }
+		}
+		else = {
+			set_variable = { flower_tavern_tmp_arch = 2 }
+		}
+	}
+}
+
+#生成1937小饰品4槽商店：槽1=本流派 / 槽2=池内另一流派 / 槽3=经济·混编·肖像 / 槽4=低价·诅咒
+flower_tavern_roll_small_trinkets = {
+	flower_tavern_calc_dynamic_goals = yes
+	if = {
+		limit = { check_variable = { flower_active_arch_id > 0 } }
+		set_variable = { flower_st_slot_1 = flower_active_arch_id }
+	}
+	else = {
+		set_temp_variable = { temp_exclude_arch = 0 }
+		flower_tavern_pick_open_arch_excluding = yes
+		set_variable = { flower_st_slot_1 = flower_tavern_tmp_arch }
+	}
+	set_temp_variable = { temp_exclude_arch = flower_st_slot_1 }
+	flower_tavern_pick_open_arch_excluding = yes
+	set_variable = { flower_st_slot_2 = flower_tavern_tmp_arch }
+	random_list = {
+		15 = { set_variable = { flower_st_slot_3 = 13 } }
+		15 = { set_variable = { flower_st_slot_3 = 14 } }
+		15 = { set_variable = { flower_st_slot_3 = 15 } }
+		15 = { set_variable = { flower_st_slot_3 = 16 } }
+		15 = { set_variable = { flower_st_slot_3 = 17 } }
+		15 = { set_variable = { flower_st_slot_3 = 18 } }
+		15 = { set_variable = { flower_st_slot_3 = 19 } }
+		15 = { set_variable = { flower_st_slot_3 = 20 } }
+	}
+	random_list = {
+		25 = { set_variable = { flower_st_slot_4 = 21 } }
+		25 = { set_variable = { flower_st_slot_4 = 22 } }
+		25 = { set_variable = { flower_st_slot_4 = 23 } }
+		25 = { set_variable = { flower_st_slot_4 = 24 } }
+	}
+}
+
+#生成1939大徽章4槽候选：槽1=优先匹配已持同源小徽章(防双修断链) / 槽2=池内另一流派 / 槽3=经济·混编·特殊 / 槽4=低价·诅咒返现
+flower_tavern_roll_large_trinkets = {
+	flower_tavern_calc_dynamic_goals = yes
+	set_variable = { flower_lt_slot_1 = 0 }
+	if = { limit = { has_idea = flower_st_arch_1 has_country_flag = flower_roguelike_slayer_ai } set_variable = { flower_lt_slot_1 = 1 } }
+	else_if = { limit = { has_idea = flower_st_arch_2 has_country_flag = flower_roguelike_corp_ai } set_variable = { flower_lt_slot_1 = 2 } }
+	else_if = { limit = { has_idea = flower_st_arch_3 has_country_flag = flower_roguelike_arty_ai } set_variable = { flower_lt_slot_1 = 3 } }
+	else_if = { limit = { has_idea = flower_st_arch_4 has_country_flag = flower_roguelike_tank_ai } set_variable = { flower_lt_slot_1 = 4 } }
+	else_if = { limit = { has_idea = flower_st_arch_5 has_country_flag = flower_roguelike_air_ai } set_variable = { flower_lt_slot_1 = 5 } }
+	else_if = { limit = { has_idea = flower_st_arch_6 has_country_flag = flower_roguelike_wave_ai } set_variable = { flower_lt_slot_1 = 6 } }
+	else_if = { limit = { has_idea = flower_st_arch_7 has_country_flag = flower_roguelike_nightingale_ai } set_variable = { flower_lt_slot_1 = 7 } }
+	else_if = { limit = { has_idea = flower_st_arch_8 has_country_flag = flower_roguelike_guerrilla_ai } set_variable = { flower_lt_slot_1 = 8 } }
+	else_if = { limit = { has_idea = flower_st_arch_9 has_country_flag = flower_roguelike_undead_ai } set_variable = { flower_lt_slot_1 = 9 } }
+	else_if = { limit = { has_idea = flower_st_arch_10 has_country_flag = flower_roguelike_magic_ai } set_variable = { flower_lt_slot_1 = 10 } }
+	else_if = { limit = { has_idea = flower_st_arch_11 has_country_flag = flower_roguelike_steampunk_ai } set_variable = { flower_lt_slot_1 = 11 } }
+	else_if = { limit = { has_idea = flower_st_arch_12 has_country_flag = flower_roguelike_gambler_active } set_variable = { flower_lt_slot_1 = 12 } }
+	else_if = {
+		limit = { check_variable = { flower_active_arch_id > 0 } }
+		set_variable = { flower_lt_slot_1 = flower_active_arch_id }
+	}
+	else = {
+		set_temp_variable = { temp_exclude_arch = 0 }
+		flower_tavern_pick_open_arch_excluding = yes
+		set_variable = { flower_lt_slot_1 = flower_tavern_tmp_arch }
+	}
+	set_temp_variable = { temp_exclude_arch = flower_lt_slot_1 }
+	flower_tavern_pick_open_arch_excluding = yes
+	set_variable = { flower_lt_slot_2 = flower_tavern_tmp_arch }
+	random_list = {
+		15 = { set_variable = { flower_lt_slot_3 = 13 } }
+		15 = { set_variable = { flower_lt_slot_3 = 14 } }
+		15 = { set_variable = { flower_lt_slot_3 = 15 } }
+		15 = { set_variable = { flower_lt_slot_3 = 16 } }
+		15 = { set_variable = { flower_lt_slot_3 = 17 } }
+		15 = { set_variable = { flower_lt_slot_3 = 18 } }
+		15 = { set_variable = { flower_lt_slot_3 = 19 } }
+		15 = { set_variable = { flower_lt_slot_3 = 20 } }
+	}
+	random_list = {
+		25 = { set_variable = { flower_lt_slot_4 = 21 } }
+		25 = { set_variable = { flower_lt_slot_4 = 22 } }
+		25 = { set_variable = { flower_lt_slot_4 = 23 } }
+		25 = { set_variable = { flower_lt_slot_4 = 24 } }
+	}
+}
+
+#支付大徽章标准费用或半价费用（储备不足改付高额政治点数）
+flower_tavern_pay_lt_std = {
+	flower_tavern_calc_dynamic_goals = yes
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < flower_lt_std_cost } } }
+		subtract_from_variable = { ubs_save = flower_lt_std_cost }
+		flower_ai_sync_hcp_ui = yes
+	}
+	else = {
+		add_political_power = -250
+	}
+}
+
+flower_tavern_pay_lt_cheap = {
+	flower_tavern_calc_dynamic_goals = yes
+	if = {
+		limit = { NOT = { check_variable = { ubs_save < flower_lt_cheap_cost } } }
+		subtract_from_variable = { ubs_save = flower_lt_cheap_cost }
+		flower_ai_sync_hcp_ui = yes
+	}
+	else = {
+		add_political_power = -125
+	}
+}
+
+#===============================================================================
+#六、徽章动态修正月度重算（全军混编参谋部、国防公债、特战战术挂板）
+#===============================================================================
+flower_tavern_recalc_trinket_dynamics = {
+	#1.全军混编参谋部：检测现役步兵/炮兵/装甲/空军/特种活跃兵种维度，分1-3档5%整档（每档+5%攻防突破、+10%协同性）
+	if = {
+		limit = { has_idea = flower_lt_hyb_lightfang }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_lightfang_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_lightfang_dynamic_mod }
+		}
+		set_temp_variable = { t_lf_dims = 0 }
+		if = { limit = { has_army_size = { size > 5 type = infantry } } add_to_temp_variable = { t_lf_dims = 1 } }
+		if = {
+			limit = {
+				OR = {
+					has_template_containing_unit = artillery_brigade
+					has_template_containing_unit = rocket_artillery_brigade
+					has_template_containing_unit = artillery
+					has_equipment = { artillery_equipment > 99 }
+				}
+			}
+			add_to_temp_variable = { t_lf_dims = 1 }
+		}
+		if = { limit = { has_army_size = { size > 1 type = armor } } add_to_temp_variable = { t_lf_dims = 1 } }
+		if = { limit = { has_deployed_air_force_size = { size > 99 } } add_to_temp_variable = { t_lf_dims = 1 } }
+		if = { limit = { OR = { has_template_containing_unit = mountaineers has_template_containing_unit = marine has_template_containing_unit = paratrooper } } add_to_temp_variable = { t_lf_dims = 1 } }
+		set_temp_variable = { t_lf = 1 }
+		if = { limit = { check_variable = { t_lf_dims > 4 } } set_temp_variable = { t_lf = 3 } }
+		else_if = { limit = { check_variable = { t_lf_dims > 2 } } set_temp_variable = { t_lf = 2 } }
+		set_variable = { flower_lightfang_atk_var = t_lf }
+		multiply_variable = { flower_lightfang_atk_var = 0.05 }
+		set_variable = { flower_lightfang_def_var = t_lf }
+		multiply_variable = { flower_lightfang_def_var = 0.05 }
+		set_variable = { flower_lightfang_brk_var = t_lf }
+		multiply_variable = { flower_lightfang_brk_var = 0.05 }
+		set_variable = { flower_lightfang_crd_var = t_lf }
+		multiply_variable = { flower_lightfang_crd_var = 0.10 }
+	}
+	#2. 国防公债认购书：每400储备提供+5%工厂产出与建设速度，最多4层
+	if = {
+		limit = { has_idea = flower_lt_econ_bonds }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_bonds_ic_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_bonds_ic_dynamic_mod }
+		}
+		set_temp_variable = { t_bn = 0 }
+		if = { limit = { check_variable = { ubs_save > 399 } } set_temp_variable = { t_bn = 1 } }
+		if = { limit = { check_variable = { ubs_save > 799 } } set_temp_variable = { t_bn = 2 } }
+		if = { limit = { check_variable = { ubs_save > 1199 } } set_temp_variable = { t_bn = 3 } }
+		if = { limit = { check_variable = { ubs_save > 1599 } } set_temp_variable = { t_bn = 4 } }
+		set_variable = { flower_bonds_ic_var = t_bn }
+		multiply_variable = { flower_bonds_ic_var = 0.05 }
+		set_variable = { flower_bonds_bld_var = t_bn }
+		multiply_variable = { flower_bonds_bld_var = 0.05 }
+	}
+	#3. 特种磁力挂件：每持有1张战术卡提供+5%特种攻击防御、+15%特种容量上限乘数，最多4层
+	if = {
+		limit = { has_idea = flower_lt_port_magnetic }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_magnetic_spec_dynamic_mod } } }
+			add_dynamic_modifier = { modifier = flower_magnetic_spec_dynamic_mod }
+		}
+		set_temp_variable = { t_mg = flower_owned_cards_array^num }
+		if = { limit = { check_variable = { t_mg > 4 } } set_temp_variable = { t_mg = 4 } }
+		if = { limit = { check_variable = { t_mg < 0 } } set_temp_variable = { t_mg = 0 } }
+		set_variable = { flower_mag_atk_var = t_mg }
+		multiply_variable = { flower_mag_atk_var = 0.05 }
+		set_variable = { flower_mag_def_var = t_mg }
+		multiply_variable = { flower_mag_def_var = 0.05 }
+		set_variable = { flower_mag_cap_var = t_mg }
+		multiply_variable = { flower_mag_cap_var = 0.15 }
+	}
+	#4. 徽章与常驻战术卡协同配合（同时持有徽章与战术卡时按1-3阶提供+5%/+10%/+15%组织度恢复速率与工厂产出）
+	set_temp_variable = { t_badge_cnt = 0 }
+	if = { limit = { has_country_flag = flower_st_claimed } add_to_temp_variable = { t_badge_cnt = 1 } }
+	if = { limit = { has_country_flag = flower_lt_claimed } add_to_temp_variable = { t_badge_cnt = 1 } }
+	if = { limit = { has_country_flag = flower_crown_claimed } add_to_temp_variable = { t_badge_cnt = 1 } }
+	set_temp_variable = { t_has_gold = 0 }
+	if = {
+		limit = {
+			OR = {
+				has_idea = flower_gold_arch_1
+				has_idea = flower_gold_arch_2
+				has_idea = flower_gold_arch_3
+				has_idea = flower_gold_arch_4
+				has_idea = flower_gold_arch_5
+				has_idea = flower_gold_arch_6
+				has_idea = flower_gold_arch_7
+				has_idea = flower_gold_arch_8
+				has_idea = flower_gold_arch_9
+				has_idea = flower_gold_arch_10
+				has_idea = flower_gold_arch_11
+				has_idea = flower_gold_arch_12
+			}
+		}
+		set_temp_variable = { t_has_gold = 1 }
+	}
+	set_variable = { flower_badge_owned_count = t_badge_cnt }
+	set_temp_variable = { t_cards_cnt = flower_owned_cards_array^num }
+	set_variable = { flower_badge_synergy_tier = 0 }
+	if = {
+		limit = {
+			check_variable = { t_badge_cnt > 0 }
+			check_variable = { t_cards_cnt > 0 }
+		}
+		set_variable = { flower_badge_synergy_tier = 1 }
+		if = {
+			limit = {
+				OR = {
+					AND = { check_variable = { t_badge_cnt > 2 } check_variable = { t_cards_cnt > 2 } }
+					AND = { check_variable = { t_has_gold > 0 } check_variable = { t_cards_cnt > 1 } }
+				}
+			}
+			set_variable = { flower_badge_synergy_tier = 3 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = { check_variable = { t_badge_cnt > 1 } check_variable = { t_cards_cnt > 1 } }
+					check_variable = { t_has_gold > 0 }
+				}
+			}
+			set_variable = { flower_badge_synergy_tier = 2 }
+		}
+	}
+	set_variable = { flower_synergy_org_var = flower_badge_synergy_tier }
+	multiply_variable = { flower_synergy_org_var = 0.05 }
+	set_variable = { flower_synergy_ic_var = flower_badge_synergy_tier }
+	multiply_variable = { flower_synergy_ic_var = 0.05 }
+	set_variable = { flower_synergy_pct_disp = flower_badge_synergy_tier }
+	multiply_variable = { flower_synergy_pct_disp = 5 }
+	if = {
+		limit = { check_variable = { flower_badge_synergy_tier > 0 } }
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = flower_badge_card_synergy_dm } } }
+			add_dynamic_modifier = { modifier = flower_badge_card_synergy_dm }
+		}
+	}
+	else_if = {
+		limit = { has_dynamic_modifier = { modifier = flower_badge_card_synergy_dm } }
+		remove_dynamic_modifier = { modifier = flower_badge_card_synergy_dm }
+	}
+}
+
+#===============================================================================
+#七、4槽战术卡上限：按ID出售、按ID授予、满4槽替换与击败强敌偷牌
+#===============================================================================
+#判断 temp_card_id 是否为占据4槽位之一的永久战术卡（输出 temp_is_slot_card = 1/0）
+flower_tavern_check_is_slot_card = {
+	set_temp_variable = { temp_is_slot_card = 1 }
+	if = {
+		limit = {
+			OR = {
+				check_variable = { temp_card_id = 21 }
+				check_variable = { temp_card_id = 22 }
+				check_variable = { temp_card_id = 23 }
+				check_variable = { temp_card_id = 24 }
+				check_variable = { temp_card_id = 31 }
+				check_variable = { temp_card_id = 32 }
+				check_variable = { temp_card_id = 35 }
+				check_variable = { temp_card_id = 36 }
+				check_variable = { temp_card_id = 56 }
+				check_variable = { temp_card_id = 57 }
+			}
+		}
+		set_temp_variable = { temp_is_slot_card = 0 }
+	}
+}
+
+#按ID出售单张永久战术卡（传入 temp_sell_card_id；清除民族精神与标记，退还150储备与25陆军经验，旧货当铺账本翻倍）
+flower_tavern_sell_card_by_id = {
+	if = {
+		limit = {
+			check_variable = { temp_sell_card_id > 0 }
+			is_in_array = {
+				array = flower_owned_cards_array
+				value = temp_sell_card_id
+			}
+		}
+		remove_from_array = {
+			array = flower_owned_cards_array
+			value = temp_sell_card_id
+		}
+		if = { limit = { check_variable = { temp_sell_card_id = 1 } } clr_country_flag = flower_card_owned_1 remove_ideas = flower_relic_night_hunter_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 2 } } clr_country_flag = flower_card_owned_2 remove_ideas = flower_relic_supply_wizard_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 3 } } clr_country_flag = flower_card_owned_3 remove_ideas = flower_relic_iron_assembly_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 4 } } clr_country_flag = flower_card_owned_4 remove_ideas = flower_relic_war_homework_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 5 } } clr_country_flag = flower_card_owned_5 remove_ideas = flower_relic_black_market_dealer_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 6 } } clr_country_flag = flower_card_owned_6 remove_ideas = flower_relic_specops_bootcamp_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 7 } } clr_country_flag = flower_card_owned_7 remove_ideas = flower_relic_marshal_cram_school_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 8 } } clr_country_flag = flower_card_owned_8 remove_ideas = flower_relic_bunker_crew_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 9 } } clr_country_flag = flower_card_owned_9 remove_ideas = flower_relic_blitz_staff_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 10 } } clr_country_flag = flower_card_owned_10 remove_ideas = flower_relic_sky_backyard_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 11 } } clr_country_flag = flower_card_owned_11 remove_ideas = flower_relic_field_surgery_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 12 } } clr_country_flag = flower_card_owned_12 remove_ideas = flower_relic_fuel_stash_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 13 } } clr_country_flag = flower_card_owned_13 remove_ideas = flower_curse_burn_boats_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 14 } } clr_country_flag = flower_card_owned_14 remove_ideas = flower_curse_flesh_alchemy_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 15 } } clr_country_flag = flower_card_owned_15 remove_ideas = flower_curse_espresso_march_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 16 } } clr_country_flag = flower_card_owned_16 remove_ideas = flower_curse_berserk_trade_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 17 } } clr_country_flag = flower_card_owned_17 remove_ideas = flower_curse_wallstreet_loan_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 18 } } clr_country_flag = flower_card_owned_18 remove_ideas = flower_curse_mad_reactor_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 19 } } clr_country_flag = flower_card_owned_19 remove_ideas = flower_curse_no_step_back_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 20 } } clr_country_flag = flower_card_owned_20 remove_ideas = flower_curse_overclock_magic_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 25 } } clr_country_flag = flower_card_owned_25 remove_ideas = flower_micro_nightingale_cloak_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 26 } } clr_country_flag = flower_card_owned_26 remove_ideas = flower_micro_guerrilla_manual_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 27 } } clr_country_flag = flower_card_owned_27 remove_ideas = flower_micro_defib_kit_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 28 } } clr_country_flag = flower_card_owned_28 remove_ideas = flower_micro_sanae_charm_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 29 } } clr_country_flag = flower_card_owned_29 remove_ideas = flower_micro_sakuya_watch_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 30 } } clr_country_flag = flower_card_owned_30 remove_ideas = flower_micro_sky_radar_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 33 } } clr_country_flag = flower_card_owned_33 remove_ideas = flower_micro_elf_blessing_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 34 } } clr_country_flag = flower_card_owned_34 remove_ideas = flower_micro_uma_dispatch_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 37 } } clr_country_flag = flower_card_owned_37 remove_ideas = flower_card37_steal_warehouse_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 38 } } clr_country_flag = flower_card_owned_38 remove_ideas = flower_card38_build_first_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 39 } } clr_country_flag = flower_card_owned_39 remove_ideas = flower_card39_firepower_phobia_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 40 } } clr_country_flag = flower_card_owned_40 remove_ideas = flower_card40_gutter_river_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 41 } } clr_country_flag = flower_card_owned_41 remove_ideas = flower_card41_ace_combat_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 42 } } clr_country_flag = flower_card_owned_42 remove_ideas = flower_card42_justice_rain_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 43 } } clr_country_flag = flower_card_owned_43 remove_ideas = flower_card43_rifle_for_all_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 44 } } clr_country_flag = flower_card_owned_44 remove_ideas = flower_card44_bullets_vs_men_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 45 } } clr_country_flag = flower_card_owned_45 remove_ideas = flower_card45_palace_wine_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 46 } } clr_country_flag = flower_card_owned_46 remove_ideas = flower_card46_moon_awake_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 47 } } clr_country_flag = flower_card_owned_47 remove_ideas = flower_card47_talking_trees_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 48 } } clr_country_flag = flower_card_owned_48 remove_ideas = flower_card48_defib_full_hp_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 49 } } clr_country_flag = flower_card_owned_49 remove_ideas = flower_card49_para_steal_cap_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 50 } } clr_country_flag = flower_card_owned_50 remove_ideas = flower_card50_newton_coffin_idea flower_ai_recalc_science_compute = yes }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 51 } } clr_country_flag = flower_card_owned_51 remove_ideas = flower_card51_lord_of_war_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 52 } } clr_country_flag = flower_card_owned_52 remove_ideas = flower_card52_pity_subsidy_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 53 } } clr_country_flag = flower_card_owned_53 remove_ideas = flower_card53_rich_mines_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 54 } } clr_country_flag = flower_card_owned_54 remove_ideas = flower_card54_tractor_factory_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 55 } } clr_country_flag = flower_card_owned_55 remove_ideas = flower_card55_nine_inf_one_art_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 58 } } clr_country_flag = flower_card_owned_58 remove_ideas = flower_card58_how_to_navy_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 59 } } clr_country_flag = flower_card_owned_59 remove_ideas = flower_card59_sealion_rush_idea }
+		else_if = { limit = { check_variable = { temp_sell_card_id = 60 } } clr_country_flag = flower_card_owned_60 remove_ideas = flower_card60_surrender_radio_idea }
+		if = {
+			limit = { check_variable = { flower_roguelike_cards_count > 0 } }
+			subtract_from_variable = { flower_roguelike_cards_count = 1 }
+		}
+		if = {
+			limit = { has_idea = flower_st_econ_ledger }
+			add_to_variable = { ubs_save = 200 }
+			army_experience = 40
+		}
+		else = {
+			add_to_variable = { ubs_save = 150 }
+			army_experience = 25
+		}
+		flower_ai_sync_hcp_ui = yes
+		flower_tavern_recalc_trinket_dynamics = yes
+	}
+}
+
+#AI满4槽自动腾出1个低优先槽位（战时优先换下和平经济卡，否则换下最旧的第1槽）
+flower_tavern_ai_make_room_for_card = {
+	if = {
+		limit = { check_variable = { flower_owned_cards_array^num > 3 } }
+		set_temp_variable = { temp_sell_card_id = 0 }
+		if = {
+			limit = { has_war = yes }
+			if = { limit = { has_country_flag = flower_card_owned_38 } set_temp_variable = { temp_sell_card_id = 38 } }
+			else_if = { limit = { has_country_flag = flower_card_owned_53 } set_temp_variable = { temp_sell_card_id = 53 } }
+			else_if = { limit = { has_country_flag = flower_card_owned_17 } set_temp_variable = { temp_sell_card_id = 17 } }
+			else_if = { limit = { has_country_flag = flower_card_owned_14 } set_temp_variable = { temp_sell_card_id = 14 } }
+			else_if = { limit = { has_country_flag = flower_card_owned_3 } set_temp_variable = { temp_sell_card_id = 3 } }
+		}
+		if = {
+			limit = { check_variable = { temp_sell_card_id = 0 } }
+			set_temp_variable = { temp_sell_card_id = flower_owned_cards_array^0 }
+		}
+		flower_tavern_sell_card_by_id = yes
+	}
+}
+
+#统一按ID直接应用单张战术卡（传入 temp_grant_card_id，供抽牌/替换完成/击败偷牌复用，已去除白嫖装备与白嫖工厂）
+flower_tavern_grant_card_by_id = {
+	set_temp_variable = { temp_card_id = temp_grant_card_id }
+	flower_tavern_check_is_slot_card = yes
+	if = {
+		limit = { check_variable = { temp_is_slot_card = 1 } }
+		add_to_variable = { flower_roguelike_cards_count = 1 }
+		set_temp_variable = { flower_record_card_id = temp_grant_card_id }
+		flower_ai_record_chosen_card = yes
+	}
+	if = { limit = { check_variable = { temp_grant_card_id = 1 } } set_country_flag = flower_card_owned_1 add_ideas = flower_relic_night_hunter_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 2 } } set_country_flag = flower_card_owned_2 add_ideas = flower_relic_supply_wizard_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 3 } } set_country_flag = flower_card_owned_3 add_ideas = flower_relic_iron_assembly_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 4 } } set_country_flag = flower_card_owned_4 add_ideas = flower_relic_war_homework_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 5 } }
+		set_country_flag = flower_card_owned_5
+		add_ideas = flower_relic_black_market_dealer_idea
+		if = {
+			limit = { NOT = { has_country_flag = flower_card_once_5 } }
+			set_country_flag = flower_card_once_5
+			add_to_variable = { ubs_save = 250 }
+			flower_ai_sync_hcp_ui = yes
+		}
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 6 } } set_country_flag = flower_card_owned_6 add_ideas = flower_relic_specops_bootcamp_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 7 } }
+		set_country_flag = flower_card_owned_7
+		add_ideas = flower_relic_marshal_cram_school_idea
+		if = {
+			limit = { NOT = { has_country_flag = flower_card_once_7 } }
+			set_country_flag = flower_card_once_7
+			flower_ai_grant_leader_space_magician = yes
+			flower_ai_grant_leader_chessmaster = yes
+		}
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 8 } } set_country_flag = flower_card_owned_8 add_ideas = flower_relic_bunker_crew_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 9 } } set_country_flag = flower_card_owned_9 add_ideas = flower_relic_blitz_staff_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 10 } } set_country_flag = flower_card_owned_10 add_ideas = flower_relic_sky_backyard_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 11 } } set_country_flag = flower_card_owned_11 add_ideas = flower_relic_field_surgery_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 12 } } set_country_flag = flower_card_owned_12 add_ideas = flower_relic_fuel_stash_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 13 } } set_country_flag = flower_card_owned_13 add_ideas = flower_curse_burn_boats_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 14 } } set_country_flag = flower_card_owned_14 add_ideas = flower_curse_flesh_alchemy_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 15 } } set_country_flag = flower_card_owned_15 add_ideas = flower_curse_espresso_march_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 16 } } set_country_flag = flower_card_owned_16 add_ideas = flower_curse_berserk_trade_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 17 } }
+		set_country_flag = flower_card_owned_17
+		add_ideas = flower_curse_wallstreet_loan_idea
+		if = {
+			limit = { NOT = { has_country_flag = flower_card_once_17 } }
+			set_country_flag = flower_card_once_17
+			add_to_variable = { ubs_save = 500 }
+			flower_ai_sync_hcp_ui = yes
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 18 } }
+		set_country_flag = flower_card_owned_18
+		add_ideas = flower_curse_mad_reactor_idea
+		if = {
+			limit = { NOT = { has_country_flag = flower_card_once_18 } }
+			set_country_flag = flower_card_once_18
+			flower_ai_add_research_slot_capped = yes
+			add_breakthrough_points = { specialization = specialization_land value = 1 }
+			add_breakthrough_points = { specialization = specialization_air value = 1 }
+		}
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 19 } } set_country_flag = flower_card_owned_19 add_ideas = flower_curse_no_step_back_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 20 } } set_country_flag = flower_card_owned_20 add_ideas = flower_curse_overclock_magic_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 21 } }
+		add_political_power = 50
+		army_experience = 35
+		air_experience = 35
+		flower_ai_open_branch_evolution_event = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 22 } }
+		add_to_variable = { flower_card22_picked_count = 1 }
+		set_country_flag = { flag = flower_card22_cd days = 180 value = 1 }
+		set_variable = { flower_drafts_since_card22 = 0 }
+		clr_country_flag = flower_guarantee_next_card22
+		flower_ai_open_starter_selection = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 23 } }
+		random_list = {
+			30 = {
+				add_to_variable = { ubs_save = 400 }
+				flower_ai_sync_hcp_ui = yes
+				add_tech_bonus = { name = flower_blackbox_s1_bonus bonus = 1.0 uses = 1 category = industry category = electronics }
+			}
+			45 = {
+				army_experience = 50
+				air_experience = 50
+				add_to_variable = { ubs_save = 200 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			25 = {
+				add_ideas = flower_roulette_anti_scam_idea
+				set_country_flag = flower_roulette_pity_ready
+				add_political_power = 75
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 24 } }
+		add_to_variable = { ubs_save = 250 }
+		flower_ai_sync_hcp_ui = yes
+		army_experience = 50
+		air_experience = 50
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 25 } }
+		set_country_flag = flower_card_owned_25
+		add_ideas = flower_micro_nightingale_cloak_idea
+		if = { limit = { NOT = { has_country_flag = flower_card_once_25 } } set_country_flag = flower_card_once_25 army_experience = 25 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 26 } }
+		set_country_flag = flower_card_owned_26
+		add_ideas = flower_micro_guerrilla_manual_idea
+		if = {
+			limit = { NOT = { has_country_flag = flower_card_once_26 } }
+			set_country_flag = flower_card_once_26
+			if = {
+				limit = { any_enemy_country = { is_major = yes } }
+				random_enemy_country = {
+					limit = { is_major = yes }
+					add_timed_idea = { idea = flower_op_guerrilla_sabotaged_idea days = 90 }
+				}
+			}
+			else_if = {
+				limit = { has_war = yes }
+				random_enemy_country = { add_timed_idea = { idea = flower_op_guerrilla_sabotaged_idea days = 90 } }
+			}
+		}
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 27 } } set_country_flag = flower_card_owned_27 add_ideas = flower_micro_defib_kit_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 28 } } set_country_flag = flower_card_owned_28 add_ideas = flower_micro_sanae_charm_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 29 } }
+		set_country_flag = flower_card_owned_29
+		add_ideas = flower_micro_sakuya_watch_idea
+		if = { limit = { NOT = { has_country_flag = flower_card_once_29 } } set_country_flag = flower_card_once_29 army_experience = 35 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 30 } }
+		set_country_flag = flower_card_owned_30
+		add_ideas = flower_micro_sky_radar_idea
+		if = { limit = { NOT = { has_country_flag = flower_card_once_30 } } set_country_flag = flower_card_once_30 air_experience = 50 }
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 31 } } set_country_flag = flower_card_owned_31 flower_ai_add_builder_stack = yes flower_ai_add_builder_stack = yes }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 32 } } set_country_flag = flower_card_owned_32 flower_ai_add_slayer_stack = yes flower_ai_add_slayer_stack = yes }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 33 } }
+		set_country_flag = flower_card_owned_33
+		add_ideas = flower_micro_elf_blessing_idea
+		if = { limit = { NOT = { has_country_flag = flower_card_once_33 } } set_country_flag = flower_card_once_33 add_breakthrough_points = { specialization = specialization_land value = 1 } }
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 34 } }
+		set_country_flag = flower_card_owned_34
+		add_ideas = flower_micro_uma_dispatch_idea
+		if = { limit = { NOT = { has_country_flag = flower_card_once_34 } } set_country_flag = flower_card_once_34 army_experience = 35 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 35 } }
+		flower_ai_grant_leader_wanrendi = yes
+		army_experience = 35
+	}
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 36 } }
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+		add_to_variable = { ubs_save = 250 }
+		flower_ai_sync_hcp_ui = yes
+		army_experience = 35
+		air_experience = 35
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 37 } } set_country_flag = flower_card_owned_37 add_ideas = flower_card37_steal_warehouse_idea }
+	else_if = {
+		limit = { check_variable = { temp_grant_card_id = 38 } }
+		set_country_flag = flower_card_owned_38
+		add_ideas = flower_card38_build_first_idea
+		if = {
+			limit = {
+				NOT = { has_country_flag = flower_card_once_38 }
+				check_variable = { flower_builder_stacks > 0 }
+				check_variable = { flower_builder_next_goal > 5 }
+			}
+			set_country_flag = flower_card_once_38
+			subtract_from_variable = { flower_builder_next_goal = 5 }
+		}
+	}
+	else_if = { limit = { check_variable = { temp_grant_card_id = 39 } } set_country_flag = flower_card_owned_39 add_ideas = flower_card39_firepower_phobia_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 40 } } set_country_flag = flower_card_owned_40 add_ideas = flower_card40_gutter_river_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 41 } } set_country_flag = flower_card_owned_41 add_ideas = flower_card41_ace_combat_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 42 } } set_country_flag = flower_card_owned_42 add_ideas = flower_card42_justice_rain_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 43 } } set_country_flag = flower_card_owned_43 add_ideas = flower_card43_rifle_for_all_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 44 } } set_country_flag = flower_card_owned_44 add_ideas = flower_card44_bullets_vs_men_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 45 } } set_country_flag = flower_card_owned_45 add_ideas = flower_card45_palace_wine_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 46 } } set_country_flag = flower_card_owned_46 add_ideas = flower_card46_moon_awake_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 47 } } set_country_flag = flower_card_owned_47 add_ideas = flower_card47_talking_trees_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 48 } } set_country_flag = flower_card_owned_48 add_ideas = flower_card48_defib_full_hp_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 49 } } set_country_flag = flower_card_owned_49 add_ideas = flower_card49_para_steal_cap_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 50 } } set_country_flag = flower_card_owned_50 add_ideas = flower_card50_newton_coffin_idea flower_ai_recalc_science_compute = yes }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 51 } } set_country_flag = flower_card_owned_51 add_ideas = flower_card51_lord_of_war_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 52 } } set_country_flag = flower_card_owned_52 add_ideas = flower_card52_pity_subsidy_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 53 } } set_country_flag = flower_card_owned_53 add_ideas = flower_card53_rich_mines_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 54 } } set_country_flag = flower_card_owned_54 add_ideas = flower_card54_tractor_factory_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 55 } } set_country_flag = flower_card_owned_55 add_ideas = flower_card55_nine_inf_one_art_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 56 } } add_timed_idea = { idea = flower_card56_big_arrow_push_idea days = 120 } }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 57 } } add_timed_idea = { idea = flower_card57_steiner_hold_idea days = 90 } }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 58 } } set_country_flag = flower_card_owned_58 add_ideas = flower_card58_how_to_navy_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 59 } } set_country_flag = flower_card_owned_59 add_ideas = flower_card59_sealion_rush_idea }
+	else_if = { limit = { check_variable = { temp_grant_card_id = 60 } } set_country_flag = flower_card_owned_60 add_ideas = flower_card60_surrender_radio_idea }
+	flower_ai_check_chemical_combos = yes
+	flower_tavern_recalc_trinket_dynamics = yes
+}
+
+#弹出队列中下一张待替换的新战术卡（防多轮并发覆盖丢卡）
+flower_tavern_pop_next_pending_card = {
+	if = {
+		limit = {
+			is_ai = no
+			check_variable = { flower_pending_new_card_id = 0 }
+			check_variable = { flower_pending_cards_queue^num > 0 }
+		}
+		set_temp_variable = { temp_grant_card_id = flower_pending_cards_queue^0 }
+		remove_from_array = {
+			array = flower_pending_cards_queue
+			index = 0
+		}
+		flower_tavern_acquire_card_with_cap = yes
+	}
+}
+
+#带4槽上限检查与判重队列的战术卡入袋流程（传入 temp_grant_card_id；满4槽时玩家排队弹出FLWTV.20，AI自动腾出1槽）
+flower_tavern_acquire_card_with_cap = {
+	set_temp_variable = { temp_card_id = temp_grant_card_id }
+	flower_tavern_check_is_slot_card = yes
+	if = {
+		limit = {
+			check_variable = { temp_is_slot_card = 1 }
+			is_in_array = {
+				array = flower_owned_cards_array
+				value = temp_grant_card_id
+			}
+		}
+		add_to_variable = { ubs_save = 150 }
+		army_experience = 25
+		flower_ai_sync_hcp_ui = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { temp_is_slot_card = 1 }
+			check_variable = { flower_owned_cards_array^num > 3 }
+		}
+		if = {
+			limit = { is_ai = no }
+			if = {
+				limit = { check_variable = { flower_pending_new_card_id > 0 } }
+				add_to_array = { flower_pending_cards_queue = temp_grant_card_id }
+			}
+			else = {
+				set_variable = { flower_pending_new_card_id = temp_grant_card_id }
+				set_variable = { flower_replace_slot_1 = flower_owned_cards_array^0 }
+				set_variable = { flower_replace_slot_2 = flower_owned_cards_array^1 }
+				set_variable = { flower_replace_slot_3 = flower_owned_cards_array^2 }
+				set_variable = { flower_replace_slot_4 = flower_owned_cards_array^3 }
+				country_event = { id = FLWTV.20 }
+			}
+		}
+		else = {
+			flower_tavern_ai_make_room_for_card = yes
+			flower_tavern_grant_card_by_id = yes
+		}
+	}
+	else = {
+		flower_tavern_grant_card_by_id = yes
+	}
+}
+
+#击败主要强敌偷牌与陈列馆拓印小徽章（全槽遍历不因前两槽重复而漏掉后槽未持有卡）
+flower_tavern_trigger_steal_from_defeated = {
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = flower_anomaly_1_active
+				has_global_flag = flower_anomaly_4_active
+			}
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+			NOT = { has_country_flag = flower_steal_card_cd }
+		}
+		set_country_flag = { flag = flower_steal_card_cd days = 90 value = 1 }
+		set_variable = { flower_steal_opt_1 = 0 }
+		set_variable = { flower_steal_opt_2 = 0 }
+		set_variable = { flower_steal_opt_3 = 0 }
+		var:temp_steal_victim = {
+			for_each_loop = {
+				array = flower_owned_cards_array
+				value = v_card
+				if = {
+					limit = {
+						check_variable = { v_card > 0 }
+						NOT = { PREV = { is_in_array = { array = flower_owned_cards_array value = v_card } } }
+					}
+					if = {
+						limit = { PREV = { check_variable = { flower_steal_opt_1 = 0 } } }
+						PREV = { set_variable = { flower_steal_opt_1 = v_card } }
+					}
+					else_if = {
+						limit = {
+							PREV = {
+								check_variable = { flower_steal_opt_2 = 0 }
+								NOT = { check_variable = { flower_steal_opt_1 = v_card } }
+							}
+						}
+						PREV = { set_variable = { flower_steal_opt_2 = v_card } }
+					}
+					else_if = {
+						limit = {
+							PREV = {
+								has_idea = flower_st_port_thief
+								check_variable = { flower_steal_opt_3 = 0 }
+								NOT = { check_variable = { flower_steal_opt_1 = v_card } }
+								NOT = { check_variable = { flower_steal_opt_2 = v_card } }
+							}
+						}
+						PREV = { set_variable = { flower_steal_opt_3 = v_card } }
+					}
+				}
+			}
+			#大徽章【战利品陈列馆】：额外拓印战败强敌持有的任意非诅咒小徽章；若无新增则保底折现300储备与35陆军经验
+			if = {
+				limit = { PREV = { has_idea = flower_lt_port_museum } }
+				set_temp_variable = { t_copied_st = 0 }
+				if = { limit = { has_idea = flower_st_arch_1 PREV = { NOT = { has_idea = flower_st_arch_1 } } } PREV = { add_ideas = flower_st_arch_1 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_2 PREV = { NOT = { has_idea = flower_st_arch_2 } } } PREV = { add_ideas = flower_st_arch_2 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_3 PREV = { NOT = { has_idea = flower_st_arch_3 } } } PREV = { add_ideas = flower_st_arch_3 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_4 PREV = { NOT = { has_idea = flower_st_arch_4 } } } PREV = { add_ideas = flower_st_arch_4 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_5 PREV = { NOT = { has_idea = flower_st_arch_5 } } } PREV = { add_ideas = flower_st_arch_5 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_6 PREV = { NOT = { has_idea = flower_st_arch_6 } } } PREV = { add_ideas = flower_st_arch_6 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_7 PREV = { NOT = { has_idea = flower_st_arch_7 } } } PREV = { add_ideas = flower_st_arch_7 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_8 PREV = { NOT = { has_idea = flower_st_arch_8 } } } PREV = { add_ideas = flower_st_arch_8 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_9 PREV = { NOT = { has_idea = flower_st_arch_9 } } } PREV = { add_ideas = flower_st_arch_9 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_10 PREV = { NOT = { has_idea = flower_st_arch_10 } } } PREV = { add_ideas = flower_st_arch_10 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_11 PREV = { NOT = { has_idea = flower_st_arch_11 } } } PREV = { add_ideas = flower_st_arch_11 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_arch_12 PREV = { NOT = { has_idea = flower_st_arch_12 } } } PREV = { add_ideas = flower_st_arch_12 } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_econ_ledger PREV = { NOT = { has_idea = flower_st_econ_ledger } } } PREV = { add_ideas = flower_st_econ_ledger } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_econ_vip PREV = { NOT = { has_idea = flower_st_econ_vip } } } PREV = { add_ideas = flower_st_econ_vip } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_econ_outsource PREV = { NOT = { has_idea = flower_st_econ_outsource } } } PREV = { add_ideas = flower_st_econ_outsource } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_hyb_joint PREV = { NOT = { has_idea = flower_st_hyb_joint } } } PREV = { add_ideas = flower_st_hyb_joint } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_hyb_combined PREV = { NOT = { has_idea = flower_st_hyb_combined } } } PREV = { add_ideas = flower_st_hyb_combined } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_port_general PREV = { NOT = { has_idea = flower_st_port_general } } } PREV = { add_ideas = flower_st_port_general } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_port_railgun PREV = { NOT = { has_idea = flower_st_port_railgun } } } PREV = { add_ideas = flower_st_port_railgun } set_temp_variable = { t_copied_st = 1 } }
+				else_if = { limit = { has_idea = flower_st_port_thief PREV = { NOT = { has_idea = flower_st_port_thief } } } PREV = { add_ideas = flower_st_port_thief } set_temp_variable = { t_copied_st = 1 } }
+				if = {
+					limit = { check_variable = { t_copied_st = 0 } }
+					PREV = {
+						add_to_variable = { ubs_save = 300 }
+						army_experience = 35
+						flower_ai_sync_hcp_ui = yes
+					}
+				}
+			}
+		}
+		flower_tavern_check_golden_synthesis = yes
+		if = {
+			limit = {
+				OR = {
+					check_variable = { flower_steal_opt_1 > 0 }
+					check_variable = { flower_steal_opt_2 > 0 }
+					check_variable = { flower_steal_opt_3 > 0 }
+				}
+			}
+			if = {
+				limit = { is_ai = no }
+				country_event = { id = FLWTV.25 days = 1 }
+			}
+			else = {
+				if = {
+					limit = { check_variable = { flower_steal_opt_1 > 0 } }
+					set_temp_variable = { temp_grant_card_id = flower_steal_opt_1 }
+					flower_tavern_acquire_card_with_cap = yes
+				}
+				else_if = {
+					limit = { check_variable = { flower_steal_opt_2 > 0 } }
+					set_temp_variable = { temp_grant_card_id = flower_steal_opt_2 }
+					flower_tavern_acquire_card_with_cap = yes
+				}
+			}
+		}
+	}
+}
+
+#===============================================================================
+#八、月度节点调度与AI酒馆全权运营（1937小饰品、1939大饰品、1939+转型、1941终局桂冠）
+#===============================================================================
+flower_tavern_monthly_tick = {
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = flower_anomaly_1_active
+				has_global_flag = flower_anomaly_4_active
+			}
+			OR = {
+				is_ai = no
+				is_major = yes
+			}
+			NOT = { tag = ZDW }
+			NOT = { tag = WL1 }
+		}
+		flower_tavern_recalc_trinket_dynamics = yes
+		flower_tavern_check_golden_synthesis = yes
+
+		#1. 1937年6月：发放小徽章动态考核（记录起始工厂与地区基线用于进度条计算）
+		if = {
+			limit = {
+				date > 1937.5.31
+				NOT = { has_country_flag = flower_st_task_assigned }
+				NOT = { has_country_flag = flower_st_claimed }
+			}
+			set_country_flag = flower_st_task_assigned
+			flower_tavern_calc_dynamic_goals = yes
+			set_variable = { flower_st_start_fac = num_of_factories }
+			set_variable = { flower_st_goal_fac = num_of_factories }
+			add_to_variable = { flower_st_goal_fac = flower_dyn_fac_delta }
+			set_variable = { flower_st_start_states = num_controlled_states }
+			set_variable = { flower_st_goal_states = num_controlled_states }
+			add_to_variable = { flower_st_goal_states = flower_dyn_state_delta }
+			set_variable = { flower_st_goal_xp = flower_dyn_xp_goal }
+			if = {
+				limit = { is_ai = no }
+				set_country_flag = flower_badge_hub_alert
+				scoped_sound_effect = "alert_pick_new_idea_sound"
+				flower_badge_hub_sync_state = yes
+			}
+		}
+
+		#2. 检测1937小徽章考核是否达成 -> 玩家通过GUI就地4选1领取，AI走后台事件
+		if = {
+			limit = {
+				has_country_flag = flower_st_task_assigned
+				NOT = { has_country_flag = flower_st_claimed }
+				NOT = { has_country_flag = flower_st_task_done }
+				flower_quest_st_ready = yes
+			}
+			set_country_flag = flower_st_task_done
+			flower_tavern_roll_small_trinkets = yes
+			if = {
+				limit = { is_ai = no }
+				set_country_flag = flower_badge_hub_alert
+				scoped_sound_effect = "flower_sfx_combo_awakening"
+				flower_badge_hub_sync_state = yes
+			}
+			else = {
+				country_event = { id = FLWTV.2 }
+			}
+		}
+		#2.5 若玩家有任意悬赏/军令状/黑市契约已达标可领赏，点亮悬浮窗红点提醒
+		if = {
+			limit = {
+				is_ai = no
+				flower_quest_any_claimable = yes
+			}
+			set_country_flag = flower_badge_hub_alert
+		}
+
+		#3. AI若至1938年仍未完成小徽章考核：付真金储备买断，实在没钱则进候选拿0费诅咒槽
+		if = {
+			limit = {
+				is_ai = yes
+				date > 1938.2.1
+				has_country_flag = flower_st_task_assigned
+				NOT = { has_country_flag = flower_st_claimed }
+				NOT = { has_country_flag = flower_st_ai_buyout_tried }
+			}
+			set_country_flag = flower_st_ai_buyout_tried
+			flower_tavern_calc_dynamic_goals = yes
+			if = {
+				limit = { NOT = { check_variable = { ubs_save < flower_st_buyout_cost } } }
+				subtract_from_variable = { ubs_save = flower_st_buyout_cost }
+				flower_ai_sync_hcp_ui = yes
+				set_country_flag = flower_st_task_done
+			}
+			flower_tavern_roll_small_trinkets = yes
+			country_event = { id = FLWTV.2 }
+		}
+
+		#4. 1939年6月：开启1939大徽章4槽候选（玩家通过GUI就地选购并亮红点提醒，AI走后台事件）
+		if = {
+			limit = {
+				date > 1939.5.31
+				NOT = { has_country_flag = flower_lt_shop_opened }
+				NOT = { has_country_flag = flower_lt_claimed }
+			}
+			set_country_flag = flower_lt_shop_opened
+			flower_tavern_roll_large_trinkets = yes
+			if = {
+				limit = { is_ai = no }
+				set_country_flag = flower_badge_hub_alert
+				scoped_sound_effect = "alert_pick_new_idea_sound"
+				flower_badge_hub_sync_state = yes
+			}
+			else = {
+				country_event = { id = FLWTV.3 }
+			}
+		}
+		else_if = {
+			limit = {
+				is_ai = yes
+				has_country_flag = flower_lt_shop_deferred
+				NOT = { has_country_flag = flower_lt_claimed }
+				OR = {
+					NOT = { check_variable = { ubs_save < flower_lt_cheap_cost } }
+					has_political_power > 124.99
+				}
+			}
+			clr_country_flag = flower_lt_shop_deferred
+			flower_tavern_calc_dynamic_goals = yes
+			country_event = { id = FLWTV.3 }
+		}
+
+		#4.5 1941年1月：玩家超大徽章开放，点亮右上角悬浮窗红点提醒
+		if = {
+			limit = {
+				is_ai = no
+				date > 1940.12.31
+				NOT = { has_country_flag = flower_crown_claimed }
+				NOT = { has_country_flag = flower_crown_gui_notified }
+			}
+			set_country_flag = flower_crown_gui_notified
+			set_country_flag = flower_badge_hub_alert
+			scoped_sound_effect = "alert_pick_new_idea_sound"
+			flower_badge_hub_sync_state = yes
+		}
+
+		#5. 1939+ AI种田流中期主动拆解转型（工厂>60且处于交战，按国情加权转型至开放池作战流派）
+		if = {
+			limit = {
+				is_ai = yes
+				date > 1938.12.31
+				has_war = yes
+				has_country_flag = flower_roguelike_corp_ai
+				num_of_factories > 60
+				NOT = { has_country_flag = flower_ai_pivoted_once }
+				OR = {
+					has_idea = flower_lt_econ_pivot
+					AND = {
+						has_political_power > 149
+						check_variable = { ubs_save > 249 }
+					}
+				}
+			}
+			set_country_flag = flower_ai_pivoted_once
+			if = {
+				limit = { NOT = { has_idea = flower_lt_econ_pivot } }
+				add_political_power = -150
+				add_to_variable = { ubs_save = -250 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			flower_tavern_clear_current_archetype = yes
+			set_variable = { flower_tavern_tmp_arch = 0 }
+			random_list = {
+				10 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_1 } } }
+					set_variable = { flower_tavern_tmp_arch = 1 }
+				}
+				15 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_3 } } }
+					modifier = { factor = 1.8 num_of_military_factories > 35 }
+					set_variable = { flower_tavern_tmp_arch = 3 }
+				}
+				15 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_4 } } }
+					modifier = { factor = 2.0 num_of_factories > 90 }
+					modifier = { factor = 0.4 num_of_military_factories < 30 }
+					set_variable = { flower_tavern_tmp_arch = 4 }
+				}
+				12 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_5 } } }
+					modifier = { factor = 2.0 has_deployed_air_force_size = { size > 500 } }
+					modifier = { factor = 0.2 has_deployed_air_force_size = { size < 150 } }
+					set_variable = { flower_tavern_tmp_arch = 5 }
+				}
+				12 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_6 } } }
+					modifier = { factor = 2.0 has_manpower > 1000000 }
+					modifier = { factor = 0.4 has_manpower < 300000 }
+					set_variable = { flower_tavern_tmp_arch = 6 }
+				}
+				10 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_7 } } }
+					set_variable = { flower_tavern_tmp_arch = 7 }
+				}
+				6 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_8 } } }
+					modifier = { factor = 0.2 num_of_factories > 100 }
+					set_variable = { flower_tavern_tmp_arch = 8 }
+				}
+				12 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_9 } } }
+					modifier = { factor = 1.6 has_manpower > 800000 }
+					set_variable = { flower_tavern_tmp_arch = 9 }
+				}
+				10 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_10 } } }
+					set_variable = { flower_tavern_tmp_arch = 10 }
+				}
+				10 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_11 } } }
+					modifier = { factor = 1.6 num_of_factories > 90 }
+					set_variable = { flower_tavern_tmp_arch = 11 }
+				}
+				8 = {
+					modifier = { factor = 0 AND = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_12 } } }
+					set_variable = { flower_tavern_tmp_arch = 12 }
+				}
+			}
+			if = {
+				limit = { check_variable = { flower_tavern_tmp_arch = 0 } }
+				set_temp_variable = { temp_exclude_arch = 2 }
+				flower_tavern_pick_open_arch_excluding = yes
+			}
+			if = { limit = { check_variable = { flower_tavern_tmp_arch = 1 } } flower_ai_pick_archetype_1 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 3 } } flower_ai_pick_archetype_3 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 4 } } flower_ai_pick_archetype_4 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 5 } } flower_ai_pick_archetype_5 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 6 } } flower_ai_pick_archetype_6 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 7 } } flower_ai_pick_archetype_7 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 8 } } flower_ai_pick_archetype_8 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 9 } } flower_ai_pick_archetype_9 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 10 } } flower_ai_pick_archetype_10 = yes }
+			else_if = { limit = { check_variable = { flower_tavern_tmp_arch = 11 } } flower_ai_pick_archetype_11 = yes }
+			else = { flower_ai_pick_archetype_12 = yes }
+			flower_tavern_apply_saved_stage_after_pivot = yes
+		}
+
+		#6. 1941年1月+ AI满足储备与政治点数门槛时购入终局桂冠
+		if = {
+			limit = {
+				is_ai = yes
+				date > 1941.1.1
+				NOT = { has_country_flag = flower_crown_claimed }
+				check_variable = { ubs_save > 499 }
+				has_political_power > 99
+			}
+			set_country_flag = flower_crown_claimed
+			add_to_variable = { ubs_save = -500 }
+			flower_ai_sync_hcp_ui = yes
+			add_political_power = -100
+			country_event = { id = FLWTV.4 }
+		}
+
+		#7. AI使用免费酒馆进店券（每180天发放1次，与玩家同频，不额外多抽）
+		if = {
+			limit = {
+				is_ai = yes
+				check_variable = { flower_tavern_free_visits > 0 }
+				NOT = { has_country_flag = flower_ai_visit_cd }
+			}
+			set_country_flag = { flag = flower_ai_visit_cd days = 25 value = 1 }
+			subtract_from_variable = { flower_tavern_free_visits = 1 }
+			flower_ai_open_roguelike_draft = yes
+		}
+	}
+}

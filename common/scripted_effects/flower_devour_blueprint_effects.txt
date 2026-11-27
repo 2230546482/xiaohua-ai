@@ -12,7 +12,7 @@ flower_unlock_bp_t2_pao = {
 			wangling3_tech = 1
 			PAO_wangling3tupo = 1
 			PAO_wangling3tupo2 = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -23,7 +23,7 @@ flower_unlock_bp_t2_kmk = {
 		set_country_flag = flower_bp_done_t2_kmk
 		set_technology = {
 			the_world_1 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = huaibiao_equipment_0
@@ -38,7 +38,7 @@ flower_unlock_bp_t2_fra = {
 		set_country_flag = flower_bp_done_t2_fra
 		set_technology = {
 			Airborne_tanks_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -52,7 +52,7 @@ flower_unlock_bp_t2_sov = {
 			SOV_tank_dual_mounted_cannon1 = 1
 			SOV_tank_dual_mounted_cannon2 = 1
 			SOV_tech_integrated_logistics_force = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -64,7 +64,7 @@ flower_unlock_bp_t2_dvl = {
 		set_technology = {
 			DVL_Wizard_Tactics_Development_tech = 1
 			DVL_Coordinated_operations_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -75,7 +75,7 @@ flower_unlock_bp_t2_ger = {
 		set_country_flag = flower_bp_done_t2_ger
 		set_technology = {
 			tech_GER_Improved_super_heavy_tanks_2 = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -88,7 +88,7 @@ flower_unlock_bp_t2_eng = {
 			construct_knight_2 = 1
 			strike_unit1 = 1
 			strike_unit2 = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -99,7 +99,7 @@ flower_unlock_bp_t2_jap = {
 		set_country_flag = flower_bp_done_t2_jap
 		set_technology = {
 			Ghost_King = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = Ghost_King_equipment_0
@@ -118,7 +118,7 @@ flower_unlock_bp_t2_mgu = {
 			strike_unit1 = 1
 			strike_unit2 = 1
 			strike_unit4 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = Sky_Thunder_equipment_0
@@ -134,7 +134,7 @@ flower_unlock_bp_t2_paq = {
 		set_technology = {
 			Chaos_Demon = 1
 			Chaos_Chose = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -146,7 +146,7 @@ flower_unlock_bp_t2_pau = {
 		set_technology = {
 			PAU_airborne_armor_glider_tech = 1
 			PAU_airborne_armor_drop_pod_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -162,7 +162,7 @@ flower_unlock_bp_t2_pan = {
 			Ho_2 = 1
 			Artifact_Helper_0 = 1
 			Artifact_Shield_0 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = Holylance_equipments_0
@@ -178,7 +178,7 @@ flower_unlock_bp_t2_tur = {
 		set_technology = {
 			TUR_mech_technology_2 = 1
 			TUR_fire_magic_emissary_technology = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = mech_equipment_1
@@ -194,7 +194,7 @@ flower_unlock_bp_t2_usa_radar = {
 		set_technology = {
 			phased_array = 1
 			monopulse_radar = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -206,7 +206,7 @@ flower_unlock_bp_t2_autometa = {
 		set_technology = {
 			auto_meta_1 = 1
 			auto_meta_2 = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -221,7 +221,7 @@ flower_unlock_bp_t3_ufo = {
 		set_country_flag = flower_bp_done_t3_ufo
 		set_technology = {
 			flying_saucer_tech = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = flying_saucer_equipment_0
@@ -236,7 +236,7 @@ flower_unlock_bp_t3_kmk = {
 		set_country_flag = flower_bp_done_t3_kmk
 		set_technology = {
 			tech_modern_theworld_tank = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -247,7 +247,7 @@ flower_unlock_bp_t3_fra = {
 		set_country_flag = flower_bp_done_t3_fra
 		set_technology = {
 			tech_Sanae_Artillery = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = artillery_equipment
@@ -263,7 +263,7 @@ flower_unlock_bp_t3_sov = {
 		set_technology = {
 			flower_roguelike_bratino_rocket_tech = 1
 			PA1_tank_Bratino_warm_pressure_rocket = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -274,7 +274,7 @@ flower_unlock_bp_t3_dvl_net = {
 		set_country_flag = flower_bp_done_t3_dvl_net
 		set_technology = {
 			flower_roguelike_armor_computing_network_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -285,7 +285,7 @@ flower_unlock_bp_t3_ai_fcs = {
 		set_country_flag = flower_bp_done_t3_ai_fcs
 		set_technology = {
 			flower_roguelike_ai_assisted_modules_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -296,7 +296,7 @@ flower_unlock_bp_t3_ger_serum = {
 		set_country_flag = flower_bp_done_t3_ger_serum
 		set_technology = {
 			tech_germany_spuerman = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -309,7 +309,7 @@ flower_unlock_bp_t3_heli = {
 			Siege_helicopter_available = 1
 			Siege_helicopter_0 = 1
 			Siege_helicopter_1 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = siege_helicopter_equipment_0
@@ -324,7 +324,7 @@ flower_unlock_bp_t3_eng_jet = {
 		set_country_flag = flower_bp_done_t3_eng_jet
 		set_technology = {
 			ENG_jet_engine_meteor_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -337,7 +337,7 @@ flower_unlock_bp_t3_jap = {
 			Laser_Warrior = 1
 			Marine_carrier_girl = 1
 			JAP_namizuozhan = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -348,7 +348,7 @@ flower_unlock_bp_t3_swe = {
 		set_country_flag = flower_bp_done_t3_swe
 		set_technology = {
 			SWE_Legendary_Dragon_Knight_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 }
@@ -357,15 +357,15 @@ flower_unlock_bp_t3_swe = {
 flower_unlock_bp_t3_den_next = {
 	if = {
 		limit = { NOT = { has_tech = steamtank2 } }
-		set_technology = { steamtank2 = 1 popup = yes }
+		set_technology = { steamtank2 = 1 popup = no }
 	}
 	else_if = {
 		limit = { NOT = { has_tech = steamtank3 } }
-		set_technology = { steamtank3 = 1 popup = yes }
+		set_technology = { steamtank3 = 1 popup = no }
 	}
 	else_if = {
 		limit = { NOT = { has_tech = steamtank4 } }
-		set_technology = { steamtank4 = 1 popup = yes }
+		set_technology = { steamtank4 = 1 popup = no }
 	}
 	flower_ai_sync_steampunk_upgrades = yes
 }

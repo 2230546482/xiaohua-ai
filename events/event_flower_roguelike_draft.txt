@@ -319,10 +319,6 @@ country_event = {
 			modifier = { factor = 1.7 OR = { original_tag = SWE original_tag = FIN original_tag = PAU } }
 		}
 		add_ideas = flower_evo_nightingale_iron_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
 		army_experience = 50
 		flower_ai_check_chemical_combos = yes
 	}
@@ -335,18 +331,7 @@ country_event = {
 			modifier = { factor = 1.6 has_war = no }
 		}
 		add_ideas = flower_evo_nightingale_alchemy_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 800
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 500
-		}
+		army_experience = 35
 		flower_ai_check_chemical_combos = yes
 	}
 }
@@ -368,14 +353,7 @@ country_event = {
 			modifier = { factor = 1.8 num_of_factories < 32 }
 		}
 		add_ideas = flower_evo_guerrilla_scorch_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
-		}
+		army_experience = 35
 		flower_ai_recalc_guerrilla_underdog = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -389,10 +367,7 @@ country_event = {
 		}
 		set_country_flag = flower_evo_guerrilla_heavy_ai
 		add_ideas = flower_evo_guerrilla_heavy_idea
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 2000
-		}
+		army_experience = 35
 		flower_ai_recalc_guerrilla_underdog = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -405,11 +380,7 @@ country_event = {
 			modifier = { factor = 1.6 num_divisions < 40 }
 		}
 		add_ideas = flower_evo_guerrilla_sea_idea
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 10000
-		}
+		army_experience = 35
 		flower_ai_recalc_guerrilla_underdog = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -431,11 +402,7 @@ country_event = {
 			modifier = { factor = 2.0 has_war = yes }
 		}
 		add_ideas = flower_evo_undead_plague_idea
-		add_manpower = 60000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
+		army_experience = 35
 		flower_ai_check_chemical_combos = yes
 	}
 	option = {
@@ -447,8 +414,7 @@ country_event = {
 			modifier = { factor = 1.7 has_war = yes surrender_progress < 0.1 }
 		}
 		add_ideas = flower_evo_undead_king_idea
-		army_experience = 80
-		add_manpower = 40000
+		army_experience = 50
 		flower_ai_check_chemical_combos = yes
 	}
 	option = {
@@ -461,9 +427,9 @@ country_event = {
 			modifier = { factor = 0.25 has_manpower < 250000 }
 		}
 		add_ideas = flower_evo_undead_sweatshop_idea
-		custom_effect_tooltip = flower_hcp_plus_500_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 		}
 		flower_ai_recalc_blood_labor = yes
@@ -521,9 +487,9 @@ country_event = {
 			modifier = { factor = 1.8 amount_research_slots > 4 }
 		}
 		add_ideas = flower_evo_corp_trust_idea
-		custom_effect_tooltip = flower_hcp_plus_500_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 		}
 		flower_ai_check_chemical_combos = yes
@@ -559,10 +525,7 @@ country_event = {
 			modifier = { factor = 2.0 num_of_factories > 55 }
 		}
 		add_ideas = flower_evo_arty_carpet_idea
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 2500
-		}
+		army_experience = 35
 		flower_ai_recalc_arty_density = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -574,10 +537,7 @@ country_event = {
 			modifier = { factor = 2.0 num_of_factories < 55 }
 		}
 		add_ideas = flower_evo_arty_mobile_idea
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
-		}
+		army_experience = 35
 		flower_ai_recalc_arty_density = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -668,7 +628,7 @@ country_event = {
 			modifier = { factor = 2.0 num_of_factories < 55 }
 		}
 		add_ideas = flower_evo_wave_meatgrinder_idea
-		add_manpower = 150000
+		army_experience = 35
 		flower_ai_recalc_veteran_furnace = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -680,7 +640,7 @@ country_event = {
 			modifier = { factor = 2.0 num_of_factories > 60 }
 		}
 		add_ideas = flower_evo_wave_banzai_idea
-		add_manpower = 150000
+		army_experience = 35
 		flower_ai_recalc_veteran_furnace = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -702,7 +662,7 @@ country_event = {
 			modifier = { factor = 0.15 num_divisions > 55 }
 		}
 		add_ideas = flower_evo_magic_chosen_idea
-		army_experience = 50
+		army_experience = 35
 		flower_ai_recalc_elite_small_army = yes
 		flower_ai_check_chemical_combos = yes
 	}
@@ -716,11 +676,11 @@ country_event = {
 		add_ideas = flower_evo_magic_grimoire_idea
 		add_breakthrough_points = {
 			specialization = specialization_land
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
+			value = 1
 		}
 		flower_ai_recalc_elite_small_army = yes
 		flower_ai_check_chemical_combos = yes
@@ -747,7 +707,7 @@ country_event = {
 		country_event = { id = FLWAI.42 days = 1 }
 		add_tech_bonus = {
 			name = flower_blackbox_branch_air_bonus
-			bonus = 1.5
+			bonus = 1.0
 			uses = 2
 			category = light_air
 			category = medium_air
@@ -755,11 +715,11 @@ country_event = {
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_nuclear
-			value = 2
+			value = 1
 		}
 		flower_ai_recalc_science_compute = yes
 		flower_ai_check_chemical_combos = yes
@@ -772,7 +732,7 @@ country_event = {
 			modifier = { factor = 2.0 has_war = yes }
 		}
 		add_ideas = flower_evo_punk_elfsteam_idea
-		army_experience = 80
+		army_experience = 35
 		flower_ai_recalc_science_compute = yes
 		flower_ai_check_chemical_combos = yes
 	}

@@ -77,6 +77,16 @@ flower_veteran_furnace_dynamic_mod = {
 	dig_in_speed_factor = flower_vet_dig_var
 }
 
+#流派7：午夜奇袭锋芒动态修正（随流派阶位与实战状态叠1~3层，补齐12流派唯一缺失成长线）
+flower_night_phantom_dynamic_mod = {
+	icon = GFX_idea_flower_ico_ng_s2
+	enable = { always = yes }
+	land_night_attack = flower_night_atk_var
+	breakthrough_factor = flower_night_brk_var
+	army_speed_factor = flower_night_spd_var
+	initiative_factor = flower_night_ini_var
+}
+
 #流派8：游击烂地与敌后适应动态修正
 flower_guerrilla_underdog_dynamic_mod = {
 	icon = GFX_idea_flower_ico_gu_s2
@@ -97,15 +107,15 @@ flower_blood_labor_dynamic_mod = {
 	industry_repair_factor = flower_blab_rep_var
 }
 
-#流派10：少师精锐编制动态修正
+#流派10：尖刀特战编成动态修正
 flower_elite_small_army_dynamic_mod = {
 	icon = GFX_idea_flower_ico_magic_s2
 	enable = { always = yes }
-	army_attack_factor = flower_elite_atk_var
-	army_defence_factor = flower_elite_def_var
-	breakthrough_factor = flower_elite_brk_var
-	experience_gain_army_unit_factor = flower_elite_xp_var
-	army_org_factor = flower_elite_ter_var
+	special_forces_attack_factor = flower_elite_atk_var
+	special_forces_defence_factor = flower_elite_def_var
+	special_forces_cap = flower_elite_cap_var
+	experience_loss_factor = flower_elite_xp_var
+	supply_consumption_factor = flower_elite_sup_var
 }
 
 #流派11：科研领先反哺全军动态修正
@@ -125,4 +135,54 @@ flower_cash_power_dynamic_mod = {
 	army_attack_factor = flower_cash_atk_var
 	industrial_capacity_factory = flower_cash_ic_var
 	production_factory_max_efficiency_factor = flower_cash_cap_var
+}
+
+#混沌模式（开启4个及以上畸变）：每超出3个上限多开1个，全局AI获得适应性补偿
+flower_chaos_ai_adapt_dynamic_mod = {
+	icon = GFX_idea_flower_idea_nightmare
+	enable = { is_ai = yes }
+	army_attack_factor = global.flower_chaos_ai_atk_var
+	army_defence_factor = global.flower_chaos_ai_def_var
+	breakthrough_factor = global.flower_chaos_ai_brk_var
+	army_org_factor = global.flower_chaos_ai_org_var
+	industrial_capacity_factory = global.flower_chaos_ai_ic_var
+	production_factory_max_efficiency_factor = global.flower_chaos_ai_cap_var
+	research_speed_factor = global.flower_chaos_ai_res_var
+	supply_consumption_factor = global.flower_chaos_ai_sup_var
+	experience_gain_army_unit_factor = global.flower_chaos_ai_xp_var
+}
+
+#大徽章：全军混编参谋部（按活跃兵种维度数分1-3档，每档+5%攻防突破、+10%协同性）
+flower_lightfang_dynamic_mod = {
+	icon = GFX_idea_flower_idea_synergy
+	enable = { always = yes }
+	army_attack_factor = flower_lightfang_atk_var
+	army_defence_factor = flower_lightfang_def_var
+	breakthrough_factor = flower_lightfang_brk_var
+	coordination_bonus = flower_lightfang_crd_var
+}
+
+#大徽章：国防公债认购书（按当前储备每400点提供+5%工厂产出与建设速度，最多4层）
+flower_bonds_ic_dynamic_mod = {
+	icon = GFX_idea_flower_idea_relic_gold
+	enable = { always = yes }
+	industrial_capacity_factory = flower_bonds_ic_var
+	production_speed_buildings_factor = flower_bonds_bld_var
+}
+
+#大徽章：特战战术挂板（按当前持有战术卡槽位数叠层，每张+5%特种攻击防御、+15%特种容量上限乘数，最多4层）
+flower_magnetic_spec_dynamic_mod = {
+	icon = GFX_idea_flower_idea_magic_evolve
+	enable = { always = yes }
+	special_forces_attack_factor = flower_mag_atk_var
+	special_forces_defence_factor = flower_mag_def_var
+	special_forces_cap = flower_mag_cap_var
+}
+
+#徽章与常驻战术卡协同配合动态修正（1-3阶，每阶+5%陆军师组织度恢复速率与工厂产出）
+flower_badge_card_synergy_dm = {
+	icon = GFX_idea_flower_idea_synergy
+	enable = { always = yes }
+	army_org_regain = flower_synergy_org_var
+	industrial_capacity_factory = flower_synergy_ic_var
 }

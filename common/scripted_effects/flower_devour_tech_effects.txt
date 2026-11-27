@@ -24,7 +24,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			magic_weapons0 = 1
 			magic_weapons1 = 1
 			magic_artillery1 = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -44,7 +44,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			amount = 500
 		}
 	}
-	#LHS/QYJ革命游击阵营：1.3宽革命游击队、赤色骑兵与游击装甲车
+	#LHS/QYJ革命游击阵营：公共革命游击队与赤色骑兵（互斥路线与游击装甲车交由蓝图破译所自主选择，不强行一并生效）
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -64,15 +64,9 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			youji_on_me2 = 1
 			youji_on_me3 = 1
 			youji_on_me4 = 1
-			youji_on_me5 = 1
-			youji_on_me6 = 1
-			youji_on_me7 = 1
-			youji_on_me8 = 1
-			youji_on_me13 = 1
 			LHS_qibing_tech = 1
 			chiseqibing = 1
-			youji_zjc = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
@@ -95,7 +89,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			wangling_tech = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = wangling_equipment_0
@@ -122,7 +116,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			the_world_0 = 1
 			the_maid_0 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = huaibiao_equipment_0
@@ -166,7 +160,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			tech_Purified_Fairy = 1
 			bamboo_grove_squad_tech = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -207,7 +201,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			SOV_engineer_training_tech = 1
 			penal_infantry = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -255,7 +249,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			magic_weapons0 = 1
 			magic_weapons1 = 1
 			magic_artillery1 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = wangling_equipment_0
@@ -315,7 +309,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			sturmtruppe_battalion_tech = 1
 			GER_heavy_armored_car = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -365,7 +359,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			Construct_knight_research_available = 1
 			construct_knight_1 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = construct_knight_equipment_1
@@ -423,7 +417,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			steel_ronin = 1
 			JAP_zhongjiwushi = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = steel_ronin_equipment_0
@@ -477,9 +471,15 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			MGU_Magic_commissar = 1
-			MGU_Bulletproof_stockings_tech = 1
-			MGU_Bulletproof_latex_tech = 1
-			popup = yes
+			popup = no
+		}
+		if = {
+			limit = { var:temp_devour_victim = { has_tech = MGU_Bulletproof_stockings_tech } }
+			set_technology = { MGU_Bulletproof_stockings_tech = 1 popup = no }
+		}
+		else_if = {
+			limit = { var:temp_devour_victim = { has_tech = MGU_Bulletproof_latex_tech } }
+			set_technology = { MGU_Bulletproof_latex_tech = 1 popup = no }
 		}
 		if = {
 			limit = {
@@ -514,7 +514,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			yaojing_tech = 1
 			forest_training_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -539,7 +539,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			TAM_umamusume_tech_person = 1
 			tech_magic_silverspear_pegasus = 1
 			tech_silverspear_pegasus = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -559,7 +559,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			tech_magic_silverspear_pegasus = 1
 			tech_silverspear_pegasus = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -582,7 +582,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			Chaos_Beast = 1
 			AUTO_META_research_available = 1
 			auto_meta_0 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = auto_meta_0_equipments
@@ -621,7 +621,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			paratroopers = 1
 			PAU_airborne_light_armor_tech = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -690,7 +690,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			xrkl_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -715,7 +715,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			Artifact_research_available = 1
 			Artifact_0 = 1
 			Ho_0 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = Artifact_equipments_0
@@ -758,19 +758,19 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			magic_weapons1 = 1
 			gwtank_chassis = 1
 			interwar_artillery = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = { var:temp_devour_victim = { has_tech = steamtank2 } }
-			set_technology = { steamtank2 = 1 popup = yes }
+			set_technology = { steamtank2 = 1 popup = no }
 		}
 		if = {
 			limit = { var:temp_devour_victim = { has_tech = steamtank3 } }
-			set_technology = { steamtank3 = 1 popup = yes }
+			set_technology = { steamtank3 = 1 popup = no }
 		}
 		if = {
 			limit = { var:temp_devour_victim = { has_tech = steamtank4 } }
-			set_technology = { steamtank4 = 1 popup = yes }
+			set_technology = { steamtank4 = 1 popup = no }
 		}
 		flower_ai_sync_steampunk_upgrades = yes
 		if = {
@@ -826,7 +826,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			dragon_rider_tech = 1
 			SWE_bofors_antitank_gun = 1
 			winter_logistics_support_tech = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = dragon_rider_equipment_0
@@ -843,7 +843,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		}
 	}
 
-	#中华诸派：T1神机四系火炮（若为PRC额外立刻给自律人偶0阶，并将攻城直升机纳入T3蓝图）
+	#中华诸派：T1神机四系火炮
 	if = {
 		limit = {
 			var:temp_devour_victim = {
@@ -864,25 +864,37 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			CHI_ShenJi_rocket_Artillery = 1
 			CHI_ShenJi_AA_artiller = 1
 			CHI_ShenJi_Anti_Tank_Aritiller = 1
-			popup = yes
+			popup = no
+		}
+	}
+
+	#PRC独立包：自律人偶0阶与攻城直升机T3蓝图（不再被先打CHI/军阀锁死）
+	if = {
+		limit = {
+			var:temp_devour_victim = {
+				OR = {
+					original_tag = PRC
+					has_country_flag = flower_devour_pack_prc
+				}
+			}
+			NOT = { has_country_flag = flower_devour_pack_prc }
+		}
+		set_country_flag = flower_devour_pack_prc
+		set_country_flag = flower_bp_has_t3_heli
+		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
+		set_technology = {
+			AUTO_META_research_available = 1
+			auto_meta_0 = 1
+			popup = no
 		}
 		if = {
-			limit = { var:temp_devour_victim = { original_tag = PRC } }
-			set_country_flag = flower_bp_has_t3_heli
-			set_technology = {
-				AUTO_META_research_available = 1
-				auto_meta_0 = 1
-				popup = yes
-			}
-			if = {
-				limit = {
-					OR = {
-						date > 1940.12.31
-						var:temp_devour_victim = { has_tech = Siege_helicopter_0 }
-					}
+			limit = {
+				OR = {
+					date > 1940.12.31
+					var:temp_devour_victim = { has_tech = Siege_helicopter_0 }
 				}
-				flower_unlock_bp_t3_heli = yes
 			}
+			flower_unlock_bp_t3_heli = yes
 		}
 	}
 
@@ -902,7 +914,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			TUR_mech_technology = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = mech_equipment_1
@@ -943,7 +955,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			cavity_magnatron = 1
-			popup = yes
+			popup = no
 		}
 		if = {
 			limit = {
@@ -999,7 +1011,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			onm_unlock_unit_snake = 1
 			onm_tech_ONM_army_12 = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1021,7 +1033,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			AUTO_META_research_available = 1
 			auto_meta_0 = 1
-			popup = yes
+			popup = no
 		}
 		add_equipment_to_stockpile = {
 			type = auto_meta_0_equipments
@@ -1055,7 +1067,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			CAN_artillery_concentration_tactics = 1
 			CAN_improved_divisional_support = 1
 			CAN_mountain_warfare_militias_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1074,7 +1086,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			PAW_rangers_buff_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1095,7 +1107,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			Expeditionary_research = 1
 			Construct_knight_research_available = 1
 			construct_knight_1 = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1115,7 +1127,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		set_technology = {
 			BAL_field_medical_training_tech = 1
 			tech_silverspear_pegasus = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1137,7 +1149,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			winter_logistics_support_tech = 1
 			long_range_patrol_support_tech = 1
 			bicycle_infantry = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1156,7 +1168,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			NOR_rikstanken_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1175,7 +1187,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			KS_infantry_battle_group_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 
@@ -1195,9 +1207,15 @@ flower_ai_absorb_defeated_nation_special_techs = {
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
 		set_technology = {
 			blackshirt_assault_battalion_tech = 1
-			midget_submarines = 1
-			cruiser_submarines = 1
-			popup = yes
+			popup = no
+		}
+		if = {
+			limit = { var:temp_devour_victim = { has_tech = midget_submarines } }
+			set_technology = { midget_submarines = 1 popup = no }
+		}
+		else_if = {
+			limit = { var:temp_devour_victim = { has_tech = cruiser_submarines } }
+			set_technology = { cruiser_submarines = 1 popup = no }
 		}
 	}
 
@@ -1218,7 +1236,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			forest_training_tech = 1
 			mountain_warfare = 1
 			TOA_jungle_pioneers_support_tech = 1
-			popup = yes
+			popup = no
 		}
 	}
 	#继承败者携带的共享终极蓝图
@@ -1762,7 +1780,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_improved_optics_tech_1 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_improved_optics_tech_1 = 1 popup = yes }
+		set_technology = { r56_improved_optics_tech_1 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1770,7 +1788,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_improved_optics_tech_2 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_improved_optics_tech_2 = 1 popup = yes }
+		set_technology = { r56_improved_optics_tech_2 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1778,7 +1796,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_gammon_bomb_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_gammon_bomb_tech = 1 popup = yes }
+		set_technology = { r56_gammon_bomb_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1786,7 +1804,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_anti_tank_rifle_grenade_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = yes }
+		set_technology = { r56_anti_tank_rifle_grenade_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1794,7 +1812,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_heavy_tank_studies_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_heavy_tank_studies_tech = 1 popup = yes }
+		set_technology = { r56_heavy_tank_studies_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1802,7 +1820,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_fido_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_fido_tech = 1 popup = yes }
+		set_technology = { r56_fido_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1810,7 +1828,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_improved_iff_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_improved_iff_tech = 1 popup = yes }
+		set_technology = { r56_improved_iff_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1818,7 +1836,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_sp_helicopter_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_sp_helicopter_tech = 1 popup = yes }
+		set_technology = { r56_sp_helicopter_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1826,7 +1844,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_sp_naval_huff_duff_device_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_sp_naval_huff_duff_device_tech = 1 popup = yes }
+		set_technology = { r56_sp_naval_huff_duff_device_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1834,7 +1852,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_gd_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_gd_tech = 1 popup = yes }
+		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_gd_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1842,7 +1860,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech = 1 popup = yes }
+		set_technology = { sp_land_large_caliber_kinetic_energy_sabot_no_gd_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1850,7 +1868,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = land_multi_charge_large_caliber_gun_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { land_multi_charge_large_caliber_gun_tech = 1 popup = yes }
+		set_technology = { land_multi_charge_large_caliber_gun_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1858,7 +1876,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = stronghold_network_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { stronghold_network_tech = 1 popup = yes }
+		set_technology = { stronghold_network_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1866,7 +1884,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = rdf0 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { rdf0 = 1 popup = yes }
+		set_technology = { rdf0 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1874,7 +1892,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_proximity_fuze_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_proximity_fuze_tech = 1 popup = yes }
+		set_technology = { sp_naval_proximity_fuze_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1882,7 +1900,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_underway_replenishment_pick_a }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_underway_replenishment_pick_a = 1 popup = yes }
+		set_technology = { sp_naval_underway_replenishment_pick_a = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1890,7 +1908,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_underway_replenishment_pick_b }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_underway_replenishment_pick_b = 1 popup = yes }
+		set_technology = { sp_naval_underway_replenishment_pick_b = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1898,7 +1916,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_support_ships_pick_a }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_support_ships_pick_a = 1 popup = yes }
+		set_technology = { sp_naval_support_ships_pick_a = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1906,7 +1924,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_support_ships_pick_b }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_support_ships_pick_b = 1 popup = yes }
+		set_technology = { sp_naval_support_ships_pick_b = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1914,7 +1932,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_support_ships_pick_c }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_support_ships_pick_c = 1 popup = yes }
+		set_technology = { sp_naval_support_ships_pick_c = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1922,7 +1940,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_repair_ships_pick_a }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_repair_ships_pick_a = 1 popup = yes }
+		set_technology = { sp_naval_repair_ships_pick_a = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1930,7 +1948,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_repair_ships_pick_b }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_repair_ships_pick_b = 1 popup = yes }
+		set_technology = { sp_naval_repair_ships_pick_b = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1938,7 +1956,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = sp_naval_repair_ships_pick_c }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { sp_naval_repair_ships_pick_c = 1 popup = yes }
+		set_technology = { sp_naval_repair_ships_pick_c = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1946,7 +1964,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = nuclear_reactor }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { nuclear_reactor = 1 popup = yes }
+		set_technology = { nuclear_reactor = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1954,7 +1972,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = nuclear_reactor_heavy_water }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { nuclear_reactor_heavy_water = 1 popup = yes }
+		set_technology = { nuclear_reactor_heavy_water = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1962,7 +1980,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = isotope_separation_centrifugal }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { isotope_separation_centrifugal = 1 popup = yes }
+		set_technology = { isotope_separation_centrifugal = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1970,7 +1988,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = commercial_nuclear_reactor_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { commercial_nuclear_reactor_tech = 1 popup = yes }
+		set_technology = { commercial_nuclear_reactor_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1978,7 +1996,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = nukes }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { nukes = 1 popup = yes }
+		set_technology = { nukes = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1986,7 +2004,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = thermonuclear_bombs }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { thermonuclear_bombs = 1 popup = yes }
+		set_technology = { thermonuclear_bombs = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -1994,7 +2012,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = molotov_cocktails_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { molotov_cocktails_tech = 1 popup = yes }
+		set_technology = { molotov_cocktails_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2002,7 +2020,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = winter_logistics_support_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { winter_logistics_support_tech = 1 popup = yes }
+		set_technology = { winter_logistics_support_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2010,7 +2028,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = long_range_patrol_support_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { long_range_patrol_support_tech = 1 popup = yes }
+		set_technology = { long_range_patrol_support_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2018,7 +2036,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = jungle_warfare }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { jungle_warfare = 1 popup = yes }
+		set_technology = { jungle_warfare = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2026,7 +2044,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = jungle_training_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { jungle_training_tech = 1 popup = yes }
+		set_technology = { jungle_training_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2034,7 +2052,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = desert_training_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { desert_training_tech = 1 popup = yes }
+		set_technology = { desert_training_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2042,7 +2060,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = hills_training_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { hills_training_tech = 1 popup = yes }
+		set_technology = { hills_training_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2050,7 +2068,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = mountain_warfare }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { mountain_warfare = 1 popup = yes }
+		set_technology = { mountain_warfare = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2058,7 +2076,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = TOA_jungle_pioneers_support_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = yes }
+		set_technology = { TOA_jungle_pioneers_support_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2066,7 +2084,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = ToA_river_boats_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { ToA_river_boats_tech = 1 popup = yes }
+		set_technology = { ToA_river_boats_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2074,7 +2092,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = forest_training_tech }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { forest_training_tech = 1 popup = yes }
+		set_technology = { forest_training_tech = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2082,7 +2100,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = elephantry }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { elephantry = 1 popup = yes }
+		set_technology = { elephantry = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2090,7 +2108,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = camelry }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { camelry = 1 popup = yes }
+		set_technology = { camelry = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2098,7 +2116,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = bicycle_infantry }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { bicycle_infantry = 1 popup = yes }
+		set_technology = { bicycle_infantry = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2106,7 +2124,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = tech_tachka }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { tech_tachka = 1 popup = yes }
+		set_technology = { tech_tachka = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2114,7 +2132,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = mountain_gun }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { mountain_gun = 1 popup = yes }
+		set_technology = { mountain_gun = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2122,7 +2140,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = field_hospital_upgrade_0 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { field_hospital_upgrade_0 = 1 popup = yes }
+		set_technology = { field_hospital_upgrade_0 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2130,7 +2148,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = field_hospital_upgrade_1 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { field_hospital_upgrade_1 = 1 popup = yes }
+		set_technology = { field_hospital_upgrade_1 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2138,7 +2156,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = field_hospital_upgrade_2 }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { field_hospital_upgrade_2 = 1 popup = yes }
+		set_technology = { field_hospital_upgrade_2 = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2146,7 +2164,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = r56_anti_tank_kit }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { r56_anti_tank_kit = 1 popup = yes }
+		set_technology = { r56_anti_tank_kit = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2154,7 +2172,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = ship_hull_super_heavy }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { ship_hull_super_heavy = 1 popup = yes }
+		set_technology = { ship_hull_super_heavy = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2162,7 +2180,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = panzerschiffe }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { panzerschiffe = 1 popup = yes }
+		set_technology = { panzerschiffe = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2170,7 +2188,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = torpedo_cruiser_mtg }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { torpedo_cruiser_mtg = 1 popup = yes }
+		set_technology = { torpedo_cruiser_mtg = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2178,7 +2196,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = cruiser_submarines }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { cruiser_submarines = 1 popup = yes }
+		set_technology = { cruiser_submarines = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2186,7 +2204,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = midget_submarines }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { midget_submarines = 1 popup = yes }
+		set_technology = { midget_submarines = 1 popup = no }
 	}
 	if = {
 		limit = {
@@ -2194,7 +2212,7 @@ flower_ai_absorb_defeated_nation_special_techs = {
 			NOT = { has_tech = coastal_defense_ships }
 		}
 		add_to_temp_variable = { flower_devour_absorbed_special = 1 }
-		set_technology = { coastal_defense_ships = 1 popup = yes }
+		set_technology = { coastal_defense_ships = 1 popup = no }
 	}
 	#推送全图人类玩家右下角双国旗战报（仅首次吸收到该国特殊科技时）
 	if = {
@@ -2234,7 +2252,7 @@ flower_ai_sync_steampunk_upgrades = {
 					date > 1940.1.1
 				}
 			}
-			set_technology = { steamtank2 = 1 popup = yes }
+			set_technology = { steamtank2 = 1 popup = no }
 		}
 		if = {
 			limit = {
@@ -2245,7 +2263,7 @@ flower_ai_sync_steampunk_upgrades = {
 					date > 1943.1.1
 				}
 			}
-			set_technology = { steamtank3 = 1 popup = yes }
+			set_technology = { steamtank3 = 1 popup = no }
 		}
 		if = {
 			limit = {
@@ -2255,7 +2273,7 @@ flower_ai_sync_steampunk_upgrades = {
 					date > 1945.1.1
 				}
 			}
-			set_technology = { steamtank4 = 1 popup = yes }
+			set_technology = { steamtank4 = 1 popup = no }
 		}
 		if = {
 			limit = {

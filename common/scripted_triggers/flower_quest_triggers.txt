@@ -1,0 +1,148 @@
+#徽章考核、黑市悬赏、半年军令状与黑市契约统一达标触发器（支持12档离散陆军经验目标）
+
+flower_st_xp_met = {
+	has_war = yes
+	OR = {
+		AND = { check_variable = { flower_st_goal_xp = 40 } has_army_experience > 39.99 }
+		AND = { check_variable = { flower_st_goal_xp = 50 } has_army_experience > 49.99 }
+		AND = { check_variable = { flower_st_goal_xp = 60 } has_army_experience > 59.99 }
+		AND = { check_variable = { flower_st_goal_xp = 75 } has_army_experience > 74.99 }
+		AND = { check_variable = { flower_st_goal_xp = 90 } has_army_experience > 89.99 }
+		AND = { check_variable = { flower_st_goal_xp = 100 } has_army_experience > 99.99 }
+		AND = { check_variable = { flower_st_goal_xp = 120 } has_army_experience > 119.99 }
+		AND = { check_variable = { flower_st_goal_xp = 150 } has_army_experience > 149.99 }
+		AND = { check_variable = { flower_st_goal_xp = 180 } has_army_experience > 179.99 }
+		AND = { check_variable = { flower_st_goal_xp = 200 } has_army_experience > 199.99 }
+		AND = { check_variable = { flower_st_goal_xp = 250 } has_army_experience > 249.99 }
+		AND = { check_variable = { flower_st_goal_xp > 250 } has_army_experience > 299.99 }
+		AND = { check_variable = { flower_st_goal_xp = 80 } has_army_experience > 79.99 }
+	}
+}
+
+flower_bounty_xp_met = {
+	has_war = yes
+	OR = {
+		AND = { check_variable = { flower_bounty_goal_xp = 40 } has_army_experience > 39.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 50 } has_army_experience > 49.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 60 } has_army_experience > 59.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 75 } has_army_experience > 74.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 90 } has_army_experience > 89.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 100 } has_army_experience > 99.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 120 } has_army_experience > 119.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 150 } has_army_experience > 149.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 180 } has_army_experience > 179.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 200 } has_army_experience > 199.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 250 } has_army_experience > 249.99 }
+		AND = { check_variable = { flower_bounty_goal_xp > 250 } has_army_experience > 299.99 }
+		AND = { check_variable = { flower_bounty_goal_xp = 80 } has_army_experience > 79.99 }
+	}
+}
+
+flower_bm_xp_met = {
+	has_war = yes
+	OR = {
+		AND = { check_variable = { flower_bm_goal_xp = 40 } has_army_experience > 39.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 50 } has_army_experience > 49.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 60 } has_army_experience > 59.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 75 } has_army_experience > 74.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 90 } has_army_experience > 89.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 100 } has_army_experience > 99.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 120 } has_army_experience > 119.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 150 } has_army_experience > 149.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 180 } has_army_experience > 179.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 200 } has_army_experience > 199.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 250 } has_army_experience > 249.99 }
+		AND = { check_variable = { flower_bm_goal_xp > 250 } has_army_experience > 299.99 }
+		AND = { check_variable = { flower_bm_goal_xp = 80 } has_army_experience > 79.99 }
+	}
+}
+
+flower_quest_st_fac_met = {
+	check_variable = { flower_st_goal_fac > 0 }
+	NOT = { check_variable = { num_of_factories < flower_st_goal_fac } }
+}
+
+flower_quest_st_state_met = {
+	check_variable = { flower_st_goal_states > 0 }
+	NOT = { check_variable = { num_controlled_states < flower_st_goal_states } }
+}
+
+flower_quest_st_ready = {
+	has_country_flag = flower_st_task_assigned
+	NOT = { has_country_flag = flower_st_claimed }
+	OR = {
+		has_country_flag = flower_st_task_done
+		flower_quest_st_fac_met = yes
+		flower_quest_st_state_met = yes
+		flower_st_xp_met = yes
+	}
+}
+
+flower_quest_bounty_fac_met = {
+	check_variable = { flower_bounty_goal_fac > 0 }
+	NOT = { check_variable = { num_of_factories < flower_bounty_goal_fac } }
+}
+
+flower_quest_bounty_state_met = {
+	check_variable = { flower_bounty_goal_states > 0 }
+	NOT = { check_variable = { num_controlled_states < flower_bounty_goal_states } }
+}
+
+flower_quest_bounty_ready = {
+	has_country_flag = flower_bounty_active
+	OR = {
+		flower_quest_bounty_fac_met = yes
+		flower_quest_bounty_state_met = yes
+		flower_bounty_xp_met = yes
+	}
+}
+
+flower_quest_wager_state_met = {
+	check_variable = { flower_wager_goal_states > 0 }
+	NOT = { check_variable = { num_controlled_states < flower_wager_goal_states } }
+}
+
+flower_quest_wager_fac_met = {
+	check_variable = { flower_wager_goal_factories > 0 }
+	NOT = { check_variable = { num_of_factories < flower_wager_goal_factories } }
+}
+
+flower_quest_wager_ready = {
+	has_idea = flower_blood_wager_active_idea
+	OR = {
+		flower_quest_wager_state_met = yes
+		flower_quest_wager_fac_met = yes
+	}
+}
+
+flower_quest_bm_fac_met = {
+	check_variable = { flower_bm_goal_fac > 0 }
+	NOT = { check_variable = { num_of_factories < flower_bm_goal_fac } }
+}
+
+flower_quest_bm_state_met = {
+	check_variable = { flower_bm_goal_states > 0 }
+	NOT = { check_variable = { num_controlled_states < flower_bm_goal_states } }
+}
+
+flower_quest_bm_ready = {
+	has_country_flag = flower_bm_active
+	OR = {
+		flower_quest_bm_fac_met = yes
+		flower_quest_bm_state_met = yes
+		flower_bm_xp_met = yes
+	}
+}
+
+flower_quest_any_claimable = {
+	OR = {
+		AND = {
+			has_country_flag = flower_st_task_assigned
+			NOT = { has_country_flag = flower_st_claimed }
+			flower_quest_st_ready = yes
+		}
+		flower_quest_bounty_ready = yes
+		flower_quest_wager_ready = yes
+		flower_quest_bm_ready = yes
+	}
+}

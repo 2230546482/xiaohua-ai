@@ -74,3 +74,20 @@ FLOWER_AI_SUPER_BOSS_RULE = {
         desc = "RULE_OPTION_FLOWER_AI_BOSS_SOV_DVL_DESC"
     }
 }
+
+FLOWER_TAVERN_POOL_RULE = {
+    name = "RULE_FLOWER_TAVERN_POOL"
+    group = "RULE_GROUP_FLOWER_AI"
+    icon = "GFX_wargoals"
+    default = {
+        name = "LIMITED_5"
+        text = "RULE_OPTION_FLOWER_TAVERN_POOL_5"
+        desc = "RULE_OPTION_FLOWER_TAVERN_POOL_5_DESC"
+        allow_achievements = yes
+    }
+    option = {
+        name = "FULL_12"
+        text = "RULE_OPTION_FLOWER_TAVERN_POOL_12"
+        desc = "RULE_OPTION_FLOWER_TAVERN_POOL_12_DESC"
+    }
+}

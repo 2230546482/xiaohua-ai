@@ -748,38 +748,39 @@ flower_roguelike_tank_ai_strat = {
 	}
 }
 
-#流派五：斯图卡洗头房AI（全力倾泻空军产能，二阶同步激活10%-15%王牌伞兵空降旅）
+#流派五：斯图卡洗头房AI（强化空军产能并设后期机群封顶，二阶同步激活10%-15%王牌伞兵空降旅）
 flower_roguelike_air_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_country_flag = flower_roguelike_air_ai
+		has_deployed_air_force_size = { size < 5000 }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = air_factory_balance
-		value = 240
+		value = 110
 	}
 	ai_strategy = {
 		type = unit_ratio
 		id = fighter
-		value = 170
+		value = 100
 	}
 	ai_strategy = {
 		type = unit_ratio
 		id = cas
-		value = 220
+		value = 120
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = fighter
-		value = 200
+		value = 110
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = cas
-		value = 240
+		value = 130
 	}
 }
 flower_roguelike_air_s2_heli_strat = {
@@ -979,7 +980,7 @@ flower_roguelike_steampunk_ai_strat = {
 	}
 	ai_strategy = {
 		type = air_factory_balance
-		value = 120
+		value = 25
 	}
 }
 
@@ -1028,7 +1029,7 @@ flower_roguelike_gambler_ai_strat = {
 	}
 	ai_strategy = {
 		type = air_factory_balance
-		value = 120
+		value = 15
 	}
 }
 
@@ -1078,70 +1079,73 @@ flower_evo_nightingale_alchemy_ai_strat = {
 	}
 }
 
-#分叉特化AI：空天《斯图卡在线洗头》狂暴堆近距支援机
+#分叉特化AI：空天《斯图卡在线洗头》强化近距支援机（含机群规模上限防爆仓）
 flower_evo_air_cas_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_air_cas_idea
+		has_deployed_air_force_size = { size < 5200 }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = unit_ratio
 		id = cas
-		value = 260
+		value = 130
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = cas
-		value = 260
+		value = 130
 	}
 }
 
-#分叉特化AI：空天《纯制空不解释》狂暴堆战斗机
+#分叉特化AI：空天《纯制空不解释》强化战斗机（含机群规模上限防爆仓）
 flower_evo_air_superiority_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_air_superiority_idea
+		has_deployed_air_force_size = { size < 5200 }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = unit_ratio
 		id = fighter
-		value = 260
+		value = 130
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = fighter
-		value = 260
+		value = 130
 	}
 }
 
-#分叉特化AI：疯狂科研黑盒《超前空天核能狂想》拉高战机与密接产能
+#分叉特化AI：疯狂科研黑盒《超前空天核能狂想》适度拉高战机与密接产能
 flower_evo_punk_ufo_ai_strat = {
 	allowed = { NOT = { tag = ZDW tag = WL1 } }
 	enable = {
 		OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active }
 		has_idea = flower_evo_punk_ufo_idea
+		has_deployed_air_force_size = { size < 4000 }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = air_factory_balance
-		value = 200
+		value = 65
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = fighter
-		value = 180
+		value = 85
 	}
 	ai_strategy = {
 		type = equipment_production_factor
 		id = cas
-		value = 180
+		value = 85
 	}
 }
 

@@ -18,9 +18,35 @@ scripted_gui = {
 				check_variable = { flower_stk_unrealized_pnl < 0 }
 			}
 			flower_stk_buy_factory_btn_click_enabled = {
+				NOT = { has_country_flag = flower_stk_event_locked }
 				NOT = { has_country_flag = flower_stk_buy_factory_cd }
 				NOT = { check_variable = { ubs_save < 500 } }
 			}
+			flower_stk_liquidate_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_buy_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_buy_5_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_buy_lev_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_sell_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_short_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_1_cover_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_buy_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_buy_5_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_buy_lev_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_sell_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_short_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_2_cover_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_buy_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_buy_5_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_buy_lev_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_sell_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_short_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_3_cover_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_buy_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_buy_5_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_buy_lev_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_sell_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_short_1_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
+			flower_stk_4_cover_all_btn_click_enabled = { NOT = { has_country_flag = flower_stk_event_locked } }
 		}
 
 		effects = {

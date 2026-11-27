@@ -3,6 +3,7 @@ defined_text = {
 	text = {
 		trigger = {
 			OR = {
+				has_global_flag = flower_anomaly_chaos_mode
 				has_global_flag = flower_anomaly_6_active
 				check_variable = { global.flower_anomaly_vote_6 > 0 }
 			}
@@ -16,6 +17,13 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerAnomalyLeadText
+	text = {
+		trigger = {
+			has_global_flag = flower_anomaly_voting_settled
+			check_variable = { global.flower_chaos_extra_anomalies > 0 }
+		}
+		localization_key = FLOWER_ANOMALY_LEAD_SETTLED_CHAOS
+	}
 	text = {
 		trigger = { has_global_flag = flower_anomaly_voting_settled }
 		localization_key = FLOWER_ANOMALY_LEAD_SETTLED
@@ -38,6 +46,20 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerAnomalyModeSummaryText
+	text = {
+		trigger = {
+			has_global_flag = flower_anomaly_multi_mode
+			has_global_flag = flower_anomaly_chaos_mode
+		}
+		localization_key = FLOWER_ANOMALY_MODE_CHAOS_TEXT
+	}
+	text = {
+		trigger = {
+			has_global_flag = flower_anomaly_multi_mode
+			NOT = { check_variable = { flower_own_voted_count < 3 } }
+		}
+		localization_key = FLOWER_ANOMALY_MODE_MULTI_FULL_TEXT
+	}
 	text = {
 		trigger = { has_global_flag = flower_anomaly_multi_mode }
 		localization_key = FLOWER_ANOMALY_MODE_MULTI_TEXT

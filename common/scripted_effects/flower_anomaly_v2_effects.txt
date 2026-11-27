@@ -117,7 +117,11 @@ flower_ai_anom9_roll_global_takeout = {
 			}
 			every_country = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				if = {
+					limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+					set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				}
 				set_temp_variable = { temp_alert_id = 922 }
 				set_temp_variable = { temp_tag = THIS.id }
 				set_temp_variable = { temp_tag2 = THIS.id }
@@ -131,7 +135,11 @@ flower_ai_anom9_roll_global_takeout = {
 			}
 			every_country = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				if = {
+					limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+					set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				}
 				set_temp_variable = { temp_alert_id = 923 }
 				set_temp_variable = { temp_tag = THIS.id }
 				set_temp_variable = { temp_tag2 = THIS.id }
@@ -145,7 +153,11 @@ flower_ai_anom9_roll_global_takeout = {
 			}
 			every_country = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				if = {
+					limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+					set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_9_pinhaofan" }
+				}
 				set_temp_variable = { temp_alert_id = 924 }
 				set_temp_variable = { temp_tag = THIS.id }
 				set_temp_variable = { temp_tag2 = THIS.id }
@@ -273,13 +285,13 @@ flower_ai_tick_anomalies_v2_monthly = {
 			}
 		}
 
-		#--- 畸变9：全局每90天定时开盒全图外卖状态（全局仅执行1次，无缝衔接）---
+		#--- 畸变9：全局每85天定时开盒全图外卖状态（消除2月导致的29天空窗，无缝衔接）---
 		if = {
 			limit = {
 				has_global_flag = flower_anomaly_9_active
 				NOT = { has_global_flag = flower_anom9_box_cd }
 			}
-			set_global_flag = { flag = flower_anom9_box_cd days = 90 value = 1 }
+			set_global_flag = { flag = flower_anom9_box_cd days = 85 value = 1 }
 			flower_ai_anom9_roll_global_takeout = yes
 		}
 
@@ -314,13 +326,17 @@ flower_ai_anom10_on_enter_war = {
 		add_ideas = flower_anom10_war_idea
 		add_timed_idea = { idea = flower_anom10_panic_idea days = 90 }
 		if = {
-			limit = { is_ai = no }
+			limit = {
+				is_ai = no
+				NOT = { has_country_flag = flower_auto_meme_sfx_cd }
+			}
+			set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
 			hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_10_congrong" }
 		}
 	}
 }
 
-#畸变7：主要国家投降或灭亡时对全图玩家播放《关羽之歌》并推右下角提示
+#畸变7：主要国家投降或灭亡时，仅当其与玩家交战或同阵营时才播放《关羽之歌》并推右下角提示（共享自动广播50天冷却）
 flower_ai_anom7_major_death_guanyu_song = {
 	if = {
 		limit = {
@@ -332,12 +348,33 @@ flower_ai_anom7_major_death_guanyu_song = {
 				is_major = yes
 				has_country_flag = flower_cached_is_major
 			}
+			any_country = {
+				is_ai = no
+				OR = {
+					has_war_with = PREV
+					is_in_faction_with = PREV
+					tag = PREV
+					check_variable = { temp_anom7_killer = THIS.id }
+				}
+			}
 		}
-		set_global_flag = { flag = flower_anom7_guanyu_song_cd days = 15 value = 1 }
+		set_global_flag = { flag = flower_anom7_guanyu_song_cd days = 90 value = 1 }
 		set_temp_variable = { temp_anom7_dead = THIS.id }
 		every_country = {
-			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_7_guanyu_song" }
+			limit = {
+				is_ai = no
+				OR = {
+					has_war_with = PREV
+					is_in_faction_with = PREV
+					tag = PREV
+					check_variable = { temp_anom7_killer = THIS.id }
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+				set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_7_guanyu_song" }
+			}
 			set_temp_variable = { temp_alert_id = 921 }
 			set_temp_variable = { temp_tag = temp_anom7_dead }
 			set_temp_variable = { temp_tag2 = temp_anom7_killer }
@@ -397,6 +434,7 @@ flower_ai_on_state_changed_anomalies_v2 = {
 				limit = { FROM.FROM = { arms_factory > 0 } }
 				FROM.FROM = {
 					remove_building = { type = arms_factory level = 1 }
+					add_extra_state_shared_building_slots = -1
 					damage_building = { type = rail_way damage = 2 }
 					damage_building = { type = infrastructure damage = 2 }
 				}
@@ -450,6 +488,7 @@ flower_ai_on_state_changed_anomalies_v2 = {
 			else = {
 				FROM.FROM = {
 					remove_building = { type = industrial_complex level = 1 }
+					add_extra_state_shared_building_slots = -1
 					damage_building = { type = rail_way damage = 2 }
 					damage_building = { type = infrastructure damage = 2 }
 				}
@@ -503,7 +542,11 @@ flower_ai_on_state_changed_anomalies_v2 = {
 			if = {
 				limit = { FROM = { is_ai = no } }
 				FROM = {
-					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_10_congrong" }
+					if = {
+						limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+						set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+						hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_10_congrong" }
+					}
 					set_temp_variable = { temp_alert_id = 925 }
 					set_temp_variable = { temp_tag = FROM.id }
 					set_temp_variable = { temp_tag2 = ROOT.id }
@@ -554,7 +597,11 @@ flower_ai_on_state_changed_anomalies_v2 = {
 		if = {
 			limit = { ROOT = { is_ai = no } }
 			ROOT = {
-				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				if = {
+					limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+					set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				}
 				set_temp_variable = { temp_alert_id = 926 }
 				set_temp_variable = { temp_tag = ROOT.id }
 				set_temp_variable = { temp_tag2 = FROM.id }
@@ -569,7 +616,11 @@ flower_ai_on_state_changed_anomalies_v2 = {
 				}
 			}
 			FROM = {
-				hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				if = {
+					limit = { NOT = { has_country_flag = flower_auto_meme_sfx_cd } }
+					set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 }
+					hidden_effect = { scoped_sound_effect = "flower_sfx_anomaly_12_look_eyes" }
+				}
 				set_temp_variable = { temp_alert_id = 926 }
 				set_temp_variable = { temp_tag = ROOT.id }
 				set_temp_variable = { temp_tag2 = FROM.id }

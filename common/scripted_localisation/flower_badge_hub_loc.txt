@@ -1,0 +1,792 @@
+#徽章与考核总览双页签GUI、任务进度条与悬浮栏动态本地化
+defined_text = {
+	name = GetFlowerDockBadgeBtnText
+	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_BTN_LOCKED }
+	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_DOCK_BADGE_BTN_QUEST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_DOCK_BADGE_BTN_ST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_DOCK_BADGE_BTN_LT_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_DOCK_BADGE_BTN_CR_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_DOCK_BADGE_BTN_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 8 } } localization_key = FLOWER_DOCK_BADGE_BTN_ALL_DONE }
+	text = { trigger = { check_variable = { flower_next_badge_months > 0 } } localization_key = FLOWER_DOCK_BADGE_BTN_COUNTDOWN }
+	text = { localization_key = FLOWER_DOCK_BADGE_BTN_IDLE }
+}
+defined_text = {
+	name = GetFlowerDockBadgeTT
+	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_TT_LOCKED }
+	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_DOCK_BADGE_TT_QUEST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_DOCK_BADGE_TT_ST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_DOCK_BADGE_TT_LT_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_DOCK_BADGE_TT_CR_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_DOCK_BADGE_TT_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 8 } } localization_key = FLOWER_DOCK_BADGE_TT_ALL_DONE }
+	text = { localization_key = FLOWER_DOCK_BADGE_TT_COUNTDOWN }
+}
+defined_text = {
+	name = GetFlowerBadgeCatMood
+	text = { trigger = { has_country_flag = flower_cat_hissing } localization_key = FLOWER_BADGE_CAT_MOOD_HISS }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 4 } } localization_key = FLOWER_BADGE_CAT_MOOD_GOLD }
+	text = { trigger = { OR = { check_variable = { flower_badge_feedback_id = 8 } check_variable = { flower_badge_feedback_id = 10 } check_variable = { flower_badge_feedback_id = 11 } } } localization_key = FLOWER_BADGE_CAT_MOOD_RICH }
+	text = { trigger = { check_variable = { flower_badge_hub_tab > 0 } } localization_key = FLOWER_BADGE_CAT_MOOD_QUEST }
+	text = { localization_key = FLOWER_BADGE_CAT_MOOD }
+}
+defined_text = {
+	name = GetFlowerBadgeHeaderStatus
+	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_BADGE_HDR_QUEST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_HDR_ST_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_HDR_LT_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_BADGE_HDR_CR_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_BADGE_HDR_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 8 } } localization_key = FLOWER_BADGE_HDR_ALL_DONE }
+	text = { trigger = { check_variable = { flower_next_badge_months > 0 } } localization_key = FLOWER_BADGE_HDR_COUNTDOWN }
+	text = { localization_key = FLOWER_BADGE_HDR_IDLE }
+}
+defined_text = {
+	name = GetFlowerHubTab1Label
+	text = { trigger = { check_variable = { flower_badge_shop_mode > 0 } } localization_key = FLOWER_HUB_TAB1_READY }
+	text = { localization_key = FLOWER_HUB_TAB1_NORM }
+}
+defined_text = {
+	name = GetFlowerHubTab2Label
+	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_HUB_TAB2_READY }
+	text = { localization_key = FLOWER_HUB_TAB2_NORM }
+}
+defined_text = {
+	name = GetFlowerHubTabHint
+	text = { trigger = { check_variable = { flower_badge_hub_tab > 0 } } localization_key = FLOWER_HUB_TAB_HINT_2 }
+	text = { localization_key = FLOWER_HUB_TAB_HINT_1 }
+}
+defined_text = {
+	name = GetFlowerOwnedSTName
+	text = { trigger = { has_idea = flower_st_arch_1 } localization_key = flower_st_arch_1 }
+	text = { trigger = { has_idea = flower_st_arch_2 } localization_key = flower_st_arch_2 }
+	text = { trigger = { has_idea = flower_st_arch_3 } localization_key = flower_st_arch_3 }
+	text = { trigger = { has_idea = flower_st_arch_4 } localization_key = flower_st_arch_4 }
+	text = { trigger = { has_idea = flower_st_arch_5 } localization_key = flower_st_arch_5 }
+	text = { trigger = { has_idea = flower_st_arch_6 } localization_key = flower_st_arch_6 }
+	text = { trigger = { has_idea = flower_st_arch_7 } localization_key = flower_st_arch_7 }
+	text = { trigger = { has_idea = flower_st_arch_8 } localization_key = flower_st_arch_8 }
+	text = { trigger = { has_idea = flower_st_arch_9 } localization_key = flower_st_arch_9 }
+	text = { trigger = { has_idea = flower_st_arch_10 } localization_key = flower_st_arch_10 }
+	text = { trigger = { has_idea = flower_st_arch_11 } localization_key = flower_st_arch_11 }
+	text = { trigger = { has_idea = flower_st_arch_12 } localization_key = flower_st_arch_12 }
+	text = { trigger = { has_idea = flower_st_econ_ledger } localization_key = flower_st_econ_ledger }
+	text = { trigger = { has_idea = flower_st_econ_vip } localization_key = flower_st_econ_vip }
+	text = { trigger = { has_idea = flower_st_econ_outsource } localization_key = flower_st_econ_outsource }
+	text = { trigger = { has_idea = flower_st_hyb_joint } localization_key = flower_st_hyb_joint }
+	text = { trigger = { has_idea = flower_st_hyb_combined } localization_key = flower_st_hyb_combined }
+	text = { trigger = { has_idea = flower_st_port_general } localization_key = flower_st_port_general }
+	text = { trigger = { has_idea = flower_st_port_railgun } localization_key = flower_st_port_railgun }
+	text = { trigger = { has_idea = flower_st_port_thief } localization_key = flower_st_port_thief }
+	text = { trigger = { has_idea = flower_st_cursed_iou } localization_key = flower_st_cursed_iou }
+	text = { trigger = { has_idea = flower_st_cursed_dice } localization_key = flower_st_cursed_dice }
+	text = { trigger = { has_idea = flower_st_cursed_laststand } localization_key = flower_st_cursed_laststand }
+	text = { trigger = { has_idea = flower_st_cursed_austerity } localization_key = flower_st_cursed_austerity }
+	text = { localization_key = FLOWER_BADGE_NONE_NAME }
+}
+defined_text = {
+	name = GetFlowerOwnedSTSub
+	text = { trigger = { check_variable = { flower_st_owned_frame > 1 } } localization_key = FLOWER_BADGE_OWNED_ACTIVE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_SUB_CLAIMABLE }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_BADGE_SUB_IN_TASK }
+	text = { localization_key = FLOWER_BADGE_SUB_WAIT_1937 }
+}
+defined_text = {
+	name = GetFlowerOwnedSTTT
+	text = { trigger = { has_idea = flower_st_arch_1 } localization_key = flower_st_arch_1_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_2 } localization_key = flower_st_arch_2_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_3 } localization_key = flower_st_arch_3_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_4 } localization_key = flower_st_arch_4_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_5 } localization_key = flower_st_arch_5_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_6 } localization_key = flower_st_arch_6_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_7 } localization_key = flower_st_arch_7_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_8 } localization_key = flower_st_arch_8_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_9 } localization_key = flower_st_arch_9_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_10 } localization_key = flower_st_arch_10_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_11 } localization_key = flower_st_arch_11_hub_tt }
+	text = { trigger = { has_idea = flower_st_arch_12 } localization_key = flower_st_arch_12_hub_tt }
+	text = { trigger = { has_idea = flower_st_econ_ledger } localization_key = flower_st_econ_ledger_hub_tt }
+	text = { trigger = { has_idea = flower_st_econ_vip } localization_key = flower_st_econ_vip_hub_tt }
+	text = { trigger = { has_idea = flower_st_econ_outsource } localization_key = flower_st_econ_outsource_hub_tt }
+	text = { trigger = { has_idea = flower_st_hyb_joint } localization_key = flower_st_hyb_joint_hub_tt }
+	text = { trigger = { has_idea = flower_st_hyb_combined } localization_key = flower_st_hyb_combined_hub_tt }
+	text = { trigger = { has_idea = flower_st_port_general } localization_key = flower_st_port_general_hub_tt }
+	text = { trigger = { has_idea = flower_st_port_railgun } localization_key = flower_st_port_railgun_hub_tt }
+	text = { trigger = { has_idea = flower_st_port_thief } localization_key = flower_st_port_thief_hub_tt }
+	text = { trigger = { has_idea = flower_st_cursed_iou } localization_key = flower_st_cursed_iou_hub_tt }
+	text = { trigger = { has_idea = flower_st_cursed_dice } localization_key = flower_st_cursed_dice_hub_tt }
+	text = { trigger = { has_idea = flower_st_cursed_laststand } localization_key = flower_st_cursed_laststand_hub_tt }
+	text = { trigger = { has_idea = flower_st_cursed_austerity } localization_key = flower_st_cursed_austerity_hub_tt }
+	text = { localization_key = FLOWER_BADGE_OWNED_ST_EMPTY_TT }
+}
+defined_text = {
+	name = GetFlowerOwnedLTName
+	text = { trigger = { has_idea = flower_lt_arch_1 } localization_key = flower_lt_arch_1 }
+	text = { trigger = { has_idea = flower_lt_arch_2 } localization_key = flower_lt_arch_2 }
+	text = { trigger = { has_idea = flower_lt_arch_3 } localization_key = flower_lt_arch_3 }
+	text = { trigger = { has_idea = flower_lt_arch_4 } localization_key = flower_lt_arch_4 }
+	text = { trigger = { has_idea = flower_lt_arch_5 } localization_key = flower_lt_arch_5 }
+	text = { trigger = { has_idea = flower_lt_arch_6 } localization_key = flower_lt_arch_6 }
+	text = { trigger = { has_idea = flower_lt_arch_7 } localization_key = flower_lt_arch_7 }
+	text = { trigger = { has_idea = flower_lt_arch_8 } localization_key = flower_lt_arch_8 }
+	text = { trigger = { has_idea = flower_lt_arch_9 } localization_key = flower_lt_arch_9 }
+	text = { trigger = { has_idea = flower_lt_arch_10 } localization_key = flower_lt_arch_10 }
+	text = { trigger = { has_idea = flower_lt_arch_11 } localization_key = flower_lt_arch_11 }
+	text = { trigger = { has_idea = flower_lt_arch_12 } localization_key = flower_lt_arch_12 }
+	text = { trigger = { has_idea = flower_lt_econ_printer } localization_key = flower_lt_econ_printer }
+	text = { trigger = { has_idea = flower_lt_econ_bonds } localization_key = flower_lt_econ_bonds }
+	text = { trigger = { has_idea = flower_lt_econ_pivot } localization_key = flower_lt_econ_pivot }
+	text = { trigger = { has_idea = flower_lt_hyb_lightfang } localization_key = flower_lt_hyb_lightfang }
+	text = { trigger = { has_idea = flower_lt_hyb_triarms } localization_key = flower_lt_hyb_triarms }
+	text = { trigger = { has_idea = flower_lt_port_museum } localization_key = flower_lt_port_museum }
+	text = { trigger = { has_idea = flower_lt_port_marshal } localization_key = flower_lt_port_marshal }
+	text = { trigger = { has_idea = flower_lt_port_magnetic } localization_key = flower_lt_port_magnetic }
+	text = { trigger = { has_idea = flower_lt_cursed_demon } localization_key = flower_lt_cursed_demon }
+	text = { trigger = { has_idea = flower_lt_cursed_cube } localization_key = flower_lt_cursed_cube }
+	text = { trigger = { has_idea = flower_lt_cursed_mortgage } localization_key = flower_lt_cursed_mortgage }
+	text = { trigger = { has_idea = flower_lt_cursed_blood } localization_key = flower_lt_cursed_blood }
+	text = { localization_key = FLOWER_BADGE_NONE_NAME }
+}
+defined_text = {
+	name = GetFlowerOwnedLTSub
+	text = { trigger = { check_variable = { flower_lt_owned_frame > 1 } } localization_key = FLOWER_BADGE_OWNED_ACTIVE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_SUB_BUYABLE }
+	text = { localization_key = FLOWER_BADGE_SUB_WAIT_1939 }
+}
+defined_text = {
+	name = GetFlowerOwnedLTTT
+	text = { trigger = { has_idea = flower_lt_arch_1 } localization_key = flower_lt_arch_1_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_2 } localization_key = flower_lt_arch_2_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_3 } localization_key = flower_lt_arch_3_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_4 } localization_key = flower_lt_arch_4_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_5 } localization_key = flower_lt_arch_5_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_6 } localization_key = flower_lt_arch_6_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_7 } localization_key = flower_lt_arch_7_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_8 } localization_key = flower_lt_arch_8_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_9 } localization_key = flower_lt_arch_9_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_10 } localization_key = flower_lt_arch_10_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_11 } localization_key = flower_lt_arch_11_hub_tt }
+	text = { trigger = { has_idea = flower_lt_arch_12 } localization_key = flower_lt_arch_12_hub_tt }
+	text = { trigger = { has_idea = flower_lt_econ_printer } localization_key = flower_lt_econ_printer_hub_tt }
+	text = { trigger = { has_idea = flower_lt_econ_bonds } localization_key = flower_lt_econ_bonds_hub_tt }
+	text = { trigger = { has_idea = flower_lt_econ_pivot } localization_key = flower_lt_econ_pivot_hub_tt }
+	text = { trigger = { has_idea = flower_lt_hyb_lightfang } localization_key = flower_lt_hyb_lightfang_hub_tt }
+	text = { trigger = { has_idea = flower_lt_hyb_triarms } localization_key = flower_lt_hyb_triarms_hub_tt }
+	text = { trigger = { has_idea = flower_lt_port_museum } localization_key = flower_lt_port_museum_hub_tt }
+	text = { trigger = { has_idea = flower_lt_port_marshal } localization_key = flower_lt_port_marshal_hub_tt }
+	text = { trigger = { has_idea = flower_lt_port_magnetic } localization_key = flower_lt_port_magnetic_hub_tt }
+	text = { trigger = { has_idea = flower_lt_cursed_demon } localization_key = flower_lt_cursed_demon_hub_tt }
+	text = { trigger = { has_idea = flower_lt_cursed_cube } localization_key = flower_lt_cursed_cube_hub_tt }
+	text = { trigger = { has_idea = flower_lt_cursed_mortgage } localization_key = flower_lt_cursed_mortgage_hub_tt }
+	text = { trigger = { has_idea = flower_lt_cursed_blood } localization_key = flower_lt_cursed_blood_hub_tt }
+	text = { localization_key = FLOWER_BADGE_OWNED_LT_EMPTY_TT }
+}
+defined_text = {
+	name = GetFlowerOwnedCrownName
+	text = { trigger = { has_idea = flower_crown_war_machine } localization_key = flower_crown_war_machine }
+	text = { trigger = { has_idea = flower_crown_grand_industry } localization_key = flower_crown_grand_industry }
+	text = { trigger = { has_idea = flower_crown_overlord_tech } localization_key = flower_crown_overlord_tech }
+	text = { trigger = { has_idea = flower_crown_master_tactician } localization_key = flower_crown_master_tactician }
+	text = { localization_key = FLOWER_BADGE_NONE_NAME }
+}
+defined_text = {
+	name = GetFlowerOwnedCrownSub
+	text = { trigger = { check_variable = { flower_crown_owned_frame > 1 } } localization_key = FLOWER_BADGE_OWNED_ACTIVE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_BADGE_SUB_CROWNABLE }
+	text = { localization_key = FLOWER_BADGE_SUB_WAIT_1941 }
+}
+defined_text = {
+	name = GetFlowerOwnedCrownTT
+	text = { trigger = { has_idea = flower_crown_war_machine } localization_key = flower_crown_war_machine_hub_tt }
+	text = { trigger = { has_idea = flower_crown_grand_industry } localization_key = flower_crown_grand_industry_hub_tt }
+	text = { trigger = { has_idea = flower_crown_overlord_tech } localization_key = flower_crown_overlord_tech_hub_tt }
+	text = { trigger = { has_idea = flower_crown_master_tactician } localization_key = flower_crown_master_tactician_hub_tt }
+	text = { localization_key = FLOWER_BADGE_OWNED_CR_EMPTY_TT }
+}
+defined_text = {
+	name = GetFlowerOwnedGoldName
+	text = { trigger = { has_idea = flower_gold_arch_1 } localization_key = flower_gold_arch_1 }
+	text = { trigger = { has_idea = flower_gold_arch_2 } localization_key = flower_gold_arch_2 }
+	text = { trigger = { has_idea = flower_gold_arch_3 } localization_key = flower_gold_arch_3 }
+	text = { trigger = { has_idea = flower_gold_arch_4 } localization_key = flower_gold_arch_4 }
+	text = { trigger = { has_idea = flower_gold_arch_5 } localization_key = flower_gold_arch_5 }
+	text = { trigger = { has_idea = flower_gold_arch_6 } localization_key = flower_gold_arch_6 }
+	text = { trigger = { has_idea = flower_gold_arch_7 } localization_key = flower_gold_arch_7 }
+	text = { trigger = { has_idea = flower_gold_arch_8 } localization_key = flower_gold_arch_8 }
+	text = { trigger = { has_idea = flower_gold_arch_9 } localization_key = flower_gold_arch_9 }
+	text = { trigger = { has_idea = flower_gold_arch_10 } localization_key = flower_gold_arch_10 }
+	text = { trigger = { has_idea = flower_gold_arch_11 } localization_key = flower_gold_arch_11 }
+	text = { trigger = { has_idea = flower_gold_arch_12 } localization_key = flower_gold_arch_12 }
+	text = { localization_key = FLOWER_BADGE_GOLD_LOCKED_NAME }
+}
+defined_text = {
+	name = GetFlowerOwnedGoldSub
+	text = { trigger = { check_variable = { flower_gold_owned_frame > 1 } } localization_key = FLOWER_BADGE_GOLD_ACTIVE }
+	text = { localization_key = FLOWER_BADGE_GOLD_WAIT }
+}
+defined_text = {
+	name = GetFlowerOwnedGoldTT
+	text = { trigger = { has_idea = flower_gold_arch_1 } localization_key = flower_gold_arch_1_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_2 } localization_key = flower_gold_arch_2_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_3 } localization_key = flower_gold_arch_3_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_4 } localization_key = flower_gold_arch_4_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_5 } localization_key = flower_gold_arch_5_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_6 } localization_key = flower_gold_arch_6_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_7 } localization_key = flower_gold_arch_7_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_8 } localization_key = flower_gold_arch_8_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_9 } localization_key = flower_gold_arch_9_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_10 } localization_key = flower_gold_arch_10_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_11 } localization_key = flower_gold_arch_11_hub_tt }
+	text = { trigger = { has_idea = flower_gold_arch_12 } localization_key = flower_gold_arch_12_hub_tt }
+	text = { localization_key = FLOWER_BADGE_OWNED_GD_EMPTY_TT }
+}
+defined_text = {
+	name = GetFlowerBadgeCountdownLine1
+	text = { trigger = { check_variable = { flower_badge_next_stage = 0 } } localization_key = FLOWER_BADGE_CD1_LOCKED }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 1 } } localization_key = FLOWER_BADGE_CD1_WAIT_ST }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_BADGE_CD1_ST_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 3 } } localization_key = FLOWER_BADGE_CD1_ST_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 4 } } localization_key = FLOWER_BADGE_CD1_WAIT_LT }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 5 } } localization_key = FLOWER_BADGE_CD1_LT_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 6 } } localization_key = FLOWER_BADGE_CD1_WAIT_CR }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 7 } } localization_key = FLOWER_BADGE_CD1_CR_READY }
+	text = { localization_key = FLOWER_BADGE_CD1_ALL_DONE }
+}
+defined_text = {
+	name = GetFlowerBadgeCountdownLine2
+	text = { trigger = { check_variable = { flower_badge_next_stage = 0 } } localization_key = FLOWER_BADGE_CD2_LOCKED }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_BADGE_CD2_ST_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 3 } } localization_key = FLOWER_BADGE_CD2_ST_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 5 } } localization_key = FLOWER_BADGE_CD2_LT_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 7 } } localization_key = FLOWER_BADGE_CD2_CR_READY }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 8 } } localization_key = FLOWER_BADGE_CD2_ALL_DONE }
+	text = { localization_key = FLOWER_BADGE_CD2_TIMELINE }
+}
+defined_text = {
+	name = GetFlowerBadgeSynergyHdr
+	text = { trigger = { check_variable = { flower_badge_synergy_tier > 0 } } localization_key = FLOWER_BADGE_SYN_HDR_ON }
+	text = { localization_key = FLOWER_BADGE_SYN_HDR_OFF }
+}
+defined_text = {
+	name = GetFlowerBadgeSynergyLine1
+	text = { trigger = { check_variable = { flower_badge_synergy_tier > 0 } } localization_key = FLOWER_BADGE_SYN_L1_ON }
+	text = { localization_key = FLOWER_BADGE_SYN_L1_OFF }
+}
+defined_text = {
+	name = GetFlowerBadgeSynergyLine2
+	text = { trigger = { check_variable = { flower_lt_card_discount > 0 } } localization_key = FLOWER_BADGE_SYN_L2_DISC }
+	text = { localization_key = FLOWER_BADGE_SYN_L2_NONE }
+}
+defined_text = {
+	name = GetFlowerBadgeShopSecTitle
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_SHOP_SEC_ST }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_SHOP_SEC_LT }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_BADGE_SHOP_SEC_CR }
+	text = { localization_key = FLOWER_BADGE_SHOP_SEC_IDLE }
+}
+defined_text = {
+	name = GetFlowerBadgeShopEmptyText
+	text = { trigger = { check_variable = { flower_badge_next_stage = 0 } } localization_key = FLOWER_BADGE_SHOP_EMPTY_LOCKED }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 2 } } localization_key = FLOWER_BADGE_SHOP_EMPTY_TASK }
+	text = { trigger = { check_variable = { flower_badge_next_stage = 8 } } localization_key = FLOWER_BADGE_SHOP_EMPTY_DONE }
+	text = { localization_key = FLOWER_BADGE_SHOP_EMPTY_WAIT }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS1Tag
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } has_country_flag = flower_badge_lt_slot1_gold_ready } localization_key = FLOWER_BADGE_TAG_GOLD_READY }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_TAG_OWN_ARCH }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_TAG_OWN_ARCH }
+	text = { localization_key = FLOWER_BADGE_TAG_CROWN_1 }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS1Name
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 1 } } localization_key = flower_st_arch_1 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 2 } } localization_key = flower_st_arch_2 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 3 } } localization_key = flower_st_arch_3 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 4 } } localization_key = flower_st_arch_4 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 5 } } localization_key = flower_st_arch_5 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 6 } } localization_key = flower_st_arch_6 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 7 } } localization_key = flower_st_arch_7 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 8 } } localization_key = flower_st_arch_8 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 9 } } localization_key = flower_st_arch_9 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 10 } } localization_key = flower_st_arch_10 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 11 } } localization_key = flower_st_arch_11 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 12 } } localization_key = flower_st_arch_12 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 1 } } localization_key = flower_lt_arch_1 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 2 } } localization_key = flower_lt_arch_2 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 3 } } localization_key = flower_lt_arch_3 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 4 } } localization_key = flower_lt_arch_4 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 5 } } localization_key = flower_lt_arch_5 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 6 } } localization_key = flower_lt_arch_6 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 7 } } localization_key = flower_lt_arch_7 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 8 } } localization_key = flower_lt_arch_8 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 9 } } localization_key = flower_lt_arch_9 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 10 } } localization_key = flower_lt_arch_10 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 11 } } localization_key = flower_lt_arch_11 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 12 } } localization_key = flower_lt_arch_12 }
+	text = { localization_key = flower_crown_war_machine }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS1Short
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 1 } } localization_key = flower_st_arch_1_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 2 } } localization_key = flower_st_arch_2_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 3 } } localization_key = flower_st_arch_3_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 4 } } localization_key = flower_st_arch_4_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 5 } } localization_key = flower_st_arch_5_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 6 } } localization_key = flower_st_arch_6_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 7 } } localization_key = flower_st_arch_7_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 8 } } localization_key = flower_st_arch_8_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 9 } } localization_key = flower_st_arch_9_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 10 } } localization_key = flower_st_arch_10_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 11 } } localization_key = flower_st_arch_11_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 12 } } localization_key = flower_st_arch_12_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 1 } } localization_key = flower_lt_arch_1_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 2 } } localization_key = flower_lt_arch_2_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 3 } } localization_key = flower_lt_arch_3_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 4 } } localization_key = flower_lt_arch_4_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 5 } } localization_key = flower_lt_arch_5_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 6 } } localization_key = flower_lt_arch_6_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 7 } } localization_key = flower_lt_arch_7_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 8 } } localization_key = flower_lt_arch_8_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 9 } } localization_key = flower_lt_arch_9_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 10 } } localization_key = flower_lt_arch_10_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 11 } } localization_key = flower_lt_arch_11_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 12 } } localization_key = flower_lt_arch_12_short }
+	text = { localization_key = flower_crown_war_machine_short }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS1TT
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 1 } } localization_key = flower_st_arch_1_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 2 } } localization_key = flower_st_arch_2_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 3 } } localization_key = flower_st_arch_3_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 4 } } localization_key = flower_st_arch_4_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 5 } } localization_key = flower_st_arch_5_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 6 } } localization_key = flower_st_arch_6_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 7 } } localization_key = flower_st_arch_7_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 8 } } localization_key = flower_st_arch_8_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 9 } } localization_key = flower_st_arch_9_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 10 } } localization_key = flower_st_arch_10_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 11 } } localization_key = flower_st_arch_11_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_1 = 12 } } localization_key = flower_st_arch_12_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 1 } } localization_key = flower_lt_arch_1_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 2 } } localization_key = flower_lt_arch_2_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 3 } } localization_key = flower_lt_arch_3_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 4 } } localization_key = flower_lt_arch_4_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 5 } } localization_key = flower_lt_arch_5_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 6 } } localization_key = flower_lt_arch_6_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 7 } } localization_key = flower_lt_arch_7_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 8 } } localization_key = flower_lt_arch_8_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 9 } } localization_key = flower_lt_arch_9_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 10 } } localization_key = flower_lt_arch_10_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 11 } } localization_key = flower_lt_arch_11_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_1 = 12 } } localization_key = flower_lt_arch_12_hub_tt }
+	text = { localization_key = flower_crown_war_machine_hub_tt }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS1Price
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_PRICE_FREE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } NOT = { check_variable = { ubs_save < flower_lt_std_cost } } } localization_key = FLOWER_BADGE_PRICE_LT_STD_HCP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } has_political_power > 249.99 } localization_key = FLOWER_BADGE_PRICE_LT_STD_PP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_PRICE_LT_STD_LOCK }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } check_variable = { ubs_save > 499.99 } has_political_power > 99.99 } localization_key = FLOWER_BADGE_PRICE_CROWN_OK }
+	text = { localization_key = FLOWER_BADGE_PRICE_CROWN_LOCK }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS2Tag
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_TAG_OTHER_ARCH }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_TAG_OTHER_ARCH }
+	text = { localization_key = FLOWER_BADGE_TAG_CROWN_2 }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS2Name
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 1 } } localization_key = flower_st_arch_1 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 2 } } localization_key = flower_st_arch_2 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 3 } } localization_key = flower_st_arch_3 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 4 } } localization_key = flower_st_arch_4 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 5 } } localization_key = flower_st_arch_5 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 6 } } localization_key = flower_st_arch_6 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 7 } } localization_key = flower_st_arch_7 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 8 } } localization_key = flower_st_arch_8 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 9 } } localization_key = flower_st_arch_9 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 10 } } localization_key = flower_st_arch_10 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 11 } } localization_key = flower_st_arch_11 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 12 } } localization_key = flower_st_arch_12 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 1 } } localization_key = flower_lt_arch_1 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 2 } } localization_key = flower_lt_arch_2 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 3 } } localization_key = flower_lt_arch_3 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 4 } } localization_key = flower_lt_arch_4 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 5 } } localization_key = flower_lt_arch_5 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 6 } } localization_key = flower_lt_arch_6 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 7 } } localization_key = flower_lt_arch_7 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 8 } } localization_key = flower_lt_arch_8 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 9 } } localization_key = flower_lt_arch_9 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 10 } } localization_key = flower_lt_arch_10 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 11 } } localization_key = flower_lt_arch_11 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 12 } } localization_key = flower_lt_arch_12 }
+	text = { localization_key = flower_crown_grand_industry }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS2Short
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 1 } } localization_key = flower_st_arch_1_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 2 } } localization_key = flower_st_arch_2_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 3 } } localization_key = flower_st_arch_3_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 4 } } localization_key = flower_st_arch_4_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 5 } } localization_key = flower_st_arch_5_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 6 } } localization_key = flower_st_arch_6_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 7 } } localization_key = flower_st_arch_7_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 8 } } localization_key = flower_st_arch_8_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 9 } } localization_key = flower_st_arch_9_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 10 } } localization_key = flower_st_arch_10_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 11 } } localization_key = flower_st_arch_11_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 12 } } localization_key = flower_st_arch_12_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 1 } } localization_key = flower_lt_arch_1_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 2 } } localization_key = flower_lt_arch_2_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 3 } } localization_key = flower_lt_arch_3_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 4 } } localization_key = flower_lt_arch_4_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 5 } } localization_key = flower_lt_arch_5_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 6 } } localization_key = flower_lt_arch_6_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 7 } } localization_key = flower_lt_arch_7_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 8 } } localization_key = flower_lt_arch_8_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 9 } } localization_key = flower_lt_arch_9_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 10 } } localization_key = flower_lt_arch_10_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 11 } } localization_key = flower_lt_arch_11_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 12 } } localization_key = flower_lt_arch_12_short }
+	text = { localization_key = flower_crown_grand_industry_short }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS2TT
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 1 } } localization_key = flower_st_arch_1_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 2 } } localization_key = flower_st_arch_2_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 3 } } localization_key = flower_st_arch_3_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 4 } } localization_key = flower_st_arch_4_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 5 } } localization_key = flower_st_arch_5_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 6 } } localization_key = flower_st_arch_6_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 7 } } localization_key = flower_st_arch_7_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 8 } } localization_key = flower_st_arch_8_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 9 } } localization_key = flower_st_arch_9_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 10 } } localization_key = flower_st_arch_10_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 11 } } localization_key = flower_st_arch_11_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_2 = 12 } } localization_key = flower_st_arch_12_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 1 } } localization_key = flower_lt_arch_1_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 2 } } localization_key = flower_lt_arch_2_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 3 } } localization_key = flower_lt_arch_3_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 4 } } localization_key = flower_lt_arch_4_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 5 } } localization_key = flower_lt_arch_5_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 6 } } localization_key = flower_lt_arch_6_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 7 } } localization_key = flower_lt_arch_7_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 8 } } localization_key = flower_lt_arch_8_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 9 } } localization_key = flower_lt_arch_9_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 10 } } localization_key = flower_lt_arch_10_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 11 } } localization_key = flower_lt_arch_11_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_2 = 12 } } localization_key = flower_lt_arch_12_hub_tt }
+	text = { localization_key = flower_crown_grand_industry_hub_tt }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS2Price
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_PRICE_FREE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } NOT = { check_variable = { ubs_save < flower_lt_std_cost } } } localization_key = FLOWER_BADGE_PRICE_LT_STD_HCP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } has_political_power > 249.99 } localization_key = FLOWER_BADGE_PRICE_LT_STD_PP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_PRICE_LT_STD_LOCK }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } check_variable = { ubs_save > 499.99 } has_political_power > 99.99 } localization_key = FLOWER_BADGE_PRICE_CROWN_OK }
+	text = { localization_key = FLOWER_BADGE_PRICE_CROWN_LOCK }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS3Tag
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_TAG_UTIL }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_TAG_UTIL }
+	text = { localization_key = FLOWER_BADGE_TAG_CROWN_3 }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS3Name
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 13 } } localization_key = flower_st_econ_ledger }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 14 } } localization_key = flower_st_econ_vip }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 15 } } localization_key = flower_st_econ_outsource }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 16 } } localization_key = flower_st_hyb_joint }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 17 } } localization_key = flower_st_hyb_combined }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 18 } } localization_key = flower_st_port_general }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 19 } } localization_key = flower_st_port_railgun }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 20 } } localization_key = flower_st_port_thief }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 13 } } localization_key = flower_lt_econ_printer }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 14 } } localization_key = flower_lt_econ_bonds }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 15 } } localization_key = flower_lt_econ_pivot }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 16 } } localization_key = flower_lt_hyb_lightfang }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 17 } } localization_key = flower_lt_hyb_triarms }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 18 } } localization_key = flower_lt_port_museum }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 19 } } localization_key = flower_lt_port_marshal }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 20 } } localization_key = flower_lt_port_magnetic }
+	text = { localization_key = flower_crown_overlord_tech }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS3Short
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 13 } } localization_key = flower_st_econ_ledger_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 14 } } localization_key = flower_st_econ_vip_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 15 } } localization_key = flower_st_econ_outsource_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 16 } } localization_key = flower_st_hyb_joint_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 17 } } localization_key = flower_st_hyb_combined_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 18 } } localization_key = flower_st_port_general_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 19 } } localization_key = flower_st_port_railgun_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 20 } } localization_key = flower_st_port_thief_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 13 } } localization_key = flower_lt_econ_printer_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 14 } } localization_key = flower_lt_econ_bonds_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 15 } } localization_key = flower_lt_econ_pivot_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 16 } } localization_key = flower_lt_hyb_lightfang_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 17 } } localization_key = flower_lt_hyb_triarms_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 18 } } localization_key = flower_lt_port_museum_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 19 } } localization_key = flower_lt_port_marshal_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 20 } } localization_key = flower_lt_port_magnetic_short }
+	text = { localization_key = flower_crown_overlord_tech_short }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS3TT
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 13 } } localization_key = flower_st_econ_ledger_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 14 } } localization_key = flower_st_econ_vip_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 15 } } localization_key = flower_st_econ_outsource_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 16 } } localization_key = flower_st_hyb_joint_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 17 } } localization_key = flower_st_hyb_combined_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 18 } } localization_key = flower_st_port_general_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 19 } } localization_key = flower_st_port_railgun_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_3 = 20 } } localization_key = flower_st_port_thief_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 13 } } localization_key = flower_lt_econ_printer_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 14 } } localization_key = flower_lt_econ_bonds_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 15 } } localization_key = flower_lt_econ_pivot_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 16 } } localization_key = flower_lt_hyb_lightfang_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 17 } } localization_key = flower_lt_hyb_triarms_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 18 } } localization_key = flower_lt_port_museum_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 19 } } localization_key = flower_lt_port_marshal_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_3 = 20 } } localization_key = flower_lt_port_magnetic_hub_tt }
+	text = { localization_key = flower_crown_overlord_tech_hub_tt }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS3Price
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_PRICE_FREE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } NOT = { check_variable = { ubs_save < flower_lt_std_cost } } } localization_key = FLOWER_BADGE_PRICE_LT_STD_HCP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } has_political_power > 249.99 } localization_key = FLOWER_BADGE_PRICE_LT_STD_PP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_PRICE_LT_STD_LOCK }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } check_variable = { ubs_save > 499.99 } has_political_power > 99.99 } localization_key = FLOWER_BADGE_PRICE_CROWN_OK }
+	text = { localization_key = FLOWER_BADGE_PRICE_CROWN_LOCK }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS4Tag
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_TAG_CURSED_ST }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } OR = { check_variable = { flower_lt_slot_4 = 21 } check_variable = { flower_lt_slot_4 = 23 } } } localization_key = FLOWER_BADGE_TAG_CURSED_REBATE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_TAG_CURSED_HALF }
+	text = { localization_key = FLOWER_BADGE_TAG_CROWN_4 }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS4Name
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 21 } } localization_key = flower_st_cursed_iou }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 22 } } localization_key = flower_st_cursed_dice }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 23 } } localization_key = flower_st_cursed_laststand }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 24 } } localization_key = flower_st_cursed_austerity }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 21 } } localization_key = flower_lt_cursed_demon }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 22 } } localization_key = flower_lt_cursed_cube }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 23 } } localization_key = flower_lt_cursed_mortgage }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 24 } } localization_key = flower_lt_cursed_blood }
+	text = { localization_key = flower_crown_master_tactician }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS4Short
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 21 } } localization_key = flower_st_cursed_iou_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 22 } } localization_key = flower_st_cursed_dice_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 23 } } localization_key = flower_st_cursed_laststand_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 24 } } localization_key = flower_st_cursed_austerity_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 21 } } localization_key = flower_lt_cursed_demon_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 22 } } localization_key = flower_lt_cursed_cube_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 23 } } localization_key = flower_lt_cursed_mortgage_short }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 24 } } localization_key = flower_lt_cursed_blood_short }
+	text = { localization_key = flower_crown_master_tactician_short }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS4TT
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 21 } } localization_key = flower_st_cursed_iou_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 22 } } localization_key = flower_st_cursed_dice_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 23 } } localization_key = flower_st_cursed_laststand_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 24 } } localization_key = flower_st_cursed_austerity_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 21 } } localization_key = flower_lt_cursed_demon_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 22 } } localization_key = flower_lt_cursed_cube_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 23 } } localization_key = flower_lt_cursed_mortgage_hub_tt }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } check_variable = { flower_lt_slot_4 = 24 } } localization_key = flower_lt_cursed_blood_hub_tt }
+	text = { localization_key = flower_crown_master_tactician_hub_tt }
+}
+defined_text = {
+	name = GetFlowerBadgeShopS4Price
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } check_variable = { flower_st_slot_4 = 21 } } localization_key = FLOWER_BADGE_PRICE_FREE_300 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_BADGE_PRICE_FREE }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } OR = { check_variable = { flower_lt_slot_4 = 21 } check_variable = { flower_lt_slot_4 = 23 } } } localization_key = FLOWER_BADGE_PRICE_FREE_500 }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } NOT = { check_variable = { ubs_save < flower_lt_cheap_cost } } } localization_key = FLOWER_BADGE_PRICE_LT_CHEAP_HCP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } has_political_power > 124.99 } localization_key = FLOWER_BADGE_PRICE_LT_CHEAP_PP }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_BADGE_PRICE_LT_CHEAP_LOCK }
+	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } check_variable = { ubs_save > 499.99 } has_political_power > 99.99 } localization_key = FLOWER_BADGE_PRICE_CROWN_OK }
+	text = { localization_key = FLOWER_BADGE_PRICE_CROWN_LOCK }
+}
+defined_text = {
+	name = GetFlowerQuestDiffStars
+	text = { trigger = { check_variable = { flower_quest_diff_stars > 4 } } localization_key = FLOWER_Q_STARS_5 }
+	text = { trigger = { check_variable = { flower_quest_diff_stars = 4 } } localization_key = FLOWER_Q_STARS_4 }
+	text = { trigger = { check_variable = { flower_quest_diff_stars = 3 } } localization_key = FLOWER_Q_STARS_3 }
+	text = { trigger = { check_variable = { flower_quest_diff_stars = 2 } } localization_key = FLOWER_Q_STARS_2 }
+	text = { localization_key = FLOWER_Q_STARS_1 }
+}
+defined_text = {
+	name = GetFlowerQStBadge
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_BADGE_DONE }
+	text = { trigger = { flower_quest_st_ready = yes } localization_key = FLOWER_Q_ST_BADGE_CLAIM }
+	text = { trigger = { has_country_flag = flower_st_task_assigned } localization_key = FLOWER_Q_ST_BADGE_ACTIVE }
+	text = { localization_key = FLOWER_Q_ST_BADGE_WAIT }
+}
+defined_text = {
+	name = GetFlowerQStL1
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L1_DONE }
+	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L1_WAIT }
+	text = { trigger = { flower_quest_st_fac_met = yes } localization_key = FLOWER_Q_ST_L1_MET }
+	text = { localization_key = FLOWER_Q_ST_L1_RUN }
+}
+defined_text = {
+	name = GetFlowerQStL2
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L2_DONE }
+	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L2_WAIT }
+	text = { trigger = { flower_quest_st_state_met = yes } localization_key = FLOWER_Q_ST_L2_MET }
+	text = { localization_key = FLOWER_Q_ST_L2_RUN }
+}
+defined_text = {
+	name = GetFlowerQStL3
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L3_DONE }
+	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L3_WAIT }
+	text = { trigger = { flower_st_xp_met = yes } localization_key = FLOWER_Q_ST_L3_MET }
+	text = { localization_key = FLOWER_Q_ST_L3_RUN }
+}
+defined_text = {
+	name = GetFlowerQStReward
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_REW_DONE }
+	text = { localization_key = FLOWER_Q_ST_REW_NORM }
+}
+defined_text = {
+	name = GetFlowerQStBtnText
+	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_BTN_COMPLETED }
+	text = { trigger = { flower_quest_st_ready = yes } localization_key = FLOWER_Q_ST_BTN_GO_PICK }
+	text = { trigger = { has_country_flag = flower_st_task_assigned } localization_key = FLOWER_Q_ST_BTN_BUYOUT }
+	text = { localization_key = FLOWER_Q_ST_BTN_WAIT }
+}
+defined_text = {
+	name = GetFlowerQBountyBadge
+	text = { trigger = { flower_quest_bounty_ready = yes } localization_key = FLOWER_Q_BOUNTY_BADGE_CLAIM }
+	text = { trigger = { has_country_flag = flower_bounty_active } localization_key = FLOWER_Q_BOUNTY_BADGE_ACTIVE }
+	text = { localization_key = FLOWER_Q_BOUNTY_BADGE_IDLE }
+}
+defined_text = {
+	name = GetFlowerQBountyL1
+	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L1_IDLE }
+	text = { trigger = { flower_quest_bounty_fac_met = yes } localization_key = FLOWER_Q_BOUNTY_L1_MET }
+	text = { localization_key = FLOWER_Q_BOUNTY_L1_RUN }
+}
+defined_text = {
+	name = GetFlowerQBountyL2
+	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L2_IDLE }
+	text = { trigger = { flower_quest_bounty_state_met = yes } localization_key = FLOWER_Q_BOUNTY_L2_MET }
+	text = { localization_key = FLOWER_Q_BOUNTY_L2_RUN }
+}
+defined_text = {
+	name = GetFlowerQBountyL3
+	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L3_IDLE }
+	text = { trigger = { flower_bounty_xp_met = yes } localization_key = FLOWER_Q_BOUNTY_L3_MET }
+	text = { localization_key = FLOWER_Q_BOUNTY_L3_RUN }
+}
+defined_text = {
+	name = GetFlowerQBountyReward
+	text = { localization_key = FLOWER_Q_BOUNTY_REW }
+}
+defined_text = {
+	name = GetFlowerQBountyBtnText
+	text = { trigger = { flower_quest_bounty_ready = yes } localization_key = FLOWER_Q_BTN_CLAIM }
+	text = { trigger = { has_country_flag = flower_bounty_active } localization_key = FLOWER_Q_BTN_IN_PROG }
+	text = { localization_key = FLOWER_Q_BOUNTY_BTN_ACCEPT }
+}
+defined_text = {
+	name = GetFlowerQWagerBadge
+	text = { trigger = { flower_quest_wager_ready = yes } localization_key = FLOWER_Q_WAGER_BADGE_CLAIM }
+	text = { trigger = { has_idea = flower_blood_wager_active_idea } localization_key = FLOWER_Q_WAGER_BADGE_ACTIVE }
+	text = { trigger = { has_country_flag = flower_wager_cd } localization_key = FLOWER_Q_WAGER_BADGE_CD }
+	text = { localization_key = FLOWER_Q_WAGER_BADGE_IDLE }
+}
+defined_text = {
+	name = GetFlowerQWagerL1
+	text = { trigger = { NOT = { has_idea = flower_blood_wager_active_idea } } localization_key = FLOWER_Q_WAGER_L1_IDLE }
+	text = { trigger = { flower_quest_wager_fac_met = yes } localization_key = FLOWER_Q_WAGER_L1_MET }
+	text = { localization_key = FLOWER_Q_WAGER_L1_RUN }
+}
+defined_text = {
+	name = GetFlowerQWagerL2
+	text = { trigger = { NOT = { has_idea = flower_blood_wager_active_idea } } localization_key = FLOWER_Q_WAGER_L2_IDLE }
+	text = { trigger = { flower_quest_wager_state_met = yes } localization_key = FLOWER_Q_WAGER_L2_MET }
+	text = { localization_key = FLOWER_Q_WAGER_L2_RUN }
+}
+defined_text = {
+	name = GetFlowerQWagerL3
+	text = { trigger = { has_idea = flower_blood_wager_active_idea } localization_key = FLOWER_Q_WAGER_L3_RUN }
+	text = { localization_key = FLOWER_Q_WAGER_L3_IDLE }
+}
+defined_text = {
+	name = GetFlowerQWagerReward
+	text = { trigger = { NOT = { has_idea = flower_blood_wager_victory_idea } } localization_key = FLOWER_Q_WAGER_REW_FIRST }
+	text = { localization_key = FLOWER_Q_WAGER_REW_NEXT }
+}
+defined_text = {
+	name = GetFlowerQWagerBtnText
+	text = { trigger = { flower_quest_wager_ready = yes } localization_key = FLOWER_Q_BTN_CLAIM }
+	text = { trigger = { has_idea = flower_blood_wager_active_idea } localization_key = FLOWER_Q_BTN_IN_PROG }
+	text = { trigger = { has_country_flag = flower_wager_cd } localization_key = FLOWER_Q_BTN_COOLDOWN }
+	text = { localization_key = FLOWER_Q_WAGER_BTN_ACCEPT }
+}
+defined_text = {
+	name = GetFlowerQBmBadge
+	text = { trigger = { flower_quest_bm_ready = yes } localization_key = FLOWER_Q_BM_BADGE_CLAIM }
+	text = { trigger = { has_country_flag = flower_bm_active } localization_key = FLOWER_Q_BM_BADGE_ACTIVE }
+	text = { trigger = { OR = { has_idea = flower_bm_arms_supply_idea has_idea = flower_bm_industry_boost_idea has_idea = flower_bm_intel_tech_idea has_idea = flower_bm_vip_jackpot_idea } } localization_key = FLOWER_Q_BM_BADGE_DIVIDEND }
+	text = { localization_key = FLOWER_Q_BM_BADGE_IDLE }
+}
+defined_text = {
+	name = GetFlowerQBmL1
+	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L1_IDLE }
+	text = { trigger = { flower_quest_bm_fac_met = yes } localization_key = FLOWER_Q_BM_L1_MET }
+	text = { localization_key = FLOWER_Q_BM_L1_RUN }
+}
+defined_text = {
+	name = GetFlowerQBmL2
+	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L2_IDLE }
+	text = { trigger = { flower_quest_bm_state_met = yes } localization_key = FLOWER_Q_BM_L2_MET }
+	text = { localization_key = FLOWER_Q_BM_L2_RUN }
+}
+defined_text = {
+	name = GetFlowerQBmL3
+	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L3_IDLE }
+	text = { trigger = { flower_bm_xp_met = yes } localization_key = FLOWER_Q_BM_L3_MET }
+	text = { localization_key = FLOWER_Q_BM_L3_RUN }
+}
+defined_text = {
+	name = GetFlowerQBmReward
+	text = { localization_key = FLOWER_Q_BM_REW }
+}
+defined_text = {
+	name = GetFlowerQBmBtnText
+	text = { trigger = { flower_quest_bm_ready = yes } localization_key = FLOWER_Q_BM_BTN_CLAIM }
+	text = { trigger = { has_country_flag = flower_bm_active } localization_key = FLOWER_Q_BTN_IN_PROG }
+	text = { trigger = { OR = { has_idea = flower_bm_arms_supply_idea has_idea = flower_bm_industry_boost_idea has_idea = flower_bm_intel_tech_idea has_idea = flower_bm_vip_jackpot_idea } } localization_key = FLOWER_Q_BM_BTN_ACTIVE_BUFF }
+	text = { localization_key = FLOWER_Q_BM_BTN_SIGN }
+}
+defined_text = {
+	name = GetFlowerBadgeFeedbackText
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 4 } } localization_key = FLOWER_BADGE_FB_4 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 5 } } localization_key = FLOWER_BADGE_FB_5 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 3 } } localization_key = FLOWER_BADGE_FB_3 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 8 } } localization_key = FLOWER_BADGE_FB_8 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 10 } } localization_key = FLOWER_BADGE_FB_10 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 11 } } localization_key = FLOWER_BADGE_FB_11 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 1 } } localization_key = FLOWER_BADGE_FB_1 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 2 } } localization_key = FLOWER_BADGE_FB_2 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 6 } } localization_key = FLOWER_BADGE_FB_6 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 7 } } localization_key = FLOWER_BADGE_FB_7 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 9 } } localization_key = FLOWER_BADGE_FB_9 }
+	text = { trigger = { check_variable = { flower_badge_feedback_id = 12 } } localization_key = FLOWER_BADGE_FB_12 }
+	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_BADGE_FB_QUEST_READY }
+	text = { localization_key = FLOWER_BADGE_FB_IDLE }
+}

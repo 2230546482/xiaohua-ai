@@ -2,7 +2,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "flower_ai_floating_dock_window"
 		position = { x = -222 y = 78 }
-		size = { width = 212 height = 230 }
+		size = { width = 212 height = 268 }
 		Orientation = UPPER_RIGHT
 		moveable = yes
 		click_to_front = yes
@@ -187,6 +187,41 @@ guiTypes = {
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}
+
+		#按钮6：徽章与考核总览入口（显示下枚徽章倒计时或可领取提醒）
+		iconType = {
+			name = "flower_dock_badge_glow"
+			position = { x = 8 y = 218 }
+			spriteType = "GFX_flower_dock_btn_glow"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_dock_badge_btn"
+			position = { x = 12 y = 222 }
+			quadTextureSprite = "GFX_flower_dock_btn_badge"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DOCK_BADGE_TT_WRAP"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_dock_badge_lbl"
+			position = { x = 32 y = 227 }
+			font = "flower_a4_16"
+			text = "[GetFlowerDockBadgeBtnText]"
+			maxWidth = 160
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_dock_badge_alert"
+			position = { x = 186 y = 214 }
+			spriteType = "GFX_flower_dock_alert_dot"
+			alwaystransparent = yes
+		}
 	}
 
 	#折叠状态迷你悬浮按钮
@@ -211,7 +246,7 @@ guiTypes = {
 		}
 		iconType = {
 			name = "flower_dock_mini_alert"
-			position = { x = 30 y = 0 }
+			position = { x = 24 y = 0 }
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}

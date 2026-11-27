@@ -31,10 +31,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_stock_xiaohua_mood"
-			position = { x = 32 y = 122 }
+			position = { x = 18 y = 122 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStockXiaohuaMood]"
-			maxWidth = 104
+			maxWidth = 132
 			maxHeight = 18
 			format = center
 			fixedsize = yes
@@ -85,7 +85,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_BUY_FACTORY_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_buy_factory_lbl"
@@ -107,7 +106,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_LIQUIDATE_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_liquidate_all_lbl"
@@ -130,7 +128,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_peek_map_lbl"
@@ -152,7 +149,6 @@ guiTypes = {
 			shortcut = "ESCAPE"
 			pdx_tooltip = "FLOWER_ANOMALY_CLOSE_TT"
 			clicksound = click_close
-			oversound = PAU_hover_paper
 		}
 
 		#分栏副标题与右侧操作提示
@@ -252,7 +248,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_1_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_1_lbl"
@@ -273,7 +268,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_5_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_5_lbl"
@@ -294,7 +288,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_BUY_LEV_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_buy_lev_lbl"
@@ -315,7 +308,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_SELL_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_sell_all_lbl"
@@ -336,7 +328,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_SHORT_1_TT"
 			clicksound = 翻书
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_short_1_lbl"
@@ -357,7 +348,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_1_COVER_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_1_cover_all_lbl"
@@ -444,7 +434,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_1_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_1_lbl"
@@ -465,7 +454,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_5_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_5_lbl"
@@ -486,7 +474,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_BUY_LEV_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_buy_lev_lbl"
@@ -507,7 +494,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_SELL_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_sell_all_lbl"
@@ -528,7 +514,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_SHORT_1_TT"
 			clicksound = 翻书
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_short_1_lbl"
@@ -549,7 +534,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_2_COVER_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_2_cover_all_lbl"
@@ -636,7 +620,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_1_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_1_lbl"
@@ -657,7 +640,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_5_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_5_lbl"
@@ -678,7 +660,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_BUY_LEV_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_buy_lev_lbl"
@@ -699,7 +680,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_SELL_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_sell_all_lbl"
@@ -720,7 +700,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_SHORT_1_TT"
 			clicksound = 翻书
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_short_1_lbl"
@@ -741,7 +720,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_3_COVER_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_3_cover_all_lbl"
@@ -828,7 +806,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_1_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_1_lbl"
@@ -849,7 +826,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_5_TT"
 			clicksound = 选择
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_5_lbl"
@@ -870,7 +846,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_BUY_LEV_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_buy_lev_lbl"
@@ -891,7 +866,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_SELL_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_sell_all_lbl"
@@ -912,7 +886,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_SHORT_1_TT"
 			clicksound = 翻书
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_short_1_lbl"
@@ -933,7 +906,6 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_STK_4_COVER_ALL_TT"
 			clicksound = 盖章
-			oversound = PAU_hover_paper
 		}
 		instantTextBoxType = {
 			name = "flower_stk_4_cover_all_lbl"
@@ -950,11 +922,11 @@ guiTypes = {
 		#底部状态栏说明
 		instantTextBoxType = {
 			name = "flower_stock_footer_text"
-			position = { x = 44 y = 614 }
+			position = { x = 44 y = 606 }
 			font = "flower_a4_16"
 			text = "[GetFlowerStockFooterText]"
 			maxWidth = 832
-			maxHeight = 20
+			maxHeight = 38
 			format = left
 			fixedsize = yes
 			alwaystransparent = yes

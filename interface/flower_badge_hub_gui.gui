@@ -1,0 +1,1326 @@
+guiTypes = {
+	#徽章与考核总览双页签主面板（920x660星露谷木框：页签1徽章展柜与选购 / 页签2考核与悬赏任务）
+	containerWindowType = {
+		name = "flower_badge_hub_window"
+		position = { x = -460 y = -330 }
+		size = { width = 920 height = 660 }
+		Orientation = center
+		moveable = yes
+		click_to_front = yes
+		clipping = no
+		fade_time = 180
+		fade_type = linear
+
+		background = {
+			name = "flower_badge_hub_bg"
+			spriteType = "GFX_flower_grand_panel_bg"
+		}
+
+		#左上哈基米立绘框（随操作实时反馈心情，点击可手动撸猫/哈气）
+		buttonType = {
+			name = "flower_badge_cat_calm_btn"
+			position = { x = 28 y = 22 }
+			quadTextureSprite = "GFX_flower_portrait_cat"
+			pdx_tooltip = "FLOWER_DRAFT_CAT_TT"
+			clicksound = flower_sfx_cat_hiss
+		}
+		buttonType = {
+			name = "flower_badge_cat_hiss_btn"
+			position = { x = 28 y = 22 }
+			quadTextureSprite = "GFX_flower_portrait_cat_hiss"
+			pdx_tooltip = "FLOWER_DRAFT_CAT_HISS_TT"
+			clicksound = click_default
+		}
+		instantTextBoxType = {
+			name = "flower_badge_cat_mood"
+			position = { x = 32 y = 122 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeCatMood]"
+			maxWidth = 104
+			maxHeight = 18
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_badge_hub_title"
+			position = { x = 166 y = 24 }
+			font = "flower_a4_24"
+			text = "FLOWER_BADGE_HUB_TITLE"
+			maxWidth = 660
+			maxHeight = 30
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_hub_lead"
+			position = { x = 166 y = 58 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_HUB_LEAD"
+			maxWidth = 680
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_hub_sub"
+			position = { x = 166 y = 82 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_HUB_SUB"
+			maxWidth = 560
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#右上双快捷按钮（左钮196px放534..730，右钮148px放742..890，留12px清晰间隙）
+		buttonType = {
+			name = "flower_badge_open_history_btn"
+			position = { x = 534 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_amber"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_BADGE_OPEN_HISTORY_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_badge_open_history_lbl"
+			position = { x = 564 y = 111 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_OPEN_HISTORY_TEXT"
+			maxWidth = 152
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_badge_peek_map_btn"
+			position = { x = 742 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_slate"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_BADGE_CLOSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_badge_peek_map_lbl"
+			position = { x = 770 y = 111 }
+			font = "flower_a4_16"
+			text = "FLOWER_DRAFT_PEEK_MAP_TEXT"
+			maxWidth = 110
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_badge_close_btn"
+			position = { x = 866 y = 20 }
+			quadTextureSprite = "GFX_flower_btn_close"
+			shortcut = "ESCAPE"
+			pdx_tooltip = "FLOWER_BADGE_CLOSE_TT"
+			clicksound = click_close
+			oversound = PAU_hover_paper
+		}
+
+		#双页签切换栏（与抽牌面板统一154px基准线：页签1徽章展柜 / 页签2考核与悬赏任务）
+		buttonType = {
+			name = "flower_hub_tab1_on_btn"
+			position = { x = 28 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_active"
+			pdx_tooltip = "FLOWER_HUB_TAB1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_hub_tab1_off_btn"
+			position = { x = 28 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive"
+			pdx_tooltip = "FLOWER_HUB_TAB1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_hub_tab1_cta_btn"
+			position = { x = 28 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive_cta"
+			pdx_tooltip = "FLOWER_HUB_TAB1_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_hub_tab1_lbl"
+			position = { x = 44 y = 161 }
+			font = "flower_a4_16"
+			text = "[GetFlowerHubTab1Label]"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_hub_tab2_on_btn"
+			position = { x = 284 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_active"
+			pdx_tooltip = "FLOWER_HUB_TAB2_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_hub_tab2_off_btn"
+			position = { x = 284 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive"
+			pdx_tooltip = "FLOWER_HUB_TAB2_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_hub_tab2_cta_btn"
+			position = { x = 284 y = 154 }
+			quadTextureSprite = "GFX_flower_tab_inactive_cta"
+			pdx_tooltip = "FLOWER_HUB_TAB2_TT"
+			clicksound = 翻书
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_hub_tab2_lbl"
+			position = { x = 300 y = 161 }
+			font = "flower_a4_16"
+			text = "[GetFlowerHubTab2Label]"
+			maxWidth = 216
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_hub_tab_hint"
+			position = { x = 540 y = 163 }
+			font = "flower_a4_16"
+			text = "[GetFlowerHubTabHint]"
+			maxWidth = 350
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_badge_owned_st_bg"
+			position = { x = 28 y = 196 }
+			spriteType = "GFX_flower_badge_owned_card"
+			pdx_tooltip = "FLOWER_BADGE_OWNED_ST_TT_WRAP"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_st_hdr"
+			position = { x = 40 y = 203 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_OWNED_ST_HDR"
+			maxWidth = 182
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_owned_st_icon"
+			position = { x = 43 y = 225 }
+			spriteType = "GFX_flower_st_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_st_name"
+			position = { x = 106 y = 226 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedSTName]"
+			maxWidth = 118
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_st_sub"
+			position = { x = 106 y = 264 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedSTSub]"
+			maxWidth = 118
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_badge_owned_lt_bg"
+			position = { x = 247 y = 196 }
+			spriteType = "GFX_flower_badge_owned_card"
+			pdx_tooltip = "FLOWER_BADGE_OWNED_LT_TT_WRAP"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_lt_hdr"
+			position = { x = 259 y = 203 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_OWNED_LT_HDR"
+			maxWidth = 182
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_owned_lt_icon"
+			position = { x = 262 y = 225 }
+			spriteType = "GFX_flower_lt_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_lt_name"
+			position = { x = 325 y = 226 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedLTName]"
+			maxWidth = 118
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_lt_sub"
+			position = { x = 325 y = 264 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedLTSub]"
+			maxWidth = 118
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_badge_owned_crown_bg"
+			position = { x = 466 y = 196 }
+			spriteType = "GFX_flower_badge_owned_card"
+			pdx_tooltip = "FLOWER_BADGE_OWNED_CR_TT_WRAP"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_crown_hdr"
+			position = { x = 478 y = 203 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_OWNED_CR_HDR"
+			maxWidth = 182
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_owned_crown_icon"
+			position = { x = 481 y = 225 }
+			spriteType = "GFX_flower_crown_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_crown_name"
+			position = { x = 544 y = 226 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedCrownName]"
+			maxWidth = 118
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_crown_sub"
+			position = { x = 544 y = 264 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedCrownSub]"
+			maxWidth = 118
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "flower_badge_owned_gold_bg"
+			position = { x = 685 y = 196 }
+			spriteType = "GFX_flower_badge_owned_gold"
+			pdx_tooltip = "FLOWER_BADGE_OWNED_GD_TT_WRAP"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_gold_hdr"
+			position = { x = 697 y = 203 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_OWNED_GD_HDR"
+			maxWidth = 182
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_owned_gold_icon"
+			position = { x = 700 y = 225 }
+			spriteType = "GFX_flower_gold_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_gold_name"
+			position = { x = 763 y = 226 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedGoldName]"
+			maxWidth = 118
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_owned_gold_sub"
+			position = { x = 763 y = 264 }
+			font = "flower_a4_16"
+			text = "[GetFlowerOwnedGoldSub]"
+			maxWidth = 118
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#页签1区域二：下枚徽章倒计时与徽章战术卡配合状态栏（864x76）
+		iconType = {
+			name = "flower_badge_status_bar_bg"
+			position = { x = 28 y = 296 }
+			spriteType = "GFX_flower_badge_status_bar"
+			pdx_tooltip = "FLOWER_BADGE_TIMELINE_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_countdown_line1"
+			position = { x = 44 y = 304 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeCountdownLine1]"
+			maxWidth = 420
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_countdown_line2"
+			position = { x = 44 y = 327 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_CD2_ST_TASK"
+			maxWidth = 298
+			maxHeight = 38
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_countdown_line2_wide"
+			position = { x = 44 y = 327 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeCountdownLine2]"
+			maxWidth = 420
+			maxHeight = 38
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_badge_buyout_st_btn"
+			position = { x = 346 y = 330 }
+			quadTextureSprite = "GFX_flower_btn_confirm_sell"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_BADGE_BUYOUT_ST_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_badge_buyout_st_lbl"
+			position = { x = 352 y = 335 }
+			font = "flower_a4_16"
+			text = "FLOWER_BADGE_BUYOUT_ST_TEXT"
+			maxWidth = 104
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "flower_badge_syn_hdr"
+			position = { x = 486 y = 302 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeSynergyHdr]"
+			maxWidth = 392
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_syn_line1"
+			position = { x = 486 y = 323 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeSynergyLine1]"
+			maxWidth = 392
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_syn_line2"
+			position = { x = 486 y = 344 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeSynergyLine2]"
+			maxWidth = 392
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#页签1区域三：4张候选徽章就地选购区
+		instantTextBoxType = {
+			name = "flower_badge_shop_sec_title"
+			position = { x = 38 y = 376 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopSecTitle]"
+			maxWidth = 846
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_empty_lbl"
+			position = { x = 110 y = 474 }
+			font = "flower_a4_18"
+			text = "[GetFlowerBadgeShopEmptyText]"
+			maxWidth = 700
+			maxHeight = 56
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_badge_shop_s1_btn_norm"
+			position = { x = 28 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S1_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_badge_shop_s1_btn_gold"
+			position = { x = 28 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card_gold"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S1_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+
+		iconType = {
+			name = "flower_badge_shop_s1_ico_st"
+			position = { x = 104 y = 445 }
+			spriteType = "GFX_flower_st_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s1_ico_lt"
+			position = { x = 104 y = 445 }
+			spriteType = "GFX_flower_lt_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s1_ico_cr"
+			position = { x = 104 y = 445 }
+			spriteType = "GFX_flower_crown_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s1_tag"
+			position = { x = 42 y = 413 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS1Tag]"
+			maxWidth = 178
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s1_name"
+			position = { x = 34 y = 506 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS1Name]"
+			maxWidth = 194
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s1_short"
+			position = { x = 34 y = 526 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS1Short]"
+			maxWidth = 194
+			maxHeight = 38
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s1_price"
+			position = { x = 46 y = 566 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS1Price]"
+			maxWidth = 170
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_badge_shop_s2_btn_norm"
+			position = { x = 247 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S2_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+
+		iconType = {
+			name = "flower_badge_shop_s2_ico_st"
+			position = { x = 323 y = 445 }
+			spriteType = "GFX_flower_st_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s2_ico_lt"
+			position = { x = 323 y = 445 }
+			spriteType = "GFX_flower_lt_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s2_ico_cr"
+			position = { x = 323 y = 445 }
+			spriteType = "GFX_flower_crown_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s2_tag"
+			position = { x = 261 y = 413 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS2Tag]"
+			maxWidth = 178
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s2_name"
+			position = { x = 253 y = 506 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS2Name]"
+			maxWidth = 194
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s2_short"
+			position = { x = 253 y = 526 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS2Short]"
+			maxWidth = 194
+			maxHeight = 38
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s2_price"
+			position = { x = 265 y = 566 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS2Price]"
+			maxWidth = 170
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_badge_shop_s3_btn_norm"
+			position = { x = 466 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S3_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+
+		iconType = {
+			name = "flower_badge_shop_s3_ico_st"
+			position = { x = 542 y = 445 }
+			spriteType = "GFX_flower_st_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s3_ico_lt"
+			position = { x = 542 y = 445 }
+			spriteType = "GFX_flower_lt_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s3_ico_cr"
+			position = { x = 542 y = 445 }
+			spriteType = "GFX_flower_crown_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s3_tag"
+			position = { x = 480 y = 413 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS3Tag]"
+			maxWidth = 178
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s3_name"
+			position = { x = 472 y = 506 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS3Name]"
+			maxWidth = 194
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s3_short"
+			position = { x = 472 y = 526 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS3Short]"
+			maxWidth = 194
+			maxHeight = 38
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s3_price"
+			position = { x = 484 y = 566 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS3Price]"
+			maxWidth = 170
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_badge_shop_s4_btn_cursed"
+			position = { x = 685 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card_cursed"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S4_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_badge_shop_s4_btn_norm"
+			position = { x = 685 y = 398 }
+			quadTextureSprite = "GFX_flower_badge_shop_card"
+			pdx_tooltip = "FLOWER_BADGE_SHOP_S4_TT_WRAP"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+
+		iconType = {
+			name = "flower_badge_shop_s4_ico_st"
+			position = { x = 761 y = 445 }
+			spriteType = "GFX_flower_st_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s4_ico_lt"
+			position = { x = 761 y = 445 }
+			spriteType = "GFX_flower_lt_badge_icons"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_badge_shop_s4_ico_cr"
+			position = { x = 761 y = 445 }
+			spriteType = "GFX_flower_crown_badge_icons"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s4_tag"
+			position = { x = 699 y = 413 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS4Tag]"
+			maxWidth = 178
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s4_name"
+			position = { x = 691 y = 506 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS4Name]"
+			maxWidth = 194
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s4_short"
+			position = { x = 691 y = 526 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS4Short]"
+			maxWidth = 194
+			maxHeight = 38
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_badge_shop_s4_price"
+			position = { x = 703 y = 566 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeShopS4Price]"
+			maxWidth = 170
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#页签2顶部：三维难度倍率与完成统计栏（864x46）
+		iconType = {
+			name = "flower_quest_hdr_bar_bg"
+			position = { x = 28 y = 196 }
+			spriteType = "GFX_flower_quest_header_bar"
+			pdx_tooltip = "FLOWER_QUEST_DIFF_GUIDE_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_quest_hdr_left"
+			position = { x = 44 y = 209 }
+			font = "flower_a4_16"
+			text = "FLOWER_QUEST_HDR_LEFT"
+			maxWidth = 532
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_quest_hdr_right"
+			position = { x = 582 y = 209 }
+			font = "flower_a4_16"
+			text = "FLOWER_QUEST_HDR_RIGHT"
+			maxWidth = 294
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#任务卡：st（426x172，达标自动切金边卡底与金色领赏钮）
+		iconType = {
+			name = "flower_q_st_card_bg"
+			position = { x = 28 y = 248 }
+			spriteType = "GFX_flower_quest_card_bg"
+			pdx_tooltip = "FLOWER_Q_ST_TT"
+		}
+		iconType = {
+			name = "flower_q_st_card_done"
+			position = { x = 28 y = 248 }
+			spriteType = "GFX_flower_quest_card_done"
+			pdx_tooltip = "FLOWER_Q_ST_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_title"
+			position = { x = 44 y = 260 }
+			font = "flower_a4_18"
+			text = "FLOWER_Q_ST_TITLE"
+			maxWidth = 248
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_badge"
+			position = { x = 296 y = 261 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStBadge]"
+			maxWidth = 142
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_q_st_prog"
+			position = { x = 44 y = 287 }
+			spriteType = "GFX_flower_quest_prog_bar"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_l1"
+			position = { x = 44 y = 309 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStL1]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_l2"
+			position = { x = 44 y = 329 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStL2]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_l3"
+			position = { x = 44 y = 349 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStL3]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_reward"
+			position = { x = 44 y = 373 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStReward]"
+			maxWidth = 246
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_q_st_btn_action"
+			position = { x = 294 y = 374 }
+			quadTextureSprite = "GFX_flower_quest_btn_action"
+			pdx_tooltip = "FLOWER_Q_ST_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_q_st_btn_claim"
+			position = { x = 294 y = 374 }
+			quadTextureSprite = "GFX_flower_quest_btn_claim"
+			pdx_tooltip = "FLOWER_Q_ST_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_q_st_btn_lbl"
+			position = { x = 300 y = 379 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQStBtnText]"
+			maxWidth = 132
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#任务卡：bounty（426x172，达标自动切金边卡底与金色领赏钮）
+		iconType = {
+			name = "flower_q_bounty_card_bg"
+			position = { x = 466 y = 248 }
+			spriteType = "GFX_flower_quest_card_bg"
+			pdx_tooltip = "FLOWER_Q_BOUNTY_TT"
+		}
+		iconType = {
+			name = "flower_q_bounty_card_done"
+			position = { x = 466 y = 248 }
+			spriteType = "GFX_flower_quest_card_done"
+			pdx_tooltip = "FLOWER_Q_BOUNTY_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_title"
+			position = { x = 482 y = 260 }
+			font = "flower_a4_18"
+			text = "FLOWER_Q_BOUNTY_TITLE"
+			maxWidth = 248
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_badge"
+			position = { x = 734 y = 261 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyBadge]"
+			maxWidth = 142
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_q_bounty_prog"
+			position = { x = 482 y = 287 }
+			spriteType = "GFX_flower_quest_prog_bar"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_l1"
+			position = { x = 482 y = 309 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyL1]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_l2"
+			position = { x = 482 y = 329 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyL2]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_l3"
+			position = { x = 482 y = 349 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyL3]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_reward"
+			position = { x = 482 y = 373 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyReward]"
+			maxWidth = 246
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_q_bounty_btn_action"
+			position = { x = 732 y = 374 }
+			quadTextureSprite = "GFX_flower_quest_btn_action"
+			pdx_tooltip = "FLOWER_Q_BOUNTY_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_q_bounty_btn_claim"
+			position = { x = 732 y = 374 }
+			quadTextureSprite = "GFX_flower_quest_btn_claim"
+			pdx_tooltip = "FLOWER_Q_BOUNTY_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_q_bounty_btn_lbl"
+			position = { x = 738 y = 379 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBountyBtnText]"
+			maxWidth = 132
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#任务卡：wager（426x172，达标自动切金边卡底与金色领赏钮）
+		iconType = {
+			name = "flower_q_wager_card_bg"
+			position = { x = 28 y = 428 }
+			spriteType = "GFX_flower_quest_card_bg"
+			pdx_tooltip = "FLOWER_Q_WAGER_TT"
+		}
+		iconType = {
+			name = "flower_q_wager_card_done"
+			position = { x = 28 y = 428 }
+			spriteType = "GFX_flower_quest_card_done"
+			pdx_tooltip = "FLOWER_Q_WAGER_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_title"
+			position = { x = 44 y = 440 }
+			font = "flower_a4_18"
+			text = "FLOWER_Q_WAGER_TITLE"
+			maxWidth = 248
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_badge"
+			position = { x = 296 y = 441 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerBadge]"
+			maxWidth = 142
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_q_wager_prog"
+			position = { x = 44 y = 467 }
+			spriteType = "GFX_flower_quest_prog_bar"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_l1"
+			position = { x = 44 y = 489 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerL1]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_l2"
+			position = { x = 44 y = 509 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerL2]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_l3"
+			position = { x = 44 y = 529 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerL3]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_reward"
+			position = { x = 44 y = 553 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerReward]"
+			maxWidth = 246
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_q_wager_btn_action"
+			position = { x = 294 y = 554 }
+			quadTextureSprite = "GFX_flower_quest_btn_action"
+			pdx_tooltip = "FLOWER_Q_WAGER_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_q_wager_btn_claim"
+			position = { x = 294 y = 554 }
+			quadTextureSprite = "GFX_flower_quest_btn_claim"
+			pdx_tooltip = "FLOWER_Q_WAGER_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_q_wager_btn_lbl"
+			position = { x = 300 y = 559 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQWagerBtnText]"
+			maxWidth = 132
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#任务卡：bm（426x172，达标自动切金边卡底与金色领赏钮）
+		iconType = {
+			name = "flower_q_bm_card_bg"
+			position = { x = 466 y = 428 }
+			spriteType = "GFX_flower_quest_card_bg"
+			pdx_tooltip = "FLOWER_Q_BM_TT"
+		}
+		iconType = {
+			name = "flower_q_bm_card_done"
+			position = { x = 466 y = 428 }
+			spriteType = "GFX_flower_quest_card_done"
+			pdx_tooltip = "FLOWER_Q_BM_TT"
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_title"
+			position = { x = 482 y = 440 }
+			font = "flower_a4_18"
+			text = "FLOWER_Q_BM_TITLE"
+			maxWidth = 248
+			maxHeight = 22
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_badge"
+			position = { x = 734 y = 441 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmBadge]"
+			maxWidth = 142
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "flower_q_bm_prog"
+			position = { x = 482 y = 467 }
+			spriteType = "GFX_flower_quest_prog_bar"
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_l1"
+			position = { x = 482 y = 489 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmL1]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_l2"
+			position = { x = 482 y = 509 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmL2]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_l3"
+			position = { x = 482 y = 529 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmL3]"
+			maxWidth = 394
+			maxHeight = 19
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_reward"
+			position = { x = 482 y = 553 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmReward]"
+			maxWidth = 246
+			maxHeight = 36
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "flower_q_bm_btn_action"
+			position = { x = 732 y = 554 }
+			quadTextureSprite = "GFX_flower_quest_btn_action"
+			pdx_tooltip = "FLOWER_Q_BM_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_q_bm_btn_claim"
+			position = { x = 732 y = 554 }
+			quadTextureSprite = "GFX_flower_quest_btn_claim"
+			pdx_tooltip = "FLOWER_Q_BM_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_q_bm_btn_lbl"
+			position = { x = 738 y = 559 }
+			font = "flower_a4_16"
+			text = "[GetFlowerQBmBtnText]"
+			maxWidth = 132
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		#两页签共用：底部即时心理反馈横幅（864x36，显示最新领赏、大成、吐槽或当前进度提醒）
+		iconType = {
+			name = "flower_badge_feedback_bar_bg"
+			position = { x = 28 y = 606 }
+			spriteType = "GFX_flower_badge_feedback_bar"
+		}
+		instantTextBoxType = {
+			name = "flower_badge_feedback_text"
+			position = { x = 50 y = 614 }
+			font = "flower_a4_16"
+			text = "[GetFlowerBadgeFeedbackText]"
+			maxWidth = 820
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+	}
+}

@@ -360,7 +360,6 @@ country_event = {
 			create_railway_gun = {
 				equipment = railway_gun_equipment_1
 			}
-			custom_effect_tooltip = FLWAI.10.c_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -386,7 +385,6 @@ country_event = {
 				type = rocket_artillery_equipment
 				amount = 500
 			}
-			custom_effect_tooltip = FLWAI.10.c_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_arty_done } }
@@ -420,7 +418,6 @@ country_event = {
 			create_railway_gun = {
 				equipment = railway_gun_equipment_1
 			}
-			custom_effect_tooltip = FLWAI.10.c_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -474,7 +471,6 @@ country_event = {
 			}
 			add_fuel = 150000
 			army_experience = 80
-			custom_effect_tooltip = FLWAI.11.a_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -507,7 +503,6 @@ country_event = {
 					instant_build = yes
 				}
 			}
-			custom_effect_tooltip = FLWAI.11.a_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_tank_done } }
@@ -553,7 +548,6 @@ country_event = {
 				}
 			}
 			army_experience = 75
-			custom_effect_tooltip = FLWAI.11.a_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -591,7 +585,6 @@ country_event = {
 				value = 5
 			}
 			air_experience = 150
-			custom_effect_tooltip = FLWAI.11.b_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -616,7 +609,6 @@ country_event = {
 				amount = 400
 			}
 			air_experience = 100
-			custom_effect_tooltip = FLWAI.11.b_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_air_done } }
@@ -646,7 +638,6 @@ country_event = {
 					instant_build = yes
 				}
 			}
-			custom_effect_tooltip = FLWAI.11.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -678,7 +669,6 @@ country_event = {
 				type = support_equipment
 				amount = 800
 			}
-			custom_effect_tooltip = FLWAI.11.c_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -699,7 +689,6 @@ country_event = {
 				type = infantry_equipment
 				amount = 20000
 			}
-			custom_effect_tooltip = FLWAI.11.c_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_wave_done } }
@@ -722,7 +711,6 @@ country_event = {
 				type = infantry_equipment
 				amount = 15000
 			}
-			custom_effect_tooltip = FLWAI.11.c_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -758,11 +746,7 @@ country_event = {
 				remove_idea = flower_nightingale_stage_2_idea
 				add_idea = flower_nightingale_stage_3_idea
 			}
-			random_army_leader = {
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_space_magician_trait
-			}
+			flower_ai_grant_leader_space_magician = yes
 			add_command_power = 60
 			army_experience = 80
 			add_equipment_to_stockpile = {
@@ -773,7 +757,6 @@ country_event = {
 				type = support_equipment
 				amount = 600
 			}
-			custom_effect_tooltip = FLWAI.12.a_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -797,7 +780,6 @@ country_event = {
 				amount = 400
 			}
 			army_experience = 50
-			custom_effect_tooltip = FLWAI.12.a_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_nightingale_done } }
@@ -827,7 +809,6 @@ country_event = {
 				type = support_equipment
 				amount = 350
 			}
-			custom_effect_tooltip = FLWAI.12.a_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -845,11 +826,7 @@ country_event = {
 				remove_idea = flower_guerrilla_stage_2_idea
 				add_idea = flower_guerrilla_stage_3_idea
 			}
-			random_army_leader = {
-				add_defense = 2
-				add_logistics = 2
-				add_unit_leader_trait = guerilla_fighter
-			}
+			flower_ai_grant_leader_guerilla = yes
 			add_manpower = 60000
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
@@ -859,7 +836,6 @@ country_event = {
 				type = artillery_equipment
 				amount = 800
 			}
-			custom_effect_tooltip = FLWAI.12.b_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -883,7 +859,6 @@ country_event = {
 				type = support_equipment
 				amount = 400
 			}
-			custom_effect_tooltip = FLWAI.12.b_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_guerrilla_done } }
@@ -910,7 +885,6 @@ country_event = {
 				type = support_equipment
 				amount = 350
 			}
-			custom_effect_tooltip = FLWAI.12.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -941,7 +915,6 @@ country_event = {
 				type = support_equipment
 				amount = 600
 			}
-			custom_effect_tooltip = FLWAI.12.c_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -964,7 +937,6 @@ country_event = {
 				type = support_equipment
 				amount = 400
 			}
-			custom_effect_tooltip = FLWAI.12.c_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_undead_done } }
@@ -996,7 +968,6 @@ country_event = {
 				type = support_equipment
 				amount = 350
 			}
-			custom_effect_tooltip = FLWAI.12.c_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -1046,12 +1017,7 @@ country_event = {
 				type = support_equipment
 				amount = 800
 			}
-			random_army_leader = {
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_dimension_ripper_trait
-			}
-			custom_effect_tooltip = FLWAI.13.a_stage3_tt
+			flower_ai_grant_leader_dimension_ripper = yes
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -1076,7 +1042,6 @@ country_event = {
 				amount = 500
 			}
 			army_experience = 60
-			custom_effect_tooltip = FLWAI.13.a_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_magic_done } }
@@ -1086,11 +1051,7 @@ country_event = {
 		}
 		else_if = {
 			limit = { has_idea = flower_magic_stage_3_idea }
-			random_army_leader = {
-				add_attack = 1
-				add_defense = 1
-				add_unit_leader_trait = flower_dimension_ripper_trait
-			}
+			flower_ai_grant_leader_dimension_ripper = yes
 			add_command_power = 100
 		}
 		else = {
@@ -1111,7 +1072,6 @@ country_event = {
 				amount = 400
 			}
 			army_experience = 50
-			custom_effect_tooltip = FLWAI.13.a_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -1150,7 +1110,6 @@ country_event = {
 				specialization = specialization_nuclear
 				value = 2
 			}
-			custom_effect_tooltip = FLWAI.13.b_stage3_tt
 			flower_ai_check_chemical_combos = yes
 			flower_ai_check_dual_mastery_synergy = yes
 		}
@@ -1176,7 +1135,6 @@ country_event = {
 				specialization = specialization_land
 				value = 2
 			}
-			custom_effect_tooltip = FLWAI.13.b_stage2_tt
 			flower_ai_check_chemical_combos = yes
 			if = {
 				limit = { NOT = { has_country_flag = flower_evo_punk_done } }
@@ -1216,7 +1174,6 @@ country_event = {
 				specialization = specialization_air
 				value = 1
 			}
-			custom_effect_tooltip = FLWAI.13.b_stage1_tt
 			flower_ai_check_chemical_combos = yes
 		}
 	}
@@ -1243,12 +1200,7 @@ country_event = {
 				NOT = { has_idea = flower_blood_wager_active_idea }
 				NOT = { has_idea = flower_blood_wager_victory_idea }
 			}
-			add_ideas = flower_blood_wager_active_idea
-			set_variable = { flower_wager_goal_states = num_controlled_states }
-			add_to_variable = { flower_wager_goal_states = 2 }
-			set_variable = { flower_wager_goal_factories = num_of_factories }
-			add_to_variable = { flower_wager_goal_factories = 10 }
-			country_event = { id = FLWAI.24 days = 180 }
+			flower_quest_accept_wager = yes
 		}
 		hidden_effect = {
 			#同时当场转动一次黑市俄罗斯轮盘！
@@ -1352,21 +1304,13 @@ country_event = {
 		name = FLWAI.21.a
 		ai_chance = { factor = 50 }
 		add_ideas = flower_slayer_exo_armor_idea
-		army_experience = 100
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 8000
-		}
+		army_experience = 50
 	}
 	option = {
 		name = FLWAI.21.b
 		ai_chance = { factor = 50 }
 		add_ideas = flower_slayer_field_repair_idea
-		army_experience = 100
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 800
-		}
+		army_experience = 50
 	}
 }
 
@@ -1382,38 +1326,18 @@ country_event = {
 		name = FLWAI.22.a
 		flower_ai_add_research_slot_capped = yes
 		set_country_flag = flower_roguelike_jiahao_unlocked
-		custom_effect_tooltip = flower_hcp_plus_500_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = synthetic_refinery
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 5
-			add_building_construction = {
-				type = synthetic_refinery
-				level = 2
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = arms_factory
-				level = 2
-				instant_build = yes
-			}
+			value = 1
 		}
 	}
 }
@@ -1436,31 +1360,11 @@ country_event = {
 		set_country_flag = flower_mystery_egg_hatched_flag
 		remove_ideas = flower_mystery_egg_incubating_idea
 		add_ideas = flower_egg_clockwork_forge_idea
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = arms_factory
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = arms_factory
-				level = 3
-				instant_build = yes
-			}
-		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 15000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
-		}
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		custom_effect_tooltip = FLWAI.23_draft_tt
 		hidden_effect = {
+			add_to_variable = { ubs_save = 250 }
+			flower_ai_sync_hcp_ui = yes
 			flower_ai_recalc_cash_power = yes
 			flower_ai_check_dual_mastery_synergy = yes
 			flower_ai_open_roguelike_draft = yes
@@ -1476,13 +1380,24 @@ country_event = {
 		set_country_flag = flower_mystery_egg_hatched_flag
 		remove_ideas = flower_mystery_egg_incubating_idea
 		add_ideas = flower_egg_golden_vanguard_idea
-		army_experience = 150
-		add_manpower = 60000
-		random_army_leader = {
-			add_attack = 2
-			add_defense = 2
-			add_planning = 2
-			add_logistics = 2
+		army_experience = 75
+		if = {
+			limit = { any_army_leader = { is_assigned = yes } }
+			random_army_leader = {
+				limit = { is_assigned = yes }
+				add_attack = 2
+				add_defense = 2
+				add_planning = 2
+				add_logistics = 2
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 2
+				add_defense = 2
+				add_planning = 2
+				add_logistics = 2
+			}
 		}
 		custom_effect_tooltip = FLWAI.23_draft_tt
 		hidden_effect = {
@@ -1499,7 +1414,7 @@ country_event = {
 		add_ideas = flower_egg_arcane_blueprint_idea
 		add_tech_bonus = {
 			name = flower_egg_blueprint_bonus
-			bonus = 1.5
+			bonus = 1.0
 			uses = 2
 			category = armor
 			category = light_air
@@ -1508,20 +1423,20 @@ country_event = {
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_nuclear
-			value = 2
+			value = 1
 		}
-		custom_effect_tooltip = flower_hcp_plus_500_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		custom_effect_tooltip = FLWAI.23_draft_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 			flower_ai_check_dual_mastery_synergy = yes
 			flower_ai_open_roguelike_draft = yes
@@ -1529,55 +1444,46 @@ country_event = {
 	}
 }
 
-#《带血的半年军令状》180天到期验收事件
+#《带血的半年军令状》180天到期验收事件（若已在面板提前交付领赏则静默跳过）
 country_event = {
 	id = FLWAI.24
 	title = FLWAI.24.t
 	desc = FLWAI.24.d
 	picture = GFX_event_discover_ATRI2
 	is_triggered_only = yes
+	trigger = {
+		has_idea = flower_blood_wager_active_idea
+	}
 
-	#达标兑现大奖（满目标即达标）
+	#达标兑现大奖（满动态目标即达标）
 	option = {
 		name = FLWAI.24.a
 		trigger = {
-			OR = {
-				NOT = { check_variable = { num_controlled_states < flower_wager_goal_states } }
-				NOT = { check_variable = { num_of_factories < flower_wager_goal_factories } }
-			}
+			flower_quest_wager_ready = yes
 		}
-		remove_ideas = flower_blood_wager_active_idea
-		add_ideas = flower_blood_wager_victory_idea
-		flower_ai_add_research_slot_capped = yes
-		add_breakthrough_points = {
-			specialization = specialization_nuclear
-			value = 2
+		custom_effect_tooltip = FLWAI.24.win_tt
+		hidden_effect = {
+			flower_quest_claim_wager = yes
 		}
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 2
-		}
-		random_owned_controlled_state = {
-			limit = {
-				can_construct_building = land_facility
-			}
-			construct_building_in_random_province = {
-				land_facility = 1
-			}
-		}
-		flower_ai_check_dual_mastery_synergy = yes
 	}
 
-	#未达标罚酒三杯
+	#未达标真实惩戒（120天违约惩戒 + 扣100政治点数）
 	option = {
 		name = FLWAI.24.b
 		trigger = {
-			check_variable = { num_controlled_states < flower_wager_goal_states }
-			check_variable = { num_of_factories < flower_wager_goal_factories }
+			NOT = { flower_quest_wager_ready = yes }
 		}
 		remove_ideas = flower_blood_wager_active_idea
-		add_ideas = flower_blood_wager_consolation_idea
-		add_political_power = -50
+		add_timed_idea = {
+			idea = flower_wager_fail_penalty_idea
+			days = 120
+		}
+		add_political_power = -100
+		hidden_effect = {
+			set_country_flag = flower_blood_wager_settled
+			set_country_flag = { flag = flower_wager_cd days = 180 value = 1 }
+			flower_badge_hub_sync_state = yes
+		}
 	}
 }
 
@@ -1588,6 +1494,12 @@ country_event = {
 	desc = FLWAI.25.d
 	picture = GFX_KMK.0098
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = flower_stk_event_locked
+			clr_country_flag = flower_stock_gui_open
+		}
+	}
 
 	#选项A：满仓杠杆做多本国军工大盘！（直接将全球股市推入大牛市并拉升军工/重工股价+25%）
 	option = {
@@ -1602,8 +1514,10 @@ country_event = {
 		custom_effect_tooltip = flower_hcp_minus_200_tt
 		custom_effect_tooltip = FLWAI.25.a_stock_tt
 		hidden_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+			clr_country_flag = flower_stk_event_locked
+			if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 			subtract_from_variable = { ubs_save = 200 }
+			flower_stk_clamp_negative_cash = yes
 			flower_ai_sync_hcp_ui = yes
 			if = {
 				limit = { check_variable = { global.flower_stk_1_price < 1 } }
@@ -1619,7 +1533,11 @@ country_event = {
 			round_variable = global.flower_stk_2_price
 			if = { limit = { check_variable = { global.flower_stk_2_price > 380 } } set_variable = { global.flower_stk_2_price = 380 } }
 			flower_stock_recalc_global_changes = yes
-			flower_stock_recalc_country_pnl = yes
+			every_country = {
+				limit = { OR = { is_ai = no is_major = yes } }
+				flower_stock_check_margin_calls = yes
+				flower_stock_recalc_country_pnl = yes
+			}
 		}
 		add_timed_idea = {
 			idea = flower_tycoon_bull_market_idea
@@ -1627,7 +1545,7 @@ country_event = {
 		}
 	}
 
-	#选项B：联合华尔街大鳄，恶意做空头号交战对手/宿敌大国！（当场砸崩科技与期货股价-25%，空头爆赚）
+	#选项B：联合华尔街大鳄，恶意做空头号交战对手！（当场砸崩科技与期货股价-25%，空头爆赚；和平期不随机抽打无辜国家）
 	option = {
 		name = FLWAI.25.b
 		trigger = {
@@ -1640,8 +1558,10 @@ country_event = {
 		custom_effect_tooltip = flower_hcp_minus_250_tt
 		custom_effect_tooltip = FLWAI.25.b_stock_tt
 		hidden_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
+			clr_country_flag = flower_stk_event_locked
+			if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_rooftop_crash" }
 			subtract_from_variable = { ubs_save = 250 }
+			flower_stk_clamp_negative_cash = yes
 			flower_ai_sync_hcp_ui = yes
 			if = {
 				limit = { check_variable = { global.flower_stk_1_price < 1 } }
@@ -1657,7 +1577,11 @@ country_event = {
 			round_variable = global.flower_stk_4_price
 			if = { limit = { check_variable = { global.flower_stk_4_price < 15 } } set_variable = { global.flower_stk_4_price = 15 } }
 			flower_stock_recalc_global_changes = yes
-			flower_stock_recalc_country_pnl = yes
+			every_country = {
+				limit = { OR = { is_ai = no is_major = yes } }
+				flower_stock_check_margin_calls = yes
+				flower_stock_recalc_country_pnl = yes
+			}
 		}
 		if = {
 			limit = { any_enemy_country = { exists = yes } }
@@ -1668,9 +1592,11 @@ country_event = {
 				}
 			}
 		}
-		else = {
+		else_if = {
+			limit = { is_ai = no }
 			random_other_country = {
 				limit = {
+					is_ai = yes
 					is_major = yes
 					NOT = { is_in_faction_with = ROOT }
 				}
@@ -1682,27 +1608,29 @@ country_event = {
 		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
-			amount = 10000
+			amount = 5000
 		}
 		add_equipment_to_stockpile = {
 			type = artillery_equipment
-			amount = 1000
+			amount = 500
 		}
 	}
 
-	#选项C：用支票簿跨国收购整条海外兵工厂与科学家团队！
+	#选项C：用支票簿跨国收购兵工厂与科学家团队（定价对齐外包体系：500储备换2座军工与2突破点）
 	option = {
 		name = FLWAI.25.c
 		trigger = {
 			OR = {
-				NOT = { check_variable = { ubs_save < 250 } }
+				NOT = { check_variable = { ubs_save < 500 } }
 				check_variable = { ubs_load < 1200 }
 			}
 		}
 		ai_chance = { factor = 25 }
-		custom_effect_tooltip = flower_hcp_minus_250_tt
+		custom_effect_tooltip = flower_hcp_minus_500_tt
 		hidden_effect = {
-			subtract_from_variable = { ubs_save = 250 }
+			clr_country_flag = flower_stk_event_locked
+			subtract_from_variable = { ubs_save = 500 }
+			flower_stk_clamp_negative_cash = yes
 			flower_ai_sync_hcp_ui = yes
 			clr_country_flag = flower_stk_buy_factory_cd
 		}
@@ -1710,24 +1638,24 @@ country_event = {
 			limit = {
 				free_building_slots = {
 					building = arms_factory
-					size > 2
+					size > 1
 					include_locked = yes
 				}
 			}
-			add_extra_state_shared_building_slots = 5
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 				type = arms_factory
-				level = 5
+				level = 2
 				instant_build = yes
 			}
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
-			value = 2
+			value = 1
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
+			value = 1
 		}
 	}
 
@@ -1738,6 +1666,7 @@ country_event = {
 		custom_effect_tooltip = flower_hcp_plus_250_tt
 		custom_effect_tooltip = FLWAI.25.e_stock_tt
 		hidden_effect = {
+			clr_country_flag = flower_stk_event_locked
 			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 			set_variable = { global.flower_stk_hint = 1 }
@@ -1760,8 +1689,8 @@ country_event = {
 		name = FLWAI.26.a
 		ai_chance = { factor = 40 }
 		add_ideas = flower_synergy_iron_rain_idea
-		army_experience = 100
-		air_experience = 100
+		army_experience = 50
+		air_experience = 50
 	}
 
 	#选项B：【钞能力人海·无限复活甲】
@@ -1769,12 +1698,11 @@ country_event = {
 		name = FLWAI.26.b
 		ai_chance = { factor = 35 }
 		add_ideas = flower_synergy_immortal_tycoon_idea
-		custom_effect_tooltip = flower_hcp_plus_500_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 		}
-		add_manpower = 100000
 	}
 
 	#选项C：【次元霸主·万物皆可吞】
@@ -1790,15 +1718,8 @@ country_event = {
 		name = FLWAI.26.e
 		ai_chance = { factor = 25 }
 		add_ideas = flower_synergy_nightmare_guerrilla_idea
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 15000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
-		}
+		army_experience = 50
+		add_command_power = 40
 	}
 }
 
@@ -1811,7 +1732,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_bugle" }
+			if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_meme_bugle" }
 		}
 	}
 
@@ -1979,7 +1900,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_5whips" }
+			if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_meme_5whips" }
 		}
 	}
 
@@ -2115,15 +2036,20 @@ country_event = {
 	}
 }
 
-#流派2专属运营：下达半年生产指标
+#流派2专属运营：下达半年生产指标（按阶段×体量动态设定目标）
 country_event = {
 	id = FLWAI.31
 	title = FLWAI.31.t
 	desc = FLWAI.31.d
 	picture = GFX_KMK.0098
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			flower_tavern_calc_dynamic_goals = yes
+		}
+	}
 
-	#选项A：军工扩产指标（180天内新增3座军工达标）
+	#选项A：军工扩产指标（动态新增军用工厂目标）
 	option = {
 		name = FLWAI.31.a
 		ai_chance = {
@@ -2139,11 +2065,11 @@ country_event = {
 		hidden_effect = {
 			set_variable = { flower_corp_plan_type = 1 }
 			set_variable = { flower_corp_plan_target = num_of_military_factories }
-			add_to_variable = { flower_corp_plan_target = 3 }
+			add_to_variable = { flower_corp_plan_target = flower_dyn_mil_delta }
 			country_event = { id = FLWAI.37 days = 180 }
 		}
 	}
-	#选项B：民工基建指标（180天内总工厂新增4座达标）
+	#选项B：民工基建指标（动态新增全国工厂目标）
 	option = {
 		name = FLWAI.31.b
 		ai_chance = {
@@ -2159,11 +2085,11 @@ country_event = {
 		hidden_effect = {
 			set_variable = { flower_corp_plan_type = 2 }
 			set_variable = { flower_corp_plan_target = num_of_factories }
-			add_to_variable = { flower_corp_plan_target = 4 }
+			add_to_variable = { flower_corp_plan_target = flower_dyn_fac_delta }
 			country_event = { id = FLWAI.37 days = 180 }
 		}
 	}
-	#选项C：产线效率冲刺（稳健即时兑现）
+	#选项C：产线效率冲刺（稳健即时兑现，不再白送流水账叠层以与A/B风险收益拉平）
 	option = {
 		name = FLWAI.31.c
 		ai_chance = {
@@ -2174,7 +2100,6 @@ country_event = {
 			idea = flower_op_corp_eff_plan_idea
 			days = 180
 		}
-		flower_ai_add_builder_stack = yes
 		custom_effect_tooltip = flower_hcp_plus_150_tt
 		hidden_effect = {
 			add_to_variable = { ubs_save = 150 }
@@ -2237,41 +2162,22 @@ country_event = {
 				}
 			}
 		}
-		flower_ai_add_builder_stack = yes
 		if = {
-			limit = { check_variable = { flower_corp_plan_type = 1 } }
-			capital_scope = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
+			limit = { has_country_flag = flower_roguelike_corp_ai }
+			flower_ai_add_builder_stack = yes
 		}
-		else = {
-			capital_scope = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
+		add_timed_idea = {
+			idea = flower_bm_delivery_dividend_idea
+			days = 180
 		}
-		custom_effect_tooltip = flower_hcp_plus_200_tt
+		custom_effect_tooltip = flower_hcp_plus_250_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 200 }
+			add_to_variable = { ubs_save = 250 }
 			flower_ai_sync_hcp_ui = yes
 			set_variable = { flower_corp_plan_type = 0 }
 		}
 	}
-	#未达标安慰结算
+	#未达标惩戒结算
 	option = {
 		name = FLWAI.37.b
 		trigger = {
@@ -2288,11 +2194,8 @@ country_event = {
 				}
 			}
 		}
-		add_political_power = -15
-		custom_effect_tooltip = flower_hcp_plus_50_tt
+		add_political_power = -50
 		hidden_effect = {
-			add_to_variable = { ubs_save = 50 }
-			flower_ai_sync_hcp_ui = yes
 			set_variable = { flower_corp_plan_type = 0 }
 		}
 	}
@@ -2351,6 +2254,23 @@ country_event = {
 		}
 		add_ideas = flower_op_wave_rest_idea
 	}
+	#选项D：解除全部战时特殊姿态，恢复常态编成
+	option = {
+		name = FLWAI.32.e
+		trigger = {
+			OR = {
+				has_idea = flower_op_wave_expand_idea
+				has_idea = flower_op_wave_hold_idea
+				has_idea = flower_op_wave_rest_idea
+			}
+		}
+		ai_chance = { factor = 0 }
+		remove_ideas = {
+			flower_op_wave_expand_idea
+			flower_op_wave_hold_idea
+			flower_op_wave_rest_idea
+		}
+	}
 }
 
 #流派9专属运营：开启战地血炉
@@ -2368,15 +2288,7 @@ country_event = {
 			base = 35
 			modifier = { factor = 3.0 has_war = yes num_divisions < 90 }
 		}
-		add_manpower = 40000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 4000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 300
-		}
+		army_experience = 25
 		add_timed_idea = {
 			idea = flower_op_undead_surge_idea
 			days = 120
@@ -2391,7 +2303,7 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = flower_op_undead_armor_idea
-			days = 150
+			days = 120
 		}
 	}
 	#选项C：亡灵进厂
@@ -2403,23 +2315,23 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = flower_op_undead_labor_idea
-			days = 150
+			days = 120
 		}
 	}
-	#选项D（分支9B专属）：献祭人力与稳定换取60天死士极限过载
+	#选项D（分支9B专属）：消耗人力与指挥点数换取60天死士极限过载（不再永久扣稳定度）
 	option = {
 		name = FLWAI.33.e
 		trigger = {
 			has_idea = flower_evo_undead_king_idea
 			has_manpower > 25000
-			has_stability > 0.35
+			command_power > 29.99
 		}
 		ai_chance = {
 			base = 35
-			modifier = { factor = 3.0 has_war = yes has_stability > 0.55 }
+			modifier = { factor = 3.0 has_war = yes command_power > 39.99 }
 		}
 		add_manpower = -20000
-		add_stability = -0.05
+		add_command_power = -30
 		add_timed_idea = {
 			idea = flower_op_undead_overdrive_idea
 			days = 60
@@ -2435,35 +2347,31 @@ country_event = {
 	picture = GFX_event_discover_ATRI2
 	is_triggered_only = yes
 
-	#选项A：稳态共鸣（科研+特种上限+突破点）
+	#选项A：稳态共鸣（120天科研+特种上限+陆军突破点）
 	option = {
 		name = FLWAI.34.a
 		ai_chance = {
 			base = 40
 			modifier = { factor = 3.0 has_war = no }
-			modifier = { factor = 3.0 has_stability < 0.45 }
 		}
 		add_timed_idea = {
 			idea = flower_op_magic_steady_idea
-			days = 150
+			days = 120
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
 			value = 1
 		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 1
-		}
 	}
-	#选项B：超载突袭（耗资金/稳定换强攻与精锐装备）
+	#选项B：超载突袭（消耗指挥点数换强攻，不再永久扣稳定度）
 	option = {
 		name = FLWAI.34.b
+		trigger = { command_power > 24.99 }
 		ai_chance = {
 			base = 30
-			modifier = { factor = 3.5 has_war = yes has_stability > 0.50 }
+			modifier = { factor = 3.5 has_war = yes command_power > 34.99 }
 		}
-		add_stability = -0.05
+		add_command_power = -25
 		if = {
 			limit = { NOT = { check_variable = { ubs_save < 100 } } }
 			custom_effect_tooltip = flower_hcp_minus_100_tt
@@ -2479,15 +2387,7 @@ country_event = {
 			idea = flower_op_magic_overload_idea
 			days = 150
 		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 3000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
-		}
-		army_experience = 50
+		army_experience = 35
 	}
 	#选项C（分支10A专属）：司令部王牌将星全地形特训
 	option = {
@@ -2499,30 +2399,64 @@ country_event = {
 			base = 60
 			modifier = { factor = 2.0 num_divisions < 49 }
 		}
-		random_army_leader = {
-			limit = { is_assigned = yes }
-			add_attack = 1
-			add_logistics = 1
-			if = {
-				limit = { NOT = { has_trait = hill_fighter } }
-				add_unit_leader_trait = hill_fighter
+		if = {
+			limit = { any_army_leader = { is_assigned = yes is_field_marshal = no } }
+			random_army_leader = {
+				limit = { is_assigned = yes is_field_marshal = no }
+				add_attack = 1
+				add_logistics = 1
+				if = {
+					limit = { NOT = { has_trait = hill_fighter } }
+					add_unit_leader_trait = hill_fighter
+				}
+				else_if = {
+					limit = { NOT = { has_trait = ranger } }
+					add_unit_leader_trait = ranger
+				}
+				else_if = {
+					limit = { NOT = { has_trait = winter_specialist } }
+					add_unit_leader_trait = winter_specialist
+				}
+				else_if = {
+					limit = { NOT = { has_trait = swamp_fox } }
+					add_unit_leader_trait = swamp_fox
+				}
+				else_if = {
+					limit = { NOT = { has_trait = flower_dimension_ripper_trait } }
+					add_unit_leader_trait = flower_dimension_ripper_trait
+				}
 			}
-			else_if = {
-				limit = { NOT = { has_trait = ranger } }
-				add_unit_leader_trait = ranger
+		}
+		else_if = {
+			limit = { any_army_leader = { is_field_marshal = no } }
+			random_army_leader = {
+				limit = { is_field_marshal = no }
+				add_attack = 1
+				add_logistics = 1
+				if = {
+					limit = { NOT = { has_trait = hill_fighter } }
+					add_unit_leader_trait = hill_fighter
+				}
+				else_if = {
+					limit = { NOT = { has_trait = ranger } }
+					add_unit_leader_trait = ranger
+				}
+				else_if = {
+					limit = { NOT = { has_trait = winter_specialist } }
+					add_unit_leader_trait = winter_specialist
+				}
+				else_if = {
+					limit = { NOT = { has_trait = swamp_fox } }
+					add_unit_leader_trait = swamp_fox
+				}
+				else_if = {
+					limit = { NOT = { has_trait = flower_dimension_ripper_trait } }
+					add_unit_leader_trait = flower_dimension_ripper_trait
+				}
 			}
-			else_if = {
-				limit = { NOT = { has_trait = winter_specialist } }
-				add_unit_leader_trait = winter_specialist
-			}
-			else_if = {
-				limit = { NOT = { has_trait = swamp_fox } }
-				add_unit_leader_trait = swamp_fox
-			}
-			else_if = {
-				limit = { NOT = { has_trait = flower_dimension_ripper_trait } }
-				add_unit_leader_trait = flower_dimension_ripper_trait
-			}
+		}
+		else = {
+			flower_ai_grant_leader_dimension_ripper = yes
 		}
 		army_experience = 40
 	}
@@ -2546,7 +2480,7 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = flower_op_punk_forest_idea
-			days = 150
+			days = 120
 		}
 		add_breakthrough_points = {
 			specialization = specialization_land
@@ -2563,7 +2497,7 @@ country_event = {
 		}
 		add_timed_idea = {
 			idea = flower_op_punk_ufo_idea
-			days = 150
+			days = 120
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
@@ -2575,11 +2509,7 @@ country_event = {
 				specialization = specialization_nuclear
 				value = 1
 			}
-			custom_effect_tooltip = flower_hcp_plus_150_tt
-			hidden_effect = {
-				add_to_variable = { ubs_save = 150 }
-				flower_ai_sync_hcp_ui = yes
-			}
+			air_experience = 25
 		}
 	}
 }
@@ -2631,11 +2561,16 @@ country_event = {
 				}
 			}
 		}
-		army_experience = 40
-		add_political_power = 40
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 400
+		army_experience = 35
+		add_political_power = 35
+		if = {
+			limit = { has_country_flag = flower_card_owned_52 }
+			remove_ideas = {
+				flower_gambler_debuff_bankrupt_idea
+				flower_gambler_debuff_jammed_idea
+				flower_gambler_debuff_chaos_idea
+				flower_gambler_debuff_scandal_idea
+			}
 		}
 		flower_ai_roll_gambler_fate = yes
 	}
@@ -2683,25 +2618,36 @@ country_event = {
 			}
 		}
 	}
-	#选项D（怪蛋分支12C专属）：直接花250资金兑换人力、军火与科研加速卡
+	#选项D（怪蛋分支12C专属）：花150资金兑换战备经验、突破点与科研加速卡
 	option = {
 		name = FLWAI.36.e
 		trigger = {
 			has_idea = flower_egg_arcane_blueprint_idea
-			check_variable = { ubs_save > 249 }
+			check_variable = { ubs_save > 149 }
 		}
 		ai_chance = {
 			base = 55
-			modifier = { factor = 2.0 check_variable = { ubs_save > 600 } }
+			modifier = { factor = 2.0 check_variable = { ubs_save > 400 } }
 		}
 		custom_effect_tooltip = FLWAI.36.e_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = -250 }
+			add_to_variable = { ubs_save = -150 }
+			if = {
+				limit = { has_country_flag = flower_card_owned_52 }
+				remove_ideas = {
+					flower_gambler_debuff_bankrupt_idea
+					flower_gambler_debuff_jammed_idea
+					flower_gambler_debuff_chaos_idea
+					flower_gambler_debuff_scandal_idea
+				}
+			}
 			flower_ai_sync_hcp_ui = yes
 		}
-		add_manpower = 40000
-		add_equipment_to_stockpile = { type = infantry_equipment amount = 4000 }
-		add_equipment_to_stockpile = { type = artillery_equipment amount = 400 }
+		army_experience = 35
+		add_breakthrough_points = {
+			specialization = specialization_land
+			value = 1
+		}
 		add_tech_bonus = {
 			name = flower_egg_mercenary_tech_bonus
 			bonus = 1.0
@@ -2722,7 +2668,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_eat_tuva" }
+			if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_eat_tuva" }
 		}
 	}
 
@@ -2777,11 +2723,12 @@ country_event = {
 	option = {
 		name = FLWAI.38.c
 		ai_chance = { factor = 20 }
-		set_country_flag = flower_draft_free_reroll
+		custom_effect_tooltip = flower_free_reroll_plus_1_tt
 		army_experience = 80
 		add_command_power = 50
 		custom_effect_tooltip = FLWAI.38.c_tt
 		hidden_effect = {
+			add_to_variable = { flower_free_reroll_charges = 1 }
 			if = {
 				limit = { has_country_flag = flower_devour_draft_cd }
 				clr_country_flag = flower_devour_draft_cd
@@ -2815,7 +2762,7 @@ country_event = {
 		hidden_effect = {
 			add_to_variable = { ubs_save = 500 }
 			flower_ai_sync_hcp_ui = yes
-			set_country_flag = flower_draft_free_reroll
+			add_to_variable = { flower_free_reroll_charges = 1 }
 			flower_ai_add_slayer_stack = yes
 			flower_ai_add_slayer_stack = yes
 			flower_ai_open_roguelike_draft = yes
@@ -2823,7 +2770,7 @@ country_event = {
 	}
 }
 
-#黑市6个月净收入契约事件（现金直付或按1.2倍高利贷计入负债，流派12享8折并可加注）
+#黑市6个月净收入契约事件（现金直付或按1.2倍负债计入借款，签约同时附带180天动态履约对赌FLWTV.30）
 country_event = {
 	id = FLWAI.41
 	title = FLWAI.41.t
@@ -2837,6 +2784,11 @@ country_event = {
 	}
 	picture = GFX_KMK.0098
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			flower_quest_prep_bm_goals = yes
+		}
+	}
 
 	#选项A：黑市军火特供（365天）
 	option = {
@@ -2846,14 +2798,15 @@ country_event = {
 			modifier = { factor = 2.5 has_war = yes }
 		}
 		custom_effect_tooltip = FLWAI.41.pay_tt
-		hidden_effect = { flower_ai_pay_black_market_cost = yes }
+		hidden_effect = {
+			flower_ai_pay_black_market_cost = yes
+			flower_quest_start_bm_active = yes
+			country_event = { id = FLWTV.30 days = 180 }
+		}
 		add_timed_idea = {
 			idea = flower_bm_arms_supply_idea
 			days = 365
 		}
-		add_equipment_to_stockpile = { type = infantry_equipment amount = 3000 }
-		add_equipment_to_stockpile = { type = artillery_equipment amount = 400 }
-		add_equipment_to_stockpile = { type = support_equipment amount = 300 }
 	}
 	#选项B：黑市工业加速包（365天）
 	option = {
@@ -2863,7 +2816,11 @@ country_event = {
 			modifier = { factor = 2.0 has_war = no }
 		}
 		custom_effect_tooltip = FLWAI.41.pay_tt
-		hidden_effect = { flower_ai_pay_black_market_cost = yes }
+		hidden_effect = {
+			flower_ai_pay_black_market_cost = yes
+			flower_quest_start_bm_active = yes
+			country_event = { id = FLWTV.30 days = 180 }
+		}
 		add_timed_idea = {
 			idea = flower_bm_industry_boost_idea
 			days = 365
@@ -2877,22 +2834,33 @@ country_event = {
 			modifier = { factor = 1.8 has_country_flag = flower_roguelike_steampunk_ai }
 		}
 		custom_effect_tooltip = FLWAI.41.pay_tt
-		hidden_effect = { flower_ai_pay_black_market_cost = yes }
+		hidden_effect = {
+			flower_ai_pay_black_market_cost = yes
+			flower_quest_start_bm_active = yes
+			country_event = { id = FLWTV.30 days = 180 }
+		}
 		add_timed_idea = {
 			idea = flower_bm_intel_tech_idea
 			days = 365
 		}
-		set_country_flag = flower_draft_free_reroll
+		custom_effect_tooltip = flower_free_reroll_plus_1_tt
+		hidden_effect = {
+			add_to_variable = { flower_free_reroll_charges = 1 }
+		}
 		add_breakthrough_points = { specialization = specialization_land value = 1 }
 		add_breakthrough_points = { specialization = specialization_air value = 1 }
 	}
-	#选项D（流派12专属）：贵宾加注对赌（50%全能大礼盒，50%抵债军火+180天军火特供）
+	#选项D（流派12专属）：贵宾加注对赌
 	option = {
 		name = FLWAI.41.d
 		trigger = { has_country_flag = flower_roguelike_gambler_active }
 		ai_chance = { base = 45 }
 		custom_effect_tooltip = FLWAI.41.pay_tt
-		hidden_effect = { flower_ai_pay_black_market_cost = yes }
+		hidden_effect = {
+			flower_ai_pay_black_market_cost = yes
+			flower_quest_start_bm_active = yes
+			country_event = { id = FLWTV.30 days = 180 }
+		}
 		random_list = {
 			50 = {
 				add_timed_idea = {
@@ -2905,9 +2873,7 @@ country_event = {
 					idea = flower_bm_arms_supply_idea
 					days = 180
 				}
-				add_equipment_to_stockpile = { type = infantry_equipment amount = 5000 }
-				add_equipment_to_stockpile = { type = artillery_equipment amount = 600 }
-				add_equipment_to_stockpile = { type = support_equipment amount = 400 }
+				army_experience = 35
 			}
 		}
 	}

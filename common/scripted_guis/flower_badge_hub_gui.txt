@@ -1,0 +1,434 @@
+scripted_gui = {
+	#徽章与考核总览双页签GUI控制器
+	flower_badge_hub_gui = {
+		context_type = player_context
+		window_name = "flower_badge_hub_window"
+
+		visible = {
+			is_ai = no
+			has_country_flag = flower_badge_hub_open
+		}
+		ai_enabled = { always = no }
+
+		properties = {
+			flower_badge_owned_st_icon = { frame = flower_st_owned_frame }
+			flower_badge_owned_lt_icon = { frame = flower_lt_owned_frame }
+			flower_badge_owned_crown_icon = { frame = flower_crown_owned_frame }
+			flower_badge_owned_gold_icon = { frame = flower_gold_owned_frame }
+			flower_badge_shop_s1_ico_st = { frame = flower_badge_shop_f1 }
+			flower_badge_shop_s1_ico_lt = { frame = flower_badge_shop_f1 }
+			flower_badge_shop_s1_ico_cr = { frame = flower_badge_shop_f1 }
+			flower_badge_shop_s2_ico_st = { frame = flower_badge_shop_f2 }
+			flower_badge_shop_s2_ico_lt = { frame = flower_badge_shop_f2 }
+			flower_badge_shop_s2_ico_cr = { frame = flower_badge_shop_f2 }
+			flower_badge_shop_s3_ico_st = { frame = flower_badge_shop_f3 }
+			flower_badge_shop_s3_ico_lt = { frame = flower_badge_shop_f3 }
+			flower_badge_shop_s3_ico_cr = { frame = flower_badge_shop_f3 }
+			flower_badge_shop_s4_ico_st = { frame = flower_badge_shop_f4 }
+			flower_badge_shop_s4_ico_lt = { frame = flower_badge_shop_f4 }
+			flower_badge_shop_s4_ico_cr = { frame = flower_badge_shop_f4 }
+			flower_q_st_prog = { frame = flower_q_st_frame }
+			flower_q_bounty_prog = { frame = flower_q_bounty_frame }
+			flower_q_wager_prog = { frame = flower_q_wager_frame }
+			flower_q_bm_prog = { frame = flower_q_bm_frame }
+		}
+
+		triggers = {
+			flower_badge_cat_calm_btn_visible = { NOT = { has_country_flag = flower_cat_hissing } }
+			flower_badge_cat_hiss_btn_visible = { has_country_flag = flower_cat_hissing }
+
+			#页签切换按钮显隐
+			flower_hub_tab1_on_btn_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_hub_tab1_cta_btn_visible = {
+				check_variable = { flower_badge_hub_tab > 0 }
+				check_variable = { flower_badge_shop_mode > 0 }
+			}
+			flower_hub_tab1_off_btn_visible = {
+				check_variable = { flower_badge_hub_tab > 0 }
+				check_variable = { flower_badge_shop_mode < 1 }
+			}
+			flower_hub_tab2_on_btn_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_hub_tab2_cta_btn_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				flower_quest_any_claimable = yes
+			}
+			flower_hub_tab2_off_btn_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				NOT = { flower_quest_any_claimable = yes }
+			}
+			flower_badge_owned_st_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_st_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_st_icon_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_st_name_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_st_sub_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_lt_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_lt_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_lt_icon_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_lt_name_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_lt_sub_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_crown_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_crown_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_crown_icon_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_crown_name_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_crown_sub_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_gold_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_gold_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_gold_icon_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_gold_name_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_owned_gold_sub_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+
+			#页签1状态栏与选购区全部叶子控件严格绑定tab<1显隐
+			flower_badge_status_bar_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_countdown_line1_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_countdown_line2_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_next_stage = 2 }
+			}
+			flower_badge_countdown_line2_wide_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				NOT = { check_variable = { flower_badge_next_stage = 2 } }
+			}
+			flower_badge_buyout_st_btn_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_next_stage = 2 }
+			}
+			flower_badge_buyout_st_lbl_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_next_stage = 2 }
+			}
+			flower_badge_buyout_st_btn_click_enabled = {
+				OR = {
+					NOT = { check_variable = { ubs_save < flower_st_buyout_cost } }
+					has_political_power > 149.99
+				}
+			}
+			flower_badge_syn_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_syn_line1_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_syn_line2_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+
+			flower_badge_shop_sec_title_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_shop_empty_lbl_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode < 1 }
+			}
+
+			flower_badge_shop_s1_btn_norm_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode > 0 }
+				NOT = {
+					AND = {
+						check_variable = { flower_badge_shop_mode = 2 }
+						has_country_flag = flower_badge_lt_slot1_gold_ready
+					}
+				}
+			}
+			flower_badge_shop_s1_btn_gold_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode = 2 }
+				has_country_flag = flower_badge_lt_slot1_gold_ready
+			}
+			flower_badge_shop_s1_btn_norm_click_enabled = {
+				OR = {
+					check_variable = { flower_badge_shop_mode = 1 }
+					AND = {
+						check_variable = { flower_badge_shop_mode = 2 }
+						OR = {
+							NOT = { check_variable = { ubs_save < flower_lt_std_cost } }
+							has_political_power > 249.99
+						}
+					}
+					AND = {
+						check_variable = { flower_badge_shop_mode = 3 }
+						check_variable = { ubs_save > 499.99 }
+						has_political_power > 99.99
+					}
+				}
+			}
+			flower_badge_shop_s1_btn_gold_click_enabled = {
+				OR = {
+					NOT = { check_variable = { ubs_save < flower_lt_std_cost } }
+					has_political_power > 249.99
+				}
+			}
+
+			flower_badge_shop_s2_btn_norm_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode > 0 }
+			}
+			flower_badge_shop_s3_btn_norm_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode > 0 }
+			}
+			flower_badge_shop_s2_btn_norm_click_enabled = {
+				OR = {
+					check_variable = { flower_badge_shop_mode = 1 }
+					AND = {
+						check_variable = { flower_badge_shop_mode = 2 }
+						OR = {
+							NOT = { check_variable = { ubs_save < flower_lt_std_cost } }
+							has_political_power > 249.99
+						}
+					}
+					AND = {
+						check_variable = { flower_badge_shop_mode = 3 }
+						check_variable = { ubs_save > 499.99 }
+						has_political_power > 99.99
+					}
+				}
+			}
+			flower_badge_shop_s3_btn_norm_click_enabled = {
+				OR = {
+					check_variable = { flower_badge_shop_mode = 1 }
+					AND = {
+						check_variable = { flower_badge_shop_mode = 2 }
+						OR = {
+							NOT = { check_variable = { ubs_save < flower_lt_std_cost } }
+							has_political_power > 249.99
+						}
+					}
+					AND = {
+						check_variable = { flower_badge_shop_mode = 3 }
+						check_variable = { ubs_save > 499.99 }
+						has_political_power > 99.99
+					}
+				}
+			}
+
+			flower_badge_shop_s4_btn_cursed_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				OR = {
+					check_variable = { flower_badge_shop_mode = 1 }
+					check_variable = { flower_badge_shop_mode = 2 }
+				}
+			}
+			flower_badge_shop_s4_btn_norm_visible = {
+				check_variable = { flower_badge_hub_tab < 1 }
+				check_variable = { flower_badge_shop_mode = 3 }
+			}
+			flower_badge_shop_s4_btn_cursed_click_enabled = {
+				OR = {
+					check_variable = { flower_badge_shop_mode = 1 }
+					AND = {
+						check_variable = { flower_badge_shop_mode = 2 }
+						OR = {
+							check_variable = { flower_lt_slot_4 = 21 }
+							check_variable = { flower_lt_slot_4 = 23 }
+							NOT = { check_variable = { ubs_save < flower_lt_cheap_cost } }
+							has_political_power > 124.99
+						}
+					}
+				}
+			}
+			flower_badge_shop_s4_btn_norm_click_enabled = {
+				check_variable = { ubs_save > 499.99 }
+				has_political_power > 99.99
+			}
+
+			flower_badge_shop_s1_ico_st_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 1 } }
+			flower_badge_shop_s1_ico_lt_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 2 } }
+			flower_badge_shop_s1_ico_cr_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 3 } }
+			flower_badge_shop_s1_tag_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s1_name_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s1_short_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s1_price_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+
+			flower_badge_shop_s2_ico_st_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 1 } }
+			flower_badge_shop_s2_ico_lt_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 2 } }
+			flower_badge_shop_s2_ico_cr_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 3 } }
+			flower_badge_shop_s2_tag_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s2_name_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s2_short_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s2_price_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+
+			flower_badge_shop_s3_ico_st_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 1 } }
+			flower_badge_shop_s3_ico_lt_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 2 } }
+			flower_badge_shop_s3_ico_cr_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 3 } }
+			flower_badge_shop_s3_tag_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s3_name_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s3_short_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s3_price_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+
+			flower_badge_shop_s4_ico_st_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 1 } }
+			flower_badge_shop_s4_ico_lt_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 2 } }
+			flower_badge_shop_s4_ico_cr_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode = 3 } }
+			flower_badge_shop_s4_tag_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s4_name_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s4_short_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+			flower_badge_shop_s4_price_visible = { check_variable = { flower_badge_hub_tab < 1 } check_variable = { flower_badge_shop_mode > 0 } }
+
+			#页签2全部叶子控件严格绑定tab>0显隐
+			flower_quest_hdr_bar_bg_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_quest_hdr_left_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_quest_hdr_right_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+
+			flower_q_st_card_bg_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_st_ready = yes } }
+			flower_q_st_card_done_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_st_ready = yes }
+			flower_q_st_title_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_badge_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_prog_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_l1_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_l2_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_l3_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_reward_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_btn_action_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_st_ready = yes } }
+			flower_q_st_btn_claim_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_st_ready = yes }
+			flower_q_st_btn_lbl_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_st_btn_action_click_enabled = {
+				has_country_flag = flower_st_task_assigned
+				NOT = { has_country_flag = flower_st_claimed }
+				NOT = { has_country_flag = flower_st_task_done }
+				OR = {
+					NOT = { check_variable = { ubs_save < flower_st_buyout_cost } }
+					has_political_power > 149.99
+				}
+			}
+			flower_q_st_btn_claim_click_enabled = {
+				flower_quest_st_ready = yes
+			}
+
+			flower_q_bounty_card_bg_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_bounty_ready = yes } }
+			flower_q_bounty_card_done_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_bounty_ready = yes }
+			flower_q_bounty_title_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_badge_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_prog_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_l1_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_l2_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_l3_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_reward_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_btn_action_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_bounty_ready = yes } }
+			flower_q_bounty_btn_claim_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_bounty_ready = yes }
+			flower_q_bounty_btn_lbl_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bounty_btn_action_click_enabled = {
+				OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active }
+				NOT = { has_country_flag = flower_bounty_active }
+			}
+			flower_q_bounty_btn_claim_click_enabled = {
+				flower_quest_bounty_ready = yes
+			}
+
+			flower_q_wager_card_bg_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_wager_ready = yes } }
+			flower_q_wager_card_done_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_wager_ready = yes }
+			flower_q_wager_title_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_badge_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_prog_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_l1_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_l2_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_l3_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_reward_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_btn_action_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_wager_ready = yes } }
+			flower_q_wager_btn_claim_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_wager_ready = yes }
+			flower_q_wager_btn_lbl_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_wager_btn_action_click_enabled = {
+				OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active has_country_flag = flower_roguelike_gambler_active }
+				NOT = { has_idea = flower_blood_wager_active_idea }
+				NOT = { has_country_flag = flower_wager_cd }
+			}
+			flower_q_wager_btn_claim_click_enabled = {
+				flower_quest_wager_ready = yes
+			}
+
+			flower_q_bm_card_bg_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_bm_ready = yes } }
+			flower_q_bm_card_done_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_bm_ready = yes }
+			flower_q_bm_title_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_badge_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_prog_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_l1_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_l2_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_l3_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_reward_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_btn_action_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_bm_ready = yes } }
+			flower_q_bm_btn_claim_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_bm_ready = yes }
+			flower_q_bm_btn_lbl_visible = { check_variable = { flower_badge_hub_tab > 0 } }
+			flower_q_bm_btn_action_click_enabled = {
+				OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active has_country_flag = flower_roguelike_gambler_active }
+				NOT = { has_country_flag = flower_bm_active }
+				NOT = { has_idea = flower_bm_arms_supply_idea }
+				NOT = { has_idea = flower_bm_industry_boost_idea }
+				NOT = { has_idea = flower_bm_intel_tech_idea }
+				NOT = { has_idea = flower_bm_vip_jackpot_idea }
+			}
+			flower_q_bm_btn_claim_click_enabled = {
+				flower_quest_bm_ready = yes
+			}
+
+		}
+
+		effects = {
+			#双页签切换
+			flower_hub_tab1_on_btn_click = {
+				set_variable = { flower_badge_hub_tab = 0 }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_hub_tab1_off_btn_click = {
+				set_variable = { flower_badge_hub_tab = 0 }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_hub_tab1_cta_btn_click = {
+				set_variable = { flower_badge_hub_tab = 0 }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_hub_tab2_on_btn_click = {
+				set_variable = { flower_badge_hub_tab = 1 }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_hub_tab2_off_btn_click = {
+				set_variable = { flower_badge_hub_tab = 1 }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_hub_tab2_cta_btn_click = {
+				set_variable = { flower_badge_hub_tab = 1 }
+				flower_badge_hub_sync_state = yes
+			}
+
+			#页签1：4张徽章选购与考核买断
+			flower_badge_shop_s1_btn_norm_click = { flower_badge_hub_buy_slot_1 = yes }
+			flower_badge_shop_s1_btn_gold_click = { flower_badge_hub_buy_slot_1 = yes }
+			flower_badge_shop_s2_btn_norm_click = { flower_badge_hub_buy_slot_2 = yes }
+			flower_badge_shop_s3_btn_norm_click = { flower_badge_hub_buy_slot_3 = yes }
+			flower_badge_shop_s4_btn_cursed_click = { flower_badge_hub_buy_slot_4 = yes }
+			flower_badge_shop_s4_btn_norm_click = { flower_badge_hub_buy_slot_4 = yes }
+			flower_badge_buyout_st_btn_click = { flower_badge_hub_buyout_st = yes }
+
+			#页签2：4张任务卡就地接取、买断与交付领赏
+			flower_q_st_btn_action_click = { flower_badge_hub_buyout_st = yes }
+			flower_q_st_btn_claim_click = {
+				if = {
+					limit = { NOT = { has_country_flag = flower_st_task_done } }
+					set_country_flag = flower_st_task_done
+					flower_tavern_roll_small_trinkets = yes
+				}
+				set_variable = { flower_badge_hub_tab = 0 }
+				set_variable = { flower_badge_feedback_id = 6 }
+				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_combo_awakening" }
+				flower_badge_hub_sync_state = yes
+			}
+			flower_q_bounty_btn_action_click = { flower_quest_accept_bounty = yes }
+			flower_q_bounty_btn_claim_click = { flower_quest_claim_bounty = yes }
+			flower_q_wager_btn_action_click = { flower_quest_accept_wager = yes }
+			flower_q_wager_btn_claim_click = { flower_quest_claim_wager = yes }
+			flower_q_bm_btn_action_click = { flower_quest_open_bm_from_gui = yes }
+			flower_q_bm_btn_claim_click = { flower_quest_claim_bm = yes }
+
+			#顶部导航与立绘互动
+			flower_badge_open_history_btn_click = {
+				clr_country_flag = flower_badge_hub_open
+				clr_country_flag = flower_badge_hub_alert
+				set_country_flag = flower_history_gui_open
+			}
+			flower_badge_close_btn_click = {
+				clr_country_flag = flower_badge_hub_open
+				clr_country_flag = flower_badge_hub_alert
+			}
+			flower_badge_peek_map_btn_click = {
+				clr_country_flag = flower_badge_hub_open
+				clr_country_flag = flower_badge_hub_alert
+			}
+			flower_badge_cat_calm_btn_click = {
+				set_country_flag = { flag = flower_cat_hissing days = 2 value = 1 }
+			}
+			flower_badge_cat_hiss_btn_click = {
+				clr_country_flag = flower_cat_hissing
+			}
+		}
+	}
+}

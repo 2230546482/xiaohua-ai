@@ -1,6 +1,6 @@
-#12大流派核心选择与11大流派进阶分支统一执行脚本（GUI与AI共用）
+#12大流派核心选择与进阶分支统一执行脚本（严格遵循本局开放流派池，移除开局白嫖装备/人力/工厂/科技）
 
-#打开12大流派选择
+#打开流派选择界面
 flower_ai_open_starter_selection = {
 	if = {
 		limit = { is_ai = no }
@@ -40,21 +40,21 @@ flower_ai_open_starter_selection = {
 	}
 }
 
-#玩家从GUI随机摇一个流派
+#玩家从GUI随机摇一个本局开放流派
 flower_ai_pick_random_archetype = {
 	random_list = {
-		10 = { flower_ai_pick_archetype_1 = yes }
-		10 = { flower_ai_pick_archetype_2 = yes }
-		10 = { flower_ai_pick_archetype_3 = yes }
-		10 = { flower_ai_pick_archetype_4 = yes }
-		10 = { flower_ai_pick_archetype_5 = yes }
-		10 = { flower_ai_pick_archetype_6 = yes }
-		10 = { flower_ai_pick_archetype_7 = yes }
-		10 = { flower_ai_pick_archetype_8 = yes }
-		10 = { flower_ai_pick_archetype_9 = yes }
-		10 = { flower_ai_pick_archetype_10 = yes }
-		10 = { flower_ai_pick_archetype_11 = yes }
-		10 = { flower_ai_pick_archetype_12 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_1 } } flower_ai_pick_archetype_1 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_2 } } flower_ai_pick_archetype_2 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_3 } } flower_ai_pick_archetype_3 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_4 } } flower_ai_pick_archetype_4 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_5 } } flower_ai_pick_archetype_5 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_6 } } flower_ai_pick_archetype_6 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_7 } } flower_ai_pick_archetype_7 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_8 } } flower_ai_pick_archetype_8 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_9 } } flower_ai_pick_archetype_9 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_10 } } flower_ai_pick_archetype_10 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_11 } } flower_ai_pick_archetype_11 = yes }
+		10 = { modifier = { factor = 0 has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_12 } } flower_ai_pick_archetype_12 = yes }
 	}
 }
 
@@ -126,12 +126,17 @@ flower_ai_pick_archetype_1 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_slayer_ai
+	set_variable = { flower_active_arch_id = 1 }
+	if = {
+		limit = { NOT = { has_idea = flower_slayer_base_idea } }
+		add_ideas = flower_slayer_base_idea
+	}
 	if = {
 		limit = { is_ai = no }
 		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_1_slayer" }
 	}
 	flower_ai_add_slayer_stack = yes
-	flower_ai_add_slayer_stack = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 	if = {
 		limit = {
@@ -163,6 +168,7 @@ flower_ai_pick_archetype_2 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_corp_ai
+	set_variable = { flower_active_arch_id = 2 }
 	if = {
 		limit = { is_ai = no }
 		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_2_corp" }
@@ -172,7 +178,6 @@ flower_ai_pick_archetype_2 = {
 		set_variable = { flower_builder_next_goal = num_of_factories }
 		add_to_variable = { flower_builder_next_goal = 15 }
 	}
-	flower_ai_add_builder_stack = yes
 	flower_ai_add_builder_stack = yes
 	if = {
 		limit = { has_idea = flower_corp_stage_2_idea }
@@ -193,6 +198,7 @@ flower_ai_pick_archetype_2 = {
 		limit = { NOT = { has_idea = flower_corp_stage_3_idea } }
 		add_ideas = flower_corp_stage_1_idea
 	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 	if = {
 		limit = {
@@ -224,6 +230,7 @@ flower_ai_pick_archetype_3 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_arty_ai
+	set_variable = { flower_active_arch_id = 3 }
 	flower_ai_recalc_arty_density = yes
 	if = {
 		limit = { is_ai = no }
@@ -235,25 +242,12 @@ flower_ai_pick_archetype_3 = {
 			remove_idea = flower_arty_stage_2_idea
 			add_idea = flower_arty_stage_3_idea
 		}
-		set_technology = {
-			artillery3 = 1
-			rocket_artillery2 = 1
-			motorized_rocket_unit = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 3000
-		}
-		add_equipment_to_stockpile = {
-			type = motorized_rocket_equipment
-			amount = 1000
-		}
-		create_railway_gun = {
-			equipment = railway_gun_equipment_1
-		}
-		create_railway_gun = {
-			equipment = railway_gun_equipment_1
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 2
+			category = artillery
+			category = rocketry
 		}
 		if = {
 			limit = {
@@ -261,7 +255,7 @@ flower_ai_pick_archetype_3 = {
 				NOT = { has_country_flag = flower_ai_tpl_arty_zero }
 			}
 			set_country_flag = flower_ai_tpl_arty_zero
-			army_experience = 35
+			army_experience = 25
 			division_template = {
 				name = "饱和重炮突击师"
 				is_locked = no
@@ -296,21 +290,11 @@ flower_ai_pick_archetype_3 = {
 			remove_idea = flower_arty_stage_1_idea
 			add_idea = flower_arty_stage_2_idea
 		}
-		set_technology = {
-			gw_artillery = 1
-			interwar_artillery = 1
-			artillery1 = 1
-			artillery2 = 1
-			rocket_artillery = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 2000
-		}
-		add_equipment_to_stockpile = {
-			type = rocket_artillery_equipment
-			amount = 500
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = artillery
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_arty_done } }
@@ -333,30 +317,16 @@ flower_ai_pick_archetype_3 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_arty_stage_3_idea }
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 5000
-		}
-		army_experience = 100
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_arty_stage_1_idea
-		set_technology = {
-			gw_artillery = 1
-			interwar_artillery = 1
-			railway_gun = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
-		}
-		create_railway_gun = {
-			equipment = railway_gun_equipment_1
-		}
-		create_railway_gun = {
-			equipment = railway_gun_equipment_1
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = artillery
 		}
 		if = {
 			limit = {
@@ -389,6 +359,8 @@ flower_ai_pick_archetype_3 = {
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_ai_recalc_arty_density = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -399,6 +371,7 @@ flower_ai_pick_archetype_4 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_tank_ai
+	set_variable = { flower_active_arch_id = 4 }
 	flower_ai_recalc_blitz_momentum = yes
 	if = {
 		limit = { is_ai = no }
@@ -416,24 +389,14 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_2_idea
 			add_idea = flower_tank_stage_3_idea
 		}
-		set_technology = {
-			advanced_medium_tank_chassis = 1
-			improved_heavy_tank_chassis = 1
-			mechanised_infantry = 1
-			tech_maintenance_company = 1
-			tech_logistics_company = 1
-			popup = yes
+		add_tech_bonus = {
+			name = flower_blackbox_s3_bonus
+			bonus = 1.0
+			uses = 2
+			category = armor
+			category = cat_mechanized_equipment
 		}
-		add_equipment_to_stockpile = {
-			type = mechanized_equipment
-			amount = 500
-		}
-		add_equipment_to_stockpile = {
-			type = motorized_equipment
-			amount = 1000
-		}
-		add_fuel = 150000
-		army_experience = 80
+		army_experience = 50
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -443,28 +406,11 @@ flower_ai_pick_archetype_4 = {
 			remove_idea = flower_tank_stage_1_idea
 			add_idea = flower_tank_stage_2_idea
 		}
-		set_technology = {
-			improved_medium_tank_chassis = 1
-			mechanised_infantry = 1
-			engine_tech_2 = 1
-			armor_tech_2 = 1
-			popup = yes
-		}
-		add_fuel = 100000
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = synthetic_refinery
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = synthetic_refinery
-				level = 2
-				instant_build = yes
-			}
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = armor
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_tank_done } }
@@ -487,24 +433,17 @@ flower_ai_pick_archetype_4 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_tank_stage_3_idea }
-		army_experience = 100
-		add_fuel = 150000
-		add_to_variable = { ubs_save = 250 }
-		flower_ai_sync_hcp_ui = yes
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_tank_stage_1_idea
-		set_technology = {
-			gwtank_chassis = 1
-			basic_light_tank_chassis = 1
-			basic_medium_tank_chassis = 1
-			motorised_infantry = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = motorized_equipment
-			amount = 500
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = armor
+			category = motorized_equipment
 		}
 		if = {
 			limit = {
@@ -531,24 +470,10 @@ flower_ai_pick_archetype_4 = {
 				}
 			}
 		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = synthetic_refinery
-					size > 0
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = synthetic_refinery
-				level = 1
-				instant_build = yes
-			}
-		}
-		army_experience = 75
+		army_experience = 35
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -559,6 +484,7 @@ flower_ai_pick_archetype_5 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_air_ai
+	set_variable = { flower_active_arch_id = 5 }
 	flower_ai_recalc_ace_prestige = yes
 	if = {
 		limit = { is_ai = no }
@@ -570,26 +496,18 @@ flower_ai_pick_archetype_5 = {
 			remove_idea = flower_air_stage_2_idea
 			add_idea = flower_air_stage_3_idea
 		}
-		set_technology = {
-			paratroopers3 = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = transport_plane_equipment_1
-			amount = 100
-		}
-		random_owned_controlled_state = {
-			add_building_construction = {
-				type = air_base
-				level = 4
-				instant_build = yes
-			}
+		add_tech_bonus = {
+			name = flower_blackbox_s3_bonus
+			bonus = 1.0
+			uses = 2
+			category = light_air
+			category = medium_air
 		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 5
+			value = 2
 		}
-		air_experience = 150
+		air_experience = 50
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -599,19 +517,12 @@ flower_ai_pick_archetype_5 = {
 			remove_idea = flower_air_stage_1_idea
 			add_idea = flower_air_stage_2_idea
 		}
-		set_technology = {
-			paratroopers = 1
-			paratroopers2 = 1
-			tech_support = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = transport_plane_equipment_1
-			amount = 60
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = light_air
+			category = para_tech
 		}
 		if = {
 			limit = {
@@ -638,7 +549,7 @@ flower_ai_pick_archetype_5 = {
 				}
 			}
 		}
-		air_experience = 100
+		air_experience = 50
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_air_done } }
 			set_country_flag = flower_evo_air_done
@@ -660,27 +571,26 @@ flower_ai_pick_archetype_5 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_air_stage_3_idea }
-		air_experience = 150
-		add_to_variable = { ubs_save = 250 }
-		flower_ai_sync_hcp_ui = yes
+		air_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_air_stage_1_idea
-		air_experience = 100
+		air_experience = 50
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = light_air
+			category = air_equipment
+		}
 		add_breakthrough_points = {
 			specialization = specialization_air
-			value = 2
-		}
-		random_owned_controlled_state = {
-			add_building_construction = {
-				type = air_base
-				level = 2
-				instant_build = yes
-			}
+			value = 1
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -691,6 +601,7 @@ flower_ai_pick_archetype_6 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_wave_ai
+	set_variable = { flower_active_arch_id = 6 }
 	flower_ai_recalc_veteran_furnace = yes
 	if = {
 		limit = { is_ai = no }
@@ -702,19 +613,12 @@ flower_ai_pick_archetype_6 = {
 			remove_idea = flower_wave_stage_2_idea
 			add_idea = flower_wave_stage_3_idea
 		}
-		set_technology = {
-			tech_field_hospital3 = 1
-			tech_logistics_company = 1
-			popup = yes
-		}
-		add_manpower = 150000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 30000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 800
+		add_tech_bonus = {
+			name = flower_blackbox_s3_bonus
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
+			category = hospital_tech
 		}
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
@@ -725,16 +629,11 @@ flower_ai_pick_archetype_6 = {
 			remove_idea = flower_wave_stage_1_idea
 			add_idea = flower_wave_stage_2_idea
 		}
-		set_technology = {
-			tech_field_hospital = 1
-			tech_field_hospital2 = 1
-			tech_military_police = 1
-			popup = yes
-		}
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 20000
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = support_tech
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_wave_done } }
@@ -757,22 +656,20 @@ flower_ai_pick_archetype_6 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_wave_stage_3_idea }
-		add_manpower = 150000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 25000
-		}
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_wave_stage_1_idea
-		add_manpower = 60000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 15000
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -783,6 +680,7 @@ flower_ai_pick_archetype_7 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_nightingale_ai
+	set_variable = { flower_active_arch_id = 7 }
 	if = {
 		limit = { is_ai = no }
 		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_7_nightingale" }
@@ -793,32 +691,9 @@ flower_ai_pick_archetype_7 = {
 			remove_idea = flower_nightingale_stage_2_idea
 			add_idea = flower_nightingale_stage_3_idea
 		}
-		if = {
-			limit = { any_army_leader = { is_assigned = yes } }
-			random_army_leader = {
-				limit = { is_assigned = yes }
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_space_magician_trait
-			}
-		}
-		else = {
-			random_army_leader = {
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_space_magician_trait
-			}
-		}
-		add_command_power = 60
-		army_experience = 80
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 600
-		}
+		flower_ai_grant_leader_space_magician = yes
+		add_command_power = 40
+		army_experience = 40
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -828,20 +703,14 @@ flower_ai_pick_archetype_7 = {
 			remove_idea = flower_nightingale_stage_1_idea
 			add_idea = flower_nightingale_stage_2_idea
 		}
-		set_technology = {
-			tech_recon3 = 1
-			tech_signal_company2 = 1
-			popup = yes
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = recon_tech
+			category = signal_company_tech
 		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 4000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
-		}
-		army_experience = 50
+		army_experience = 35
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_nightingale_done } }
 			set_country_flag = flower_evo_nightingale_done
@@ -863,33 +732,23 @@ flower_ai_pick_archetype_7 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_nightingale_stage_3_idea }
-		add_command_power = 60
-		army_experience = 100
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 600
-		}
+		add_command_power = 40
+		army_experience = 40
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_nightingale_stage_1_idea
-		set_technology = {
-			tech_support = 1
-			tech_recon = 1
-			tech_recon2 = 1
-			tech_signal_company = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 3000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 350
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = recon_tech
+			category = signal_company_tech
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_ai_recalc_night_phantom = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -900,6 +759,7 @@ flower_ai_pick_archetype_8 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_guerrilla_ai
+	set_variable = { flower_active_arch_id = 8 }
 	flower_ai_recalc_guerrilla_underdog = yes
 	if = {
 		limit = { is_ai = no }
@@ -911,31 +771,7 @@ flower_ai_pick_archetype_8 = {
 			remove_idea = flower_guerrilla_stage_2_idea
 			add_idea = flower_guerrilla_stage_3_idea
 		}
-		if = {
-			limit = { any_army_leader = { is_assigned = yes } }
-			random_army_leader = {
-				limit = { is_assigned = yes }
-				add_defense = 2
-				add_logistics = 2
-				add_unit_leader_trait = guerilla_fighter
-			}
-		}
-		else = {
-			random_army_leader = {
-				add_defense = 2
-				add_logistics = 2
-				add_unit_leader_trait = guerilla_fighter
-			}
-		}
-		add_manpower = 60000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 10000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 800
-		}
+		flower_ai_grant_leader_guerilla = yes
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -945,19 +781,12 @@ flower_ai_pick_archetype_8 = {
 			remove_idea = flower_guerrilla_stage_1_idea
 			add_idea = flower_guerrilla_stage_2_idea
 		}
-		set_technology = {
-			tech_engineers = 1
-			tech_logistics_company = 1
-			popup = yes
-		}
-		add_manpower = 40000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = engineers_tech
+			category = logistics_tech
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_guerrilla_done } }
@@ -980,30 +809,22 @@ flower_ai_pick_archetype_8 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_guerrilla_stage_3_idea }
-		add_manpower = 50000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 10000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 600
-		}
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_guerrilla_stage_1_idea
-		add_manpower = 30000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 350
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
+			category = engineers_tech
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_ai_recalc_guerrilla_underdog = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -1014,6 +835,7 @@ flower_ai_pick_archetype_9 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_undead_ai
+	set_variable = { flower_active_arch_id = 9 }
 	if = {
 		limit = { is_ai = no }
 		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_9_undead" }
@@ -1024,18 +846,11 @@ flower_ai_pick_archetype_9 = {
 			remove_idea = flower_undead_stage_2_idea
 			add_idea = flower_undead_stage_3_idea
 		}
-		set_technology = {
-			tech_field_hospital3 = 1
-			popup = yes
-		}
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 12000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 600
+		add_tech_bonus = {
+			name = flower_blackbox_s3_bonus
+			bonus = 1.0
+			uses = 2
+			category = hospital_tech
 		}
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
@@ -1046,18 +861,11 @@ flower_ai_pick_archetype_9 = {
 			remove_idea = flower_undead_stage_1_idea
 			add_idea = flower_undead_stage_2_idea
 		}
-		set_technology = {
-			tech_field_hospital2 = 1
-			popup = yes
-		}
-		add_manpower = 50000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = hospital_tech
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_undead_done } }
@@ -1080,31 +888,21 @@ flower_ai_pick_archetype_9 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_undead_stage_3_idea }
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 10000
-		}
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_undead_stage_1_idea
-		set_technology = {
-			tech_support = 1
-			tech_field_hospital = 1
-			popup = yes
-		}
-		add_manpower = 40000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 350
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = hospital_tech
+			category = support_tech
 		}
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -1115,6 +913,7 @@ flower_ai_pick_archetype_10 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_magic_ai
+	set_variable = { flower_active_arch_id = 10 }
 	flower_ai_recalc_elite_small_army = yes
 	if = {
 		limit = { is_ai = no }
@@ -1126,36 +925,15 @@ flower_ai_pick_archetype_10 = {
 			remove_idea = flower_magic_stage_2_idea
 			add_idea = flower_magic_stage_3_idea
 		}
-		set_technology = {
-			tech_mountaineers3 = 1
-			marines3 = 1
-			paratroopers3 = 1
-			popup = yes
+		add_tech_bonus = {
+			name = flower_blackbox_s3_bonus
+			bonus = 1.0
+			uses = 2
+			category = mountaineers_tech
+			category = marine_tech
+			category = para_tech
 		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 800
-		}
-		if = {
-			limit = { any_army_leader = { is_assigned = yes } }
-			random_army_leader = {
-				limit = { is_assigned = yes }
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_dimension_ripper_trait
-			}
-		}
-		else = {
-			random_army_leader = {
-				add_attack = 2
-				add_logistics = 2
-				add_unit_leader_trait = flower_dimension_ripper_trait
-			}
-		}
+		flower_ai_grant_leader_dimension_ripper = yes
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -1165,21 +943,15 @@ flower_ai_pick_archetype_10 = {
 			remove_idea = flower_magic_stage_1_idea
 			add_idea = flower_magic_stage_2_idea
 		}
-		set_technology = {
-			tech_mountaineers2 = 1
-			marines2 = 1
-			paratroopers2 = 1
-			popup = yes
+		add_tech_bonus = {
+			name = flower_blackbox_s2_bonus
+			bonus = 1.0
+			uses = 1
+			category = mountaineers_tech
+			category = marine_tech
+			category = para_tech
 		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 4000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 500
-		}
-		army_experience = 60
+		army_experience = 35
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_magic_done } }
 			set_country_flag = flower_evo_magic_done
@@ -1201,39 +973,19 @@ flower_ai_pick_archetype_10 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_magic_stage_3_idea }
-		random_army_leader = {
-			add_attack = 1
-			add_defense = 1
-			add_unit_leader_trait = flower_dimension_ripper_trait
-		}
-		add_command_power = 100
-		army_experience = 80
+		add_command_power = 50
+		army_experience = 50
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
 		add_ideas = flower_magic_stage_1_idea
-		set_technology = {
-			tech_mountaineers = 1
-			marines = 1
-			paratroopers = 1
-			tech_support = 1
-			popup = yes
-		}
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 4000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 500
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 200
-		}
-		add_equipment_to_stockpile = {
-			type = transport_plane_equipment_1
-			amount = 30
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 2
+			category = mountaineers_tech
+			category = marine_tech
+			category = para_tech
 		}
 		if = {
 			limit = { any_army_leader = { is_assigned = yes } }
@@ -1281,9 +1033,11 @@ flower_ai_pick_archetype_10 = {
 				}
 			}
 		}
-		army_experience = 60
+		army_experience = 35
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_ai_recalc_elite_small_army = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -1294,16 +1048,11 @@ flower_ai_pick_archetype_11 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_steampunk_ai
+	set_variable = { flower_active_arch_id = 11 }
 	flower_ai_recalc_science_compute = yes
 	if = {
 		limit = { is_ai = no }
-		if = {
-			limit = { has_idea = flower_steampunk_stage_2_idea }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_ufo_watermeter" }
-		}
-		else = {
-			hidden_effect = { scoped_sound_effect = "flower_sfx_arch_11_steampunk" }
-		}
+		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_11_steampunk" }
 	}
 	if = {
 		limit = { has_idea = flower_steampunk_stage_2_idea }
@@ -1313,27 +1062,16 @@ flower_ai_pick_archetype_11 = {
 		}
 		add_tech_bonus = {
 			name = flower_blackbox_s3_bonus
-			bonus = 1.5
+			bonus = 1.0
 			uses = 2
 			category = armor
 			category = light_air
 			category = medium_air
 			category = nuclear
 		}
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 2
-		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 2
-		}
-		add_breakthrough_points = {
-			specialization = specialization_nuclear
-			value = 2
-		}
-		army_experience = 60
-		air_experience = 60
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+		add_breakthrough_points = { specialization = specialization_nuclear value = 1 }
 		flower_ai_check_dual_mastery_synergy = yes
 		flower_ai_close_draft_gui_done = yes
 	}
@@ -1344,7 +1082,11 @@ flower_ai_pick_archetype_11 = {
 			add_idea = flower_steampunk_stage_2_idea
 		}
 		if = {
-			limit = { amount_research_slots < 6 }
+			limit = {
+				NOT = { has_country_flag = flower_arch_11_slot_claimed }
+				amount_research_slots < 6
+			}
+			set_country_flag = flower_arch_11_slot_claimed
 			add_research_slot = 1
 		}
 		add_tech_bonus = {
@@ -1355,10 +1097,7 @@ flower_ai_pick_archetype_11 = {
 			category = artillery
 			category = infantry_weapons
 		}
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 2
-		}
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_punk_done } }
 			set_country_flag = flower_evo_punk_done
@@ -1380,16 +1119,8 @@ flower_ai_pick_archetype_11 = {
 	}
 	else_if = {
 		limit = { has_idea = flower_steampunk_stage_3_idea }
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 1
-		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 1
-		}
-		add_to_variable = { ubs_save = 250 }
-		flower_ai_sync_hcp_ui = yes
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
 		flower_ai_close_draft_gui_done = yes
 	}
 	else = {
@@ -1401,16 +1132,12 @@ flower_ai_pick_archetype_11 = {
 			category = industry
 			category = electronics
 		}
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 1
-		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 1
-		}
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
 		flower_ai_close_draft_gui_done = yes
 	}
+	flower_ai_recalc_science_compute = yes
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_check_chemical_combos = yes
 }
 
@@ -1421,7 +1148,13 @@ flower_ai_pick_archetype_12 = {
 		add_to_variable = { flower_distinct_archetypes_count = 1 }
 	}
 	set_country_flag = flower_roguelike_gambler_active
+	set_variable = { flower_active_arch_id = 12 }
+	if = {
+		limit = { NOT = { has_idea = flower_gambler_base_idea } }
+		add_ideas = flower_gambler_base_idea
+	}
 	flower_ai_recalc_black_market_cost = yes
+	flower_tavern_calc_dynamic_goals = yes
 	if = {
 		limit = {
 			NOT = { has_idea = flower_mystery_egg_incubating_idea }
@@ -1435,102 +1168,15 @@ flower_ai_pick_archetype_12 = {
 		limit = {
 			NOT = { has_idea = flower_blood_wager_active_idea }
 			NOT = { has_idea = flower_blood_wager_victory_idea }
+			NOT = { has_country_flag = flower_blood_wager_settled }
 		}
-		add_ideas = flower_blood_wager_active_idea
-		set_variable = { flower_wager_goal_states = num_controlled_states }
-		add_to_variable = { flower_wager_goal_states = 2 }
-		set_variable = { flower_wager_goal_factories = num_of_factories }
-		add_to_variable = { flower_wager_goal_factories = 10 }
-		country_event = { id = FLWAI.24 days = 180 }
+		flower_quest_accept_wager = yes
 	}
 	if = {
-		limit = { has_country_flag = flower_roulette_pity_ready }
-		if = {
-			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
-		}
-		clr_country_flag = flower_roulette_pity_ready
-		if = {
-			limit = { has_idea = flower_roulette_anti_scam_idea }
-			remove_ideas = flower_roulette_anti_scam_idea
-		}
-		flower_ai_add_research_slot_capped = yes
-		add_to_variable = { ubs_save = 1000 }
-		flower_ai_sync_hcp_ui = yes
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = arms_factory
-					size > 2
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 5
-			add_building_construction = {
-				type = arms_factory
-				level = 5
-				instant_build = yes
-			}
-		}
+		limit = { is_ai = no }
+		hidden_effect = { scoped_sound_effect = "flower_sfx_arch_12_gambler" }
 	}
-	else = {
-		random_list = {
-			25 = {
-				if = {
-					limit = { is_ai = no }
-					hidden_effect = { scoped_sound_effect = "flower_sfx_branch_stonks_money" }
-				}
-				flower_ai_add_research_slot_capped = yes
-				add_to_variable = { ubs_save = 1000 }
-				flower_ai_sync_hcp_ui = yes
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = arms_factory
-							size > 2
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 5
-					add_building_construction = {
-						type = arms_factory
-						level = 5
-						instant_build = yes
-					}
-				}
-			}
-			50 = {
-				if = {
-					limit = { is_ai = no }
-					hidden_effect = { scoped_sound_effect = "flower_sfx_arch_12_gambler" }
-				}
-				add_equipment_to_stockpile = {
-					type = infantry_equipment
-					amount = 20000
-				}
-				add_equipment_to_stockpile = {
-					type = artillery_equipment
-					amount = 2000
-				}
-				add_equipment_to_stockpile = {
-					type = support_equipment
-					amount = 1000
-				}
-				army_experience = 100
-				add_to_variable = { ubs_save = 250 }
-				flower_ai_sync_hcp_ui = yes
-			}
-			25 = {
-				if = {
-					limit = { is_ai = no }
-					hidden_effect = { scoped_sound_effect = "flower_sfx_branch_qin_scam" }
-				}
-				add_political_power = -75
-				add_ideas = flower_roulette_anti_scam_idea
-				set_country_flag = flower_roulette_pity_ready
-			}
-		}
-	}
+	flower_tavern_check_golden_synthesis = yes
 	flower_ai_close_draft_gui_done = yes
 	clr_country_flag = flower_gambler_bribed_this_roll
 	flower_ai_roll_gambler_fate = yes
@@ -1540,7 +1186,7 @@ flower_ai_pick_archetype_12 = {
 flower_ai_apply_branch_choice_1 = {
 	if = {
 		limit = { check_variable = { flower_branch_id = 1 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_fbi_open" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_7_nightingale" } }
 		add_ideas = flower_evo_nightingale_blood_idea
 		add_command_power = 40
 		army_experience = 50
@@ -1549,24 +1195,13 @@ flower_ai_apply_branch_choice_1 = {
 		limit = { check_variable = { flower_branch_id = 2 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_8_guerrilla" } }
 		add_ideas = flower_evo_guerrilla_scorch_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 400
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 3 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_9_undead" } }
 		add_ideas = flower_evo_undead_plague_idea
-		add_manpower = 60000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 6000
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 4 } }
@@ -1578,18 +1213,15 @@ flower_ai_apply_branch_choice_1 = {
 		limit = { check_variable = { flower_branch_id = 5 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" } }
 		add_ideas = flower_evo_corp_trust_idea
-		add_to_variable = { ubs_save = 500 }
+		add_to_variable = { ubs_save = 250 }
 		flower_ai_sync_hcp_ui = yes
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 6 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_bomb_area" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" } }
 		add_ideas = flower_evo_arty_carpet_idea
 		flower_ai_recalc_arty_density = yes
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 2500
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 7 } }
@@ -1610,14 +1242,14 @@ flower_ai_apply_branch_choice_1 = {
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_6_wave" } }
 		add_ideas = flower_evo_wave_meatgrinder_idea
 		flower_ai_recalc_veteran_furnace = yes
-		add_manpower = 150000
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 10 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_10_magic" } }
 		add_ideas = flower_evo_magic_chosen_idea
 		flower_ai_recalc_elite_small_army = yes
-		army_experience = 50
+		army_experience = 35
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 11 } }
@@ -1627,20 +1259,14 @@ flower_ai_apply_branch_choice_1 = {
 		country_event = { id = FLWAI.42 days = 1 }
 		add_tech_bonus = {
 			name = flower_blackbox_branch_air_bonus
-			bonus = 1.5
+			bonus = 1.0
 			uses = 2
 			category = light_air
 			category = medium_air
 			category = nuclear
 		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 2
-		}
-		add_breakthrough_points = {
-			specialization = specialization_nuclear
-			value = 2
-		}
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+		add_breakthrough_points = { specialization = specialization_nuclear value = 1 }
 	}
 	flower_ai_close_draft_gui_done = yes
 	flower_ai_check_chemical_combos = yes
@@ -1652,32 +1278,24 @@ flower_ai_apply_branch_choice_2 = {
 		limit = { check_variable = { flower_branch_id = 1 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_nanomachines" } }
 		add_ideas = flower_evo_nightingale_iron_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		army_experience = 50
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 2 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_italian_cannon" } }
 		set_country_flag = flower_evo_guerrilla_heavy_ai
 		add_ideas = flower_evo_guerrilla_heavy_idea
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 2000
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 3 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_sword" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_defib" } }
 		add_ideas = flower_evo_undead_king_idea
-		army_experience = 80
-		add_manpower = 40000
+		army_experience = 35
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 4 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_good_gun" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_1_slayer" } }
 		add_ideas = flower_evo_slayer_retrofit_idea
 		army_experience = 50
 	}
@@ -1686,17 +1304,18 @@ flower_ai_apply_branch_choice_2 = {
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_2_corp" } }
 		add_ideas = flower_evo_corp_megaproject_idea
 		flower_ai_corp_prospect_mineral = yes
-		flower_ai_add_research_slot_capped = yes
+		if = {
+			limit = { NOT = { has_country_flag = flower_arch_2b_slot_claimed } }
+			set_country_flag = flower_arch_2b_slot_claimed
+			flower_ai_add_research_slot_capped = yes
+		}
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 6 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_deja_vu" } }
 		add_ideas = flower_evo_arty_mobile_idea
 		flower_ai_recalc_arty_density = yes
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 1500
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 7 } }
@@ -1717,27 +1336,21 @@ flower_ai_apply_branch_choice_2 = {
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_steiner_heroes" } }
 		add_ideas = flower_evo_wave_banzai_idea
 		flower_ai_recalc_veteran_furnace = yes
-		add_manpower = 150000
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 10 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_combo_awakening" } }
 		add_ideas = flower_evo_magic_grimoire_idea
 		flower_ai_recalc_elite_small_army = yes
-		add_breakthrough_points = {
-			specialization = specialization_land
-			value = 2
-		}
-		add_breakthrough_points = {
-			specialization = specialization_air
-			value = 2
-		}
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 11 } }
-		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_meme_lj_good_gun" } }
+		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_11_steampunk" } }
 		add_ideas = flower_evo_punk_elfsteam_idea
-		army_experience = 80
+		army_experience = 35
 	}
 	flower_ai_close_draft_gui_done = yes
 	flower_ai_check_chemical_combos = yes
@@ -1749,35 +1362,21 @@ flower_ai_apply_branch_choice_3 = {
 		limit = { check_variable = { flower_branch_id = 1 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_7_nightingale" } }
 		add_ideas = flower_evo_nightingale_alchemy_idea
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 5000
-		}
-		add_equipment_to_stockpile = {
-			type = artillery_equipment
-			amount = 800
-		}
-		add_equipment_to_stockpile = {
-			type = support_equipment
-			amount = 500
-		}
+		add_command_power = 25
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 2 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_arch_8_guerrilla" } }
 		add_ideas = flower_evo_guerrilla_sea_idea
-		add_manpower = 80000
-		add_equipment_to_stockpile = {
-			type = infantry_equipment
-			amount = 10000
-		}
+		army_experience = 25
 	}
 	else_if = {
 		limit = { check_variable = { flower_branch_id = 3 } }
 		hidden_effect = { if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" } }
 		add_ideas = flower_evo_undead_sweatshop_idea
 		flower_ai_recalc_blood_labor = yes
-		add_to_variable = { ubs_save = 500 }
+		add_to_variable = { ubs_save = 250 }
 		flower_ai_sync_hcp_ui = yes
 	}
 	flower_ai_close_draft_gui_done = yes

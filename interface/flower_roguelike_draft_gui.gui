@@ -287,7 +287,7 @@ guiTypes = {
 			position = { x = 38 y = 165 }
 			font = "flower_a4_18"
 			text = "[GetFlowerDraftSectionTitle]"
-			maxWidth = 420
+			maxWidth = 380
 			maxHeight = 22
 			format = left
 			fixedsize = yes
@@ -295,10 +295,10 @@ guiTypes = {
 		}
 		instantTextBoxType = {
 			name = "flower_draft_hint_text"
-			position = { x = 548 y = 166 }
+			position = { x = 438 y = 166 }
 			font = "flower_a4_16"
 			text = "[GetFlowerDraftGuiHint]"
-			maxWidth = 340
+			maxWidth = 450
 			maxHeight = 20
 			format = right
 			fixedsize = yes

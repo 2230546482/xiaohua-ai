@@ -49,7 +49,7 @@ defined_text = {
 	name = GetFlowerDraftGuiHint
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 1 } } localization_key = FLOWER_DRAFT_GUI_HINT_1 }
 	text = { trigger = { check_variable = { flower_draft_gui_mode = 3 } } localization_key = FLOWER_DRAFT_GUI_HINT_3 }
-	text = { trigger = { has_country_flag = flower_draft_free_reroll } localization_key = FLOWER_DRAFT_GUI_HINT_2_FREE }
+	text = { trigger = { check_variable = { flower_free_reroll_charges > 0 } } localization_key = FLOWER_DRAFT_GUI_HINT_2_FREE }
 	text = { localization_key = FLOWER_DRAFT_GUI_HINT_2_PAID }
 }
 defined_text = {
@@ -72,30 +72,30 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerDraftRerollBtnShort
-	text = { trigger = { has_country_flag = flower_draft_free_reroll } localization_key = FLOWER_DRAFT_REROLL_SHORT_FREE }
-	text = { trigger = { check_variable = { flower_draft_rerolls_used = 1 } } localization_key = FLOWER_DRAFT_REROLL_SHORT_T2 }
-	text = { trigger = { check_variable = { flower_draft_rerolls_used = 2 } } localization_key = FLOWER_DRAFT_REROLL_SHORT_T3 }
+	text = { trigger = { check_variable = { flower_free_reroll_charges > 0 } } localization_key = FLOWER_DRAFT_REROLL_SHORT_FREE }
+	text = { trigger = { check_variable = { flower_draft_rerolls_used = 0 } } localization_key = FLOWER_DRAFT_REROLL_SHORT_T2 }
+	text = { trigger = { check_variable = { flower_draft_rerolls_used = 1 } } localization_key = FLOWER_DRAFT_REROLL_SHORT_T3 }
 	text = { localization_key = FLOWER_DRAFT_REROLL_SHORT_DONE }
 }
 defined_text = {
 	name = GetFlowerDraftRerollTT
-	text = { trigger = { has_country_flag = flower_draft_free_reroll } localization_key = FLOWER_DRAFT_REROLL_TT_FREE }
+	text = { trigger = { check_variable = { flower_free_reroll_charges > 0 } } localization_key = FLOWER_DRAFT_REROLL_TT_FREE }
 	text = {
 		trigger = {
-			check_variable = { flower_draft_rerolls_used = 1 }
+			check_variable = { flower_draft_rerolls_used = 0 }
 			check_variable = { ubs_save > 149 }
 		}
 		localization_key = FLOWER_DRAFT_REROLL_TT_T2_HCP
 	}
-	text = { trigger = { check_variable = { flower_draft_rerolls_used = 1 } } localization_key = FLOWER_DRAFT_REROLL_TT_T2_PP }
+	text = { trigger = { check_variable = { flower_draft_rerolls_used = 0 } } localization_key = FLOWER_DRAFT_REROLL_TT_T2_PP }
 	text = {
 		trigger = {
-			check_variable = { flower_draft_rerolls_used = 2 }
+			check_variable = { flower_draft_rerolls_used = 1 }
 			check_variable = { ubs_save > 249 }
 		}
 		localization_key = FLOWER_DRAFT_REROLL_TT_T3_HCP
 	}
-	text = { trigger = { check_variable = { flower_draft_rerolls_used = 2 } } localization_key = FLOWER_DRAFT_REROLL_TT_T3_PP }
+	text = { trigger = { check_variable = { flower_draft_rerolls_used = 1 } } localization_key = FLOWER_DRAFT_REROLL_TT_T3_PP }
 	text = { localization_key = FLOWER_DRAFT_REROLL_TT_DONE }
 }
 defined_text = {
@@ -106,43 +106,42 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			num_of_factories < 50
-			has_equipment = { infantry_equipment > 1999 }
-			has_equipment = { artillery_equipment > 199 }
+			num_of_factories < 30
+			has_equipment = { infantry_equipment > 999 }
+			has_equipment = { artillery_equipment > 99 }
 		}
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_SMALL
 	}
 	text = {
 		trigger = {
-			num_of_factories > 49
-			has_equipment = { infantry_equipment > 4999 }
-			has_equipment = { artillery_equipment > 499 }
+			num_of_factories > 29
+			num_of_factories < 70
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { artillery_equipment > 199 }
+		}
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_MID
+	}
+	text = {
+		trigger = {
+			num_of_factories > 69
+			has_equipment = { infantry_equipment > 3499 }
+			has_equipment = { artillery_equipment > 349 }
 		}
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE
 	}
 	text = {
-		trigger = { check_variable = { ubs_save > 299.999 } }
+		trigger = { check_variable = { ubs_save > 449.999 } }
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_HCP
 	}
 	text = {
-		trigger = { num_of_factories < 50 }
+		trigger = { num_of_factories < 30 }
 		localization_key = FLOWER_DRAFT_GAMBLE_TT_SMALL
 	}
-	text = { localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE }
-}
-defined_text = {
-	name = GetFlowerDraftRerollBtn
-	text = { trigger = { has_country_flag = flower_draft_free_reroll } localization_key = flower_draft_reroll_free_btn }
 	text = {
-		trigger = {
-			check_variable = { flower_draft_rerolls_used = 1 }
-			check_variable = { ubs_save > 149 }
-		}
-		localization_key = flower_draft_reroll_tier2_hcp_btn
+		trigger = { num_of_factories < 70 }
+		localization_key = FLOWER_DRAFT_GAMBLE_TT_MID
 	}
-	text = { trigger = { check_variable = { flower_draft_rerolls_used = 1 } } localization_key = flower_draft_reroll_tier2_pp_btn }
-	text = { trigger = { check_variable = { ubs_save > 249 } } localization_key = flower_draft_reroll_tier3_hcp_btn }
-	text = { localization_key = flower_draft_reroll_tier3_pp_btn }
+	text = { localization_key = FLOWER_DRAFT_GAMBLE_TT_LARGE }
 }
 defined_text = {
 	name = GetFlowerComboHeadline
@@ -171,6 +170,7 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerArch1Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_1 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { check_variable = { flower_slayer_stacks > 0 } } localization_key = FLOWER_ARCH_STATUS_SLAYER_ACTIVE }
 	text = { localization_key = FLOWER_ARCH_STATUS_NEW }
 }
@@ -181,6 +181,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch12Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_12 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_country_flag = flower_roulette_pity_ready } localization_key = FLOWER_ARCH_STATUS_PITY }
 	text = { localization_key = FLOWER_ARCH_STATUS_GAMBLE }
 }
@@ -191,6 +192,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch2Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_2 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_corp_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_corp_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_corp_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -205,6 +207,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch3Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_3 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_arty_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_arty_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_arty_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -219,6 +222,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch4Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_4 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_tank_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_tank_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_tank_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -233,6 +237,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch5Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_5 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_air_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_air_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_air_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -247,6 +252,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch6Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_6 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_wave_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_wave_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_wave_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -261,6 +267,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch7Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_7 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_nightingale_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_nightingale_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_nightingale_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -275,6 +282,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch8Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_8 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_guerrilla_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_guerrilla_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_guerrilla_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -289,6 +297,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch9Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_9 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_undead_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_undead_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_undead_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -303,6 +312,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch10Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_10 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_magic_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_magic_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_magic_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -317,6 +327,7 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerArch11Status
+	text = { trigger = { has_global_flag = flower_tavern_pool_rolled NOT = { has_global_flag = flower_pool_arch_11 } } localization_key = FLOWER_ARCH_STATUS_CLOSED }
 	text = { trigger = { has_idea = flower_steampunk_stage_3_idea } localization_key = FLOWER_ARCH_STATUS_MAX }
 	text = { trigger = { has_idea = flower_steampunk_stage_2_idea } localization_key = FLOWER_ARCH_STATUS_S2 }
 	text = { trigger = { has_idea = flower_steampunk_stage_1_idea } localization_key = FLOWER_ARCH_STATUS_S1 }
@@ -1553,6 +1564,7 @@ defined_text = {
 
 defined_text = {
 	name = GetFlowerHistoryCardCat
+	text = { trigger = { check_variable = { flower_history_sell_confirm_id = v } } localization_key = FLOWER_HIST_CAT_SELL_CONFIRM }
 	text = { trigger = { check_variable = { v = 1 } } localization_key = flower_tag_card_1 }
 	text = { trigger = { check_variable = { v = 2 } } localization_key = flower_tag_card_2 }
 	text = { trigger = { check_variable = { v = 3 } } localization_key = flower_tag_card_3 }
@@ -1840,6 +1852,85 @@ defined_text = {
 	text = { trigger = { has_idea = flower_gambler_debuff_jammed_idea } localization_key = FLOWER_HIST_FATE_6 }
 	text = { trigger = { has_idea = flower_gambler_debuff_chaos_idea } localization_key = FLOWER_HIST_FATE_7 }
 	text = { trigger = { has_idea = flower_gambler_debuff_scandal_idea } localization_key = FLOWER_HIST_FATE_8 }
+	text = { localization_key = flower_draft_empty_key }
+}
+defined_text = {
+	name = GetFlowerHistBadgeSynergy
+	text = { trigger = { check_variable = { flower_badge_synergy_tier > 0 } } localization_key = FLOWER_HIST_BADGE_SYN_ON }
+	text = { localization_key = flower_draft_empty_key }
+}
+defined_text = {
+	name = GetFlowerHistNearComboHint
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_1_done }
+			OR = { has_idea = flower_undead_stage_1_idea has_idea = flower_undead_stage_2_idea has_idea = flower_undead_stage_3_idea has_country_flag = flower_card_owned_27 }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_1
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_2_done }
+			OR = { has_idea = flower_guerrilla_stage_1_idea has_idea = flower_guerrilla_stage_2_idea has_idea = flower_guerrilla_stage_3_idea has_idea = flower_micro_guerrilla_manual_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_2
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_3_done }
+			OR = { has_idea = flower_nightingale_stage_1_idea has_idea = flower_nightingale_stage_2_idea has_idea = flower_nightingale_stage_3_idea has_idea = flower_micro_nightingale_cloak_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_3
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_7_done }
+			OR = { has_idea = flower_arty_stage_1_idea has_idea = flower_arty_stage_2_idea has_idea = flower_arty_stage_3_idea has_idea = flower_micro_sanae_charm_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_7
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_8_done }
+			OR = { has_idea = flower_air_stage_1_idea has_idea = flower_air_stage_2_idea has_idea = flower_air_stage_3_idea has_idea = flower_relic_sky_backyard_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_8
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_9_done }
+			has_dynamic_modifier = { modifier = flower_slayer_book_dynamic_mod }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_9
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_10_done }
+			has_country_flag = flower_roguelike_gambler_active
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_10
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_5_done }
+			OR = { has_idea = flower_steampunk_stage_1_idea has_idea = flower_steampunk_stage_2_idea has_idea = flower_steampunk_stage_3_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_5
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_6_done }
+			OR = { has_idea = flower_magic_stage_1_idea has_idea = flower_magic_stage_2_idea has_idea = flower_magic_stage_3_idea has_idea = flower_micro_uma_dispatch_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_6
+	}
+	text = {
+		trigger = {
+			NOT = { has_country_flag = flower_combo_4_done }
+			OR = { has_idea = flower_wave_stage_1_idea has_idea = flower_wave_stage_2_idea has_idea = flower_wave_stage_3_idea }
+		}
+		localization_key = FLOWER_HIST_NEAR_COMBO_4
+	}
 	text = { localization_key = flower_draft_empty_key }
 }
 

@@ -115,12 +115,6 @@ sound = {
 }
 
 sound = {
-	name = "flower_sfx_branch_tiger_look"
-	file = "flower_memes/flower_sfx_branch_tiger_look.wav"
-	always_load = yes
-}
-
-sound = {
 	name = "flower_sfx_branch_ma_baoguo"
 	file = "flower_memes/flower_sfx_branch_ma_baoguo.wav"
 	always_load = yes
@@ -145,12 +139,6 @@ sound = {
 }
 
 sound = {
-	name = "flower_sfx_branch_qin_scam"
-	file = "flower_memes/flower_sfx_branch_qin_scam.wav"
-	always_load = yes
-}
-
-sound = {
 	name = "flower_sfx_combo_awakening"
 	file = "flower_memes/flower_sfx_combo_awakening.wav"
 	always_load = yes
@@ -164,7 +152,7 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_arch_1_slayer
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_1_slayer
 	}
@@ -172,7 +160,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_2_corp
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_2_corp
 	}
@@ -180,7 +168,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_3_arty
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_3_arty
 	}
@@ -188,7 +176,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_4_tank
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_4_tank
 	}
@@ -196,7 +184,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_5_air
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_5_air
 	}
@@ -204,7 +192,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_6_wave
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_6_wave
 	}
@@ -212,7 +200,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_7_nightingale
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_7_nightingale
 	}
@@ -220,7 +208,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_8_guerrilla
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_8_guerrilla
 	}
@@ -228,7 +216,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_9_undead
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_9_undead
 	}
@@ -236,7 +224,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_10_magic
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_10_magic
 	}
@@ -244,7 +232,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_11_steampunk
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_11_steampunk
 	}
@@ -252,7 +240,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_arch_12_gambler
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_arch_12_gambler
 	}
@@ -260,7 +248,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_italian_cannon
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_italian_cannon
 	}
@@ -268,7 +256,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_stuka_shampoo
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_stuka_shampoo
 	}
@@ -276,7 +264,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_ufo_watermeter
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_ufo_watermeter
 	}
@@ -284,7 +272,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_timestop_dio
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_timestop_dio
 	}
@@ -292,7 +280,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_ainz_overlord
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_ainz_overlord
 	}
@@ -300,7 +288,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_stonks_money
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_stonks_money
 	}
@@ -308,23 +296,15 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_rooftop_crash
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_rooftop_crash
 	}
 }
 
 soundeffect = {
-	name = flower_sfx_branch_tiger_look
-	volume = 0.58
-	sounds = {
-		sound = flower_sfx_branch_tiger_look
-	}
-}
-
-soundeffect = {
 	name = flower_sfx_branch_ma_baoguo
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_ma_baoguo
 	}
@@ -332,7 +312,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_eat_tuva
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_eat_tuva
 	}
@@ -340,7 +320,7 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_steiner_heroes
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_branch_steiner_heroes
 	}
@@ -348,23 +328,15 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_branch_nightmare_boss
-	volume = 0.70
+	volume = 0.50
 	sounds = {
 		sound = flower_sfx_branch_nightmare_boss
 	}
 }
 
 soundeffect = {
-	name = flower_sfx_branch_qin_scam
-	volume = 0.58
-	sounds = {
-		sound = flower_sfx_branch_qin_scam
-	}
-}
-
-soundeffect = {
 	name = flower_sfx_combo_awakening
-	volume = 0.58
+	volume = 0.42
 	sounds = {
 		sound = flower_sfx_combo_awakening
 	}
@@ -372,23 +344,9 @@ soundeffect = {
 
 soundeffect = {
 	name = flower_sfx_cat_hiss
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_cat_hiss
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_fbi_open"
-	file = "flower_memes/flower_sfx_meme_fbi_open.wav"
-	always_load = yes
-}
-
-soundeffect = {
-	name = flower_sfx_meme_fbi_open
-	volume = 0.60
-	sounds = {
-		sound = flower_sfx_meme_fbi_open
 	}
 }
 
@@ -400,23 +358,9 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_deja_vu
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_deja_vu
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_gas_gas"
-	file = "flower_memes/flower_sfx_meme_gas_gas.wav"
-	always_load = yes
-}
-
-soundeffect = {
-	name = flower_sfx_meme_gas_gas
-	volume = 0.60
-	sounds = {
-		sound = flower_sfx_meme_gas_gas
 	}
 }
 
@@ -428,7 +372,7 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_wang_shijian
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_wang_shijian
 	}
@@ -442,7 +386,7 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_truck_horn
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_truck_horn
 	}
@@ -456,7 +400,7 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_nanomachines
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_nanomachines
 	}
@@ -470,23 +414,9 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_zhenxiang
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_zhenxiang
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_katsu_boom"
-	file = "flower_memes/flower_sfx_meme_katsu_boom.wav"
-	always_load = yes
-}
-
-soundeffect = {
-	name = flower_sfx_meme_katsu_boom
-	volume = 0.60
-	sounds = {
-		sound = flower_sfx_meme_katsu_boom
 	}
 }
 
@@ -498,23 +428,9 @@ sound = {
 
 soundeffect = {
 	name = flower_sfx_meme_heroes_revive
-	volume = 0.60
+	volume = 0.44
 	sounds = {
 		sound = flower_sfx_meme_heroes_revive
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_sparta"
-	file = "flower_memes/flower_sfx_meme_sparta.wav"
-	always_load = yes
-}
-
-soundeffect = {
-	name = flower_sfx_meme_sparta
-	volume = 0.60
-	sounds = {
-		sound = flower_sfx_meme_sparta
 	}
 }
 
@@ -526,7 +442,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_7_ziwen
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_7_ziwen
 	}
@@ -539,7 +455,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_7_guanyu_song
-	volume = 0.72
+	volume = 0.52
 	sounds = {
 		sound = flower_sfx_anomaly_7_guanyu_song
 	}
@@ -552,7 +468,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_8_yemen
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_8_yemen
 	}
@@ -565,7 +481,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_9_pinhaofan
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_9_pinhaofan
 	}
@@ -578,7 +494,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_10_congrong
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_10_congrong
 	}
@@ -591,7 +507,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_11_manba
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_11_manba
 	}
@@ -604,7 +520,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_anomaly_12_look_eyes
-	volume = 0.65
+	volume = 0.47
 	sounds = {
 		sound = flower_sfx_anomaly_12_look_eyes
 	}
@@ -617,7 +533,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_mambo
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_mambo
 	}
@@ -630,7 +546,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_touhou_spark
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_touhou_spark
 	}
@@ -643,7 +559,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_sakuya_world
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_sakuya_world
 	}
@@ -656,22 +572,9 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_defib
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_defib
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_helicopter"
-	file = "flower_memes/flower_sfx_meme_helicopter.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_helicopter
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_helicopter
 	}
 }
 
@@ -682,7 +585,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_mgs_alert
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_mgs_alert
 	}
@@ -695,74 +598,9 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_lj_loot
-	volume = 0.62
+	volume = 0.45
 	sounds = {
 		sound = flower_sfx_meme_lj_loot
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_lj_good_gun"
-	file = "flower_memes/flower_sfx_meme_lj_good_gun.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_lj_good_gun
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_lj_good_gun
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_lj_bomb_area"
-	file = "flower_memes/flower_sfx_meme_lj_bomb_area.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_lj_bomb_area
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_lj_bomb_area
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_lj_genius"
-	file = "flower_memes/flower_sfx_meme_lj_genius.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_lj_genius
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_lj_genius
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_lj_sword"
-	file = "flower_memes/flower_sfx_meme_lj_sword.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_lj_sword
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_lj_sword
-	}
-}
-
-sound = {
-	name = "flower_sfx_meme_tactical_nuke"
-	file = "flower_memes/flower_sfx_meme_tactical_nuke.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_tactical_nuke
-	volume = 0.62
-	sounds = {
-		sound = flower_sfx_meme_tactical_nuke
 	}
 }
 
@@ -773,7 +611,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_cavalry_charge
-	volume = 0.64
+	volume = 0.46
 	sounds = {
 		sound = flower_sfx_meme_cavalry_charge
 	}
@@ -786,7 +624,7 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_bugle
-	volume = 0.64
+	volume = 0.46
 	sounds = {
 		sound = flower_sfx_meme_bugle
 	}
@@ -799,21 +637,9 @@ sound = {
 }
 soundeffect = {
 	name = flower_sfx_meme_5whips
-	volume = 0.64
+	volume = 0.46
 	sounds = {
 		sound = flower_sfx_meme_5whips
 	}
 }
 
-sound = {
-	name = "flower_sfx_meme_lj_ambush"
-	file = "flower_memes/flower_sfx_meme_lj_ambush.wav"
-	always_load = yes
-}
-soundeffect = {
-	name = flower_sfx_meme_lj_ambush
-	volume = 0.64
-	sounds = {
-		sound = flower_sfx_meme_lj_ambush
-	}
-}

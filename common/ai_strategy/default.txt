@@ -1956,32 +1956,33 @@ moren_wartime_air_superiority = {
         has_war = yes
         num_of_military_factories > 50
         has_tech = basic_small_airframe
+        has_deployed_air_force_size = { size < 3000 }
     }
     abort_when_not_enabled = yes
 
     ai_strategy = {
         type = equipment_production_factor
         id = fighter
-        value = 150
+        value = 90
     }
     ai_strategy = {
         type = equipment_production_min_factories
         id = fighter
-        value = 10
+        value = 6
     }
     ai_strategy = {
         type = equipment_production_factor
         id = cas
-        value = 100
+        value = 60
     }
     ai_strategy = {
         type = equipment_production_min_factories
         id = cas
-        value = 6
+        value = 4
     }
     ai_strategy = {
         type = air_factory_balance
-        value = 15
+        value = 5
     }
 }
 
@@ -2013,6 +2014,7 @@ moren_midtier_air_and_aa_defense = {
         has_war = yes
         num_of_military_factories > 19
         num_of_military_factories < 51
+        has_deployed_air_force_size = { size < 1200 }
     }
     abort_when_not_enabled = yes
 
@@ -2029,12 +2031,122 @@ moren_midtier_air_and_aa_defense = {
     ai_strategy = {
         type = equipment_production_factor
         id = fighter
-        value = 110
+        value = 70
     }
     ai_strategy = {
         type = equipment_production_min_factories
         id = fighter
-        value = 4
+        value = 2
+    }
+}
+
+#后期AI空军规模软上限制动（防止陆军满编后海量军工泄洪暴造几万架飞机）
+flower_ai_late_air_soft_cap = {
+    allowed = {
+        always = yes
+    }
+    enable = {
+        is_ai = yes
+        NOT = { has_country_flag = flower_roguelike_air_ai }
+        has_deployed_air_force_size = { size > 2800 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = air_factory_balance
+        value = -90
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = -50
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = -50
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = tactical_bomber
+        value = -60
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strategic_bomber
+        value = -60
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = armor
+        value = 50
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = mechanized
+        value = 40
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = artillery
+        value = 30
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = anti_air
+        value = 30
+    }
+}
+
+#后期AI空军硬制动（即便走空军流派超过5500架后也停止无止境堆飞机，导流至重装机械化）
+flower_ai_late_air_hard_cap = {
+    allowed = {
+        always = yes
+    }
+    enable = {
+        is_ai = yes
+        has_deployed_air_force_size = { size > 5500 }
+    }
+    abort_when_not_enabled = yes
+
+    ai_strategy = {
+        type = air_factory_balance
+        value = -180
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = fighter
+        value = -90
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = cas
+        value = -90
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = tactical_bomber
+        value = -90
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = strategic_bomber
+        value = -90
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = naval_bomber
+        value = -80
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = armor
+        value = 70
+    }
+    ai_strategy = {
+        type = equipment_production_factor
+        id = mechanized
+        value = 60
     }
 }
 

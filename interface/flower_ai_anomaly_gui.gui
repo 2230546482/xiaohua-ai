@@ -123,10 +123,10 @@ guiTypes = {
 		buttonType = {
 			name = "flower_anomaly_multi_on_btn"
 			position = { x = 366 y = 104 }
-			quadTextureSprite = "GFX_flower_btn_rose"
+			quadTextureSprite = "GFX_flower_btn_amber"
 			buttonFont = "flower_a4_16"
 			buttonText = ""
-			pdx_tooltip = "FLOWER_ANOMALY_MULTI_BTN_TT"
+			pdx_tooltip = "FLOWER_ANOMALY_MULTI_ON_TT"
 			clicksound = 选择
 			oversound = PAU_hover_paper
 		}
@@ -135,6 +135,28 @@ guiTypes = {
 			position = { x = 376 y = 111 }
 			font = "flower_a4_16"
 			text = "FLOWER_ANOMALY_MULTI_ON_TEXT"
+			maxWidth = 176
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "flower_anomaly_chaos_btn"
+			position = { x = 366 y = 104 }
+			quadTextureSprite = "GFX_flower_btn_rose"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_ANOMALY_CHAOS_BTN_TT"
+			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		instantTextBoxType = {
+			name = "flower_anomaly_chaos_lbl"
+			position = { x = 376 y = 111 }
+			font = "flower_a4_16"
+			text = "FLOWER_ANOMALY_CHAOS_BTN_TEXT"
 			maxWidth = 176
 			maxHeight = 20
 			format = center
@@ -483,7 +505,7 @@ guiTypes = {
 			position = { x = 44 y = 614 }
 			font = "flower_a4_16"
 			text = "[GetFlowerAnomalyFooterText]"
-			maxWidth = 446
+			maxWidth = 456
 			maxHeight = 20
 			format = left
 			fixedsize = yes

@@ -8,163 +8,6 @@ spriteTypes = {
 		name = "GFX_event_flower_ai_2"
 		texturefile = "gfx/event_pictures/flower_ai_2.png"
 	}
-	#开局畸变与肉鸽手账GUI
-	spriteType = {
-		name = "GFX_flower_xiaohua_card_happy"
-		texturefile = "gfx/interface/gui/flower_xiaohua_card_happy.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_xiaohua_card_cry"
-		texturefile = "gfx/interface/gui/flower_xiaohua_card_cry.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_cat_icon_relic"
-		texturefile = "gfx/interface/gui/flower_cat_icon_relic.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_cat_icon_curse"
-		texturefile = "gfx/interface/gui/flower_cat_icon_curse.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_cat_icon_evo"
-		texturefile = "gfx/interface/gui/flower_cat_icon_evo.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_cat_icon_cross"
-		texturefile = "gfx/interface/gui/flower_cat_icon_cross.png"
-		legacy_lazy_load = no
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_1"
-		texturefile = "gfx/interface/gui/flower_arch_card_1.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_2"
-		texturefile = "gfx/interface/gui/flower_arch_card_2.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_3"
-		texturefile = "gfx/interface/gui/flower_arch_card_3.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_4"
-		texturefile = "gfx/interface/gui/flower_arch_card_4.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_5"
-		texturefile = "gfx/interface/gui/flower_arch_card_5.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_6"
-		texturefile = "gfx/interface/gui/flower_arch_card_6.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_7"
-		texturefile = "gfx/interface/gui/flower_arch_card_7.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_8"
-		texturefile = "gfx/interface/gui/flower_arch_card_8.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_9"
-		texturefile = "gfx/interface/gui/flower_arch_card_9.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_10"
-		texturefile = "gfx/interface/gui/flower_arch_card_10.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_11"
-		texturefile = "gfx/interface/gui/flower_arch_card_11.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_arch_card_12"
-		texturefile = "gfx/interface/gui/flower_arch_card_12.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_1"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_1.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_2"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_2.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_3"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_3.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_4"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_4.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_5"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_5.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_anomaly_card_6"
-		texturefile = "gfx/interface/gui/flower_anomaly_card_6.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_card_seal_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_btn_anomaly_start"
-		texturefile = "gfx/interface/gui/flower_btn_anomaly_start.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_tactile_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_btn_anomaly_multi_off"
-		texturefile = "gfx/interface/gui/flower_btn_anomaly_multi_off.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_tactile_press.shader"
-	}
-	spriteType = {
-		name = "GFX_flower_btn_anomaly_multi_on"
-		texturefile = "gfx/interface/gui/flower_btn_anomaly_multi_on.png"
-		legacy_lazy_load = no
-		effectFile = "gfx/FX/pau_tactile_press.shader"
-	}
 	#将领特质
 	spriteType = {
 		name = "GFX_trait_swy_trait"
@@ -230,10 +73,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_flower_ai_neizhan"
 		texturefile = "gfx/interface/ideas/flower_ai_neizhan.png"
-	}
-	spriteType = {
-		name = "GFX_idea_flower_idea_roguelike"
-		texturefile = "gfx/interface/ideas/flower_std/flower_std_roguelike_dice.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_blitz"
@@ -335,14 +174,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_flower_idea_evo_star_fleet"
 		texturefile = "gfx/interface/ideas/flower_std/flower_std_ufo_s3.png"
-	}
-	spriteType = {
-		name = "GFX_idea_flower_idea_evo_elf"
-		texturefile = "gfx/interface/ideas/ELF/race_elf.png"
-	}
-	spriteType = {
-		name = "GFX_idea_flower_idea_relic_supply"
-		texturefile = "gfx/interface/ideas/LHS/LHS_Comintern_yuanzhu.png"
 	}
 	spriteType = {
 		name = "GFX_idea_flower_idea_relic_gold"
@@ -1417,5 +1248,130 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_decision_flower_dec_bp_devour"
 		texturefile = "gfx/interface/decisions/decision_flower_dec_bp_devour.png"
+	}
+	#图鉴卖卡确认与徽章考核总览贴图
+	spriteType = {
+		name = "GFX_flower_btn_sell_xs"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_sell_xs.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_sell_confirm_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_sell_confirm_bar.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_btn_confirm_sell"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_confirm_sell.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_btn_cancel_sm"
+		texturefile = "gfx/interface/gui/flower_ui/flower_btn_cancel_sm.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_dock_btn_badge"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_btn_badge.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_badge_owned_card"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_owned_card.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_badge_owned_gold"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_owned_gold.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_badge_shop_card"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_shop_card.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_badge_shop_card_gold"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_shop_card_gold.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_badge_shop_card_cursed"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_shop_card_cursed.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_st_badge_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_st_badge_icons.png"
+		noOfFrames = 25
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_lt_badge_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_lt_badge_icons.png"
+		noOfFrames = 25
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_crown_badge_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_crown_badge_icons.png"
+		noOfFrames = 5
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_gold_badge_icons"
+		texturefile = "gfx/interface/gui/flower_ui/flower_gold_badge_icons.png"
+		noOfFrames = 13
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_badge_status_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_status_bar.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_badge_feedback_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_badge_feedback_bar.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_quest_header_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_header_bar.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_quest_card_bg"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_card_bg.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_quest_card_done"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_card_done.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_quest_prog_bar"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_prog_bar.png"
+		noOfFrames = 11
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_flower_quest_btn_action"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_btn_action.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_quest_btn_claim"
+		texturefile = "gfx/interface/gui/flower_ui/flower_quest_btn_claim.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
 }

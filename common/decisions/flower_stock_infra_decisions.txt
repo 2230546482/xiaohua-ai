@@ -13,7 +13,7 @@ flower_stock_infra_cat = {
 				is_controlled_by = ROOT
 			}
 		}
-		days_re_enable = 30
+		days_re_enable = 60
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -25,7 +25,7 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_expand_slots_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 350 }
 				flower_ai_sync_hcp_ui = yes
 			}
@@ -38,25 +38,29 @@ flower_stock_infra_cat = {
 				}
 				random_owned_controlled_state = {
 					limit = { is_core_of = ROOT }
+					set_state_flag = flower_stk_picked_tmp
 					add_extra_state_shared_building_slots = 2
 				}
 				random_owned_controlled_state = {
-					limit = { is_core_of = ROOT }
+					limit = { is_core_of = ROOT NOT = { has_state_flag = flower_stk_picked_tmp } }
 					add_extra_state_shared_building_slots = 2
 				}
 			}
 			else = {
 				random_owned_controlled_state = {
+					set_state_flag = flower_stk_picked_tmp
 					add_extra_state_shared_building_slots = 2
 				}
 				random_owned_controlled_state = {
+					limit = { NOT = { has_state_flag = flower_stk_picked_tmp } }
 					add_extra_state_shared_building_slots = 2
 				}
 			}
+			hidden_effect = { every_owned_state = { clr_state_flag = flower_stk_picked_tmp } }
 		}
 	}
 
-	#2. 民营基建财团包干（花500现金 -> 扩槽并立刻落成2座民用工厂，45天冷却）
+	#2. 民营基建财团包干（花500现金 -> 扩槽并立刻落成2座民用工厂，90天冷却）
 	flower_stk_dec_build_civs = {
 		icon = flower_dec_stk_stonks
 		available = {
@@ -68,7 +72,7 @@ flower_stock_infra_cat = {
 				is_controlled_by = ROOT
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 90
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -84,7 +88,7 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_build_civs_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 500 }
 				flower_ai_sync_hcp_ui = yes
 			}
@@ -118,7 +122,7 @@ flower_stock_infra_cat = {
 		}
 	}
 
-	#3. 军工巨头紧急扩产（花550现金 -> 扩槽并立刻落成2座军用工厂，45天冷却）
+	#3. 军工巨头紧急扩产（花550现金 -> 扩槽并立刻落成2座军用工厂，90天冷却）
 	flower_stk_dec_build_mils = {
 		icon = flower_dec_op_corp
 		available = {
@@ -130,7 +134,7 @@ flower_stock_infra_cat = {
 				is_controlled_by = ROOT
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 90
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -146,7 +150,7 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_build_mils_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 550 }
 				flower_ai_sync_hcp_ui = yes
 			}
@@ -199,7 +203,7 @@ flower_stock_infra_cat = {
 				is_coastal = yes
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 90
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -212,7 +216,7 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_build_docks_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 450 }
 				flower_ai_sync_hcp_ui = yes
 			}
@@ -240,7 +244,7 @@ flower_stock_infra_cat = {
 				is_controlled_by = ROOT
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 60
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -253,52 +257,33 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_national_infra_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 300 }
 				flower_ai_sync_hcp_ui = yes
 			}
 			random_owned_controlled_state = {
 				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-						include_locked = no
-					}
+					free_building_slots = { building = infrastructure size > 0 include_locked = no }
 				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+				set_state_flag = flower_stk_picked_tmp
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
 			}
 			random_owned_controlled_state = {
 				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-						include_locked = no
-					}
+					NOT = { has_state_flag = flower_stk_picked_tmp }
+					free_building_slots = { building = infrastructure size > 0 include_locked = no }
 				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+				set_state_flag = flower_stk_picked_tmp
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
 			}
 			random_owned_controlled_state = {
 				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-						include_locked = no
-					}
+					NOT = { has_state_flag = flower_stk_picked_tmp }
+					free_building_slots = { building = infrastructure size > 0 include_locked = no }
 				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
 			}
+			hidden_effect = { every_owned_state = { clr_state_flag = flower_stk_picked_tmp } }
 			add_timed_idea = {
 				idea = flower_stk_infra_rush_idea
 				days = 90
@@ -306,7 +291,7 @@ flower_stock_infra_cat = {
 		}
 	}
 
-	#6. 合成石化与战备油库包干（花450现金 -> 1座合成炼油厂 + 2座储油罐 + 20000燃油，45天冷却）
+	#6. 合成石化与战备油库包干（花450现金 -> 1座合成炼油厂 + 2座储油罐 + 20000燃油，90天冷却）
 	flower_stk_dec_fuel_synth = {
 		icon = oil
 		available = {
@@ -318,7 +303,7 @@ flower_stock_infra_cat = {
 				is_controlled_by = ROOT
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 90
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -331,7 +316,7 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_fuel_synth_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 450 }
 				flower_ai_sync_hcp_ui = yes
 			}
@@ -381,7 +366,7 @@ flower_stock_infra_cat = {
 		}
 	}
 
-	#7. 前沿机场与防空雷达网包干（花350现金 -> 2个控制州各+2机场、+1防空炮，已解锁雷达再+1雷达站，45天冷却）
+	#7. 前沿机场与防空雷达网包干（花350现金 -> 2个控制州各+2机场、+1防空炮，已解锁雷达再+1雷达站，60天冷却）
 	flower_stk_dec_air_radar = {
 		icon = generic_air
 		available = {
@@ -391,9 +376,13 @@ flower_stock_infra_cat = {
 			}
 			any_owned_state = {
 				is_controlled_by = ROOT
+				OR = {
+					free_building_slots = { building = air_base size > 1 include_locked = no }
+					free_building_slots = { building = anti_air_building size > 0 include_locked = no }
+				}
 			}
 		}
-		days_re_enable = 45
+		days_re_enable = 60
 		ai_will_do = {
 			base = 0
 			modifier = {
@@ -406,11 +395,18 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_air_radar_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 350 }
 				flower_ai_sync_hcp_ui = yes
 			}
 			random_owned_controlled_state = {
+				limit = {
+					OR = {
+						free_building_slots = { building = air_base size > 1 include_locked = no }
+						free_building_slots = { building = anti_air_building size > 0 include_locked = no }
+					}
+				}
+				set_state_flag = flower_stk_picked_tmp
 				if = {
 					limit = { free_building_slots = { building = air_base size > 1 include_locked = no } }
 					add_building_construction = { type = air_base level = 2 instant_build = yes }
@@ -428,6 +424,13 @@ flower_stock_infra_cat = {
 				}
 			}
 			random_owned_controlled_state = {
+				limit = {
+					NOT = { has_state_flag = flower_stk_picked_tmp }
+					OR = {
+						free_building_slots = { building = air_base size > 1 include_locked = no }
+						free_building_slots = { building = anti_air_building size > 0 include_locked = no }
+					}
+				}
 				if = {
 					limit = { free_building_slots = { building = air_base size > 1 include_locked = no } }
 					add_building_construction = { type = air_base level = 2 instant_build = yes }
@@ -444,6 +447,7 @@ flower_stock_infra_cat = {
 					add_building_construction = { type = radar_station level = 1 instant_build = yes }
 				}
 			}
+			hidden_effect = { every_owned_state = { clr_state_flag = flower_stk_picked_tmp } }
 		}
 	}
 
@@ -454,6 +458,9 @@ flower_stock_infra_cat = {
 			custom_trigger_tooltip = {
 				tooltip = flower_need_hcp_600_tt
 				NOT = { check_variable = { ubs_save < 600 } }
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
 			}
 		}
 		days_re_enable = 90
@@ -470,38 +477,23 @@ flower_stock_infra_cat = {
 		complete_effect = {
 			custom_effect_tooltip = flower_stk_dec_supply_corps_tt
 			hidden_effect = {
-				if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
+				if = { limit = { is_ai = no NOT = { has_country_flag = flower_auto_meme_sfx_cd } } set_country_flag = { flag = flower_auto_meme_sfx_cd days = 50 value = 1 } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
 				subtract_from_variable = { ubs_save = 600 }
 				flower_ai_sync_hcp_ui = yes
 			}
 			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-						include_locked = no
-					}
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+				limit = { free_building_slots = { building = infrastructure size > 0 include_locked = no } }
+				set_state_flag = flower_stk_picked_tmp
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
 			}
 			random_owned_controlled_state = {
 				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-						include_locked = no
-					}
+					NOT = { has_state_flag = flower_stk_picked_tmp }
+					free_building_slots = { building = infrastructure size > 0 include_locked = no }
 				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
 			}
+			hidden_effect = { every_owned_state = { clr_state_flag = flower_stk_picked_tmp } }
 			add_timed_idea = {
 				idea = flower_stk_supply_corps_idea
 				days = 120
