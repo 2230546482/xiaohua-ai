@@ -1,0 +1,26 @@
+#附属模组 xiaohua ai 动态修正、顾问、特质、科技与学说名称路由
+defined_text = {
+	name = Get_AH_br_extra_src_name
+	text = { trigger = { check_variable = { global.br_d^i = 1 } } localization_key = hua_ai }
+	text = { trigger = { check_variable = { global.br_d^i = 2 } } localization_key = hua_ai_trait }
+	text = { trigger = { check_variable = { global.br_d^i = 3 } } localization_key = MAGIC_SUBDOCTRINE_1 }
+	text = { trigger = { check_variable = { global.br_d^i = 4 } } localization_key = flower_ace_prestige_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 5 } } localization_key = flower_arty_density_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 6 } } localization_key = flower_badge_card_synergy_dm }
+	text = { trigger = { check_variable = { global.br_d^i = 7 } } localization_key = flower_blitz_momentum_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 8 } } localization_key = flower_blood_labor_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 9 } } localization_key = flower_bonds_ic_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 10 } } localization_key = flower_builder_ledger_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 11 } } localization_key = flower_cash_power_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 12 } } localization_key = flower_chaos_ai_adapt_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 13 } } localization_key = flower_devour_anomaly_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 14 } } localization_key = flower_elite_small_army_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 15 } } localization_key = flower_guerrilla_underdog_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 16 } } localization_key = flower_lightfang_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 17 } } localization_key = flower_magnetic_spec_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 18 } } localization_key = flower_night_phantom_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 19 } } localization_key = flower_science_compute_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 20 } } localization_key = flower_slayer_book_dynamic_mod }
+	text = { trigger = { check_variable = { global.br_d^i = 21 } } localization_key = flower_veteran_furnace_dynamic_mod }
+	text = { localization_key = AH_BR_SRC_UNKNOWN }
+}

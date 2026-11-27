@@ -1,6 +1,6 @@
 infantry_LHS = {
     available_for = {
-        LHS
+        LHS PAO
     }
     role = LHS_infantry
     upgrade_prio = {
