@@ -255,7 +255,7 @@ country_event = {
 	}
 }
 
-#肉鸽奇遇抽卡·第1页（战地拾荒扒衣流、黑灯工厂滚雪球流、0宽神风火炮流）
+#肉鸽奇遇抽卡-第1页（战地拾荒扒衣流、黑灯工厂滚雪球流、0宽神风火炮流）
 country_event = {
 	id = FLWAI.10
 	title = FLWAI.10.t
@@ -432,7 +432,7 @@ country_event = {
 	}
 }
 
-#肉鸽奇遇抽卡·第2页（时停装甲闪电战、斯图卡洗头房、督战队人海）
+#肉鸽奇遇抽卡-第2页（时停装甲闪电战、斯图卡洗头房、督战队人海）
 country_event = {
 	id = FLWAI.11
 	title = FLWAI.11.t
@@ -725,7 +725,7 @@ country_event = {
 	}
 }
 
-#肉鸽奇遇抽卡·第3页（午夜奇袭特遣队、野火游击破交网、绝境血炉死士团）
+#肉鸽奇遇抽卡-第3页（午夜奇袭特遣队、野火游击破交网、绝境血炉死士团）
 country_event = {
 	id = FLWAI.12
 	title = FLWAI.12.t
@@ -982,7 +982,7 @@ country_event = {
 	}
 }
 
-#肉鸽奇遇抽卡·第4页（皇家王牌特战营、疯狂科研黑盒局、怪蛋与黑市转盘）
+#肉鸽奇遇抽卡-第4页（皇家王牌特战营、疯狂科研黑盒局、怪蛋与黑市转盘）
 country_event = {
 	id = FLWAI.13
 	title = FLWAI.13.t
@@ -1203,7 +1203,7 @@ country_event = {
 			flower_quest_accept_wager = yes
 		}
 		hidden_effect = {
-			#同时当场转动一次黑市俄罗斯轮盘！
+			#同时结算一次黑市命运骰子
 			if = {
 				limit = { has_country_flag = flower_roulette_pity_ready }
 				clr_country_flag = flower_roulette_pity_ready
@@ -1370,7 +1370,7 @@ country_event = {
 			flower_ai_open_roguelike_draft = yes
 		}
 	}
-	#选项B：老千庄家秘匣（骰子大幅偏向正面，解锁把负面骰子甩锅给敌国）
+	#选项B：老千庄家秘匣（提高正面概率，解锁将负面骰子转移给敌国）
 	option = {
 		name = FLWAI.23.b
 		ai_chance = {
@@ -1453,9 +1453,10 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		has_idea = flower_blood_wager_active_idea
+		NOT = { has_country_flag = flower_wager_expire_lock }
 	}
 
-	#达标兑现大奖（满动态目标即达标）
+	#达成目标发放奖励
 	option = {
 		name = FLWAI.24.a
 		trigger = {
@@ -1501,7 +1502,7 @@ country_event = {
 		}
 	}
 
-	#选项A：满仓杠杆做多本国军工大盘！（直接将全球股市推入大牛市并拉升军工/重工股价+25%）
+	#选项A：做多本国军工板块（推进全球牛市并提升军工与重工股价25%）
 	option = {
 		name = FLWAI.25.a
 		trigger = {
@@ -1545,7 +1546,7 @@ country_event = {
 		}
 	}
 
-	#选项B：联合华尔街大鳄，恶意做空头号交战对手！（当场砸崩科技与期货股价-25%，空头爆赚；和平期不随机抽打无辜国家）
+	#选项B：做空主要交战对手（压低科技与期货股价25%并结算空头收益）
 	option = {
 		name = FLWAI.25.b
 		trigger = {
@@ -1676,7 +1677,7 @@ country_event = {
 	}
 }
 
-#《流派大成：双修神功护体！》（任意两条流派满级或叠层大成时自动弹出）
+#双流派满级进阶选择事件（任意两条流派满级或累积满层时触发）
 country_event = {
 	id = FLWAI.26
 	title = FLWAI.26.t
@@ -1684,7 +1685,7 @@ country_event = {
 	picture = GFX_event_FRA_Sanae
 	is_triggered_only = yes
 
-	#选项A：【炮坦空一体·移动火药库】
+	#选项A：【炮坦空一体-移动火药库】
 	option = {
 		name = FLWAI.26.a
 		ai_chance = { factor = 40 }
@@ -1693,7 +1694,7 @@ country_event = {
 		air_experience = 50
 	}
 
-	#选项B：【钞能力人海·无限复活甲】
+	#选项B：【钞能力人海-无限复活甲】
 	option = {
 		name = FLWAI.26.b
 		ai_chance = { factor = 35 }
@@ -1705,7 +1706,7 @@ country_event = {
 		}
 	}
 
-	#选项C：【次元霸主·万物皆可吞】
+	#选项C：【次元霸主-万物皆可吞】
 	option = {
 		name = FLWAI.26.c
 		ai_chance = { factor = 25 }
@@ -1736,7 +1737,7 @@ country_event = {
 		}
 	}
 
-	#选项A：修习【万人敌·武神躯】（优先授予在编前线将领：攻击+4、攻破+25%、免伤防暴毙）
+	#选项A：授予将领特质【万人敌】（优先在任前线将领：进攻+4、攻击与突破加成、降低受伤率）
 	option = {
 		name = FLWAI.27.a
 		ai_chance = { factor = 40 }
@@ -1843,7 +1844,7 @@ country_event = {
 		add_command_power = 50
 	}
 
-	#选项D：修习【天选总座·微操之神】（优先强化在编前线将领全维+2或招募嘉豪，附赠200 HCP与陆空经验）
+	#选项D：修习【天选总座-微操之神】（优先强化在编前线将领全维+2或招募嘉豪，附赠200 HCP与陆空经验）
 	option = {
 		name = FLWAI.27.e
 		ai_chance = { factor = 25 }
@@ -1891,7 +1892,7 @@ country_event = {
 	}
 }
 
-#畸变2专属：《漂亮！这波叫闪电五连鞭！》（极速打垮敌国连杀赏金·机动战术三选一）
+#畸变2专属：击败敌国机动战术奖励三选一事件
 country_event = {
 	id = FLWAI.28
 	title = FLWAI.28.t
@@ -1904,7 +1905,7 @@ country_event = {
 		}
 	}
 
-	#选项A：油门焊死，闪电五连鞭继续冲！（获得/强化极速之王精神 + 250 HCP + 5万精锐人力）
+	#选项A：获得或升级极速之王精神，增加250储备与50000人力
 	option = {
 		name = FLWAI.28.a
 		ai_chance = { factor = 45 }
@@ -1921,7 +1922,7 @@ country_event = {
 		army_experience = 100
 	}
 
-	#选项B：缴获全套摩托化车队，全军换装飙车！（缴获1500卡车+500支援+10万燃油+150 HCP）
+	#选项B：获得1500摩托化装备、500支援装备、100000燃油与150储备
 	option = {
 		name = FLWAI.28.b
 		ai_chance = { factor = 35 }
@@ -1945,7 +1946,7 @@ country_event = {
 		}
 	}
 
-	#选项C：空地一体闪击，前线野战机场连夜起飞！（扩建2级机场+1座军工+100空军经验+100陆军经验）
+	#选项C：扩建2级空军基地与1座军用工厂，增加100空军经验与100陆军经验
 	option = {
 		name = FLWAI.28.c
 		ai_chance = { factor = 20 }
@@ -1971,7 +1972,7 @@ country_event = {
 	}
 }
 
-#流派十二赌徒专属：《黑市命运骰子开奖！》（每180天自动重摇；正面可稳拿或折现，负面可硬扛领补偿或砸150 HCP贿赂重摇1次）
+#流派12专属：黑市命运骰子结算事件（每180天重掷，正面可保留或兑换储备，负面可领补偿或支付150储备重掷）
 country_event = {
 	id = FLWAI.29
 	title = FLWAI.29.t
@@ -1986,7 +1987,7 @@ country_event = {
 			check_variable = { flower_gambler_last_roll < 5 }
 		}
 	}
-	#正面选项2：见好就收·把好运折现成现货资金与政治点数
+	#正面选项2：将正面效果兑换为储备与政治点数
 	option = {
 		name = FLWAI.29.d_opt
 		trigger = {
@@ -2005,7 +2006,7 @@ country_event = {
 		}
 		add_political_power = 75
 	}
-	#负面选项1：咬牙硬扛180天，顺手收一笔封口补偿费与陆军经验
+	#负面选项1：承受180天负面效果并领取补偿储备与陆军经验
 	option = {
 		name = FLWAI.29.b
 		trigger = {
@@ -2066,6 +2067,7 @@ country_event = {
 			set_variable = { flower_corp_plan_type = 1 }
 			set_variable = { flower_corp_plan_target = num_of_military_factories }
 			add_to_variable = { flower_corp_plan_target = flower_dyn_mil_delta }
+			set_country_flag = { flag = flower_corp_plan_expire_lock days = 179 value = 1 }
 			country_event = { id = FLWAI.37 days = 180 }
 		}
 	}
@@ -2086,10 +2088,11 @@ country_event = {
 			set_variable = { flower_corp_plan_type = 2 }
 			set_variable = { flower_corp_plan_target = num_of_factories }
 			add_to_variable = { flower_corp_plan_target = flower_dyn_fac_delta }
+			set_country_flag = { flag = flower_corp_plan_expire_lock days = 179 value = 1 }
 			country_event = { id = FLWAI.37 days = 180 }
 		}
 	}
-	#选项C：产线效率冲刺（稳健即时兑现，不再白送流水账叠层以与A/B风险收益拉平）
+	#选项C：生产效率提升方案（即时生效，不额外增加流水账层数）
 	option = {
 		name = FLWAI.31.c
 		ai_chance = {
@@ -2146,6 +2149,10 @@ country_event = {
 	}
 	picture = GFX_KMK.0098
 	is_triggered_only = yes
+	trigger = {
+		check_variable = { flower_corp_plan_type > 0 }
+		NOT = { has_country_flag = flower_corp_plan_expire_lock }
+	}
 
 	#达标领奖
 	option = {
@@ -2574,7 +2581,7 @@ country_event = {
 		}
 		flower_ai_roll_gambler_fate = yes
 	}
-	#选项C（怪蛋分支12B专属）：把当前负面骰子甩锅转嫁给交战敌国
+	#选项C（分支12B专属）：将当前负面骰子效果转移给交战敌国
 	option = {
 		name = FLWAI.36.c
 		trigger = {
@@ -2659,7 +2666,7 @@ country_event = {
 	}
 }
 
-#畸变4专属：《嘎嘣脆，鸡肉味！大胃王进化盛宴》（每次吞并或迫降达标敌国时触发三选一消化奖励）
+#畸变4专属：吞并或迫使达标敌国停止抵抗后的三选一奖励事件
 country_event = {
 	id = FLWAI.38
 	title = FLWAI.38.t
@@ -2672,7 +2679,7 @@ country_event = {
 		}
 	}
 
-	#选项A：消化它的工业血肉！（长出2军工+1民工+250 HCP）
+	#选项A：增加2座军用工厂、1座民用工厂与250储备
 	option = {
 		name = FLWAI.38.a
 		ai_chance = { factor = 40 }
@@ -2703,7 +2710,7 @@ country_event = {
 		}
 	}
 
-	#选项B：吞噬它的战争精魂！（额外再叠1层【吃饱长高高】+6万人力+6000步枪+600火炮）
+	#选项B：额外增加1层吞噬成长修正、60000人力、6000步兵装备与600火炮
 	option = {
 		name = FLWAI.38.b
 		ai_chance = { factor = 40 }
@@ -2719,7 +2726,7 @@ country_event = {
 		}
 	}
 
-	#选项C：饕餮顿悟·抢夺天命牌库！（送1张免费验牌券+80陆军经验+若抽卡在冷却则立即重置额外再抽1轮！）
+	#选项C：获得1次免费重抽、80陆军经验、50指挥点数并清除180天吞噬抽牌冷却
 	option = {
 		name = FLWAI.38.c
 		ai_chance = { factor = 20 }
@@ -2737,7 +2744,7 @@ country_event = {
 	}
 }
 
-#畸变6专属：《弑神者悬赏：压力怪大魔王轰然倒塌！》（打垮压力怪AI主要国家时触发巨额弑神嘉奖）
+#畸变6专属：击败强化AI主要国家悬赏奖励事件
 country_event = {
 	id = FLWAI.39
 	title = FLWAI.39.t
@@ -2750,7 +2757,7 @@ country_event = {
 		}
 	}
 
-	#收下弑神者悬赏大礼包！（+500 HCP + 额外叠2层战利品小本本 + 免费验牌券 + 立即加抽1轮肉鸽三选一）
+	#领取击败强化主要敌国奖励（500储备、2层记仇小本本、1次免费重抽与1轮战术抽牌）
 	option = {
 		name = FLWAI.39.a
 		ai_chance = { factor = 100 }
@@ -2928,7 +2935,7 @@ country_event = {
 		}
 		add_timed_idea = { idea = flower_proto_ammo_printer_idea days = 180 }
 	}
-	#原型3：气象干预实验仪（顺手冻坏主要敌国90天）
+	#原型3：气象干预实验仪（对主要敌国施加90天气候减益）
 	option = {
 		name = FLWAI.42.c
 		trigger = { has_country_flag = flower_proto_show_3 }
@@ -2982,9 +2989,27 @@ country_event = {
 	desc = FLWAI.43.d
 	picture = GFX_event_flower_ai_1
 	is_triggered_only = yes
+	trigger = {
+		DVL = {
+			exists = yes
+			has_war_with = ROOT
+		}
+	}
 	immediate = {
 		hidden_effect = {
+			if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_1 } }
+			if = { limit = { check_variable = { flower_dvl_warn_st_2 > 0 } } var:flower_dvl_warn_st_2 = { save_event_target_as = flower_dvl_target_st_2 } }
+			else_if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_2 } }
+			if = { limit = { check_variable = { flower_dvl_warn_st_3 > 0 } } var:flower_dvl_warn_st_3 = { save_event_target_as = flower_dvl_target_st_3 } }
+			else_if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_3 } }
 			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_ainz_overlord" }
+			if = {
+				limit = {
+					has_war_with = DVL
+					NOT = { has_active_mission = flower_dvl_super_magic_warning_mission }
+				}
+				activate_mission = flower_dvl_super_magic_warning_mission
+			}
 		}
 	}
 
@@ -3002,9 +3027,27 @@ country_event = {
 	desc = FLWAI.44.d
 	picture = GFX_event_flower_ai_1
 	is_triggered_only = yes
+	trigger = {
+		DVL = {
+			exists = yes
+			has_war_with = ROOT
+		}
+	}
 	immediate = {
 		hidden_effect = {
+			if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_1 } }
+			if = { limit = { check_variable = { flower_dvl_warn_st_2 > 0 } } var:flower_dvl_warn_st_2 = { save_event_target_as = flower_dvl_target_st_2 } }
+			else_if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_2 } }
+			if = { limit = { check_variable = { flower_dvl_warn_st_3 > 0 } } var:flower_dvl_warn_st_3 = { save_event_target_as = flower_dvl_target_st_3 } }
+			else_if = { limit = { check_variable = { flower_dvl_warn_st_1 > 0 } } var:flower_dvl_warn_st_1 = { save_event_target_as = flower_dvl_target_st_3 } }
 			if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_ainz_overlord" }
+			if = {
+				limit = {
+					has_war_with = DVL
+					NOT = { has_active_mission = flower_dvl_super_magic_warning_mission }
+				}
+				activate_mission = flower_dvl_super_magic_warning_mission
+			}
 		}
 	}
 

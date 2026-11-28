@@ -16,7 +16,7 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上哈基米立绘框（点击切换哈气表情并播放哈气音效）
+		#左上角立绘交互框（点击切换表情并播放音效）
 		buttonType = {
 			name = "flower_history_cat_calm_btn"
 			position = { x = 28 y = 22 }
@@ -309,6 +309,12 @@ guiTypes = {
 			name = "flower_history_card_tile_bg"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_flower_history_card_tile"
+			pdx_tooltip = "FLOWER_HISTORY_CARD_TT_WRAP"
+		}
+		iconType = {
+			name = "flower_history_card_tile_gold_bg"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_flower_history_card_tile_gold"
 			pdx_tooltip = "FLOWER_HISTORY_CARD_TT_WRAP"
 		}
 

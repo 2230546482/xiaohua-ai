@@ -77,31 +77,14 @@ scripted_gui = {
 			flower_badge_owned_gold_name_visible = { check_variable = { flower_badge_hub_tab < 1 } }
 			flower_badge_owned_gold_sub_visible = { check_variable = { flower_badge_hub_tab < 1 } }
 
-			#页签1状态栏与选购区全部叶子控件严格绑定tab<1显隐
+			#页签1状态栏与选购区全部叶子控件绑定tab<1显隐
 			flower_badge_status_bar_bg_visible = { check_variable = { flower_badge_hub_tab < 1 } }
 			flower_badge_countdown_line1_visible = { check_variable = { flower_badge_hub_tab < 1 } }
-			flower_badge_countdown_line2_visible = {
-				check_variable = { flower_badge_hub_tab < 1 }
-				check_variable = { flower_badge_next_stage = 2 }
-			}
-			flower_badge_countdown_line2_wide_visible = {
-				check_variable = { flower_badge_hub_tab < 1 }
-				NOT = { check_variable = { flower_badge_next_stage = 2 } }
-			}
-			flower_badge_buyout_st_btn_visible = {
-				check_variable = { flower_badge_hub_tab < 1 }
-				check_variable = { flower_badge_next_stage = 2 }
-			}
-			flower_badge_buyout_st_lbl_visible = {
-				check_variable = { flower_badge_hub_tab < 1 }
-				check_variable = { flower_badge_next_stage = 2 }
-			}
-			flower_badge_buyout_st_btn_click_enabled = {
-				OR = {
-					NOT = { check_variable = { ubs_save < flower_st_buyout_cost } }
-					has_political_power > 149.99
-				}
-			}
+			flower_badge_countdown_line2_visible = { always = no }
+			flower_badge_countdown_line2_wide_visible = { check_variable = { flower_badge_hub_tab < 1 } }
+			flower_badge_buyout_st_btn_visible = { always = no }
+			flower_badge_buyout_st_lbl_visible = { always = no }
+			flower_badge_buyout_st_btn_click_enabled = { always = no }
 			flower_badge_syn_hdr_visible = { check_variable = { flower_badge_hub_tab < 1 } }
 			flower_badge_syn_line1_visible = { check_variable = { flower_badge_hub_tab < 1 } }
 			flower_badge_syn_line2_visible = { check_variable = { flower_badge_hub_tab < 1 } }
@@ -273,15 +256,7 @@ scripted_gui = {
 			flower_q_st_btn_action_visible = { check_variable = { flower_badge_hub_tab > 0 } NOT = { flower_quest_st_ready = yes } }
 			flower_q_st_btn_claim_visible = { check_variable = { flower_badge_hub_tab > 0 } flower_quest_st_ready = yes }
 			flower_q_st_btn_lbl_visible = { check_variable = { flower_badge_hub_tab > 0 } }
-			flower_q_st_btn_action_click_enabled = {
-				has_country_flag = flower_st_task_assigned
-				NOT = { has_country_flag = flower_st_claimed }
-				NOT = { has_country_flag = flower_st_task_done }
-				OR = {
-					NOT = { check_variable = { ubs_save < flower_st_buyout_cost } }
-					has_political_power > 149.99
-				}
-			}
+			flower_q_st_btn_action_click_enabled = { always = no }
 			flower_q_st_btn_claim_click_enabled = {
 				flower_quest_st_ready = yes
 			}
@@ -301,6 +276,7 @@ scripted_gui = {
 			flower_q_bounty_btn_action_click_enabled = {
 				OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active }
 				NOT = { has_country_flag = flower_bounty_active }
+				NOT = { has_country_flag = flower_bounty_cd }
 			}
 			flower_q_bounty_btn_claim_click_enabled = {
 				flower_quest_bounty_ready = yes
@@ -342,6 +318,7 @@ scripted_gui = {
 			flower_q_bm_btn_action_click_enabled = {
 				OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active has_country_flag = flower_roguelike_gambler_active }
 				NOT = { has_country_flag = flower_bm_active }
+				NOT = { has_country_flag = flower_bm_delivery_cd }
 				NOT = { has_idea = flower_bm_arms_supply_idea }
 				NOT = { has_idea = flower_bm_industry_boost_idea }
 				NOT = { has_idea = flower_bm_intel_tech_idea }
@@ -380,17 +357,17 @@ scripted_gui = {
 				flower_badge_hub_sync_state = yes
 			}
 
-			#页签1：4张徽章选购与考核买断
+			#页签1：4张候选徽章选购与领取
 			flower_badge_shop_s1_btn_norm_click = { flower_badge_hub_buy_slot_1 = yes }
 			flower_badge_shop_s1_btn_gold_click = { flower_badge_hub_buy_slot_1 = yes }
 			flower_badge_shop_s2_btn_norm_click = { flower_badge_hub_buy_slot_2 = yes }
 			flower_badge_shop_s3_btn_norm_click = { flower_badge_hub_buy_slot_3 = yes }
 			flower_badge_shop_s4_btn_cursed_click = { flower_badge_hub_buy_slot_4 = yes }
 			flower_badge_shop_s4_btn_norm_click = { flower_badge_hub_buy_slot_4 = yes }
-			flower_badge_buyout_st_btn_click = { flower_badge_hub_buyout_st = yes }
+			flower_badge_buyout_st_btn_click = { }
 
-			#页签2：4张任务卡就地接取、买断与交付领赏
-			flower_q_st_btn_action_click = { flower_badge_hub_buyout_st = yes }
+			#页签2：4项考核与悬赏任务接取与交付结算
+			flower_q_st_btn_action_click = { }
 			flower_q_st_btn_claim_click = {
 				if = {
 					limit = { NOT = { has_country_flag = flower_st_task_done } }

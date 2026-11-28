@@ -285,6 +285,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_1_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_1_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_1 < 13 }
 					check_variable = { flower_draft_slot_1 = 53 }
@@ -298,6 +299,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_1_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_1_owned < 2 }
 				OR = {
 					AND = { check_variable = { flower_draft_slot_1 > 12 } check_variable = { flower_draft_slot_1 < 21 } }
 					check_variable = { flower_draft_slot_1 = 40 }
@@ -311,6 +313,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_1_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_1_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_1 = 21 }
 					check_variable = { flower_draft_slot_1 = 22 }
@@ -319,6 +322,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_1_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_1_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_1 = 23 }
 					AND = { check_variable = { flower_draft_slot_1 > 24 } check_variable = { flower_draft_slot_1 < 40 } }
@@ -331,6 +335,10 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_1 = 52 }
 				}
 			}
+			flower_hex_slot_1_gold_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_1_owned > 1 }
+			}
 			flower_hex_slot_1_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_1_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -338,6 +346,7 @@ scripted_gui = {
 			flower_hex_slot_1_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_2_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_2 < 13 }
 					check_variable = { flower_draft_slot_2 = 53 }
@@ -351,6 +360,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_2_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_2_owned < 2 }
 				OR = {
 					AND = { check_variable = { flower_draft_slot_2 > 12 } check_variable = { flower_draft_slot_2 < 21 } }
 					check_variable = { flower_draft_slot_2 = 40 }
@@ -364,6 +374,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_2_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_2_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_2 = 21 }
 					check_variable = { flower_draft_slot_2 = 22 }
@@ -372,6 +383,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_2_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_2_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_2 = 23 }
 					AND = { check_variable = { flower_draft_slot_2 > 24 } check_variable = { flower_draft_slot_2 < 40 } }
@@ -384,6 +396,10 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_2 = 52 }
 				}
 			}
+			flower_hex_slot_2_gold_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_2_owned > 1 }
+			}
 			flower_hex_slot_2_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_2_title_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -391,6 +407,7 @@ scripted_gui = {
 			flower_hex_slot_2_body_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_relic_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_3_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_3 < 13 }
 					check_variable = { flower_draft_slot_3 = 53 }
@@ -404,6 +421,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_3_curse_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_3_owned < 2 }
 				OR = {
 					AND = { check_variable = { flower_draft_slot_3 > 12 } check_variable = { flower_draft_slot_3 < 21 } }
 					check_variable = { flower_draft_slot_3 = 40 }
@@ -417,6 +435,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_3_evo_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_3_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_3 = 21 }
 					check_variable = { flower_draft_slot_3 = 22 }
@@ -425,6 +444,7 @@ scripted_gui = {
 			}
 			flower_hex_slot_3_cross_btn_visible = {
 				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_3_owned < 2 }
 				OR = {
 					check_variable = { flower_draft_slot_3 = 23 }
 					AND = { check_variable = { flower_draft_slot_3 > 24 } check_variable = { flower_draft_slot_3 < 40 } }
@@ -436,6 +456,10 @@ scripted_gui = {
 					check_variable = { flower_draft_slot_3 = 51 }
 					check_variable = { flower_draft_slot_3 = 52 }
 				}
+			}
+			flower_hex_slot_3_gold_btn_visible = {
+				check_variable = { flower_draft_gui_mode = 2 }
+				check_variable = { flower_draft_slot_3_owned > 1 }
 			}
 			flower_hex_slot_3_icon_visible = { check_variable = { flower_draft_gui_mode = 2 } }
 			flower_hex_slot_3_faction_tag_visible = { check_variable = { flower_draft_gui_mode = 2 } }
@@ -620,6 +644,9 @@ scripted_gui = {
 			flower_hex_slot_1_cross_btn_click = {
 				flower_ai_gui_click_hex_slot_1 = yes
 			}
+			flower_hex_slot_1_gold_btn_click = {
+				flower_ai_gui_click_hex_slot_1 = yes
+			}
 			flower_hex_slot_2_relic_btn_click = {
 				flower_ai_gui_click_hex_slot_2 = yes
 			}
@@ -632,6 +659,9 @@ scripted_gui = {
 			flower_hex_slot_2_cross_btn_click = {
 				flower_ai_gui_click_hex_slot_2 = yes
 			}
+			flower_hex_slot_2_gold_btn_click = {
+				flower_ai_gui_click_hex_slot_2 = yes
+			}
 			flower_hex_slot_3_relic_btn_click = {
 				flower_ai_gui_click_hex_slot_3 = yes
 			}
@@ -642,6 +672,9 @@ scripted_gui = {
 				flower_ai_gui_click_hex_slot_3 = yes
 			}
 			flower_hex_slot_3_cross_btn_click = {
+				flower_ai_gui_click_hex_slot_3 = yes
+			}
+			flower_hex_slot_3_gold_btn_click = {
 				flower_ai_gui_click_hex_slot_3 = yes
 			}
 			flower_branch3_opt_1_btn_click = {
@@ -818,6 +851,8 @@ scripted_gui = {
 		triggers = {
 			flower_history_cat_calm_btn_visible = { NOT = { has_country_flag = flower_cat_hissing } }
 			flower_history_cat_hiss_btn_visible = { has_country_flag = flower_cat_hissing }
+			flower_history_card_tile_bg_visible = { NOT = { flower_v_card_is_gold = yes } }
+			flower_history_card_tile_gold_bg_visible = { flower_v_card_is_gold = yes }
 			flower_history_empty_lbl_visible = {
 				check_variable = { flower_owned_cards_array^num < 1 }
 			}
@@ -844,6 +879,7 @@ scripted_gui = {
 		effects = {
 			flower_history_card_sell_btn_click = {
 				set_variable = { flower_history_sell_confirm_id = v }
+				flower_tavern_sync_history_sell_tier = yes
 			}
 			flower_history_sell_confirm_btn_click = {
 				if = {

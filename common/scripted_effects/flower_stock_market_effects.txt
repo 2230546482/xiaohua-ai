@@ -207,7 +207,7 @@ flower_stock_check_milestones = {
 flower_stock_check_margin_calls = {
 	set_temp_variable = { did_margin_call = 0 }
 
-	# --- 杠杆多头爆仓强平（持仓市值跌破融资负债本金时强制斩仓还债） ---
+	#---杠杆多头爆仓强平（持仓市值跌破融资负债本金时强制斩仓还债）---
 	if = {
 		limit = {
 			check_variable = { flower_stk_1_shares > 0 }
@@ -657,14 +657,15 @@ flower_stock_monthly_tick = {
 		}
 	}
 
-	#7. 基建重工每 6 个月派发 8 HCP/股 现金分红（做空者需倒贴派息）
+	#7.基建重工每6个月派发10储备/股现金分红（做空者需倒贴派息）
 	add_to_variable = { global.flower_stk_month_cnt = 1 }
 	if = {
 		limit = { check_variable = { global.flower_stk_month_cnt > 5 } }
 		set_variable = { global.flower_stk_month_cnt = 0 }
-		#基建重工派息除权：股价同步下调10点（保底不低于30）
+		#基建重工派息除权：股价同步下调10点（保底不低于30）并实时刷新涨跌幅
 		subtract_from_variable = { global.flower_stk_2_price = 10 }
 		if = { limit = { check_variable = { global.flower_stk_2_price < 30 } } set_variable = { global.flower_stk_2_price = 30 } }
+		flower_stock_recalc_global_changes = yes
 		every_country = {
 			limit = {
 				OR = {
@@ -746,11 +747,11 @@ flower_stock_recalc_global_changes = {
 	}
 }
 
-# ==============================================================================
-# 个股交易指令：买1手 / 买5手 / 2x杠杆买2手 / 卖1手 / 清多仓 / 空1手 / 空5手 / 平空仓
-# ==============================================================================
+#==============================================================================
+#个股交易指令：买1手 / 买5手 / 2x杠杆买2手 / 卖1手 / 清多仓 / 空1手 / 空5手 / 平空仓
+#==============================================================================
 
-# --- 股票1：军工防务 ---
+#---股票1：军工防务---
 flower_stk_1_buy_1 = {
 	set_temp_variable = { px = global.flower_stk_1_price }
 	if = {
@@ -857,7 +858,7 @@ flower_stk_1_cover_all = {
 	}
 }
 
-# --- 股票2：基建重工 ---
+#---股票2：基建重工---
 flower_stk_2_buy_1 = {
 	set_temp_variable = { px = global.flower_stk_2_price }
 	if = {
@@ -964,7 +965,7 @@ flower_stk_2_cover_all = {
 	}
 }
 
-# --- 股票3：科技飞碟 ---
+#---股票3：科技飞碟---
 flower_stk_3_buy_1 = {
 	set_temp_variable = { px = global.flower_stk_3_price }
 	if = {
@@ -1071,7 +1072,7 @@ flower_stk_3_cover_all = {
 	}
 }
 
-# --- 股票4：黑市期货 ---
+#---股票4：黑市期货---
 flower_stk_4_buy_1 = {
 	set_temp_variable = { px = global.flower_stk_4_price }
 	if = {
@@ -1241,8 +1242,9 @@ flower_stk_buy_factory_action = {
 				}
 			}
 		}
-		else = {
-			capital_scope = {
+		else_if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT } }
+			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -1259,9 +1261,9 @@ flower_stk_buy_factory_action = {
 	}
 }
 
-# ==============================================================================
-# 真·AI 实盘炒股系统（与玩家共享同一套资金、多空、杠杆爆仓、股神/天台与盈利购厂规则）
-# ==============================================================================
+#==============================================================================
+#AI证券交易逻辑（与玩家共用资金、多空、杠杆强平与盈利购厂规则）
+#==============================================================================
 flower_stock_ai_monthly_trade = {
 	#0. 首次参股时按国情与性格分配投资风格：1=战火军工派 2=稳健蓝筹派 3=杠杆赌狗派
 	if = {
@@ -1295,7 +1297,7 @@ flower_stock_ai_monthly_trade = {
 			check_variable = { flower_stk_unrealized_pnl < -260 }
 		}
 		flower_stk_liquidate_everything = yes
-		# 偿还部分杠杆债
+		#偿还部分杠杆债
 		if = {
 			limit = {
 				check_variable = { ubs_save > 120 }
@@ -1338,7 +1340,7 @@ flower_stock_ai_monthly_trade = {
 	}
 
 	#3. 主动止盈 & 风险平仓（多头高抛 / 空头见好就收 / 熔断预警逃顶）
-	# --- 股票1：军工防务 ---
+	#---股票1：军工防务---
 	if = {
 		limit = {
 			check_variable = { flower_stk_1_shares > 0 }
@@ -1368,7 +1370,7 @@ flower_stock_ai_monthly_trade = {
 		add_to_variable = { global.flower_stk_ai_flow_1 = 1 }
 	}
 
-	# --- 股票2：基建重工 ---
+	#---股票2：基建重工---
 	if = {
 		limit = {
 			check_variable = { flower_stk_2_shares > 0 }
@@ -1395,7 +1397,7 @@ flower_stock_ai_monthly_trade = {
 		add_to_variable = { global.flower_stk_ai_flow_2 = 1 }
 	}
 
-	# --- 股票3：科技飞碟 ---
+	#---股票3：科技飞碟---
 	if = {
 		limit = {
 			check_variable = { flower_stk_3_shares > 0 }
@@ -1422,7 +1424,7 @@ flower_stock_ai_monthly_trade = {
 		add_to_variable = { global.flower_stk_ai_flow_3 = 1 }
 	}
 
-	# --- 股票4：黑市期货 ---
+	#---股票4：黑市期货---
 	if = {
 		limit = {
 			check_variable = { flower_stk_4_shares > 0 }
@@ -1456,7 +1458,7 @@ flower_stock_ai_monthly_trade = {
 			check_variable = { ubs_load < 400 }
 		}
 		random_list = {
-			# 建仓军工防务
+			#建仓军工防务
 			24 = {
 				modifier = { factor = 2.4 check_variable = { flower_ai_stk_style = 1 } }
 				modifier = { factor = 1.8 has_war = yes }
@@ -1476,7 +1478,7 @@ flower_stock_ai_monthly_trade = {
 				}
 				if = { limit = { check_variable = { flower_stk_1_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_1 = 1 } }
 			}
-			# 建仓基建重工
+			#建仓基建重工
 			24 = {
 				modifier = { factor = 2.4 check_variable = { flower_ai_stk_style = 2 } }
 				modifier = { factor = 1.6 has_war = no }
@@ -1486,7 +1488,7 @@ flower_stock_ai_monthly_trade = {
 				flower_stk_2_buy_1 = yes
 				if = { limit = { check_variable = { flower_stk_2_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_2 = 1 } }
 			}
-			# 建仓科技飞碟
+			#建仓科技飞碟
 			20 = {
 				modifier = { factor = 1.7 num_of_factories > 50 }
 				modifier = { factor = 0.2 check_variable = { global.flower_stk_hint = 3 } }
@@ -1505,7 +1507,7 @@ flower_stock_ai_monthly_trade = {
 				}
 				if = { limit = { check_variable = { flower_stk_3_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_3 = 1 } }
 			}
-			# 建仓黑市期货（赌狗派与抄底派最爱）
+			#建仓黑市期货
 			16 = {
 				modifier = { factor = 2.8 check_variable = { flower_ai_stk_style = 3 } }
 				modifier = { factor = 2.4 check_variable = { global.flower_stk_hint = 4 } }
@@ -1524,7 +1526,7 @@ flower_stock_ai_monthly_trade = {
 				}
 				if = { limit = { check_variable = { flower_stk_4_shares > 0 } } add_to_variable = { global.flower_stk_ai_flow_4 = 1 } }
 			}
-			# 融券做空（熊市/熔断预警/泡沫高位时，AI也会真实进场做空！）
+			#融券做空（熊市、熔断预警或高位时触发）
 			12 = {
 				modifier = { factor = 3.2 check_variable = { global.flower_stk_hint = 6 } }
 				modifier = { factor = 2.4 check_variable = { global.flower_stk_hint = 3 } }
@@ -1553,7 +1555,7 @@ flower_stock_ai_monthly_trade = {
 					if = { limit = { check_variable = { flower_stk_1_short > 0 } } add_to_variable = { global.flower_stk_ai_flow_1 = -1 } }
 				}
 			}
-			# 持币观望
+			#持币观望
 			14 = {
 				modifier = { factor = 2.0 check_variable = { global.flower_stk_regime = 3 } }
 			}

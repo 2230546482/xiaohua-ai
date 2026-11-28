@@ -1,6 +1,6 @@
 add_namespace = FLWTV
 
-#1937小饰品动态任务派发
+#1937小徽章战备考核派发
 country_event = {
 	id = FLWTV.1
 	title = FLWTV.1.t
@@ -15,7 +15,7 @@ country_event = {
 	}
 }
 
-#1937小饰品四槽商店
+#1937小徽章4张候选选配事件
 country_event = {
 	id = FLWTV.2
 	title = FLWTV.2.t
@@ -39,6 +39,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_1
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 1 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -60,6 +62,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_2
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 2 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -81,6 +85,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_3
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 3 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -102,6 +108,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_4
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 4 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -123,6 +131,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_5
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 5 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -144,6 +154,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_6
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 6 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -165,6 +177,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_7
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 7 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -186,6 +200,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_8
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 8 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -207,6 +223,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_9
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 9 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -228,6 +246,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_10
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 10 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -249,6 +269,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_11
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 11 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -270,6 +292,8 @@ country_event = {
 		}
 		add_ideas = flower_st_arch_12
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 12 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -292,6 +316,8 @@ country_event = {
 		add_ideas = flower_st_econ_ledger
 		custom_effect_tooltip = FLWTV_st_ledger_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 13 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -314,6 +340,8 @@ country_event = {
 		add_ideas = flower_st_econ_vip
 		custom_effect_tooltip = FLWTV_st_vip_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 14 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -335,6 +363,8 @@ country_event = {
 		}
 		add_ideas = flower_st_econ_outsource
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 15 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -356,6 +386,8 @@ country_event = {
 		}
 		add_ideas = flower_st_hyb_joint
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 16 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -377,6 +409,8 @@ country_event = {
 		}
 		add_ideas = flower_st_hyb_combined
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 17 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -397,21 +431,9 @@ country_event = {
 			modifier = { factor = 1.6 has_war = no }
 		}
 		add_ideas = flower_st_port_general
-		if = {
-			limit = { any_army_leader = { is_assigned = yes } }
-			random_army_leader = {
-				limit = { is_assigned = yes }
-				add_attack = 2
-				add_logistics = 2
-			}
-		}
-		else = {
-			random_army_leader = {
-				add_attack = 2
-				add_logistics = 2
-			}
-		}
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 18 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -432,13 +454,9 @@ country_event = {
 			modifier = { factor = 1.6 has_war = no }
 		}
 		add_ideas = flower_st_port_railgun
-		add_tech_bonus = {
-			name = flower_blackbox_s1_bonus
-			bonus = 1.0
-			uses = 1
-			category = artillery
-		}
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 19 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -461,6 +479,8 @@ country_event = {
 		add_ideas = flower_st_port_thief
 		custom_effect_tooltip = FLWTV_st_thief_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 20 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -469,6 +489,7 @@ country_event = {
 	option = {
 		name = FLWTV.2.opt_21
 		trigger = {
+			has_country_flag = flower_st_task_done
 			check_variable = { flower_st_slot_4 = 21 }
 		}
 		ai_chance = {
@@ -478,10 +499,8 @@ country_event = {
 		add_ideas = flower_st_cursed_iou
 		custom_effect_tooltip = flower_hcp_plus_300_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 300 }
-			flower_ai_sync_hcp_ui = yes
-		}
-		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 21 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -490,6 +509,7 @@ country_event = {
 	option = {
 		name = FLWTV.2.opt_22
 		trigger = {
+			has_country_flag = flower_st_task_done
 			check_variable = { flower_st_slot_4 = 22 }
 		}
 		ai_chance = {
@@ -498,6 +518,8 @@ country_event = {
 		}
 		add_ideas = flower_st_cursed_dice
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 22 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -506,6 +528,7 @@ country_event = {
 	option = {
 		name = FLWTV.2.opt_23
 		trigger = {
+			has_country_flag = flower_st_task_done
 			check_variable = { flower_st_slot_4 = 23 }
 		}
 		ai_chance = {
@@ -514,6 +537,8 @@ country_event = {
 		}
 		add_ideas = flower_st_cursed_laststand
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 23 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -522,6 +547,7 @@ country_event = {
 	option = {
 		name = FLWTV.2.opt_24
 		trigger = {
+			has_country_flag = flower_st_task_done
 			check_variable = { flower_st_slot_4 = 24 }
 		}
 		ai_chance = {
@@ -530,6 +556,8 @@ country_event = {
 		}
 		add_ideas = flower_st_cursed_austerity
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 24 }
+			flower_badge_on_claim_st = yes
 			set_country_flag = flower_st_claimed
 			flower_tavern_recalc_trinket_dynamics = yes
 			flower_tavern_check_golden_synthesis = yes
@@ -537,7 +565,7 @@ country_event = {
 	}
 }
 
-#1939大饰品四槽商店
+#1939大徽章4张候选选购事件
 country_event = {
 	id = FLWTV.3
 	title = FLWTV.3.t
@@ -567,6 +595,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_1
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 1 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -595,6 +625,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_2
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 2 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -623,6 +655,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_3
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 3 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -651,6 +685,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_4
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 4 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -679,6 +715,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_5
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 5 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -707,6 +745,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_6
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 6 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -735,6 +775,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_7
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 7 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -763,6 +805,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_8
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 8 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -791,6 +835,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_9
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 9 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -818,8 +864,9 @@ country_event = {
 		custom_effect_tooltip = FLWTV_pay_lt_std_tt
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_10
-		hidden_effect = { flower_ai_recalc_elite_small_army = yes }
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 10 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -848,6 +895,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_11
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 11 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -876,6 +925,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_arch_12
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 12 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -902,6 +953,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_econ_printer
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 13 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -929,6 +982,8 @@ country_event = {
 		add_ideas = flower_lt_econ_bonds
 		custom_effect_tooltip = FLWTV_lt_bonds_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 14 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -956,6 +1011,8 @@ country_event = {
 		add_ideas = flower_lt_econ_pivot
 		custom_effect_tooltip = FLWTV_lt_pivot_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 15 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -984,6 +1041,8 @@ country_event = {
 		add_ideas = flower_lt_hyb_lightfang
 		custom_effect_tooltip = FLWTV_lt_lightfang_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 16 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1011,6 +1070,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_hyb_triarms
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 17 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1038,6 +1099,8 @@ country_event = {
 		add_ideas = flower_lt_port_museum
 		custom_effect_tooltip = FLWTV_lt_museum_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 18 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1063,8 +1126,9 @@ country_event = {
 		custom_effect_tooltip = FLWTV_pay_lt_std_tt
 		hidden_effect = { flower_tavern_pay_lt_std = yes }
 		add_ideas = flower_lt_port_marshal
-		flower_ai_grant_leader_chessmaster = yes
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 19 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1092,6 +1156,8 @@ country_event = {
 		add_ideas = flower_lt_port_magnetic
 		custom_effect_tooltip = FLWTV_lt_magnetic_tt
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 20 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1110,10 +1176,8 @@ country_event = {
 		add_ideas = flower_lt_cursed_demon
 		custom_effect_tooltip = flower_hcp_plus_500_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
-			flower_ai_sync_hcp_ui = yes
-		}
-		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 21 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1136,6 +1200,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_cheap = yes }
 		add_ideas = flower_lt_cursed_cube
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 22 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1154,10 +1220,8 @@ country_event = {
 		add_ideas = flower_lt_cursed_mortgage
 		custom_effect_tooltip = flower_hcp_plus_500_tt
 		hidden_effect = {
-			add_to_variable = { ubs_save = 500 }
-			flower_ai_sync_hcp_ui = yes
-		}
-		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 23 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1180,6 +1244,8 @@ country_event = {
 		hidden_effect = { flower_tavern_pay_lt_cheap = yes }
 		add_ideas = flower_lt_cursed_blood
 		hidden_effect = {
+			set_temp_variable = { temp_badge_id = 24 }
+			flower_badge_on_claim_lt = yes
 			set_country_flag = flower_lt_claimed
 			clr_country_flag = flower_lt_shop_deferred
 			flower_tavern_recalc_trinket_dynamics = yes
@@ -1205,7 +1271,7 @@ country_event = {
 	}
 }
 
-#1941终局桂冠四选一
+#1941超大徽章四选一事件
 country_event = {
 	id = FLWTV.4
 	title = FLWTV.4.t
@@ -1220,6 +1286,7 @@ country_event = {
 			modifier = { factor = 2.5 has_war = yes }
 		}
 		add_ideas = flower_crown_war_machine
+		hidden_effect = { set_temp_variable = { temp_crown_slot = 1 } flower_badge_on_claim_crown = yes }
 	}
 	option = {
 		name = FLWTV.4.b
@@ -1228,6 +1295,7 @@ country_event = {
 			modifier = { factor = 2.0 num_of_factories > 80 }
 		}
 		add_ideas = flower_crown_grand_industry
+		hidden_effect = { set_temp_variable = { temp_crown_slot = 2 } flower_badge_on_claim_crown = yes }
 	}
 	option = {
 		name = FLWTV.4.c
@@ -1236,15 +1304,17 @@ country_event = {
 			modifier = { factor = 2.5 has_country_flag = flower_roguelike_steampunk_ai }
 		}
 		add_ideas = flower_crown_overlord_tech
+		hidden_effect = { set_temp_variable = { temp_crown_slot = 3 } flower_badge_on_claim_crown = yes }
 	}
 	option = {
 		name = FLWTV.4.e
 		ai_chance = { base = 25 }
 		add_ideas = flower_crown_master_tactician
+		hidden_effect = { set_temp_variable = { temp_crown_slot = 4 } flower_badge_on_claim_crown = yes }
 	}
 }
 
-#中期拆解转型（从本局开放池切换至另一流派底座，保留已建工厂、科技与库存）
+#中期流派转型事件（从本局开放池切换至另一流派核心，保留已建工厂、科技与库存）
 country_event = {
 	id = FLWTV.10
 	title = FLWTV.10.t
@@ -1264,6 +1334,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_1 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1281,6 +1352,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_2 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1298,6 +1370,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_3 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1315,6 +1388,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_4 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1332,6 +1406,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_5 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1349,6 +1424,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_6 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1366,6 +1442,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_7 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1383,6 +1460,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_8 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1400,6 +1478,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_9 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1417,6 +1496,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_10 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1434,6 +1514,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_11 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1451,6 +1532,7 @@ country_event = {
 		ai_chance = { base = 20 }
 		custom_effect_tooltip = FLWTV.10.pivot_tt
 		hidden_effect = {
+			set_country_flag = flower_pivot_batch_upgrading
 			flower_tavern_clear_current_archetype = yes
 			flower_ai_pick_archetype_12 = yes
 			flower_tavern_apply_saved_stage_after_pivot = yes
@@ -1472,7 +1554,7 @@ country_event = {
 	}
 }
 
-#战术卡槽位已满（4/4）：出售旧卡腾出槽位或将新卡折现
+#战术卡5槽已满（5/5）：出售已有战术卡腾出槽位或将新卡兑换为储备
 country_event = {
 	id = FLWTV.20
 	title = FLWTV.20.t
@@ -1545,6 +1627,22 @@ country_event = {
 		}
 	}
 	option = {
+		name = FLWTV.20.e_slot5
+		trigger = { check_variable = { flower_replace_slot_5 > 0 } }
+		custom_effect_tooltip = FLWTV.20.replace_tt
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { flower_pending_new_card_id > 0 } }
+				set_temp_variable = { temp_sell_card_id = flower_replace_slot_5 }
+				flower_tavern_sell_card_by_id = yes
+				set_temp_variable = { temp_grant_card_id = flower_pending_new_card_id }
+				set_variable = { flower_pending_new_card_id = 0 }
+				flower_tavern_grant_card_by_id = yes
+			}
+			flower_tavern_pop_next_pending_card = yes
+		}
+	}
+	option = {
 		name = FLWTV.20.e
 		custom_effect_tooltip = FLWTV.20.cashout_tt
 		army_experience = 25
@@ -1564,7 +1662,7 @@ country_event = {
 	}
 }
 
-#击败强敌战利品：截获其战术卡或折现储备
+#击败主要敌国战利品：截获其战术卡或兑换为储备
 country_event = {
 	id = FLWTV.25
 	title = FLWTV.25.t
@@ -1626,6 +1724,7 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		has_country_flag = flower_bm_active
+		NOT = { has_country_flag = flower_bm_expire_lock }
 	}
 
 	option = {
@@ -1672,6 +1771,7 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		has_country_flag = flower_bounty_active
+		NOT = { has_country_flag = flower_bounty_expire_lock }
 	}
 
 	option = {
@@ -1688,12 +1788,13 @@ country_event = {
 		add_political_power = -50
 		hidden_effect = {
 			clr_country_flag = flower_bounty_active
+			set_country_flag = { flag = flower_bounty_cd days = 180 value = 1 }
 			flower_badge_hub_sync_state = yes
 		}
 	}
 }
 
-#合金质变达成通告
+#流派大成晋升通知事件
 country_event = {
 	id = FLWTV.32
 	title = FLWTV.32.t

@@ -1,0 +1,1008 @@
+#徽章附加触发机制（领取即时效果、周期结算、攻占地区、开战触发、王牌诞生与迫敌停止抵抗效果）
+
+#===============================================================================
+#一、1937小徽章领取即时效果（由GUI与事件FLWTV.2统一调用，绝不重复）
+#===============================================================================
+flower_badge_on_claim_st = {
+	if = {
+		limit = { check_variable = { temp_badge_id = 2 } }
+		#标准厂房蓝图：本土核心立即落成1座军用工厂
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 10 } }
+		#特种精锐徽章：提拔1名在任将领获突击队员特质并强化进攻防御
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_trait = commando } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_trait = commando } }
+				add_unit_leader_trait = commando
+				add_attack = 2
+				add_defense = 1
+			}
+		}
+		else_if = {
+			limit = { any_army_leader = { is_assigned = yes } }
+			random_army_leader = {
+				limit = { is_assigned = yes }
+				add_attack = 2
+				add_defense = 1
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 2
+				add_defense = 1
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 11 } }
+		#实验记录本：赠1张工业或电子科研加速卡
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 1
+			category = industry
+			category = electronics
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 15 } }
+		#外包基建合同：本土核心立即落成2座民用工厂
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 18 } }
+		#名将勋章盒：立即提拔1名现役将领进攻与后勤各+2
+		if = {
+			limit = { any_army_leader = { is_assigned = yes } }
+			random_army_leader = {
+				limit = { is_assigned = yes }
+				add_attack = 2
+				add_logistics = 2
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_attack = 2
+				add_logistics = 2
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 19 } }
+		#列车炮牵引调度令：直接交付1门现役列车炮并附赠火炮加速卡
+		if = {
+			limit = { NOT = { has_tech = railway_gun } }
+			set_technology = { railway_gun = 1 popup = no }
+		}
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+		}
+		add_tech_bonus = {
+			name = flower_blackbox_s1_bonus
+			bonus = 1.0
+			uses = 1
+			category = artillery
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 21 } }
+		#战时借款凭证：立即发放300储备
+		add_to_variable = { ubs_save = 300 }
+		flower_ai_sync_hcp_ui = yes
+	}
+}
+
+#===============================================================================
+#二、1939大徽章领取即时效果（由GUI与事件FLWTV.3统一调用）
+#===============================================================================
+flower_badge_on_claim_lt = {
+	if = {
+		limit = { check_variable = { temp_badge_id = 2 } }
+		#黑灯工业联合体：本土核心立即落成1座军用工厂与1座民用工厂
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 10 } }
+		#王牌特战指挥印：授予1名主帅次元奇袭特质并同步特战编制动态修正
+		flower_ai_grant_leader_dimension_ripper = yes
+		flower_ai_recalc_elite_small_army = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 11 } }
+		#全自动计算中心：立即增加1个科研槽（上限6）
+		flower_ai_add_research_slot_capped = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 12 } }
+		#黑市庄家金印：立即附赠1张免费抽牌券与200储备
+		add_to_variable = { flower_tavern_free_visits = 1 }
+		add_to_variable = { ubs_save = 200 }
+		flower_ai_sync_hcp_ui = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 19 } }
+		#元帅权杖：授予1名主帅大兵团棋手特质
+		flower_ai_grant_leader_chessmaster = yes
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 21 } }
+		#军工恶魔契约：返现500储备并强征落成2座军用工厂
+		add_to_variable = { ubs_save = 500 }
+		flower_ai_sync_hcp_ui = yes
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 22 } }
+		#禁忌实验魔方：立即获得陆军与空军突破点各+1
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_badge_id = 23 } }
+		#主权抵押协议：返现500储备并附赠2张免费抽牌券
+		add_to_variable = { ubs_save = 500 }
+		add_to_variable = { flower_tavern_free_visits = 2 }
+		flower_ai_sync_hcp_ui = yes
+	}
+}
+
+#===============================================================================
+#三、1941超大徽章加冕即时效果（由GUI与事件FLWTV.4统一调用）
+#===============================================================================
+flower_badge_on_claim_crown = {
+	if = {
+		limit = { check_variable = { temp_crown_slot = 1 } }
+		#决战战争机器：发放2张免费抽牌券并激活90天总攻限时精神
+		add_to_variable = { flower_tavern_free_visits = 2 }
+		add_timed_idea = { idea = flower_badge_crown_total_war_idea days = 90 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_crown_slot = 2 } }
+		#无尽工业巨擘：本土核心立即落成2座军用工厂与2座民用工厂
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { temp_crown_slot = 3 } }
+		#跨代科技霸权：额外+1科研槽（上限6）且陆海空核突破点各+1
+		flower_ai_add_research_slot_capped = yes
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+		add_breakthrough_points = { specialization = specialization_naval value = 1 }
+		add_breakthrough_points = { specialization = specialization_nuclear value = 1 }
+	}
+	else_if = {
+		limit = { check_variable = { temp_crown_slot = 4 } }
+		#大兵团统帅：提升至多3名在任将领各项技能等级各+1，并增加指挥点数与陆军经验
+		add_command_power = 100
+		army_experience = 50
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } }
+				set_unit_leader_flag = { flag = flower_crown_boosted_tmp days = 2 value = 1 }
+				add_attack = 1
+				add_defense = 1
+				add_planning = 1
+				add_logistics = 1
+			}
+		}
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } }
+				set_unit_leader_flag = { flag = flower_crown_boosted_tmp days = 2 value = 1 }
+				add_attack = 1
+				add_defense = 1
+				add_planning = 1
+				add_logistics = 1
+			}
+		}
+		if = {
+			limit = { any_army_leader = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } } }
+			random_army_leader = {
+				limit = { is_assigned = yes NOT = { has_unit_leader_flag = flower_crown_boosted_tmp } }
+				set_unit_leader_flag = { flag = flower_crown_boosted_tmp days = 2 value = 1 }
+				add_attack = 1
+				add_defense = 1
+				add_planning = 1
+				add_logistics = 1
+			}
+		}
+	}
+}
+
+#===============================================================================
+#四、月度周期活跃机制巡检（由 flower_tavern_monthly_tick 调度，严格按冷却控频）
+#===============================================================================
+flower_badge_monthly_fun_tick = {
+	#1937小徽章周期结算机制
+	#标准厂房蓝图：每180天随机核心扩1槽并修1级基础设施
+	if = {
+		limit = {
+			has_idea = flower_st_arch_2
+			NOT = { has_country_flag = flower_bdg_st2_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st2_cd days = 180 value = 1 }
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT infrastructure < 5 } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT infrastructure < 5 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	#炮兵观测气球：战时每90天校射锁定1个敌国挂60天炮火压制并轰损其设施
+	if = {
+		limit = {
+			has_idea = flower_st_arch_3
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st3_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_shell_shock_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_st3_cd days = 90 value = 1 }
+		random_enemy_country = {
+			limit = { NOT = { has_idea = flower_badge_shell_shock_enemy_idea } }
+			add_timed_idea = { idea = flower_badge_shell_shock_enemy_idea days = 60 }
+			random_controlled_state = {
+				damage_building = { type = infrastructure damage = 1 }
+			}
+		}
+	}
+	#野战机务地勤组：战时每120天保底触发90天机务整备与空军经验
+	if = {
+		limit = {
+			has_idea = flower_st_arch_5
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st5_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st5_cd days = 120 value = 1 }
+		add_timed_idea = { idea = flower_badge_air_ace_frenzy_idea days = 90 }
+		air_experience = 15
+	}
+	#后备动员登记册：战时每90天紧急补员25000人力（低人力翻倍至50000）与20指挥点数
+	if = {
+		limit = {
+			has_idea = flower_st_arch_6
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st6_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st6_cd days = 90 value = 1 }
+		add_command_power = 20
+		if = {
+			limit = { has_manpower < 300000 }
+			add_manpower = 50000
+		}
+		else = {
+			add_manpower = 25000
+		}
+	}
+	#微光夜视瞄具：战时每180天令1个交战敌国夜幕致盲60天
+	if = {
+		limit = {
+			has_idea = flower_st_arch_7
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st7_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_st7_cd days = 180 value = 1 }
+		random_enemy_country = {
+			limit = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+			add_timed_idea = { idea = flower_badge_night_blind_enemy_idea days = 60 }
+		}
+	}
+	#敌后联络电台：战时每90天骚扰随机敌国后勤60天并赠15陆军经验
+	if = {
+		limit = {
+			has_idea = flower_st_arch_8
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st8_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_st8_cd days = 90 value = 1 }
+		army_experience = 15
+		random_enemy_country = {
+			limit = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } }
+			add_timed_idea = { idea = flower_badge_guerrilla_rail_chaos_idea days = 60 }
+		}
+	}
+	#战地输血急救包：战时每120天触发60天战地救急归队
+	if = {
+		limit = {
+			has_idea = flower_st_arch_9
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st9_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st9_cd days = 120 value = 1 }
+		add_timed_idea = { idea = flower_badge_medevac_secondwind_idea days = 60 }
+	}
+	#实验记录本：每180天轮换赠送1点突破点
+	if = {
+		limit = {
+			has_idea = flower_st_arch_11
+			NOT = { has_country_flag = flower_bdg_st11_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st11_cd days = 180 value = 1 }
+		random_list = {
+			40 = { add_breakthrough_points = { specialization = specialization_land value = 1 } }
+			35 = { add_breakthrough_points = { specialization = specialization_air value = 1 } }
+			25 = { add_breakthrough_points = { specialization = specialization_naval value = 1 } }
+		}
+	}
+	#黑市信用筹码：每180天发放200储备、1次免费重抽并激活90天商机限时精神
+	if = {
+		limit = {
+			has_idea = flower_st_arch_12
+			NOT = { has_country_flag = flower_bdg_st12_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st12_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 200 }
+		add_to_variable = { flower_free_reroll_charges = 1 }
+		add_timed_idea = { idea = flower_badge_blackmarket_windfall_idea days = 90 }
+		flower_ai_sync_hcp_ui = yes
+	}
+	#外包基建合同：每180天修1级核心基建并回流100储备
+	if = {
+		limit = {
+			has_idea = flower_st_econ_outsource
+			NOT = { has_country_flag = flower_bdg_st15_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st15_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 100 }
+		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT infrastructure < 5 } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT infrastructure < 5 }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+		}
+	}
+	#多兵种协同操典：每180天检阅步兵/炮兵/装甲/空军，每凑齐1类发50储备与10经验
+	if = {
+		limit = {
+			has_idea = flower_st_hyb_combined
+			NOT = { has_country_flag = flower_bdg_st17_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st17_cd days = 180 value = 1 }
+		if = {
+			limit = { OR = { has_template_containing_unit = infantry has_template_containing_unit = motorized has_template_containing_unit = mechanized } }
+			add_to_variable = { ubs_save = 50 }
+			army_experience = 10
+		}
+		if = {
+			limit = { OR = { has_template_containing_unit = artillery_brigade has_template_containing_unit = rocket_artillery_brigade has_template_containing_unit = artillery } }
+			add_to_variable = { ubs_save = 50 }
+			army_experience = 10
+		}
+		if = {
+			limit = { OR = { has_template_containing_unit = light_armor has_template_containing_unit = medium_armor has_template_containing_unit = heavy_armor has_template_containing_unit = modern_armor } }
+			add_to_variable = { ubs_save = 50 }
+			army_experience = 10
+		}
+		if = {
+			limit = { has_deployed_air_force_size = { size > 99 } }
+			add_to_variable = { ubs_save = 50 }
+			air_experience = 15
+		}
+		flower_ai_sync_hcp_ui = yes
+	}
+	#战时借款凭证（诅咒）：每180天发放150储备
+	if = {
+		limit = {
+			has_idea = flower_st_cursed_iou
+			NOT = { has_country_flag = flower_bdg_st21_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st21_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 150 }
+		flower_ai_sync_hcp_ui = yes
+	}
+	#破釜赌桌骰（诅咒）：战时每90天掷骰，65%狂攻爆发60天，35%舆论骚动扣25政治点
+	if = {
+		limit = {
+			has_idea = flower_st_cursed_dice
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st22_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st22_cd days = 90 value = 1 }
+		random_list = {
+			65 = { add_timed_idea = { idea = flower_badge_cursed_berserk_pulse_idea days = 60 } }
+			35 = { add_political_power = -25 }
+		}
+	}
+	#焦土死守令（诅咒）：战时已拥有的本土核心被敌占领时紧急动员50000人力与30指挥点数
+	if = {
+		limit = {
+			has_idea = flower_st_cursed_laststand
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st23_cd }
+			any_owned_state = {
+				is_core_of = ROOT
+				NOT = { is_controlled_by = ROOT }
+				controller = { has_war_with = ROOT }
+			}
+		}
+		set_country_flag = { flag = flower_bdg_st23_cd days = 180 value = 1 }
+		add_manpower = 50000
+		add_command_power = 30
+	}
+	#战时配给券（诅咒）：战时每90天从配给中挤出150储备与1000支步兵装备
+	if = {
+		limit = {
+			has_idea = flower_st_cursed_austerity
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_st24_cd }
+		}
+		set_country_flag = { flag = flower_bdg_st24_cd days = 90 value = 1 }
+		add_to_variable = { ubs_save = 150 }
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 }
+		flower_ai_sync_hcp_ui = yes
+	}
+
+	#1939大徽章周期结算机制
+	#黑灯工业联合体：每360天本土核心免费扩建1座军用工厂与1座民用工厂
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_2
+			NOT = { has_country_flag = flower_bdg_lt2_cd }
+			any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT }
+		}
+		set_country_flag = { flag = flower_bdg_lt2_cd days = 360 value = 1 }
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	#饱和弹幕计算仪：战时每90天对主要交战敌国挂60天炮火压制并重创设施，赠20指挥点数
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_3
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt3_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_shell_shock_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_lt3_cd days = 90 value = 1 }
+		add_command_power = 20
+		if = {
+			limit = { any_enemy_country = { is_major = yes NOT = { has_idea = flower_badge_shell_shock_enemy_idea } } }
+			random_enemy_country = {
+				limit = { is_major = yes NOT = { has_idea = flower_badge_shell_shock_enemy_idea } }
+				add_timed_idea = { idea = flower_badge_shell_shock_enemy_idea days = 60 }
+				random_controlled_state = {
+					limit = { infrastructure > 0 }
+					damage_building = { type = infrastructure damage = 2 }
+				}
+			}
+		}
+		else = {
+			random_enemy_country = {
+				limit = { NOT = { has_idea = flower_badge_shell_shock_enemy_idea } }
+				add_timed_idea = { idea = flower_badge_shell_shock_enemy_idea days = 60 }
+				random_controlled_state = {
+					limit = { infrastructure > 0 }
+					damage_building = { type = infrastructure damage = 2 }
+				}
+			}
+		}
+	}
+	#永不枯竭预备役：战时每90天征召60000预备役人力与1500支步兵装备
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_6
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt6_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt6_cd days = 90 value = 1 }
+		add_manpower = 60000
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 }
+	}
+	#子夜幽灵旅徽：战时每150天同时致盲至多2个交战敌国60天
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_7
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt7_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_lt7_cd days = 150 value = 1 }
+		random_enemy_country = {
+			limit = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+			add_timed_idea = { idea = flower_badge_night_blind_enemy_idea days = 60 }
+		}
+		if = {
+			limit = { any_enemy_country = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } } }
+			random_enemy_country = {
+				limit = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+				add_timed_idea = { idea = flower_badge_night_blind_enemy_idea days = 60 }
+			}
+		}
+	}
+	#野火全民武装：战时每90天袭扰至多2个敌国后勤，并拉升敌占我方核心抵抗度
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_8
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt8_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt8_cd days = 90 value = 1 }
+		if = {
+			limit = { any_enemy_country = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } } }
+			random_enemy_country = {
+				limit = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } }
+				add_timed_idea = { idea = flower_badge_guerrilla_rail_chaos_idea days = 60 }
+			}
+		}
+		if = {
+			limit = { any_enemy_country = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } } }
+			random_enemy_country = {
+				limit = { NOT = { has_idea = flower_badge_guerrilla_rail_chaos_idea } }
+				add_timed_idea = { idea = flower_badge_guerrilla_rail_chaos_idea days = 60 }
+			}
+		}
+		if = {
+			limit = {
+				any_core_state = {
+					NOT = { is_controlled_by = ROOT }
+					has_resistance = yes
+					controller = { has_war_with = ROOT }
+				}
+			}
+			random_state = {
+				limit = {
+					is_core_of = ROOT
+					NOT = { is_controlled_by = ROOT }
+					has_resistance = yes
+					controller = { has_war_with = ROOT }
+				}
+				add_resistance = 15
+			}
+		}
+	}
+	#战地复生急救车：战时每90天触发60天救急归队限时精神并增加25陆军经验
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_9
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt9_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt9_cd days = 90 value = 1 }
+		add_timed_idea = { idea = flower_badge_medevac_secondwind_idea days = 60 }
+		army_experience = 25
+	}
+	#全自动计算中心：每180天产出陆军与空军突破点各+1
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_11
+			NOT = { has_country_flag = flower_bdg_lt11_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt11_cd days = 180 value = 1 }
+		add_breakthrough_points = { specialization = specialization_land value = 1 }
+		add_breakthrough_points = { specialization = specialization_air value = 1 }
+	}
+	#黑市庄家金印：每360天庄家大额分红+400储备、+1免费抽牌券与90天商机红利
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_12
+			NOT = { has_country_flag = flower_bdg_lt12_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt12_cd days = 360 value = 1 }
+		add_to_variable = { ubs_save = 400 }
+		add_to_variable = { flower_tavern_free_visits = 1 }
+		add_timed_idea = { idea = flower_badge_blackmarket_windfall_idea days = 90 }
+		flower_ai_sync_hcp_ui = yes
+	}
+	#战时印钞模板：每180天拨款+300储备并免费扩建1座军用工厂
+	if = {
+		limit = {
+			has_idea = flower_lt_econ_printer
+			NOT = { has_country_flag = flower_bdg_lt13_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt13_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 300 }
+		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+	#国防公债认购书：每180天发放公债利息+150储备
+	if = {
+		limit = {
+			has_idea = flower_lt_econ_bonds
+			NOT = { has_country_flag = flower_bdg_lt14_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt14_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 150 }
+		flower_ai_sync_hcp_ui = yes
+	}
+	#全军混编参谋部：5兵种满齐（满3级）时每180天附赠1张免费抽牌券
+	if = {
+		limit = {
+			has_idea = flower_lt_hyb_lightfang
+			check_variable = { flower_lightfang_atk_var > 0.14 }
+			NOT = { has_country_flag = flower_bdg_lt16_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt16_cd days = 180 value = 1 }
+		add_to_variable = { flower_tavern_free_visits = 1 }
+	}
+	#元帅权杖：每180天随机提拔1名在任将领计划+1、防御+1（至多4次）
+	if = {
+		limit = {
+			has_idea = flower_lt_port_marshal
+			check_variable = { flower_marshal_promote_cnt < 4 }
+			NOT = { has_country_flag = flower_bdg_lt19_cd }
+			any_army_leader = { always = yes }
+		}
+		set_country_flag = { flag = flower_bdg_lt19_cd days = 180 value = 1 }
+		add_to_variable = { flower_marshal_promote_cnt = 1 }
+		if = {
+			limit = { any_army_leader = { is_assigned = yes } }
+			random_army_leader = {
+				limit = { is_assigned = yes }
+				add_planning = 1
+				add_defense = 1
+			}
+		}
+		else = {
+			random_army_leader = {
+				add_planning = 1
+				add_defense = 1
+			}
+		}
+	}
+	#禁忌实验魔方（诅咒）：战时每90天触发狂攻爆发或科研突破
+	if = {
+		limit = {
+			has_idea = flower_lt_cursed_cube
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt22_cd }
+		}
+		set_country_flag = { flag = flower_bdg_lt22_cd days = 90 value = 1 }
+		random_list = {
+			60 = { add_timed_idea = { idea = flower_badge_cursed_berserk_pulse_idea days = 60 } }
+			40 = {
+				add_breakthrough_points = { specialization = specialization_land value = 1 }
+				add_political_power = -15
+			}
+		}
+	}
+	#血税总动员（诅咒）：战时已拥有的本土核心被敌占领触发80000人力总动员与救急归队
+	if = {
+		limit = {
+			has_idea = flower_lt_cursed_blood
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_lt24_cd }
+			any_owned_state = {
+				is_core_of = ROOT
+				NOT = { is_controlled_by = ROOT }
+				controller = { has_war_with = ROOT }
+			}
+		}
+		set_country_flag = { flag = flower_bdg_lt24_cd days = 180 value = 1 }
+		add_manpower = 80000
+		add_command_power = 40
+		add_timed_idea = { idea = flower_badge_medevac_secondwind_idea days = 60 }
+	}
+
+	#1941超大徽章周期结算机制
+	#决战战争机器：战时每180天触发90天总攻限时精神
+	if = {
+		limit = {
+			has_idea = flower_crown_war_machine
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_cr1_cd }
+		}
+		set_country_flag = { flag = flower_bdg_cr1_cd days = 180 value = 1 }
+		add_timed_idea = { idea = flower_badge_crown_total_war_idea days = 90 }
+	}
+	#无尽工业巨擘：每180天免费扩建1座军用工厂并拨付200储备
+	if = {
+		limit = {
+			has_idea = flower_crown_grand_industry
+			NOT = { has_country_flag = flower_bdg_cr2_cd }
+		}
+		set_country_flag = { flag = flower_bdg_cr2_cd days = 180 value = 1 }
+		add_to_variable = { ubs_save = 200 }
+		flower_ai_sync_hcp_ui = yes
+		if = {
+			limit = { any_owned_state = { is_controlled_by = ROOT is_core_of = ROOT } }
+			random_owned_controlled_state = {
+				limit = { is_core_of = ROOT }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+		}
+	}
+	#跨代科技霸权：战时每180天对1个交战敌国施加90天科技情报压制
+	if = {
+		limit = {
+			has_idea = flower_crown_overlord_tech
+			has_war = yes
+			NOT = { has_country_flag = flower_bdg_cr3_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_crown_intel_lock_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_cr3_cd days = 180 value = 1 }
+		if = {
+			limit = { any_enemy_country = { is_major = yes NOT = { has_idea = flower_badge_crown_intel_lock_enemy_idea } } }
+			random_enemy_country = {
+				limit = { is_major = yes NOT = { has_idea = flower_badge_crown_intel_lock_enemy_idea } }
+				add_timed_idea = { idea = flower_badge_crown_intel_lock_enemy_idea days = 90 }
+			}
+		}
+		else = {
+			random_enemy_country = {
+				limit = { NOT = { has_idea = flower_badge_crown_intel_lock_enemy_idea } }
+				add_timed_idea = { idea = flower_badge_crown_intel_lock_enemy_idea days = 90 }
+			}
+		}
+	}
+}
+
+#===============================================================================
+#五、实战事件触发钩子（攻占地区、开战先手、王牌诞生、迫使敌国停止抵抗）
+#===============================================================================
+#攻占敌方地区触发（on_state_control_changed，ROOT=占领者，FROM=原控制者，FROM.FROM=州）
+flower_badge_on_state_captured = {
+	if = {
+		limit = { ROOT = { has_war_with = FROM } }
+		#战利品拆解台：攻占敌方含工厂地区获得储备、陆军经验与步兵装备（冷却30天）
+		if = {
+			limit = {
+				ROOT = {
+					has_idea = flower_st_arch_1
+					NOT = { has_country_flag = flower_bdg_st1_raid_cd }
+				}
+				FROM.FROM = {
+					OR = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_bdg_st1_raid_cd days = 30 value = 1 }
+				add_to_variable = { ubs_save = 150 }
+				army_experience = 10
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 300 }
+				flower_ai_sync_hcp_ui = yes
+			}
+		}
+		#装甲燃油副箱 / 银怀表引擎舱：攻占敌方地区触发60天长途穿插爆发（60天冷却）
+		if = {
+			limit = {
+				ROOT = {
+					OR = {
+						has_idea = flower_st_arch_4
+						has_idea = flower_lt_arch_4
+					}
+					NOT = { has_country_flag = flower_bdg_blitz_cap_cd }
+				}
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_bdg_blitz_cap_cd days = 60 value = 1 }
+				add_timed_idea = { idea = flower_badge_blitz_fuel_surge_idea days = 60 }
+				if = {
+					limit = { has_idea = flower_lt_arch_4 }
+					add_command_power = 15
+				}
+			}
+		}
+		#战利品搜缴手套：攻占敌国首都地区获得300储备与1张免费抽牌券（冷却180天）
+		if = {
+			limit = {
+				ROOT = {
+					has_idea = flower_st_port_thief
+					NOT = { has_country_flag = flower_bdg_thief_cap_cd }
+				}
+				FROM.FROM = { is_capital = yes }
+			}
+			ROOT = {
+				set_country_flag = { flag = flower_bdg_thief_cap_cd days = 180 value = 1 }
+				add_to_variable = { ubs_save = 300 }
+				add_to_variable = { flower_tavern_free_visits = 1 }
+				flower_ai_sync_hcp_ui = yes
+			}
+		}
+	}
+}
+
+#开战先手触发（由 on_declare_war 与 on_war_relation_added 在国家作用域调用）
+flower_badge_on_war_start = {
+	#微光夜视瞄具 / 子夜幽灵旅徽：开战先手致盲敌国侦查60天（90天冷却）
+	if = {
+		limit = {
+			OR = {
+				has_idea = flower_st_arch_7
+				has_idea = flower_lt_arch_7
+			}
+			NOT = { has_country_flag = flower_bdg_night_war_cd }
+			any_enemy_country = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+		}
+		set_country_flag = { flag = flower_bdg_night_war_cd days = 90 value = 1 }
+		random_enemy_country = {
+			limit = { NOT = { has_idea = flower_badge_night_blind_enemy_idea } }
+			add_timed_idea = { idea = flower_badge_night_blind_enemy_idea days = 60 }
+		}
+	}
+	#特种精锐徽章 / 王牌特战指挥印：开战即享60天尖刀奇袭窗口（90天冷却）
+	if = {
+		limit = {
+			OR = {
+				has_idea = flower_st_arch_10
+				has_idea = flower_lt_arch_10
+			}
+			NOT = { has_country_flag = flower_bdg_specops_war_cd }
+		}
+		set_country_flag = { flag = flower_bdg_specops_war_cd days = 90 value = 1 }
+		add_timed_idea = { idea = flower_badge_specops_raid_window_idea days = 60 }
+	}
+	#联合作战参谋部：开战瞬间补足三军指挥点数与陆空经验（180天冷却）
+	if = {
+		limit = {
+			has_idea = flower_st_hyb_joint
+			NOT = { has_country_flag = flower_bdg_joint_war_cd }
+		}
+		set_country_flag = { flag = flower_bdg_joint_war_cd days = 180 value = 1 }
+		add_command_power = 50
+		army_experience = 25
+		air_experience = 25
+	}
+}
+
+#王牌飞行员诞生触发（on_ace_promoted，ROOT=国家）
+flower_badge_on_ace_promoted = {
+	if = {
+		limit = {
+			has_idea = flower_st_arch_5
+			NOT = { has_country_flag = flower_bdg_ace_st5_cd }
+		}
+		set_country_flag = { flag = flower_bdg_ace_st5_cd days = 60 value = 1 }
+		add_timed_idea = { idea = flower_badge_air_ace_frenzy_idea days = 90 }
+		air_experience = 15
+	}
+	if = {
+		limit = {
+			has_idea = flower_lt_arch_5
+			NOT = { has_country_flag = flower_bdg_ace_lt5_cd }
+		}
+		set_country_flag = { flag = flower_bdg_ace_lt5_cd days = 60 value = 1 }
+		add_timed_idea = { idea = flower_badge_air_ace_frenzy_idea days = 90 }
+		add_to_variable = { ubs_save = 100 }
+		add_to_variable = { flower_free_reroll_charges = 1 }
+		flower_ai_sync_hcp_ui = yes
+	}
+}
+
+#迫使非内战敌国停止抵抗触发（on_capitulation，ROOT=投降者，FROM=胜利者）
+flower_badge_on_enemy_capitulated = {
+	if = {
+		limit = {
+			ROOT = {
+				NOT = { original_tag = FROM }
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+				NOT = { tag = WRQ }
+			}
+		}
+		FROM = {
+			#名将勋章盒：迫使敌国停止抵抗时提升1名在任将领进攻与防御技能各+1（冷却90天）
+			if = {
+				limit = {
+					has_idea = flower_st_port_general
+					NOT = { has_country_flag = flower_bdg_gen_cap_cd }
+				}
+				set_country_flag = { flag = flower_bdg_gen_cap_cd days = 90 value = 1 }
+				if = {
+					limit = { any_army_leader = { is_assigned = yes } }
+					random_army_leader = {
+						limit = { is_assigned = yes }
+						add_attack = 1
+						add_defense = 1
+					}
+				}
+				else = {
+					random_army_leader = {
+						add_attack = 1
+						add_defense = 1
+					}
+				}
+			}
+			#全自动战地改装厂：迫使敌国停止抵抗时获得装备与储备奖励（冷却90天）
+			if = {
+				limit = {
+					has_idea = flower_lt_arch_1
+					NOT = { has_country_flag = flower_bdg_lt1_cap_cd }
+				}
+				set_country_flag = { flag = flower_bdg_lt1_cap_cd days = 90 value = 1 }
+				add_to_variable = { ubs_save = 350 }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = 2000 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = 150 }
+				flower_ai_sync_hcp_ui = yes
+			}
+			#王牌特战指挥印：迫敌投降刷新60天奇袭窗口并赠30指挥点数（90天冷却）
+			if = {
+				limit = {
+					has_idea = flower_lt_arch_10
+					NOT = { has_country_flag = flower_bdg_lt10_cap_cd }
+				}
+				set_country_flag = { flag = flower_bdg_lt10_cap_cd days = 90 value = 1 }
+				add_timed_idea = { idea = flower_badge_specops_raid_window_idea days = 60 }
+				add_command_power = 30
+			}
+			#战利品陈列馆：迫敌投降额外加赠1张免费战术抽牌券（90天冷却）
+			if = {
+				limit = {
+					has_idea = flower_lt_port_museum
+					NOT = { has_country_flag = flower_bdg_museum_cap_cd }
+				}
+				set_country_flag = { flag = flower_bdg_museum_cap_cd days = 90 value = 1 }
+				add_to_variable = { flower_tavern_free_visits = 1 }
+			}
+		}
+	}
+}

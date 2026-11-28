@@ -15,7 +15,7 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上哈基米立绘框（点击切换哈气表情并播放哈气音效）
+		#左上角立绘交互框（点击切换表情并播放音效）
 		buttonType = {
 			name = "flower_draft_cat_calm_btn"
 			quadTextureSprite = "GFX_flower_portrait_cat"
@@ -597,6 +597,16 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		buttonType = {
+			name = "flower_hex_slot_1_gold_btn"
+			position = { x = 28 y = 197 }
+			quadTextureSprite = "GFX_flower_vcard_gold"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_1_TT_WRAP"
+			clicksound = flower_sfx_combo_awakening
+			oversound = PAU_hover_paper
+		}
 		iconType = {
 			name = "flower_hex_slot_1_icon"
 			position = { x = 144 y = 238 }
@@ -688,6 +698,16 @@ guiTypes = {
 			clicksound = 盖章
 			oversound = PAU_hover_paper
 		}
+		buttonType = {
+			name = "flower_hex_slot_2_gold_btn"
+			position = { x = 322 y = 197 }
+			quadTextureSprite = "GFX_flower_vcard_gold"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_2_TT_WRAP"
+			clicksound = flower_sfx_combo_awakening
+			oversound = PAU_hover_paper
+		}
 		iconType = {
 			name = "flower_hex_slot_2_icon"
 			position = { x = 438 y = 238 }
@@ -777,6 +797,16 @@ guiTypes = {
 			buttonText = ""
 			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
 			clicksound = 盖章
+			oversound = PAU_hover_paper
+		}
+		buttonType = {
+			name = "flower_hex_slot_3_gold_btn"
+			position = { x = 616 y = 197 }
+			quadTextureSprite = "GFX_flower_vcard_gold"
+			buttonFont = "flower_a4_16"
+			buttonText = ""
+			pdx_tooltip = "FLOWER_DRAFT_SLOT_3_TT_WRAP"
+			clicksound = flower_sfx_combo_awakening
 			oversound = PAU_hover_paper
 		}
 		iconType = {

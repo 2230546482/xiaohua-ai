@@ -1,5 +1,5 @@
 #==============================================================================
-# 开局畸变7-12运行脚本
+#开局畸变7-12运行脚本
 #==============================================================================
 
 #为单个国家补挂当前已激活的7~12号全局畸变初始精神与前置科技
@@ -254,13 +254,13 @@ flower_ai_tick_anomalies_v2_monthly = {
 		}
 		flower_ai_sync_country_anomalies_v2 = yes
 
-		#--- 畸变7：骄兵必败 / 哀兵必胜 三档实时切换 ---
+		#---畸变7：骄兵必败 / 哀兵必胜 三档实时切换---
 		if = {
 			limit = { has_global_flag = flower_anomaly_7_active }
 			flower_ai_anom7_refresh_tiers = yes
 		}
 
-		#--- 畸变8：AI战时嘴硬反弹 ---
+		#---畸变8：AI战时嘴硬反弹---
 		if = {
 			limit = {
 				has_global_flag = flower_anomaly_8_active
@@ -285,7 +285,7 @@ flower_ai_tick_anomalies_v2_monthly = {
 			}
 		}
 
-		#--- 畸变9：全局每85天定时开盒全图外卖状态（消除2月导致的29天空窗，无缝衔接）---
+		#---畸变9：全局每85天定时开盒全图外卖状态（消除2月导致的29天空窗，无缝衔接）---
 		if = {
 			limit = {
 				has_global_flag = flower_anomaly_9_active
@@ -295,7 +295,7 @@ flower_ai_tick_anomalies_v2_monthly = {
 			flower_ai_anom9_roll_global_takeout = yes
 		}
 
-		#--- 畸变10：和平【从从容容】与战时【扛厂跑路体制】平滑切换 ---
+		#---畸变10：和平【从从容容】与战时【扛厂跑路体制】平滑切换---
 		if = {
 			limit = { has_global_flag = flower_anomaly_10_active }
 			if = {
@@ -385,7 +385,7 @@ flower_ai_anom7_major_death_guanyu_song = {
 
 #地区控制权变更钩子（on_state_control_changed：ROOT=新控制方，FROM=原控制方，FROM.FROM=易手地区）
 flower_ai_on_state_changed_anomalies_v2 = {
-	#--- 畸变7：失守核心省即时刷新 ---
+	#---畸变7：失守核心省即时刷新---
 	if = {
 		limit = {
 			has_global_flag = flower_anomaly_7_active
@@ -397,7 +397,7 @@ flower_ai_on_state_changed_anomalies_v2 = {
 		}
 	}
 
-	#--- 畸变10：失守带工厂核心省时，物理扛走1座工厂优先迁往不临敌的安全后方核心省，并炸毁该省铁路与基建各2级 ---
+	#---畸变10：失守带工厂核心省时，物理扛走1座工厂优先迁往不临敌的安全后方核心省，并炸毁该省铁路与基建各2级---
 	if = {
 		limit = {
 			has_global_flag = flower_anomaly_10_active
@@ -556,7 +556,7 @@ flower_ai_on_state_changed_anomalies_v2 = {
 		}
 	}
 
-	#--- 畸变12：破城灵魂拷问 ---
+	#---畸变12：破城灵魂拷问---
 	if = {
 		limit = {
 			has_global_flag = flower_anomaly_12_active

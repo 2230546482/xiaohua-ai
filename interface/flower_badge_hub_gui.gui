@@ -16,7 +16,7 @@ guiTypes = {
 			spriteType = "GFX_flower_grand_panel_bg"
 		}
 
-		#左上哈基米立绘框（随操作实时反馈心情，点击可手动撸猫/哈气）
+		#左上角立绘交互框（随操作更新状态表情，点击切换表情并播放音效）
 		buttonType = {
 			name = "flower_badge_cat_calm_btn"
 			position = { x = 28 y = 22 }
@@ -1305,7 +1305,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		#两页签共用：底部即时心理反馈横幅（864x36，显示最新领赏、大成、吐槽或当前进度提醒）
+		#两页签共用底部状态提示栏（864x36，显示领奖、流派大成与任务进度提示）
 		iconType = {
 			name = "flower_badge_feedback_bar_bg"
 			position = { x = 28 y = 606 }

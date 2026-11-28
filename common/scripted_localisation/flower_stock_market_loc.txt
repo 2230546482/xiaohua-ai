@@ -94,7 +94,7 @@ defined_text = {
 	}
 }
 
-# --- 股票1：军工防务 ---
+#---股票1：军工防务---
 defined_text = {
 	name = GetFlowerStock1PriceText
 	text = {
@@ -124,7 +124,7 @@ defined_text = {
 	}
 }
 
-# --- 股票2：基建重工 ---
+#---股票2：基建重工---
 defined_text = {
 	name = GetFlowerStock2PriceText
 	text = {
@@ -154,7 +154,7 @@ defined_text = {
 	}
 }
 
-# --- 股票3：科技飞碟 ---
+#---股票3：科技飞碟---
 defined_text = {
 	name = GetFlowerStock3PriceText
 	text = {
@@ -184,7 +184,7 @@ defined_text = {
 	}
 }
 
-# --- 股票4：黑市期货 ---
+#---股票4：黑市期货---
 defined_text = {
 	name = GetFlowerStock4PriceText
 	text = {

@@ -23,6 +23,7 @@ flower_roguelike_ops_cat = {
 	priority = 480
 	visible = {
 		OR = {
+			has_country_flag = flower_dvl_warning_active
 			has_global_flag = flower_anomaly_3_active
 			has_country_flag = flower_roguelike_slayer_ai
 			has_country_flag = flower_roguelike_corp_ai

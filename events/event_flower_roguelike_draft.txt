@@ -12,10 +12,13 @@ country_event = {
 		name = FLWRG.1.a
 		ai_chance = {
 			base = 15
-			#最高优先：分支进化与流派升阶/双修
+			#最高优先：分支进化与流派进阶
 			modifier = { factor = 9.0 check_variable = { flower_draft_slot_1 = 21 } }
 			modifier = { factor = 6.5 check_variable = { flower_draft_slot_1 = 22 } check_variable = { flower_distinct_archetypes_count < 3 } }
 			modifier = { factor = 2.5 check_variable = { flower_draft_slot_1 = 22 } check_variable = { flower_distinct_archetypes_count > 2 } }
+			#三连合成加权：优先凑对子与三连金色战术卡
+			modifier = { factor = 2.0 check_variable = { flower_draft_slot_1_owned = 1 } }
+			modifier = { factor = 3.8 check_variable = { flower_draft_slot_1_owned = 2 } }
 			#基础强力遗物与通用战备卡稳健加权
 			modifier = { factor = 1.9 check_variable = { flower_draft_slot_1 < 13 } }
 			modifier = { factor = 1.8 check_variable = { flower_draft_slot_1 > 24 } }
@@ -89,7 +92,7 @@ country_event = {
 			modifier = { factor = 2.4 check_variable = { flower_draft_slot_1 = 60 } has_war = yes }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_1 = 49 } num_divisions > 65 }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_1 = 54 } num_of_civilian_factories < 12 }
-			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
+			#风险卡牌权重控制（避免AI在劣势、低人力或低稳定度下受损）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_1 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_1 = 14 } has_manpower < 400000 }
 			modifier = { factor = 0.25 check_variable = { flower_draft_slot_1 = 14 } has_country_flag = flower_roguelike_wave_ai has_manpower < 900000 }
@@ -105,10 +108,13 @@ country_event = {
 		name = FLWRG.1.b
 		ai_chance = {
 			base = 15
-			#最高优先：分支进化与流派升阶/双修
+			#最高优先：分支进化与流派进阶
 			modifier = { factor = 9.0 check_variable = { flower_draft_slot_2 = 21 } }
 			modifier = { factor = 6.5 check_variable = { flower_draft_slot_2 = 22 } check_variable = { flower_distinct_archetypes_count < 3 } }
 			modifier = { factor = 2.5 check_variable = { flower_draft_slot_2 = 22 } check_variable = { flower_distinct_archetypes_count > 2 } }
+			#三连合成加权：优先凑对子与三连金色战术卡
+			modifier = { factor = 2.0 check_variable = { flower_draft_slot_2_owned = 1 } }
+			modifier = { factor = 3.8 check_variable = { flower_draft_slot_2_owned = 2 } }
 			#基础强力遗物与通用战备卡稳健加权
 			modifier = { factor = 1.9 check_variable = { flower_draft_slot_2 < 13 } }
 			modifier = { factor = 1.8 check_variable = { flower_draft_slot_2 > 24 } }
@@ -182,7 +188,7 @@ country_event = {
 			modifier = { factor = 2.4 check_variable = { flower_draft_slot_2 = 60 } has_war = yes }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_2 = 49 } num_divisions > 65 }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_2 = 54 } num_of_civilian_factories < 12 }
-			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
+			#风险卡牌权重控制（避免AI在劣势、低人力或低稳定度下受损）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_2 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_2 = 14 } has_manpower < 400000 }
 			modifier = { factor = 0.25 check_variable = { flower_draft_slot_2 = 14 } has_country_flag = flower_roguelike_wave_ai has_manpower < 900000 }
@@ -198,10 +204,13 @@ country_event = {
 		name = FLWRG.1.c
 		ai_chance = {
 			base = 15
-			#最高优先：分支进化与流派升阶/双修
+			#最高优先：分支进化与流派进阶
 			modifier = { factor = 9.0 check_variable = { flower_draft_slot_3 = 21 } }
 			modifier = { factor = 6.5 check_variable = { flower_draft_slot_3 = 22 } check_variable = { flower_distinct_archetypes_count < 3 } }
 			modifier = { factor = 2.5 check_variable = { flower_draft_slot_3 = 22 } check_variable = { flower_distinct_archetypes_count > 2 } }
+			#三连合成加权：优先凑对子与三连金色战术卡
+			modifier = { factor = 2.0 check_variable = { flower_draft_slot_3_owned = 1 } }
+			modifier = { factor = 3.8 check_variable = { flower_draft_slot_3_owned = 2 } }
 			#基础强力遗物与通用战备卡稳健加权
 			modifier = { factor = 1.9 check_variable = { flower_draft_slot_3 < 13 } }
 			modifier = { factor = 1.8 check_variable = { flower_draft_slot_3 > 24 } }
@@ -275,7 +284,7 @@ country_event = {
 			modifier = { factor = 2.4 check_variable = { flower_draft_slot_3 = 60 } has_war = yes }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_3 = 49 } num_divisions > 65 }
 			modifier = { factor = 0.2 check_variable = { flower_draft_slot_3 = 54 } num_of_civilian_factories < 12 }
-			#风险词条智能避坑（防止AI在劣势/低人力/低稳定下自爆）
+			#风险卡牌权重控制（避免AI在劣势、低人力或低稳定度下受损）
 			modifier = { factor = 0.12 check_variable = { flower_draft_slot_3 = 13 } OR = { has_war = no surrender_progress > 0.12 } }
 			modifier = { factor = 0.15 check_variable = { flower_draft_slot_3 = 14 } has_manpower < 400000 }
 			modifier = { factor = 0.25 check_variable = { flower_draft_slot_3 = 14 } has_country_flag = flower_roguelike_wave_ai has_manpower < 900000 }

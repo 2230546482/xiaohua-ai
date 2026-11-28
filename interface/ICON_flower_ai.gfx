@@ -709,6 +709,11 @@ spriteTypes = {
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
 	spriteType = {
+		name = "GFX_flower_dock_mini_bg"
+		texturefile = "gfx/interface/gui/flower_ui/flower_dock_mini_bg.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
 		name = "GFX_flower_stock_card_1"
 		texturefile = "gfx/interface/gui/flower_ui/flower_stock_card_1.png"
 		legacy_lazy_load = no
@@ -816,6 +821,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_flower_history_card_tile"
 		texturefile = "gfx/interface/gui/flower_ui/flower_history_card_tile.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_history_card_tile_gold"
+		texturefile = "gfx/interface/gui/flower_ui/flower_history_card_tile_gold.png"
 		legacy_lazy_load = no
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}
@@ -1055,6 +1066,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_flower_vcard_relic"
 		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_relic.png"
+		legacy_lazy_load = no
+		effectFile = "gfx/FX/pau_tactile_press.shader"
+	}
+	spriteType = {
+		name = "GFX_flower_vcard_gold"
+		texturefile = "gfx/interface/gui/flower_ui/flower_vcard_gold.png"
 		legacy_lazy_load = no
 		effectFile = "gfx/FX/pau_tactile_press.shader"
 	}

@@ -1,8 +1,69 @@
-#徽章与考核总览双页签GUI状态同步、11帧任务进度条、三维动态任务接取交付与情绪反馈
+#徽章与考核总览双页签GUI状态同步、任务进度计算、四项考核悬赏结算与界面状态提示
 
-#计算4项考核与悬赏任务的11帧像素进度条帧号（1=0%空槽，2..10=10%..90%，11=100%满格金光）
+#战时攻占敌方地区时更新考核、悬赏与军令状战功计数（单地区冷却60天）
+flower_quest_on_state_captured = {
+	if = {
+		limit = {
+			ROOT = { has_war_with = FROM }
+			FROM.FROM = { NOT = { has_state_flag = flower_quest_cap_counted } }
+		}
+		FROM.FROM = { set_state_flag = { flag = flower_quest_cap_counted days = 60 value = 1 } }
+		ROOT = {
+			if = {
+				limit = {
+					has_country_flag = flower_st_task_assigned
+					NOT = { has_country_flag = flower_st_claimed }
+					NOT = { has_country_flag = flower_st_task_done }
+				}
+				add_to_variable = { flower_st_war_caps = 1 }
+			}
+			if = {
+				limit = { has_country_flag = flower_bounty_active }
+				add_to_variable = { flower_bounty_war_caps = 1 }
+			}
+		}
+		if = {
+			limit = {
+				ROOT = { has_idea = flower_blood_wager_active_idea }
+				FROM.FROM = {
+					OR = {
+						arms_factory > 0
+						industrial_complex > 0
+					}
+				}
+			}
+			ROOT = { add_to_variable = { flower_wager_ind_caps = 1 } }
+		}
+	}
+}
+
+#迫使非内战敌国停止抵抗时直接完成半年军令状破城战功指标
+flower_quest_on_enemy_capitulated = {
+	if = {
+		limit = {
+			FROM = { has_idea = flower_blood_wager_active_idea }
+			ROOT = {
+				NOT = { original_tag = FROM }
+				NOT = { tag = ZDW }
+				NOT = { tag = WL1 }
+				NOT = { tag = WRQ }
+			}
+		}
+		FROM = {
+			if = {
+				limit = { check_variable = { flower_wager_goal_ind_caps > 0 } }
+				set_variable = { flower_wager_ind_caps = flower_wager_goal_ind_caps }
+			}
+			else = {
+				add_to_variable = { flower_wager_ind_caps = 10 }
+			}
+		}
+	}
+}
+
+#计算4项考核与悬赏任务的11帧进度图标帧号（1=0%，2..10=10%..90%，11=100%）
 flower_quest_sync_progress_bars = {
-	#1. 1937小徽章考核进度条
+	#1.1937小徽章考核进度（军用工厂扩建/陆军师扩编/战时攻占地区）
 	set_variable = { flower_q_st_frame = 1 }
 	if = {
 		limit = { OR = { has_country_flag = flower_st_claimed has_country_flag = flower_st_task_done flower_quest_st_ready = yes } }
@@ -12,24 +73,31 @@ flower_quest_sync_progress_bars = {
 		limit = { has_country_flag = flower_st_task_assigned }
 		set_temp_variable = { t_best = 0 }
 		if = {
-			limit = { check_variable = { flower_st_goal_fac > flower_st_start_fac } }
-			set_temp_variable = { t_num = num_of_factories }
-			subtract_from_temp_variable = { t_num = flower_st_start_fac }
-			set_temp_variable = { t_den = flower_st_goal_fac }
-			subtract_from_temp_variable = { t_den = flower_st_start_fac }
+			limit = { check_variable = { flower_st_goal_mil > flower_st_start_mil } }
+			set_temp_variable = { t_num = num_of_military_factories }
+			subtract_from_temp_variable = { t_num = flower_st_start_mil }
+			set_temp_variable = { t_den = flower_st_goal_mil }
+			subtract_from_temp_variable = { t_den = flower_st_start_mil }
 			multiply_temp_variable = { t_num = 10 }
 			divide_temp_variable = { t_num = t_den }
 			if = { limit = { check_variable = { t_num > t_best } } set_temp_variable = { t_best = t_num } }
 		}
 		if = {
-			limit = { check_variable = { flower_st_goal_states > flower_st_start_states } }
-			set_temp_variable = { t_num2 = num_controlled_states }
-			subtract_from_temp_variable = { t_num2 = flower_st_start_states }
-			set_temp_variable = { t_den2 = flower_st_goal_states }
-			subtract_from_temp_variable = { t_den2 = flower_st_start_states }
+			limit = { check_variable = { flower_st_goal_divs > flower_st_start_divs } }
+			set_temp_variable = { t_num2 = num_divisions }
+			subtract_from_temp_variable = { t_num2 = flower_st_start_divs }
+			set_temp_variable = { t_den2 = flower_st_goal_divs }
+			subtract_from_temp_variable = { t_den2 = flower_st_start_divs }
 			multiply_temp_variable = { t_num2 = 10 }
 			divide_temp_variable = { t_num2 = t_den2 }
 			if = { limit = { check_variable = { t_num2 > t_best } } set_temp_variable = { t_best = t_num2 } }
+		}
+		if = {
+			limit = { check_variable = { flower_st_goal_caps > 0 } }
+			set_temp_variable = { t_num3 = flower_st_war_caps }
+			multiply_temp_variable = { t_num3 = 10 }
+			divide_temp_variable = { t_num3 = flower_st_goal_caps }
+			if = { limit = { check_variable = { t_num3 > t_best } } set_temp_variable = { t_best = t_num3 } }
 		}
 		round_temp_variable = t_best
 		if = { limit = { check_variable = { t_best < 0 } } set_temp_variable = { t_best = 0 } }
@@ -37,7 +105,7 @@ flower_quest_sync_progress_bars = {
 		set_variable = { flower_q_st_frame = t_best }
 		add_to_variable = { flower_q_st_frame = 1 }
 	}
-	#2. 黑市动态悬赏进度条
+	#2.黑市动态悬赏进度（战时攻占地区/空军扩编/军火订单三线取最高）
 	set_variable = { flower_q_bounty_frame = 1 }
 	if = {
 		limit = { flower_quest_bounty_ready = yes }
@@ -47,32 +115,109 @@ flower_quest_sync_progress_bars = {
 		limit = { has_country_flag = flower_bounty_active }
 		set_temp_variable = { t_best = 0 }
 		if = {
-			limit = { check_variable = { flower_bounty_goal_fac > flower_bounty_start_fac } }
-			set_temp_variable = { t_num = num_of_factories }
-			subtract_from_temp_variable = { t_num = flower_bounty_start_fac }
-			set_temp_variable = { t_den = flower_bounty_goal_fac }
-			subtract_from_temp_variable = { t_den = flower_bounty_start_fac }
+			limit = { check_variable = { flower_bounty_goal_caps > 0 } }
+			set_temp_variable = { t_num = flower_bounty_war_caps }
 			multiply_temp_variable = { t_num = 10 }
-			divide_temp_variable = { t_num = t_den }
+			divide_temp_variable = { t_num = flower_bounty_goal_caps }
 			if = { limit = { check_variable = { t_num > t_best } } set_temp_variable = { t_best = t_num } }
 		}
+		#空军扩编分档进度估算（20%/40%/60%/80%）
 		if = {
-			limit = { check_variable = { flower_bounty_goal_states > flower_bounty_start_states } }
-			set_temp_variable = { t_num2 = num_controlled_states }
-			subtract_from_temp_variable = { t_num2 = flower_bounty_start_states }
-			set_temp_variable = { t_den2 = flower_bounty_goal_states }
-			subtract_from_temp_variable = { t_den2 = flower_bounty_start_states }
-			multiply_temp_variable = { t_num2 = 10 }
-			divide_temp_variable = { t_num2 = t_den2 }
-			if = { limit = { check_variable = { t_num2 > t_best } } set_temp_variable = { t_best = t_num2 } }
+			limit = { check_variable = { flower_bounty_goal_air > 0 } }
+			set_temp_variable = { t_air_p = 0 }
+			if = {
+				limit = { check_variable = { flower_bounty_goal_air = 200 } }
+				if = { limit = { has_deployed_air_force_size = { size > 159 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 119 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 79 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 39 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 400 } }
+				if = { limit = { has_deployed_air_force_size = { size > 319 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 239 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 159 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 79 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 700 } }
+				if = { limit = { has_deployed_air_force_size = { size > 559 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 419 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 279 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 139 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 1000 } }
+				if = { limit = { has_deployed_air_force_size = { size > 799 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 599 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 399 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 199 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 1500 } }
+				if = { limit = { has_deployed_air_force_size = { size > 1199 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 899 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 599 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 299 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 2200 } }
+				if = { limit = { has_deployed_air_force_size = { size > 1759 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 1319 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 879 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 439 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_goal_air = 3000 } }
+				if = { limit = { has_deployed_air_force_size = { size > 2399 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 1799 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 1199 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 599 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			else = {
+				if = { limit = { has_deployed_air_force_size = { size > 3199 } } set_temp_variable = { t_air_p = 8 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 2399 } } set_temp_variable = { t_air_p = 6 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 1599 } } set_temp_variable = { t_air_p = 4 } }
+				else_if = { limit = { has_deployed_air_force_size = { size > 799 } } set_temp_variable = { t_air_p = 2 } }
+			}
+			if = { limit = { check_variable = { t_air_p > t_best } } set_temp_variable = { t_best = t_air_p } }
 		}
+		#军火订单库存分档进度估算（步兵装备与火炮各占最高5格）
+		set_temp_variable = { t_ord_p = 0 }
+		if = {
+			limit = { check_variable = { flower_bounty_order_tier = 1 } }
+			if = { limit = { has_equipment = { infantry_equipment > 999 } } add_to_temp_variable = { t_ord_p = 5 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 599 } } add_to_temp_variable = { t_ord_p = 3 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 249 } } add_to_temp_variable = { t_ord_p = 1 } }
+			if = { limit = { has_equipment = { artillery_equipment > 99 } } add_to_temp_variable = { t_ord_p = 4 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 59 } } add_to_temp_variable = { t_ord_p = 2 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 24 } } add_to_temp_variable = { t_ord_p = 1 } }
+		}
+		else_if = {
+			limit = { check_variable = { flower_bounty_order_tier = 2 } }
+			if = { limit = { has_equipment = { infantry_equipment > 1999 } } add_to_temp_variable = { t_ord_p = 5 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 1199 } } add_to_temp_variable = { t_ord_p = 3 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 499 } } add_to_temp_variable = { t_ord_p = 1 } }
+			if = { limit = { has_equipment = { artillery_equipment > 199 } } add_to_temp_variable = { t_ord_p = 4 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 119 } } add_to_temp_variable = { t_ord_p = 2 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 49 } } add_to_temp_variable = { t_ord_p = 1 } }
+		}
+		else = {
+			if = { limit = { has_equipment = { infantry_equipment > 3499 } } add_to_temp_variable = { t_ord_p = 5 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 1999 } } add_to_temp_variable = { t_ord_p = 3 } }
+			else_if = { limit = { has_equipment = { infantry_equipment > 899 } } add_to_temp_variable = { t_ord_p = 1 } }
+			if = { limit = { has_equipment = { artillery_equipment > 349 } } add_to_temp_variable = { t_ord_p = 4 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 199 } } add_to_temp_variable = { t_ord_p = 2 } }
+			else_if = { limit = { has_equipment = { artillery_equipment > 89 } } add_to_temp_variable = { t_ord_p = 1 } }
+		}
+		if = { limit = { check_variable = { t_ord_p > t_best } } set_temp_variable = { t_best = t_ord_p } }
 		round_temp_variable = t_best
 		if = { limit = { check_variable = { t_best < 0 } } set_temp_variable = { t_best = 0 } }
 		if = { limit = { check_variable = { t_best > 9 } } set_temp_variable = { t_best = 9 } }
 		set_variable = { flower_q_bounty_frame = t_best }
 		add_to_variable = { flower_q_bounty_frame = 1 }
 	}
-	#3. 半年扩张军令状进度条
+	#3.半年扩张军令状进度（控制地区净增/攻占工业地区或迫敌停止抵抗）
 	set_variable = { flower_q_wager_frame = 1 }
 	if = {
 		limit = { flower_quest_wager_ready = yes }
@@ -82,23 +227,20 @@ flower_quest_sync_progress_bars = {
 		limit = { has_idea = flower_blood_wager_active_idea }
 		set_temp_variable = { t_best = 0 }
 		if = {
-			limit = { check_variable = { flower_wager_goal_factories > flower_wager_start_fac } }
-			set_temp_variable = { t_num = num_of_factories }
-			subtract_from_temp_variable = { t_num = flower_wager_start_fac }
-			set_temp_variable = { t_den = flower_wager_goal_factories }
-			subtract_from_temp_variable = { t_den = flower_wager_start_fac }
+			limit = { check_variable = { flower_wager_goal_states > flower_wager_start_states } }
+			set_temp_variable = { t_num = num_controlled_states }
+			subtract_from_temp_variable = { t_num = flower_wager_start_states }
+			set_temp_variable = { t_den = flower_wager_goal_states }
+			subtract_from_temp_variable = { t_den = flower_wager_start_states }
 			multiply_temp_variable = { t_num = 10 }
 			divide_temp_variable = { t_num = t_den }
 			if = { limit = { check_variable = { t_num > t_best } } set_temp_variable = { t_best = t_num } }
 		}
 		if = {
-			limit = { check_variable = { flower_wager_goal_states > flower_wager_start_states } }
-			set_temp_variable = { t_num2 = num_controlled_states }
-			subtract_from_temp_variable = { t_num2 = flower_wager_start_states }
-			set_temp_variable = { t_den2 = flower_wager_goal_states }
-			subtract_from_temp_variable = { t_den2 = flower_wager_start_states }
+			limit = { check_variable = { flower_wager_goal_ind_caps > 0 } }
+			set_temp_variable = { t_num2 = flower_wager_ind_caps }
 			multiply_temp_variable = { t_num2 = 10 }
-			divide_temp_variable = { t_num2 = t_den2 }
+			divide_temp_variable = { t_num2 = flower_wager_goal_ind_caps }
 			if = { limit = { check_variable = { t_num2 > t_best } } set_temp_variable = { t_best = t_num2 } }
 		}
 		round_temp_variable = t_best
@@ -107,7 +249,7 @@ flower_quest_sync_progress_bars = {
 		set_variable = { flower_q_wager_frame = t_best }
 		add_to_variable = { flower_q_wager_frame = 1 }
 	}
-	#4. 黑市净入账契约进度条
+	#4.黑市净收入契约进度（民用工厂扩建/签约后储备净增长）
 	set_variable = { flower_q_bm_frame = 1 }
 	if = {
 		limit = { flower_quest_bm_ready = yes }
@@ -117,21 +259,21 @@ flower_quest_sync_progress_bars = {
 		limit = { has_country_flag = flower_bm_active }
 		set_temp_variable = { t_best = 0 }
 		if = {
-			limit = { check_variable = { flower_bm_goal_fac > flower_bm_start_fac } }
-			set_temp_variable = { t_num = num_of_factories }
-			subtract_from_temp_variable = { t_num = flower_bm_start_fac }
-			set_temp_variable = { t_den = flower_bm_goal_fac }
-			subtract_from_temp_variable = { t_den = flower_bm_start_fac }
+			limit = { check_variable = { flower_bm_goal_civ > flower_bm_start_civ } }
+			set_temp_variable = { t_num = num_of_civilian_factories }
+			subtract_from_temp_variable = { t_num = flower_bm_start_civ }
+			set_temp_variable = { t_den = flower_bm_goal_civ }
+			subtract_from_temp_variable = { t_den = flower_bm_start_civ }
 			multiply_temp_variable = { t_num = 10 }
 			divide_temp_variable = { t_num = t_den }
 			if = { limit = { check_variable = { t_num > t_best } } set_temp_variable = { t_best = t_num } }
 		}
 		if = {
-			limit = { check_variable = { flower_bm_goal_states > flower_bm_start_states } }
-			set_temp_variable = { t_num2 = num_controlled_states }
-			subtract_from_temp_variable = { t_num2 = flower_bm_start_states }
-			set_temp_variable = { t_den2 = flower_bm_goal_states }
-			subtract_from_temp_variable = { t_den2 = flower_bm_start_states }
+			limit = { check_variable = { flower_bm_goal_hcp > flower_bm_start_hcp } }
+			set_temp_variable = { t_num2 = ubs_save }
+			subtract_from_temp_variable = { t_num2 = flower_bm_start_hcp }
+			set_temp_variable = { t_den2 = flower_bm_goal_hcp }
+			subtract_from_temp_variable = { t_den2 = flower_bm_start_hcp }
 			multiply_temp_variable = { t_num2 = 10 }
 			divide_temp_variable = { t_num2 = t_den2 }
 			if = { limit = { check_variable = { t_num2 > t_best } } set_temp_variable = { t_best = t_num2 } }
@@ -144,35 +286,41 @@ flower_quest_sync_progress_bars = {
 	}
 }
 
-#统一接取黑市动态悬赏（三维动态难度叠加轮次倍数，记录进度条基线）
+#接取黑市动态悬赏（战时攻占地区/现役空军扩编/军火订单交付，完成后冷却180天）
 flower_quest_accept_bounty = {
 	if = {
-		limit = { NOT = { has_country_flag = flower_bounty_active } }
+		limit = {
+			NOT = { has_country_flag = flower_bounty_active }
+			NOT = { has_country_flag = flower_bounty_cd }
+		}
 		set_country_flag = flower_bounty_active
 		flower_tavern_calc_dynamic_goals = yes
 		set_temp_variable = { t_rmult = flower_bounty_round }
 		if = { limit = { check_variable = { t_rmult > 5 } } set_temp_variable = { t_rmult = 5 } }
 		multiply_temp_variable = { t_rmult = 0.20 }
 		add_to_temp_variable = { t_rmult = 1.00 }
-		set_temp_variable = { t_dfac = flower_dyn_fac_delta }
-		multiply_temp_variable = { t_dfac = t_rmult }
-		round_temp_variable = t_dfac
-		if = { limit = { check_variable = { t_dfac < 3 } } set_temp_variable = { t_dfac = 3 } }
-		set_temp_variable = { t_dst = flower_dyn_state_delta }
-		multiply_temp_variable = { t_dst = t_rmult }
-		round_temp_variable = t_dst
-		if = { limit = { check_variable = { t_dst < 2 } } set_temp_variable = { t_dst = 2 } }
-		if = { limit = { check_variable = { t_dst > 40 } } set_temp_variable = { t_dst = 40 } }
-		set_temp_variable = { t_raw_xp = flower_dyn_xp_goal }
-		multiply_temp_variable = { t_raw_xp = t_rmult }
-		flower_tavern_snap_xp_goal = yes
-		set_variable = { flower_bounty_start_fac = num_of_factories }
-		set_variable = { flower_bounty_goal_fac = num_of_factories }
-		add_to_variable = { flower_bounty_goal_fac = t_dfac }
-		set_variable = { flower_bounty_start_states = num_controlled_states }
-		set_variable = { flower_bounty_goal_states = num_controlled_states }
-		add_to_variable = { flower_bounty_goal_states = t_dst }
-		set_variable = { flower_bounty_goal_xp = t_snapped_xp }
+		set_temp_variable = { t_caps = flower_dyn_cap_goal }
+		multiply_temp_variable = { t_caps = t_rmult }
+		round_temp_variable = t_caps
+		if = { limit = { check_variable = { t_caps < 3 } } set_temp_variable = { t_caps = 3 } }
+		if = { limit = { check_variable = { t_caps > 15 } } set_temp_variable = { t_caps = 15 } }
+		set_variable = { flower_bounty_war_caps = 0 }
+		set_variable = { flower_bounty_goal_caps = t_caps }
+		set_variable = { flower_bounty_goal_air = flower_dyn_air_next_goal }
+		set_variable = { flower_bounty_order_tier = flower_dyn_order_tier }
+		set_variable = { flower_bounty_order_inf = 1000 }
+		set_variable = { flower_bounty_order_art = 100 }
+		if = {
+			limit = { check_variable = { flower_bounty_order_tier = 2 } }
+			set_variable = { flower_bounty_order_inf = 2000 }
+			set_variable = { flower_bounty_order_art = 200 }
+		}
+		else_if = {
+			limit = { check_variable = { flower_bounty_order_tier > 2 } }
+			set_variable = { flower_bounty_order_inf = 3500 }
+			set_variable = { flower_bounty_order_art = 350 }
+		}
+		set_country_flag = { flag = flower_bounty_expire_lock days = 179 value = 1 }
 		country_event = { id = FLWTV.31 days = 180 }
 		if = {
 			limit = { is_ai = no }
@@ -182,15 +330,43 @@ flower_quest_accept_bounty = {
 	}
 }
 
-#统一交付黑市动态悬赏领赏（立即清active防双领，发放阶梯储备/经验/抽牌券并递增轮次）
+#交付黑市动态悬赏并领取奖励（完成后冷却180天，按军火订单达标时扣减库存装备）
 flower_quest_claim_bounty = {
 	if = {
 		limit = { flower_quest_bounty_ready = yes }
 		flower_tavern_calc_dynamic_goals = yes
+		#若未走战地夺地或空军扩编，则真实交付军火订单库存
+		if = {
+			limit = {
+				NOT = { flower_quest_bounty_cap_met = yes }
+				NOT = { flower_quest_bounty_air_met = yes }
+				flower_quest_bounty_order_met = yes
+			}
+			if = {
+				limit = { check_variable = { flower_bounty_order_tier = 1 } }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = -100 }
+			}
+			else_if = {
+				limit = { check_variable = { flower_bounty_order_tier = 2 } }
+				add_equipment_to_stockpile = { type = infantry_equipment amount = -2000 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = -200 }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = infantry_equipment amount = -3500 }
+				add_equipment_to_stockpile = { type = artillery_equipment amount = -350 }
+			}
+		}
 		clr_country_flag = flower_bounty_active
+		set_country_flag = { flag = flower_bounty_cd days = 180 value = 1 }
 		add_to_variable = { ubs_save = flower_bounty_reward_hcp }
-		army_experience = flower_bounty_reward_xp
+		add_command_power = 25
 		add_to_variable = { flower_tavern_free_visits = 1 }
+		if = {
+			limit = { has_idea = flower_st_econ_vip }
+			add_to_variable = { ubs_save = 150 }
+			add_to_variable = { flower_free_reroll_charges = 1 }
+		}
 		add_to_variable = { flower_bounty_round = 1 }
 		add_to_variable = { flower_quest_total_done = 1 }
 		flower_ai_sync_hcp_ui = yes
@@ -204,7 +380,7 @@ flower_quest_claim_bounty = {
 	}
 }
 
-#统一立下半年扩张军令状（全流派可接，按三维动态难度与轮次计算目标并设180天兜底验收）
+#接取半年扩张军令状（控制地区净增/攻占敌方工业地区或迫敌停止抵抗，完成后冷却180天）
 flower_quest_accept_wager = {
 	if = {
 		limit = {
@@ -216,22 +392,23 @@ flower_quest_accept_wager = {
 		if = { limit = { check_variable = { t_rmult > 5 } } set_temp_variable = { t_rmult = 5 } }
 		multiply_temp_variable = { t_rmult = 0.20 }
 		add_to_temp_variable = { t_rmult = 1.00 }
-		set_temp_variable = { t_dfac = flower_dyn_fac_delta }
-		multiply_temp_variable = { t_dfac = t_rmult }
-		round_temp_variable = t_dfac
-		if = { limit = { check_variable = { t_dfac < 4 } } set_temp_variable = { t_dfac = 4 } }
 		set_temp_variable = { t_dst = flower_dyn_state_delta }
 		multiply_temp_variable = { t_dst = t_rmult }
 		round_temp_variable = t_dst
-		if = { limit = { check_variable = { t_dst < 2 } } set_temp_variable = { t_dst = 2 } }
-		if = { limit = { check_variable = { t_dst > 40 } } set_temp_variable = { t_dst = 40 } }
+		if = { limit = { check_variable = { t_dst < 3 } } set_temp_variable = { t_dst = 3 } }
+		if = { limit = { check_variable = { t_dst > 35 } } set_temp_variable = { t_dst = 35 } }
+		set_temp_variable = { t_ind = flower_dyn_ind_cap_goal }
+		multiply_temp_variable = { t_ind = t_rmult }
+		round_temp_variable = t_ind
+		if = { limit = { check_variable = { t_ind < 2 } } set_temp_variable = { t_ind = 2 } }
+		if = { limit = { check_variable = { t_ind > 10 } } set_temp_variable = { t_ind = 10 } }
 		add_ideas = flower_blood_wager_active_idea
-		set_variable = { flower_wager_start_fac = num_of_factories }
-		set_variable = { flower_wager_goal_factories = num_of_factories }
-		add_to_variable = { flower_wager_goal_factories = t_dfac }
 		set_variable = { flower_wager_start_states = num_controlled_states }
 		set_variable = { flower_wager_goal_states = num_controlled_states }
 		add_to_variable = { flower_wager_goal_states = t_dst }
+		set_variable = { flower_wager_ind_caps = 0 }
+		set_variable = { flower_wager_goal_ind_caps = t_ind }
+		set_country_flag = { flag = flower_wager_expire_lock days = 179 value = 1 }
 		country_event = { id = FLWAI.24 days = 180 }
 		if = {
 			limit = { is_ai = no }
@@ -241,13 +418,14 @@ flower_quest_accept_wager = {
 	}
 }
 
-#统一交付半年扩张军令状领赏（首轮授予永久胜利民族精神与科研槽，后续轮次发阶梯高额储备与突破点）
+#交付半年扩张军令状并领取奖励（完成后进入180天冷却）
 flower_quest_claim_wager = {
 	if = {
 		limit = { flower_quest_wager_ready = yes }
 		flower_tavern_calc_dynamic_goals = yes
 		remove_ideas = flower_blood_wager_active_idea
 		set_country_flag = flower_blood_wager_settled
+		set_country_flag = { flag = flower_wager_cd days = 180 value = 1 }
 		if = {
 			limit = { NOT = { has_idea = flower_blood_wager_victory_idea } }
 			add_ideas = flower_blood_wager_victory_idea
@@ -258,10 +436,15 @@ flower_quest_claim_wager = {
 		}
 		else = {
 			add_to_variable = { ubs_save = flower_wager_reward_hcp }
-			army_experience = 40
+			add_to_variable = { flower_tavern_free_visits = 1 }
 			add_breakthrough_points = { specialization = specialization_land value = 1 }
-			flower_ai_sync_hcp_ui = yes
 		}
+		if = {
+			limit = { has_idea = flower_st_econ_vip }
+			add_to_variable = { ubs_save = 150 }
+			add_to_variable = { flower_free_reroll_charges = 1 }
+		}
+		flower_ai_sync_hcp_ui = yes
 		add_to_variable = { flower_wager_round = 1 }
 		add_to_variable = { flower_quest_total_done = 1 }
 		if = {
@@ -274,36 +457,39 @@ flower_quest_claim_wager = {
 	}
 }
 
-#预备黑市契约三维动态履约目标（供FLWAI.41与任务页签共用）
+#预备黑市契约纯经济履约目标（民用工厂净增 / 扣款后国库储备净增）
 flower_quest_prep_bm_goals = {
 	flower_tavern_calc_dynamic_goals = yes
 	set_temp_variable = { t_rmult = flower_bm_round }
 	if = { limit = { check_variable = { t_rmult > 5 } } set_temp_variable = { t_rmult = 5 } }
 	multiply_temp_variable = { t_rmult = 0.20 }
 	add_to_temp_variable = { t_rmult = 1.00 }
-	set_temp_variable = { t_dfac = flower_dyn_fac_delta }
-	multiply_temp_variable = { t_dfac = t_rmult }
-	round_temp_variable = t_dfac
-	if = { limit = { check_variable = { t_dfac < 3 } } set_temp_variable = { t_dfac = 3 } }
-	set_temp_variable = { t_dst = flower_dyn_state_delta }
-	multiply_temp_variable = { t_dst = t_rmult }
-	round_temp_variable = t_dst
-	if = { limit = { check_variable = { t_dst < 2 } } set_temp_variable = { t_dst = 2 } }
-	if = { limit = { check_variable = { t_dst > 40 } } set_temp_variable = { t_dst = 40 } }
-	set_temp_variable = { t_raw_xp = flower_dyn_xp_goal }
-	multiply_temp_variable = { t_raw_xp = t_rmult }
-	flower_tavern_snap_xp_goal = yes
-	set_variable = { flower_bm_start_fac = num_of_factories }
-	set_variable = { flower_bm_goal_fac = num_of_factories }
-	add_to_variable = { flower_bm_goal_fac = t_dfac }
-	set_variable = { flower_bm_start_states = num_controlled_states }
-	set_variable = { flower_bm_goal_states = num_controlled_states }
-	add_to_variable = { flower_bm_goal_states = t_dst }
-	set_variable = { flower_bm_goal_xp = t_snapped_xp }
+	set_temp_variable = { t_dciv = flower_dyn_civ_delta }
+	multiply_temp_variable = { t_dciv = t_rmult }
+	round_temp_variable = t_dciv
+	if = { limit = { check_variable = { t_dciv < 3 } } set_temp_variable = { t_dciv = 3 } }
+	if = { limit = { check_variable = { t_dciv > 45 } } set_temp_variable = { t_dciv = 45 } }
+	set_temp_variable = { t_dhcp = flower_dyn_bm_hcp_delta }
+	multiply_temp_variable = { t_dhcp = t_rmult }
+	round_temp_variable = t_dhcp
+	if = { limit = { check_variable = { t_dhcp < 400 } } set_temp_variable = { t_dhcp = 400 } }
+	if = { limit = { check_variable = { t_dhcp > 1500 } } set_temp_variable = { t_dhcp = 1500 } }
+	set_variable = { flower_bm_start_civ = num_of_civilian_factories }
+	set_variable = { flower_bm_goal_civ = num_of_civilian_factories }
+	add_to_variable = { flower_bm_goal_civ = t_dciv }
+	set_temp_variable = { t_cur_hcp = ubs_save }
+	if = { limit = { check_variable = { t_cur_hcp < 0 } } set_temp_variable = { t_cur_hcp = 0 } }
+	round_temp_variable = t_cur_hcp
+	set_variable = { flower_bm_start_hcp = t_cur_hcp }
+	set_variable = { flower_bm_goal_hcp = t_cur_hcp }
+	add_to_variable = { flower_bm_goal_hcp = t_dhcp }
 }
 
 flower_quest_start_bm_active = {
+	#扣完签约费后正式锁定纯经济履约基线，杜绝签约瞬间自动达标
+	flower_quest_prep_bm_goals = yes
 	set_country_flag = flower_bm_active
+	set_country_flag = { flag = flower_bm_expire_lock days = 179 value = 1 }
 	clr_country_flag = flower_bm_delivery_cd
 	if = { limit = { is_ai = no } set_variable = { flower_badge_feedback_id = 12 } flower_badge_hub_sync_state = yes }
 }
@@ -314,6 +500,11 @@ flower_quest_claim_bm_core = {
 	clr_country_flag = flower_bm_active
 	set_country_flag = { flag = flower_bm_delivery_cd days = 180 value = 1 }
 	add_to_variable = { ubs_save = flower_bm_reward_hcp }
+	if = {
+		limit = { has_idea = flower_st_econ_vip }
+		add_to_variable = { ubs_save = 150 }
+		add_to_variable = { flower_free_reroll_charges = 1 }
+	}
 	add_to_variable = { flower_bm_round = 1 }
 	add_to_variable = { flower_quest_total_done = 1 }
 	flower_ai_sync_hcp_ui = yes
@@ -340,6 +531,7 @@ flower_quest_open_bm_from_gui = {
 	if = {
 		limit = {
 			NOT = { has_country_flag = flower_bm_active }
+			NOT = { has_country_flag = flower_bm_delivery_cd }
 			NOT = { has_idea = flower_bm_arms_supply_idea }
 			NOT = { has_idea = flower_bm_industry_boost_idea }
 			NOT = { has_idea = flower_bm_intel_tech_idea }
@@ -366,14 +558,33 @@ flower_badge_hub_sync_state = {
 		else_if = { limit = { date > 1936.12.31 } set_variable = { global.flower_months_elapsed = 12 } }
 		else_if = { limit = { date > 1936.6.1 } set_variable = { global.flower_months_elapsed = 6 } }
 	}
-	#旧档兼容：已有黑市契约民族精神且未结清时补齐活跃标记
+	#旧档兼容：若旧档处于1937小徽章考核但未初始化新指标，原地按当前基线补齐
+	if = {
+		limit = {
+			has_country_flag = flower_st_task_assigned
+			NOT = { has_country_flag = flower_st_claimed }
+			NOT = { has_country_flag = flower_st_task_done }
+			check_variable = { flower_st_goal_mil < 1 }
+		}
+		flower_tavern_calc_dynamic_goals = yes
+		set_variable = { flower_st_start_mil = num_of_military_factories }
+		set_variable = { flower_st_goal_mil = num_of_military_factories }
+		add_to_variable = { flower_st_goal_mil = flower_dyn_mil_delta }
+		set_variable = { flower_st_start_divs = num_divisions }
+		set_variable = { flower_st_goal_divs = num_divisions }
+		add_to_variable = { flower_st_goal_divs = flower_dyn_div_delta }
+		set_variable = { flower_st_war_caps = 0 }
+		set_variable = { flower_st_goal_caps = flower_dyn_cap_goal }
+	}
+	#旧档兼容：已有黑市契约民族精神且未结清时补齐活跃标记与新经济指标
 	if = {
 		limit = {
 			NOT = { has_country_flag = flower_bm_active }
 			NOT = { has_country_flag = flower_bm_delivery_cd }
-			check_variable = { flower_bm_goal_fac > 0 }
+			OR = { check_variable = { flower_bm_goal_civ > 0 } check_variable = { flower_bm_goal_fac > 0 } }
 			OR = { has_idea = flower_bm_arms_supply_idea has_idea = flower_bm_industry_boost_idea has_idea = flower_bm_intel_tech_idea has_idea = flower_bm_vip_jackpot_idea }
 		}
+		if = { limit = { check_variable = { flower_bm_goal_civ < 1 } } flower_quest_prep_bm_goals = yes }
 		set_country_flag = flower_bm_active
 	}
 	#实时检测1937小徽章考核是否已达标（打开面板即刻触发，无需等到下月初）
@@ -459,7 +670,7 @@ flower_badge_hub_sync_state = {
 	else_if = { limit = { has_idea = flower_gold_arch_10 } set_variable = { flower_gold_owned_frame = 11 } }
 	else_if = { limit = { has_idea = flower_gold_arch_11 } set_variable = { flower_gold_owned_frame = 12 } }
 	else_if = { limit = { has_idea = flower_gold_arch_12 } set_variable = { flower_gold_owned_frame = 13 } }
-	#判断当前底部4槽就地选购模式：0=暂无 / 1=1937小徽章 / 2=1939大徽章 / 3=1941超大徽章
+	#判断当前底部4张候选选购模式：0=暂无/1=1937小徽章/2=1939大徽章/3=1941超大徽章
 	set_variable = { flower_badge_shop_mode = 0 }
 	set_variable = { flower_badge_shop_f1 = 1 }
 	set_variable = { flower_badge_shop_f2 = 1 }
@@ -573,7 +784,7 @@ flower_badge_hub_sync_state = {
 	flower_quest_sync_progress_bars = yes
 }
 
-#按ID授予1937小徽章（完整附带名将勋章盒、列车炮、战时白条返现与情绪反馈）
+#按ID授予1937小徽章（同步结算领取即时效果与界面状态提示）
 flower_badge_hub_grant_st_by_var = {
 	if = {
 		limit = { check_variable = { temp_badge_id = 1 } }
@@ -646,16 +857,10 @@ flower_badge_hub_grant_st_by_var = {
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 18 } }
 		add_ideas = flower_st_port_general
-		if = {
-			limit = { any_army_leader = { is_assigned = yes } }
-			random_army_leader = { limit = { is_assigned = yes } add_attack = 2 add_logistics = 2 }
-		}
-		else = { random_army_leader = { add_attack = 2 add_logistics = 2 } }
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 19 } }
 		add_ideas = flower_st_port_railgun
-		add_tech_bonus = { name = flower_blackbox_s1_bonus bonus = 1.0 uses = 1 category = artillery }
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 20 } }
@@ -664,8 +869,6 @@ flower_badge_hub_grant_st_by_var = {
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 21 } }
 		add_ideas = flower_st_cursed_iou
-		add_to_variable = { ubs_save = 300 }
-		flower_ai_sync_hcp_ui = yes
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 22 } }
@@ -679,6 +882,7 @@ flower_badge_hub_grant_st_by_var = {
 		limit = { check_variable = { temp_badge_id = 24 } }
 		add_ideas = flower_st_cursed_austerity
 	}
+	flower_badge_on_claim_st = yes
 	set_country_flag = flower_st_claimed
 	clr_country_flag = flower_badge_hub_alert
 	if = {
@@ -697,7 +901,7 @@ flower_badge_hub_grant_st_by_var = {
 	flower_badge_hub_sync_state = yes
 }
 
-#按ID购买并授予1939大徽章（完整扣费、返现、特质、情绪反馈与流派大成检测）
+#按ID购买并授予1939大徽章（同步扣费、领取效果、界面状态提示与流派大成检测）
 flower_badge_hub_grant_lt_by_var = {
 	if = {
 		limit = { check_variable = { temp_badge_id = 1 } }
@@ -748,7 +952,6 @@ flower_badge_hub_grant_lt_by_var = {
 		limit = { check_variable = { temp_badge_id = 10 } }
 		flower_tavern_pay_lt_std = yes
 		add_ideas = flower_lt_arch_10
-		flower_ai_recalc_elite_small_army = yes
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 11 } }
@@ -794,7 +997,6 @@ flower_badge_hub_grant_lt_by_var = {
 		limit = { check_variable = { temp_badge_id = 19 } }
 		flower_tavern_pay_lt_std = yes
 		add_ideas = flower_lt_port_marshal
-		flower_ai_grant_leader_chessmaster = yes
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 20 } }
@@ -804,8 +1006,6 @@ flower_badge_hub_grant_lt_by_var = {
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 21 } }
 		add_ideas = flower_lt_cursed_demon
-		add_to_variable = { ubs_save = 500 }
-		flower_ai_sync_hcp_ui = yes
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 22 } }
@@ -815,14 +1015,13 @@ flower_badge_hub_grant_lt_by_var = {
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 23 } }
 		add_ideas = flower_lt_cursed_mortgage
-		add_to_variable = { ubs_save = 500 }
-		flower_ai_sync_hcp_ui = yes
 	}
 	else_if = {
 		limit = { check_variable = { temp_badge_id = 24 } }
 		flower_tavern_pay_lt_cheap = yes
 		add_ideas = flower_lt_cursed_blood
 	}
+	flower_badge_on_claim_lt = yes
 	set_country_flag = flower_lt_claimed
 	clr_country_flag = flower_lt_shop_deferred
 	clr_country_flag = flower_badge_hub_alert
@@ -857,6 +1056,7 @@ flower_badge_hub_grant_crown_by_slot = {
 		else_if = { limit = { check_variable = { temp_crown_slot = 2 } } add_ideas = flower_crown_grand_industry }
 		else_if = { limit = { check_variable = { temp_crown_slot = 3 } } add_ideas = flower_crown_overlord_tech }
 		else_if = { limit = { check_variable = { temp_crown_slot = 4 } } add_ideas = flower_crown_master_tactician }
+		flower_badge_on_claim_crown = yes
 		set_country_flag = flower_crown_claimed
 		clr_country_flag = flower_badge_hub_alert
 		set_variable = { flower_badge_feedback_id = 5 }
@@ -939,32 +1139,7 @@ flower_badge_hub_buy_slot_4 = {
 	}
 }
 
-#GUI内跳过1937考核直接买断，切回页签1立即摊开4张小徽章卡片
+#1937小徽章仅限完成考核领取（保留兼容空效果）
 flower_badge_hub_buyout_st = {
-	if = {
-		limit = {
-			has_country_flag = flower_st_task_assigned
-			NOT = { has_country_flag = flower_st_claimed }
-			NOT = { has_country_flag = flower_st_task_done }
-			OR = {
-				NOT = { check_variable = { ubs_save < flower_st_buyout_cost } }
-				has_political_power > 149.99
-			}
-		}
-		flower_tavern_calc_dynamic_goals = yes
-		if = {
-			limit = { NOT = { check_variable = { ubs_save < flower_st_buyout_cost } } }
-			subtract_from_variable = { ubs_save = flower_st_buyout_cost }
-			flower_ai_sync_hcp_ui = yes
-		}
-		else = {
-			add_political_power = -150
-		}
-		set_country_flag = flower_st_task_done
-		flower_tavern_roll_small_trinkets = yes
-		set_variable = { flower_badge_hub_tab = 0 }
-		set_variable = { flower_badge_feedback_id = 6 }
-		if = { limit = { is_ai = no } scoped_sound_effect = "flower_sfx_branch_stonks_money" }
-		flower_badge_hub_sync_state = yes
-	}
+	flower_badge_hub_sync_state = yes
 }

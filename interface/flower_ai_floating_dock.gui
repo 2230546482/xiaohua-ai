@@ -224,19 +224,25 @@ guiTypes = {
 		}
 	}
 
-	#折叠状态迷你悬浮按钮
+	#折叠状态迷你悬浮按钮（带顶部星露谷木纹抓手底框，可自由鼠标拖拽移动）
 	containerWindowType = {
 		name = "flower_ai_floating_dock_mini_window"
-		position = { x = -118 y = 88 }
-		size = { width = 46 height = 46 }
+		position = { x = -126 y = 84 }
+		size = { width = 62 height = 74 }
 		Orientation = UPPER_RIGHT
 		moveable = yes
 		click_to_front = yes
 		clipping = no
 
+		background = {
+			name = "flower_dock_mini_bg"
+			spriteType = "GFX_flower_dock_mini_bg"
+			pdx_tooltip = "FLOWER_DOCK_MINI_DRAG_TT"
+		}
+
 		buttonType = {
 			name = "flower_dock_expand_btn"
-			position = { x = 2 y = 2 }
+			position = { x = 9 y = 22 }
 			quadTextureSprite = "GFX_flower_dock_mini_badge"
 			buttonFont = "flower_a4_16"
 			buttonText = ""
@@ -246,7 +252,7 @@ guiTypes = {
 		}
 		iconType = {
 			name = "flower_dock_mini_alert"
-			position = { x = 24 y = 0 }
+			position = { x = 40 y = 14 }
 			spriteType = "GFX_flower_dock_alert_dot"
 			alwaystransparent = yes
 		}

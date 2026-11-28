@@ -1,0 +1,224 @@
+#战术卡三连合成阶段判定触发器（供图鉴金卡显示、升级提示与击败截获战术卡共用）
+#判断当前列表元素v对应的常驻战术卡是否已合成为金色战术卡（copies>2）
+flower_v_card_is_gold = {
+	OR = {
+		AND = { check_variable = { v = 1 } check_variable = { flower_card_copies_1 > 2 } }
+		AND = { check_variable = { v = 2 } check_variable = { flower_card_copies_2 > 2 } }
+		AND = { check_variable = { v = 3 } check_variable = { flower_card_copies_3 > 2 } }
+		AND = { check_variable = { v = 4 } check_variable = { flower_card_copies_4 > 2 } }
+		AND = { check_variable = { v = 5 } check_variable = { flower_card_copies_5 > 2 } }
+		AND = { check_variable = { v = 6 } check_variable = { flower_card_copies_6 > 2 } }
+		AND = { check_variable = { v = 7 } check_variable = { flower_card_copies_7 > 2 } }
+		AND = { check_variable = { v = 8 } check_variable = { flower_card_copies_8 > 2 } }
+		AND = { check_variable = { v = 9 } check_variable = { flower_card_copies_9 > 2 } }
+		AND = { check_variable = { v = 10 } check_variable = { flower_card_copies_10 > 2 } }
+		AND = { check_variable = { v = 11 } check_variable = { flower_card_copies_11 > 2 } }
+		AND = { check_variable = { v = 12 } check_variable = { flower_card_copies_12 > 2 } }
+		AND = { check_variable = { v = 13 } check_variable = { flower_card_copies_13 > 2 } }
+		AND = { check_variable = { v = 14 } check_variable = { flower_card_copies_14 > 2 } }
+		AND = { check_variable = { v = 15 } check_variable = { flower_card_copies_15 > 2 } }
+		AND = { check_variable = { v = 16 } check_variable = { flower_card_copies_16 > 2 } }
+		AND = { check_variable = { v = 17 } check_variable = { flower_card_copies_17 > 2 } }
+		AND = { check_variable = { v = 18 } check_variable = { flower_card_copies_18 > 2 } }
+		AND = { check_variable = { v = 19 } check_variable = { flower_card_copies_19 > 2 } }
+		AND = { check_variable = { v = 20 } check_variable = { flower_card_copies_20 > 2 } }
+		AND = { check_variable = { v = 25 } check_variable = { flower_card_copies_25 > 2 } }
+		AND = { check_variable = { v = 26 } check_variable = { flower_card_copies_26 > 2 } }
+		AND = { check_variable = { v = 27 } check_variable = { flower_card_copies_27 > 2 } }
+		AND = { check_variable = { v = 28 } check_variable = { flower_card_copies_28 > 2 } }
+		AND = { check_variable = { v = 29 } check_variable = { flower_card_copies_29 > 2 } }
+		AND = { check_variable = { v = 30 } check_variable = { flower_card_copies_30 > 2 } }
+		AND = { check_variable = { v = 33 } check_variable = { flower_card_copies_33 > 2 } }
+		AND = { check_variable = { v = 34 } check_variable = { flower_card_copies_34 > 2 } }
+		AND = { check_variable = { v = 37 } check_variable = { flower_card_copies_37 > 2 } }
+		AND = { check_variable = { v = 38 } check_variable = { flower_card_copies_38 > 2 } }
+		AND = { check_variable = { v = 39 } check_variable = { flower_card_copies_39 > 2 } }
+		AND = { check_variable = { v = 40 } check_variable = { flower_card_copies_40 > 2 } }
+		AND = { check_variable = { v = 41 } check_variable = { flower_card_copies_41 > 2 } }
+		AND = { check_variable = { v = 42 } check_variable = { flower_card_copies_42 > 2 } }
+		AND = { check_variable = { v = 43 } check_variable = { flower_card_copies_43 > 2 } }
+		AND = { check_variable = { v = 44 } check_variable = { flower_card_copies_44 > 2 } }
+		AND = { check_variable = { v = 45 } check_variable = { flower_card_copies_45 > 2 } }
+		AND = { check_variable = { v = 46 } check_variable = { flower_card_copies_46 > 2 } }
+		AND = { check_variable = { v = 47 } check_variable = { flower_card_copies_47 > 2 } }
+		AND = { check_variable = { v = 48 } check_variable = { flower_card_copies_48 > 2 } }
+		AND = { check_variable = { v = 49 } check_variable = { flower_card_copies_49 > 2 } }
+		AND = { check_variable = { v = 50 } check_variable = { flower_card_copies_50 > 2 } }
+		AND = { check_variable = { v = 51 } check_variable = { flower_card_copies_51 > 2 } }
+		AND = { check_variable = { v = 52 } check_variable = { flower_card_copies_52 > 2 } }
+		AND = { check_variable = { v = 53 } check_variable = { flower_card_copies_53 > 2 } }
+		AND = { check_variable = { v = 54 } check_variable = { flower_card_copies_54 > 2 } }
+		AND = { check_variable = { v = 55 } check_variable = { flower_card_copies_55 > 2 } }
+		AND = { check_variable = { v = 58 } check_variable = { flower_card_copies_58 > 2 } }
+		AND = { check_variable = { v = 59 } check_variable = { flower_card_copies_59 > 2 } }
+		AND = { check_variable = { v = 60 } check_variable = { flower_card_copies_60 > 2 } }
+	}
+}
+
+#判断当前列表元素v对应的常驻战术卡是否为2张成对状态（copies=2）
+flower_v_card_is_pair = {
+	OR = {
+		AND = { check_variable = { v = 1 } check_variable = { flower_card_copies_1 = 2 } }
+		AND = { check_variable = { v = 2 } check_variable = { flower_card_copies_2 = 2 } }
+		AND = { check_variable = { v = 3 } check_variable = { flower_card_copies_3 = 2 } }
+		AND = { check_variable = { v = 4 } check_variable = { flower_card_copies_4 = 2 } }
+		AND = { check_variable = { v = 5 } check_variable = { flower_card_copies_5 = 2 } }
+		AND = { check_variable = { v = 6 } check_variable = { flower_card_copies_6 = 2 } }
+		AND = { check_variable = { v = 7 } check_variable = { flower_card_copies_7 = 2 } }
+		AND = { check_variable = { v = 8 } check_variable = { flower_card_copies_8 = 2 } }
+		AND = { check_variable = { v = 9 } check_variable = { flower_card_copies_9 = 2 } }
+		AND = { check_variable = { v = 10 } check_variable = { flower_card_copies_10 = 2 } }
+		AND = { check_variable = { v = 11 } check_variable = { flower_card_copies_11 = 2 } }
+		AND = { check_variable = { v = 12 } check_variable = { flower_card_copies_12 = 2 } }
+		AND = { check_variable = { v = 13 } check_variable = { flower_card_copies_13 = 2 } }
+		AND = { check_variable = { v = 14 } check_variable = { flower_card_copies_14 = 2 } }
+		AND = { check_variable = { v = 15 } check_variable = { flower_card_copies_15 = 2 } }
+		AND = { check_variable = { v = 16 } check_variable = { flower_card_copies_16 = 2 } }
+		AND = { check_variable = { v = 17 } check_variable = { flower_card_copies_17 = 2 } }
+		AND = { check_variable = { v = 18 } check_variable = { flower_card_copies_18 = 2 } }
+		AND = { check_variable = { v = 19 } check_variable = { flower_card_copies_19 = 2 } }
+		AND = { check_variable = { v = 20 } check_variable = { flower_card_copies_20 = 2 } }
+		AND = { check_variable = { v = 25 } check_variable = { flower_card_copies_25 = 2 } }
+		AND = { check_variable = { v = 26 } check_variable = { flower_card_copies_26 = 2 } }
+		AND = { check_variable = { v = 27 } check_variable = { flower_card_copies_27 = 2 } }
+		AND = { check_variable = { v = 28 } check_variable = { flower_card_copies_28 = 2 } }
+		AND = { check_variable = { v = 29 } check_variable = { flower_card_copies_29 = 2 } }
+		AND = { check_variable = { v = 30 } check_variable = { flower_card_copies_30 = 2 } }
+		AND = { check_variable = { v = 33 } check_variable = { flower_card_copies_33 = 2 } }
+		AND = { check_variable = { v = 34 } check_variable = { flower_card_copies_34 = 2 } }
+		AND = { check_variable = { v = 37 } check_variable = { flower_card_copies_37 = 2 } }
+		AND = { check_variable = { v = 38 } check_variable = { flower_card_copies_38 = 2 } }
+		AND = { check_variable = { v = 39 } check_variable = { flower_card_copies_39 = 2 } }
+		AND = { check_variable = { v = 40 } check_variable = { flower_card_copies_40 = 2 } }
+		AND = { check_variable = { v = 41 } check_variable = { flower_card_copies_41 = 2 } }
+		AND = { check_variable = { v = 42 } check_variable = { flower_card_copies_42 = 2 } }
+		AND = { check_variable = { v = 43 } check_variable = { flower_card_copies_43 = 2 } }
+		AND = { check_variable = { v = 44 } check_variable = { flower_card_copies_44 = 2 } }
+		AND = { check_variable = { v = 45 } check_variable = { flower_card_copies_45 = 2 } }
+		AND = { check_variable = { v = 46 } check_variable = { flower_card_copies_46 = 2 } }
+		AND = { check_variable = { v = 47 } check_variable = { flower_card_copies_47 = 2 } }
+		AND = { check_variable = { v = 48 } check_variable = { flower_card_copies_48 = 2 } }
+		AND = { check_variable = { v = 49 } check_variable = { flower_card_copies_49 = 2 } }
+		AND = { check_variable = { v = 50 } check_variable = { flower_card_copies_50 = 2 } }
+		AND = { check_variable = { v = 51 } check_variable = { flower_card_copies_51 = 2 } }
+		AND = { check_variable = { v = 52 } check_variable = { flower_card_copies_52 = 2 } }
+		AND = { check_variable = { v = 53 } check_variable = { flower_card_copies_53 = 2 } }
+		AND = { check_variable = { v = 54 } check_variable = { flower_card_copies_54 = 2 } }
+		AND = { check_variable = { v = 55 } check_variable = { flower_card_copies_55 = 2 } }
+		AND = { check_variable = { v = 58 } check_variable = { flower_card_copies_58 = 2 } }
+		AND = { check_variable = { v = 59 } check_variable = { flower_card_copies_59 = 2 } }
+		AND = { check_variable = { v = 60 } check_variable = { flower_card_copies_60 = 2 } }
+	}
+}
+
+#判断当前国家对v_card对应的常驻战术卡是否尚未合成为金色战术卡（供击败截获战术卡使用）
+flower_can_upgrade_v_card = {
+	OR = {
+		AND = { check_variable = { v_card = 1 } check_variable = { flower_card_copies_1 < 3 } }
+		AND = { check_variable = { v_card = 2 } check_variable = { flower_card_copies_2 < 3 } }
+		AND = { check_variable = { v_card = 3 } check_variable = { flower_card_copies_3 < 3 } }
+		AND = { check_variable = { v_card = 4 } check_variable = { flower_card_copies_4 < 3 } }
+		AND = { check_variable = { v_card = 5 } check_variable = { flower_card_copies_5 < 3 } }
+		AND = { check_variable = { v_card = 6 } check_variable = { flower_card_copies_6 < 3 } }
+		AND = { check_variable = { v_card = 7 } check_variable = { flower_card_copies_7 < 3 } }
+		AND = { check_variable = { v_card = 8 } check_variable = { flower_card_copies_8 < 3 } }
+		AND = { check_variable = { v_card = 9 } check_variable = { flower_card_copies_9 < 3 } }
+		AND = { check_variable = { v_card = 10 } check_variable = { flower_card_copies_10 < 3 } }
+		AND = { check_variable = { v_card = 11 } check_variable = { flower_card_copies_11 < 3 } }
+		AND = { check_variable = { v_card = 12 } check_variable = { flower_card_copies_12 < 3 } }
+		AND = { check_variable = { v_card = 13 } check_variable = { flower_card_copies_13 < 3 } }
+		AND = { check_variable = { v_card = 14 } check_variable = { flower_card_copies_14 < 3 } }
+		AND = { check_variable = { v_card = 15 } check_variable = { flower_card_copies_15 < 3 } }
+		AND = { check_variable = { v_card = 16 } check_variable = { flower_card_copies_16 < 3 } }
+		AND = { check_variable = { v_card = 17 } check_variable = { flower_card_copies_17 < 3 } }
+		AND = { check_variable = { v_card = 18 } check_variable = { flower_card_copies_18 < 3 } }
+		AND = { check_variable = { v_card = 19 } check_variable = { flower_card_copies_19 < 3 } }
+		AND = { check_variable = { v_card = 20 } check_variable = { flower_card_copies_20 < 3 } }
+		AND = { check_variable = { v_card = 25 } check_variable = { flower_card_copies_25 < 3 } }
+		AND = { check_variable = { v_card = 26 } check_variable = { flower_card_copies_26 < 3 } }
+		AND = { check_variable = { v_card = 27 } check_variable = { flower_card_copies_27 < 3 } }
+		AND = { check_variable = { v_card = 28 } check_variable = { flower_card_copies_28 < 3 } }
+		AND = { check_variable = { v_card = 29 } check_variable = { flower_card_copies_29 < 3 } }
+		AND = { check_variable = { v_card = 30 } check_variable = { flower_card_copies_30 < 3 } }
+		AND = { check_variable = { v_card = 33 } check_variable = { flower_card_copies_33 < 3 } }
+		AND = { check_variable = { v_card = 34 } check_variable = { flower_card_copies_34 < 3 } }
+		AND = { check_variable = { v_card = 37 } check_variable = { flower_card_copies_37 < 3 } }
+		AND = { check_variable = { v_card = 38 } check_variable = { flower_card_copies_38 < 3 } }
+		AND = { check_variable = { v_card = 39 } check_variable = { flower_card_copies_39 < 3 } }
+		AND = { check_variable = { v_card = 40 } check_variable = { flower_card_copies_40 < 3 } }
+		AND = { check_variable = { v_card = 41 } check_variable = { flower_card_copies_41 < 3 } }
+		AND = { check_variable = { v_card = 42 } check_variable = { flower_card_copies_42 < 3 } }
+		AND = { check_variable = { v_card = 43 } check_variable = { flower_card_copies_43 < 3 } }
+		AND = { check_variable = { v_card = 44 } check_variable = { flower_card_copies_44 < 3 } }
+		AND = { check_variable = { v_card = 45 } check_variable = { flower_card_copies_45 < 3 } }
+		AND = { check_variable = { v_card = 46 } check_variable = { flower_card_copies_46 < 3 } }
+		AND = { check_variable = { v_card = 47 } check_variable = { flower_card_copies_47 < 3 } }
+		AND = { check_variable = { v_card = 48 } check_variable = { flower_card_copies_48 < 3 } }
+		AND = { check_variable = { v_card = 49 } check_variable = { flower_card_copies_49 < 3 } }
+		AND = { check_variable = { v_card = 50 } check_variable = { flower_card_copies_50 < 3 } }
+		AND = { check_variable = { v_card = 51 } check_variable = { flower_card_copies_51 < 3 } }
+		AND = { check_variable = { v_card = 52 } check_variable = { flower_card_copies_52 < 3 } }
+		AND = { check_variable = { v_card = 53 } check_variable = { flower_card_copies_53 < 3 } }
+		AND = { check_variable = { v_card = 54 } check_variable = { flower_card_copies_54 < 3 } }
+		AND = { check_variable = { v_card = 55 } check_variable = { flower_card_copies_55 < 3 } }
+		AND = { check_variable = { v_card = 58 } check_variable = { flower_card_copies_58 < 3 } }
+		AND = { check_variable = { v_card = 59 } check_variable = { flower_card_copies_59 < 3 } }
+		AND = { check_variable = { v_card = 60 } check_variable = { flower_card_copies_60 < 3 } }
+	}
+}
+
+#判断当前国家对v_card对应的常驻战术卡是否仅为单张1阶状态（copies=1，供AI腾位优先出售单卡）
+flower_v_card_is_single = {
+	OR = {
+		AND = { check_variable = { v_card = 1 } check_variable = { flower_card_copies_1 = 1 } }
+		AND = { check_variable = { v_card = 2 } check_variable = { flower_card_copies_2 = 1 } }
+		AND = { check_variable = { v_card = 3 } check_variable = { flower_card_copies_3 = 1 } }
+		AND = { check_variable = { v_card = 4 } check_variable = { flower_card_copies_4 = 1 } }
+		AND = { check_variable = { v_card = 5 } check_variable = { flower_card_copies_5 = 1 } }
+		AND = { check_variable = { v_card = 6 } check_variable = { flower_card_copies_6 = 1 } }
+		AND = { check_variable = { v_card = 7 } check_variable = { flower_card_copies_7 = 1 } }
+		AND = { check_variable = { v_card = 8 } check_variable = { flower_card_copies_8 = 1 } }
+		AND = { check_variable = { v_card = 9 } check_variable = { flower_card_copies_9 = 1 } }
+		AND = { check_variable = { v_card = 10 } check_variable = { flower_card_copies_10 = 1 } }
+		AND = { check_variable = { v_card = 11 } check_variable = { flower_card_copies_11 = 1 } }
+		AND = { check_variable = { v_card = 12 } check_variable = { flower_card_copies_12 = 1 } }
+		AND = { check_variable = { v_card = 13 } check_variable = { flower_card_copies_13 = 1 } }
+		AND = { check_variable = { v_card = 14 } check_variable = { flower_card_copies_14 = 1 } }
+		AND = { check_variable = { v_card = 15 } check_variable = { flower_card_copies_15 = 1 } }
+		AND = { check_variable = { v_card = 16 } check_variable = { flower_card_copies_16 = 1 } }
+		AND = { check_variable = { v_card = 17 } check_variable = { flower_card_copies_17 = 1 } }
+		AND = { check_variable = { v_card = 18 } check_variable = { flower_card_copies_18 = 1 } }
+		AND = { check_variable = { v_card = 19 } check_variable = { flower_card_copies_19 = 1 } }
+		AND = { check_variable = { v_card = 20 } check_variable = { flower_card_copies_20 = 1 } }
+		AND = { check_variable = { v_card = 25 } check_variable = { flower_card_copies_25 = 1 } }
+		AND = { check_variable = { v_card = 26 } check_variable = { flower_card_copies_26 = 1 } }
+		AND = { check_variable = { v_card = 27 } check_variable = { flower_card_copies_27 = 1 } }
+		AND = { check_variable = { v_card = 28 } check_variable = { flower_card_copies_28 = 1 } }
+		AND = { check_variable = { v_card = 29 } check_variable = { flower_card_copies_29 = 1 } }
+		AND = { check_variable = { v_card = 30 } check_variable = { flower_card_copies_30 = 1 } }
+		AND = { check_variable = { v_card = 33 } check_variable = { flower_card_copies_33 = 1 } }
+		AND = { check_variable = { v_card = 34 } check_variable = { flower_card_copies_34 = 1 } }
+		AND = { check_variable = { v_card = 37 } check_variable = { flower_card_copies_37 = 1 } }
+		AND = { check_variable = { v_card = 38 } check_variable = { flower_card_copies_38 = 1 } }
+		AND = { check_variable = { v_card = 39 } check_variable = { flower_card_copies_39 = 1 } }
+		AND = { check_variable = { v_card = 40 } check_variable = { flower_card_copies_40 = 1 } }
+		AND = { check_variable = { v_card = 41 } check_variable = { flower_card_copies_41 = 1 } }
+		AND = { check_variable = { v_card = 42 } check_variable = { flower_card_copies_42 = 1 } }
+		AND = { check_variable = { v_card = 43 } check_variable = { flower_card_copies_43 = 1 } }
+		AND = { check_variable = { v_card = 44 } check_variable = { flower_card_copies_44 = 1 } }
+		AND = { check_variable = { v_card = 45 } check_variable = { flower_card_copies_45 = 1 } }
+		AND = { check_variable = { v_card = 46 } check_variable = { flower_card_copies_46 = 1 } }
+		AND = { check_variable = { v_card = 47 } check_variable = { flower_card_copies_47 = 1 } }
+		AND = { check_variable = { v_card = 48 } check_variable = { flower_card_copies_48 = 1 } }
+		AND = { check_variable = { v_card = 49 } check_variable = { flower_card_copies_49 = 1 } }
+		AND = { check_variable = { v_card = 50 } check_variable = { flower_card_copies_50 = 1 } }
+		AND = { check_variable = { v_card = 51 } check_variable = { flower_card_copies_51 = 1 } }
+		AND = { check_variable = { v_card = 52 } check_variable = { flower_card_copies_52 = 1 } }
+		AND = { check_variable = { v_card = 53 } check_variable = { flower_card_copies_53 = 1 } }
+		AND = { check_variable = { v_card = 54 } check_variable = { flower_card_copies_54 = 1 } }
+		AND = { check_variable = { v_card = 55 } check_variable = { flower_card_copies_55 = 1 } }
+		AND = { check_variable = { v_card = 58 } check_variable = { flower_card_copies_58 = 1 } }
+		AND = { check_variable = { v_card = 59 } check_variable = { flower_card_copies_59 = 1 } }
+		AND = { check_variable = { v_card = 60 } check_variable = { flower_card_copies_60 = 1 } }
+	}
+}

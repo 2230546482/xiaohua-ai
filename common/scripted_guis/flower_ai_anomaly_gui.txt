@@ -45,17 +45,20 @@ scripted_gui = {
 				OR = {
 					has_country_flag = flower_badge_hub_alert
 					check_variable = { flower_badge_shop_mode > 0 }
+					flower_quest_any_claimable = yes
 				}
 			}
 			flower_dock_badge_alert_visible = {
 				OR = {
 					has_country_flag = flower_badge_hub_alert
 					check_variable = { flower_badge_shop_mode > 0 }
+					flower_quest_any_claimable = yes
 				}
 			}
 			flower_dock_badge_btn_click_enabled = {
 				OR = {
 					has_global_flag = flower_anomaly_1_active
+					has_global_flag = flower_anomaly_3_active
 					has_global_flag = flower_anomaly_4_active
 					has_country_flag = flower_badge_hub_open
 				}
@@ -159,6 +162,14 @@ scripted_gui = {
 					clr_country_flag = flower_history_gui_open
 					clr_country_flag = flower_stock_gui_open
 					clr_country_flag = flower_badge_hub_alert
+					if = {
+						limit = {
+							has_global_flag = flower_anomaly_3_active
+							NOT = { has_global_flag = flower_anomaly_1_active }
+							NOT = { has_global_flag = flower_anomaly_4_active }
+						}
+						set_variable = { flower_badge_hub_tab = 1 }
+					}
 					flower_badge_hub_sync_state = yes
 					set_country_flag = flower_badge_hub_open
 				}
@@ -169,7 +180,7 @@ scripted_gui = {
 		}
 	}
 
-	#折叠后的迷你小花徽章悬浮钮（42x42，随时点击一键展开完整悬浮窗）
+	#折叠后的迷你小花徽章悬浮钮（62x74带木纹抓手底框，可自由拖拽并点击展开完整悬浮窗）
 	flower_ai_floating_dock_mini_gui = {
 		context_type = player_context
 		window_name = "flower_ai_floating_dock_mini_window"
@@ -189,6 +200,7 @@ scripted_gui = {
 					check_variable = { flower_draft_gui_mode > 0 }
 					has_country_flag = flower_badge_hub_alert
 					check_variable = { flower_badge_shop_mode > 0 }
+					flower_quest_any_claimable = yes
 					AND = {
 						has_global_flag = flower_anomaly_3_active
 						has_country_flag = flower_stk_new_tick_unread
@@ -757,6 +769,7 @@ scripted_gui = {
 					}
 					set_country_flag = flower_bow_bonus_draw_used
 					clr_country_flag = flower_anomaly_panel_open
+					set_country_flag = flower_anomaly_panel_minimized
 					set_country_flag = flower_draft_manual_open
 					flower_ai_open_roguelike_draft = yes
 				}

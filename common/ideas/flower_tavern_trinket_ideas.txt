@@ -59,9 +59,9 @@ ideas = {
 		}
 
 		#=======================================================================
-		#二、1937 小饰品池（24枚：1-12流派核心 / 13-15经济 / 16-17混编 / 18-20肖像规则 / 21-24低价诅咒）
+		#二、1937小徽章池（24枚：1-12流派核心/13-15经济/16-17兵种混编/18-20特殊规则/21-24低价诅咒）
 		#=======================================================================
-		#1-12 流派核心小饰品（可与对应流派+大饰品触发合金质变）
+		#1-12流派核心小徽章（可与对应流派核心及大徽章集齐晋升流派大成）
 		flower_st_arch_1 = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -183,7 +183,7 @@ ideas = {
 			}
 		}
 
-		#13-15 经济节奏小饰品
+		#13-15经济运营小徽章
 		flower_st_econ_ledger = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -214,7 +214,7 @@ ideas = {
 			}
 		}
 
-		#16-17 混编协同小饰品
+		#16-17兵种混编小徽章
 		flower_st_hyb_joint = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -237,7 +237,7 @@ ideas = {
 			}
 		}
 
-		#18-20 肖像与改规则小饰品
+		#18-20特殊规则小徽章
 		flower_st_port_general = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -271,7 +271,7 @@ ideas = {
 			}
 		}
 
-		#21-24 低价翻盘与诅咒小徽章
+		#21-24低价与诅咒小徽章
 		flower_st_cursed_iou = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -314,9 +314,9 @@ ideas = {
 		}
 
 		#=======================================================================
-		#三、1939 大饰品池（24枚：1-12流派引擎 / 13-15经济 / 16-17混编光牙 / 18-20肖像规则 / 21-24诅咒返现）
+		#三、1939大徽章池（24枚：1-12流派核心/13-15经济/16-17全军混编/18-20特殊规则/21-24低价诅咒）
 		#=======================================================================
-		#1-12 流派终极引擎大饰品（可与对应流派+小饰品触发合金质变）
+		#1-12流派核心大徽章（可与对应流派核心及小徽章集齐晋升流派大成）
 		flower_lt_arch_1 = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -453,7 +453,7 @@ ideas = {
 			}
 		}
 
-		#13-15 经济引擎大饰品
+		#13-15经济运营大徽章
 		flower_lt_econ_printer = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -488,7 +488,7 @@ ideas = {
 			}
 		}
 
-		#16-17 混编与光牙大饰品
+		#16-17全军混编大徽章
 		flower_lt_hyb_lightfang = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -511,7 +511,7 @@ ideas = {
 			}
 		}
 
-		#18-20 特殊规则大徽章
+		#18-20特殊规则大徽章
 		flower_lt_port_museum = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -544,7 +544,7 @@ ideas = {
 			}
 		}
 
-		#21-24 诅咒返现与绝境大饰品
+		#21-24诅咒与绝境大徽章
 		flower_lt_cursed_demon = {
 			removal_cost = -1
 			allowed = { always = no }
@@ -592,7 +592,7 @@ ideas = {
 		}
 
 		#=======================================================================
-		#四、合金质变精神（12流派同源底座 + 小饰品 + 大饰品集齐自动晋升）
+		#四、流派大成精神（集齐12流派同源核心、小徽章与大徽章自动晋升）
 		#=======================================================================
 		flower_gold_arch_1 = {
 			removal_cost = -1
@@ -728,7 +728,7 @@ ideas = {
 		}
 
 		#=======================================================================
-		#五、1941 超大徽章（4选1，后期高储备与战争节点开放）
+		#五、1941超大徽章（4选1，1941年起开放选配）
 		#=======================================================================
 		flower_crown_war_machine = {
 			removal_cost = -1
@@ -776,6 +776,131 @@ ideas = {
 				army_org_factor = 0.15
 				experience_loss_factor = -0.35
 				land_reinforce_rate = 0.15
+			}
+		}
+
+		#=======================================================================
+		#六、徽章附加触发限时精神（遵循5%整档与单条战斗修正上限）
+		#=======================================================================
+		flower_triarms_triple_surge_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_ico_syn_ironrain
+			modifier = {
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				coordination_bonus = 0.15
+			}
+		}
+		flower_badge_shell_shock_enemy_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_arty_evolve
+			modifier = {
+				max_dig_in_factor = -0.25
+				army_defence_factor = -0.10
+				army_org_regain = -0.15
+			}
+		}
+		flower_badge_blitz_fuel_surge_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_tank_evolve
+			modifier = {
+				army_armor_speed_factor = 0.15
+				org_loss_when_moving = -0.20
+				no_supply_grace = 50
+			}
+		}
+		flower_badge_night_blind_enemy_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_nightingale
+			modifier = {
+				recon_factor = -0.30
+				initiative_factor = -0.20
+				land_night_attack = -0.20
+			}
+		}
+		flower_badge_guerrilla_rail_chaos_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_guerrilla
+			modifier = {
+				supply_consumption_factor = 0.15
+				attrition = 0.15
+				industry_repair_factor = -0.30
+			}
+		}
+		flower_badge_air_ace_frenzy_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_air_evolve
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_cas_efficiency = 0.10
+				ground_attack_factor = 0.10
+			}
+		}
+		flower_badge_medevac_secondwind_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_undead
+			modifier = {
+				army_org_regain = 0.20
+				experience_loss_factor = -0.25
+				weekly_manpower = 3000
+			}
+		}
+		flower_badge_specops_raid_window_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_magic_evolve
+			modifier = {
+				special_forces_attack_factor = 0.10
+				paradrop_organization_factor = 0.30
+				invasion_preparation = -0.35
+			}
+		}
+		flower_badge_blackmarket_windfall_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_mystery_egg
+			modifier = {
+				hcp_income_factor_monthly = 0.30
+				industrial_capacity_factory = 0.10
+				consumer_goods_factor = -0.05
+			}
+		}
+		flower_badge_cursed_berserk_pulse_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_blood_wager
+			modifier = {
+				army_attack_factor = 0.15
+				breakthrough_factor = 0.15
+				attrition = 0.15
+			}
+		}
+		flower_badge_crown_total_war_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_idea_blitz
+			modifier = {
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				army_speed_factor = 0.15
+				supply_consumption_factor = -0.15
+			}
+		}
+		flower_badge_crown_intel_lock_enemy_idea = {
+			removal_cost = -1
+			allowed = { always = no }
+			picture = flower_ico_syn_void
+			modifier = {
+				encryption_factor = -0.30
+				max_planning = -0.15
+				army_defence_factor = -0.10
 			}
 		}
 	}

@@ -1,8 +1,9 @@
-#徽章与考核总览双页签GUI、任务进度条与悬浮栏动态本地化
+#徽章与考核总览双页签GUI、任务进度与悬浮栏动态本地化
 defined_text = {
 	name = GetFlowerDockBadgeBtnText
-	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_BTN_LOCKED }
+	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_BTN_LOCKED }
 	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_DOCK_BADGE_BTN_QUEST_READY }
+	text = { trigger = { has_global_flag = flower_anomaly_3_active NOT = { has_global_flag = flower_anomaly_1_active } NOT = { has_global_flag = flower_anomaly_4_active } } localization_key = FLOWER_DOCK_BADGE_BTN_ANOM3 }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_DOCK_BADGE_BTN_ST_READY }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_DOCK_BADGE_BTN_LT_READY }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_DOCK_BADGE_BTN_CR_READY }
@@ -13,8 +14,9 @@ defined_text = {
 }
 defined_text = {
 	name = GetFlowerDockBadgeTT
-	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_TT_LOCKED }
+	text = { trigger = { NOT = { OR = { has_global_flag = flower_anomaly_1_active has_global_flag = flower_anomaly_3_active has_global_flag = flower_anomaly_4_active } } } localization_key = FLOWER_DOCK_BADGE_TT_LOCKED }
 	text = { trigger = { flower_quest_any_claimable = yes } localization_key = FLOWER_DOCK_BADGE_TT_QUEST_READY }
+	text = { trigger = { has_global_flag = flower_anomaly_3_active NOT = { has_global_flag = flower_anomaly_1_active } NOT = { has_global_flag = flower_anomaly_4_active } } localization_key = FLOWER_DOCK_BADGE_TT_ANOM3 }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 1 } } localization_key = FLOWER_DOCK_BADGE_TT_ST_READY }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 2 } } localization_key = FLOWER_DOCK_BADGE_TT_LT_READY }
 	text = { trigger = { check_variable = { flower_badge_shop_mode = 3 } } localization_key = FLOWER_DOCK_BADGE_TT_CR_READY }
@@ -638,21 +640,21 @@ defined_text = {
 	name = GetFlowerQStL1
 	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L1_DONE }
 	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L1_WAIT }
-	text = { trigger = { flower_quest_st_fac_met = yes } localization_key = FLOWER_Q_ST_L1_MET }
+	text = { trigger = { flower_quest_st_mil_met = yes } localization_key = FLOWER_Q_ST_L1_MET }
 	text = { localization_key = FLOWER_Q_ST_L1_RUN }
 }
 defined_text = {
 	name = GetFlowerQStL2
 	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L2_DONE }
 	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L2_WAIT }
-	text = { trigger = { flower_quest_st_state_met = yes } localization_key = FLOWER_Q_ST_L2_MET }
+	text = { trigger = { flower_quest_st_div_met = yes } localization_key = FLOWER_Q_ST_L2_MET }
 	text = { localization_key = FLOWER_Q_ST_L2_RUN }
 }
 defined_text = {
 	name = GetFlowerQStL3
 	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_ST_L3_DONE }
 	text = { trigger = { NOT = { has_country_flag = flower_st_task_assigned } } localization_key = FLOWER_Q_ST_L3_WAIT }
-	text = { trigger = { flower_st_xp_met = yes } localization_key = FLOWER_Q_ST_L3_MET }
+	text = { trigger = { flower_quest_st_cap_met = yes } localization_key = FLOWER_Q_ST_L3_MET }
 	text = { localization_key = FLOWER_Q_ST_L3_RUN }
 }
 defined_text = {
@@ -664,31 +666,32 @@ defined_text = {
 	name = GetFlowerQStBtnText
 	text = { trigger = { has_country_flag = flower_st_claimed } localization_key = FLOWER_Q_BTN_COMPLETED }
 	text = { trigger = { flower_quest_st_ready = yes } localization_key = FLOWER_Q_ST_BTN_GO_PICK }
-	text = { trigger = { has_country_flag = flower_st_task_assigned } localization_key = FLOWER_Q_ST_BTN_BUYOUT }
+	text = { trigger = { has_country_flag = flower_st_task_assigned } localization_key = FLOWER_Q_BTN_IN_PROG }
 	text = { localization_key = FLOWER_Q_ST_BTN_WAIT }
 }
 defined_text = {
 	name = GetFlowerQBountyBadge
 	text = { trigger = { flower_quest_bounty_ready = yes } localization_key = FLOWER_Q_BOUNTY_BADGE_CLAIM }
 	text = { trigger = { has_country_flag = flower_bounty_active } localization_key = FLOWER_Q_BOUNTY_BADGE_ACTIVE }
+	text = { trigger = { has_country_flag = flower_bounty_cd } localization_key = FLOWER_Q_BOUNTY_BADGE_CD }
 	text = { localization_key = FLOWER_Q_BOUNTY_BADGE_IDLE }
 }
 defined_text = {
 	name = GetFlowerQBountyL1
 	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L1_IDLE }
-	text = { trigger = { flower_quest_bounty_fac_met = yes } localization_key = FLOWER_Q_BOUNTY_L1_MET }
+	text = { trigger = { flower_quest_bounty_cap_met = yes } localization_key = FLOWER_Q_BOUNTY_L1_MET }
 	text = { localization_key = FLOWER_Q_BOUNTY_L1_RUN }
 }
 defined_text = {
 	name = GetFlowerQBountyL2
 	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L2_IDLE }
-	text = { trigger = { flower_quest_bounty_state_met = yes } localization_key = FLOWER_Q_BOUNTY_L2_MET }
+	text = { trigger = { flower_quest_bounty_air_met = yes } localization_key = FLOWER_Q_BOUNTY_L2_MET }
 	text = { localization_key = FLOWER_Q_BOUNTY_L2_RUN }
 }
 defined_text = {
 	name = GetFlowerQBountyL3
 	text = { trigger = { NOT = { has_country_flag = flower_bounty_active } } localization_key = FLOWER_Q_BOUNTY_L3_IDLE }
-	text = { trigger = { flower_bounty_xp_met = yes } localization_key = FLOWER_Q_BOUNTY_L3_MET }
+	text = { trigger = { flower_quest_bounty_order_met = yes } localization_key = FLOWER_Q_BOUNTY_L3_MET }
 	text = { localization_key = FLOWER_Q_BOUNTY_L3_RUN }
 }
 defined_text = {
@@ -699,6 +702,7 @@ defined_text = {
 	name = GetFlowerQBountyBtnText
 	text = { trigger = { flower_quest_bounty_ready = yes } localization_key = FLOWER_Q_BTN_CLAIM }
 	text = { trigger = { has_country_flag = flower_bounty_active } localization_key = FLOWER_Q_BTN_IN_PROG }
+	text = { trigger = { has_country_flag = flower_bounty_cd } localization_key = FLOWER_Q_BTN_COOLDOWN }
 	text = { localization_key = FLOWER_Q_BOUNTY_BTN_ACCEPT }
 }
 defined_text = {
@@ -711,13 +715,13 @@ defined_text = {
 defined_text = {
 	name = GetFlowerQWagerL1
 	text = { trigger = { NOT = { has_idea = flower_blood_wager_active_idea } } localization_key = FLOWER_Q_WAGER_L1_IDLE }
-	text = { trigger = { flower_quest_wager_fac_met = yes } localization_key = FLOWER_Q_WAGER_L1_MET }
+	text = { trigger = { flower_quest_wager_state_met = yes } localization_key = FLOWER_Q_WAGER_L1_MET }
 	text = { localization_key = FLOWER_Q_WAGER_L1_RUN }
 }
 defined_text = {
 	name = GetFlowerQWagerL2
 	text = { trigger = { NOT = { has_idea = flower_blood_wager_active_idea } } localization_key = FLOWER_Q_WAGER_L2_IDLE }
-	text = { trigger = { flower_quest_wager_state_met = yes } localization_key = FLOWER_Q_WAGER_L2_MET }
+	text = { trigger = { flower_quest_wager_ind_met = yes } localization_key = FLOWER_Q_WAGER_L2_MET }
 	text = { localization_key = FLOWER_Q_WAGER_L2_RUN }
 }
 defined_text = {
@@ -741,26 +745,26 @@ defined_text = {
 	name = GetFlowerQBmBadge
 	text = { trigger = { flower_quest_bm_ready = yes } localization_key = FLOWER_Q_BM_BADGE_CLAIM }
 	text = { trigger = { has_country_flag = flower_bm_active } localization_key = FLOWER_Q_BM_BADGE_ACTIVE }
+	text = { trigger = { has_country_flag = flower_bm_delivery_cd } localization_key = FLOWER_Q_BM_BADGE_CD }
 	text = { trigger = { OR = { has_idea = flower_bm_arms_supply_idea has_idea = flower_bm_industry_boost_idea has_idea = flower_bm_intel_tech_idea has_idea = flower_bm_vip_jackpot_idea } } localization_key = FLOWER_Q_BM_BADGE_DIVIDEND }
 	text = { localization_key = FLOWER_Q_BM_BADGE_IDLE }
 }
 defined_text = {
 	name = GetFlowerQBmL1
 	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L1_IDLE }
-	text = { trigger = { flower_quest_bm_fac_met = yes } localization_key = FLOWER_Q_BM_L1_MET }
+	text = { trigger = { flower_quest_bm_civ_met = yes } localization_key = FLOWER_Q_BM_L1_MET }
 	text = { localization_key = FLOWER_Q_BM_L1_RUN }
 }
 defined_text = {
 	name = GetFlowerQBmL2
 	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L2_IDLE }
-	text = { trigger = { flower_quest_bm_state_met = yes } localization_key = FLOWER_Q_BM_L2_MET }
+	text = { trigger = { flower_quest_bm_hcp_met = yes } localization_key = FLOWER_Q_BM_L2_MET }
 	text = { localization_key = FLOWER_Q_BM_L2_RUN }
 }
 defined_text = {
 	name = GetFlowerQBmL3
-	text = { trigger = { NOT = { has_country_flag = flower_bm_active } } localization_key = FLOWER_Q_BM_L3_IDLE }
-	text = { trigger = { flower_bm_xp_met = yes } localization_key = FLOWER_Q_BM_L3_MET }
-	text = { localization_key = FLOWER_Q_BM_L3_RUN }
+	text = { trigger = { has_country_flag = flower_bm_active } localization_key = FLOWER_Q_BM_L3_RUN }
+	text = { localization_key = FLOWER_Q_BM_L3_IDLE }
 }
 defined_text = {
 	name = GetFlowerQBmReward
@@ -770,6 +774,7 @@ defined_text = {
 	name = GetFlowerQBmBtnText
 	text = { trigger = { flower_quest_bm_ready = yes } localization_key = FLOWER_Q_BM_BTN_CLAIM }
 	text = { trigger = { has_country_flag = flower_bm_active } localization_key = FLOWER_Q_BTN_IN_PROG }
+	text = { trigger = { has_country_flag = flower_bm_delivery_cd } localization_key = FLOWER_Q_BTN_COOLDOWN }
 	text = { trigger = { OR = { has_idea = flower_bm_arms_supply_idea has_idea = flower_bm_industry_boost_idea has_idea = flower_bm_intel_tech_idea has_idea = flower_bm_vip_jackpot_idea } } localization_key = FLOWER_Q_BM_BTN_ACTIVE_BUFF }
 	text = { localization_key = FLOWER_Q_BM_BTN_SIGN }
 }

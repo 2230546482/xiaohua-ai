@@ -1,70 +1,19 @@
-#徽章考核、黑市悬赏、半年军令状与黑市契约统一达标触发器（支持12档离散陆军经验目标）
+#1937小徽章考核、黑市悬赏、半年军令状与黑市契约达标判定触发器
 
-flower_st_xp_met = {
-	has_war = yes
-	OR = {
-		AND = { check_variable = { flower_st_goal_xp = 40 } has_army_experience > 39.99 }
-		AND = { check_variable = { flower_st_goal_xp = 50 } has_army_experience > 49.99 }
-		AND = { check_variable = { flower_st_goal_xp = 60 } has_army_experience > 59.99 }
-		AND = { check_variable = { flower_st_goal_xp = 75 } has_army_experience > 74.99 }
-		AND = { check_variable = { flower_st_goal_xp = 90 } has_army_experience > 89.99 }
-		AND = { check_variable = { flower_st_goal_xp = 100 } has_army_experience > 99.99 }
-		AND = { check_variable = { flower_st_goal_xp = 120 } has_army_experience > 119.99 }
-		AND = { check_variable = { flower_st_goal_xp = 150 } has_army_experience > 149.99 }
-		AND = { check_variable = { flower_st_goal_xp = 180 } has_army_experience > 179.99 }
-		AND = { check_variable = { flower_st_goal_xp = 200 } has_army_experience > 199.99 }
-		AND = { check_variable = { flower_st_goal_xp = 250 } has_army_experience > 249.99 }
-		AND = { check_variable = { flower_st_goal_xp > 250 } has_army_experience > 299.99 }
-		AND = { check_variable = { flower_st_goal_xp = 80 } has_army_experience > 79.99 }
-	}
+#1.1937小徽章考核：军用工厂扩建/现役陆军师扩编/战时攻占敌方地区（三选一）
+flower_quest_st_mil_met = {
+	check_variable = { flower_st_goal_mil > 0 }
+	NOT = { check_variable = { num_of_military_factories < flower_st_goal_mil } }
 }
 
-flower_bounty_xp_met = {
-	has_war = yes
-	OR = {
-		AND = { check_variable = { flower_bounty_goal_xp = 40 } has_army_experience > 39.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 50 } has_army_experience > 49.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 60 } has_army_experience > 59.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 75 } has_army_experience > 74.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 90 } has_army_experience > 89.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 100 } has_army_experience > 99.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 120 } has_army_experience > 119.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 150 } has_army_experience > 149.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 180 } has_army_experience > 179.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 200 } has_army_experience > 199.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 250 } has_army_experience > 249.99 }
-		AND = { check_variable = { flower_bounty_goal_xp > 250 } has_army_experience > 299.99 }
-		AND = { check_variable = { flower_bounty_goal_xp = 80 } has_army_experience > 79.99 }
-	}
+flower_quest_st_div_met = {
+	check_variable = { flower_st_goal_divs > 0 }
+	NOT = { check_variable = { num_divisions < flower_st_goal_divs } }
 }
 
-flower_bm_xp_met = {
-	has_war = yes
-	OR = {
-		AND = { check_variable = { flower_bm_goal_xp = 40 } has_army_experience > 39.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 50 } has_army_experience > 49.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 60 } has_army_experience > 59.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 75 } has_army_experience > 74.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 90 } has_army_experience > 89.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 100 } has_army_experience > 99.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 120 } has_army_experience > 119.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 150 } has_army_experience > 149.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 180 } has_army_experience > 179.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 200 } has_army_experience > 199.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 250 } has_army_experience > 249.99 }
-		AND = { check_variable = { flower_bm_goal_xp > 250 } has_army_experience > 299.99 }
-		AND = { check_variable = { flower_bm_goal_xp = 80 } has_army_experience > 79.99 }
-	}
-}
-
-flower_quest_st_fac_met = {
-	check_variable = { flower_st_goal_fac > 0 }
-	NOT = { check_variable = { num_of_factories < flower_st_goal_fac } }
-}
-
-flower_quest_st_state_met = {
-	check_variable = { flower_st_goal_states > 0 }
-	NOT = { check_variable = { num_controlled_states < flower_st_goal_states } }
+flower_quest_st_cap_met = {
+	check_variable = { flower_st_goal_caps > 0 }
+	NOT = { check_variable = { flower_st_war_caps < flower_st_goal_caps } }
 }
 
 flower_quest_st_ready = {
@@ -72,65 +21,96 @@ flower_quest_st_ready = {
 	NOT = { has_country_flag = flower_st_claimed }
 	OR = {
 		has_country_flag = flower_st_task_done
-		flower_quest_st_fac_met = yes
-		flower_quest_st_state_met = yes
-		flower_st_xp_met = yes
+		flower_quest_st_mil_met = yes
+		flower_quest_st_div_met = yes
+		flower_quest_st_cap_met = yes
 	}
 }
 
-flower_quest_bounty_fac_met = {
-	check_variable = { flower_bounty_goal_fac > 0 }
-	NOT = { check_variable = { num_of_factories < flower_bounty_goal_fac } }
+#2.黑市动态悬赏：库存军火交付/接单后战时攻占地区/现役空军扩编（三选一，完成后冷却180天）
+flower_quest_bounty_order_met = {
+	OR = {
+		AND = {
+			check_variable = { flower_bounty_order_tier = 1 }
+			has_equipment = { infantry_equipment > 999 }
+			has_equipment = { artillery_equipment > 99 }
+		}
+		AND = {
+			check_variable = { flower_bounty_order_tier = 2 }
+			has_equipment = { infantry_equipment > 1999 }
+			has_equipment = { artillery_equipment > 199 }
+		}
+		AND = {
+			check_variable = { flower_bounty_order_tier > 2 }
+			has_equipment = { infantry_equipment > 3499 }
+			has_equipment = { artillery_equipment > 349 }
+		}
+	}
 }
 
-flower_quest_bounty_state_met = {
-	check_variable = { flower_bounty_goal_states > 0 }
-	NOT = { check_variable = { num_controlled_states < flower_bounty_goal_states } }
+flower_quest_bounty_cap_met = {
+	check_variable = { flower_bounty_goal_caps > 0 }
+	NOT = { check_variable = { flower_bounty_war_caps < flower_bounty_goal_caps } }
+}
+
+flower_quest_bounty_air_met = {
+	check_variable = { flower_bounty_goal_air > 0 }
+	OR = {
+		AND = { check_variable = { flower_bounty_goal_air = 200 } has_deployed_air_force_size = { size > 199 } }
+		AND = { check_variable = { flower_bounty_goal_air = 400 } has_deployed_air_force_size = { size > 399 } }
+		AND = { check_variable = { flower_bounty_goal_air = 700 } has_deployed_air_force_size = { size > 699 } }
+		AND = { check_variable = { flower_bounty_goal_air = 1000 } has_deployed_air_force_size = { size > 999 } }
+		AND = { check_variable = { flower_bounty_goal_air = 1500 } has_deployed_air_force_size = { size > 1499 } }
+		AND = { check_variable = { flower_bounty_goal_air = 2200 } has_deployed_air_force_size = { size > 2199 } }
+		AND = { check_variable = { flower_bounty_goal_air = 3000 } has_deployed_air_force_size = { size > 2999 } }
+		AND = { check_variable = { flower_bounty_goal_air > 3000 } has_deployed_air_force_size = { size > 3999 } }
+	}
 }
 
 flower_quest_bounty_ready = {
 	has_country_flag = flower_bounty_active
 	OR = {
-		flower_quest_bounty_fac_met = yes
-		flower_quest_bounty_state_met = yes
-		flower_bounty_xp_met = yes
+		flower_quest_bounty_cap_met = yes
+		flower_quest_bounty_air_met = yes
+		flower_quest_bounty_order_met = yes
 	}
 }
 
+#3.半年扩张军令状：控制地区净增/攻占敌方工业地区或迫敌停止抵抗（二选一，完成后冷却180天）
 flower_quest_wager_state_met = {
 	check_variable = { flower_wager_goal_states > 0 }
 	NOT = { check_variable = { num_controlled_states < flower_wager_goal_states } }
 }
 
-flower_quest_wager_fac_met = {
-	check_variable = { flower_wager_goal_factories > 0 }
-	NOT = { check_variable = { num_of_factories < flower_wager_goal_factories } }
+flower_quest_wager_ind_met = {
+	check_variable = { flower_wager_goal_ind_caps > 0 }
+	NOT = { check_variable = { flower_wager_ind_caps < flower_wager_goal_ind_caps } }
 }
 
 flower_quest_wager_ready = {
 	has_idea = flower_blood_wager_active_idea
 	OR = {
 		flower_quest_wager_state_met = yes
-		flower_quest_wager_fac_met = yes
+		flower_quest_wager_ind_met = yes
 	}
 }
 
-flower_quest_bm_fac_met = {
-	check_variable = { flower_bm_goal_fac > 0 }
-	NOT = { check_variable = { num_of_factories < flower_bm_goal_fac } }
+#4.黑市净收入契约：民用工厂净增/签约后国库储备净增长达标（二选一，完成后冷却180天）
+flower_quest_bm_civ_met = {
+	check_variable = { flower_bm_goal_civ > 0 }
+	NOT = { check_variable = { num_of_civilian_factories < flower_bm_goal_civ } }
 }
 
-flower_quest_bm_state_met = {
-	check_variable = { flower_bm_goal_states > 0 }
-	NOT = { check_variable = { num_controlled_states < flower_bm_goal_states } }
+flower_quest_bm_hcp_met = {
+	check_variable = { flower_bm_goal_hcp > 0 }
+	NOT = { check_variable = { ubs_save < flower_bm_goal_hcp } }
 }
 
 flower_quest_bm_ready = {
 	has_country_flag = flower_bm_active
 	OR = {
-		flower_quest_bm_fac_met = yes
-		flower_quest_bm_state_met = yes
-		flower_bm_xp_met = yes
+		flower_quest_bm_civ_met = yes
+		flower_quest_bm_hcp_met = yes
 	}
 }
 

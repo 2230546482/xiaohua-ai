@@ -274,17 +274,12 @@ flower_ai_record_chosen_card = {
 	}
 }
 
-#弹出下一轮待选界面（批量保阶转型期间保留已弹出的进阶分支界面）
+#弹出下一轮待选界面（批量保阶转型期间保留当前未完成界面，防止误吞抽牌队列）
 flower_ai_pop_next_queued_draft = {
 	if = {
 		limit = {
 			is_ai = no
-			NOT = {
-				AND = {
-					has_country_flag = flower_pivot_batch_upgrading
-					check_variable = { flower_draft_gui_mode = 3 }
-				}
-			}
+			NOT = { has_country_flag = flower_pivot_batch_upgrading }
 		}
 		set_variable = { flower_draft_gui_mode = 0 }
 		if = {
@@ -458,11 +453,14 @@ flower_ai_smart_pick_archetype = {
 	}
 }
 
-#12大流派专属局内成长里程碑月度检测（达成对应地图经营/作战目标获得1次免费酒馆进店与适量经验/储备，无白嫖装备）
+#12大流派成长里程碑月度检测（达成经营或作战目标发放1张免费抽牌券与经验、储备，不额外赠送装备）
 flower_ai_check_archetype_milestones = {
 	if = {
 		limit = {
-			has_global_flag = flower_anomaly_1_active
+			OR = {
+				has_global_flag = flower_anomaly_1_active
+				has_global_flag = flower_anomaly_4_active
+			}
 			OR = {
 				is_ai = no
 				is_major = yes
@@ -723,7 +721,7 @@ flower_ai_add_research_slot_capped = {
 	}
 }
 
-#检测是否达成【双流派大成/双修共鸣】
+#检测是否达成双流派满级进阶条件
 flower_ai_check_dual_mastery_synergy = {
 	if = {
 		limit = {
@@ -814,14 +812,14 @@ flower_ai_recalc_slayer_book = {
 
 flower_ai_add_slayer_stack = {
 	add_to_variable = { flower_slayer_stacks = 1 }
-	#战地拾荒：靠装备缴获比例系数与陆军经验滚雪球，不凭空刷步枪与工厂
+	#战地拾荒：结算装备缴获比例系数与陆军经验加成，不额外生成装备与工厂
 	army_experience = 10
 	if = {
 		limit = { has_idea = flower_evo_slayer_dismantle_idea }
 		add_to_variable = { ubs_save = 150 }
 		flower_ai_sync_hcp_ui = yes
 	}
-	#词条37《战利品的事能算偷吗》：每次叠层折现+200储备
+	#战术卡37《战利品的事能算偷吗》：每次累积层数额外发放200储备
 	if = {
 		limit = { has_country_flag = flower_card_owned_37 }
 		add_to_variable = { ubs_save = 200 }
@@ -1023,7 +1021,7 @@ flower_ai_roll_gambler_fate = {
 	}
 }
 
-#触发一轮全球肉鸽波次（第1轮从本局开放流派池选秀，第2轮起全图玩家与主要AI同频获得1张免费酒馆进店券）
+#触发一轮全局选牌波次（第1轮从本局开放流派池选择核心流派，第2轮起玩家与主要AI同步获得1张免费抽牌券）
 flower_ai_trigger_roguelike_wave = {
 	flower_tavern_roll_open_pool = yes
 	add_to_variable = { global.flower_roguelike_round = 1 }

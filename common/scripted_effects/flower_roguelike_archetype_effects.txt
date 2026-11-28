@@ -1,4 +1,4 @@
-#12大流派核心选择与进阶分支统一执行脚本（严格遵循本局开放流派池，移除开局白嫖装备/人力/工厂/科技）
+#12大流派核心选择与进阶分支执行脚本（遵循本局开放流派池，开局不额外赠送装备、人力、工厂与科技）
 
 #打开流派选择界面
 flower_ai_open_starter_selection = {
@@ -143,16 +143,27 @@ flower_ai_pick_archetype_1 = {
 			check_variable = { flower_slayer_stacks > 2 }
 			NOT = { has_country_flag = flower_evo_slayer_done }
 		}
-		set_country_flag = flower_evo_slayer_done
 		if = {
 			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-			set_variable = { flower_branch_id = 4 }
-			set_variable = { flower_draft_gui_mode = 3 }
-			set_country_flag = flower_roguelike_gui_open
-			flower_ai_recalc_pending_drafts = yes
+			if = {
+				limit = {
+					has_country_flag = flower_pivot_batch_upgrading
+					check_variable = { flower_draft_gui_mode > 0 }
+				}
+				add_to_variable = { flower_queue_branch = 1 }
+				flower_ai_recalc_pending_drafts = yes
+			}
+			else = {
+				set_country_flag = flower_evo_slayer_done
+				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+				set_variable = { flower_branch_id = 4 }
+				set_variable = { flower_draft_gui_mode = 3 }
+				set_country_flag = flower_roguelike_gui_open
+				flower_ai_recalc_pending_drafts = yes
+			}
 		}
 		else = {
+			set_country_flag = flower_evo_slayer_done
 			country_event = { id = FLWRG.14 }
 		}
 	}
@@ -205,16 +216,27 @@ flower_ai_pick_archetype_2 = {
 			has_idea = flower_corp_stage_2_idea
 			NOT = { has_country_flag = flower_evo_corp_done }
 		}
-		set_country_flag = flower_evo_corp_done
 		if = {
 			limit = { is_ai = no }
-			hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-			set_variable = { flower_branch_id = 5 }
-			set_variable = { flower_draft_gui_mode = 3 }
-			set_country_flag = flower_roguelike_gui_open
-			flower_ai_recalc_pending_drafts = yes
+			if = {
+				limit = {
+					has_country_flag = flower_pivot_batch_upgrading
+					check_variable = { flower_draft_gui_mode > 0 }
+				}
+				add_to_variable = { flower_queue_branch = 1 }
+				flower_ai_recalc_pending_drafts = yes
+			}
+			else = {
+				set_country_flag = flower_evo_corp_done
+				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+				set_variable = { flower_branch_id = 5 }
+				set_variable = { flower_draft_gui_mode = 3 }
+				set_country_flag = flower_roguelike_gui_open
+				flower_ai_recalc_pending_drafts = yes
+			}
 		}
 		else = {
+			set_country_flag = flower_evo_corp_done
 			country_event = { id = FLWRG.15 }
 		}
 	}
@@ -298,16 +320,27 @@ flower_ai_pick_archetype_3 = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_arty_done } }
-			set_country_flag = flower_evo_arty_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 6 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_arty_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 6 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_arty_done
 				country_event = { id = FLWRG.16 }
 			}
 		}
@@ -414,16 +447,27 @@ flower_ai_pick_archetype_4 = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_tank_done } }
-			set_country_flag = flower_evo_tank_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 7 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_tank_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 7 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_tank_done
 				country_event = { id = FLWRG.17 }
 			}
 		}
@@ -552,16 +596,27 @@ flower_ai_pick_archetype_5 = {
 		air_experience = 50
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_air_done } }
-			set_country_flag = flower_evo_air_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 8 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_air_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 8 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_air_done
 				country_event = { id = FLWRG.18 }
 			}
 		}
@@ -637,16 +692,27 @@ flower_ai_pick_archetype_6 = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_wave_done } }
-			set_country_flag = flower_evo_wave_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 9 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_wave_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 9 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_wave_done
 				country_event = { id = FLWRG.19 }
 			}
 		}
@@ -713,16 +779,27 @@ flower_ai_pick_archetype_7 = {
 		army_experience = 35
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_nightingale_done } }
-			set_country_flag = flower_evo_nightingale_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 1 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_nightingale_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 1 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_nightingale_done
 				country_event = { id = FLWRG.11 }
 			}
 		}
@@ -790,16 +867,27 @@ flower_ai_pick_archetype_8 = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_guerrilla_done } }
-			set_country_flag = flower_evo_guerrilla_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 2 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_guerrilla_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 2 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_guerrilla_done
 				country_event = { id = FLWRG.12 }
 			}
 		}
@@ -869,16 +957,27 @@ flower_ai_pick_archetype_9 = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_undead_done } }
-			set_country_flag = flower_evo_undead_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 3 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_undead_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 3 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_undead_done
 				country_event = { id = FLWRG.13 }
 			}
 		}
@@ -954,16 +1053,27 @@ flower_ai_pick_archetype_10 = {
 		army_experience = 35
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_magic_done } }
-			set_country_flag = flower_evo_magic_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 10 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_magic_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 10 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_magic_done
 				country_event = { id = FLWRG.20 }
 			}
 		}
@@ -1100,16 +1210,27 @@ flower_ai_pick_archetype_11 = {
 		add_breakthrough_points = { specialization = specialization_land value = 1 }
 		if = {
 			limit = { NOT = { has_country_flag = flower_evo_punk_done } }
-			set_country_flag = flower_evo_punk_done
 			if = {
 				limit = { is_ai = no }
-				hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
-				set_variable = { flower_branch_id = 11 }
-				set_variable = { flower_draft_gui_mode = 3 }
-				set_country_flag = flower_roguelike_gui_open
-				flower_ai_recalc_pending_drafts = yes
+				if = {
+					limit = {
+						has_country_flag = flower_pivot_batch_upgrading
+						check_variable = { flower_draft_gui_mode > 0 }
+					}
+					add_to_variable = { flower_queue_branch = 1 }
+					flower_ai_recalc_pending_drafts = yes
+				}
+				else = {
+					set_country_flag = flower_evo_punk_done
+					hidden_effect = { scoped_sound_effect = "alert_pick_new_idea_sound" }
+					set_variable = { flower_branch_id = 11 }
+					set_variable = { flower_draft_gui_mode = 3 }
+					set_country_flag = flower_roguelike_gui_open
+					flower_ai_recalc_pending_drafts = yes
+				}
 			}
 			else = {
+				set_country_flag = flower_evo_punk_done
 				country_event = { id = FLWRG.21 }
 			}
 		}

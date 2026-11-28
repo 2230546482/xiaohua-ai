@@ -4,13 +4,9 @@ flower_roguelike_ops_cat = {
 	#魔导国超位魔法21天咏唱倒计时预警（倒计时结束即对锁定州降下超位魔法）
 	flower_dvl_super_magic_warning_mission = {
 		icon = flower_dec_dvl_magic
-		allowed = { always = no }
-		available = {
-			OR = {
-				NOT = { has_war_with = DVL }
-				DVL = { exists = no }
-			}
-		}
+		allowed = { always = yes }
+		activation = { always = no }
+		available = { always = no }
 		is_good = no
 		days_mission_timeout = 21
 		selectable_mission = no
@@ -20,7 +16,7 @@ flower_roguelike_ops_cat = {
 				DVL = { exists = no }
 			}
 		}
-		complete_effect = {
+		cancel_effect = {
 			clr_country_flag = flower_dvl_warning_active
 			clr_country_flag = flower_dvl_magic_countered
 		}
@@ -134,7 +130,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#总控2：打开徽章与考核总览GUI（可就地跳过1937考核买断并在面板内直接选徽章）
+	#总控2：打开徽章与考核总览GUI（查看1937小徽章考核实时进度与领奖）
 	flower_tavern_buy_small_trinket_dec = {
 		icon = flower_dec_draft_branch
 		priority = 94
@@ -184,7 +180,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#总控4：1938+中期拆解转型（保留当前流派阶位、已建工厂、科技与库存；持有灵活转产许可证免费且冷却缩至180天）
+	#总控4：1938+中期流派转型（保留当前流派阶段、已建工厂、科技与库存；持有灵活转产许可证免费且冷却缩至180天）
 	flower_tavern_pivot_dec = {
 		icon = flower_dec_draft_hiss
 		priority = 92
@@ -231,7 +227,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#总控5：接取黑市动态悬赏（按阶段×体量×战况生成180天达标任务）
+	#总控5：接取黑市动态悬赏（按阶段×体量×轮次生成180天军火交付/实战夺地/空军扩编任务，结束后冷却180天）
 	flower_tavern_open_bounty_dec = {
 		icon = flower_dec_black_market
 		priority = 91
@@ -245,7 +241,9 @@ flower_roguelike_ops_cat = {
 			NOT = { tag = ZDW }
 			NOT = { tag = WL1 }
 		}
-		available = { always = yes }
+		available = {
+			NOT = { has_country_flag = flower_bounty_cd }
+		}
 		days_re_enable = 180
 		ai_will_do = {
 			base = 35
@@ -305,6 +303,8 @@ flower_roguelike_ops_cat = {
 			NOT = { tag = WL1 }
 		}
 		available = {
+			NOT = { has_country_flag = flower_bm_active }
+			NOT = { has_country_flag = flower_bm_delivery_cd }
 			NOT = { has_idea = flower_bm_arms_supply_idea }
 			NOT = { has_idea = flower_bm_industry_boost_idea }
 			NOT = { has_idea = flower_bm_intel_tech_idea }
@@ -336,7 +336,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派1：战地回炉车间（拆解1500缴获步枪换火炮、支援、燃油与本子层数）
+	#流派1：战地回炉车间（拆解1500步兵装备兑换火炮、支援装备、燃油与记仇小本本层数）
 	flower_op_slayer_salvage = {
 		icon = flower_dec_op_slayer
 		visible = {
@@ -385,7 +385,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派2：下达半年生产指标（扩军工/扩民工/冲效率三选一，分支2B达标顺带本土探矿）
+	#流派2：下达半年生产指标（扩建军用工厂/扩建民用工厂/提升生产效率三选一，分支2B达标附带本土勘探资源）
 	flower_op_corp_five_year_plan = {
 		icon = flower_dec_op_corp
 		visible = {
@@ -416,7 +416,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派3：炮兵饱和弹幕总攻（分支3A同步实景轰毁交战敌方前线要塞与铁路）
+	#流派3：炮兵饱和弹幕总攻（分支3A同步破坏交战敌方前线要塞与铁路）
 	flower_op_arty_barrage = {
 		icon = flower_dec_op_arty
 		visible = {
@@ -456,8 +456,8 @@ flower_roguelike_ops_cat = {
 						random_controlled_state = {
 							limit = { any_neighbor_state = { is_controlled_by = ROOT } }
 							damage_building = { type = rail_way damage = 2 }
-							damage_building = { type = infrastructure damage = 2 }
-							damage_building = { type = anti_air_building damage = 2 }
+							if = { limit = { infrastructure > 0 } damage_building = { type = infrastructure damage = 2 } }
+							if = { limit = { anti_air_building > 0 } damage_building = { type = anti_air_building damage = 2 } }
 						}
 					}
 				}
@@ -480,16 +480,16 @@ flower_roguelike_ops_cat = {
 								any_neighbor_state = { is_controlled_by = ROOT }
 							}
 							damage_building = { type = rail_way damage = 2 }
-							damage_building = { type = supply_node damage = 1 }
-							damage_building = { type = infrastructure damage = 2 }
+							if = { limit = { infrastructure > 0 } damage_building = { type = infrastructure damage = 2 } }
+							if = { limit = { anti_air_building > 0 } damage_building = { type = anti_air_building damage = 1 } }
 						}
 						random_controlled_state = {
 							limit = {
 								any_neighbor_state = { is_controlled_by = ROOT }
 							}
 							damage_building = { type = rail_way damage = 2 }
-							damage_building = { type = infrastructure damage = 2 }
-							damage_building = { type = anti_air_building damage = 2 }
+							if = { limit = { infrastructure > 0 } damage_building = { type = infrastructure damage = 2 } }
+							if = { limit = { anti_air_building > 0 } damage_building = { type = anti_air_building damage = 2 } }
 						}
 					}
 				}
@@ -572,7 +572,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派5：全空域护航与机场压制洗地（分支5A先发炸伤敌前线机场并挂45天空域瘫痪）
+	#流派5：全空域护航与机场压制（分支5A破坏敌方前线空军基地并施加45天空域瘫痪）
 	flower_op_air_carpet = {
 		icon = flower_dec_op_air
 		visible = {
@@ -625,7 +625,7 @@ flower_roguelike_ops_cat = {
 						random_controlled_state = {
 							limit = { air_base > 0 }
 							damage_building = { type = air_base damage = 2 }
-							damage_building = { type = anti_air_building damage = 2 }
+							if = { limit = { anti_air_building > 0 } damage_building = { type = anti_air_building damage = 2 } }
 						}
 					}
 				}
@@ -674,7 +674,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派7：子夜奇袭令（分支7A同步致盲主要敌国情报60天并直接偷取1张敌国科技加速卡；不再扣陆军经验）
+	#流派7：子夜奇袭令（分支7A同步致盲主要敌国情报60天并获得1次科技研究加成）
 	flower_op_nightingale_raid = {
 		icon = flower_dec_op_night
 		visible = {
@@ -756,7 +756,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派8：发动敌后大破交（瘫痪敌国后勤90天，分支8A同步实景炸毁沦陷区铁路并拉高抵抗度）
+	#流派8：发动敌后后勤破坏（削弱敌国后勤90天，分支8A同步破坏沦陷区铁路并提升抵抗度）
 	flower_op_guerrilla_sabotage = {
 		icon = flower_dec_op_guerrilla
 		visible = {
@@ -829,7 +829,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派9：开启战地血炉调度（伤兵回流/卖血极限过载/血汗轮班，分支9B解锁高强度过载）
+	#流派9：开启战地血炉调度（伤兵归队/战地强攻/战时轮班，分支9B解锁高阶强攻选项）
 	flower_op_undead_furnace = {
 		icon = flower_dec_op_undead
 		visible = {
@@ -859,7 +859,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派10：特种司令部调令（将领地形专精特训/三栖斩首强攻二选一）
+	#流派10：特种司令部调令（将领地形特训/特种部队强攻二选一）
 	flower_op_magic_rift = {
 		icon = flower_dec_op_specops
 		visible = {
@@ -897,7 +897,8 @@ flower_roguelike_ops_cat = {
 						add_planning = 1
 					}
 				}
-				else = {
+				else_if = {
+					limit = { any_army_leader = { always = yes } }
 					random_army_leader = {
 						add_attack = 1
 						add_planning = 1
@@ -908,7 +909,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派11：疯狂实验室专项课题（分支11A可直接加开原型机盲盒，否则选常规科研专项）
+	#流派11：疯狂实验室专项课题（分支11A可额外开启原型机选配，否则选择常规科研课题）
 	flower_op_punk_expedition = {
 		icon = flower_dec_op_science
 		visible = {
@@ -948,7 +949,7 @@ flower_roguelike_ops_cat = {
 		}
 	}
 
-	#流派12：黑市赌桌筹码操作（买保险/重摇领物资，分支12B可把负面骰子甩锅给敌国，分支12C可用资金直购战备）
+	#流派12：黑市筹码操作（购买保险/重掷骰子，分支12B可将负面效果转移给敌国，分支12C可用储备采购战备）
 	flower_op_gambler_chips = {
 		icon = flower_dec_op_gambler
 		visible = {
